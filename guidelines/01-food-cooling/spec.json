@@ -20,7 +20,7 @@
    "lines": [
     {
      "kind": "say",
-     "text": "Start this when the cooked food has dropped to 60°C. The clocks run from now.",
+     "text": "Start this when the cooked food has dropped to 60°C. The 6-hour clock runs from now.",
      "line": 11,
      "quotes": [
       {
@@ -33,7 +33,7 @@
     {
      "kind": "say",
      "text": "Use any of these methods, or a combination:",
-     "line": 13,
+     "line": 15,
      "quotes": [
       {
        "text": "Use any (or a combination) of these methods:",
@@ -45,7 +45,7 @@
     {
      "kind": "do",
      "text": "Shallow containers",
-     "line": 15,
+     "line": 17,
      "quotes": [
       {
        "text": "placing your food into shallow containers",
@@ -57,7 +57,7 @@
     {
      "kind": "do",
      "text": "Ice bath",
-     "line": 17,
+     "line": 19,
      "quotes": [
       {
        "text": "using an ice bath",
@@ -69,7 +69,7 @@
     {
      "kind": "do",
      "text": "Smaller portions",
-     "line": 19,
+     "line": 21,
      "quotes": [
       {
        "text": "separating your food into smaller portions",
@@ -81,7 +81,7 @@
     {
      "kind": "do",
      "text": "Blast chiller",
-     "line": 21,
+     "line": 23,
      "quotes": [
       {
        "text": "placing your food in a blast chiller",
@@ -94,18 +94,34 @@
    "ask": null,
    "next": {
     "to": "stage-1",
-    "line": 23,
+    "line": 25,
     "target": "stage-1"
    },
    "timer": null,
-   "reminders": [],
+   "reminders": [
+    {
+     "ms": 21600000,
+     "every": "6 hours",
+     "once": true,
+     "text": "6-hour limit: food not at 5°C or below now must be thrown out",
+     "id": "6-hour-limit-food-not-at-5-c-or-below-no",
+     "line": 13,
+     "quotes": [
+      {
+       "text": "60°C to 5°C (or below) in less than 6 hours or it must be thrown out",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
    "stop": null,
    "end": false,
    "line": 10,
    "nexts": [
     {
      "to": "stage-1",
-     "line": 23,
+     "line": 25,
      "target": "stage-1"
     }
    ]
@@ -117,7 +133,7 @@
     {
      "kind": "say",
      "text": "Cool the food to room temperature or 21°C, whichever is colder, within 2 hours.",
-     "line": 26,
+     "line": 28,
      "quotes": [
       {
        "text": "60°C to room temperature or 21°C (whichever is colder) in less than 2 hours",
@@ -129,7 +145,7 @@
     {
      "kind": "say",
      "text": "The whole cool-down, from 60°C to 5°C or below, must take less than 6 hours.",
-     "line": 28,
+     "line": 30,
      "quotes": [
       {
        "text": "60°C to 5°C (or below) in less than 6 hours or it must be thrown out",
@@ -145,38 +161,30 @@
      {
       "label": "Yes",
       "to": "stage-2",
-      "line": 33,
+      "line": 34,
       "target": "stage-2"
      },
      {
       "label": "No, 2 hours are up",
       "to": "stage-1-late",
-      "line": 34,
+      "line": 35,
       "target": "stage-1-late"
      }
     ],
-    "line": 32
+    "line": 33
    },
    "next": null,
    "timer": {
     "ms": 7200000,
     "label": "2 hours",
     "to": "stage-1-late",
-    "line": 31,
+    "line": 32,
     "target": "stage-1-late"
    },
-   "reminders": [
-    {
-     "ms": 21600000,
-     "every": "6 hours",
-     "text": "6-hour limit: food not at 5°C or below by now must be thrown out",
-     "id": "6-hour-limit-food-not-at-5-c-or-below-by",
-     "line": 30
-    }
-   ],
+   "reminders": [],
    "stop": null,
    "end": false,
-   "line": 25
+   "line": 27
   },
   {
    "id": "stage-1-late",
@@ -185,17 +193,17 @@
     {
      "kind": "warning",
      "text": "The food did not reach room temperature or 21°C within 2 hours.",
-     "line": 37
+     "line": 38
     },
     {
      "kind": "say",
      "text": "The card does not say what to do in this case. Follow your food control plan or ask your supervisor.",
-     "line": 38
+     "line": 39
     },
     {
      "kind": "note",
      "text": "Gap in the guideline: the card states the 2-hour limit but gives no action if it is missed (only the 6-hour \"thrown out\" rule).",
-     "line": 39
+     "line": 40
     }
    ],
    "ask": {
@@ -204,24 +212,24 @@
      {
       "label": "Keep cooling",
       "to": "stage-2",
-      "line": 41,
+      "line": 42,
       "target": "stage-2"
      },
      {
       "label": "Throw it out",
       "to": "discard",
-      "line": 42,
+      "line": 43,
       "target": "discard"
      }
     ],
-    "line": 40
+    "line": 41
    },
    "next": null,
    "timer": null,
    "reminders": [],
    "stop": null,
    "end": false,
-   "line": 36
+   "line": 37
   },
   {
    "id": "stage-2",
@@ -230,12 +238,17 @@
     {
      "kind": "do",
      "text": "Put the food in the fridge.",
-     "line": 45
+     "line": 46
+    },
+    {
+     "kind": "note",
+     "text": "From the card's \"Check\" section (\"refrigerate once at room temperature or 21°C\"); its exact words were not available, so there is no quote.",
+     "line": 47
     },
     {
      "kind": "say",
      "text": "Cool from room temperature or 21°C to 5°C or below within 4 hours.",
-     "line": 46,
+     "line": 48,
      "quotes": [
       {
        "text": "then room temperature or 21°C (whichever is colder) to 5°C (or below) in less than 4 hours.",
@@ -251,30 +264,30 @@
      {
       "label": "Yes",
       "to": "cooled",
-      "line": 50,
+      "line": 52,
       "target": "cooled"
      },
      {
       "label": "No, 4 hours are up",
       "to": "stage-2-late",
-      "line": 51,
+      "line": 53,
       "target": "stage-2-late"
      }
     ],
-    "line": 49
+    "line": 51
    },
    "next": null,
    "timer": {
     "ms": 14400000,
     "label": "4 hours",
     "to": "stage-2-late",
-    "line": 48,
+    "line": 50,
     "target": "stage-2-late"
    },
    "reminders": [],
    "stop": null,
    "end": false,
-   "line": 44
+   "line": 45
   },
   {
    "id": "stage-2-late",
@@ -283,7 +296,7 @@
     {
      "kind": "warning",
      "text": "Food that has not reached 5°C or below within 6 hours of starting must be thrown out.",
-     "line": 54,
+     "line": 56,
      "quotes": [
       {
        "text": "60°C to 5°C (or below) in less than 6 hours or it must be thrown out",
@@ -294,13 +307,13 @@
     },
     {
      "kind": "say",
-     "text": "Check the \"6-hour limit\" reminder at the top of the screen.",
-     "line": 56
+     "text": "The \"6-hour limit\" bar at the top shows how long is left.",
+     "line": 58
     },
     {
      "kind": "note",
      "text": "Possible contradiction: stage 2 allows 4 hours, but if stage 1 was quick the 6-hour total may not yet be up. The card does not say which limit wins.",
-     "line": 57
+     "line": 59
     }
    ],
    "ask": {
@@ -309,24 +322,64 @@
      {
       "label": "Yes",
       "to": "discard",
-      "line": 59,
+      "line": 61,
       "target": "discard"
      },
      {
       "label": "Not yet",
-      "to": "stage-2",
-      "line": 60,
-      "target": "stage-2"
+      "to": "keep-cooling",
+      "line": 62,
+      "target": "keep-cooling"
      }
     ],
-    "line": 58
+    "line": 60
    },
    "next": null,
    "timer": null,
    "reminders": [],
    "stop": null,
    "end": false,
-   "line": 53
+   "line": 55
+  },
+  {
+   "id": "keep-cooling",
+   "title": "Keep cooling (within the 6 hours)",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "Keep the food cooling in the fridge. The \"6-hour limit\" bar at the top shows how long is left.",
+     "line": 65
+    },
+    {
+     "kind": "note",
+     "text": "No new 4-hour timer here: the 4 hours already ran out, and the 6-hour limit is the one left to apply.",
+     "line": 66
+    }
+   ],
+   "ask": {
+    "question": "Is the food at 5°C or below?",
+    "options": [
+     {
+      "label": "Yes",
+      "to": "cooled",
+      "line": 68,
+      "target": "cooled"
+     },
+     {
+      "label": "No, and the 6-hour limit is reached",
+      "to": "discard",
+      "line": 69,
+      "target": "discard"
+     }
+    ],
+    "line": 67
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 64
   },
   {
    "id": "discard",
@@ -335,7 +388,7 @@
     {
      "kind": "warning",
      "text": "Throw the food out.",
-     "line": 64,
+     "line": 73,
      "quotes": [
       {
        "text": "60°C to 5°C (or below) in less than 6 hours or it must be thrown out",
@@ -347,7 +400,7 @@
     {
      "kind": "do",
      "text": "Record what was thrown out and why.",
-     "line": 66
+     "line": 75
     }
    ],
    "ask": null,
@@ -356,7 +409,7 @@
    "reminders": [],
    "stop": "all",
    "end": true,
-   "line": 62
+   "line": 71
   },
   {
    "id": "cooled",
@@ -365,12 +418,12 @@
     {
      "kind": "say",
      "text": "The food is cooled. Keep it at 5°C or below.",
-     "line": 71
+     "line": 80
     },
     {
      "kind": "do",
      "text": "Record the food, the date it was cooked and how long it took to cool. (The Log tab has the times.)",
-     "line": 72
+     "line": 81
     }
    ],
    "ask": null,
@@ -379,7 +432,7 @@
    "reminders": [],
    "stop": "all",
    "end": true,
-   "line": 69
+   "line": 78
   }
  ],
  "start": "start"

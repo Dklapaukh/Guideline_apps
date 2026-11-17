@@ -27,7 +27,14 @@ const KEYS = {
   note: ['note', 'author note', 'comment'],
 };
 const KEY_OF = new Map(Object.entries(KEYS).flatMap(([k, list]) => list.map((w) => [w, k])));
-const ARROW = /\s*(?:->|→|=>|—>|-->|:?\s*go to)\s*/i;
+const ARROW = /\s*(?:-->|->|→|=>|—>)\s*/;
+// Splits "label -> target" on the LAST arrow, so arrows inside the label survive ("Breathing → normal -> end").
+function splitArrow(text) {
+  const all = [...text.matchAll(/\s*(?:-->|->|→|=>|—>)\s*/g)];
+  if (!all.length) return [text, null];
+  const m = all.at(-1);
+  return [text.slice(0, m.index), text.slice(m.index + m[0].length)];
+}
 
 export function readTemplate(text) {
   const findings = [];
@@ -92,11 +99,11 @@ export function readTemplate(text) {
     const m = /^(.+?)(?:\s*\(([^)]+)\))?\s*:\s*(.+)$/.exec(body);
     if (!m) { say('fix', n, `Input "${body}" needs a type, e.g. "- ${body}: number" or "- ${body}: choice: A | B".`); return; }
     const [, label, unit = '', rest] = m;
-    const input = { id: slug(label), label: label.trim(), unit: unit.trim(), type: 'number', optional: /optional/i.test(rest), line: n };
+    const input = { id: slug(label), label: label.trim(), unit: unit.trim(), type: 'number', optional: /optional/i.test(rest), whole: /whole|integer|count/i.test(rest), line: n };
     if (/choice|option|one of|select/i.test(rest) || rest.includes('|')) {
       input.type = 'choice';
       const list = rest.replace(/^(choice|options?|one of|select)\s*:?\s*/i, '').replace(/,?\s*optional\s*$/i, '');
-      input.options = list.split(/\s*\|\s*|\s*,\s*|\s+or\s+/).map((s) => s.trim()).filter(Boolean);
+      input.options = list.split(list.includes('|') ? /\s*\|\s*/ : /\s*,\s*/).map((s) => s.trim()).filter(Boolean);   // "|" if used, else commas
       if (input.options.length < 2) say('check', n, `Choice input "${input.label}" has fewer than two options.`);
     } else if (/yes\s*\/\s*no|yes or no|boolean/i.test(rest)) {
       input.type = 'choice'; input.options = ['Yes', 'No'];
@@ -142,17 +149,22 @@ export function readTemplate(text) {
 
     // An answer to the current question: "- Yes -> next-step"
     if (/^[-*]\s+/.test(text) && ARROW.test(text)) {
-      const [label, to] = text.replace(/^[-*]\s+/, '').split(ARROW);
+      const [label, to] = splitArrow(text.replace(/^[-*]\s+/, ''));
+      if (!label.trim()) say('fix', n, `An answer going to "${to.trim()}" has no text for its button.`, { step: step.id, suggestion: 'Write it as "- Answer text -> step-name".' });
       if (!ask) { ask = { question: '', options: [], line: n }; step.ask = ask; }
-      ask.options.push({ label: label.trim(), to: to.trim(), cond, line: n });
+      ask.options.push({ label: label.trim() || to.trim(), to: to.trim(), cond, line: n });
+      lastLine = null;
       return;
     }
     if (/^[-*]\s+/.test(text)) { addLine({ kind: 'say', text: text.replace(/^[-*]\s+/, ''), bullet: true, cond, line: n }); return; }
 
     const kv = keyValue(text);
-    const kind = kv ? KEY_OF.get(kv.key) ?? matchKeyStart(kv.key) : null;
+    // Only an exact line-type word counts ("Stop:"), so a sentence like "Stop the bleeding: press firmly" stays text.
+    const kind = kv ? KEY_OF.get(kv.key) ?? null : null;
     if (!kv || !kind) {
-      if (kv) say('info', n, `"${kv.key}:" is not a known line type; shown as text. Known types: Say, Do, Warning, Quote, Ask, Next, Timer, Remind, Stop, Show, Record, End, Note.`, { step: step.id });
+      const near = kv && matchKeyStart(kv.key);
+      if (near) say('info', n, `"${kv.key}:" is shown as text. If it was meant as a "${near}" line, write "${near[0].toUpperCase() + near.slice(1)}:" on its own.`, { step: step.id });
+      else if (kv && kv.key.split(' ').length === 1) say('info', n, `"${kv.key}:" is not a known line type; shown as text. Known types: Say, Do, Warning, Quote, Ask, Next, Timer, Remind, Stop, Show, Record, End, Note.`, { step: step.id });
       addLine({ kind: 'say', text, cond, line: n });
       return;
     }
@@ -167,30 +179,34 @@ export function readTemplate(text) {
         (lastLine.quotes ??= []).push(q);
         return;
       }
-      case 'ask': ask = { question: value, options: [], line: n, cond }; if (step.ask) say('check', n, `Step "${step.title}" asks two questions; only the last is used. Split it into two steps.`, { step: step.id }); step.ask = ask; return;
+      case 'ask': lastLine = null; ask = { question: value, options: [], line: n, cond }; if (step.ask) say('check', n, `Step "${step.title}" asks two questions; only the last is used. Split it into two steps.`, { step: step.id }); step.ask = ask; return;
       case 'next': {
         if (step.next) say('check', n, `Step "${step.title}" has two "Next" lines (${step.next.to} and ${value}). The first one is used unless it has a condition.`, { step: step.id });
+        lastLine = null;
         const target = { to: value.replace(ARROW, '').trim(), cond, line: n };
         (step.nexts ??= []).push(target); step.next ??= target;
         return;
       }
       case 'timer': {
-        const [time, to] = value.split(ARROW);
+        const [time, to] = splitArrow(value);
         const ms = parseDuration(time);
         if (ms == null) { say('fix', n, `Timer "${value}" has no time the builder can read (e.g. "Timer: 20 minutes -> next-step").`, { step: step.id }); return; }
         if (step.timer) say('check', n, `Step "${step.title}" has two timers (${step.timer.label} and ${time.trim()}). Which is right? The first is used.`, { step: step.id });
-        else step.timer = { ms, label: time.trim(), to: to?.trim() || null, line: n };
+        else { step.timer = { ms, label: time.trim(), to: to?.trim() || null, line: n }; lastLine = step.timer; }   // a Quote below supports the timer
         return;
       }
       case 'remind': {
-        // "Remind: every 4 minutes: Give adrenaline"  or  "Remind: 5 min: Reassess"
-        const m = /^(?:every\s+)?(.+?)\s*[:,-]\s+(.+)$/i.exec(value);
-        const ms = m ? parseDuration(m[1]) : null;
-        if (ms == null) { say('fix', n, `Reminder "${value}" needs a time and a message, e.g. "Remind: every 5 minutes: Reassess breathing".`, { step: step.id }); return; }
-        step.reminders.push({ ms, every: m[1].trim(), text: m[2].trim(), id: slug(m[2]).slice(0, 40), line: n });
+        // "Remind: every 4 minutes: Give adrenaline" repeats; "Remind: after 6 hours: Throw out" happens once (a deadline)
+        const m = /^(every\s+|after\s+|in\s+)?(.+?)\s*[:,-]\s+(.+)$/i.exec(value);
+        const ms = m ? parseDuration(m[2]) : null;
+        if (ms == null) { say('fix', n, `Reminder "${value}" needs a time and a message, e.g. "Remind: every 5 minutes: Reassess breathing" or "Remind: after 6 hours: Deadline".`, { step: step.id }); return; }
+        const once = /^(after|in)\s/i.test(m[1] ?? '');
+        if (!m[1]) say('info', n, `Reminder "${m[3].trim()}" doesn't say "every" (repeats) or "after" (once); read as repeating.`, { step: step.id });
+        const r = { ms, every: m[2].trim(), once, text: m[3].trim(), id: slug(m[3]).slice(0, 40), line: n };
+        step.reminders.push(r); lastLine = r;
         return;
       }
-      case 'stop': step.stop = value && !/^all$/i.test(value) ? value : 'all'; return;
+      case 'stop': lastLine = null; step.stop = value && !/^all$/i.test(value) ? value : 'all'; return;
       case 'end': step.end = true; if (value) addLine({ kind: 'say', text: value, cond, line: n }); return;
     }
   }

@@ -6,6 +6,7 @@ import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { buildSync } from 'esbuild';
+import { createHash } from 'node:crypto';
 import { readTemplate } from '../engine/template.js';
 import { checkSpec } from '../engine/check.js';
 
@@ -26,11 +27,21 @@ export const scriptSafe = (text) => text.replace(/<\/(script)/gi, '<\\/$1').repl
 export function buildGuideline(dir, { built = nzDate(), outDir = dir } = {}) {
   const template = read(path.join(dir, 'template.md'));
   const sourceText = read(path.join(dir, 'source.txt'));
-  const meta = existsSync(path.join(dir, 'meta.json')) ? JSON.parse(read(path.join(dir, 'meta.json'))) : {};
+  let meta = {}, metaProblem = null;
+  try { meta = existsSync(path.join(dir, 'meta.json')) ? JSON.parse(read(path.join(dir, 'meta.json'))) : {}; }
+  catch (e) { metaProblem = `meta.json could not be read (${e.message}); built without it.`; }
   const first = readTemplate(template);
+  if (metaProblem) first.findings.push({ level: 'fix', message: metaProblem });
   const { spec, findings, summary } = checkSpec(first.spec, { sourceText, findings: first.findings });
   if (meta.sourceCopy === 'web-fetch') findings.push({ level: 'info', message: 'The saved guideline text is a web copy made by a fetch tool and may not be word-perfect, so a "quote not found" may be the copy\'s fault. Add the PDF to sources/ for exact checking.' });
   summary.info = findings.filter((f) => f.level === 'info').length;
+  // Keep the earlier build date when nothing changed, so an unchanged app's file stays byte-identical
+  // (the nightly run republishes only apps whose site/apps file changed).
+  const hash = createHash('sha256').update(JSON.stringify({ spec, findings, summary }) + bundle('engine/app-entry.js') + read(path.join(ROOT, 'engine/runtime.css'))).digest('hex').slice(0, 16);
+  const stampFile = path.join(outDir, 'built.json');
+  const previous = existsSync(stampFile) ? (() => { try { return JSON.parse(read(stampFile)); } catch { return {}; } })() : {};
+  if (previous.hash === hash && previous.date) built = previous.date;
+  writeFileSync(stampFile, JSON.stringify({ hash, date: built }) + '\n');
   const data = { spec, findings, summary, built };
   writeFileSync(path.join(outDir, 'spec.json'), JSON.stringify(spec, null, 1) + '\n');
   writeFileSync(path.join(outDir, 'findings.json'), JSON.stringify({ summary, findings }, null, 1) + '\n');

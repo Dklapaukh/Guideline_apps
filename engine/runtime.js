@@ -31,21 +31,25 @@ export function mount(root, { spec, findings = [], summary = {}, built = '' }) {
     if (target === END) return finish(why);
     const step = byId.get(target);
     if (!step) { S.note = 'This leads to a step that is missing from the template (see Checks). Choose another option or go back.'; render(); return; }
-    if (S.current) S.history.push(S.current);
+    // Remember where we were, with its clock and reminders, so "Back" puts everything back as it was.
+    if (S.current) S.history.push({ id: S.current, enteredAt: S.enteredAt, timerDone: S.timerDone, reminders: JSON.parse(JSON.stringify(S.reminders)) });
     S.current = step.id; S.enteredAt = now(); S.timerDone = false; S.note = '';
+    for (const k of Object.keys(S.ticks)) if (k.startsWith(step.id + ':')) delete S.ticks[k];   // a repeated cycle starts with clear boxes
     log(step.title, why ?? '');
-    if (step.stop) for (const id of Object.keys(S.reminders)) if (step.stop === 'all' || slug(step.stop) === id || S.reminders[id].text.toLowerCase().includes(step.stop.toLowerCase())) { log('Reminder stopped', S.reminders[id].text); delete S.reminders[id]; }
-    for (const r of step.reminders) if (!S.reminders[r.id]) { S.reminders[r.id] = { text: r.text, ms: r.ms, every: r.every, dueAt: now() + r.ms, alerted: false }; log('Reminder started', `${r.text} (every ${r.every})`); }
-    if (step.end) { render(); return; }
+    if (step.stop) for (const id of Object.keys(S.reminders)) {
+      const want = step.stop.toLowerCase();
+      if (want === 'all' || slug(step.stop) === id || S.reminders[id].text.toLowerCase().startsWith(want)) { log('Reminder stopped', S.reminders[id].text); delete S.reminders[id]; }
+    }
+    for (const r of step.reminders) if (!S.reminders[r.id]) { S.reminders[r.id] = { text: r.text, ms: r.ms, every: r.every, once: !!r.once, dueAt: now() + r.ms, alerted: false }; log('Reminder started', `${r.text} (${r.once ? 'after' : 'every'} ${r.every})`); }
     render();
   }
   function back() {
     const prev = S.history.pop(); if (!prev) return;
-    S.current = prev; S.enteredAt = now(); S.timerDone = false; S.note = '';
-    log('Went back to', byId.get(prev).title); render();
+    S.current = prev.id; S.enteredAt = prev.enteredAt; S.timerDone = prev.timerDone; S.reminders = prev.reminders; S.note = '';
+    log('Went back to', byId.get(prev.id).title); render();
   }
   function finish(why) { S.screen = 'done'; log('Finished', why ?? ''); render(); }
-  function restart() { Object.assign(S, { screen: 'start', tab: 'steps', current: null, history: [], ticks: {}, log: [], startedAt: null, reminders: {}, records: {}, note: '' }); render(); }
+  function restart() { try { localStorage.removeItem(KEY); } catch { /* fine */ } Object.assign(S, { screen: 'start', tab: 'steps', current: null, history: [], ticks: {}, log: [], startedAt: null, reminders: {}, records: {}, note: '' }); render(); }
 
   /* ---------- drawing ---------- */
   function render() {
@@ -100,14 +104,17 @@ export function mount(root, { spec, findings = [], summary = {}, built = '' }) {
          ${s.timer.to && !s.timer.target ? `<p class="author">The timer leads to "${esc(s.timer.to)}", which is missing.</p>` : ''}</div>` : ''}
       ${s.ask ? `<p class="q">${esc(s.ask.question)}</p><div class="opts">${opts || '<p class="author">No answer applies with the details entered (see Checks).</p>'}</div>` : ''}
       ${S.note ? `<p class="author">${esc(S.note)}</p>` : ''}
-      ${next ? `<button class="big ${s.ask ? 'skip' : 'go'}" data-act="next">${s.ask ? 'Skip' : 'Next'}: ${esc(byId.get(next)?.title ?? 'Finish')}</button>` : ''}
+      ${next ? `<button class="big ${s.ask ? 'skip' : 'go'}" data-act="next">${s.ask ? 'Skip' : 'Next'}: ${esc(byId.get(next)?.title ?? 'Finish')}${nextDepends(s) ? ' <small>(depends on details not entered)</small>' : ''}</button>` : ''}
       ${final ? `<button class="big go" data-act="finish">Finish</button>` : ''}
     </section>`;
   }
+  // The first "Next" whose condition is true; one that depends on details not yet entered only if nothing else fits.
   function nextTarget(s) {
-    for (const n of s.nexts ?? []) if (testCondition(n.cond, S.answers, spec.inputs) !== false && n.target) return n.target;
-    return null;
+    const list = (s.nexts ?? []).filter((n) => n.target);
+    return list.find((n) => testCondition(n.cond, S.answers, spec.inputs) === true)?.target
+      ?? list.find((n) => testCondition(n.cond, S.answers, spec.inputs) === null)?.target ?? null;
   }
+  const nextDepends = (s) => { const t = nextTarget(s); const n = (s.nexts ?? []).find((x) => x.target === t); return n && testCondition(n.cond, S.answers, spec.inputs) === null; };
   function lineView(l, k) {
     const shown = testCondition(l.cond, S.answers, spec.inputs);
     if (shown === false) return '';
@@ -136,7 +143,7 @@ export function mount(root, { spec, findings = [], summary = {}, built = '' }) {
   function reminderBar() {
     const list = Object.entries(S.reminders);
     if (!list.length) return '';
-    return `<div class="reminders">${list.map(([id, r]) => `<div class="rem" data-rem="${id}"><span class="rt">${esc(r.text)}</span><span class="rc" data-clock="rem" data-rem-id="${id}"></span><button data-remdone="${id}">Done</button><button class="x" data-remstop="${id}" title="Stop">✕</button></div>`).join('')}</div>`;
+    return `<div class="reminders">${list.map(([id, r]) => `<div class="rem" data-rem="${id}"><span class="rt">${esc(r.text)}</span><span class="rc" data-clock="rem" data-rem-id="${id}"></span>${r.once && !r.alerted ? '' : `<button data-remdone="${id}">${r.once ? 'OK' : 'Done'}</button>`}<button class="x" data-remstop="${id}" title="Stop">✕</button></div>`).join('')}</div>`;
   }
   function doneView() {
     return `<section class="card"><h2>Finished</h2><p>Total time ${clock((S.log.at(-1)?.at ?? now()) - (S.startedAt ?? now()))}.</p>${logList()}<button class="big" data-act="copy">Copy log</button><button class="big go" data-act="restart">Start again</button></section>`;
@@ -160,29 +167,42 @@ export function mount(root, { spec, findings = [], summary = {}, built = '' }) {
       ${S.screen !== 'start' ? '<button class="big" data-act="restart">Start again</button>' : ''}</section>`;
   }
 
-  /* ---------- the clock: countdowns, reminders ---------- */
+  /* ---------- the clock: countdowns, reminders (checked from the state, whichever tab is open) ---------- */
   function tick() {
     const t = now();
-    const s = S.current && byId.get(S.current);
+    const s = S.screen === 'run' && S.current && byId.get(S.current);
+    if (s?.timer && !S.timerDone && t - S.enteredAt >= s.timer.ms) { S.timerDone = true; log('Timer finished', `${s.title}: ${s.timer.label}`); buzz(); render(); return; }
+    let newlyDue = false;
+    for (const r of Object.values(S.reminders)) if (r.dueAt <= t && !r.alerted) { r.alerted = true; newlyDue = true; log(r.once ? 'Deadline reached' : 'Reminder due', r.text); buzz(); }
+    if (newlyDue) { render(); return; }
+    save();
     for (const el of root.querySelectorAll('[data-clock]')) {
       const kind = el.dataset.clock;
       if (kind === 'elapsed' && S.startedAt) el.textContent = clock(t - S.startedAt);
-      if (kind === 'timer' && s?.timer) {
-        const left = s.timer.ms - (t - S.enteredAt);
-        el.textContent = clock(left);
-        if (left <= 0 && !S.timerDone) { S.timerDone = true; log('Timer finished', `${s.title}: ${s.timer.label}`); buzz(); render(); return; }
-      }
+      if (kind === 'timer' && s?.timer) el.textContent = clock(s.timer.ms - (t - S.enteredAt));
       if (kind === 'rem') {
         const r = S.reminders[el.dataset.remId]; if (!r) continue;
         const left = r.dueAt - t;
-        el.textContent = left > 0 ? clock(left) : `DUE ${clock(-left)} ago`;
+        el.textContent = left > 0 ? clock(left) : `${r.once ? 'NOW' : 'DUE'} · ${clock(-left)} ago`;
         el.parentElement.classList.toggle('due', left <= 0);
-        if (left <= 0 && !r.alerted) { r.alerted = true; log('Reminder due', r.text); buzz(); }
       }
       if (kind === 'rec') { const r = S.records[el.dataset.recName]; if (r) el.textContent = `${r.n}× · last ${formatDuration(t - r.last)} ago`; }
     }
   }
-  const buzz = () => { try { navigator.vibrate?.([200, 100, 200]); } catch { /* not supported */ } };
+  // Alert: vibrate where the phone allows it, and two short beeps (sound works after the first tap on Start).
+  let audio = null;
+  const buzz = () => {
+    try { navigator.vibrate?.([200, 100, 200]); } catch { /* not supported */ }
+    try {
+      audio ??= new (window.AudioContext || window.webkitAudioContext)();
+      for (const at of [0, 0.3]) { const o = audio.createOscillator(), g = audio.createGain(); o.frequency.value = 880; g.gain.value = 0.2; o.connect(g); g.connect(audio.destination); o.start(audio.currentTime + at); o.stop(audio.currentTime + at + 0.18); }
+    } catch { /* no sound available */ }
+  };
+  // Keeps the run through a page reload (one phone, one browser). Times are absolute, so clocks carry on correctly.
+  const KEY = 'guideline-app:' + slug(spec.title);
+  let lastSaved = '';
+  function save() { try { const j = JSON.stringify(S); if (j !== lastSaved) { localStorage.setItem(KEY, j); lastSaved = j; } } catch { /* storage unavailable */ } }
+  function load() { try { const j = localStorage.getItem(KEY); if (j) { const old = JSON.parse(j); if (old.screen === 'run' && old.current && byId.has(old.current)) { Object.assign(S, old, { tab: 'steps', note: 'Carried on from where this was left (the page was reloaded).' }); } } } catch { /* ignore a bad save */ } }
 
   /* ---------- taps ---------- */
   root.addEventListener('click', (e) => {
@@ -196,10 +216,14 @@ export function mount(root, { spec, findings = [], summary = {}, built = '' }) {
       return go(o.target, `${s.ask.question || s.title}: ${o.label}`);
     }
     if (d.rec) { const r = (S.records[d.rec] ??= { n: 0, last: 0 }); r.n++; r.last = now(); log(d.rec); render(); return; }
-    if (d.remdone) { const r = S.reminders[d.remdone]; if (r) { log('Done', r.text); r.dueAt = now() + r.ms; r.alerted = false; } render(); return; }
+    if (d.remdone) {
+      const r = S.reminders[d.remdone];
+      if (r) { log('Done', r.text); if (r.once) delete S.reminders[d.remdone]; else { r.dueAt = now() + r.ms; r.alerted = false; } }   // a deadline is never pushed back
+      render(); return;
+    }
     if (d.remstop) { const r = S.reminders[d.remstop]; if (r) log('Reminder stopped', r.text); delete S.reminders[d.remstop]; render(); return; }
     switch (d.act) {
-      case 'begin': return begin();
+      case 'begin': try { audio ??= new (window.AudioContext || window.webkitAudioContext)(); } catch { /* no sound */ } return begin();
       case 'back': return back();
       case 'next': return go(nextTarget(byId.get(S.current)), 'Next');
       case 'timer-go': return go(byId.get(S.current).timer.target, 'Timer finished');
@@ -222,6 +246,7 @@ export function mount(root, { spec, findings = [], summary = {}, built = '' }) {
     }
   });
 
+  load();
   const timer = setInterval(tick, 250);
   render();
   return { state: S, render, stop: () => clearInterval(timer) };

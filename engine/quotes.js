@@ -38,11 +38,13 @@ export function findQuote(quote, sourceText) {
   if (!q.length || !s.length) return { found: 'none' };
   const n = q.length, span = Math.min(s.length, n + Math.ceil(n * 0.3) + 2);
   let best = { score: 0, at: 0 };
-  const qset = new Set(q);
-  for (let at = 0; at + 1 <= s.length; at++) {
-    if (!qset.has(s[at])) continue;                       // windows start on a quote word (keeps this fast)
-    const win = s.slice(at, at + span);
-    const score = lcs(q, win) / n;
+  // Candidate starts: where one of the quote's first three words appears (at most 3000 of them), so a long
+  // quote against a long guideline stays fast enough to re-check on every keystroke in the studio.
+  const firstWords = new Set(q.slice(0, 3));
+  const starts = [];
+  for (let at = 0; at < s.length && starts.length < 3000; at++) if (firstWords.has(s[at])) starts.push(at);
+  for (const at of starts) {
+    const score = lcs(q, s.slice(at, at + span)) / n;
     if (score > best.score) best = { score, at };
     if (score === 1) break;
   }
@@ -75,7 +77,7 @@ function lcs(a, b) {
 
 // Numbers with units in a piece of text, e.g. "5 minutes", "0.5 mg", "20 mL/kg", "2 hours". Used to spot
 // a line that says one amount while its quote says another.
-const UNIT = '(?:mg|mcg|micrograms?|g|kg|ml|mL|l|L|litres?|liters?|mmol|J|joules?|%|°C|degrees|seconds?|secs?|s|minutes?|mins?|hours?|hrs?|h|days?|weeks?|times|cm|mm|m|metres?|meters?|km|breaths|compressions)';
+const UNIT = '(?:℃|mg|mcg|micrograms?|g|kg|ml|mL|l|L|litres?|liters?|mmol|J|joules?|%|°C|degrees|seconds?|secs?|s|minutes?|mins?|hours?|hrs?|h|days?|weeks?|times|cm|mm|m|metres?|meters?|km|breaths|compressions)';
 const AMOUNT = new RegExp('(\\d+(?:\\.\\d+)?)(?:\\s?(?:-|to|–)\\s?(\\d+(?:\\.\\d+)?))?\\s?(' + UNIT + ')(?![\\p{L}])', 'giu');
 export function amounts(text) {
   const out = [];

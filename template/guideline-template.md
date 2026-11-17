@@ -30,7 +30,9 @@ Reviewed by:
 ## Tables
 
 > Look-up tables (doses, sizes, settings...). "Key:" says which input picks the row.
-> Row names can be words ("Adult"), or number bands: "0-5", "5.1-10", "under 5", "over 40", "40+".
+> Row names can be words ("Adult"), or number bands with no gaps: "up to 5", "over 5 to 10", "over 10".
+> ("5-10" includes both ends, so "5-10" then "10-20" overlap at 10.) Add "whole" to a number input
+> (e.g. "- Age (years): number, 0-120, whole") if only whole numbers are allowed; then "1-5", "6-10" has no gap.
 > Write "-" for "the guideline doesn't give a value" (the app shows "Not stated in the guideline", never zero).
 
 ### Example dose
@@ -53,6 +55,7 @@ Source: Guideline table 2, page 4
 >   Next:     step-id (or "end")                 End:    marks the last step (optional closing text)
 >   Timer:    20 minutes -> step-id              counts down on this step, then offers to move on
 >   Remind:   every 5 minutes: Reassess          keeps reminding (on every screen) until stopped
+>   Remind:   after 6 hours: Deadline            happens once (a deadline that can't be pushed back)
 >   Stop:     Reassess  (or "all")               stops a reminder
 >   Show:     Example dose                       shows the table row for the current details
 >   Record:   Dose given                         a button that logs the time each time it's tapped

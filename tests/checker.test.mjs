@@ -77,3 +77,61 @@ test('random junk never makes the reader or checker throw', () => {
     assert.doesNotThrow(() => run(text, 'x y z 3 min'), text);
   }
 });
+
+test('review fixes: sentences with colons stay text, arrows in labels, quotes under timers, names in any script', () => {
+  const res = run(`# T
+## Inputs
+- 体重 (kg): number, 1-100
+- 年龄: choice: 成人 | 儿童
+## Steps
+### a: First
+Stop the bleeding: press firmly on the wound
+End the call: only when told to
+Say: Cool for 20 minutes
+Remind: every 5-10 minutes: Recheck
+Quote: "recheck every 5 to 10 minutes"
+- Breathing → normal -> b
+- Go to hospital -> b
+- Then go to the sink and wash hands
+### b: Second
+End:
+`, 'Cool for 20 minutes. recheck every 5 to 10 minutes');
+  const a = res.spec.steps[0];
+  assert.equal(a.lines.filter((l) => l.kind === 'say').length, 4, 'both colon sentences and the bullet are shown as text');
+  assert.equal(a.end, false); assert.equal(a.stop, null);
+  assert.deepEqual(a.ask.options.map((o) => [o.label, o.target]), [['Breathing → normal', 'b'], ['Go to hospital', 'b']]);
+  assert.equal(a.reminders[0].quotes.length, 1);
+  assert.ok(!has(res, 'check', /says 20 minute/), 'no false contradiction from a quote under a reminder');
+  assert.equal(res.spec.inputs.length, 2, 'two inputs named in Chinese are both kept');
+});
+
+test('review fixes: decimal gaps, choice-keyed tables, "or" across details', () => {
+  const res = run(`# T
+## Inputs
+- Weight (kg): number, 1-100
+- Group: choice: Adult | Child | Infant
+## Tables
+### Dose
+Key: Weight
+| Weight | Dose |
+|---|---|
+| 5–10 kg | 1 mg |
+| 11-20 kg | 2 mg |
+### Size
+Key: Group
+| Group | Size |
+|---|---|
+| Adult | 4 |
+| Children | 3 |
+## Steps
+### a: A
+Show: Dose
+Show: Size
+Say: x [if Group = Child or Weight < 10]
+End:
+`);
+  assert.ok(has(res, 'check', /nothing covers values between 10 and 11/));
+  assert.ok(has(res, 'check', /row "Children" is not one of.*Did you mean "Child"/));
+  assert.ok(has(res, 'check', /no row for "Infant"/));
+  assert.ok(has(res, 'fix', /"or" between two different details/));
+});

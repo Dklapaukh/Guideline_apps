@@ -117,7 +117,16 @@ export function checkSpec(input, { sourceText = '', findings: earlier = [] } = {
   let quoteCount = 0, quoteExact = 0, numberLines = 0, numberLinesQuoted = 0;
   const templateAmounts = new Set();
   for (const s of spec.steps) {
-    const stepQuotes = [...(s.quotes ?? []), ...s.lines.flatMap((l) => l.quotes ?? [])];
+    const holders = [s.timer, ...s.reminders].filter((h) => h?.quotes?.length);
+    const stepQuotes = [...(s.quotes ?? []), ...s.lines.flatMap((l) => l.quotes ?? []), ...holders.flatMap((h) => h.quotes)];
+    for (const q of [...(s.quotes ?? []), ...holders.flatMap((h) => h.quotes)]) {   // quotes not under a text line: still checked
+      quoteCount++;
+      const r = findQuote(q.text, sourceText); q.check = r.found;
+      if (r.found === 'exact') quoteExact++;
+      else if (r.found === 'near') add('check', { step: s.id, line: s.line }, `The quote "${q.text}" is close to, but not the same as, the guideline.`, `Guideline text nearby: "${r.passage}"`);
+      else if (sourceText) add('check', { step: s.id, line: s.line }, `The quote "${q.text}" was not found in the saved guideline text.`);
+      amounts(q.text).forEach((a) => templateAmounts.add(a));
+    }
     for (const l of s.lines) {
       const said = l.kind === 'show' || l.kind === 'note' ? [] : amounts(l.text);
       said.forEach((a) => templateAmounts.add(a));
@@ -152,7 +161,13 @@ export function checkSpec(input, { sourceText = '', findings: earlier = [] } = {
     if (prev && prev.ms !== r.ms) add('check', { step: s.id, line: r.line }, `"${r.text}" is reminded every ${r.every} here but every ${prev.every} in "${prev.step}". Which is right?`);
     else seenReminders.set(r.id, { ...r, step: s.title });
   }
-  for (const s of spec.steps) for (const l of s.lines) if (l.kind !== 'show' && l.kind !== 'note' && amounts(l.text).length && !l.quotes?.length) add('info', { step: s.id, line: l.line }, `"${short(l.text)}" contains a number but no quote from the guideline.`);
+  // Instructions with no quote: one note per step (numbers are called out, since they matter most).
+  for (const s of spec.steps) {
+    const bare = s.lines.filter((l) => ['say', 'do', 'warning'].includes(l.kind) && !l.quotes?.length);
+    if (!bare.length) continue;
+    const withNumbers = bare.filter((l) => amounts(l.text).length);
+    add('info', { step: s.id, line: bare[0].line }, `${bare.length} line${bare.length > 1 ? 's' : ''} in "${s.title}" ${bare.length > 1 ? 'have' : 'has'} no quote from the guideline${withNumbers.length ? `, including ${withNumbers.length} with numbers ("${short(withNumbers[0].text)}")` : ` ("${short(bare[0].text)}")`}. Fine for app wording; an instruction should quote its source.`);
+  }
   for (const t of spec.tables) for (const r of t.rows) Object.values(r.cells).forEach((c) => amounts(c).forEach((a) => templateAmounts.add(a)));
 
   // Numbers in the guideline that the template never mentions: a hint at something left out.
@@ -202,8 +217,16 @@ function checkTable(t, spec, add) {
     if (a.m.kind === 'number' && b.m.kind === 'number') continue;
     const overlap = b.low < a.high || (b.low === a.high && (a.m.highIn ?? true) && (b.m.lowIn ?? true));
     if (overlap) add('check', { table: t.id, line: b.r.line }, `Table "${t.title}": rows "${a.r.key}" and "${b.r.key}" overlap, so a value of ${b.low} fits both. The app uses the first.`);
-    else if (b.low > a.high && !(a.high + 1 === b.low && Number.isInteger(a.high))) add('check', { table: t.id, line: b.r.line }, `Table "${t.title}": nothing covers values between ${a.high} and ${b.low} (between rows "${a.r.key}" and "${b.r.key}"). The app says "no row for this value".`);
+    else if (b.low > a.high && !(inp?.whole && a.high + 1 === b.low && Number.isInteger(a.high))) add('check', { table: t.id, line: b.r.line }, `Table "${t.title}": nothing covers values between ${a.high} and ${b.low} (between rows "${a.r.key}" and "${b.r.key}"). The app says "no row for this value".`);
     else if (b.low === a.high && !(a.m.highIn ?? true) && !(b.m.lowIn ?? true)) add('check', { table: t.id, line: b.r.line }, `Table "${t.title}": exactly ${b.low} is in neither "${a.r.key}" nor "${b.r.key}".`);
+  }
+  // A table picked by a choice: every row should be one of the choices, and every choice should have a row.
+  if (inp?.type === 'choice') {
+    for (const r of t.rows) if (!inp.options.some((o) => o.toLowerCase() === r.key.toLowerCase())) {
+      const near = closest(r.key, inp.options);
+      add('check', { table: t.id, line: r.line }, `Table "${t.title}": row "${r.key}" is not one of the "${inp.label}" choices (${inp.options.join(', ')}), so no one will ever see it.`, near ? `Did you mean "${near}"?` : null);
+    }
+    for (const o of inp.options) if (!t.rows.some((r) => r.key.toLowerCase() === o.toLowerCase())) add('check', where, `Table "${t.title}" has no row for "${o}", so the app will say "no row" when "${inp.label}" is ${o}.`);
   }
   for (const r of t.rows) for (const [col, v] of Object.entries(r.cells)) {
     if (/^\s*(-|–|—|n\/?a)?\s*$/i.test(v) && col !== t.columns[0]) add('info', { table: t.id, line: r.line }, `Table "${t.title}", row "${r.key}", column "${col}" is empty or "-". The app shows "Not stated in the guideline", not zero.`);

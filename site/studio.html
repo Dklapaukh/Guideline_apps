@@ -123,7 +123,9 @@ Reviewed by:
 ## Tables
 
 > Look-up tables (doses, sizes, settings...). "Key:" says which input picks the row.
-> Row names can be words ("Adult"), or number bands: "0-5", "5.1-10", "under 5", "over 40", "40+".
+> Row names can be words ("Adult"), or number bands with no gaps: "up to 5", "over 5 to 10", "over 10".
+> ("5-10" includes both ends, so "5-10" then "10-20" overlap at 10.) Add "whole" to a number input
+> (e.g. "- Age (years): number, 0-120, whole") if only whole numbers are allowed; then "1-5", "6-10" has no gap.
 > Write "-" for "the guideline doesn't give a value" (the app shows "Not stated in the guideline", never zero).
 
 ### Example dose
@@ -146,6 +148,7 @@ Source: Guideline table 2, page 4
 >   Next:     step-id (or "end")                 End:    marks the last step (optional closing text)
 >   Timer:    20 minutes -> step-id              counts down on this step, then offers to move on
 >   Remind:   every 5 minutes: Reassess          keeps reminding (on every screen) until stopped
+>   Remind:   after 6 hours: Deadline            happens once (a deadline that can't be pushed back)
 >   Stop:     Reassess  (or "all")               stops a reminder
 >   Show:     Example dose                       shows the table row for the current details
 >   Record:   Dose given                         a button that logs the time each time it's tapped
@@ -183,8 +186,10 @@ Reviewed by:
 ## Steps
 
 ### start: Get ready to cool
-Say: Start this when the cooked food has dropped to 60\xB0C. The clocks run from now.
+Say: Start this when the cooked food has dropped to 60\xB0C. The 6-hour clock runs from now.
 Quote: "When cooling freshly cooked food it must get from:"
+Remind: after 6 hours: 6-hour limit: food not at 5\xB0C or below now must be thrown out
+Quote: "60\xB0C to 5\xB0C (or below) in less than 6 hours or it must be thrown out"
 Say: Use any of these methods, or a combination:
 Quote: "Use any (or a combination) of these methods:"
 Do: Shallow containers
@@ -202,7 +207,6 @@ Say: Cool the food to room temperature or 21\xB0C, whichever is colder, within 2
 Quote: "60\xB0C to room temperature or 21\xB0C (whichever is colder) in less than 2 hours"
 Say: The whole cool-down, from 60\xB0C to 5\xB0C or below, must take less than 6 hours.
 Quote: "60\xB0C to 5\xB0C (or below) in less than 6 hours or it must be thrown out"
-Remind: every 6 hours: 6-hour limit: food not at 5\xB0C or below by now must be thrown out
 Timer: 2 hours -> stage-1-late
 Ask: Has the food reached room temperature or 21\xB0C (whichever is colder)?
 - Yes -> stage-2
@@ -218,6 +222,7 @@ Ask: What has been decided?
 
 ### stage-2: Stage 2: fridge, cool to 5\xB0C
 Do: Put the food in the fridge.
+Note: From the card's "Check" section ("refrigerate once at room temperature or 21\xB0C"); its exact words were not available, so there is no quote.
 Say: Cool from room temperature or 21\xB0C to 5\xB0C or below within 4 hours.
 Quote: "then room temperature or 21\xB0C (whichever is colder) to 5\xB0C (or below) in less than 4 hours."
 Timer: 4 hours -> stage-2-late
@@ -228,11 +233,18 @@ Ask: Is the food at 5\xB0C or below?
 ### stage-2-late: Not at 5\xB0C after 4 hours
 Warning: Food that has not reached 5\xB0C or below within 6 hours of starting must be thrown out.
 Quote: "60\xB0C to 5\xB0C (or below) in less than 6 hours or it must be thrown out"
-Say: Check the "6-hour limit" reminder at the top of the screen.
+Say: The "6-hour limit" bar at the top shows how long is left.
 Note: Possible contradiction: stage 2 allows 4 hours, but if stage 1 was quick the 6-hour total may not yet be up. The card does not say which limit wins.
 Ask: Has the 6-hour limit been reached?
 - Yes -> discard
-- Not yet -> stage-2
+- Not yet -> keep-cooling
+
+### keep-cooling: Keep cooling (within the 6 hours)
+Say: Keep the food cooling in the fridge. The "6-hour limit" bar at the top shows how long is left.
+Note: No new 4-hour timer here: the 4 hours already ran out, and the 6-hour limit is the one left to apply.
+Ask: Is the food at 5\xB0C or below?
+- Yes -> cooled
+- No, and the 6-hour limit is reached -> discard
 
 ### discard: Throw the food out
 Stop: all
@@ -252,7 +264,7 @@ The card's "Check" and "Show" sections (refrigerate at 21\xB0C, check at 4 hours
 `, source: "Making + Cooking\n\nYellow Card / S39-00002 / Cooling freshly cooked food\n\nWhat do you need to know?\n\u2022 You must cool food correctly, so that it does not stay\nin the temperature danger zone (5\xB0C\u201360\xB0C) long\nenough for bugs to grow to unsafe levels.\n\n\u2022 If you don\u2019t cool hot food quickly, bugs will grow and\nmake your food unsafe and unsuitable.\n\nWhat do you need to do?\n\u2022 Cool food quickly to stop bugs growing or producing\ntoxins.\n\u2022 When cooling freshly cooked food it must get from:\n\n \u25E6 60\xB0C to 5\xB0C (or below) in less than 6 hours or it\nmust be thrown out,\n\n \u25E6 60\xB0C to room temperature or 21\xB0C (whichever\nis colder) in less than 2 hours, then room\ntemperature or 21\xB0C (whichever is colder) to 5\xB0C\n(or below) in less than 4 hours.\n\n\u2022 Use any (or a combination) of these methods:\n(tick as appropriate):\n\n placing your food into shallow containers\n using an ice bath\n separating your food into smaller portions\n placing your food in a blast chiller\n" }];
 
   // engine/util.js
-  var slug = (text) => String(text).toLowerCase().normalize("NFKD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "") || "step";
+  var slug = (text) => String(text).toLowerCase().normalize("NFKD").replace(/\p{M}/gu, "").replace(/[^\p{L}\p{N}]+/gu, "-").replace(/^-+|-+$/g, "") || "step";
   var UNIT_MS = { s: 1e3, sec: 1e3, second: 1e3, m: 6e4, min: 6e4, minute: 6e4, h: 36e5, hr: 36e5, hour: 36e5, day: 864e5, d: 864e5, week: 6048e5 };
   function parseDuration(text) {
     const t = String(text ?? "").toLowerCase().replace(/\bevery\b|\bfor\b|\bafter\b|\bwait\b/g, " ");
@@ -283,10 +295,11 @@ The card's "Check" and "Show" sections (refrigerate at 21\xB0C, check at 4 hours
     const parts = String(text).split(/\s+and\s+/i);
     const out = [];
     for (const part of parts) {
-      const m = /^(.+?)\s*(<=|>=|≤|≥|<|>|!=|≠|=|==|\bis not\b|\bis\b|\bequals\b|\bunder\b|\bover\b|\bat least\b|\bat most\b)\s*(.+)$/i.exec(part.trim());
+      const m = /^(.+?)\s*(<=|>=|≤|≥|<|>|!=|≠|==|=|\bis not\b|\bis\b|\bequals\b|\bunder\b|\bover\b|\bat least\b|\bat most\b)\s*(.+)$/i.exec(part.trim());
       if (!m) return { ok: false, why: `no comparison in "${part}"` };
       const op = { "\u2264": "<=", "\u2265": ">=", "\u2260": "!=", "==": "=", is: "=", equals: "=", "is not": "!=", under: "<", over: ">", "at least": ">=", "at most": "<=" }[m[2].toLowerCase()] ?? m[2];
       const values = m[3].split(/\s+or\s+|\s*\|\s*|\s*,\s*/i).map((v) => v.trim()).filter(Boolean);
+      if (values.some((v) => /(<=|>=|≤|≥|<|>|!=|≠|=|\bis\b)/i.test(v))) return { ok: false, why: '"or" between two different details is not supported yet; split it into two lines' };
       if (/[<>]/.test(op) && !values.every((v) => !Number.isNaN(parseFloat(v)))) return { ok: false, why: `"${m[3]}" is not a number` };
       out.push({ input: m[1].trim(), op, values });
     }
@@ -326,7 +339,7 @@ The card's "Check" and "Show" sections (refrigerate at 21\xB0C, check at 4 hours
     let best = null, bestD = Infinity;
     for (const c of candidates) {
       const s = numbersAsDigits(slug(c).replace(/-/g, " ")).replace(/ /g, "-");
-      const d = s === want ? 0 : s.includes(want) || want.includes(s) ? 1 : editDistance(want, s);
+      const d = s === want ? 0 : Math.min(s.length, want.length) >= 3 && (s.includes(want) || want.includes(s)) ? 1 : editDistance(want, s);
       if (d < bestD) {
         bestD = d;
         best = c;
@@ -348,9 +361,10 @@ The card's "Check" and "Show" sections (refrigerate at 21\xB0C, check at 4 hours
     return row[b.length];
   }
   function readKey(text) {
-    const t = String(text).toLowerCase().trim().replace(/\s*(kg|g|mg|years?|yrs?|y|months?|cm|mm|%|°c|minutes?|mins?|hours?)\.?$/, "").trim();
+    const t = String(text).toLowerCase().trim().replace(/\s*(kg|g|mg|years?|yrs?|y|months?|cm|mm|%|°c|℃|minutes?|mins?|hours?)\.?$/, "").replace(/\s*(kg|years?|months?)\s*(?=-|–|to\b)/, " ").trim();
     let m;
     const num = "(-?\\d+(?:\\.\\d+)?)";
+    if (m = new RegExp(`^(?:>|over|more than|above)\\s*${num}\\s*(?:-|\u2013|to|up to)\\s*${num}`).exec(t)) return { kind: "range", low: +m[1], high: +m[2], lowIn: false, highIn: true };
     if (m = new RegExp(`^${num}\\s*(?:-|\u2013|to)\\s*${num}`).exec(t)) return { kind: "range", low: +m[1], high: +m[2], lowIn: true, highIn: true };
     if (m = new RegExp(`^(?:<|under|less than|below)\\s*${num}`).exec(t)) return { kind: "range", low: -Infinity, high: +m[1], lowIn: false, highIn: false };
     if (m = new RegExp(`^(?:<=|\u2264|up to|at most|max)\\s*${num}`).exec(t)) return { kind: "range", low: -Infinity, high: +m[1], lowIn: false, highIn: true };
@@ -385,7 +399,13 @@ The card's "Check" and "Show" sections (refrigerate at 21\xB0C, check at 4 hours
     note: ["note", "author note", "comment"]
   };
   var KEY_OF = new Map(Object.entries(KEYS).flatMap(([k, list]) => list.map((w) => [w, k])));
-  var ARROW = /\s*(?:->|→|=>|—>|-->|:?\s*go to)\s*/i;
+  var ARROW = /\s*(?:-->|->|→|=>|—>)\s*/;
+  function splitArrow(text) {
+    const all = [...text.matchAll(/\s*(?:-->|->|→|=>|—>)\s*/g)];
+    if (!all.length) return [text, null];
+    const m = all.at(-1);
+    return [text.slice(0, m.index), text.slice(m.index + m[0].length)];
+  }
   function readTemplate(text) {
     const findings = [];
     const say = (level, line, message, extra = {}) => findings.push({ level, line, message, ...extra });
@@ -468,11 +488,11 @@ The card's "Check" and "Show" sections (refrigerate at 21\xB0C, check at 4 hours
         return;
       }
       const [, label, unit = "", rest] = m;
-      const input = { id: slug(label), label: label.trim(), unit: unit.trim(), type: "number", optional: /optional/i.test(rest), line: n };
+      const input = { id: slug(label), label: label.trim(), unit: unit.trim(), type: "number", optional: /optional/i.test(rest), whole: /whole|integer|count/i.test(rest), line: n };
       if (/choice|option|one of|select/i.test(rest) || rest.includes("|")) {
         input.type = "choice";
         const list = rest.replace(/^(choice|options?|one of|select)\s*:?\s*/i, "").replace(/,?\s*optional\s*$/i, "");
-        input.options = list.split(/\s*\|\s*|\s*,\s*|\s+or\s+/).map((s) => s.trim()).filter(Boolean);
+        input.options = list.split(list.includes("|") ? /\s*\|\s*/ : /\s*,\s*/).map((s) => s.trim()).filter(Boolean);
         if (input.options.length < 2) say("check", n, `Choice input "${input.label}" has fewer than two options.`);
       } else if (/yes\s*\/\s*no|yes or no|boolean/i.test(rest)) {
         input.type = "choice";
@@ -546,12 +566,14 @@ The card's "Check" and "Show" sections (refrigerate at 21\xB0C, check at 4 hours
       const { text: text2, cond, condProblem } = splitCondition(bare);
       if (condProblem) say("fix", n, condProblem, { step: step.id });
       if (/^[-*]\s+/.test(text2) && ARROW.test(text2)) {
-        const [label, to] = text2.replace(/^[-*]\s+/, "").split(ARROW);
+        const [label, to] = splitArrow(text2.replace(/^[-*]\s+/, ""));
+        if (!label.trim()) say("fix", n, `An answer going to "${to.trim()}" has no text for its button.`, { step: step.id, suggestion: 'Write it as "- Answer text -> step-name".' });
         if (!ask) {
           ask = { question: "", options: [], line: n };
           step.ask = ask;
         }
-        ask.options.push({ label: label.trim(), to: to.trim(), cond, line: n });
+        ask.options.push({ label: label.trim() || to.trim(), to: to.trim(), cond, line: n });
+        lastLine = null;
         return;
       }
       if (/^[-*]\s+/.test(text2)) {
@@ -559,9 +581,11 @@ The card's "Check" and "Show" sections (refrigerate at 21\xB0C, check at 4 hours
         return;
       }
       const kv = keyValue(text2);
-      const kind = kv ? KEY_OF.get(kv.key) ?? matchKeyStart(kv.key) : null;
+      const kind = kv ? KEY_OF.get(kv.key) ?? null : null;
       if (!kv || !kind) {
-        if (kv) say("info", n, `"${kv.key}:" is not a known line type; shown as text. Known types: Say, Do, Warning, Quote, Ask, Next, Timer, Remind, Stop, Show, Record, End, Note.`, { step: step.id });
+        const near = kv && matchKeyStart(kv.key);
+        if (near) say("info", n, `"${kv.key}:" is shown as text. If it was meant as a "${near}" line, write "${near[0].toUpperCase() + near.slice(1)}:" on its own.`, { step: step.id });
+        else if (kv && kv.key.split(" ").length === 1) say("info", n, `"${kv.key}:" is not a known line type; shown as text. Known types: Say, Do, Warning, Quote, Ask, Next, Timer, Remind, Stop, Show, Record, End, Note.`, { step: step.id });
         addLine({ kind: "say", text: text2, cond, line: n });
         return;
       }
@@ -590,39 +614,49 @@ The card's "Check" and "Show" sections (refrigerate at 21\xB0C, check at 4 hours
           return;
         }
         case "ask":
+          lastLine = null;
           ask = { question: value, options: [], line: n, cond };
           if (step.ask) say("check", n, `Step "${step.title}" asks two questions; only the last is used. Split it into two steps.`, { step: step.id });
           step.ask = ask;
           return;
         case "next": {
           if (step.next) say("check", n, `Step "${step.title}" has two "Next" lines (${step.next.to} and ${value}). The first one is used unless it has a condition.`, { step: step.id });
+          lastLine = null;
           const target = { to: value.replace(ARROW, "").trim(), cond, line: n };
           (step.nexts ?? (step.nexts = [])).push(target);
           step.next ?? (step.next = target);
           return;
         }
         case "timer": {
-          const [time, to] = value.split(ARROW);
+          const [time, to] = splitArrow(value);
           const ms = parseDuration(time);
           if (ms == null) {
             say("fix", n, `Timer "${value}" has no time the builder can read (e.g. "Timer: 20 minutes -> next-step").`, { step: step.id });
             return;
           }
           if (step.timer) say("check", n, `Step "${step.title}" has two timers (${step.timer.label} and ${time.trim()}). Which is right? The first is used.`, { step: step.id });
-          else step.timer = { ms, label: time.trim(), to: to?.trim() || null, line: n };
+          else {
+            step.timer = { ms, label: time.trim(), to: to?.trim() || null, line: n };
+            lastLine = step.timer;
+          }
           return;
         }
         case "remind": {
-          const m = /^(?:every\s+)?(.+?)\s*[:,-]\s+(.+)$/i.exec(value);
-          const ms = m ? parseDuration(m[1]) : null;
+          const m = /^(every\s+|after\s+|in\s+)?(.+?)\s*[:,-]\s+(.+)$/i.exec(value);
+          const ms = m ? parseDuration(m[2]) : null;
           if (ms == null) {
-            say("fix", n, `Reminder "${value}" needs a time and a message, e.g. "Remind: every 5 minutes: Reassess breathing".`, { step: step.id });
+            say("fix", n, `Reminder "${value}" needs a time and a message, e.g. "Remind: every 5 minutes: Reassess breathing" or "Remind: after 6 hours: Deadline".`, { step: step.id });
             return;
           }
-          step.reminders.push({ ms, every: m[1].trim(), text: m[2].trim(), id: slug(m[2]).slice(0, 40), line: n });
+          const once = /^(after|in)\s/i.test(m[1] ?? "");
+          if (!m[1]) say("info", n, `Reminder "${m[3].trim()}" doesn't say "every" (repeats) or "after" (once); read as repeating.`, { step: step.id });
+          const r = { ms, every: m[2].trim(), once, text: m[3].trim(), id: slug(m[3]).slice(0, 40), line: n };
+          step.reminders.push(r);
+          lastLine = r;
           return;
         }
         case "stop":
+          lastLine = null;
           step.stop = value && !/^all$/i.test(value) ? value : "all";
           return;
         case "end":
@@ -702,11 +736,11 @@ The card's "Check" and "Show" sections (refrigerate at 21\xB0C, check at 4 hours
     if (!q.length || !s.length) return { found: "none" };
     const n = q.length, span = Math.min(s.length, n + Math.ceil(n * 0.3) + 2);
     let best = { score: 0, at: 0 };
-    const qset = new Set(q);
-    for (let at = 0; at + 1 <= s.length; at++) {
-      if (!qset.has(s[at])) continue;
-      const win = s.slice(at, at + span);
-      const score = lcs(q, win) / n;
+    const firstWords = new Set(q.slice(0, 3));
+    const starts = [];
+    for (let at = 0; at < s.length && starts.length < 3e3; at++) if (firstWords.has(s[at])) starts.push(at);
+    for (const at of starts) {
+      const score = lcs(q, s.slice(at, at + span)) / n;
       if (score > best.score) best = { score, at };
       if (score === 1) break;
     }
@@ -735,7 +769,7 @@ The card's "Check" and "Show" sections (refrigerate at 21\xB0C, check at 4 hours
     }
     return row[b.length];
   }
-  var UNIT = "(?:mg|mcg|micrograms?|g|kg|ml|mL|l|L|litres?|liters?|mmol|J|joules?|%|\xB0C|degrees|seconds?|secs?|s|minutes?|mins?|hours?|hrs?|h|days?|weeks?|times|cm|mm|m|metres?|meters?|km|breaths|compressions)";
+  var UNIT = "(?:\u2103|mg|mcg|micrograms?|g|kg|ml|mL|l|L|litres?|liters?|mmol|J|joules?|%|\xB0C|degrees|seconds?|secs?|s|minutes?|mins?|hours?|hrs?|h|days?|weeks?|times|cm|mm|m|metres?|meters?|km|breaths|compressions)";
   var AMOUNT = new RegExp("(\\d+(?:\\.\\d+)?)(?:\\s?(?:-|to|\u2013)\\s?(\\d+(?:\\.\\d+)?))?\\s?(" + UNIT + ")(?![\\p{L}])", "giu");
   function amounts(text) {
     const out = [];
@@ -865,7 +899,17 @@ The card's "Check" and "Show" sections (refrigerate at 21\xB0C, check at 4 hours
     let quoteCount = 0, quoteExact = 0, numberLines = 0, numberLinesQuoted = 0;
     const templateAmounts = /* @__PURE__ */ new Set();
     for (const s of spec.steps) {
-      const stepQuotes = [...s.quotes ?? [], ...s.lines.flatMap((l) => l.quotes ?? [])];
+      const holders = [s.timer, ...s.reminders].filter((h) => h?.quotes?.length);
+      const stepQuotes = [...s.quotes ?? [], ...s.lines.flatMap((l) => l.quotes ?? []), ...holders.flatMap((h) => h.quotes)];
+      for (const q of [...s.quotes ?? [], ...holders.flatMap((h) => h.quotes)]) {
+        quoteCount++;
+        const r = findQuote(q.text, sourceText);
+        q.check = r.found;
+        if (r.found === "exact") quoteExact++;
+        else if (r.found === "near") add("check", { step: s.id, line: s.line }, `The quote "${q.text}" is close to, but not the same as, the guideline.`, `Guideline text nearby: "${r.passage}"`);
+        else if (sourceText) add("check", { step: s.id, line: s.line }, `The quote "${q.text}" was not found in the saved guideline text.`);
+        amounts(q.text).forEach((a) => templateAmounts.add(a));
+      }
       for (const l of s.lines) {
         const said = l.kind === "show" || l.kind === "note" ? [] : amounts(l.text);
         said.forEach((a) => templateAmounts.add(a));
@@ -901,7 +945,12 @@ The card's "Check" and "Show" sections (refrigerate at 21\xB0C, check at 4 hours
       if (prev && prev.ms !== r.ms) add("check", { step: s.id, line: r.line }, `"${r.text}" is reminded every ${r.every} here but every ${prev.every} in "${prev.step}". Which is right?`);
       else seenReminders.set(r.id, { ...r, step: s.title });
     }
-    for (const s of spec.steps) for (const l of s.lines) if (l.kind !== "show" && l.kind !== "note" && amounts(l.text).length && !l.quotes?.length) add("info", { step: s.id, line: l.line }, `"${short(l.text)}" contains a number but no quote from the guideline.`);
+    for (const s of spec.steps) {
+      const bare = s.lines.filter((l) => ["say", "do", "warning"].includes(l.kind) && !l.quotes?.length);
+      if (!bare.length) continue;
+      const withNumbers = bare.filter((l) => amounts(l.text).length);
+      add("info", { step: s.id, line: bare[0].line }, `${bare.length} line${bare.length > 1 ? "s" : ""} in "${s.title}" ${bare.length > 1 ? "have" : "has"} no quote from the guideline${withNumbers.length ? `, including ${withNumbers.length} with numbers ("${short(withNumbers[0].text)}")` : ` ("${short(bare[0].text)}")`}. Fine for app wording; an instruction should quote its source.`);
+    }
     for (const t of spec.tables) for (const r of t.rows) Object.values(r.cells).forEach((c) => amounts(c).forEach((a) => templateAmounts.add(a)));
     const sourceAmounts = [...new Set(amounts(sourceText))];
     const missed = sourceAmounts.filter((a) => !templateAmounts.has(a));
@@ -952,8 +1001,15 @@ The card's "Check" and "Show" sections (refrigerate at 21\xB0C, check at 4 hours
       if (a.m.kind === "number" && b.m.kind === "number") continue;
       const overlap = b.low < a.high || b.low === a.high && (a.m.highIn ?? true) && (b.m.lowIn ?? true);
       if (overlap) add("check", { table: t.id, line: b.r.line }, `Table "${t.title}": rows "${a.r.key}" and "${b.r.key}" overlap, so a value of ${b.low} fits both. The app uses the first.`);
-      else if (b.low > a.high && !(a.high + 1 === b.low && Number.isInteger(a.high))) add("check", { table: t.id, line: b.r.line }, `Table "${t.title}": nothing covers values between ${a.high} and ${b.low} (between rows "${a.r.key}" and "${b.r.key}"). The app says "no row for this value".`);
+      else if (b.low > a.high && !(inp?.whole && a.high + 1 === b.low && Number.isInteger(a.high))) add("check", { table: t.id, line: b.r.line }, `Table "${t.title}": nothing covers values between ${a.high} and ${b.low} (between rows "${a.r.key}" and "${b.r.key}"). The app says "no row for this value".`);
       else if (b.low === a.high && !(a.m.highIn ?? true) && !(b.m.lowIn ?? true)) add("check", { table: t.id, line: b.r.line }, `Table "${t.title}": exactly ${b.low} is in neither "${a.r.key}" nor "${b.r.key}".`);
+    }
+    if (inp?.type === "choice") {
+      for (const r of t.rows) if (!inp.options.some((o) => o.toLowerCase() === r.key.toLowerCase())) {
+        const near = closest(r.key, inp.options);
+        add("check", { table: t.id, line: r.line }, `Table "${t.title}": row "${r.key}" is not one of the "${inp.label}" choices (${inp.options.join(", ")}), so no one will ever see it.`, near ? `Did you mean "${near}"?` : null);
+      }
+      for (const o of inp.options) if (!t.rows.some((r) => r.key.toLowerCase() === o.toLowerCase())) add("check", where, `Table "${t.title}" has no row for "${o}", so the app will say "no row" when "${inp.label}" is ${o}.`);
     }
     for (const r of t.rows) for (const [col, v] of Object.entries(r.cells)) {
       if (/^\s*(-|–|—|n\/?a)?\s*$/i.test(v) && col !== t.columns[0]) add("info", { table: t.id, line: r.line }, `Table "${t.title}", row "${r.key}", column "${col}" is empty or "-". The app shows "Not stated in the guideline", not zero.`);
@@ -1005,36 +1061,35 @@ The card's "Check" and "Show" sections (refrigerate at 21\xB0C, check at 4 hours
         render();
         return;
       }
-      if (S.current) S.history.push(S.current);
+      if (S.current) S.history.push({ id: S.current, enteredAt: S.enteredAt, timerDone: S.timerDone, reminders: JSON.parse(JSON.stringify(S.reminders)) });
       S.current = step.id;
       S.enteredAt = now();
       S.timerDone = false;
       S.note = "";
+      for (const k of Object.keys(S.ticks)) if (k.startsWith(step.id + ":")) delete S.ticks[k];
       log(step.title, why ?? "");
-      if (step.stop) {
-        for (const id of Object.keys(S.reminders)) if (step.stop === "all" || slug(step.stop) === id || S.reminders[id].text.toLowerCase().includes(step.stop.toLowerCase())) {
+      if (step.stop) for (const id of Object.keys(S.reminders)) {
+        const want = step.stop.toLowerCase();
+        if (want === "all" || slug(step.stop) === id || S.reminders[id].text.toLowerCase().startsWith(want)) {
           log("Reminder stopped", S.reminders[id].text);
           delete S.reminders[id];
         }
       }
       for (const r of step.reminders) if (!S.reminders[r.id]) {
-        S.reminders[r.id] = { text: r.text, ms: r.ms, every: r.every, dueAt: now() + r.ms, alerted: false };
-        log("Reminder started", `${r.text} (every ${r.every})`);
-      }
-      if (step.end) {
-        render();
-        return;
+        S.reminders[r.id] = { text: r.text, ms: r.ms, every: r.every, once: !!r.once, dueAt: now() + r.ms, alerted: false };
+        log("Reminder started", `${r.text} (${r.once ? "after" : "every"} ${r.every})`);
       }
       render();
     }
     function back() {
       const prev = S.history.pop();
       if (!prev) return;
-      S.current = prev;
-      S.enteredAt = now();
-      S.timerDone = false;
+      S.current = prev.id;
+      S.enteredAt = prev.enteredAt;
+      S.timerDone = prev.timerDone;
+      S.reminders = prev.reminders;
       S.note = "";
-      log("Went back to", byId.get(prev).title);
+      log("Went back to", byId.get(prev.id).title);
       render();
     }
     function finish(why) {
@@ -1043,6 +1098,10 @@ The card's "Check" and "Show" sections (refrigerate at 21\xB0C, check at 4 hours
       render();
     }
     function restart() {
+      try {
+        localStorage.removeItem(KEY);
+      } catch {
+      }
       Object.assign(S, { screen: "start", tab: "steps", current: null, history: [], ticks: {}, log: [], startedAt: null, reminders: {}, records: {}, note: "" });
       render();
     }
@@ -1096,14 +1155,19 @@ The card's "Check" and "Show" sections (refrigerate at 21\xB0C, check at 4 hours
          ${s.timer.to && !s.timer.target ? `<p class="author">The timer leads to "${esc2(s.timer.to)}", which is missing.</p>` : ""}</div>` : ""}
       ${s.ask ? `<p class="q">${esc2(s.ask.question)}</p><div class="opts">${opts || '<p class="author">No answer applies with the details entered (see Checks).</p>'}</div>` : ""}
       ${S.note ? `<p class="author">${esc2(S.note)}</p>` : ""}
-      ${next ? `<button class="big ${s.ask ? "skip" : "go"}" data-act="next">${s.ask ? "Skip" : "Next"}: ${esc2(byId.get(next)?.title ?? "Finish")}</button>` : ""}
+      ${next ? `<button class="big ${s.ask ? "skip" : "go"}" data-act="next">${s.ask ? "Skip" : "Next"}: ${esc2(byId.get(next)?.title ?? "Finish")}${nextDepends(s) ? " <small>(depends on details not entered)</small>" : ""}</button>` : ""}
       ${final ? `<button class="big go" data-act="finish">Finish</button>` : ""}
     </section>`;
     }
     function nextTarget(s) {
-      for (const n of s.nexts ?? []) if (testCondition(n.cond, S.answers, spec.inputs) !== false && n.target) return n.target;
-      return null;
+      const list = (s.nexts ?? []).filter((n) => n.target);
+      return list.find((n) => testCondition(n.cond, S.answers, spec.inputs) === true)?.target ?? list.find((n) => testCondition(n.cond, S.answers, spec.inputs) === null)?.target ?? null;
     }
+    const nextDepends = (s) => {
+      const t = nextTarget(s);
+      const n = (s.nexts ?? []).find((x) => x.target === t);
+      return n && testCondition(n.cond, S.answers, spec.inputs) === null;
+    };
     function lineView(l, k) {
       const shown = testCondition(l.cond, S.answers, spec.inputs);
       if (shown === false) return "";
@@ -1135,7 +1199,7 @@ The card's "Check" and "Show" sections (refrigerate at 21\xB0C, check at 4 hours
     function reminderBar() {
       const list = Object.entries(S.reminders);
       if (!list.length) return "";
-      return `<div class="reminders">${list.map(([id, r]) => `<div class="rem" data-rem="${id}"><span class="rt">${esc2(r.text)}</span><span class="rc" data-clock="rem" data-rem-id="${id}"></span><button data-remdone="${id}">Done</button><button class="x" data-remstop="${id}" title="Stop">\u2715</button></div>`).join("")}</div>`;
+      return `<div class="reminders">${list.map(([id, r]) => `<div class="rem" data-rem="${id}"><span class="rt">${esc2(r.text)}</span><span class="rc" data-clock="rem" data-rem-id="${id}"></span>${r.once && !r.alerted ? "" : `<button data-remdone="${id}">${r.once ? "OK" : "Done"}</button>`}<button class="x" data-remstop="${id}" title="Stop">\u2715</button></div>`).join("")}</div>`;
     }
     function doneView() {
       return `<section class="card"><h2>Finished</h2><p>Total time ${clock((S.log.at(-1)?.at ?? now()) - (S.startedAt ?? now()))}.</p>${logList()}<button class="big" data-act="copy">Copy log</button><button class="big go" data-act="restart">Start again</button></section>`;
@@ -1169,32 +1233,36 @@ The card's "Check" and "Show" sections (refrigerate at 21\xB0C, check at 4 hours
     }
     function tick() {
       const t = now();
-      const s = S.current && byId.get(S.current);
+      const s = S.screen === "run" && S.current && byId.get(S.current);
+      if (s?.timer && !S.timerDone && t - S.enteredAt >= s.timer.ms) {
+        S.timerDone = true;
+        log("Timer finished", `${s.title}: ${s.timer.label}`);
+        buzz();
+        render();
+        return;
+      }
+      let newlyDue = false;
+      for (const r of Object.values(S.reminders)) if (r.dueAt <= t && !r.alerted) {
+        r.alerted = true;
+        newlyDue = true;
+        log(r.once ? "Deadline reached" : "Reminder due", r.text);
+        buzz();
+      }
+      if (newlyDue) {
+        render();
+        return;
+      }
+      save();
       for (const el of root.querySelectorAll("[data-clock]")) {
         const kind = el.dataset.clock;
         if (kind === "elapsed" && S.startedAt) el.textContent = clock(t - S.startedAt);
-        if (kind === "timer" && s?.timer) {
-          const left = s.timer.ms - (t - S.enteredAt);
-          el.textContent = clock(left);
-          if (left <= 0 && !S.timerDone) {
-            S.timerDone = true;
-            log("Timer finished", `${s.title}: ${s.timer.label}`);
-            buzz();
-            render();
-            return;
-          }
-        }
+        if (kind === "timer" && s?.timer) el.textContent = clock(s.timer.ms - (t - S.enteredAt));
         if (kind === "rem") {
           const r = S.reminders[el.dataset.remId];
           if (!r) continue;
           const left = r.dueAt - t;
-          el.textContent = left > 0 ? clock(left) : `DUE ${clock(-left)} ago`;
+          el.textContent = left > 0 ? clock(left) : `${r.once ? "NOW" : "DUE"} \xB7 ${clock(-left)} ago`;
           el.parentElement.classList.toggle("due", left <= 0);
-          if (left <= 0 && !r.alerted) {
-            r.alerted = true;
-            log("Reminder due", r.text);
-            buzz();
-          }
         }
         if (kind === "rec") {
           const r = S.records[el.dataset.recName];
@@ -1202,12 +1270,50 @@ The card's "Check" and "Show" sections (refrigerate at 21\xB0C, check at 4 hours
         }
       }
     }
+    let audio = null;
     const buzz = () => {
       try {
         navigator.vibrate?.([200, 100, 200]);
       } catch {
       }
+      try {
+        audio ?? (audio = new (window.AudioContext || window.webkitAudioContext)());
+        for (const at of [0, 0.3]) {
+          const o = audio.createOscillator(), g = audio.createGain();
+          o.frequency.value = 880;
+          g.gain.value = 0.2;
+          o.connect(g);
+          g.connect(audio.destination);
+          o.start(audio.currentTime + at);
+          o.stop(audio.currentTime + at + 0.18);
+        }
+      } catch {
+      }
     };
+    const KEY = "guideline-app:" + slug(spec.title);
+    let lastSaved = "";
+    function save() {
+      try {
+        const j = JSON.stringify(S);
+        if (j !== lastSaved) {
+          localStorage.setItem(KEY, j);
+          lastSaved = j;
+        }
+      } catch {
+      }
+    }
+    function load() {
+      try {
+        const j = localStorage.getItem(KEY);
+        if (j) {
+          const old = JSON.parse(j);
+          if (old.screen === "run" && old.current && byId.has(old.current)) {
+            Object.assign(S, old, { tab: "steps", note: "Carried on from where this was left (the page was reloaded)." });
+          }
+        }
+      } catch {
+      }
+    }
     root.addEventListener("click", (e) => {
       var _a, _b;
       const b = e.target.closest("button");
@@ -1245,8 +1351,11 @@ The card's "Check" and "Show" sections (refrigerate at 21\xB0C, check at 4 hours
         const r = S.reminders[d.remdone];
         if (r) {
           log("Done", r.text);
-          r.dueAt = now() + r.ms;
-          r.alerted = false;
+          if (r.once) delete S.reminders[d.remdone];
+          else {
+            r.dueAt = now() + r.ms;
+            r.alerted = false;
+          }
         }
         render();
         return;
@@ -1260,6 +1369,10 @@ The card's "Check" and "Show" sections (refrigerate at 21\xB0C, check at 4 hours
       }
       switch (d.act) {
         case "begin":
+          try {
+            audio ?? (audio = new (window.AudioContext || window.webkitAudioContext)());
+          } catch {
+          }
           return begin();
         case "back":
           return back();
@@ -1300,6 +1413,7 @@ The card's "Check" and "Show" sections (refrigerate at 21\xB0C, check at 4 hours
         if (bad) bad.textContent = numberProblem(i, el.value.trim()) ?? "";
       }
     });
+    load();
     const timer2 = setInterval(tick, 250);
     render();
     return { state: S, render, stop: () => clearInterval(timer2) };
@@ -1360,7 +1474,7 @@ The card's "Check" and "Show" sections (refrigerate at 21\xB0C, check at 4 hours
     const data = { ...latest, built: (/* @__PURE__ */ new Date()).toISOString().slice(0, 10) + " (studio)" };
     return `<!DOCTYPE html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${esc(data.spec.title)}</title><style>${'/* Phone-first, portrait, large tap targets. One stylesheet for every generated app. */\n:root { --ink:#1b1f24; --mut:#5d6670; --bg:#f4f5f7; --card:#fff; --line:#dde1e6; --go:#0b6e4f; --warn:#9a3412; --warnbg:#fff4e5; --due:#b91c1c; --author:#6b21a8; --authorbg:#f5ecff; }\n* { box-sizing: border-box; }\nhtml, body { margin:0; background:var(--bg); color:var(--ink); font:17px/1.45 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }\n#app { max-width: 560px; margin: 0 auto; min-height: 100vh; padding-bottom: 72px; }\n.bar { position: sticky; top: 0; z-index: 3; display:flex; justify-content:space-between; align-items:center; gap:8px; padding:10px 14px; background:#14213d; color:#fff; }\n.bar .t { font-weight:600; font-size:16px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }\n.bar .clock { font-variant-numeric: tabular-nums; font-size:18px; }\n.proto { font-size:12px; color:var(--author); background:var(--authorbg); padding:4px 14px; }\n.card { background:var(--card); margin:10px; padding:14px 16px; border-radius:12px; border:1px solid var(--line); }\nh1 { font-size:22px; margin:4px 0 8px; } h2 { font-size:21px; margin:2px 0 10px; } h3 { font-size:15px; margin:16px 0 6px; color:var(--mut); text-transform:uppercase; letter-spacing:.04em; }\np { margin: 8px 0; } p.bul::before { content:"\u2022 "; color:var(--mut); }\n.big { display:block; width:100%; min-height:52px; margin:10px 0 0; padding:12px 14px; font:inherit; font-weight:600; border-radius:10px; border:1px solid var(--line); background:#eef1f4; color:var(--ink); text-align:left; }\n.big.go { background:var(--go); color:#fff; border-color:var(--go); text-align:center; }\n.big.opt { background:#e8f0fe; border-color:#b7c9f5; }\n.big.opt.broken { border-style:dashed; border-color:var(--author); }\n.big.skip { background:transparent; text-align:center; font-weight:500; color:var(--mut); }\n.link { background:none; border:0; color:#1d4ed8; font:inherit; padding:0; }\n.crumb { display:flex; justify-content:space-between; font-size:14px; color:var(--mut); }\n.q { font-weight:600; font-size:19px; margin-top:16px; }\n.warn { background:var(--warnbg); color:var(--warn); border-left:4px solid var(--warn); padding:8px 10px; border-radius:6px; font-weight:600; }\n.author { background:var(--authorbg); color:var(--author); border-left:4px solid var(--author); padding:8px 10px; border-radius:6px; font-size:15px; }\n.do { display:flex; flex-wrap:wrap; gap:10px; align-items:flex-start; padding:10px 0; border-bottom:1px solid var(--line); }\n.do input { width:26px; height:26px; margin:0; flex:none; } .do span { flex:1; }\n.do .src, .do .dep { flex-basis:100%; margin-left:36px; }\n.dep { display:block; color:var(--author); font-size:13px; }\ndetails.src { font-size:14px; color:var(--mut); margin:2px 0 4px; } details.src summary { cursor:pointer; color:#1d4ed8; }\ndetails.src q { font-style:italic; }\n.timer { margin:14px 0; padding:12px; border-radius:10px; background:#eef6f2; text-align:center; }\n.timer .lbl { color:var(--mut); font-size:14px; }\n.big-clock { font-size:44px; font-weight:700; font-variant-numeric:tabular-nums; }\n.timer.due { background:#fde8e8; } .timer.due .big-clock { color:var(--due); }\n.reminders { position:sticky; top:44px; z-index:2; background:var(--bg); padding:6px 10px 0; }\n.rem { display:flex; align-items:center; gap:8px; background:#fff; border:1px solid var(--line); border-radius:10px; padding:6px 8px; margin-bottom:6px; }\n.rem .rt { flex:1; font-weight:600; font-size:15px; } .rem .rc { font-variant-numeric:tabular-nums; font-size:15px; }\n.rem button { font:inherit; font-size:14px; padding:8px 10px; border-radius:8px; border:1px solid var(--line); background:#eef1f4; }\n.rem.due { border-color:var(--due); background:#fde8e8; } .rem.due .rc { color:var(--due); font-weight:700; }\n.rec { padding:6px 0; } .rec small { color:var(--mut); }\n.rec-btn { background:#fff7e6; border-color:#f2c46d; }\n.lookup { border:1px solid var(--line); border-radius:10px; padding:8px 10px; margin:8px 0; }\n.lookup .lk { font-weight:600; } .lookup .lv { display:flex; justify-content:space-between; gap:10px; padding:4px 0; border-top:1px dashed var(--line); }\ntable { border-collapse:collapse; width:100%; font-size:14px; } th, td { border:1px solid var(--line); padding:4px 6px; text-align:left; }\n.inputs { margin:10px 0; } .inp { display:block; margin:10px 0; font-weight:600; }\n.inp input { display:block; width:100%; font:inherit; padding:10px; border-radius:8px; border:1px solid var(--line); margin-top:4px; }\n.inp small { font-weight:400; color:var(--mut); } .inp .bad { color:var(--due); font-weight:400; font-size:14px; }\n.choices { display:flex; flex-wrap:wrap; gap:6px; margin-top:4px; }\n.choices button { font:inherit; padding:10px 12px; border-radius:8px; border:1px solid var(--line); background:#eef1f4; }\n.choices button.on { background:#14213d; color:#fff; }\n.log { padding-left:0; list-style:none; } .log li { padding:6px 0; border-bottom:1px solid var(--line); } .log time { display:inline-block; min-width:56px; font-variant-numeric:tabular-nums; color:var(--mut); }\n.findings { padding-left:18px; } .findings li { margin:8px 0; font-size:15px; }\n.lvl-fix { color:var(--due); } .lvl-check { color:var(--warn); } .lvl-info { color:var(--mut); }\n.tabs { position:fixed; bottom:0; left:0; right:0; display:flex; background:#fff; border-top:1px solid var(--line); max-width:560px; margin:0 auto; }\n.tabs button { flex:1; font:inherit; font-size:15px; padding:14px 4px; background:none; border:0; color:var(--mut); }\n.tabs button.on { color:#14213d; font-weight:700; box-shadow: inset 0 3px 0 #14213d; }\n'}</style></head>
-<body><div id="app"></div><script type="application/json" id="spec">${safe(JSON.stringify(data))}<\/script><script>${safe('(() => {\n  // engine/util.js\n  var slug = (text) => String(text).toLowerCase().normalize("NFKD").replace(/[\u0300-\u036F]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "") || "step";\n  function formatDuration(ms) {\n    const s = Math.max(0, Math.round(ms / 1e3));\n    const h = Math.floor(s / 3600), m = Math.floor(s % 3600 / 60), r = s % 60;\n    if (h) return `${h} h ${String(m).padStart(2, "0")} min`;\n    if (m) return r ? `${m} min ${r} s` : `${m} min`;\n    return `${r} s`;\n  }\n  function clock(ms) {\n    const s = Math.max(0, Math.ceil(ms / 1e3));\n    const h = Math.floor(s / 3600), m = Math.floor(s % 3600 / 60), r = s % 60;\n    return (h ? `${h}:${String(m).padStart(2, "0")}` : `${m}`) + ":" + String(r).padStart(2, "0");\n  }\n  function testCondition(cond, answers, inputs) {\n    if (!cond) return true;\n    let unknown = false;\n    for (const c of cond) {\n      const input = findByName(inputs, c.input, (i) => [i.id, i.label]);\n      const value = input ? answers[input.id] : answers[slug(c.input)];\n      if (value === void 0 || value === null || value === "") {\n        unknown = true;\n        continue;\n      }\n      const ok = compare(value, c.op, c.values);\n      if (!ok) return false;\n    }\n    return unknown ? null : true;\n  }\n  function compare(value, op, values) {\n    if (op === "=" || op === "!=") {\n      const hit = values.some((v) => String(v).toLowerCase() === String(value).toLowerCase());\n      return op === "=" ? hit : !hit;\n    }\n    const a = Number(value), b = parseFloat(values[0]);\n    return op === "<" ? a < b : op === "<=" ? a <= b : op === ">" ? a > b : a >= b;\n  }\n  function findByName(list, name, namesOf) {\n    const want = slug(name);\n    return list.find((x) => namesOf(x).some((n) => slug(n) === want)) ?? null;\n  }\n  function keyMatches(key, value) {\n    if (value === void 0 || value === null || value === "") return false;\n    if (key.kind === "value") return String(value).toLowerCase() === key.value.toLowerCase();\n    const v = Number(value);\n    if (Number.isNaN(v)) return false;\n    if (key.kind === "number") return v === key.value;\n    return (key.lowIn ? v >= key.low : v > key.low) && (key.highIn ? v <= key.high : v < key.high);\n  }\n\n  // engine/quotes.js\n  var UNIT = "(?:mg|mcg|micrograms?|g|kg|ml|mL|l|L|litres?|liters?|mmol|J|joules?|%|\\xB0C|degrees|seconds?|secs?|s|minutes?|mins?|hours?|hrs?|h|days?|weeks?|times|cm|mm|m|metres?|meters?|km|breaths|compressions)";\n  var AMOUNT = new RegExp("(\\\\d+(?:\\\\.\\\\d+)?)(?:\\\\s?(?:-|to|\\u2013)\\\\s?(\\\\d+(?:\\\\.\\\\d+)?))?\\\\s?(" + UNIT + ")(?![\\\\p{L}])", "giu");\n\n  // engine/check.js\n  var END = "__end";\n\n  // engine/runtime.js\n  function mount(root, { spec, findings = [], summary = {}, built = "" }) {\n    const S = {\n      screen: "start",\n      tab: "steps",\n      answers: {},\n      current: null,\n      history: [],\n      ticks: {},\n      log: [],\n      startedAt: null,\n      enteredAt: null,\n      timerDone: false,\n      reminders: {},\n      records: {},\n      note: ""\n    };\n    const byId = new Map(spec.steps.map((s) => [s.id, s]));\n    const esc = (t) => String(t ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", \'"\': "&quot;" })[c]);\n    const now = () => Date.now();\n    const log = (what, detail = "") => S.log.push({ at: now(), what, detail });\n    const counts = { fix: findings.filter((f) => f.level === "fix").length, check: findings.filter((f) => f.level === "check").length };\n    function begin() {\n      S.startedAt = now();\n      S.screen = "run";\n      log("Started");\n      const inputsGiven = spec.inputs.filter((i) => S.answers[i.id] !== void 0 && S.answers[i.id] !== "");\n      if (inputsGiven.length) log("Details", inputsGiven.map((i) => `${i.label}: ${S.answers[i.id]}${i.unit ? " " + i.unit : ""}`).join(", "));\n      go(spec.start, null);\n    }\n    function go(target, why) {\n      if (target === END) return finish(why);\n      const step = byId.get(target);\n      if (!step) {\n        S.note = "This leads to a step that is missing from the template (see Checks). Choose another option or go back.";\n        render();\n        return;\n      }\n      if (S.current) S.history.push(S.current);\n      S.current = step.id;\n      S.enteredAt = now();\n      S.timerDone = false;\n      S.note = "";\n      log(step.title, why ?? "");\n      if (step.stop) {\n        for (const id of Object.keys(S.reminders)) if (step.stop === "all" || slug(step.stop) === id || S.reminders[id].text.toLowerCase().includes(step.stop.toLowerCase())) {\n          log("Reminder stopped", S.reminders[id].text);\n          delete S.reminders[id];\n        }\n      }\n      for (const r of step.reminders) if (!S.reminders[r.id]) {\n        S.reminders[r.id] = { text: r.text, ms: r.ms, every: r.every, dueAt: now() + r.ms, alerted: false };\n        log("Reminder started", `${r.text} (every ${r.every})`);\n      }\n      if (step.end) {\n        render();\n        return;\n      }\n      render();\n    }\n    function back() {\n      const prev = S.history.pop();\n      if (!prev) return;\n      S.current = prev;\n      S.enteredAt = now();\n      S.timerDone = false;\n      S.note = "";\n      log("Went back to", byId.get(prev).title);\n      render();\n    }\n    function finish(why) {\n      S.screen = "done";\n      log("Finished", why ?? "");\n      render();\n    }\n    function restart() {\n      Object.assign(S, { screen: "start", tab: "steps", current: null, history: [], ticks: {}, log: [], startedAt: null, reminders: {}, records: {}, note: "" });\n      render();\n    }\n    function render() {\n      root.innerHTML = `\n      <header class="bar"><div class="t">${esc(spec.title)}</div><div class="clock" data-clock="elapsed">${S.startedAt ? clock(now() - S.startedAt) : ""}</div></header>\n      <div class="proto">Prototype built automatically from a guideline. ${spec.reviewedBy ? "Reviewed by " + esc(spec.reviewedBy) + "." : "Not reviewed."} Not for real-world use.</div>\n      ${reminderBar()}\n      <main id="main">${S.tab === "steps" ? S.screen === "start" ? startView() : S.screen === "done" ? doneView() : stepView() : S.tab === "log" ? logView() : S.tab === "checks" ? checksView() : aboutView()}</main>\n      <nav class="tabs">${["steps", "log", "checks", "about"].map((t) => `<button data-tab="${t}" class="${S.tab === t ? "on" : ""}">${{ steps: "Steps", log: "Log", checks: `Checks${counts.fix + counts.check ? ` (${counts.fix + counts.check})` : ""}`, about: "About" }[t]}</button>`).join("")}</nav>`;\n      tick();\n    }\n    function startView() {\n      return `<section class="card">\n      <h1>${esc(spec.title)}</h1>\n      ${spec.about ? `<p>${esc(spec.about)}</p>` : ""}\n      ${spec.warning ? `<p class="warn">${esc(spec.warning)}</p>` : ""}\n      ${counts.fix ? `<p class="author">The template has ${counts.fix} problem${counts.fix > 1 ? "s" : ""} the author needs to fix (see Checks). The app still runs.</p>` : ""}\n      ${inputsForm()}\n      <button class="big go" data-act="begin">Start</button></section>`;\n    }\n    function inputsForm() {\n      if (!spec.inputs.length) return "";\n      return `<div class="inputs">${spec.inputs.map((i) => `<label class="inp">${esc(i.label)}${i.unit ? ` (${esc(i.unit)})` : ""}${i.optional ? " <small>optional</small>" : ""}\n      ${i.type === "choice" ? `<span class="choices">${i.options.map((o) => `<button data-input="${i.id}" data-value="${esc(o)}" class="${S.answers[i.id] === o ? "on" : ""}">${esc(o)}</button>`).join("")}</span>` : `<input inputmode="decimal" data-num="${i.id}" value="${esc(S.answers[i.id] ?? "")}" placeholder="${i.min != null ? `${i.min}\\u2013${i.max}` : ""}">`}\n      <span class="bad" data-bad="${i.id}">${esc(numberProblem(i, S.answers[i.id]) ?? "")}</span></label>`).join("")}</div>`;\n    }\n    function numberProblem(i, v) {\n      if (i.type !== "number" || v === void 0 || v === "") return null;\n      const x = Number(v);\n      if (Number.isNaN(x)) return "Not a number";\n      if (i.min != null && x < i.min || i.max != null && x > i.max) return `Outside ${i.min}\\u2013${i.max}`;\n      return null;\n    }\n    function stepView() {\n      const s = byId.get(S.current);\n      const lines = s.lines.filter((l) => l.kind !== "note").map(lineView).join("");\n      const opts = (s.ask?.options ?? []).map((o, k) => {\n        const shown = testCondition(o.cond, S.answers, spec.inputs);\n        if (shown === false) return "";\n        return `<button class="big opt${o.target ? "" : " broken"}" data-opt="${k}">${esc(o.label)}${shown === null ? " <small>(depends on details)</small>" : ""}</button>`;\n      }).join("");\n      const next = nextTarget(s);\n      const final = s.end || !opts && !next && !s.timer?.target;\n      return `<section class="card step">\n      <div class="crumb">${S.history.length ? `<button class="link" data-act="back">\\u2039 Back</button>` : ""}<span>Step ${S.history.length + 1}</span></div>\n      <h2>${esc(s.title)}</h2>\n      ${lines}\n      ${s.timer ? `<div class="timer ${S.timerDone ? "due" : ""}"><div class="lbl">${esc(s.timer.label)}</div><div class="big-clock" data-clock="timer">${clock(s.timer.ms)}</div>\n         ${S.timerDone && s.timer.target ? `<button class="big go" data-act="timer-go">Time\'s up: continue</button>` : ""}\n         ${s.timer.to && !s.timer.target ? `<p class="author">The timer leads to "${esc(s.timer.to)}", which is missing.</p>` : ""}</div>` : ""}\n      ${s.ask ? `<p class="q">${esc(s.ask.question)}</p><div class="opts">${opts || \'<p class="author">No answer applies with the details entered (see Checks).</p>\'}</div>` : ""}\n      ${S.note ? `<p class="author">${esc(S.note)}</p>` : ""}\n      ${next ? `<button class="big ${s.ask ? "skip" : "go"}" data-act="next">${s.ask ? "Skip" : "Next"}: ${esc(byId.get(next)?.title ?? "Finish")}</button>` : ""}\n      ${final ? `<button class="big go" data-act="finish">Finish</button>` : ""}\n    </section>`;\n    }\n    function nextTarget(s) {\n      for (const n of s.nexts ?? []) if (testCondition(n.cond, S.answers, spec.inputs) !== false && n.target) return n.target;\n      return null;\n    }\n    function lineView(l, k) {\n      const shown = testCondition(l.cond, S.answers, spec.inputs);\n      if (shown === false) return "";\n      const dep = shown === null ? `<small class="dep">Depends on: ${esc(l.cond.map((c) => c.input).join(", "))}</small>` : "";\n      const q = l.quotes?.length ? `<details class="src"><summary>Guideline</summary>${l.quotes.map((x) => `<q>${esc(x.text)}</q>${x.where ? ` <small>${esc(x.where)}</small>` : ""}${x.check && x.check !== "exact" ? \' <small class="dep">quote not confirmed</small>\' : ""}`).join("<br>")}</details>` : "";\n      const key = `${S.current}:${k}`;\n      if (l.kind === "do") return `<label class="do"><input type="checkbox" data-tick="${key}" ${S.ticks[key] ? "checked" : ""}> <span>${esc(l.text)}</span>${dep}${q}</label>`;\n      if (l.kind === "warning") return `<p class="warn">${esc(l.text)}${dep}${q}</p>`;\n      if (l.kind === "record") {\n        const r = S.records[l.text];\n        return `<div class="rec"><button class="big rec-btn" data-rec="${esc(l.text)}">${esc(l.text)}</button><small data-clock="rec" data-rec-name="${esc(l.text)}">${r ? `${r.n}\\xD7 \\xB7 last ${formatDuration(now() - r.last)} ago` : "not yet"}</small>${dep}${q}</div>`;\n      }\n      if (l.kind === "show") return `<div class="show">${showTable(l)}${dep}${q}</div>`;\n      return `<p class="${l.bullet ? "bul" : ""}">${esc(l.text)}${dep}${q}</p>`;\n    }\n    function showTable(l) {\n      const t = spec.tables.find((x) => x.id === l.tableId);\n      if (!t) return `<p class="author">"${esc(l.table)}" table is missing from the template.</p>`;\n      const cols = l.column ? t.columns.filter((c) => slug(c) === slug(l.column)) : t.columns.slice(1);\n      if (!t.keyInput) return `<table><tr>${t.columns.map((c) => `<th>${esc(c)}</th>`).join("")}</tr>${t.rows.map((r) => `<tr>${t.columns.map((c) => `<td>${cell(r.cells[c])}</td>`).join("")}</tr>`).join("")}</table>`;\n      const inp = spec.inputs.find((i) => i.id === t.keyInput);\n      const v = S.answers[inp.id];\n      if (v === void 0 || v === "") return `<p><b>${esc(t.title)}:</b> enter ${esc(inp.label)} to see this. <button class="link" data-tab="about">Enter details</button></p>`;\n      const row = t.rows.find((r) => keyMatches(r.match, v));\n      if (!row) return `<p class="author"><b>${esc(t.title)}:</b> the table has no row for ${esc(inp.label)} ${esc(v)}${inp.unit ? " " + esc(inp.unit) : ""}.</p>`;\n      return `<div class="lookup"><div class="lk">${esc(t.title)} <small>(${esc(row.key)})</small></div>${cols.map((c) => `<div class="lv"><span>${esc(c)}</span><b>${cell(row.cells[c])}</b></div>`).join("")}</div>`;\n    }\n    const cell = (v) => /^\\s*(-|\u2013|\u2014|n\\/?a)?\\s*$/i.test(v ?? "") ? "<i>Not stated in the guideline</i>" : esc(v);\n    function reminderBar() {\n      const list = Object.entries(S.reminders);\n      if (!list.length) return "";\n      return `<div class="reminders">${list.map(([id, r]) => `<div class="rem" data-rem="${id}"><span class="rt">${esc(r.text)}</span><span class="rc" data-clock="rem" data-rem-id="${id}"></span><button data-remdone="${id}">Done</button><button class="x" data-remstop="${id}" title="Stop">\\u2715</button></div>`).join("")}</div>`;\n    }\n    function doneView() {\n      return `<section class="card"><h2>Finished</h2><p>Total time ${clock((S.log.at(-1)?.at ?? now()) - (S.startedAt ?? now()))}.</p>${logList()}<button class="big" data-act="copy">Copy log</button><button class="big go" data-act="restart">Start again</button></section>`;\n    }\n    function logView() {\n      return `<section class="card"><h2>Log</h2>${S.log.length ? logList() + \'<button class="big" data-act="copy">Copy log</button>\' : "<p>Nothing yet.</p>"}</section>`;\n    }\n    function logList() {\n      return `<ol class="log">${S.log.map((e) => `<li><time>${S.startedAt ? clock(e.at - S.startedAt) : ""}</time> ${esc(e.what)}${e.detail ? ` <small>${esc(e.detail)}</small>` : ""}</li>`).join("")}</ol>`;\n    }\n    function logText() {\n      return S.log.map((e) => `${S.startedAt ? clock(e.at - S.startedAt) : ""}  ${e.what}${e.detail ? " - " + e.detail : ""}`).join("\\n");\n    }\n    function checksView() {\n      const order = ["fix", "check", "info"];\n      const name = { fix: "Needs fixing", check: "Please check", info: "For information" };\n      const stepTitle = (id) => byId.get(id)?.title ?? id;\n      return `<section class="card"><h2>Author checks</h2><p>Found automatically by comparing the template with itself and with the guideline text. Fix them in the template; the app keeps running meanwhile.</p>\n      ${order.map((lvl) => {\n        const fs = findings.filter((f) => f.level === lvl);\n        return fs.length ? `<h3 class="lvl-${lvl}">${name[lvl]} (${fs.length})</h3><ul class="findings">${fs.map((f) => `<li class="lvl-${lvl}">${f.step ? `<b>${esc(stepTitle(f.step))}</b> \\xB7 ` : ""}${f.line ? `<small>line ${f.line}</small> ` : ""}${esc(f.message)}${f.suggestion ? `<br><i>${esc(f.suggestion)}</i>` : ""}</li>`).join("")}</ul>` : "";\n      }).join("") || "<p>No findings.</p>"}\n    </section>`;\n    }\n    function aboutView() {\n      return `<section class="card"><h2>About</h2>${spec.about ? `<p>${esc(spec.about)}</p>` : ""}\n      ${spec.inputs.length ? `<h3>Details</h3>${inputsForm()}` : ""}\n      <h3>Source</h3><ul>${spec.sources.map((s) => `<li>${esc(s.name)}${s.link ? ` <a href="${esc(s.link)}" target="_blank" rel="noopener">link</a>` : ""}</li>`).join("") || "<li>Not stated</li>"}</ul>\n      <p><small>${spec.version ? "Guideline version: " + esc(spec.version) + " \\xB7 " : ""}${built ? "Built " + esc(built) + " \\xB7 " : ""}${summary.quotes != null ? `${summary.quotesExact}/${summary.quotes} quotes confirmed` : ""}</small></p>\n      ${S.screen !== "start" ? \'<button class="big" data-act="restart">Start again</button>\' : ""}</section>`;\n    }\n    function tick() {\n      const t = now();\n      const s = S.current && byId.get(S.current);\n      for (const el of root.querySelectorAll("[data-clock]")) {\n        const kind = el.dataset.clock;\n        if (kind === "elapsed" && S.startedAt) el.textContent = clock(t - S.startedAt);\n        if (kind === "timer" && s?.timer) {\n          const left = s.timer.ms - (t - S.enteredAt);\n          el.textContent = clock(left);\n          if (left <= 0 && !S.timerDone) {\n            S.timerDone = true;\n            log("Timer finished", `${s.title}: ${s.timer.label}`);\n            buzz();\n            render();\n            return;\n          }\n        }\n        if (kind === "rem") {\n          const r = S.reminders[el.dataset.remId];\n          if (!r) continue;\n          const left = r.dueAt - t;\n          el.textContent = left > 0 ? clock(left) : `DUE ${clock(-left)} ago`;\n          el.parentElement.classList.toggle("due", left <= 0);\n          if (left <= 0 && !r.alerted) {\n            r.alerted = true;\n            log("Reminder due", r.text);\n            buzz();\n          }\n        }\n        if (kind === "rec") {\n          const r = S.records[el.dataset.recName];\n          if (r) el.textContent = `${r.n}\\xD7 \\xB7 last ${formatDuration(t - r.last)} ago`;\n        }\n      }\n    }\n    const buzz = () => {\n      try {\n        navigator.vibrate?.([200, 100, 200]);\n      } catch {\n      }\n    };\n    root.addEventListener("click", (e) => {\n      var _a, _b;\n      const b = e.target.closest("button");\n      if (!b) return;\n      const d = b.dataset;\n      if (d.tab) {\n        S.tab = d.tab;\n        render();\n        return;\n      }\n      if (d.input) {\n        S.answers[d.input] = S.answers[d.input] === d.value ? void 0 : d.value;\n        if (S.screen === "run") log("Detail changed", `${d.input}: ${d.value}`);\n        render();\n        return;\n      }\n      if (d.opt !== void 0) {\n        const s = byId.get(S.current), o = s.ask.options[+d.opt];\n        if (!o.target) {\n          S.note = `"${o.label}" leads to "${o.to}", which is missing from the template (see Checks).`;\n          render();\n          return;\n        }\n        return go(o.target, `${s.ask.question || s.title}: ${o.label}`);\n      }\n      if (d.rec) {\n        const r = (_a = S.records)[_b = d.rec] ?? (_a[_b] = { n: 0, last: 0 });\n        r.n++;\n        r.last = now();\n        log(d.rec);\n        render();\n        return;\n      }\n      if (d.remdone) {\n        const r = S.reminders[d.remdone];\n        if (r) {\n          log("Done", r.text);\n          r.dueAt = now() + r.ms;\n          r.alerted = false;\n        }\n        render();\n        return;\n      }\n      if (d.remstop) {\n        const r = S.reminders[d.remstop];\n        if (r) log("Reminder stopped", r.text);\n        delete S.reminders[d.remstop];\n        render();\n        return;\n      }\n      switch (d.act) {\n        case "begin":\n          return begin();\n        case "back":\n          return back();\n        case "next":\n          return go(nextTarget(byId.get(S.current)), "Next");\n        case "timer-go":\n          return go(byId.get(S.current).timer.target, "Timer finished");\n        case "finish":\n          return finish();\n        case "restart":\n          return restart();\n        case "copy":\n          try {\n            navigator.clipboard?.writeText(logText());\n            b.textContent = "Copied";\n          } catch {\n            b.textContent = "Could not copy";\n          }\n          return;\n      }\n    });\n    root.addEventListener("change", (e) => {\n      const el = e.target;\n      if (el.dataset.num && S.screen === "run") log("Detail changed", `${el.dataset.num}: ${el.value.trim()}`);\n      if (el.dataset.tick) {\n        S.ticks[el.dataset.tick] = el.checked;\n        const s = byId.get(S.current);\n        const l = s?.lines.filter((x) => x.kind !== "note")[+el.dataset.tick.split(":").pop()];\n        log(el.checked ? "Ticked" : "Unticked", l?.text ?? "");\n      }\n    });\n    root.addEventListener("input", (e) => {\n      const el = e.target;\n      if (el.dataset.num) {\n        S.answers[el.dataset.num] = el.value.trim();\n        const i = spec.inputs.find((x) => x.id === el.dataset.num);\n        const bad = root.querySelector(`[data-bad="${el.dataset.num}"]`);\n        if (bad) bad.textContent = numberProblem(i, el.value.trim()) ?? "";\n      }\n    });\n    const timer = setInterval(tick, 250);\n    render();\n    return { state: S, render, stop: () => clearInterval(timer) };\n  }\n\n  // engine/app-entry.js\n  var data = JSON.parse(document.getElementById("spec").textContent);\n  window.__app = mount(document.getElementById("app"), data);\n})();\n')}<\/script></body></html>
+<body><div id="app"></div><script type="application/json" id="spec">${safe(JSON.stringify(data))}<\/script><script>${safe('(() => {\n  // engine/util.js\n  var slug = (text) => String(text).toLowerCase().normalize("NFKD").replace(/\\p{M}/gu, "").replace(/[^\\p{L}\\p{N}]+/gu, "-").replace(/^-+|-+$/g, "") || "step";\n  function formatDuration(ms) {\n    const s = Math.max(0, Math.round(ms / 1e3));\n    const h = Math.floor(s / 3600), m = Math.floor(s % 3600 / 60), r = s % 60;\n    if (h) return `${h} h ${String(m).padStart(2, "0")} min`;\n    if (m) return r ? `${m} min ${r} s` : `${m} min`;\n    return `${r} s`;\n  }\n  function clock(ms) {\n    const s = Math.max(0, Math.ceil(ms / 1e3));\n    const h = Math.floor(s / 3600), m = Math.floor(s % 3600 / 60), r = s % 60;\n    return (h ? `${h}:${String(m).padStart(2, "0")}` : `${m}`) + ":" + String(r).padStart(2, "0");\n  }\n  function testCondition(cond, answers, inputs) {\n    if (!cond) return true;\n    let unknown = false;\n    for (const c of cond) {\n      const input = findByName(inputs, c.input, (i) => [i.id, i.label]);\n      const value = input ? answers[input.id] : answers[slug(c.input)];\n      if (value === void 0 || value === null || value === "") {\n        unknown = true;\n        continue;\n      }\n      const ok = compare(value, c.op, c.values);\n      if (!ok) return false;\n    }\n    return unknown ? null : true;\n  }\n  function compare(value, op, values) {\n    if (op === "=" || op === "!=") {\n      const hit = values.some((v) => String(v).toLowerCase() === String(value).toLowerCase());\n      return op === "=" ? hit : !hit;\n    }\n    const a = Number(value), b = parseFloat(values[0]);\n    return op === "<" ? a < b : op === "<=" ? a <= b : op === ">" ? a > b : a >= b;\n  }\n  function findByName(list, name, namesOf) {\n    const want = slug(name);\n    return list.find((x) => namesOf(x).some((n) => slug(n) === want)) ?? null;\n  }\n  function keyMatches(key, value) {\n    if (value === void 0 || value === null || value === "") return false;\n    if (key.kind === "value") return String(value).toLowerCase() === key.value.toLowerCase();\n    const v = Number(value);\n    if (Number.isNaN(v)) return false;\n    if (key.kind === "number") return v === key.value;\n    return (key.lowIn ? v >= key.low : v > key.low) && (key.highIn ? v <= key.high : v < key.high);\n  }\n\n  // engine/quotes.js\n  var UNIT = "(?:\\u2103|mg|mcg|micrograms?|g|kg|ml|mL|l|L|litres?|liters?|mmol|J|joules?|%|\\xB0C|degrees|seconds?|secs?|s|minutes?|mins?|hours?|hrs?|h|days?|weeks?|times|cm|mm|m|metres?|meters?|km|breaths|compressions)";\n  var AMOUNT = new RegExp("(\\\\d+(?:\\\\.\\\\d+)?)(?:\\\\s?(?:-|to|\\u2013)\\\\s?(\\\\d+(?:\\\\.\\\\d+)?))?\\\\s?(" + UNIT + ")(?![\\\\p{L}])", "giu");\n\n  // engine/check.js\n  var END = "__end";\n\n  // engine/runtime.js\n  function mount(root, { spec, findings = [], summary = {}, built = "" }) {\n    const S = {\n      screen: "start",\n      tab: "steps",\n      answers: {},\n      current: null,\n      history: [],\n      ticks: {},\n      log: [],\n      startedAt: null,\n      enteredAt: null,\n      timerDone: false,\n      reminders: {},\n      records: {},\n      note: ""\n    };\n    const byId = new Map(spec.steps.map((s) => [s.id, s]));\n    const esc = (t) => String(t ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", \'"\': "&quot;" })[c]);\n    const now = () => Date.now();\n    const log = (what, detail = "") => S.log.push({ at: now(), what, detail });\n    const counts = { fix: findings.filter((f) => f.level === "fix").length, check: findings.filter((f) => f.level === "check").length };\n    function begin() {\n      S.startedAt = now();\n      S.screen = "run";\n      log("Started");\n      const inputsGiven = spec.inputs.filter((i) => S.answers[i.id] !== void 0 && S.answers[i.id] !== "");\n      if (inputsGiven.length) log("Details", inputsGiven.map((i) => `${i.label}: ${S.answers[i.id]}${i.unit ? " " + i.unit : ""}`).join(", "));\n      go(spec.start, null);\n    }\n    function go(target, why) {\n      if (target === END) return finish(why);\n      const step = byId.get(target);\n      if (!step) {\n        S.note = "This leads to a step that is missing from the template (see Checks). Choose another option or go back.";\n        render();\n        return;\n      }\n      if (S.current) S.history.push({ id: S.current, enteredAt: S.enteredAt, timerDone: S.timerDone, reminders: JSON.parse(JSON.stringify(S.reminders)) });\n      S.current = step.id;\n      S.enteredAt = now();\n      S.timerDone = false;\n      S.note = "";\n      for (const k of Object.keys(S.ticks)) if (k.startsWith(step.id + ":")) delete S.ticks[k];\n      log(step.title, why ?? "");\n      if (step.stop) for (const id of Object.keys(S.reminders)) {\n        const want = step.stop.toLowerCase();\n        if (want === "all" || slug(step.stop) === id || S.reminders[id].text.toLowerCase().startsWith(want)) {\n          log("Reminder stopped", S.reminders[id].text);\n          delete S.reminders[id];\n        }\n      }\n      for (const r of step.reminders) if (!S.reminders[r.id]) {\n        S.reminders[r.id] = { text: r.text, ms: r.ms, every: r.every, once: !!r.once, dueAt: now() + r.ms, alerted: false };\n        log("Reminder started", `${r.text} (${r.once ? "after" : "every"} ${r.every})`);\n      }\n      render();\n    }\n    function back() {\n      const prev = S.history.pop();\n      if (!prev) return;\n      S.current = prev.id;\n      S.enteredAt = prev.enteredAt;\n      S.timerDone = prev.timerDone;\n      S.reminders = prev.reminders;\n      S.note = "";\n      log("Went back to", byId.get(prev.id).title);\n      render();\n    }\n    function finish(why) {\n      S.screen = "done";\n      log("Finished", why ?? "");\n      render();\n    }\n    function restart() {\n      try {\n        localStorage.removeItem(KEY);\n      } catch {\n      }\n      Object.assign(S, { screen: "start", tab: "steps", current: null, history: [], ticks: {}, log: [], startedAt: null, reminders: {}, records: {}, note: "" });\n      render();\n    }\n    function render() {\n      root.innerHTML = `\n      <header class="bar"><div class="t">${esc(spec.title)}</div><div class="clock" data-clock="elapsed">${S.startedAt ? clock(now() - S.startedAt) : ""}</div></header>\n      <div class="proto">Prototype built automatically from a guideline. ${spec.reviewedBy ? "Reviewed by " + esc(spec.reviewedBy) + "." : "Not reviewed."} Not for real-world use.</div>\n      ${reminderBar()}\n      <main id="main">${S.tab === "steps" ? S.screen === "start" ? startView() : S.screen === "done" ? doneView() : stepView() : S.tab === "log" ? logView() : S.tab === "checks" ? checksView() : aboutView()}</main>\n      <nav class="tabs">${["steps", "log", "checks", "about"].map((t) => `<button data-tab="${t}" class="${S.tab === t ? "on" : ""}">${{ steps: "Steps", log: "Log", checks: `Checks${counts.fix + counts.check ? ` (${counts.fix + counts.check})` : ""}`, about: "About" }[t]}</button>`).join("")}</nav>`;\n      tick();\n    }\n    function startView() {\n      return `<section class="card">\n      <h1>${esc(spec.title)}</h1>\n      ${spec.about ? `<p>${esc(spec.about)}</p>` : ""}\n      ${spec.warning ? `<p class="warn">${esc(spec.warning)}</p>` : ""}\n      ${counts.fix ? `<p class="author">The template has ${counts.fix} problem${counts.fix > 1 ? "s" : ""} the author needs to fix (see Checks). The app still runs.</p>` : ""}\n      ${inputsForm()}\n      <button class="big go" data-act="begin">Start</button></section>`;\n    }\n    function inputsForm() {\n      if (!spec.inputs.length) return "";\n      return `<div class="inputs">${spec.inputs.map((i) => `<label class="inp">${esc(i.label)}${i.unit ? ` (${esc(i.unit)})` : ""}${i.optional ? " <small>optional</small>" : ""}\n      ${i.type === "choice" ? `<span class="choices">${i.options.map((o) => `<button data-input="${i.id}" data-value="${esc(o)}" class="${S.answers[i.id] === o ? "on" : ""}">${esc(o)}</button>`).join("")}</span>` : `<input inputmode="decimal" data-num="${i.id}" value="${esc(S.answers[i.id] ?? "")}" placeholder="${i.min != null ? `${i.min}\\u2013${i.max}` : ""}">`}\n      <span class="bad" data-bad="${i.id}">${esc(numberProblem(i, S.answers[i.id]) ?? "")}</span></label>`).join("")}</div>`;\n    }\n    function numberProblem(i, v) {\n      if (i.type !== "number" || v === void 0 || v === "") return null;\n      const x = Number(v);\n      if (Number.isNaN(x)) return "Not a number";\n      if (i.min != null && x < i.min || i.max != null && x > i.max) return `Outside ${i.min}\\u2013${i.max}`;\n      return null;\n    }\n    function stepView() {\n      const s = byId.get(S.current);\n      const lines = s.lines.filter((l) => l.kind !== "note").map(lineView).join("");\n      const opts = (s.ask?.options ?? []).map((o, k) => {\n        const shown = testCondition(o.cond, S.answers, spec.inputs);\n        if (shown === false) return "";\n        return `<button class="big opt${o.target ? "" : " broken"}" data-opt="${k}">${esc(o.label)}${shown === null ? " <small>(depends on details)</small>" : ""}</button>`;\n      }).join("");\n      const next = nextTarget(s);\n      const final = s.end || !opts && !next && !s.timer?.target;\n      return `<section class="card step">\n      <div class="crumb">${S.history.length ? `<button class="link" data-act="back">\\u2039 Back</button>` : ""}<span>Step ${S.history.length + 1}</span></div>\n      <h2>${esc(s.title)}</h2>\n      ${lines}\n      ${s.timer ? `<div class="timer ${S.timerDone ? "due" : ""}"><div class="lbl">${esc(s.timer.label)}</div><div class="big-clock" data-clock="timer">${clock(s.timer.ms)}</div>\n         ${S.timerDone && s.timer.target ? `<button class="big go" data-act="timer-go">Time\'s up: continue</button>` : ""}\n         ${s.timer.to && !s.timer.target ? `<p class="author">The timer leads to "${esc(s.timer.to)}", which is missing.</p>` : ""}</div>` : ""}\n      ${s.ask ? `<p class="q">${esc(s.ask.question)}</p><div class="opts">${opts || \'<p class="author">No answer applies with the details entered (see Checks).</p>\'}</div>` : ""}\n      ${S.note ? `<p class="author">${esc(S.note)}</p>` : ""}\n      ${next ? `<button class="big ${s.ask ? "skip" : "go"}" data-act="next">${s.ask ? "Skip" : "Next"}: ${esc(byId.get(next)?.title ?? "Finish")}${nextDepends(s) ? " <small>(depends on details not entered)</small>" : ""}</button>` : ""}\n      ${final ? `<button class="big go" data-act="finish">Finish</button>` : ""}\n    </section>`;\n    }\n    function nextTarget(s) {\n      const list = (s.nexts ?? []).filter((n) => n.target);\n      return list.find((n) => testCondition(n.cond, S.answers, spec.inputs) === true)?.target ?? list.find((n) => testCondition(n.cond, S.answers, spec.inputs) === null)?.target ?? null;\n    }\n    const nextDepends = (s) => {\n      const t = nextTarget(s);\n      const n = (s.nexts ?? []).find((x) => x.target === t);\n      return n && testCondition(n.cond, S.answers, spec.inputs) === null;\n    };\n    function lineView(l, k) {\n      const shown = testCondition(l.cond, S.answers, spec.inputs);\n      if (shown === false) return "";\n      const dep = shown === null ? `<small class="dep">Depends on: ${esc(l.cond.map((c) => c.input).join(", "))}</small>` : "";\n      const q = l.quotes?.length ? `<details class="src"><summary>Guideline</summary>${l.quotes.map((x) => `<q>${esc(x.text)}</q>${x.where ? ` <small>${esc(x.where)}</small>` : ""}${x.check && x.check !== "exact" ? \' <small class="dep">quote not confirmed</small>\' : ""}`).join("<br>")}</details>` : "";\n      const key = `${S.current}:${k}`;\n      if (l.kind === "do") return `<label class="do"><input type="checkbox" data-tick="${key}" ${S.ticks[key] ? "checked" : ""}> <span>${esc(l.text)}</span>${dep}${q}</label>`;\n      if (l.kind === "warning") return `<p class="warn">${esc(l.text)}${dep}${q}</p>`;\n      if (l.kind === "record") {\n        const r = S.records[l.text];\n        return `<div class="rec"><button class="big rec-btn" data-rec="${esc(l.text)}">${esc(l.text)}</button><small data-clock="rec" data-rec-name="${esc(l.text)}">${r ? `${r.n}\\xD7 \\xB7 last ${formatDuration(now() - r.last)} ago` : "not yet"}</small>${dep}${q}</div>`;\n      }\n      if (l.kind === "show") return `<div class="show">${showTable(l)}${dep}${q}</div>`;\n      return `<p class="${l.bullet ? "bul" : ""}">${esc(l.text)}${dep}${q}</p>`;\n    }\n    function showTable(l) {\n      const t = spec.tables.find((x) => x.id === l.tableId);\n      if (!t) return `<p class="author">"${esc(l.table)}" table is missing from the template.</p>`;\n      const cols = l.column ? t.columns.filter((c) => slug(c) === slug(l.column)) : t.columns.slice(1);\n      if (!t.keyInput) return `<table><tr>${t.columns.map((c) => `<th>${esc(c)}</th>`).join("")}</tr>${t.rows.map((r) => `<tr>${t.columns.map((c) => `<td>${cell(r.cells[c])}</td>`).join("")}</tr>`).join("")}</table>`;\n      const inp = spec.inputs.find((i) => i.id === t.keyInput);\n      const v = S.answers[inp.id];\n      if (v === void 0 || v === "") return `<p><b>${esc(t.title)}:</b> enter ${esc(inp.label)} to see this. <button class="link" data-tab="about">Enter details</button></p>`;\n      const row = t.rows.find((r) => keyMatches(r.match, v));\n      if (!row) return `<p class="author"><b>${esc(t.title)}:</b> the table has no row for ${esc(inp.label)} ${esc(v)}${inp.unit ? " " + esc(inp.unit) : ""}.</p>`;\n      return `<div class="lookup"><div class="lk">${esc(t.title)} <small>(${esc(row.key)})</small></div>${cols.map((c) => `<div class="lv"><span>${esc(c)}</span><b>${cell(row.cells[c])}</b></div>`).join("")}</div>`;\n    }\n    const cell = (v) => /^\\s*(-|\u2013|\u2014|n\\/?a)?\\s*$/i.test(v ?? "") ? "<i>Not stated in the guideline</i>" : esc(v);\n    function reminderBar() {\n      const list = Object.entries(S.reminders);\n      if (!list.length) return "";\n      return `<div class="reminders">${list.map(([id, r]) => `<div class="rem" data-rem="${id}"><span class="rt">${esc(r.text)}</span><span class="rc" data-clock="rem" data-rem-id="${id}"></span>${r.once && !r.alerted ? "" : `<button data-remdone="${id}">${r.once ? "OK" : "Done"}</button>`}<button class="x" data-remstop="${id}" title="Stop">\\u2715</button></div>`).join("")}</div>`;\n    }\n    function doneView() {\n      return `<section class="card"><h2>Finished</h2><p>Total time ${clock((S.log.at(-1)?.at ?? now()) - (S.startedAt ?? now()))}.</p>${logList()}<button class="big" data-act="copy">Copy log</button><button class="big go" data-act="restart">Start again</button></section>`;\n    }\n    function logView() {\n      return `<section class="card"><h2>Log</h2>${S.log.length ? logList() + \'<button class="big" data-act="copy">Copy log</button>\' : "<p>Nothing yet.</p>"}</section>`;\n    }\n    function logList() {\n      return `<ol class="log">${S.log.map((e) => `<li><time>${S.startedAt ? clock(e.at - S.startedAt) : ""}</time> ${esc(e.what)}${e.detail ? ` <small>${esc(e.detail)}</small>` : ""}</li>`).join("")}</ol>`;\n    }\n    function logText() {\n      return S.log.map((e) => `${S.startedAt ? clock(e.at - S.startedAt) : ""}  ${e.what}${e.detail ? " - " + e.detail : ""}`).join("\\n");\n    }\n    function checksView() {\n      const order = ["fix", "check", "info"];\n      const name = { fix: "Needs fixing", check: "Please check", info: "For information" };\n      const stepTitle = (id) => byId.get(id)?.title ?? id;\n      return `<section class="card"><h2>Author checks</h2><p>Found automatically by comparing the template with itself and with the guideline text. Fix them in the template; the app keeps running meanwhile.</p>\n      ${order.map((lvl) => {\n        const fs = findings.filter((f) => f.level === lvl);\n        return fs.length ? `<h3 class="lvl-${lvl}">${name[lvl]} (${fs.length})</h3><ul class="findings">${fs.map((f) => `<li class="lvl-${lvl}">${f.step ? `<b>${esc(stepTitle(f.step))}</b> \\xB7 ` : ""}${f.line ? `<small>line ${f.line}</small> ` : ""}${esc(f.message)}${f.suggestion ? `<br><i>${esc(f.suggestion)}</i>` : ""}</li>`).join("")}</ul>` : "";\n      }).join("") || "<p>No findings.</p>"}\n    </section>`;\n    }\n    function aboutView() {\n      return `<section class="card"><h2>About</h2>${spec.about ? `<p>${esc(spec.about)}</p>` : ""}\n      ${spec.inputs.length ? `<h3>Details</h3>${inputsForm()}` : ""}\n      <h3>Source</h3><ul>${spec.sources.map((s) => `<li>${esc(s.name)}${s.link ? ` <a href="${esc(s.link)}" target="_blank" rel="noopener">link</a>` : ""}</li>`).join("") || "<li>Not stated</li>"}</ul>\n      <p><small>${spec.version ? "Guideline version: " + esc(spec.version) + " \\xB7 " : ""}${built ? "Built " + esc(built) + " \\xB7 " : ""}${summary.quotes != null ? `${summary.quotesExact}/${summary.quotes} quotes confirmed` : ""}</small></p>\n      ${S.screen !== "start" ? \'<button class="big" data-act="restart">Start again</button>\' : ""}</section>`;\n    }\n    function tick() {\n      const t = now();\n      const s = S.screen === "run" && S.current && byId.get(S.current);\n      if (s?.timer && !S.timerDone && t - S.enteredAt >= s.timer.ms) {\n        S.timerDone = true;\n        log("Timer finished", `${s.title}: ${s.timer.label}`);\n        buzz();\n        render();\n        return;\n      }\n      let newlyDue = false;\n      for (const r of Object.values(S.reminders)) if (r.dueAt <= t && !r.alerted) {\n        r.alerted = true;\n        newlyDue = true;\n        log(r.once ? "Deadline reached" : "Reminder due", r.text);\n        buzz();\n      }\n      if (newlyDue) {\n        render();\n        return;\n      }\n      save();\n      for (const el of root.querySelectorAll("[data-clock]")) {\n        const kind = el.dataset.clock;\n        if (kind === "elapsed" && S.startedAt) el.textContent = clock(t - S.startedAt);\n        if (kind === "timer" && s?.timer) el.textContent = clock(s.timer.ms - (t - S.enteredAt));\n        if (kind === "rem") {\n          const r = S.reminders[el.dataset.remId];\n          if (!r) continue;\n          const left = r.dueAt - t;\n          el.textContent = left > 0 ? clock(left) : `${r.once ? "NOW" : "DUE"} \\xB7 ${clock(-left)} ago`;\n          el.parentElement.classList.toggle("due", left <= 0);\n        }\n        if (kind === "rec") {\n          const r = S.records[el.dataset.recName];\n          if (r) el.textContent = `${r.n}\\xD7 \\xB7 last ${formatDuration(t - r.last)} ago`;\n        }\n      }\n    }\n    let audio = null;\n    const buzz = () => {\n      try {\n        navigator.vibrate?.([200, 100, 200]);\n      } catch {\n      }\n      try {\n        audio ?? (audio = new (window.AudioContext || window.webkitAudioContext)());\n        for (const at of [0, 0.3]) {\n          const o = audio.createOscillator(), g = audio.createGain();\n          o.frequency.value = 880;\n          g.gain.value = 0.2;\n          o.connect(g);\n          g.connect(audio.destination);\n          o.start(audio.currentTime + at);\n          o.stop(audio.currentTime + at + 0.18);\n        }\n      } catch {\n      }\n    };\n    const KEY = "guideline-app:" + slug(spec.title);\n    let lastSaved = "";\n    function save() {\n      try {\n        const j = JSON.stringify(S);\n        if (j !== lastSaved) {\n          localStorage.setItem(KEY, j);\n          lastSaved = j;\n        }\n      } catch {\n      }\n    }\n    function load() {\n      try {\n        const j = localStorage.getItem(KEY);\n        if (j) {\n          const old = JSON.parse(j);\n          if (old.screen === "run" && old.current && byId.has(old.current)) {\n            Object.assign(S, old, { tab: "steps", note: "Carried on from where this was left (the page was reloaded)." });\n          }\n        }\n      } catch {\n      }\n    }\n    root.addEventListener("click", (e) => {\n      var _a, _b;\n      const b = e.target.closest("button");\n      if (!b) return;\n      const d = b.dataset;\n      if (d.tab) {\n        S.tab = d.tab;\n        render();\n        return;\n      }\n      if (d.input) {\n        S.answers[d.input] = S.answers[d.input] === d.value ? void 0 : d.value;\n        if (S.screen === "run") log("Detail changed", `${d.input}: ${d.value}`);\n        render();\n        return;\n      }\n      if (d.opt !== void 0) {\n        const s = byId.get(S.current), o = s.ask.options[+d.opt];\n        if (!o.target) {\n          S.note = `"${o.label}" leads to "${o.to}", which is missing from the template (see Checks).`;\n          render();\n          return;\n        }\n        return go(o.target, `${s.ask.question || s.title}: ${o.label}`);\n      }\n      if (d.rec) {\n        const r = (_a = S.records)[_b = d.rec] ?? (_a[_b] = { n: 0, last: 0 });\n        r.n++;\n        r.last = now();\n        log(d.rec);\n        render();\n        return;\n      }\n      if (d.remdone) {\n        const r = S.reminders[d.remdone];\n        if (r) {\n          log("Done", r.text);\n          if (r.once) delete S.reminders[d.remdone];\n          else {\n            r.dueAt = now() + r.ms;\n            r.alerted = false;\n          }\n        }\n        render();\n        return;\n      }\n      if (d.remstop) {\n        const r = S.reminders[d.remstop];\n        if (r) log("Reminder stopped", r.text);\n        delete S.reminders[d.remstop];\n        render();\n        return;\n      }\n      switch (d.act) {\n        case "begin":\n          try {\n            audio ?? (audio = new (window.AudioContext || window.webkitAudioContext)());\n          } catch {\n          }\n          return begin();\n        case "back":\n          return back();\n        case "next":\n          return go(nextTarget(byId.get(S.current)), "Next");\n        case "timer-go":\n          return go(byId.get(S.current).timer.target, "Timer finished");\n        case "finish":\n          return finish();\n        case "restart":\n          return restart();\n        case "copy":\n          try {\n            navigator.clipboard?.writeText(logText());\n            b.textContent = "Copied";\n          } catch {\n            b.textContent = "Could not copy";\n          }\n          return;\n      }\n    });\n    root.addEventListener("change", (e) => {\n      const el = e.target;\n      if (el.dataset.num && S.screen === "run") log("Detail changed", `${el.dataset.num}: ${el.value.trim()}`);\n      if (el.dataset.tick) {\n        S.ticks[el.dataset.tick] = el.checked;\n        const s = byId.get(S.current);\n        const l = s?.lines.filter((x) => x.kind !== "note")[+el.dataset.tick.split(":").pop()];\n        log(el.checked ? "Ticked" : "Unticked", l?.text ?? "");\n      }\n    });\n    root.addEventListener("input", (e) => {\n      const el = e.target;\n      if (el.dataset.num) {\n        S.answers[el.dataset.num] = el.value.trim();\n        const i = spec.inputs.find((x) => x.id === el.dataset.num);\n        const bad = root.querySelector(`[data-bad="${el.dataset.num}"]`);\n        if (bad) bad.textContent = numberProblem(i, el.value.trim()) ?? "";\n      }\n    });\n    load();\n    const timer = setInterval(tick, 250);\n    render();\n    return { state: S, render, stop: () => clearInterval(timer) };\n  }\n\n  // engine/app-entry.js\n  var data = JSON.parse(document.getElementById("spec").textContent);\n  window.__app = mount(document.getElementById("app"), data);\n})();\n')}<\/script></body></html>
 `;
   }
   $("#tpl").addEventListener("input", () => {

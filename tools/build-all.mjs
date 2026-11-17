@@ -9,7 +9,7 @@ import { ROOT, buildGuideline, bundle, scriptSafe, nzDate } from './build.mjs';
 const date = process.argv.includes('--date') ? process.argv[process.argv.indexOf('--date') + 1] : nzDate();
 const G = path.join(ROOT, 'guidelines'), SITE = path.join(ROOT, 'site');
 mkdirSync(path.join(SITE, 'apps'), { recursive: true });
-const readJson = (p, fallback) => (existsSync(p) ? JSON.parse(readFileSync(p, 'utf8')) : fallback);
+const readJson = (p, fallback) => { try { return existsSync(p) ? JSON.parse(readFileSync(p, 'utf8')) : fallback; } catch { console.log('Could not read ' + p); return fallback; } };
 
 // 1. Every guideline
 const rows = [];

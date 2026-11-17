@@ -8,8 +8,10 @@ Reviewed by:
 ## Steps
 
 ### start: Get ready to cool
-Say: Start this when the cooked food has dropped to 60°C. The clocks run from now.
+Say: Start this when the cooked food has dropped to 60°C. The 6-hour clock runs from now.
 Quote: "When cooling freshly cooked food it must get from:"
+Remind: after 6 hours: 6-hour limit: food not at 5°C or below now must be thrown out
+Quote: "60°C to 5°C (or below) in less than 6 hours or it must be thrown out"
 Say: Use any of these methods, or a combination:
 Quote: "Use any (or a combination) of these methods:"
 Do: Shallow containers
@@ -27,7 +29,6 @@ Say: Cool the food to room temperature or 21°C, whichever is colder, within 2 h
 Quote: "60°C to room temperature or 21°C (whichever is colder) in less than 2 hours"
 Say: The whole cool-down, from 60°C to 5°C or below, must take less than 6 hours.
 Quote: "60°C to 5°C (or below) in less than 6 hours or it must be thrown out"
-Remind: every 6 hours: 6-hour limit: food not at 5°C or below by now must be thrown out
 Timer: 2 hours -> stage-1-late
 Ask: Has the food reached room temperature or 21°C (whichever is colder)?
 - Yes -> stage-2
@@ -43,6 +44,7 @@ Ask: What has been decided?
 
 ### stage-2: Stage 2: fridge, cool to 5°C
 Do: Put the food in the fridge.
+Note: From the card's "Check" section ("refrigerate once at room temperature or 21°C"); its exact words were not available, so there is no quote.
 Say: Cool from room temperature or 21°C to 5°C or below within 4 hours.
 Quote: "then room temperature or 21°C (whichever is colder) to 5°C (or below) in less than 4 hours."
 Timer: 4 hours -> stage-2-late
@@ -53,11 +55,18 @@ Ask: Is the food at 5°C or below?
 ### stage-2-late: Not at 5°C after 4 hours
 Warning: Food that has not reached 5°C or below within 6 hours of starting must be thrown out.
 Quote: "60°C to 5°C (or below) in less than 6 hours or it must be thrown out"
-Say: Check the "6-hour limit" reminder at the top of the screen.
+Say: The "6-hour limit" bar at the top shows how long is left.
 Note: Possible contradiction: stage 2 allows 4 hours, but if stage 1 was quick the 6-hour total may not yet be up. The card does not say which limit wins.
 Ask: Has the 6-hour limit been reached?
 - Yes -> discard
-- Not yet -> stage-2
+- Not yet -> keep-cooling
+
+### keep-cooling: Keep cooling (within the 6 hours)
+Say: Keep the food cooling in the fridge. The "6-hour limit" bar at the top shows how long is left.
+Note: No new 4-hour timer here: the 4 hours already ran out, and the 6-hour limit is the one left to apply.
+Ask: Is the food at 5°C or below?
+- Yes -> cooled
+- No, and the 6-hour limit is reached -> discard
 
 ### discard: Throw the food out
 Stop: all

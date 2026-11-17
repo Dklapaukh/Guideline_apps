@@ -1,12 +1,12 @@
 {
  "summary": {
-  "steps": 7,
-  "reachable": 7,
+  "steps": 8,
+  "reachable": 8,
   "fix": 0,
   "check": 0,
-  "info": 3,
-  "quotes": 11,
-  "quotesExact": 11,
+  "info": 7,
+  "quotes": 12,
+  "quotesExact": 12,
   "numberLines": 7,
   "numberLinesQuoted": 5,
   "sourceAmounts": 6,
@@ -16,14 +16,38 @@
   {
    "level": "info",
    "step": "stage-1-late",
-   "line": 37,
-   "message": "\"The food did not reach room temperature or 21°C within 2 …\" contains a number but no quote from the guideline."
+   "line": 38,
+   "message": "2 lines in \"Stage 1 took longer than 2 hours\" have no quote from the guideline, including 1 with numbers (\"The food did not reach room temperature or 21°C within 2 …\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "stage-2",
+   "line": 46,
+   "message": "1 line in \"Stage 2: fridge, cool to 5°C\" has no quote from the guideline (\"Put the food in the fridge.\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "stage-2-late",
+   "line": 58,
+   "message": "1 line in \"Not at 5°C after 4 hours\" has no quote from the guideline (\"The \"6-hour limit\" bar at the top shows how long is left.\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "keep-cooling",
+   "line": 65,
+   "message": "1 line in \"Keep cooling (within the 6 hours)\" has no quote from the guideline (\"Keep the food cooling in the fridge. The \"6-hour limit\" b…\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "discard",
+   "line": 75,
+   "message": "1 line in \"Throw the food out\" has no quote from the guideline (\"Record what was thrown out and why.\"). Fine for app wording; an instruction should quote its source."
   },
   {
    "level": "info",
    "step": "cooled",
-   "line": 71,
-   "message": "\"The food is cooled. Keep it at 5°C or below.\" contains a number but no quote from the guideline."
+   "line": 80,
+   "message": "2 lines in \"Cooled in time\" have no quote from the guideline, including 1 with numbers (\"The food is cooled. Keep it at 5°C or below.\"). Fine for app wording; an instruction should quote its source."
   },
   {
    "level": "info",

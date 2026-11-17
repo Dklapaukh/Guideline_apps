@@ -6,9 +6,14 @@ publishes, commits and pushes. Nobody is watching: never stop to ask. If somethi
 under "Needs you" in `runs/LATEST.md` and carry on with what can be done.
 
 ## 0. Set up (about 2 minutes)
-1. Attach and clone `Dklapaukh/Guideline_apps` (push access) into `/home/claude/guideline_apps`; `npm ci`.
-2. Read `CLAUDE.md`, `docs/DESIGN.md`, `docs/LESSONS.md`, `docs/CURRICULUM.md`, `runs/LATEST.md`, `registry.json`.
-3. `npm test`. If it fails before you change anything, fixing it is tonight's first job.
+1. `add_repo` (owner `Dklapaukh`, repo `Guideline_apps`, access `push`), clone into `/home/claude/guideline_apps`
+   as its answer says, `register_repo_root`, then `npm ci`. `google-chrome` and `pdftotext` are installed.
+2. Load the page tools in one ToolSearch call (they are deferred): `select:mcp__claude-artifacts__read_comments,
+   mcp__claude-artifacts__reply_comment,mcp__claude-artifacts__get_artifact,mcp__claude-artifacts__list_files,
+   mcp__claude-artifacts__publish_files,mcp__claude-artifacts__guide`. Before the first publish, call `guide`
+   with topic `pages` once (the server requires it).
+3. Read `CLAUDE.md`, `docs/DESIGN.md`, `docs/LESSONS.md`, `docs/CURRICULUM.md`, `runs/LATEST.md`, `registry.json`.
+4. `npm test`. If it fails before you change anything, fixing it is tonight's first job.
 
 ## 1. Owner feedback first
 For every slug in `registry.json` (apps, studio, dashboard): `read_comments`. Owner comments outrank the queue.
@@ -28,7 +33,7 @@ Run 3a and then 3b in sequence; 3c only if needed; 3d always, and it must not be
 `guidelines/<nn-short-name>/`: `source.txt` (the guideline's own words only, never a summary; WebSearch result
 excerpts are word for word and can be pieced together; WebFetch output is often reworded, so use it only to
 understand, or mark the copy `web-fetch`), and `meta.json` (`id, title, domain, level, url, version, sourceCopy,
-sourceNote`, optional `testInputs` list for the explorer). If a PDF of the guideline is in `sources/`, extract it
+sourceNote`, optional `testInputs` list for the explorer). If a PDF of the guideline is in `sources/` (the owner may upload them there), extract it
 with `pdftotext -layout` instead and mark `sourceCopy: "pdf"`. Report what could not be captured.
 
 **3b. Author.** Fill `template.md` from `template/guideline-template.md` using only `source.txt` (and the
@@ -52,22 +57,25 @@ the built app in the fake browser (`tests/helpers/explore.mjs`) and try the main
 fixes what can be fixed (back to 3b, at most twice) and leaves the rest listed in review.md.
 
 ## 4. Build, test, look
-`node tools/build-all.mjs` then `npm test` (all must pass). Take a phone-size screenshot of the new app's first
-two steps with headless Chrome (`google-chrome --headless=new --no-sandbox --window-size=390,844 --screenshot=...`;
-see the set-up session's method: copy the HTML, add a script that clicks Start) and look at it. Fix anything
-ugly or unreadable.
+`node tools/build-all.mjs` then `npm test` (all must pass). Then look at the new app on a phone-size screen:
+`node tools/screenshot.mjs site/apps/<id>.html "begin,next,next"` writes `/tmp/shots/<id>-0.png` (start screen)
+and one PNG after each tap ("begin", "next", "finish", or "opt:0" for the first answer). Open each PNG with the
+Read tool and fix anything cut off, ugly or unreadable.
 
 ## 5. Publish (claude-artifacts tools)
-- Changed or new apps: `publish_files` with `files: [{as: "index.html", path: "<repo>/site/apps/<id>.html"}]`.
-  Existing app: pass its `slug` from `registry.json` and `base_version` from `get_artifact`. New app: pass
-  `title` and `icon`, then add its slug and url to `registry.json`.
+- Which pages changed: `git status --short site/`. An unchanged app keeps its old build date, so its file is
+  byte-identical and needs no republish. Republish only files that changed or are new.
+- New app: `publish_files` with `files: [{as: "index.html", path: "/home/claude/guideline_apps/site/apps/<id>.html"}]`,
+  `title` (the app title) and `icon` ("timer" or similar); add the returned slug and url to `registry.json`.
+- Existing page: `get_artifact` (live `version`), then `list_files` (the server requires it before changing a
+  page), then `publish_files` with the same `files`, `slug` and `base_version` = that version. Omit title and icon.
 - Studio (if the engine or examples changed) the same way, then rebuild and publish the dashboard last
   (it contains the links). Every page stays private to the owner; never try to share anything.
 
 ## 6. Record and save
 1. `docs/CURRICULUM.md`: mark the status (`built`, `built (needs review)`, or `skipped: reason`).
 2. `meta.json` `status`: one line for the dashboard card (e.g. "Reviewer: 2 instructions missed, fixed").
-3. `runs/<YYYY-MM-DD>.md` and `runs/LATEST.md` (rewrite LATEST): plain English, short. Built; scores
+3. `runs/<YYYY-MM-DD>.md` (today's date in New Zealand: `TZ=Pacific/Auckland date +%F`) and `runs/LATEST.md` (rewrite LATEST): plain English, short. Built; scores
    (to fix / to check / quotes confirmed / reviewer misses); building blocks added; gaps found in guidelines;
    "Needs you" (or "nothing"); what's next.
 4. Rebuild and republish the dashboard so it shows LATEST.
