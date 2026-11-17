@@ -1,0 +1,33 @@
+{
+ "summary": {
+  "steps": 7,
+  "reachable": 7,
+  "fix": 0,
+  "check": 0,
+  "info": 3,
+  "quotes": 11,
+  "quotesExact": 11,
+  "numberLines": 7,
+  "numberLinesQuoted": 5,
+  "sourceAmounts": 6,
+  "sourceAmountsUsed": 6
+ },
+ "findings": [
+  {
+   "level": "info",
+   "step": "stage-1-late",
+   "line": 37,
+   "message": "\"The food did not reach room temperature or 21°C within 2 …\" contains a number but no quote from the guideline."
+  },
+  {
+   "level": "info",
+   "step": "cooled",
+   "line": 71,
+   "message": "\"The food is cooled. Keep it at 5°C or below.\" contains a number but no quote from the guideline."
+  },
+  {
+   "level": "info",
+   "message": "Nobody is named under \"Reviewed by:\", so the app shows \"Not reviewed\"."
+  }
+ ]
+}

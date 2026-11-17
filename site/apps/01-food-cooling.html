@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#14213d">
+<title>Cooling freshly cooked food</title>
+<style>/* Phone-first, portrait, large tap targets. One stylesheet for every generated app. */
+:root { --ink:#1b1f24; --mut:#5d6670; --bg:#f4f5f7; --card:#fff; --line:#dde1e6; --go:#0b6e4f; --warn:#9a3412; --warnbg:#fff4e5; --due:#b91c1c; --author:#6b21a8; --authorbg:#f5ecff; }
+* { box-sizing: border-box; }
+html, body { margin:0; background:var(--bg); color:var(--ink); font:17px/1.45 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+#app { max-width: 560px; margin: 0 auto; min-height: 100vh; padding-bottom: 72px; }
+.bar { position: sticky; top: 0; z-index: 3; display:flex; justify-content:space-between; align-items:center; gap:8px; padding:10px 14px; background:#14213d; color:#fff; }
+.bar .t { font-weight:600; font-size:16px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.bar .clock { font-variant-numeric: tabular-nums; font-size:18px; }
+.proto { font-size:12px; color:var(--author); background:var(--authorbg); padding:4px 14px; }
+.card { background:var(--card); margin:10px; padding:14px 16px; border-radius:12px; border:1px solid var(--line); }
+h1 { font-size:22px; margin:4px 0 8px; } h2 { font-size:21px; margin:2px 0 10px; } h3 { font-size:15px; margin:16px 0 6px; color:var(--mut); text-transform:uppercase; letter-spacing:.04em; }
+p { margin: 8px 0; } p.bul::before { content:"• "; color:var(--mut); }
+.big { display:block; width:100%; min-height:52px; margin:10px 0 0; padding:12px 14px; font:inherit; font-weight:600; border-radius:10px; border:1px solid var(--line); background:#eef1f4; color:var(--ink); text-align:left; }
+.big.go { background:var(--go); color:#fff; border-color:var(--go); text-align:center; }
+.big.opt { background:#e8f0fe; border-color:#b7c9f5; }
+.big.opt.broken { border-style:dashed; border-color:var(--author); }
+.big.skip { background:transparent; text-align:center; font-weight:500; color:var(--mut); }
+.link { background:none; border:0; color:#1d4ed8; font:inherit; padding:0; }
+.crumb { display:flex; justify-content:space-between; font-size:14px; color:var(--mut); }
+.q { font-weight:600; font-size:19px; margin-top:16px; }
+.warn { background:var(--warnbg); color:var(--warn); border-left:4px solid var(--warn); padding:8px 10px; border-radius:6px; font-weight:600; }
+.author { background:var(--authorbg); color:var(--author); border-left:4px solid var(--author); padding:8px 10px; border-radius:6px; font-size:15px; }
+.do { display:flex; flex-wrap:wrap; gap:10px; align-items:flex-start; padding:10px 0; border-bottom:1px solid var(--line); }
+.do input { width:26px; height:26px; margin:0; flex:none; } .do span { flex:1; }
+.do .src, .do .dep { flex-basis:100%; margin-left:36px; }
+.dep { display:block; color:var(--author); font-size:13px; }
+details.src { font-size:14px; color:var(--mut); margin:2px 0 4px; } details.src summary { cursor:pointer; color:#1d4ed8; }
+details.src q { font-style:italic; }
+.timer { margin:14px 0; padding:12px; border-radius:10px; background:#eef6f2; text-align:center; }
+.timer .lbl { color:var(--mut); font-size:14px; }
+.big-clock { font-size:44px; font-weight:700; font-variant-numeric:tabular-nums; }
+.timer.due { background:#fde8e8; } .timer.due .big-clock { color:var(--due); }
+.reminders { position:sticky; top:44px; z-index:2; background:var(--bg); padding:6px 10px 0; }
+.rem { display:flex; align-items:center; gap:8px; background:#fff; border:1px solid var(--line); border-radius:10px; padding:6px 8px; margin-bottom:6px; }
+.rem .rt { flex:1; font-weight:600; font-size:15px; } .rem .rc { font-variant-numeric:tabular-nums; font-size:15px; }
+.rem button { font:inherit; font-size:14px; padding:8px 10px; border-radius:8px; border:1px solid var(--line); background:#eef1f4; }
+.rem.due { border-color:var(--due); background:#fde8e8; } .rem.due .rc { color:var(--due); font-weight:700; }
+.rec { padding:6px 0; } .rec small { color:var(--mut); }
+.rec-btn { background:#fff7e6; border-color:#f2c46d; }
+.lookup { border:1px solid var(--line); border-radius:10px; padding:8px 10px; margin:8px 0; }
+.lookup .lk { font-weight:600; } .lookup .lv { display:flex; justify-content:space-between; gap:10px; padding:4px 0; border-top:1px dashed var(--line); }
+table { border-collapse:collapse; width:100%; font-size:14px; } th, td { border:1px solid var(--line); padding:4px 6px; text-align:left; }
+.inputs { margin:10px 0; } .inp { display:block; margin:10px 0; font-weight:600; }
+.inp input { display:block; width:100%; font:inherit; padding:10px; border-radius:8px; border:1px solid var(--line); margin-top:4px; }
+.inp small { font-weight:400; color:var(--mut); } .inp .bad { color:var(--due); font-weight:400; font-size:14px; }
+.choices { display:flex; flex-wrap:wrap; gap:6px; margin-top:4px; }
+.choices button { font:inherit; padding:10px 12px; border-radius:8px; border:1px solid var(--line); background:#eef1f4; }
+.choices button.on { background:#14213d; color:#fff; }
+.log { padding-left:0; list-style:none; } .log li { padding:6px 0; border-bottom:1px solid var(--line); } .log time { display:inline-block; min-width:56px; font-variant-numeric:tabular-nums; color:var(--mut); }
+.findings { padding-left:18px; } .findings li { margin:8px 0; font-size:15px; }
+.lvl-fix { color:var(--due); } .lvl-check { color:var(--warn); } .lvl-info { color:var(--mut); }
+.tabs { position:fixed; bottom:0; left:0; right:0; display:flex; background:#fff; border-top:1px solid var(--line); max-width:560px; margin:0 auto; }
+.tabs button { flex:1; font:inherit; font-size:15px; padding:14px 4px; background:none; border:0; color:var(--mut); }
+.tabs button.on { color:#14213d; font-weight:700; box-shadow: inset 0 3px 0 #14213d; }
+</style></head>
+<body><div id="app"></div>
+<script type="application/json" id="spec">{"spec":{"title":"Cooling freshly cooked food","about":"Times the two cooling stages for a batch of freshly cooked food and says what to do at each limit.","sources":[{"name":"MPI Yellow Card S39-00002, Cooling freshly cooked food","link":"https://www.mpi.govt.nz/dmsdocument/16660/direct"}],"warning":"","audience":"Food business staff using an MPI food control plan","reviewedBy":"","version":"","inputs":[],"tables":[],"steps":[{"id":"start","title":"Get ready to cool","lines":[{"kind":"say","text":"Start this when the cooked food has dropped to 60°C. The clocks run from now.","line":11,"quotes":[{"text":"When cooling freshly cooked food it must get from:","where":"","check":"exact"}]},{"kind":"say","text":"Use any of these methods, or a combination:","line":13,"quotes":[{"text":"Use any (or a combination) of these methods:","where":"","check":"exact"}]},{"kind":"do","text":"Shallow containers","line":15,"quotes":[{"text":"placing your food into shallow containers","where":"","check":"exact"}]},{"kind":"do","text":"Ice bath","line":17,"quotes":[{"text":"using an ice bath","where":"","check":"exact"}]},{"kind":"do","text":"Smaller portions","line":19,"quotes":[{"text":"separating your food into smaller portions","where":"","check":"exact"}]},{"kind":"do","text":"Blast chiller","line":21,"quotes":[{"text":"placing your food in a blast chiller","where":"","check":"exact"}]}],"ask":null,"next":{"to":"stage-1","line":23,"target":"stage-1"},"timer":null,"reminders":[],"stop":null,"end":false,"line":10,"nexts":[{"to":"stage-1","line":23,"target":"stage-1"}]},{"id":"stage-1","title":"Stage 1: cool to 21°C or room temperature","lines":[{"kind":"say","text":"Cool the food to room temperature or 21°C, whichever is colder, within 2 hours.","line":26,"quotes":[{"text":"60°C to room temperature or 21°C (whichever is colder) in less than 2 hours","where":"","check":"exact"}]},{"kind":"say","text":"The whole cool-down, from 60°C to 5°C or below, must take less than 6 hours.","line":28,"quotes":[{"text":"60°C to 5°C (or below) in less than 6 hours or it must be thrown out","where":"","check":"exact"}]}],"ask":{"question":"Has the food reached room temperature or 21°C (whichever is colder)?","options":[{"label":"Yes","to":"stage-2","line":33,"target":"stage-2"},{"label":"No, 2 hours are up","to":"stage-1-late","line":34,"target":"stage-1-late"}],"line":32},"next":null,"timer":{"ms":7200000,"label":"2 hours","to":"stage-1-late","line":31,"target":"stage-1-late"},"reminders":[{"ms":21600000,"every":"6 hours","text":"6-hour limit: food not at 5°C or below by now must be thrown out","id":"6-hour-limit-food-not-at-5-c-or-below-by","line":30}],"stop":null,"end":false,"line":25},{"id":"stage-1-late","title":"Stage 1 took longer than 2 hours","lines":[{"kind":"warning","text":"The food did not reach room temperature or 21°C within 2 hours.","line":37},{"kind":"say","text":"The card does not say what to do in this case. Follow your food control plan or ask your supervisor.","line":38},{"kind":"note","text":"Gap in the guideline: the card states the 2-hour limit but gives no action if it is missed (only the 6-hour \"thrown out\" rule).","line":39}],"ask":{"question":"What has been decided?","options":[{"label":"Keep cooling","to":"stage-2","line":41,"target":"stage-2"},{"label":"Throw it out","to":"discard","line":42,"target":"discard"}],"line":40},"next":null,"timer":null,"reminders":[],"stop":null,"end":false,"line":36},{"id":"stage-2","title":"Stage 2: fridge, cool to 5°C","lines":[{"kind":"do","text":"Put the food in the fridge.","line":45},{"kind":"say","text":"Cool from room temperature or 21°C to 5°C or below within 4 hours.","line":46,"quotes":[{"text":"then room temperature or 21°C (whichever is colder) to 5°C (or below) in less than 4 hours.","where":"","check":"exact"}]}],"ask":{"question":"Is the food at 5°C or below?","options":[{"label":"Yes","to":"cooled","line":50,"target":"cooled"},{"label":"No, 4 hours are up","to":"stage-2-late","line":51,"target":"stage-2-late"}],"line":49},"next":null,"timer":{"ms":14400000,"label":"4 hours","to":"stage-2-late","line":48,"target":"stage-2-late"},"reminders":[],"stop":null,"end":false,"line":44},{"id":"stage-2-late","title":"Not at 5°C after 4 hours","lines":[{"kind":"warning","text":"Food that has not reached 5°C or below within 6 hours of starting must be thrown out.","line":54,"quotes":[{"text":"60°C to 5°C (or below) in less than 6 hours or it must be thrown out","where":"","check":"exact"}]},{"kind":"say","text":"Check the \"6-hour limit\" reminder at the top of the screen.","line":56},{"kind":"note","text":"Possible contradiction: stage 2 allows 4 hours, but if stage 1 was quick the 6-hour total may not yet be up. The card does not say which limit wins.","line":57}],"ask":{"question":"Has the 6-hour limit been reached?","options":[{"label":"Yes","to":"discard","line":59,"target":"discard"},{"label":"Not yet","to":"stage-2","line":60,"target":"stage-2"}],"line":58},"next":null,"timer":null,"reminders":[],"stop":null,"end":false,"line":53},{"id":"discard","title":"Throw the food out","lines":[{"kind":"warning","text":"Throw the food out.","line":64,"quotes":[{"text":"60°C to 5°C (or below) in less than 6 hours or it must be thrown out","where":"","check":"exact"}]},{"kind":"do","text":"Record what was thrown out and why.","line":66}],"ask":null,"next":null,"timer":null,"reminders":[],"stop":"all","end":true,"line":62},{"id":"cooled","title":"Cooled in time","lines":[{"kind":"say","text":"The food is cooled. Keep it at 5°C or below.","line":71},{"kind":"do","text":"Record the food, the date it was cooked and how long it took to cool. (The Log tab has the times.)","line":72}],"ask":null,"next":null,"timer":null,"reminders":[],"stop":"all","end":true,"line":69}],"start":"start"},"findings":[{"level":"info","step":"stage-1-late","line":37,"message":"\"The food did not reach room temperature or 21°C within 2 …\" contains a number but no quote from the guideline."},{"level":"info","step":"cooled","line":71,"message":"\"The food is cooled. Keep it at 5°C or below.\" contains a number but no quote from the guideline."},{"level":"info","message":"Nobody is named under \"Reviewed by:\", so the app shows \"Not reviewed\"."}],"summary":{"steps":7,"reachable":7,"fix":0,"check":0,"info":3,"quotes":11,"quotesExact":11,"numberLines":7,"numberLinesQuoted":5,"sourceAmounts":6,"sourceAmountsUsed":6},"built":"2026-11-18"}</script>
+<script>(() => {
+  // engine/util.js
+  var slug = (text) => String(text).toLowerCase().normalize("NFKD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "") || "step";
+  function formatDuration(ms) {
+    const s = Math.max(0, Math.round(ms / 1e3));
+    const h = Math.floor(s / 3600), m = Math.floor(s % 3600 / 60), r = s % 60;
+    if (h) return `${h} h ${String(m).padStart(2, "0")} min`;
+    if (m) return r ? `${m} min ${r} s` : `${m} min`;
+    return `${r} s`;
+  }
+  function clock(ms) {
+    const s = Math.max(0, Math.ceil(ms / 1e3));
+    const h = Math.floor(s / 3600), m = Math.floor(s % 3600 / 60), r = s % 60;
+    return (h ? `${h}:${String(m).padStart(2, "0")}` : `${m}`) + ":" + String(r).padStart(2, "0");
+  }
+  function testCondition(cond, answers, inputs) {
+    if (!cond) return true;
+    let unknown = false;
+    for (const c of cond) {
+      const input = findByName(inputs, c.input, (i) => [i.id, i.label]);
+      const value = input ? answers[input.id] : answers[slug(c.input)];
+      if (value === void 0 || value === null || value === "") {
+        unknown = true;
+        continue;
+      }
+      const ok = compare(value, c.op, c.values);
+      if (!ok) return false;
+    }
+    return unknown ? null : true;
+  }
+  function compare(value, op, values) {
+    if (op === "=" || op === "!=") {
+      const hit = values.some((v) => String(v).toLowerCase() === String(value).toLowerCase());
+      return op === "=" ? hit : !hit;
+    }
+    const a = Number(value), b = parseFloat(values[0]);
+    return op === "<" ? a < b : op === "<=" ? a <= b : op === ">" ? a > b : a >= b;
+  }
+  function findByName(list, name, namesOf) {
+    const want = slug(name);
+    return list.find((x) => namesOf(x).some((n) => slug(n) === want)) ?? null;
+  }
+  function keyMatches(key, value) {
+    if (value === void 0 || value === null || value === "") return false;
+    if (key.kind === "value") return String(value).toLowerCase() === key.value.toLowerCase();
+    const v = Number(value);
+    if (Number.isNaN(v)) return false;
+    if (key.kind === "number") return v === key.value;
+    return (key.lowIn ? v >= key.low : v > key.low) && (key.highIn ? v <= key.high : v < key.high);
+  }
+
+  // engine/quotes.js
+  var UNIT = "(?:mg|mcg|micrograms?|g|kg|ml|mL|l|L|litres?|liters?|mmol|J|joules?|%|\xB0C|degrees|seconds?|secs?|s|minutes?|mins?|hours?|hrs?|h|days?|weeks?|times|cm|mm|m|metres?|meters?|km|breaths|compressions)";
+  var AMOUNT = new RegExp("(\\d+(?:\\.\\d+)?)(?:\\s?(?:-|to|\u2013)\\s?(\\d+(?:\\.\\d+)?))?\\s?(" + UNIT + ")(?![\\p{L}])", "giu");
+
+  // engine/check.js
+  var END = "__end";
+
+  // engine/runtime.js
+  function mount(root, { spec, findings = [], summary = {}, built = "" }) {
+    const S = {
+      screen: "start",
+      tab: "steps",
+      answers: {},
+      current: null,
+      history: [],
+      ticks: {},
+      log: [],
+      startedAt: null,
+      enteredAt: null,
+      timerDone: false,
+      reminders: {},
+      records: {},
+      note: ""
+    };
+    const byId = new Map(spec.steps.map((s) => [s.id, s]));
+    const esc = (t) => String(t ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
+    const now = () => Date.now();
+    const log = (what, detail = "") => S.log.push({ at: now(), what, detail });
+    const counts = { fix: findings.filter((f) => f.level === "fix").length, check: findings.filter((f) => f.level === "check").length };
+    function begin() {
+      S.startedAt = now();
+      S.screen = "run";
+      log("Started");
+      const inputsGiven = spec.inputs.filter((i) => S.answers[i.id] !== void 0 && S.answers[i.id] !== "");
+      if (inputsGiven.length) log("Details", inputsGiven.map((i) => `${i.label}: ${S.answers[i.id]}${i.unit ? " " + i.unit : ""}`).join(", "));
+      go(spec.start, null);
+    }
+    function go(target, why) {
+      if (target === END) return finish(why);
+      const step = byId.get(target);
+      if (!step) {
+        S.note = "This leads to a step that is missing from the template (see Checks). Choose another option or go back.";
+        render();
+        return;
+      }
+      if (S.current) S.history.push(S.current);
+      S.current = step.id;
+      S.enteredAt = now();
+      S.timerDone = false;
+      S.note = "";
+      log(step.title, why ?? "");
+      if (step.stop) {
+        for (const id of Object.keys(S.reminders)) if (step.stop === "all" || slug(step.stop) === id || S.reminders[id].text.toLowerCase().includes(step.stop.toLowerCase())) {
+          log("Reminder stopped", S.reminders[id].text);
+          delete S.reminders[id];
+        }
+      }
+      for (const r of step.reminders) if (!S.reminders[r.id]) {
+        S.reminders[r.id] = { text: r.text, ms: r.ms, every: r.every, dueAt: now() + r.ms, alerted: false };
+        log("Reminder started", `${r.text} (every ${r.every})`);
+      }
+      if (step.end) {
+        render();
+        return;
+      }
+      render();
+    }
+    function back() {
+      const prev = S.history.pop();
+      if (!prev) return;
+      S.current = prev;
+      S.enteredAt = now();
+      S.timerDone = false;
+      S.note = "";
+      log("Went back to", byId.get(prev).title);
+      render();
+    }
+    function finish(why) {
+      S.screen = "done";
+      log("Finished", why ?? "");
+      render();
+    }
+    function restart() {
+      Object.assign(S, { screen: "start", tab: "steps", current: null, history: [], ticks: {}, log: [], startedAt: null, reminders: {}, records: {}, note: "" });
+      render();
+    }
+    function render() {
+      root.innerHTML = `
+      <header class="bar"><div class="t">${esc(spec.title)}</div><div class="clock" data-clock="elapsed">${S.startedAt ? clock(now() - S.startedAt) : ""}</div></header>
+      <div class="proto">Prototype built automatically from a guideline. ${spec.reviewedBy ? "Reviewed by " + esc(spec.reviewedBy) + "." : "Not reviewed."} Not for real-world use.</div>
+      ${reminderBar()}
+      <main id="main">${S.tab === "steps" ? S.screen === "start" ? startView() : S.screen === "done" ? doneView() : stepView() : S.tab === "log" ? logView() : S.tab === "checks" ? checksView() : aboutView()}</main>
+      <nav class="tabs">${["steps", "log", "checks", "about"].map((t) => `<button data-tab="${t}" class="${S.tab === t ? "on" : ""}">${{ steps: "Steps", log: "Log", checks: `Checks${counts.fix + counts.check ? ` (${counts.fix + counts.check})` : ""}`, about: "About" }[t]}</button>`).join("")}</nav>`;
+      tick();
+    }
+    function startView() {
+      return `<section class="card">
+      <h1>${esc(spec.title)}</h1>
+      ${spec.about ? `<p>${esc(spec.about)}</p>` : ""}
+      ${spec.warning ? `<p class="warn">${esc(spec.warning)}</p>` : ""}
+      ${counts.fix ? `<p class="author">The template has ${counts.fix} problem${counts.fix > 1 ? "s" : ""} the author needs to fix (see Checks). The app still runs.</p>` : ""}
+      ${inputsForm()}
+      <button class="big go" data-act="begin">Start</button></section>`;
+    }
+    function inputsForm() {
+      if (!spec.inputs.length) return "";
+      return `<div class="inputs">${spec.inputs.map((i) => `<label class="inp">${esc(i.label)}${i.unit ? ` (${esc(i.unit)})` : ""}${i.optional ? " <small>optional</small>" : ""}
+      ${i.type === "choice" ? `<span class="choices">${i.options.map((o) => `<button data-input="${i.id}" data-value="${esc(o)}" class="${S.answers[i.id] === o ? "on" : ""}">${esc(o)}</button>`).join("")}</span>` : `<input inputmode="decimal" data-num="${i.id}" value="${esc(S.answers[i.id] ?? "")}" placeholder="${i.min != null ? `${i.min}\u2013${i.max}` : ""}">`}
+      <span class="bad" data-bad="${i.id}">${esc(numberProblem(i, S.answers[i.id]) ?? "")}</span></label>`).join("")}</div>`;
+    }
+    function numberProblem(i, v) {
+      if (i.type !== "number" || v === void 0 || v === "") return null;
+      const x = Number(v);
+      if (Number.isNaN(x)) return "Not a number";
+      if (i.min != null && x < i.min || i.max != null && x > i.max) return `Outside ${i.min}\u2013${i.max}`;
+      return null;
+    }
+    function stepView() {
+      const s = byId.get(S.current);
+      const lines = s.lines.filter((l) => l.kind !== "note").map(lineView).join("");
+      const opts = (s.ask?.options ?? []).map((o, k) => {
+        const shown = testCondition(o.cond, S.answers, spec.inputs);
+        if (shown === false) return "";
+        return `<button class="big opt${o.target ? "" : " broken"}" data-opt="${k}">${esc(o.label)}${shown === null ? " <small>(depends on details)</small>" : ""}</button>`;
+      }).join("");
+      const next = nextTarget(s);
+      const final = s.end || !opts && !next && !s.timer?.target;
+      return `<section class="card step">
+      <div class="crumb">${S.history.length ? `<button class="link" data-act="back">\u2039 Back</button>` : ""}<span>Step ${S.history.length + 1}</span></div>
+      <h2>${esc(s.title)}</h2>
+      ${lines}
+      ${s.timer ? `<div class="timer ${S.timerDone ? "due" : ""}"><div class="lbl">${esc(s.timer.label)}</div><div class="big-clock" data-clock="timer">${clock(s.timer.ms)}</div>
+         ${S.timerDone && s.timer.target ? `<button class="big go" data-act="timer-go">Time's up: continue</button>` : ""}
+         ${s.timer.to && !s.timer.target ? `<p class="author">The timer leads to "${esc(s.timer.to)}", which is missing.</p>` : ""}</div>` : ""}
+      ${s.ask ? `<p class="q">${esc(s.ask.question)}</p><div class="opts">${opts || '<p class="author">No answer applies with the details entered (see Checks).</p>'}</div>` : ""}
+      ${S.note ? `<p class="author">${esc(S.note)}</p>` : ""}
+      ${next ? `<button class="big ${s.ask ? "skip" : "go"}" data-act="next">${s.ask ? "Skip" : "Next"}: ${esc(byId.get(next)?.title ?? "Finish")}</button>` : ""}
+      ${final ? `<button class="big go" data-act="finish">Finish</button>` : ""}
+    </section>`;
+    }
+    function nextTarget(s) {
+      for (const n of s.nexts ?? []) if (testCondition(n.cond, S.answers, spec.inputs) !== false && n.target) return n.target;
+      return null;
+    }
+    function lineView(l, k) {
+      const shown = testCondition(l.cond, S.answers, spec.inputs);
+      if (shown === false) return "";
+      const dep = shown === null ? `<small class="dep">Depends on: ${esc(l.cond.map((c) => c.input).join(", "))}</small>` : "";
+      const q = l.quotes?.length ? `<details class="src"><summary>Guideline</summary>${l.quotes.map((x) => `<q>${esc(x.text)}</q>${x.where ? ` <small>${esc(x.where)}</small>` : ""}${x.check && x.check !== "exact" ? ' <small class="dep">quote not confirmed</small>' : ""}`).join("<br>")}</details>` : "";
+      const key = `${S.current}:${k}`;
+      if (l.kind === "do") return `<label class="do"><input type="checkbox" data-tick="${key}" ${S.ticks[key] ? "checked" : ""}> <span>${esc(l.text)}</span>${dep}${q}</label>`;
+      if (l.kind === "warning") return `<p class="warn">${esc(l.text)}${dep}${q}</p>`;
+      if (l.kind === "record") {
+        const r = S.records[l.text];
+        return `<div class="rec"><button class="big rec-btn" data-rec="${esc(l.text)}">${esc(l.text)}</button><small data-clock="rec" data-rec-name="${esc(l.text)}">${r ? `${r.n}\xD7 \xB7 last ${formatDuration(now() - r.last)} ago` : "not yet"}</small>${dep}${q}</div>`;
+      }
+      if (l.kind === "show") return `<div class="show">${showTable(l)}${dep}${q}</div>`;
+      return `<p class="${l.bullet ? "bul" : ""}">${esc(l.text)}${dep}${q}</p>`;
+    }
+    function showTable(l) {
+      const t = spec.tables.find((x) => x.id === l.tableId);
+      if (!t) return `<p class="author">"${esc(l.table)}" table is missing from the template.</p>`;
+      const cols = l.column ? t.columns.filter((c) => slug(c) === slug(l.column)) : t.columns.slice(1);
+      if (!t.keyInput) return `<table><tr>${t.columns.map((c) => `<th>${esc(c)}</th>`).join("")}</tr>${t.rows.map((r) => `<tr>${t.columns.map((c) => `<td>${cell(r.cells[c])}</td>`).join("")}</tr>`).join("")}</table>`;
+      const inp = spec.inputs.find((i) => i.id === t.keyInput);
+      const v = S.answers[inp.id];
+      if (v === void 0 || v === "") return `<p><b>${esc(t.title)}:</b> enter ${esc(inp.label)} to see this. <button class="link" data-tab="about">Enter details</button></p>`;
+      const row = t.rows.find((r) => keyMatches(r.match, v));
+      if (!row) return `<p class="author"><b>${esc(t.title)}:</b> the table has no row for ${esc(inp.label)} ${esc(v)}${inp.unit ? " " + esc(inp.unit) : ""}.</p>`;
+      return `<div class="lookup"><div class="lk">${esc(t.title)} <small>(${esc(row.key)})</small></div>${cols.map((c) => `<div class="lv"><span>${esc(c)}</span><b>${cell(row.cells[c])}</b></div>`).join("")}</div>`;
+    }
+    const cell = (v) => /^\s*(-|–|—|n\/?a)?\s*$/i.test(v ?? "") ? "<i>Not stated in the guideline</i>" : esc(v);
+    function reminderBar() {
+      const list = Object.entries(S.reminders);
+      if (!list.length) return "";
+      return `<div class="reminders">${list.map(([id, r]) => `<div class="rem" data-rem="${id}"><span class="rt">${esc(r.text)}</span><span class="rc" data-clock="rem" data-rem-id="${id}"></span><button data-remdone="${id}">Done</button><button class="x" data-remstop="${id}" title="Stop">\u2715</button></div>`).join("")}</div>`;
+    }
+    function doneView() {
+      return `<section class="card"><h2>Finished</h2><p>Total time ${clock((S.log.at(-1)?.at ?? now()) - (S.startedAt ?? now()))}.</p>${logList()}<button class="big" data-act="copy">Copy log</button><button class="big go" data-act="restart">Start again</button></section>`;
+    }
+    function logView() {
+      return `<section class="card"><h2>Log</h2>${S.log.length ? logList() + '<button class="big" data-act="copy">Copy log</button>' : "<p>Nothing yet.</p>"}</section>`;
+    }
+    function logList() {
+      return `<ol class="log">${S.log.map((e) => `<li><time>${S.startedAt ? clock(e.at - S.startedAt) : ""}</time> ${esc(e.what)}${e.detail ? ` <small>${esc(e.detail)}</small>` : ""}</li>`).join("")}</ol>`;
+    }
+    function logText() {
+      return S.log.map((e) => `${S.startedAt ? clock(e.at - S.startedAt) : ""}  ${e.what}${e.detail ? " - " + e.detail : ""}`).join("\n");
+    }
+    function checksView() {
+      const order = ["fix", "check", "info"];
+      const name = { fix: "Needs fixing", check: "Please check", info: "For information" };
+      const stepTitle = (id) => byId.get(id)?.title ?? id;
+      return `<section class="card"><h2>Author checks</h2><p>Found automatically by comparing the template with itself and with the guideline text. Fix them in the template; the app keeps running meanwhile.</p>
+      ${order.map((lvl) => {
+        const fs = findings.filter((f) => f.level === lvl);
+        return fs.length ? `<h3 class="lvl-${lvl}">${name[lvl]} (${fs.length})</h3><ul class="findings">${fs.map((f) => `<li class="lvl-${lvl}">${f.step ? `<b>${esc(stepTitle(f.step))}</b> \xB7 ` : ""}${f.line ? `<small>line ${f.line}</small> ` : ""}${esc(f.message)}${f.suggestion ? `<br><i>${esc(f.suggestion)}</i>` : ""}</li>`).join("")}</ul>` : "";
+      }).join("") || "<p>No findings.</p>"}
+    </section>`;
+    }
+    function aboutView() {
+      return `<section class="card"><h2>About</h2>${spec.about ? `<p>${esc(spec.about)}</p>` : ""}
+      ${spec.inputs.length ? `<h3>Details</h3>${inputsForm()}` : ""}
+      <h3>Source</h3><ul>${spec.sources.map((s) => `<li>${esc(s.name)}${s.link ? ` <a href="${esc(s.link)}" target="_blank" rel="noopener">link</a>` : ""}</li>`).join("") || "<li>Not stated</li>"}</ul>
+      <p><small>${spec.version ? "Guideline version: " + esc(spec.version) + " \xB7 " : ""}${built ? "Built " + esc(built) + " \xB7 " : ""}${summary.quotes != null ? `${summary.quotesExact}/${summary.quotes} quotes confirmed` : ""}</small></p>
+      ${S.screen !== "start" ? '<button class="big" data-act="restart">Start again</button>' : ""}</section>`;
+    }
+    function tick() {
+      const t = now();
+      const s = S.current && byId.get(S.current);
+      for (const el of root.querySelectorAll("[data-clock]")) {
+        const kind = el.dataset.clock;
+        if (kind === "elapsed" && S.startedAt) el.textContent = clock(t - S.startedAt);
+        if (kind === "timer" && s?.timer) {
+          const left = s.timer.ms - (t - S.enteredAt);
+          el.textContent = clock(left);
+          if (left <= 0 && !S.timerDone) {
+            S.timerDone = true;
+            log("Timer finished", `${s.title}: ${s.timer.label}`);
+            buzz();
+            render();
+            return;
+          }
+        }
+        if (kind === "rem") {
+          const r = S.reminders[el.dataset.remId];
+          if (!r) continue;
+          const left = r.dueAt - t;
+          el.textContent = left > 0 ? clock(left) : `DUE ${clock(-left)} ago`;
+          el.parentElement.classList.toggle("due", left <= 0);
+          if (left <= 0 && !r.alerted) {
+            r.alerted = true;
+            log("Reminder due", r.text);
+            buzz();
+          }
+        }
+        if (kind === "rec") {
+          const r = S.records[el.dataset.recName];
+          if (r) el.textContent = `${r.n}\xD7 \xB7 last ${formatDuration(t - r.last)} ago`;
+        }
+      }
+    }
+    const buzz = () => {
+      try {
+        navigator.vibrate?.([200, 100, 200]);
+      } catch {
+      }
+    };
+    root.addEventListener("click", (e) => {
+      var _a, _b;
+      const b = e.target.closest("button");
+      if (!b) return;
+      const d = b.dataset;
+      if (d.tab) {
+        S.tab = d.tab;
+        render();
+        return;
+      }
+      if (d.input) {
+        S.answers[d.input] = S.answers[d.input] === d.value ? void 0 : d.value;
+        if (S.screen === "run") log("Detail changed", `${d.input}: ${d.value}`);
+        render();
+        return;
+      }
+      if (d.opt !== void 0) {
+        const s = byId.get(S.current), o = s.ask.options[+d.opt];
+        if (!o.target) {
+          S.note = `"${o.label}" leads to "${o.to}", which is missing from the template (see Checks).`;
+          render();
+          return;
+        }
+        return go(o.target, `${s.ask.question || s.title}: ${o.label}`);
+      }
+      if (d.rec) {
+        const r = (_a = S.records)[_b = d.rec] ?? (_a[_b] = { n: 0, last: 0 });
+        r.n++;
+        r.last = now();
+        log(d.rec);
+        render();
+        return;
+      }
+      if (d.remdone) {
+        const r = S.reminders[d.remdone];
+        if (r) {
+          log("Done", r.text);
+          r.dueAt = now() + r.ms;
+          r.alerted = false;
+        }
+        render();
+        return;
+      }
+      if (d.remstop) {
+        const r = S.reminders[d.remstop];
+        if (r) log("Reminder stopped", r.text);
+        delete S.reminders[d.remstop];
+        render();
+        return;
+      }
+      switch (d.act) {
+        case "begin":
+          return begin();
+        case "back":
+          return back();
+        case "next":
+          return go(nextTarget(byId.get(S.current)), "Next");
+        case "timer-go":
+          return go(byId.get(S.current).timer.target, "Timer finished");
+        case "finish":
+          return finish();
+        case "restart":
+          return restart();
+        case "copy":
+          try {
+            navigator.clipboard?.writeText(logText());
+            b.textContent = "Copied";
+          } catch {
+            b.textContent = "Could not copy";
+          }
+          return;
+      }
+    });
+    root.addEventListener("change", (e) => {
+      const el = e.target;
+      if (el.dataset.num && S.screen === "run") log("Detail changed", `${el.dataset.num}: ${el.value.trim()}`);
+      if (el.dataset.tick) {
+        S.ticks[el.dataset.tick] = el.checked;
+        const s = byId.get(S.current);
+        const l = s?.lines.filter((x) => x.kind !== "note")[+el.dataset.tick.split(":").pop()];
+        log(el.checked ? "Ticked" : "Unticked", l?.text ?? "");
+      }
+    });
+    root.addEventListener("input", (e) => {
+      const el = e.target;
+      if (el.dataset.num) {
+        S.answers[el.dataset.num] = el.value.trim();
+        const i = spec.inputs.find((x) => x.id === el.dataset.num);
+        const bad = root.querySelector(`[data-bad="${el.dataset.num}"]`);
+        if (bad) bad.textContent = numberProblem(i, el.value.trim()) ?? "";
+      }
+    });
+    const timer = setInterval(tick, 250);
+    render();
+    return { state: S, render, stop: () => clearInterval(timer) };
+  }
+
+  // engine/app-entry.js
+  var data = JSON.parse(document.getElementById("spec").textContent);
+  window.__app = mount(document.getElementById("app"), data);
+})();
+</script>
+</body></html>

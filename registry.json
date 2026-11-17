@@ -1,0 +1,17 @@
+{
+ "about": "Links to the published pages (claude.ai artifacts). Each nightly run republishes these slugs (get_artifact for the live version first); new apps are added here.",
+ "studio": {
+  "slug": "ef92ec1d-8385-43d8-bbf0-1c678bb0874e",
+  "url": "https://claude.ai/artifact/WarG1PpPsgbDmY6ptrk4qT"
+ },
+ "dashboard": {
+  "slug": "0a20afb4-51da-49d1-8a95-3e676b21efdc",
+  "url": "https://claude.ai/artifact/2FY3sMrXGk4dvHhbBj4yAT"
+ },
+ "apps": {
+  "01-food-cooling": {
+   "slug": "f2122183-989e-4685-9024-be6e1c1e28b6",
+   "url": "https://claude.ai/artifact/WtjUgJSGkSVNyeBuhfLt6H"
+  }
+ }
+}

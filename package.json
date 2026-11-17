@@ -1,0 +1,14 @@
+{
+  "name": "guideline-apps",
+  "private": true,
+  "type": "module",
+  "description": "Turns a guideline (via a fill-in template) into a simple phone app. Prototype builder.",
+  "scripts": {
+    "test": "node --test \"tests/*.test.mjs\"",
+    "build": "node tools/build-all.mjs"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.2",
+    "jsdom": "^31.0.1"
+  }
+}

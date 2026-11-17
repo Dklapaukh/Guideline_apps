@@ -1,0 +1,386 @@
+{
+ "title": "Cooling freshly cooked food",
+ "about": "Times the two cooling stages for a batch of freshly cooked food and says what to do at each limit.",
+ "sources": [
+  {
+   "name": "MPI Yellow Card S39-00002, Cooling freshly cooked food",
+   "link": "https://www.mpi.govt.nz/dmsdocument/16660/direct"
+  }
+ ],
+ "warning": "",
+ "audience": "Food business staff using an MPI food control plan",
+ "reviewedBy": "",
+ "version": "",
+ "inputs": [],
+ "tables": [],
+ "steps": [
+  {
+   "id": "start",
+   "title": "Get ready to cool",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "Start this when the cooked food has dropped to 60°C. The clocks run from now.",
+     "line": 11,
+     "quotes": [
+      {
+       "text": "When cooling freshly cooked food it must get from:",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Use any of these methods, or a combination:",
+     "line": 13,
+     "quotes": [
+      {
+       "text": "Use any (or a combination) of these methods:",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Shallow containers",
+     "line": 15,
+     "quotes": [
+      {
+       "text": "placing your food into shallow containers",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Ice bath",
+     "line": 17,
+     "quotes": [
+      {
+       "text": "using an ice bath",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Smaller portions",
+     "line": 19,
+     "quotes": [
+      {
+       "text": "separating your food into smaller portions",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Blast chiller",
+     "line": 21,
+     "quotes": [
+      {
+       "text": "placing your food in a blast chiller",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": null,
+   "next": {
+    "to": "stage-1",
+    "line": 23,
+    "target": "stage-1"
+   },
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 10,
+   "nexts": [
+    {
+     "to": "stage-1",
+     "line": 23,
+     "target": "stage-1"
+    }
+   ]
+  },
+  {
+   "id": "stage-1",
+   "title": "Stage 1: cool to 21°C or room temperature",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "Cool the food to room temperature or 21°C, whichever is colder, within 2 hours.",
+     "line": 26,
+     "quotes": [
+      {
+       "text": "60°C to room temperature or 21°C (whichever is colder) in less than 2 hours",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "The whole cool-down, from 60°C to 5°C or below, must take less than 6 hours.",
+     "line": 28,
+     "quotes": [
+      {
+       "text": "60°C to 5°C (or below) in less than 6 hours or it must be thrown out",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "Has the food reached room temperature or 21°C (whichever is colder)?",
+    "options": [
+     {
+      "label": "Yes",
+      "to": "stage-2",
+      "line": 33,
+      "target": "stage-2"
+     },
+     {
+      "label": "No, 2 hours are up",
+      "to": "stage-1-late",
+      "line": 34,
+      "target": "stage-1-late"
+     }
+    ],
+    "line": 32
+   },
+   "next": null,
+   "timer": {
+    "ms": 7200000,
+    "label": "2 hours",
+    "to": "stage-1-late",
+    "line": 31,
+    "target": "stage-1-late"
+   },
+   "reminders": [
+    {
+     "ms": 21600000,
+     "every": "6 hours",
+     "text": "6-hour limit: food not at 5°C or below by now must be thrown out",
+     "id": "6-hour-limit-food-not-at-5-c-or-below-by",
+     "line": 30
+    }
+   ],
+   "stop": null,
+   "end": false,
+   "line": 25
+  },
+  {
+   "id": "stage-1-late",
+   "title": "Stage 1 took longer than 2 hours",
+   "lines": [
+    {
+     "kind": "warning",
+     "text": "The food did not reach room temperature or 21°C within 2 hours.",
+     "line": 37
+    },
+    {
+     "kind": "say",
+     "text": "The card does not say what to do in this case. Follow your food control plan or ask your supervisor.",
+     "line": 38
+    },
+    {
+     "kind": "note",
+     "text": "Gap in the guideline: the card states the 2-hour limit but gives no action if it is missed (only the 6-hour \"thrown out\" rule).",
+     "line": 39
+    }
+   ],
+   "ask": {
+    "question": "What has been decided?",
+    "options": [
+     {
+      "label": "Keep cooling",
+      "to": "stage-2",
+      "line": 41,
+      "target": "stage-2"
+     },
+     {
+      "label": "Throw it out",
+      "to": "discard",
+      "line": 42,
+      "target": "discard"
+     }
+    ],
+    "line": 40
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 36
+  },
+  {
+   "id": "stage-2",
+   "title": "Stage 2: fridge, cool to 5°C",
+   "lines": [
+    {
+     "kind": "do",
+     "text": "Put the food in the fridge.",
+     "line": 45
+    },
+    {
+     "kind": "say",
+     "text": "Cool from room temperature or 21°C to 5°C or below within 4 hours.",
+     "line": 46,
+     "quotes": [
+      {
+       "text": "then room temperature or 21°C (whichever is colder) to 5°C (or below) in less than 4 hours.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "Is the food at 5°C or below?",
+    "options": [
+     {
+      "label": "Yes",
+      "to": "cooled",
+      "line": 50,
+      "target": "cooled"
+     },
+     {
+      "label": "No, 4 hours are up",
+      "to": "stage-2-late",
+      "line": 51,
+      "target": "stage-2-late"
+     }
+    ],
+    "line": 49
+   },
+   "next": null,
+   "timer": {
+    "ms": 14400000,
+    "label": "4 hours",
+    "to": "stage-2-late",
+    "line": 48,
+    "target": "stage-2-late"
+   },
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 44
+  },
+  {
+   "id": "stage-2-late",
+   "title": "Not at 5°C after 4 hours",
+   "lines": [
+    {
+     "kind": "warning",
+     "text": "Food that has not reached 5°C or below within 6 hours of starting must be thrown out.",
+     "line": 54,
+     "quotes": [
+      {
+       "text": "60°C to 5°C (or below) in less than 6 hours or it must be thrown out",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Check the \"6-hour limit\" reminder at the top of the screen.",
+     "line": 56
+    },
+    {
+     "kind": "note",
+     "text": "Possible contradiction: stage 2 allows 4 hours, but if stage 1 was quick the 6-hour total may not yet be up. The card does not say which limit wins.",
+     "line": 57
+    }
+   ],
+   "ask": {
+    "question": "Has the 6-hour limit been reached?",
+    "options": [
+     {
+      "label": "Yes",
+      "to": "discard",
+      "line": 59,
+      "target": "discard"
+     },
+     {
+      "label": "Not yet",
+      "to": "stage-2",
+      "line": 60,
+      "target": "stage-2"
+     }
+    ],
+    "line": 58
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 53
+  },
+  {
+   "id": "discard",
+   "title": "Throw the food out",
+   "lines": [
+    {
+     "kind": "warning",
+     "text": "Throw the food out.",
+     "line": 64,
+     "quotes": [
+      {
+       "text": "60°C to 5°C (or below) in less than 6 hours or it must be thrown out",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Record what was thrown out and why.",
+     "line": 66
+    }
+   ],
+   "ask": null,
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": "all",
+   "end": true,
+   "line": 62
+  },
+  {
+   "id": "cooled",
+   "title": "Cooled in time",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "The food is cooled. Keep it at 5°C or below.",
+     "line": 71
+    },
+    {
+     "kind": "do",
+     "text": "Record the food, the date it was cooked and how long it took to cool. (The Log tab has the times.)",
+     "line": 72
+    }
+   ],
+   "ask": null,
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": "all",
+   "end": true,
+   "line": 69
+  }
+ ],
+ "start": "start"
+}
