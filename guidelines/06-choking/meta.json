@@ -1,0 +1,11 @@
+{
+  "id": "06-choking",
+  "title": "Adult choking",
+  "domain": "medical",
+  "level": 2,
+  "url": "https://www.anzcor.org/home/basic-life-support/guideline-4-airway",
+  "version": "ANZCOR Guideline 4 - Airway, approved April 2021 (PDF current as of 22 May 2024), read 19 Nov 2026",
+  "sourceCopy": "web-fetch",
+  "sourceNote": "anzcor.org is blocked from this workspace, so the ANZCOR PDF was read through a fetch tool from a copy hosted at timecritical.com.au (it matches the anzcor.org page and the resus.org.nz copy). The tool would only quote short pieces, so long sentences are split across lines and only sections 3.0 to 4.3 were copied; the rest of the guideline (opening the airway, head tilt-chin lift) is left out because this app is about choking. Two lines have an apostrophe that may differ from the original. Figure 4, the Choking Algorithm, is an image and could not be read, so the app follows the written sections. Saving the guideline PDF into sources/ would make checking exact.",
+  "status": "Reviewer: 1 instruction changed (\"start CPR\") and 3 hidden gaps, all fixed. 31 of 31 quotes exact (web copy)."
+}

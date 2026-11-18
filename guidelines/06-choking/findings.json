@@ -1,0 +1,55 @@
+{
+ "summary": {
+  "steps": 8,
+  "reachable": 8,
+  "fix": 0,
+  "check": 0,
+  "info": 7,
+  "quotes": 31,
+  "quotesExact": 31,
+  "numberLines": 0,
+  "numberLinesQuoted": 0,
+  "sourceAmounts": 0,
+  "sourceAmountsUsed": 0
+ },
+ "findings": [
+  {
+   "level": "info",
+   "step": "back-blows",
+   "line": 67,
+   "message": "1 line in \"Up to 5 back blows\" has no quote from the guideline (\"The guideline does not say how an adult should be positio…\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "chest-thrusts",
+   "line": 83,
+   "message": "1 line in \"Up to 5 chest thrusts\" has no quote from the guideline (\"This guideline does not describe where the CPR compressio…\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "unresponsive",
+   "line": 102,
+   "message": "2 lines in \"They are unresponsive\" have no quote from the guideline (\"Make sure an ambulance has been called.\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "cleared",
+   "line": 111,
+   "message": "2 lines in \"It has cleared\" have no quote from the guideline (\"Well done. The blockage has cleared.\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "handover",
+   "line": 117,
+   "message": "1 line in \"The ambulance has arrived\" has no quote from the guideline (\"Tell the ambulance staff what happened and what you have …\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "message": "Nobody is named under \"Reviewed by:\", so the app shows \"Not reviewed\"."
+  },
+  {
+   "level": "info",
+   "message": "The saved guideline text is a web copy made by a fetch tool and may not be word-perfect, so a \"quote not found\" may be the copy's fault. Add the PDF to sources/ for exact checking."
+  }
+ ]
+}

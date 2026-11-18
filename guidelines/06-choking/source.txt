@@ -1,0 +1,50 @@
+ANZCOR Guideline 4 - Airway (Australian and New Zealand Committee on Resuscitation). Approved: April 2021.
+Copy read from the ANZCOR PDF (guideline-4-airway-220.pdf, "current as of: 22/05/2024 04:59pm") as hosted at
+timecritical.com.au. Exact short lines only (a fetch tool would quote each sentence only in short pieces; long
+sentences are split across lines). Figure 4, the Choking Algorithm, is an image and could not be copied.
+
+3.0 Recognition of Upper Airway Obstruction
+This may progress to the universal choking sign, namely clutching the neck with the thumb and fingers
+breathing is labored
+breathing may be noisy
+some escape of air can be felt from the mouth.
+there may be efforts at breathing
+there is no sound of breathing
+there is no escape of air from nose and/or mouth.
+
+4.0 Management of Foreign Body Airway Obstruction (Choking)
+A Foreign Body Airway Obstruction (FBAO) is a life-threatening emergency.
+Chest thrusts or back blows are effective for relieving FBAO in conscious adults and children with low risk of harm
+Therefore, the use of abdominal thrusts in the management of FBAO is not recommended
+These techniques should be applied in rapid sequence until the obstruction is relieved.
+More than one technique may be needed: there is insufficient evidence to determine which should be used first.
+
+4.1 Assess Severity
+The simplest way to assess severity of a FBAO is to assess for effective cough.
+
+4.2 Effective Cough (Mild Airway Obstruction)
+The person with an effective cough should be given reassurance and encouragement to keep coughing
+to expel the foreign material.
+If the obstruction is not relieved the rescuer should call an ambulance.
+
+4.3 Ineffective Cough (Severe Airway Obstruction)
+Conscious person
+If the person is conscious send for an ambulance and perform up to five sharp, back blows
+with the hand in the middle of the back between the shoulder blades.
+Check to see if each back blow has relieved the airway obstruction.
+The aim is to relieve the obstruction with each blow rather than to give all five blows.
+An infant may be placed in a head downwards position prior to delivering back blows, i.e. across the rescuer's lap.
+If back blows are unsuccessful the rescuer should perform up to five chest thrusts.
+To perform chest thrusts, identify the same compression point as for CPR and give up to five chest thrusts.
+These are similar to chest compressions but sharper and delivered at a slower rate.
+The infant should be placed in a head downwards and on their back across the rescuer's thigh
+while children and adults may be treated in the sitting or standing position.
+With each chest thrust, check to see whether the airway obstruction has been relieved.
+The aim is to relieve the obstruction rather than deliver all five chest thrusts.
+If the obstruction is still not relieved and the person remains responsive,
+continue alternating five back blows with five chest thrusts.
+
+Unconscious person
+ANZCOR suggests against the use of blind finger sweeps.
+ANZCOR suggests that rescuers consider the manual extraction of visible items in the mouth.
+If the person is unresponsive and not breathing normally, follow ANZCOR Basic Life Support Flowchart (Guideline 8).
