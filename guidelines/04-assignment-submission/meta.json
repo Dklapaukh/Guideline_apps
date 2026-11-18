@@ -1,0 +1,11 @@
+{
+  "id": "04-assignment-submission",
+  "title": "Submitting a university assignment: checks before and after you submit",
+  "domain": "education",
+  "level": 1,
+  "url": "https://www.auckland.ac.nz/en/law/current-students/llb-students/academic-information/assignment-submission-process.html",
+  "version": "University of Auckland Faculty of Law 'Assignment submission process' page and its linked 'Electronic Submission Instructions' PDF (web address says 2021), both read 18 Nov 2026, no review date shown",
+  "sourceCopy": "web-fetch",
+  "sourceNote": "The University of Auckland's Faculty of Law pages were chosen because, of the NZ universities checked (AUT came closest), they give the clearest step-by-step: what format, the deadline, how to upload in Canvas with Turnitin, how to check the upload (preview, title, date and time, digital receipt) and what to do if something goes wrong (contact the lecturer before the deadline, a receipt is needed to challenge a late penalty, how to ask for an extension). This guidance is for Law (LLB) students, not the whole university. The site blocks direct download, so every line was read by a fetch tool asked to quote whole sentences exactly; eight key lines were confirmed in a second read, but small wording slips are possible. The PDF was also read by the fetch tool, and its screenshots and the page's penalty table are left out (the table is described in brackets). Saving both as PDFs into sources/ would make checking exact.",
+  "status": "Reviewer: 1 instruction missed and 3 route problems, all fixed. 63 of 63 quotes exact (web copy)."
+}

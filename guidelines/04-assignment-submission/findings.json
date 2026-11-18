@@ -1,0 +1,71 @@
+{
+ "summary": {
+  "steps": 20,
+  "reachable": 20,
+  "fix": 0,
+  "check": 0,
+  "info": 10,
+  "quotes": 63,
+  "quotesExact": 63,
+  "numberLines": 0,
+  "numberLinesQuoted": 0,
+  "sourceAmounts": 1,
+  "sourceAmountsUsed": 0
+ },
+ "findings": [
+  {
+   "level": "info",
+   "step": "start",
+   "line": 14,
+   "message": "1 line in \"What do you need?\" has no quote from the guideline (\"This guidance is for Law (LLB) students at the University…\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "hard-copy",
+   "line": 47,
+   "message": "2 lines in \"Hard copy and digital copy\" have no quote from the guideline (\"The steps in this app are for the digital copy, uploaded …\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "checks",
+   "line": 69,
+   "message": "1 line in \"Before you submit\" has no quote from the guideline (\"This guidance does not cover word limits, referencing or …\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "done",
+   "line": 147,
+   "message": "1 line in \"All done\" has no quote from the guideline (\"The guidance does not say whether a new upload replaces t…\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "technical",
+   "line": 162,
+   "message": "2 lines in \"A technical problem\" have no quote from the guideline (\"The guidance does not say what to do if the due time has …\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "late",
+   "line": 189,
+   "message": "1 line in \"Late submission\" has no quote from the guideline (\"The guidance gives no late penalties for courses that wan…\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "extension",
+   "line": 219,
+   "message": "2 lines in \"Asking for an extension\" have no quote from the guideline (\"The guidance says \"before the due date\" next to the evide…\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "message": "The guideline mentions 1 amount the template never uses: 202021 %. Some may be background; check none were left out."
+  },
+  {
+   "level": "info",
+   "message": "Nobody is named under \"Reviewed by:\", so the app shows \"Not reviewed\"."
+  },
+  {
+   "level": "info",
+   "message": "The saved guideline text is a web copy made by a fetch tool and may not be word-perfect, so a \"quote not found\" may be the copy's fault. Add the PDF to sources/ for exact checking."
+  }
+ ]
+}

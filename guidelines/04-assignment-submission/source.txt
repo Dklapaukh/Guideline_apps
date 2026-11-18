@@ -1,0 +1,74 @@
+Assignment submission process - Faculty of Law, Waipapa Taumata Rau | University of Auckland, New Zealand (LLB students), plus the Faculty's "Electronic Submission Instructions" PDF linked from that page. Read 18 Nov 2026; no date shown on either (the PDF's web address contains "2021").
+Section A from https://www.auckland.ac.nz/en/law/current-students/llb-students/academic-information/assignment-submission-process.html
+Section B from https://www.auckland.ac.nz/assets/law/Documents/2021/Undergraduate-courses/Academic-information/Electronic%20Submission%20Instructions%202021%20.pdf
+Capture method: the site blocks direct download here, so each line was read by a fetch tool asked to quote exact sentences (long sentences in pieces, rejoined here). Eight key lines were confirmed EXACT in a second, separate read. Screenshots, link labels, and the Example 2 penalty table (described below in square brackets, not quoted) are left out.
+
+==================== SECTION A: Assignment submission process (Law, University of Auckland) ====================
+
+Assignment submission process
+All assignments submitted must be anonymised, i.e. with NO STUDENT NAMES.
+Full instructions on the assignment submission process for each course are shown on each assignment submission page in Canvas.
+Students should familiarise themselves with the assignment submission process for each course, as penalties apply for incomplete/incorrect submissions.
+Written work for most courses must be submitted both in digital copy (Microsoft Word) by 12 noon on the due date, or late penalties will apply.
+In some courses, assignments are submitted in hard copy and digital format.
+
+Assignment submission for courses that require online-only submission
+The assignment must be uploaded via the Canvas assignment page.
+No hard copy submission is required.
+The assignment must be submitted in Microsoft Word (.doc or .docx) format.
+Full instructions are available on the relevant course Canvas page.
+
+Late submission of work/penalties for courses which require online-only submission
+The penalty for lateness is 5 marks for each day (or part of day thereof) in which the digital copy of the assessment is submitted late.
+For the avoidance of doubt, penalties are applied on a calendar day basis (not a 24-hour basis).
+For the purposes of online-only submission, Saturdays and Sundays count as calendar days.
+Example 1:
+An assignment is due on Thursday 7 March at 12 noon:
+Student A hands in their copy at 2pm on Thursday 7 March.
+The lateness penalty applied will be a total of 5 marks deducted from the total available marks for the assignment:
+i. Thursday, 7th of March – 5-mark late penalty.
+Student B hands in their copy at 5am on Friday 8 March.
+The lateness penalty applied will be a total of 10 marks deducted from the total available marks for the assignment:
+i. Thursday, 7th of March – 5-mark late penalty.
+ii. Friday 8th March – 5-mark late penalty.
+Example 2:
+[Table, not quoted word for word: columns "Due Date" and "Day 1 (overdue)" to "Day 7 (overdue)". On the due date, up to "Midday 12pm noon" is "No penalty" and "Midday-midnight" is "5 mark deduction". Each overdue day adds 5 marks, from "10 mark deduction" on Day 1 to "40 mark deduction" on Day 7.]
+You can only challenge a lateness penalty for late online submission if you can prove a technical malfunction.
+In order to do so a copy of the receipt of submission will be required.
+You are recommended to download and save a copy of the digital receipt for your own records and to ensure online submission has been successful.
+Students experiencing problems with online submissions should contact their lecturer prior to the submission due date and time.
+
+Take-home tests
+Lateness penalties for take-home tests vary depending on the length of the take-home test.
+You will be advised about applicable penalties and the format of submission of take-home tests in the course outlines and/or via Canvas.
+
+Extensions for assignments
+To apply for an extension, you must:
+(i) email lawextensions@auckland.ac.nz
+(ii) supply evidence (e.g. doctor’s certificate) before the due date.
+Lecturers and tutors do not and cannot grant extensions.
+
+==================== SECTION B: Electronic Submission Instructions (PDF linked from Section A) ====================
+
+Electronic Submission Instructions
+Log in to Canvas (canvas.auckland.ac.nz).
+Select the Course.
+In the Course Navigation, click the Assignments link.
+Click the name of the assignment.
+You will see the Turnitin dashboard below:
+To submit your assignment, click the Upload icon (the dark grey arrow pointing up.
+A new window will open:
+Select the submission type you want to use for your assignment.
+You can submit a file upload, or select a file from Google Drive or Dropbox.
+Turnitin validates your entry and prepares it for submission.
+Turnitin will then upload the document and show the following window as it goes through the process:
+Once the file has been uploaded you can see a preview of the file you have uploaded.
+There will be a blue button at the bottom saying to "Accept submission – save".
+You must click on that.
+The window will disappear and the Turnitin dashboard will now show information regarding the document you have uploaded including the title, and the date and time it was uploaded.
+There are now three icons on the right.
+The first is the upload icon (as from before) where you can resubmit if required.
+The second icon (down arrow) allows you to download the assignment you have submitted to Turnitin.
+The very last icon on the right (paper/document with lines) allows you to download your digital receipt for your assignment (if you wish to do so; the Faculty does not require this).
+For the University's policy on the use of Turnitin to check the originality of your work, see https://www.auckland.ac.nz/en/students/forms-policies-and-guidelines/student-policies-and-guidelines/academic-integrity-copyright/about-academic-integrity.html
+By uploading your assignment you affirm that your work complies fully with the University's academic honesty policy.

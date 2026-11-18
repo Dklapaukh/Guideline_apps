@@ -1,29 +1,25 @@
-Scheduled build run, 18 Nov 2026 (evening).
+Scheduled build run, 18 Nov 2026 (night, 10 pm).
 
-Your feedback, acted on:
-- You loved Clinic and found Wayfinding easiest to follow, and asked for a choice of designs and company branding.
-- Every app now carries all three looks. It opens in Clinic; "Change the look" on the start screen (or About)
-  switches to Wayfinding or Flight deck, and the phone remembers the choice.
-- Company branding: a template can now say "Brand: Acme Ltd" and "Brand colour: #1d4ed8". The name shows in the
-  top bar; the colour becomes the buttons (Clinic), the route line (Wayfinding) or a top stripe (Flight deck).
-  A colour that can't be read, or is too light for white text, shows up under Checks instead of breaking the app.
+Your feedback: nothing new since the last run (your Clinic / Wayfinding / branding comments were acted on then).
 
 Built:
-- App 3: Earthquake (NEMA Get Ready). 18 steps: Drop, Cover and Hold now, "Where are you?" (inside, in bed,
-  mobility aids, outside, driving, lift, somewhere else), then when the shaking stops: Long or Strong, Get Gone,
-  hazards, others, damage. 77 of 77 quotes exact (from a web copy; the site blocks downloads).
-- Reviewer found 2 missed instructions and a route that sent someone fleeing a tsunami into "do not run outside".
-  All fixed in one round.
-- Scores: to fix 0, to check 0, all apps. Tests: 14 of 14 pass (3 new for looks and branding).
+- App 4: Submitting a Law assignment online (University of Auckland Faculty of Law). 20 steps: what do you need
+  (submit, extension, something went wrong), how your course wants it (online only, hard copy too, take-home
+  test), tick-box checks (no name on it, Word file, 12 noon), upload in Canvas with Turnitin, check the preview,
+  check it arrived and get the receipt, then "Did it work?" with routes for a technical problem, wrong file,
+  late (5 marks a day, with a worked example) and asking for an extension. 63 of 63 quotes exact (web copy).
+- Reviewer found 1 missed instruction (take-home tests) and 3 route problems (retry routes skipped the checks;
+  hard-copy students were told "submitted"; a receipt asked for before it could exist). All fixed in one round.
+- The studio is republished with all three looks and branding.
+- Scores: to fix 0, to check 0, all apps. Tests: 15 of 15 pass.
 
-Gaps in the guideline: the situation-by-situation advice is only on Get Ready's Sign Language page; nothing on
-crowds, moving buses or trains, cliffs, babies and children, a stuck lift, walk or drive for Get Gone, or when
-it's safe to go back into a damaged building. The Outside line ("no more than a few steps away from buildings")
-is unclear.
+Gaps in the guideline: it is for Law students only; the page "recommends" the receipt but the PDF says it is
+not required (both shown); nothing on word limits, referencing or file names; nothing on resubmitting, a wrong
+file after the deadline, how to prove a technical fault, a help-desk contact, a final cut-off for late work, or
+whether "before the due date" for extensions means before 12 noon.
 
 Needs you:
-- Try "Change the look" in any app and say which should be the default.
-- Is "a few steps away from buildings" clear to you? The earthquake app shows it word for word for now.
-- The studio wasn't republished this run (its page is too big to re-read safely); it still has the old looks.
+- Try "Change the look" in any app and say which should be the default (still open from last run).
+- Is "a few steps away from buildings" in the earthquake app clear to you? (still open)
 
-Next: republish the studio, then guideline 4 (submitting a university assignment).
+Next: guideline 5 (resigning from a job, Employment New Zealand).

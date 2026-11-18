@@ -18,7 +18,7 @@ Add new rows as ideas come up (the owner can also ask for any guideline in a com
 | 1 | Cooling freshly cooked food (MPI Yellow Card S39-00002) | non-medical | 1 | built |
 | 2 | Burns first aid (cool the burn, St John / Health NZ) | medical | 1 | built |
 | 3 | Earthquake: Drop, Cover, Hold, then what to do after (NEMA Get Ready) | non-medical | 1 | built |
-| 4 | Submitting a university assignment: checks before and after you submit (a NZ university's published guidance) | education | 1 | queued |
+| 4 | Submitting a university assignment: checks before and after you submit (University of Auckland Faculty of Law) | education | 1 | built |
 | 5 | Resigning from a job: giving notice, final pay and holiday pay (Employment New Zealand) | workplace | 1 | queued |
 | 6 | Adult choking (ANZCOR guideline 4) | medical | 2 | queued |
 | 7 | Asking for an assignment extension or special consideration (a NZ university's policy) | education | 2 | queued |

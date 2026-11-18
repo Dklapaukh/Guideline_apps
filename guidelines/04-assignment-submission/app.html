@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#14213d">
+<title>Submitting a Law assignment online</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Archivo:wght@500;700;800;900&family=IBM+Plex+Sans:wght@400;500;700&family=IBM+Plex+Sans+Condensed:wght@600;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>/* Phone-first, portrait, large tap targets. One stylesheet for every generated app; looks (engine/looks/) restyle it.
+   --brand is set by the runtime when the template gives "Brand colour:"; each look decides where it shows. */
+:root { --ink:#1b1f24; --mut:#5d6670; --bg:#f4f5f7; --card:#fff; --line:#dde1e6; --go:var(--brand, #0b6e4f); --warn:#9a3412; --warnbg:#fff4e5; --due:#b91c1c; --author:#6b21a8; --authorbg:#f5ecff; }
+* { box-sizing: border-box; }
+html, body { margin:0; background:var(--bg); color:var(--ink); font:17px/1.45 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+#app { max-width: 560px; margin: 0 auto; min-height: 100vh; padding-bottom: 72px; }
+.bar { position: sticky; top: 0; z-index: 3; display:flex; justify-content:space-between; align-items:center; gap:8px; padding:10px 14px; background:#14213d; color:#fff; }
+.bar .t { font-weight:600; font-size:16px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.bar .brand { font-weight:800; margin-right:6px; }
+.bar .clock:empty { display:none; }
+.bar .clock { font-variant-numeric: tabular-nums; font-size:18px; }
+.proto { font-size:12px; color:var(--author); background:var(--authorbg); padding:4px 14px; }
+.card { background:var(--card); margin:10px; padding:14px 16px; border-radius:12px; border:1px solid var(--line); }
+h1 { font-size:22px; margin:4px 0 8px; } h2 { font-size:21px; margin:2px 0 10px; } h3 { font-size:15px; margin:16px 0 6px; color:var(--mut); text-transform:uppercase; letter-spacing:.04em; }
+p { margin: 8px 0; } p.bul::before { content:"• "; color:var(--mut); }
+.big { display:block; width:100%; min-height:52px; margin:10px 0 0; padding:12px 14px; font:inherit; font-weight:600; border-radius:10px; border:1px solid var(--line); background:#eef1f4; color:var(--ink); text-align:left; }
+.big.go { background:var(--go); color:#fff; border-color:var(--go); text-align:center; }
+.big.opt { background:#e8f0fe; border-color:#b7c9f5; }
+.big.opt.broken { border-style:dashed; border-color:var(--author); }
+.big.skip { background:transparent; text-align:center; font-weight:500; color:var(--mut); }
+.link { background:none; border:0; color:#1d4ed8; font:inherit; padding:0; }
+.crumb { display:flex; justify-content:space-between; font-size:14px; color:var(--mut); }
+.q { font-weight:600; font-size:19px; margin-top:16px; }
+.warn { background:var(--warnbg); color:var(--warn); border-left:4px solid var(--warn); padding:8px 10px; border-radius:6px; font-weight:600; }
+.author { background:var(--authorbg); color:var(--author); border-left:4px solid var(--author); padding:8px 10px; border-radius:6px; font-size:15px; }
+.do { display:flex; flex-wrap:wrap; gap:10px; align-items:flex-start; padding:10px 0; border-bottom:1px solid var(--line); }
+.do input { width:26px; height:26px; margin:0; flex:none; } .do span { flex:1; }
+.do .src, .do .dep { flex-basis:100%; margin-left:36px; }
+.dep { display:block; color:var(--author); font-size:13px; }
+details.src { font-size:14px; color:var(--mut); margin:2px 0 4px; } details.src summary { cursor:pointer; color:#1d4ed8; }
+details.src q { font-style:italic; }
+.timer { margin:14px 0; padding:12px; border-radius:10px; background:#eef6f2; text-align:center; }
+.timer .lbl { color:var(--mut); font-size:14px; }
+.big-clock { font-size:44px; font-weight:700; font-variant-numeric:tabular-nums; }
+.timer.due { background:#fde8e8; } .timer.due .big-clock { color:var(--due); }
+.reminders { position:sticky; top:44px; z-index:2; background:var(--bg); padding:6px 10px 0; }
+.rem { display:flex; align-items:center; gap:8px; background:#fff; border:1px solid var(--line); border-radius:10px; padding:6px 8px; margin-bottom:6px; }
+.rem .rt { flex:1; font-weight:600; font-size:15px; } .rem .rc { font-variant-numeric:tabular-nums; font-size:15px; }
+.rem button { font:inherit; font-size:14px; padding:8px 10px; border-radius:8px; border:1px solid var(--line); background:#eef1f4; }
+.rem.due { border-color:var(--due); background:#fde8e8; } .rem.due .rc { color:var(--due); font-weight:700; }
+.rec { padding:6px 0; } .rec small { color:var(--mut); }
+.rec-btn { background:#fff7e6; border-color:#f2c46d; }
+.lookup { border:1px solid var(--line); border-radius:10px; padding:8px 10px; margin:8px 0; }
+.lookup .lk { font-weight:600; } .lookup .lv { display:flex; justify-content:space-between; gap:10px; padding:4px 0; border-top:1px dashed var(--line); }
+table { border-collapse:collapse; width:100%; font-size:14px; } th, td { border:1px solid var(--line); padding:4px 6px; text-align:left; }
+.inputs { margin:10px 0; } .inp { display:block; margin:10px 0; font-weight:600; }
+.inp input { display:block; width:100%; font:inherit; padding:10px; border-radius:8px; border:1px solid var(--line); margin-top:4px; }
+.inp small { font-weight:400; color:var(--mut); } .inp .bad { color:var(--due); font-weight:400; font-size:14px; }
+.choices { display:flex; flex-wrap:wrap; gap:6px; margin-top:4px; }
+.choices button { font:inherit; padding:10px 12px; border-radius:8px; border:1px solid var(--line); background:#eef1f4; }
+.choices button.on { background:#14213d; color:#fff; }
+.log { padding-left:0; list-style:none; } .log li { padding:6px 0; border-bottom:1px solid var(--line); } .log time { display:inline-block; min-width:56px; font-variant-numeric:tabular-nums; color:var(--mut); }
+.findings { padding-left:18px; } .findings li { margin:8px 0; font-size:15px; }
+.lvl-fix { color:var(--due); } .lvl-check { color:var(--warn); } .lvl-info { color:var(--mut); }
+.tabs { position:fixed; bottom:0; left:0; right:0; display:flex; background:#fff; border-top:1px solid var(--line); max-width:560px; margin:0 auto; }
+.tabs button { flex:1; font:inherit; font-size:15px; padding:14px 4px; background:none; border:0; color:var(--mut); }
+.look-link { text-align:center; font-size:14px; margin-top:14px; }
+.look-pick { display:flex; flex-wrap:wrap; gap:6px; }
+.look-pick button { font:inherit; padding:10px 14px; border-radius:999px; border:1px solid var(--line); background:var(--card); color:var(--ink); }
+.look-pick button.on { background:var(--go); border-color:var(--go); color:#fff; }
+.tabs button.on { color:#14213d; font-weight:700; box-shadow: inset 0 3px 0 #14213d; }
+
+/* look: Clinic */
+html[data-look="clinic"]{ --ink:#16232b; --mut:#5b6b75; --bg:#eef3f4; --card:#fff; --line:#dfe7ea; --go:var(--brand, #0f766e); --gosoft:#d9f0ec; --gosoft:color-mix(in srgb, var(--go) 15%, #fff);
+  --warn:#9a3412; --warnbg:#fff1e6; --due:#c2410c; --author:#6b21a8; --authorbg:#f4edfb; }html[data-look="clinic"], html[data-look="clinic"] body{ font-family:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; background:var(--bg); }html[data-look="clinic"] .bar{ background:var(--bg); color:var(--ink); padding:14px 18px 6px; }html[data-look="clinic"] .bar .t{ font-size:15px; color:var(--mut); font-weight:600; }html[data-look="clinic"] .bar .clock{ background:var(--card); border-radius:999px; padding:4px 12px; font-size:15px; font-weight:600; color:var(--go); }html[data-look="clinic"] .proto{ background:transparent; color:var(--mut); padding:0 18px 4px; font-size:12px; }html[data-look="clinic"] .card{ border:0; border-radius:22px; padding:20px; margin:10px 12px; box-shadow:0 1px 2px rgba(22,35,43,.05), 0 8px 24px rgba(22,35,43,.06); }html[data-look="clinic"] h1, html[data-look="clinic"] h2{ font-family:"Inter", system-ui, sans-serif; font-weight:700; letter-spacing:-.02em; text-wrap:balance; }html[data-look="clinic"] h2{ font-size:24px; }html[data-look="clinic"] h3{ color:var(--go); }html[data-look="clinic"] .crumb{ font-size:13px; }html[data-look="clinic"] .crumb span{ background:var(--gosoft); color:var(--go); border-radius:999px; padding:2px 10px; font-weight:600; }html[data-look="clinic"] .big{ border-radius:16px; border:0; background:#f1f5f6; min-height:56px; }html[data-look="clinic"] .big.go{ background:var(--go); border-radius:999px; box-shadow:0 6px 16px rgba(15,118,110,.25); }html[data-look="clinic"] .big.opt{ background:#f4f8f8; border:1.5px solid var(--line); position:relative; padding-right:40px; }html[data-look="clinic"] .big.opt::after{ content:"›"; position:absolute; right:16px; top:50%; transform:translateY(-52%); font-size:26px; color:var(--go); }html[data-look="clinic"] .q{ font-size:20px; }html[data-look="clinic"] .warn{ border:0; border-radius:14px; padding:12px 14px; }html[data-look="clinic"] .do{ border-bottom:0; background:#f6f9f9; border-radius:14px; padding:12px; margin:8px 0; }html[data-look="clinic"] .do input{ accent-color:var(--go); border-radius:50%; }html[data-look="clinic"] .timer{ background:var(--gosoft); border-radius:20px; padding:18px; position:relative; overflow:hidden; }html[data-look="clinic"] .timer::after{ content:""; position:absolute; left:0; bottom:0; height:6px; width:calc(var(--p, 0) * 100%); background:var(--go); transition:width .25s linear; }html[data-look="clinic"] .big-clock{ color:var(--go); font-size:52px; letter-spacing:-.02em; }html[data-look="clinic"] .rem{ border:0; border-radius:16px; box-shadow:0 4px 14px rgba(22,35,43,.08); }html[data-look="clinic"] .tabs{ left:12px; right:12px; bottom:10px; border:0; border-radius:20px; box-shadow:0 8px 30px rgba(22,35,43,.15); overflow:hidden; }html[data-look="clinic"] .tabs button.on{ color:var(--go); box-shadow:none; background:var(--gosoft); }html[data-look="clinic"] .choices button{ border-radius:999px; }html[data-look="clinic"] .choices button.on{ background:var(--go); border-color:var(--go); }
+
+/* look: Wayfinding */
+html[data-look="wayfinding"]{ --ink:#0a0a0a; --mut:#555; --bg:#ffffff; --card:#fff; --line:#0a0a0a; --go:#0a0a0a; --route:var(--brand, #e4002b); --sign:#ffd400;
+  --warn:#0a0a0a; --warnbg:#ffd400; --due:#e4002b; --author:#5b21b6; --authorbg:#efe9fb; }html[data-look="wayfinding"], html[data-look="wayfinding"] body{ font-family:"Archivo", "Helvetica Neue", Arial, sans-serif; background:var(--bg); }html[data-look="wayfinding"] .bar{ background:var(--ink); padding:12px 16px; }html[data-look="wayfinding"] .bar .t{ font-weight:800; letter-spacing:.01em; }html[data-look="wayfinding"] .bar .clock{ background:var(--sign); color:var(--ink); padding:2px 10px; font-weight:800; }html[data-look="wayfinding"] .proto{ background:#f2f2f2; color:var(--mut); }html[data-look="wayfinding"] .card{ border:0; border-radius:0; margin:0; padding:18px 18px 20px; }html[data-look="wayfinding"] h1, html[data-look="wayfinding"] h2{ font-weight:900; letter-spacing:-.02em; line-height:1.05; text-wrap:balance; }html[data-look="wayfinding"] h1{ font-size:32px; }html[data-look="wayfinding"] h2{ font-size:30px; margin-top:6px; }html[data-look="wayfinding"] .crumb{ flex-direction:row-reverse; justify-content:flex-end; gap:14px; align-items:center; }html[data-look="wayfinding"] .crumb span{ display:inline-grid; place-items:center; min-width:40px; height:40px; padding:0 8px; background:var(--route); color:#fff; font-weight:900; font-size:15px; border-radius:999px; }html[data-look="wayfinding"] .big{ border-radius:0; border:2px solid var(--ink); background:#fff; font-weight:800; min-height:58px; }html[data-look="wayfinding"] .big.go{ background:var(--ink); color:#fff; border-color:var(--ink); text-align:left; position:relative; padding-right:44px; }html[data-look="wayfinding"] .big.go::after{ content:"→"; position:absolute; right:16px; top:50%; transform:translateY(-50%); font-size:22px; }html[data-look="wayfinding"] .big.opt{ background:#fff; border-color:var(--ink); position:relative; padding-right:44px; }html[data-look="wayfinding"] .big.opt::after{ content:"→"; position:absolute; right:16px; top:50%; transform:translateY(-50%); color:var(--route); font-size:22px; }html[data-look="wayfinding"] .big.skip{ border:0; text-decoration:underline; }html[data-look="wayfinding"] .link{ color:var(--ink); text-decoration:underline; font-weight:700; }html[data-look="wayfinding"] .q{ font-size:22px; font-weight:900; }html[data-look="wayfinding"] .warn{ background:var(--sign); color:var(--ink); border:0; border-radius:0; padding:12px 14px; font-weight:800; }html[data-look="wayfinding"] .warn::before{ content:"!"; display:inline-grid; place-items:center; width:22px; height:22px; margin-right:8px; background:var(--ink); color:var(--sign); font-weight:900; border-radius:3px; vertical-align:-3px; }html[data-look="wayfinding"] .do{ position:relative; border-bottom:0; padding:12px 0 12px 44px; font-weight:700; }html[data-look="wayfinding"] .do::before{ content:""; position:absolute; left:15px; top:0; bottom:0; width:6px; background:var(--route); }html[data-look="wayfinding"] .do input{ position:absolute; left:6px; top:12px; width:24px; height:24px; accent-color:var(--route); }html[data-look="wayfinding"] .do .src, html[data-look="wayfinding"] .do .dep{ margin-left:0; }html[data-look="wayfinding"] details.src summary{ color:var(--ink); text-decoration:underline; }html[data-look="wayfinding"] .timer{ background:var(--ink); color:#fff; border-radius:0; text-align:left; padding:14px 16px; }html[data-look="wayfinding"] .timer .lbl{ color:#bbb; text-transform:uppercase; letter-spacing:.08em; font-size:12px; font-weight:700; }html[data-look="wayfinding"] .timer::after{ content:""; display:block; height:8px; margin-top:10px; background:linear-gradient(90deg, var(--sign) calc(var(--p, 0) * 100%), #333 0); }html[data-look="wayfinding"] .big-clock{ font-size:60px; font-weight:900; color:var(--sign); }html[data-look="wayfinding"] .timer.due{ background:var(--due); }html[data-look="wayfinding"] .timer.due .big-clock{ color:#fff; }html[data-look="wayfinding"] .rem{ border:2px solid var(--ink); border-radius:0; }html[data-look="wayfinding"] .rem button{ border-radius:0; border:2px solid var(--ink); background:#fff; font-weight:700; }html[data-look="wayfinding"] .rem.due{ background:var(--sign); }html[data-look="wayfinding"] .choices button{ border-radius:0; border:2px solid var(--ink); background:#fff; font-weight:700; }html[data-look="wayfinding"] .choices button.on{ background:var(--ink); color:#fff; }html[data-look="wayfinding"] .look-pick button{ border-radius:0; border:2px solid var(--ink); font-weight:700; }html[data-look="wayfinding"] .tabs{ border-top:2px solid var(--ink); }html[data-look="wayfinding"] .tabs button{ font-weight:800; color:var(--mut); }html[data-look="wayfinding"] .tabs button.on{ color:var(--ink); box-shadow:inset 0 4px 0 var(--route); }
+
+/* look: Flight deck */
+html[data-look="flightdeck"]{ --ink:#e8edf2; --mut:#8a97a6; --bg:#0b0f14; --card:#121820; --line:#253040; --go:#38bdf8; --warn:#ffb020; --warnbg:#2a1f08;
+  --due:#ff5a4f; --author:#c4a1ff; --authorbg:#1f1830; color-scheme:dark; }html[data-look="flightdeck"], html[data-look="flightdeck"] body{ font-family:"IBM Plex Sans", system-ui, sans-serif; background:var(--bg); color:var(--ink); }html[data-look="flightdeck"] .bar{ background:#070a0e; border-bottom:1px solid var(--line); border-top:4px solid var(--brand, #070a0e); }html[data-look="flightdeck"] .bar .t{ font-family:"IBM Plex Sans Condensed", "IBM Plex Sans", sans-serif; text-transform:uppercase; letter-spacing:.08em; font-size:14px; color:var(--mut); }html[data-look="flightdeck"] .bar .clock{ font-family:"IBM Plex Mono", ui-monospace, monospace; color:var(--go); }html[data-look="flightdeck"] .proto{ background:#0f0b18; }html[data-look="flightdeck"] .card{ background:var(--card); border:1px solid var(--line); border-radius:4px; margin:8px; }html[data-look="flightdeck"] h1, html[data-look="flightdeck"] h2{ font-family:"IBM Plex Sans Condensed", "IBM Plex Sans", sans-serif; text-transform:uppercase; letter-spacing:.04em; font-weight:700; }html[data-look="flightdeck"] h2{ font-size:22px; border-bottom:1px solid var(--line); padding-bottom:10px; }html[data-look="flightdeck"] h3{ color:var(--warn); }html[data-look="flightdeck"] .crumb{ font-family:"IBM Plex Mono", monospace; font-size:12px; text-transform:uppercase; }html[data-look="flightdeck"] .link{ color:var(--go); }html[data-look="flightdeck"] .big{ border-radius:4px; background:transparent; border:1px solid var(--line); color:var(--ink); }html[data-look="flightdeck"] .big.go{ background:var(--go); color:#04121c; border-color:var(--go); text-transform:uppercase; letter-spacing:.06em; }html[data-look="flightdeck"] .big.opt{ background:#0f1a24; border-color:#1f3a50; color:var(--ink); }html[data-look="flightdeck"] .big.opt::before{ content:"▸ "; color:var(--go); }html[data-look="flightdeck"] .big.skip{ color:var(--mut); }html[data-look="flightdeck"] .q{ font-family:"IBM Plex Sans Condensed", sans-serif; text-transform:uppercase; letter-spacing:.04em; color:var(--go); }html[data-look="flightdeck"] .warn{ background:var(--warnbg); color:var(--warn); border-left:4px solid var(--warn); border-radius:2px; text-transform:uppercase; font-size:15px; letter-spacing:.02em; }html[data-look="flightdeck"] .do{ border-bottom:1px dashed var(--line); font-weight:500; }html[data-look="flightdeck"] .do input{ accent-color:var(--go); border-radius:0; }html[data-look="flightdeck"] details.src summary{ color:var(--go); }html[data-look="flightdeck"] details.src{ color:var(--mut); }html[data-look="flightdeck"] .timer{ background:#06121b; border:1px solid #1f3a50; border-radius:4px; position:relative; }html[data-look="flightdeck"] .timer::after{ content:""; display:block; height:4px; margin-top:10px; background:linear-gradient(90deg, var(--go) calc(var(--p, 0) * 100%), #1c2633 0); }html[data-look="flightdeck"] .timer .lbl{ text-transform:uppercase; letter-spacing:.1em; font-size:12px; }html[data-look="flightdeck"] .big-clock{ font-family:"IBM Plex Mono", ui-monospace, monospace; font-weight:500; color:var(--go); font-size:56px; }html[data-look="flightdeck"] .timer.due{ background:#2a0d0b; border-color:var(--due); }html[data-look="flightdeck"] .timer.due .big-clock{ color:var(--due); }html[data-look="flightdeck"] .reminders{ background:var(--bg); }html[data-look="flightdeck"] .rem{ background:var(--card); border-color:var(--line); border-radius:4px; }html[data-look="flightdeck"] .rem button{ background:transparent; color:var(--ink); border-color:var(--line); }html[data-look="flightdeck"] .rem.due{ background:#2a0d0b; border-color:var(--due); }html[data-look="flightdeck"] .lookup, html[data-look="flightdeck"] th, html[data-look="flightdeck"] td{ border-color:var(--line); }html[data-look="flightdeck"] .inp input{ background:#0b1118; color:var(--ink); border-color:var(--line); }html[data-look="flightdeck"] .choices button{ background:transparent; color:var(--ink); border-color:var(--line); border-radius:4px; }html[data-look="flightdeck"] .choices button.on, html[data-look="flightdeck"] .look-pick button.on{ background:var(--go); color:#04121c; }html[data-look="flightdeck"] .log time{ font-family:"IBM Plex Mono", monospace; }html[data-look="flightdeck"] .tabs{ background:#070a0e; border-top:1px solid var(--line); }html[data-look="flightdeck"] .tabs button{ text-transform:uppercase; letter-spacing:.08em; font-size:13px; }html[data-look="flightdeck"] .tabs button.on{ color:var(--go); box-shadow:inset 0 3px 0 var(--go); }
+</style></head>
+<body><div id="app"></div>
+<script type="application/json" id="spec">{"spec":{"title":"Submitting a Law assignment online","about":"Walks you through the checks before you submit a Law assignment, uploading it in Canvas with Turnitin, checking it arrived, and what the guidance says if something goes wrong.","sources":[{"name":"University of Auckland Faculty of Law, Assignment submission process","link":"https://www.auckland.ac.nz/en/law/current-students/llb-students/academic-information/assignment-submission-process.html"},{"name":"University of Auckland Faculty of Law, Electronic Submission Instructions (PDF)","link":"https://www.auckland.ac.nz/assets/law/Documents/2021/Undergraduate-courses/Academic-information/Electronic%20Submission%20Instructions%202021%20.pdf"}],"warning":"This guidance is from the University of Auckland Faculty of Law, for Law (LLB) students. Your course's Canvas page has the full instructions for your course.","audience":"University of Auckland Law (LLB) students submitting written work","reviewedBy":"","version":"Faculty of Law \"Assignment submission process\" page and its \"Electronic Submission Instructions\" PDF (web address says 2021), both read 18 Nov 2026, no review date shown","brand":{"name":"","colour":""},"look":"","inputs":[],"tables":[],"steps":[{"id":"start","title":"What do you need?","lines":[{"kind":"say","text":"This guidance is for Law (LLB) students at the University of Auckland. If you are not a Law student, follow your own course's instructions.","line":14},{"kind":"say","text":"Full instructions for each course are on that course's assignment page in Canvas.","line":15,"quotes":[{"text":"Full instructions on the assignment submission process for each course are shown on each assignment submission page in Canvas.","where":"","check":"exact"}]}],"ask":{"question":"What do you need to do?","options":[{"label":"Submit my assignment","to":"format","line":18,"target":"format"},{"label":"Ask for more time (an extension)","to":"extension","line":19,"target":"extension"},{"label":"Something went wrong","to":"wrong","line":20,"target":"wrong"}],"line":17},"next":null,"timer":null,"reminders":[],"stop":null,"end":false,"line":13},{"id":"format","title":"How does your course want it?","lines":[{"kind":"say","text":"Most courses want a digital copy in Microsoft Word, by 12 noon on the due date.","line":23,"quotes":[{"text":"Written work for most courses must be submitted both in digital copy (Microsoft Word) by 12 noon on the due date, or late penalties will apply.","where":"","check":"exact"}]},{"kind":"say","text":"Some courses want a hard copy and a digital copy.","line":25,"quotes":[{"text":"In some courses, assignments are submitted in hard copy and digital format.","where":"","check":"exact"}]}],"ask":{"question":"How does your course ask for it?","options":[{"label":"Online only, through Canvas","to":"online-only","line":28,"target":"online-only"},{"label":"A hard copy and a digital copy","to":"hard-copy","line":29,"target":"hard-copy"},{"label":"It's a take-home test","to":"take-home","line":30,"target":"take-home"},{"label":"I'm not sure","to":"not-sure","line":31,"target":"not-sure"}],"line":27},"next":null,"timer":null,"reminders":[],"stop":null,"end":false,"line":22},{"id":"online-only","title":"Online only","lines":[{"kind":"say","text":"Upload it on the Canvas assignment page. No hard copy is needed.","line":34,"quotes":[{"text":"The assignment must be uploaded via the Canvas assignment page.","where":"","check":"exact"},{"text":"No hard copy submission is required.","where":"","check":"exact"}]}],"ask":null,"next":{"to":"checks","line":37,"target":"checks"},"timer":null,"reminders":[],"stop":null,"end":false,"line":33,"nexts":[{"to":"checks","line":37,"target":"checks"}]},{"id":"take-home","title":"Take-home test","lines":[{"kind":"say","text":"For take-home tests, your course outline or Canvas tells you how to submit and what the late penalties are.","line":40,"quotes":[{"text":"You will be advised about applicable penalties and the format of submission of take-home tests in the course outlines and/or via Canvas.","where":"","check":"exact"}]},{"kind":"say","text":"Late penalties for take-home tests depend on the length of the test.","line":42,"quotes":[{"text":"Lateness penalties for take-home tests vary depending on the length of the take-home test.","where":"","check":"exact"}]}],"ask":null,"next":{"to":"checks","line":44,"target":"checks"},"timer":null,"reminders":[],"stop":null,"end":false,"line":39,"nexts":[{"to":"checks","line":44,"target":"checks"}]},{"id":"hard-copy","title":"Hard copy and digital copy","lines":[{"kind":"say","text":"The steps in this app are for the digital copy, uploaded in Canvas.","line":47},{"kind":"warning","text":"The guidance does not say how, where or by when to hand in a hard copy. Check your course outline or Canvas page, or ask your lecturer.","line":48}],"ask":null,"next":{"to":"checks","line":49,"target":"checks"},"timer":null,"reminders":[],"stop":null,"end":false,"line":46,"nexts":[{"to":"checks","line":49,"target":"checks"}]},{"id":"not-sure","title":"Not sure how to submit?","lines":[{"kind":"say","text":"Check your course's assignment page in Canvas. It has the full instructions for your course.","line":52,"quotes":[{"text":"Full instructions on the assignment submission process for each course are shown on each assignment submission page in Canvas.","where":"","check":"exact"}]},{"kind":"say","text":"Get to know how your course wants it. Penalties apply if a submission is incomplete or incorrect.","line":54,"quotes":[{"text":"Students should familiarise themselves with the assignment submission process for each course, as penalties apply for incomplete/incorrect submissions.","where":"","check":"exact"}]}],"ask":null,"next":{"to":"checks","line":56,"target":"checks"},"timer":null,"reminders":[],"stop":null,"end":false,"line":51,"nexts":[{"to":"checks","line":56,"target":"checks"}]},{"id":"checks","title":"Before you submit","lines":[{"kind":"do","text":"Take your name off the assignment. No student names.","line":59,"quotes":[{"text":"All assignments submitted must be anonymised, i.e. with NO STUDENT NAMES.","where":"","check":"exact"}]},{"kind":"do","text":"Save it in Microsoft Word (.doc or .docx).","line":61,"quotes":[{"text":"The assignment must be submitted in Microsoft Word (.doc or .docx) format.","where":"","check":"exact"}]},{"kind":"do","text":"Read the instructions on your course's assignment page in Canvas.","line":63,"quotes":[{"text":"Full instructions are available on the relevant course Canvas page.","where":"","check":"exact"}]},{"kind":"say","text":"Penalties apply if a submission is incomplete or incorrect.","line":65,"quotes":[{"text":"Students should familiarise themselves with the assignment submission process for each course, as penalties apply for incomplete/incorrect submissions.","where":"","check":"exact"}]},{"kind":"say","text":"The deadline is 12 noon on the due date. After that, late penalties apply.","line":67,"quotes":[{"text":"by 12 noon on the due date, or late penalties will apply.","where":"","check":"exact"}]},{"kind":"say","text":"This guidance does not cover word limits, referencing or what to name your file. Check your course outline or ask your lecturer.","line":69}],"ask":null,"next":{"to":"open-assignment","line":70,"target":"open-assignment"},"timer":null,"reminders":[],"stop":null,"end":false,"line":58,"nexts":[{"to":"open-assignment","line":70,"target":"open-assignment"}]},{"id":"open-assignment","title":"Open the assignment in Canvas","lines":[{"kind":"do","text":"Log in to Canvas (canvas.auckland.ac.nz).","line":73,"quotes":[{"text":"Log in to Canvas (canvas.auckland.ac.nz).","where":"","check":"exact"}]},{"kind":"do","text":"Choose your course.","line":75,"quotes":[{"text":"Select the Course.","where":"","check":"exact"}]},{"kind":"do","text":"In the Course Navigation, click Assignments.","line":77,"quotes":[{"text":"In the Course Navigation, click the Assignments link.","where":"","check":"exact"}]},{"kind":"do","text":"Click the name of the assignment.","line":79,"quotes":[{"text":"Click the name of the assignment.","where":"","check":"exact"}]},{"kind":"say","text":"You will see the Turnitin dashboard.","line":81,"quotes":[{"text":"You will see the Turnitin dashboard below:","where":"","check":"exact"}]}],"ask":null,"next":{"to":"upload","line":83,"target":"upload"},"timer":null,"reminders":[],"stop":null,"end":false,"line":72,"nexts":[{"to":"upload","line":83,"target":"upload"}]},{"id":"upload","title":"Upload your file","lines":[{"kind":"do","text":"Click the Upload icon: the dark grey arrow pointing up.","line":86,"quotes":[{"text":"To submit your assignment, click the Upload icon (the dark grey arrow pointing up.","where":"","check":"exact"}]},{"kind":"do","text":"In the new window, choose how to submit: a file upload, or a file from Google Drive or Dropbox.","line":88,"quotes":[{"text":"Select the submission type you want to use for your assignment.","where":"","check":"exact"},{"text":"You can submit a file upload, or select a file from Google Drive or Dropbox.","where":"","check":"exact"}]},{"kind":"warning","text":"Whichever you choose, the file must be Microsoft Word (.doc or .docx).","line":91,"quotes":[{"text":"The assignment must be submitted in Microsoft Word (.doc or .docx) format.","where":"","check":"exact"}]},{"kind":"say","text":"Turnitin checks your file and uploads it. A window shows its progress.","line":93,"quotes":[{"text":"Turnitin validates your entry and prepares it for submission.","where":"","check":"exact"},{"text":"Turnitin will then upload the document and show the following window as it goes through the process:","where":"","check":"exact"}]},{"kind":"say","text":"By uploading, you confirm your work follows the University's academic honesty policy.","line":96,"quotes":[{"text":"By uploading your assignment you affirm that your work complies fully with the University's academic honesty policy.","where":"","check":"exact"}]}],"ask":null,"next":{"to":"accept","line":98,"target":"accept"},"timer":null,"reminders":[],"stop":null,"end":false,"line":85,"nexts":[{"to":"accept","line":98,"target":"accept"}]},{"id":"accept","title":"Check the preview","lines":[{"kind":"say","text":"Once the file has uploaded, you can see a preview of it.","line":101,"quotes":[{"text":"Once the file has been uploaded you can see a preview of the file you have uploaded.","where":"","check":"exact"}]}],"ask":{"question":"Is it the right file?","options":[{"label":"Yes","to":"accept-save","line":104,"target":"accept-save"},{"label":"No, it's the wrong file","to":"preview-wrong","line":105,"target":"preview-wrong"}],"line":103},"next":null,"timer":null,"reminders":[],"stop":null,"end":false,"line":100},{"id":"preview-wrong","title":"The preview shows the wrong file","lines":[{"kind":"warning","text":"The guidance does not say what to do if the preview shows the wrong file. Contact your lecturer before the due date and time.","line":108,"quotes":[{"text":"Students experiencing problems with online submissions should contact their lecturer prior to the submission due date and time.","where":"","check":"exact"}]}],"ask":{"question":"What next?","options":[{"label":"Start again with the right file","to":"checks","line":111,"target":"checks"},{"label":"What the guidance says about resubmitting","to":"wrong-file","line":112,"target":"wrong-file"},{"label":"Finish","to":"end","line":113,"target":"__end"}],"line":110},"next":null,"timer":null,"reminders":[],"stop":null,"end":false,"line":107},{"id":"accept-save","title":"Accept your submission","lines":[{"kind":"do","text":"Click the blue button at the bottom: \"Accept submission – save\". You must click it.","line":116,"quotes":[{"text":"There will be a blue button at the bottom saying to \"Accept submission – save\".","where":"","check":"exact"},{"text":"You must click on that.","where":"","check":"exact"}]}],"ask":null,"next":{"to":"confirm","line":119,"target":"confirm"},"timer":null,"reminders":[],"stop":null,"end":false,"line":115,"nexts":[{"to":"confirm","line":119,"target":"confirm"}]},{"id":"confirm","title":"Check it arrived","lines":[{"kind":"say","text":"The window closes. The Turnitin dashboard now shows your document's title, and the date and time it was uploaded.","line":122,"quotes":[{"text":"The window will disappear and the Turnitin dashboard will now show information regarding the document you have uploaded including the title, and the date and time it was uploaded.","where":"","check":"exact"}]},{"kind":"do","text":"Check the title is your assignment.","line":124,"quotes":[{"text":"the Turnitin dashboard will now show information regarding the document you have uploaded including the title, and the date and time it was uploaded.","where":"","check":"exact"}]},{"kind":"do","text":"Check the date and time.","line":126,"quotes":[{"text":"the Turnitin dashboard will now show information regarding the document you have uploaded including the title, and the date and time it was uploaded.","where":"","check":"exact"}]},{"kind":"say","text":"There are now three icons on the right. The last one (a page with lines) downloads your digital receipt.","line":128,"quotes":[{"text":"There are now three icons on the right.","where":"","check":"exact"},{"text":"The very last icon on the right (paper/document with lines) allows you to download your digital receipt for your assignment (if you wish to do so; the Faculty does not require this).","where":"","check":"exact"}]},{"kind":"do","text":"Recommended: download your digital receipt and save a copy.","line":131,"quotes":[{"text":"You are recommended to download and save a copy of the digital receipt for your own records and to ensure online submission has been successful.","where":"","check":"exact"}]},{"kind":"say","text":"It is not required, but you need it if you ever challenge a late penalty because of a technical problem.","line":133,"quotes":[{"text":"the Faculty does not require this","where":"","check":"exact"},{"text":"In order to do so a copy of the receipt of submission will be required.","where":"","check":"exact"}]},{"kind":"say","text":"The middle icon (a down arrow) downloads the assignment you submitted, if you want to look at it.","line":136,"quotes":[{"text":"The second icon (down arrow) allows you to download the assignment you have submitted to Turnitin.","where":"","check":"exact"}]}],"ask":{"question":"Did it work?","options":[{"label":"Yes: I can see my assignment, with the date and time","to":"done","line":139,"target":"done"},{"label":"No, something went wrong","to":"wrong","line":140,"target":"wrong"}],"line":138},"next":null,"timer":null,"reminders":[],"stop":null,"end":false,"line":121},{"id":"done","title":"All done","lines":[{"kind":"say","text":"Your digital copy is submitted. Keep your digital receipt somewhere safe.","line":143,"quotes":[{"text":"You are recommended to download and save a copy of the digital receipt for your own records and to ensure online submission has been successful.","where":"","check":"exact"}]},{"kind":"say","text":"If you need to, the upload icon (the first icon) lets you submit again.","line":145,"quotes":[{"text":"The first is the upload icon (as from before) where you can resubmit if required.","where":"","check":"exact"}]},{"kind":"say","text":"The guidance does not say whether a new upload replaces the old one. If you are unsure, ask your lecturer before the deadline.","line":147},{"kind":"warning","text":"If your course also wants a hard copy, you still need to hand that in. The guidance does not say how. Check your course outline or Canvas.","line":148,"quotes":[{"text":"In some courses, assignments are submitted in hard copy and digital format.","where":"","check":"exact"}]}],"ask":null,"next":null,"timer":null,"reminders":[],"stop":null,"end":true,"line":142},{"id":"wrong","title":"What went wrong?","lines":[],"ask":{"question":"What went wrong?","options":[{"label":"It won't upload, or something isn't working","to":"technical","line":154,"target":"technical"},{"label":"I uploaded the wrong file","to":"wrong-file","line":155,"target":"wrong-file"},{"label":"I have missed, or will miss, 12 noon","to":"late","line":156,"target":"late"},{"label":"I need more time (an extension)","to":"extension","line":157,"target":"extension"}],"line":153},"next":null,"timer":null,"reminders":[],"stop":null,"end":false,"line":152},{"id":"technical","title":"A technical problem","lines":[{"kind":"do","text":"Contact your lecturer before the due date and time.","line":160,"quotes":[{"text":"Students experiencing problems with online submissions should contact their lecturer prior to the submission due date and time.","where":"","check":"exact"}]},{"kind":"say","text":"The guidance does not say what to do if the due time has already passed.","line":162},{"kind":"say","text":"If your upload ends up late because of a technical problem, you can only challenge the late penalty if you can prove a technical malfunction. You will need the receipt from your submission once it goes through, so download it then.","line":163,"quotes":[{"text":"You can only challenge a lateness penalty for late online submission if you can prove a technical malfunction.","where":"","check":"exact"},{"text":"In order to do so a copy of the receipt of submission will be required.","where":"","check":"exact"}]},{"kind":"say","text":"The guidance does not say how to prove a technical malfunction, and gives no help-desk contact. Ask your lecturer.","line":166}],"ask":{"question":"What next?","options":[{"label":"Try uploading again","to":"checks","line":168,"target":"checks"},{"label":"Finish","to":"end","line":169,"target":"__end"}],"line":167},"next":null,"timer":null,"reminders":[],"stop":null,"end":false,"line":159},{"id":"wrong-file","title":"Wrong file uploaded","lines":[{"kind":"say","text":"The upload icon (the first icon on the right) lets you submit again if you need to.","line":172,"quotes":[{"text":"The first is the upload icon (as from before) where you can resubmit if required.","where":"","check":"exact"}]},{"kind":"warning","text":"The guidance does not say whether a new upload replaces the old one, or whether a new upload after 12 noon counts as late. Contact your lecturer before the due date and time.","line":174,"quotes":[{"text":"Students experiencing problems with online submissions should contact their lecturer prior to the submission due date and time.","where":"","check":"exact"}]}],"ask":{"question":"What next?","options":[{"label":"Upload the right file","to":"checks","line":177,"target":"checks"},{"label":"Finish","to":"end","line":178,"target":"__end"}],"line":176},"next":null,"timer":null,"reminders":[],"stop":null,"end":false,"line":171},{"id":"late","title":"Late submission","lines":[{"kind":"say","text":"Take-home test? Its late penalties depend on its length. Check your course outline or Canvas.","line":181,"quotes":[{"text":"Lateness penalties for take-home tests vary depending on the length of the take-home test.","where":"","check":"exact"},{"text":"You will be advised about applicable penalties and the format of submission of take-home tests in the course outlines and/or via Canvas.","where":"","check":"exact"}]},{"kind":"say","text":"For online-only courses, the penalty is 5 marks for each day, or part of a day, that the digital copy is late.","line":184,"quotes":[{"text":"The penalty for lateness is 5 marks for each day (or part of day thereof) in which the digital copy of the assessment is submitted late.","where":"","check":"exact"}]},{"kind":"say","text":"Days are calendar days, not 24-hour periods. Saturdays and Sundays count.","line":186,"quotes":[{"text":"For the avoidance of doubt, penalties are applied on a calendar day basis (not a 24-hour basis).","where":"","check":"exact"},{"text":"For the purposes of online-only submission, Saturdays and Sundays count as calendar days.","where":"","check":"exact"}]},{"kind":"say","text":"The guidance gives no late penalties for courses that want a hard copy, and does not say if there is a last day after which late work is not accepted. Check your course outline or ask your lecturer.","line":189},{"kind":"say","text":"You can only challenge a late penalty if you can prove a technical malfunction, with a copy of your receipt.","line":190,"quotes":[{"text":"You can only challenge a lateness penalty for late online submission if you can prove a technical malfunction.","where":"","check":"exact"},{"text":"In order to do so a copy of the receipt of submission will be required.","where":"","check":"exact"}]}],"ask":{"question":"What next?","options":[{"label":"Go to the upload steps","to":"checks","line":194,"target":"checks"},{"label":"I need an extension","to":"extension","line":195,"target":"extension"},{"label":"How is the penalty worked out?","to":"late-example","line":196,"target":"late-example"},{"label":"Finish","to":"end","line":197,"target":"__end"}],"line":193},"next":null,"timer":null,"reminders":[],"stop":null,"end":false,"line":180},{"id":"late-example","title":"How the late penalty is worked out","lines":[{"kind":"say","text":"The guidance's example: due Thursday at 12 noon.","line":200,"quotes":[{"text":"An assignment is due on Thursday 7 March at 12 noon:","where":"","check":"exact"}]},{"kind":"say","text":"Handed in at 2pm Thursday: 5 marks off.","line":202,"quotes":[{"text":"Student A hands in their copy at 2pm on Thursday 7 March.","where":"","check":"exact"},{"text":"The lateness penalty applied will be a total of 5 marks deducted from the total available marks for the assignment:","where":"","check":"exact"}]},{"kind":"say","text":"Handed in at 5am Friday: 10 marks off (5 for Thursday, 5 for Friday).","line":205,"quotes":[{"text":"Student B hands in their copy at 5am on Friday 8 March.","where":"","check":"exact"},{"text":"The lateness penalty applied will be a total of 10 marks deducted from the total available marks for the assignment:","where":"","check":"exact"}]}],"ask":null,"next":{"to":"late","line":208,"target":"late"},"timer":null,"reminders":[],"stop":null,"end":false,"line":199,"nexts":[{"to":"late","line":208,"target":"late"}]},{"id":"extension","title":"Asking for an extension","lines":[{"kind":"say","text":"To apply for an extension, you must do both of these.","line":211,"quotes":[{"text":"To apply for an extension, you must:","where":"","check":"exact"}]},{"kind":"do","text":"Email lawextensions@auckland.ac.nz.","line":213,"quotes":[{"text":"email lawextensions@auckland.ac.nz","where":"","check":"exact"}]},{"kind":"do","text":"Send evidence, such as a doctor's certificate, before the due date.","line":215,"quotes":[{"text":"supply evidence (e.g. doctor’s certificate) before the due date.","where":"","check":"exact"}]},{"kind":"warning","text":"Lecturers and tutors do not and cannot grant extensions.","line":217,"quotes":[{"text":"Lecturers and tutors do not and cannot grant extensions.","where":"","check":"exact"}]},{"kind":"say","text":"The guidance says \"before the due date\" next to the evidence. It does not say whether the email must also be sent by then, or whether it means before the due day or before 12 noon on it.","line":219},{"kind":"say","text":"The guidance does not say what to do if the due date has already passed, or how long a reply takes. Check your course outline.","line":220}],"ask":null,"next":null,"timer":null,"reminders":[],"stop":null,"end":true,"line":210}],"start":"start"},"findings":[{"level":"info","step":"start","line":14,"message":"1 line in \"What do you need?\" has no quote from the guideline (\"This guidance is for Law (LLB) students at the University…\"). Fine for app wording; an instruction should quote its source."},{"level":"info","step":"hard-copy","line":47,"message":"2 lines in \"Hard copy and digital copy\" have no quote from the guideline (\"The steps in this app are for the digital copy, uploaded …\"). Fine for app wording; an instruction should quote its source."},{"level":"info","step":"checks","line":69,"message":"1 line in \"Before you submit\" has no quote from the guideline (\"This guidance does not cover word limits, referencing or …\"). Fine for app wording; an instruction should quote its source."},{"level":"info","step":"done","line":147,"message":"1 line in \"All done\" has no quote from the guideline (\"The guidance does not say whether a new upload replaces t…\"). Fine for app wording; an instruction should quote its source."},{"level":"info","step":"technical","line":162,"message":"2 lines in \"A technical problem\" have no quote from the guideline (\"The guidance does not say what to do if the due time has …\"). Fine for app wording; an instruction should quote its source."},{"level":"info","step":"late","line":189,"message":"1 line in \"Late submission\" has no quote from the guideline (\"The guidance gives no late penalties for courses that wan…\"). Fine for app wording; an instruction should quote its source."},{"level":"info","step":"extension","line":219,"message":"2 lines in \"Asking for an extension\" have no quote from the guideline (\"The guidance says \"before the due date\" next to the evide…\"). Fine for app wording; an instruction should quote its source."},{"level":"info","message":"The guideline mentions 1 amount the template never uses: 202021 %. Some may be background; check none were left out."},{"level":"info","message":"Nobody is named under \"Reviewed by:\", so the app shows \"Not reviewed\"."},{"level":"info","message":"The saved guideline text is a web copy made by a fetch tool and may not be word-perfect, so a \"quote not found\" may be the copy's fault. Add the PDF to sources/ for exact checking."}],"summary":{"steps":20,"reachable":20,"fix":0,"check":0,"info":10,"quotes":63,"quotesExact":63,"numberLines":0,"numberLinesQuoted":0,"sourceAmounts":1,"sourceAmountsUsed":0},"built":"2026-11-18"}</script>
+<script>(() => {
+  // engine/util.js
+  var slug = (text) => String(text).toLowerCase().normalize("NFKD").replace(/\p{M}/gu, "").replace(/[^\p{L}\p{N}]+/gu, "-").replace(/^-+|-+$/g, "") || "step";
+  function formatDuration(ms) {
+    const s = Math.max(0, Math.round(ms / 1e3));
+    const h = Math.floor(s / 3600), m = Math.floor(s % 3600 / 60), r = s % 60;
+    if (h) return `${h} h ${String(m).padStart(2, "0")} min`;
+    if (m) return r ? `${m} min ${r} s` : `${m} min`;
+    return `${r} s`;
+  }
+  function clock(ms) {
+    const s = Math.max(0, Math.ceil(ms / 1e3));
+    const h = Math.floor(s / 3600), m = Math.floor(s % 3600 / 60), r = s % 60;
+    return (h ? `${h}:${String(m).padStart(2, "0")}` : `${m}`) + ":" + String(r).padStart(2, "0");
+  }
+  function testCondition(cond, answers, inputs) {
+    if (!cond) return true;
+    let unknown = false;
+    for (const c of cond) {
+      const input = findByName(inputs, c.input, (i) => [i.id, i.label]);
+      const value = input ? answers[input.id] : answers[slug(c.input)];
+      if (value === void 0 || value === null || value === "") {
+        unknown = true;
+        continue;
+      }
+      const ok = compare(value, c.op, c.values);
+      if (!ok) return false;
+    }
+    return unknown ? null : true;
+  }
+  function compare(value, op, values) {
+    if (op === "=" || op === "!=") {
+      const hit = values.some((v) => String(v).toLowerCase() === String(value).toLowerCase());
+      return op === "=" ? hit : !hit;
+    }
+    const a = Number(value), b = parseFloat(values[0]);
+    return op === "<" ? a < b : op === "<=" ? a <= b : op === ">" ? a > b : a >= b;
+  }
+  function findByName(list, name, namesOf) {
+    const want = slug(name);
+    return list.find((x) => namesOf(x).some((n) => slug(n) === want)) ?? null;
+  }
+  function keyMatches(key, value) {
+    if (value === void 0 || value === null || value === "") return false;
+    if (key.kind === "value") return String(value).toLowerCase() === key.value.toLowerCase();
+    const v = Number(value);
+    if (Number.isNaN(v)) return false;
+    if (key.kind === "number") return v === key.value;
+    return (key.lowIn ? v >= key.low : v > key.low) && (key.highIn ? v <= key.high : v < key.high);
+  }
+
+  // engine/quotes.js
+  var UNIT = "(?:\u2103|mg|mcg|micrograms?|g|kg|ml|mL|l|L|litres?|liters?|mmol|J|joules?|%|\xB0C|degrees|seconds?|secs?|s|minutes?|mins?|hours?|hrs?|h|days?|weeks?|times|cm|mm|m|metres?|meters?|km|breaths|compressions)";
+  var AMOUNT = new RegExp("(\\d+(?:\\.\\d+)?)(?:\\s?(?:-|to|\u2013)\\s?(\\d+(?:\\.\\d+)?))?\\s?(" + UNIT + ")(?![\\p{L}])", "giu");
+
+  // engine/looks.js
+  var LOOKS = [
+    {
+      id: "clinic",
+      name: "Clinic",
+      from: "Patient and wellbeing apps: calm cards, one teal action colour, soft and friendly.",
+      fonts: "family=Inter:wght@400;600;700"
+    },
+    {
+      id: "wayfinding",
+      name: "Wayfinding",
+      from: "Transit maps and road signs: bold type, actions as stations on a line, sign-yellow cautions.",
+      fonts: "family=Archivo:wght@500;700;800;900"
+    },
+    {
+      id: "flightdeck",
+      name: "Flight deck",
+      from: "Aviation checklists and cockpit displays: dark, high contrast, built for stress and low light.",
+      fonts: "family=IBM+Plex+Sans:wght@400;500;700&family=IBM+Plex+Sans+Condensed:wght@600;700&family=IBM+Plex+Mono:wght@500"
+    }
+  ];
+  var DEFAULT_LOOK = LOOKS[0].id;
+
+  // engine/check.js
+  var END = "__end";
+
+  // engine/runtime.js
+  function mount(root, { spec, findings = [], summary = {}, built = "" }) {
+    const S = {
+      screen: "start",
+      tab: "steps",
+      answers: {},
+      current: null,
+      history: [],
+      ticks: {},
+      log: [],
+      startedAt: null,
+      enteredAt: null,
+      timerDone: false,
+      reminders: {},
+      records: {},
+      note: ""
+    };
+    const byId = new Map(spec.steps.map((s) => [s.id, s]));
+    const esc = (t) => String(t ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
+    const now = () => Date.now();
+    const log = (what, detail = "") => S.log.push({ at: now(), what, detail });
+    const brand = spec.brand ?? {};
+    const html = root.ownerDocument.documentElement;
+    const lookLocked = html.hasAttribute("data-look-lock");
+    const LOOK_KEY = "guideline-app-look";
+    const savedLook = () => {
+      try {
+        return localStorage.getItem(LOOK_KEY);
+      } catch {
+        return null;
+      }
+    };
+    function applyLook(id) {
+      if (!lookLocked) html.dataset.look = LOOKS.some((l) => l.id === id) ? id : spec.look || DEFAULT_LOOK;
+      if (brand.colour) html.style.setProperty("--brand", brand.colour);
+    }
+    function pickLook(id) {
+      try {
+        localStorage.setItem(LOOK_KEY, id);
+      } catch {
+      }
+      applyLook(id);
+      render();
+    }
+    applyLook(savedLook());
+    const counts = { fix: findings.filter((f) => f.level === "fix").length, check: findings.filter((f) => f.level === "check").length };
+    function begin() {
+      S.startedAt = now();
+      S.screen = "run";
+      log("Started");
+      const inputsGiven = spec.inputs.filter((i) => S.answers[i.id] !== void 0 && S.answers[i.id] !== "");
+      if (inputsGiven.length) log("Details", inputsGiven.map((i) => `${i.label}: ${S.answers[i.id]}${i.unit ? " " + i.unit : ""}`).join(", "));
+      go(spec.start, null);
+    }
+    function go(target, why) {
+      if (target === END) return finish(why);
+      const step = byId.get(target);
+      if (!step) {
+        S.note = "This leads to a step that is missing from the template (see Checks). Choose another option or go back.";
+        render();
+        return;
+      }
+      if (S.current) S.history.push({ id: S.current, enteredAt: S.enteredAt, timerDone: S.timerDone, reminders: JSON.parse(JSON.stringify(S.reminders)) });
+      S.current = step.id;
+      S.enteredAt = now();
+      S.timerDone = false;
+      S.note = "";
+      for (const k of Object.keys(S.ticks)) if (k.startsWith(step.id + ":")) delete S.ticks[k];
+      log(step.title, why ?? "");
+      if (step.stop) for (const id of Object.keys(S.reminders)) {
+        const want = step.stop.toLowerCase();
+        if (want === "all" || slug(step.stop) === id || S.reminders[id].text.toLowerCase().startsWith(want)) {
+          log("Reminder stopped", S.reminders[id].text);
+          delete S.reminders[id];
+        }
+      }
+      for (const r of step.reminders) if (!S.reminders[r.id]) {
+        S.reminders[r.id] = { text: r.text, ms: r.ms, every: r.every, once: !!r.once, dueAt: now() + r.ms, alerted: false };
+        log("Reminder started", `${r.text} (${r.once ? "after" : "every"} ${r.every})`);
+      }
+      render();
+    }
+    function back() {
+      const prev = S.history.pop();
+      if (!prev) return;
+      S.current = prev.id;
+      S.enteredAt = prev.enteredAt;
+      S.timerDone = prev.timerDone;
+      S.reminders = prev.reminders;
+      S.note = "";
+      log("Went back to", byId.get(prev.id).title);
+      render();
+    }
+    function finish(why) {
+      S.screen = "done";
+      log("Finished", why ?? "");
+      render();
+    }
+    function restart() {
+      try {
+        localStorage.removeItem(KEY);
+      } catch {
+      }
+      Object.assign(S, { screen: "start", tab: "steps", current: null, history: [], ticks: {}, log: [], startedAt: null, reminders: {}, records: {}, note: "" });
+      render();
+    }
+    function render() {
+      root.innerHTML = `
+      <header class="bar"><div class="t">${brand.name ? `<span class="brand">${esc(brand.name)}</span>` : ""}${esc(spec.title)}</div><div class="clock" data-clock="elapsed">${S.startedAt ? clock(now() - S.startedAt) : ""}</div></header>
+      <div class="proto">Prototype built automatically from a guideline. ${spec.reviewedBy ? "Reviewed by " + esc(spec.reviewedBy) + "." : "Not reviewed."} Not for real-world use.</div>
+      ${reminderBar()}
+      <main id="main">${S.tab === "steps" ? S.screen === "start" ? startView() : S.screen === "done" ? doneView() : stepView() : S.tab === "log" ? logView() : S.tab === "checks" ? checksView() : aboutView()}</main>
+      <nav class="tabs">${["steps", "log", "checks", "about"].map((t) => `<button data-tab="${t}" class="${S.tab === t ? "on" : ""}">${{ steps: "Steps", log: "Log", checks: `Checks${counts.fix + counts.check ? ` (${counts.fix + counts.check})` : ""}`, about: "About" }[t]}</button>`).join("")}</nav>`;
+      tick();
+    }
+    function startView() {
+      return `<section class="card">
+      <h1>${esc(spec.title)}</h1>
+      ${spec.about ? `<p>${esc(spec.about)}</p>` : ""}
+      ${spec.warning ? `<p class="warn">${esc(spec.warning)}</p>` : ""}
+      ${counts.fix ? `<p class="author">The template has ${counts.fix} problem${counts.fix > 1 ? "s" : ""} the author needs to fix (see Checks). The app still runs.</p>` : ""}
+      ${inputsForm()}
+      <button class="big go" data-act="begin">Start</button>
+      ${lookLocked ? "" : '<p class="look-link"><button class="link" data-tab="about">Change the look</button></p>'}</section>`;
+    }
+    function inputsForm() {
+      if (!spec.inputs.length) return "";
+      return `<div class="inputs">${spec.inputs.map((i) => `<label class="inp">${esc(i.label)}${i.unit ? ` (${esc(i.unit)})` : ""}${i.optional ? " <small>optional</small>" : ""}
+      ${i.type === "choice" ? `<span class="choices">${i.options.map((o) => `<button data-input="${i.id}" data-value="${esc(o)}" class="${S.answers[i.id] === o ? "on" : ""}">${esc(o)}</button>`).join("")}</span>` : `<input inputmode="decimal" data-num="${i.id}" value="${esc(S.answers[i.id] ?? "")}" placeholder="${i.min != null ? `${i.min}\u2013${i.max}` : ""}">`}
+      <span class="bad" data-bad="${i.id}">${esc(numberProblem(i, S.answers[i.id]) ?? "")}</span></label>`).join("")}</div>`;
+    }
+    function numberProblem(i, v) {
+      if (i.type !== "number" || v === void 0 || v === "") return null;
+      const x = Number(v);
+      if (Number.isNaN(x)) return "Not a number";
+      if (i.min != null && x < i.min || i.max != null && x > i.max) return `Outside ${i.min}\u2013${i.max}`;
+      return null;
+    }
+    function stepView() {
+      const s = byId.get(S.current);
+      const lines = s.lines.filter((l) => l.kind !== "note").map(lineView).join("");
+      const opts = (s.ask?.options ?? []).map((o, k) => {
+        const shown = testCondition(o.cond, S.answers, spec.inputs);
+        if (shown === false) return "";
+        return `<button class="big opt${o.target ? "" : " broken"}" data-opt="${k}">${esc(o.label)}${shown === null ? " <small>(depends on details)</small>" : ""}</button>`;
+      }).join("");
+      const next = nextTarget(s);
+      const final = s.end || !opts && !next && !s.timer?.target;
+      return `<section class="card step">
+      <div class="crumb">${S.history.length ? `<button class="link" data-act="back">\u2039 Back</button>` : ""}<span>Step ${S.history.length + 1}</span></div>
+      <h2>${esc(s.title)}</h2>
+      ${s.timer ? `<div class="timer ${S.timerDone ? "due" : ""}"><div class="lbl">${esc(s.timer.label)}</div><div class="big-clock" data-clock="timer">${clock(s.timer.ms)}</div>
+         ${S.timerDone && s.timer.target ? `<button class="big go" data-act="timer-go">Time's up: continue</button>` : ""}
+         ${s.timer.to && !s.timer.target ? `<p class="author">The timer leads to "${esc(s.timer.to)}", which is missing.</p>` : ""}</div>` : ""}
+      ${lines}
+      ${s.ask ? `<p class="q">${esc(s.ask.question)}</p><div class="opts">${opts || '<p class="author">No answer applies with the details entered (see Checks).</p>'}</div>` : ""}
+      ${S.note ? `<p class="author">${esc(S.note)}</p>` : ""}
+      ${next ? `<button class="big ${s.ask ? "skip" : "go"}" data-act="next">${s.ask ? "Skip" : "Next"}: ${esc(byId.get(next)?.title ?? "Finish")}${nextDepends(s) ? " <small>(depends on details not entered)</small>" : ""}</button>` : ""}
+      ${final ? `<button class="big go" data-act="finish">Finish</button>` : ""}
+    </section>`;
+    }
+    function nextTarget(s) {
+      const list = (s.nexts ?? []).filter((n) => n.target);
+      return list.find((n) => testCondition(n.cond, S.answers, spec.inputs) === true)?.target ?? list.find((n) => testCondition(n.cond, S.answers, spec.inputs) === null)?.target ?? null;
+    }
+    const nextDepends = (s) => {
+      const t = nextTarget(s);
+      const n = (s.nexts ?? []).find((x) => x.target === t);
+      return n && testCondition(n.cond, S.answers, spec.inputs) === null;
+    };
+    function lineView(l, k) {
+      const shown = testCondition(l.cond, S.answers, spec.inputs);
+      if (shown === false) return "";
+      const dep = shown === null ? `<small class="dep">Depends on: ${esc(l.cond.map((c) => c.input).join(", "))}</small>` : "";
+      const q = l.quotes?.length ? `<details class="src"><summary>Guideline</summary>${l.quotes.map((x) => `<q>${esc(x.text)}</q>${x.where ? ` <small>${esc(x.where)}</small>` : ""}${x.check && x.check !== "exact" ? ' <small class="dep">quote not confirmed</small>' : ""}`).join("<br>")}</details>` : "";
+      const key = `${S.current}:${k}`;
+      if (l.kind === "do") return `<label class="do"><input type="checkbox" data-tick="${key}" ${S.ticks[key] ? "checked" : ""}> <span>${esc(l.text)}</span>${dep}${q}</label>`;
+      if (l.kind === "warning") return `<p class="warn">${esc(l.text)}${dep}${q}</p>`;
+      if (l.kind === "record") {
+        const r = S.records[l.text];
+        return `<div class="rec"><button class="big rec-btn" data-rec="${esc(l.text)}">${esc(l.text)}</button><small data-clock="rec" data-rec-name="${esc(l.text)}">${r ? `${r.n}\xD7 \xB7 last ${formatDuration(now() - r.last)} ago` : "not yet"}</small>${dep}${q}</div>`;
+      }
+      if (l.kind === "show") return `<div class="show">${showTable(l)}${dep}${q}</div>`;
+      return `<p class="${l.bullet ? "bul" : ""}">${esc(l.text)}${dep}${q}</p>`;
+    }
+    function showTable(l) {
+      const t = spec.tables.find((x) => x.id === l.tableId);
+      if (!t) return `<p class="author">"${esc(l.table)}" table is missing from the template.</p>`;
+      const cols = l.column ? t.columns.filter((c) => slug(c) === slug(l.column)) : t.columns.slice(1);
+      if (!t.keyInput) return `<table><tr>${t.columns.map((c) => `<th>${esc(c)}</th>`).join("")}</tr>${t.rows.map((r) => `<tr>${t.columns.map((c) => `<td>${cell(r.cells[c])}</td>`).join("")}</tr>`).join("")}</table>`;
+      const inp = spec.inputs.find((i) => i.id === t.keyInput);
+      const v = S.answers[inp.id];
+      if (v === void 0 || v === "") return `<p><b>${esc(t.title)}:</b> enter ${esc(inp.label)} to see this. <button class="link" data-tab="about">Enter details</button></p>`;
+      const row = t.rows.find((r) => keyMatches(r.match, v));
+      if (!row) return `<p class="author"><b>${esc(t.title)}:</b> the table has no row for ${esc(inp.label)} ${esc(v)}${inp.unit ? " " + esc(inp.unit) : ""}.</p>`;
+      return `<div class="lookup"><div class="lk">${esc(t.title)} <small>(${esc(row.key)})</small></div>${cols.map((c) => `<div class="lv"><span>${esc(c)}</span><b>${cell(row.cells[c])}</b></div>`).join("")}</div>`;
+    }
+    const cell = (v) => /^\s*(-|–|—|n\/?a)?\s*$/i.test(v ?? "") ? "<i>Not stated in the guideline</i>" : esc(v);
+    function reminderBar() {
+      const list = Object.entries(S.reminders);
+      if (!list.length) return "";
+      return `<div class="reminders">${list.map(([id, r]) => `<div class="rem" data-rem="${id}"><span class="rt">${esc(r.text)}</span><span class="rc" data-clock="rem" data-rem-id="${id}"></span>${r.once && !r.alerted ? "" : `<button data-remdone="${id}">${r.once ? "OK" : "Done"}</button>`}<button class="x" data-remstop="${id}" title="Stop">\u2715</button></div>`).join("")}</div>`;
+    }
+    function doneView() {
+      return `<section class="card"><h2>Finished</h2><p>Total time ${clock((S.log.at(-1)?.at ?? now()) - (S.startedAt ?? now()))}.</p>${logList()}<button class="big" data-act="copy">Copy log</button><button class="big go" data-act="restart">Start again</button></section>`;
+    }
+    function logView() {
+      return `<section class="card"><h2>Log</h2>${S.log.length ? logList() + '<button class="big" data-act="copy">Copy log</button>' : "<p>Nothing yet.</p>"}</section>`;
+    }
+    function logList() {
+      return `<ol class="log">${S.log.map((e) => `<li><time>${S.startedAt ? clock(e.at - S.startedAt) : ""}</time> ${esc(e.what)}${e.detail ? ` <small>${esc(e.detail)}</small>` : ""}</li>`).join("")}</ol>`;
+    }
+    function logText() {
+      return S.log.map((e) => `${S.startedAt ? clock(e.at - S.startedAt) : ""}  ${e.what}${e.detail ? " - " + e.detail : ""}`).join("\n");
+    }
+    function checksView() {
+      const order = ["fix", "check", "info"];
+      const name = { fix: "Needs fixing", check: "Please check", info: "For information" };
+      const stepTitle = (id) => byId.get(id)?.title ?? id;
+      return `<section class="card"><h2>Author checks</h2><p>Found automatically by comparing the template with itself and with the guideline text. Fix them in the template; the app keeps running meanwhile.</p>
+      ${order.map((lvl) => {
+        const fs = findings.filter((f) => f.level === lvl);
+        return fs.length ? `<h3 class="lvl-${lvl}">${name[lvl]} (${fs.length})</h3><ul class="findings">${fs.map((f) => `<li class="lvl-${lvl}">${f.step ? `<b>${esc(stepTitle(f.step))}</b> \xB7 ` : ""}${f.line ? `<small>line ${f.line}</small> ` : ""}${esc(f.message)}${f.suggestion ? `<br><i>${esc(f.suggestion)}</i>` : ""}</li>`).join("")}</ul>` : "";
+      }).join("") || "<p>No findings.</p>"}
+    </section>`;
+    }
+    function aboutView() {
+      return `<section class="card"><h2>About</h2>${spec.about ? `<p>${esc(spec.about)}</p>` : ""}
+      ${spec.inputs.length ? `<h3>Details</h3>${inputsForm()}` : ""}
+      ${lookLocked ? "" : `<h3>Look</h3><div class="look-pick">${LOOKS.map((l) => `<button data-look-pick="${l.id}" class="${html.dataset.look === l.id ? "on" : ""}">${esc(l.name)}</button>`).join("")}</div>`}
+      <h3>Source</h3><ul>${spec.sources.map((s) => `<li>${esc(s.name)}${s.link ? ` <a href="${esc(s.link)}" target="_blank" rel="noopener">link</a>` : ""}</li>`).join("") || "<li>Not stated</li>"}</ul>
+      <p><small>${spec.version ? "Guideline version: " + esc(spec.version) + " \xB7 " : ""}${built ? "Built " + esc(built) + " \xB7 " : ""}${summary.quotes != null ? `${summary.quotesExact}/${summary.quotes} quotes confirmed` : ""}</small></p>
+      ${S.screen !== "start" ? '<button class="big" data-act="restart">Start again</button>' : ""}</section>`;
+    }
+    function tick() {
+      const t = now();
+      const s = S.screen === "run" && S.current && byId.get(S.current);
+      if (s?.timer && !S.timerDone && t - S.enteredAt >= s.timer.ms) {
+        S.timerDone = true;
+        log("Timer finished", `${s.title}: ${s.timer.label}`);
+        buzz();
+        render();
+        return;
+      }
+      let newlyDue = false;
+      for (const r of Object.values(S.reminders)) if (r.dueAt <= t && !r.alerted) {
+        r.alerted = true;
+        newlyDue = true;
+        log(r.once ? "Deadline reached" : "Reminder due", r.text);
+        buzz();
+      }
+      if (newlyDue) {
+        render();
+        return;
+      }
+      save();
+      for (const el of root.querySelectorAll("[data-clock]")) {
+        const kind = el.dataset.clock;
+        if (kind === "elapsed" && S.startedAt) el.textContent = clock(t - S.startedAt);
+        if (kind === "timer" && s?.timer) {
+          el.textContent = clock(s.timer.ms - (t - S.enteredAt));
+          el.parentElement.style.setProperty("--p", Math.min(1, (t - S.enteredAt) / s.timer.ms).toFixed(3));
+        }
+        if (kind === "rem") {
+          const r = S.reminders[el.dataset.remId];
+          if (!r) continue;
+          const left = r.dueAt - t;
+          el.textContent = left > 0 ? clock(left) : `${r.once ? "NOW" : "DUE"} \xB7 ${clock(-left)} ago`;
+          el.parentElement.classList.toggle("due", left <= 0);
+        }
+        if (kind === "rec") {
+          const r = S.records[el.dataset.recName];
+          if (r) el.textContent = `${r.n}\xD7 \xB7 last ${formatDuration(t - r.last)} ago`;
+        }
+      }
+    }
+    let audio = null;
+    const buzz = () => {
+      try {
+        navigator.vibrate?.([200, 100, 200]);
+      } catch {
+      }
+      try {
+        audio ?? (audio = new (window.AudioContext || window.webkitAudioContext)());
+        for (const at of [0, 0.3]) {
+          const o = audio.createOscillator(), g = audio.createGain();
+          o.frequency.value = 880;
+          g.gain.value = 0.2;
+          o.connect(g);
+          g.connect(audio.destination);
+          o.start(audio.currentTime + at);
+          o.stop(audio.currentTime + at + 0.18);
+        }
+      } catch {
+      }
+    };
+    const KEY = "guideline-app:" + slug(spec.title);
+    let lastSaved = "";
+    function save() {
+      try {
+        const j = JSON.stringify(S);
+        if (j !== lastSaved) {
+          localStorage.setItem(KEY, j);
+          lastSaved = j;
+        }
+      } catch {
+      }
+    }
+    function load() {
+      try {
+        const j = localStorage.getItem(KEY);
+        if (j) {
+          const old = JSON.parse(j);
+          if (old.screen === "run" && old.current && byId.has(old.current)) {
+            Object.assign(S, old, { tab: "steps", note: "Carried on from where this was left (the page was reloaded)." });
+          }
+        }
+      } catch {
+      }
+    }
+    root.addEventListener("click", (e) => {
+      var _a, _b;
+      const b = e.target.closest("button");
+      if (!b) return;
+      const d = b.dataset;
+      if (d.tab) {
+        S.tab = d.tab;
+        render();
+        return;
+      }
+      if (d.lookPick) return pickLook(d.lookPick);
+      if (d.input) {
+        S.answers[d.input] = S.answers[d.input] === d.value ? void 0 : d.value;
+        if (S.screen === "run") log("Detail changed", `${d.input}: ${d.value}`);
+        render();
+        return;
+      }
+      if (d.opt !== void 0) {
+        const s = byId.get(S.current), o = s.ask.options[+d.opt];
+        if (!o.target) {
+          S.note = `"${o.label}" leads to "${o.to}", which is missing from the template (see Checks).`;
+          render();
+          return;
+        }
+        return go(o.target, `${s.ask.question || s.title}: ${o.label}`);
+      }
+      if (d.rec) {
+        const r = (_a = S.records)[_b = d.rec] ?? (_a[_b] = { n: 0, last: 0 });
+        r.n++;
+        r.last = now();
+        log(d.rec);
+        render();
+        return;
+      }
+      if (d.remdone) {
+        const r = S.reminders[d.remdone];
+        if (r) {
+          log("Done", r.text);
+          if (r.once) delete S.reminders[d.remdone];
+          else {
+            r.dueAt = now() + r.ms;
+            r.alerted = false;
+          }
+        }
+        render();
+        return;
+      }
+      if (d.remstop) {
+        const r = S.reminders[d.remstop];
+        if (r) log("Reminder stopped", r.text);
+        delete S.reminders[d.remstop];
+        render();
+        return;
+      }
+      switch (d.act) {
+        case "begin":
+          try {
+            audio ?? (audio = new (window.AudioContext || window.webkitAudioContext)());
+          } catch {
+          }
+          return begin();
+        case "back":
+          return back();
+        case "next":
+          return go(nextTarget(byId.get(S.current)), "Next");
+        case "timer-go":
+          return go(byId.get(S.current).timer.target, "Timer finished");
+        case "finish":
+          return finish();
+        case "restart":
+          return restart();
+        case "copy":
+          try {
+            navigator.clipboard?.writeText(logText());
+            b.textContent = "Copied";
+          } catch {
+            b.textContent = "Could not copy";
+          }
+          return;
+      }
+    });
+    root.addEventListener("change", (e) => {
+      const el = e.target;
+      if (el.dataset.num && S.screen === "run") log("Detail changed", `${el.dataset.num}: ${el.value.trim()}`);
+      if (el.dataset.tick) {
+        S.ticks[el.dataset.tick] = el.checked;
+        const s = byId.get(S.current);
+        const l = s?.lines.filter((x) => x.kind !== "note")[+el.dataset.tick.split(":").pop()];
+        log(el.checked ? "Ticked" : "Unticked", l?.text ?? "");
+      }
+    });
+    root.addEventListener("input", (e) => {
+      const el = e.target;
+      if (el.dataset.num) {
+        S.answers[el.dataset.num] = el.value.trim();
+        const i = spec.inputs.find((x) => x.id === el.dataset.num);
+        const bad = root.querySelector(`[data-bad="${el.dataset.num}"]`);
+        if (bad) bad.textContent = numberProblem(i, el.value.trim()) ?? "";
+      }
+    });
+    load();
+    const timer = setInterval(tick, 250);
+    render();
+    return { state: S, render, stop: () => clearInterval(timer) };
+  }
+
+  // engine/app-entry.js
+  var data = JSON.parse(document.getElementById("spec").textContent);
+  window.__app = mount(document.getElementById("app"), data);
+})();
+</script>
+</body></html>
