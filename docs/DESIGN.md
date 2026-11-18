@@ -58,7 +58,7 @@ guideline numbers the template never uses, no reviewer).
 The checker suggests the likely fix ("Did you mean ...?") using name similarity. It never changes meaning on its
 own; the author decides.
 
-## What each nightly run adds
+## What each build run adds
 When a guideline needs something the runtime can't do (a counter, a score calculator, parallel tracks, a
 second timer), the run adds it as a new line type: reader + checker + runtime + tests + this page, and every
 earlier app must still pass. That is how the builder "learns": the library of building blocks grows, and the

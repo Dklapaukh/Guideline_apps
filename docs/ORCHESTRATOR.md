@@ -1,6 +1,6 @@
 # Scheduled run: what the orchestrator does
 
-A scheduled task starts a fresh session three times a day (01:47, 09:47 and 17:47 New Zealand time) with no memory. This page is the whole procedure. The
+A scheduled task starts a fresh session every four hours with no memory. This page is the whole procedure. The
 session is the **orchestrator**: it plans, hands work to sub-agents, checks their work, and is the only one that
 publishes, commits and pushes. Nobody is watching: never stop to ask. If something needs the owner, write it
 under "Needs you" in `runs/LATEST.md` and carry on with what can be done.
@@ -27,7 +27,7 @@ under "Needs you" in `runs/LATEST.md` and carry on with what can be done.
 1. Anything the owner asked for in comments.
 2. A failing test, or a `fix` finding in a published app.
 3. The next `queued` guideline in `docs/CURRICULUM.md` (one per run; two only if both are level 1-2 and the
-   first finished quickly). Row 16, the final exam, follows its own rules in that file.
+   first finished quickly). The last row, the final exam, follows its own rules in that file.
 
 ## 3. Sub-agents (use the Agent tool with model "opus"; give each a complete brief; they don't see this chat)
 Run 3a and then 3b in sequence; 3c only if needed; 3d always, and it must not be the agent that wrote the template.

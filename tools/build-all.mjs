@@ -33,7 +33,7 @@ writeFileSync(path.join(SITE, 'studio.html'), studioHtml);
 
 // 3. The dashboard
 const registry = readJson(path.join(ROOT, 'registry.json'), { apps: {} });
-const latestRun = existsSync(path.join(ROOT, 'runs/LATEST.md')) ? readFileSync(path.join(ROOT, 'runs/LATEST.md'), 'utf8') : 'No nightly run yet.';
+const latestRun = existsSync(path.join(ROOT, 'runs/LATEST.md')) ? readFileSync(path.join(ROOT, 'runs/LATEST.md'), 'utf8') : 'No build run yet.';
 const curriculum = existsSync(path.join(ROOT, 'docs/CURRICULUM.md')) ? readFileSync(path.join(ROOT, 'docs/CURRICULUM.md'), 'utf8') : '';
 writeFileSync(path.join(SITE, 'dashboard.html'), dashboardHtml({ rows, registry, latestRun, curriculum, date }));
 console.log('site/ built', date);
@@ -66,7 +66,7 @@ ${rows.map((r) => { const s = r.summary, m = r.meta; return `<div class="card"><
 <div class="n"><div class="fix"><b>${s.fix}</b>to fix</div><div class="check"><b>${s.check}</b>to check</div><div><b>${s.quotesExact}/${s.quotes}</b>quotes confirmed</div><div><b>${s.reachable}/${s.steps}</b>steps reachable</div><div><b>${pct(s.sourceAmountsUsed, s.sourceAmounts)}</b>guideline numbers used</div></div>
 ${m.status ? `<p>${esc(m.status)}</p>` : ''}
 ${link(r.id) ? `<a class="open" href="${esc(link(r.id))}" target="_blank" rel="noopener">Open app</a>` : '<p><i>Not published yet</i></p>'}</div>`; }).join('')}
-<h3>Latest nightly run</h3><pre>${esc(latestRun)}</pre>
+<h3>Latest run</h3><pre>${esc(latestRun)}</pre>
 ${queue.length ? `<h3>Guideline queue</h3><table><tr><th>#</th><th>Guideline</th><th>Type</th><th>Level</th><th>Status</th></tr>${queue.map((q) => `<tr>${q.map((c) => `<td>${esc(c)}</td>`).join('')}</tr>`).join('')}</table>` : ''}
 </main></body></html>
 `;

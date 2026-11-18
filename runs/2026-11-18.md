@@ -9,7 +9,8 @@ Built:
   no soaking time).
 - Three design looks to choose from (clinic, flight deck, wayfinding) and a phone review page with one-tap
   reactions. Timers now sit at the top of a step so the clock is always in view (all apps).
-- Scheduled runs: three a day.
+- Scheduled runs: build every four hours; code and docs audit every three days.
+- Queue: 8 workplace and study processes added (assignments, leave, resigning, privacy breach, new staff).
 
 Gaps found in the guideline: no soaking time for chemical burns; no advice if 20 minutes of cooling isn't possible;
 no "see a doctor" advice for heat burns.

@@ -1,6 +1,6 @@
 # Traps when turning a guideline into an app
 
-Started from what building Pocket Resus taught; the nightly runs add to it. The author and the reviewer check
+Started from what building Pocket Resus taught; each build run adds to it. The author and the reviewer check
 every template against this list. Where a trap applies, write it in the step (`Say:`/`Warning:`) and in `## Notes`.
 
 1. **A range where the app needs one value** ("20–25 J", "1–2 litres"). Show the range as printed; don't pick

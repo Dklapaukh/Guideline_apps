@@ -1,6 +1,6 @@
 # Guideline Apps: read this first
 
-Turns guidelines (medical and non-medical) into simple phone apps. A prototype builder that runs every night,
+Turns guidelines (medical and non-medical) into simple phone apps. A prototype builder that runs on a schedule,
 unattended, and gets more capable over time. Owner: a clinician, not a programmer.
 
 1. **Pipeline**: guideline text → filled-in template (`template/guideline-template.md`) → plain code reads and
@@ -20,8 +20,8 @@ unattended, and gets more capable over time. Owner: a clinician, not a programme
 6. **Separate from Pocket Resus**: never write to the Pocket_Resus repository. It may be read only for the
    final-exam guideline (docs/CURRICULUM.md), and its clinical content must not be copied here before then.
 7. **Docs hold what is true now** (rewrite, don't append history). Explain simply. Comment what each function
-   does. The nightly run follows `docs/ORCHESTRATOR.md` and writes `runs/LATEST.md` for the owner.
+   does. Each build run follows `docs/ORCHESTRATOR.md` and writes `runs/LATEST.md` for the owner.
 
 Map: `docs/DESIGN.md` (how it works, spec format), `docs/LESSONS.md` (traps when reading guidelines),
-`docs/CURRICULUM.md` (guideline queue), `docs/ORCHESTRATOR.md` (nightly procedure), `registry.json`
+`docs/CURRICULUM.md` (guideline queue), `docs/ORCHESTRATOR.md` (build-run procedure), `docs/AUDIT.md` (code and docs audit procedure), `registry.json`
 (published page links), `site/` (built pages), `guidelines/<nn-name>/` (one folder per guideline).
