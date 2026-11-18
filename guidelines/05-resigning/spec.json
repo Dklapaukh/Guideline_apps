@@ -1,0 +1,3084 @@
+{
+ "title": "Resigning from a job",
+ "about": "Helps you resign from a job in New Zealand: how much notice to give, putting it in writing, your notice period, and what to expect in your final pay and holiday pay.",
+ "sources": [
+  {
+   "name": "Employment New Zealand, Resignation",
+   "link": "https://www.employment.govt.nz/ending-employment/resignation"
+  },
+  {
+   "name": "Employment New Zealand, Notice periods",
+   "link": "https://www.employment.govt.nz/ending-employment/giving-notice"
+  },
+  {
+   "name": "Employment New Zealand, Final pay",
+   "link": "https://www.employment.govt.nz/pay-and-hours/pay-and-wages/final-pay"
+  }
+ ],
+ "warning": "General information from Employment New Zealand, not legal advice. Your employment agreement may have its own rules: check it.",
+ "audience": "Employees in New Zealand who are thinking about resigning, or have resigned",
+ "reviewedBy": "",
+ "version": "Employment New Zealand pages \"Resignation\" (last modified 30 October 2026), \"Notice periods\" (last modified 30 October 2026) and \"Final pay\" (last modified 2 November 2026), read 18 Nov 2026",
+ "brand": {
+  "name": "",
+  "colour": ""
+ },
+ "look": "",
+ "inputs": [],
+ "tables": [],
+ "steps": [
+  {
+   "id": "start",
+   "title": "What do you need?",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "You can resign at any time, even while you are on leave or annual holidays.",
+     "line": 18,
+     "quotes": [
+      {
+       "text": "An employee can resign at any time.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "This includes if they’re on leave or annual holidays.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "What do you need help with?",
+    "options": [
+     {
+      "label": "I want to resign",
+      "to": "job-type",
+      "line": 22,
+      "target": "job-type"
+     },
+     {
+      "label": "I feel I have no choice but to resign",
+      "to": "forced",
+      "line": 23,
+      "target": "forced"
+     },
+     {
+      "label": "I resigned in the heat of the moment, or want to take it back",
+      "to": "changed-mind",
+      "line": 24,
+      "target": "changed-mind"
+     },
+     {
+      "label": "I've resigned: what about my final pay?",
+      "to": "final-pay",
+      "line": 25,
+      "target": "final-pay"
+     }
+    ],
+    "line": 21
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 17
+  },
+  {
+   "id": "job-type",
+   "title": "What kind of job is it?",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "It's a bit different for fixed-term and casual work.",
+     "line": 28,
+     "quotes": [
+      {
+       "text": "It’s a bit different for fixed-term employees and employees who work casual hours.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "What kind of job is it?",
+    "options": [
+     {
+      "label": "Ongoing (no end date)",
+      "to": "issues",
+      "line": 31,
+      "target": "issues"
+     },
+     {
+      "label": "Fixed-term (it has an agreed end date)",
+      "to": "fixed-term",
+      "line": 32,
+      "target": "fixed-term"
+     },
+     {
+      "label": "Casual hours",
+      "to": "casual",
+      "line": 33,
+      "target": "casual"
+     }
+    ],
+    "line": 30
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 27
+  },
+  {
+   "id": "fixed-term",
+   "title": "Fixed-term job",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "You need to resign if you want to leave before your agreed end date.",
+     "line": 36,
+     "quotes": [
+      {
+       "text": "A fixed-term employee must resign when they:",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "want to leave before their agreed employment end date.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Check your employment agreement first for rules about ending it early.",
+     "line": 39,
+     "quotes": [
+      {
+       "text": "These employees should check their employment agreement first to see if there are any rules around ending their employment early.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "What do you want to do?",
+    "options": [
+     {
+      "label": "Leave before the agreed end date",
+      "to": "issues",
+      "line": 42,
+      "target": "issues"
+     },
+     {
+      "label": "Finish on the agreed end date",
+      "to": "fixed-term-end",
+      "line": 43,
+      "target": "fixed-term-end"
+     }
+    ],
+    "line": 41
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 35
+  },
+  {
+   "id": "fixed-term-end",
+   "title": "Finishing on your end date",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "Finishing on the agreed end date is not a resignation.",
+     "line": 46,
+     "quotes": [
+      {
+       "text": "If they finish work on the agreed employment end date, this is not a resignation.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "The pages do not say what else you need to do in this case. Check your employment agreement.",
+     "line": 48
+    }
+   ],
+   "ask": {
+    "question": "What next?",
+    "options": [
+     {
+      "label": "What to expect in my final pay",
+      "to": "final-pay",
+      "line": 50,
+      "target": "final-pay"
+     },
+     {
+      "label": "Finish",
+      "to": "end",
+      "line": 51,
+      "target": "__end"
+     }
+    ],
+    "line": 49
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 45
+  },
+  {
+   "id": "casual",
+   "title": "Casual hours",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "You can accept or decline offers of work.",
+     "line": 54,
+     "quotes": [
+      {
+       "text": "An employee who works casual hours can accept or decline offers of work.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "You must resign if you accepted an offer of work and want to leave before finishing that work.",
+     "line": 56,
+     "quotes": [
+      {
+       "text": "They must resign when they:",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "accept an offer of work, and",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "want to leave before completing that work.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "If you want to end working for this employer for good, you can resign at any time.",
+     "line": 60,
+     "quotes": [
+      {
+       "text": "If they want to permanently end the employment relationship with that employer, they can resign at any time.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "What do you want to do?",
+    "options": [
+     {
+      "label": "Leave work I accepted before it's finished",
+      "to": "issues",
+      "line": 63,
+      "target": "issues"
+     },
+     {
+      "label": "End working for this employer for good",
+      "to": "issues",
+      "line": 64,
+      "target": "issues"
+     },
+     {
+      "label": "Just say no to an offer of work",
+      "to": "casual-decline",
+      "line": 65,
+      "target": "casual-decline"
+     }
+    ],
+    "line": 62
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 53
+  },
+  {
+   "id": "casual-decline",
+   "title": "Saying no to an offer of work",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "Saying no to an offer of casual work is not a resignation.",
+     "line": 68,
+     "quotes": [
+      {
+       "text": "If they do not accept an offer of work, this is not a resignation.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "The pages do not say what else you need to do in this case. Check your employment agreement.",
+     "line": 70
+    }
+   ],
+   "ask": {
+    "question": "What next?",
+    "options": [
+     {
+      "label": "What to expect in my final pay",
+      "to": "final-pay",
+      "line": 72,
+      "target": "final-pay"
+     },
+     {
+      "label": "Finish",
+      "to": "end",
+      "line": 73,
+      "target": "__end"
+     }
+    ],
+    "line": 71
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 67
+  },
+  {
+   "id": "issues",
+   "title": "Is it because of a problem at work?",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "If a problem at work is the reason, you may want to talk to your employer first. It might be sorted out without you resigning.",
+     "line": 76,
+     "quotes": [
+      {
+       "text": "If an employee is thinking about resigning because of an issue in the workplace, they may want to talk to their employer first.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "The issue might be able to be resolved without needing to resign.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "Is a problem at work the reason?",
+    "options": [
+     {
+      "label": "No, or I've already talked to my employer",
+      "to": "agreement",
+      "line": 80,
+      "target": "agreement"
+     },
+     {
+      "label": "Yes: I'll talk to my employer first",
+      "to": "end",
+      "line": 81,
+      "target": "__end"
+     },
+     {
+      "label": "I feel forced to resign",
+      "to": "forced",
+      "line": 82,
+      "target": "forced"
+     }
+    ],
+    "line": 79
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 75
+  },
+  {
+   "id": "agreement",
+   "title": "Check your employment agreement",
+   "lines": [
+    {
+     "kind": "do",
+     "text": "Check your employment agreement before you resign.",
+     "line": 85,
+     "quotes": [
+      {
+       "text": "Before resigning, employees should check their employment agreement.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Find who you need to tell (for example a manager, team leader or HR).",
+     "line": 87,
+     "quotes": [
+      {
+       "text": "who they need to tell about their resignation, for example, a manager, team leader or HR",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Find how much notice to give.",
+     "line": 89,
+     "quotes": [
+      {
+       "text": "how much notice to give, and",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Find how to resign (most agreements say in writing).",
+     "line": 91,
+     "quotes": [
+      {
+       "text": "how to resign (most agreements say to do this in writing).",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Look for rules about working for another employer after you leave.",
+     "line": 93,
+     "quotes": [
+      {
+       "text": "The employment agreement may also have rules around working for another employer once the current employment has ended.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Check for any workplace policies about resigning.",
+     "line": 95,
+     "quotes": [
+      {
+       "text": "It’s important to check whether there are any workplace policies about resigning.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": null,
+   "next": {
+    "to": "on-leave",
+    "line": 97,
+    "target": "on-leave"
+   },
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 84,
+   "nexts": [
+    {
+     "to": "on-leave",
+     "line": 97,
+     "target": "on-leave"
+    }
+   ]
+  },
+  {
+   "id": "on-leave",
+   "title": "Are you on leave?",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "The notice period is different if you are on parental leave or certain types of defence force leave.",
+     "line": 100,
+     "quotes": [
+      {
+       "text": "The notice period is different for employees who are on parental leave or certain types of defence force leave.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "Are you on one of these?",
+    "options": [
+     {
+      "label": "No",
+      "to": "notice",
+      "line": 103,
+      "target": "notice"
+     },
+     {
+      "label": "Parental leave",
+      "to": "parental",
+      "line": 104,
+      "target": "parental"
+     },
+     {
+      "label": "Defence force volunteers leave",
+      "to": "defence",
+      "line": 105,
+      "target": "defence"
+     }
+    ],
+    "line": 102
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 99
+  },
+  {
+   "id": "parental",
+   "title": "Resigning while on parental leave",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "Your last day of employment is the day your parental leave started.",
+     "line": 108,
+     "quotes": [
+      {
+       "text": "their last day of employment is the day their parental leave started, and",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "warning",
+     "text": "You must give at least 21 days' notice before your parental leave ends, unless your employment agreement has a longer notice period.",
+     "line": 110,
+     "quotes": [
+      {
+       "text": "they must give at least 21 days’ notice before their parental leave ends, unless their employment agreement has a longer notice period.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "The pages do not say what last day to write in your resignation in this case. Ask your employer, or call Employment New Zealand on 0800 20 90 20.",
+     "line": 112,
+     "quotes": [
+      {
+       "text": "call us on 0800 20 90 20",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "About final pay: if you worked \"keeping in touch\" days and are not going back, those payments are not counted in the gross earnings for your holiday pay.",
+     "line": 114,
+     "quotes": [
+      {
+       "text": "If an employee worked \"keeping in touch\" days while on parental leave, but is not returning to work, their gross earnings for calculating annual holiday payments in their final pay does not include their “keeping in touch” payments.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": null,
+   "next": {
+    "to": "write",
+    "line": 116,
+    "target": "write"
+   },
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 107,
+   "nexts": [
+    {
+     "to": "write",
+     "line": 116,
+     "target": "write"
+    }
+   ]
+  },
+  {
+   "id": "defence",
+   "title": "Resigning while on defence force volunteers leave",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "Your last day of employment might be the day your leave started. It depends on the situation.",
+     "line": 119,
+     "quotes": [
+      {
+       "text": "their last day of employment might be the day their leave started — it depends on the situation, and",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "warning",
+     "text": "You must give a set notice period. It depends on the type of leave you are on.",
+     "line": 121,
+     "quotes": [
+      {
+       "text": "they must give a set notice period — it depends on the type of leave they’re on.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "These pages do not say how long that notice is, or which types of leave it applies to. Check with your employer, or call Employment New Zealand on 0800 20 90 20.",
+     "line": 123,
+     "quotes": [
+      {
+       "text": "call us on 0800 20 90 20",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": null,
+   "next": {
+    "to": "leave-counted",
+    "line": 125,
+    "target": "leave-counted"
+   },
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 118,
+   "nexts": [
+    {
+     "to": "leave-counted",
+     "line": 125,
+     "target": "leave-counted"
+    }
+   ]
+  },
+  {
+   "id": "notice",
+   "title": "How much notice?",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "The notice period runs from the day you tell your employer you are resigning to your last day of employment.",
+     "line": 128,
+     "quotes": [
+      {
+       "text": "the day the employee tells their employer they are resigning, and",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "their last day of employment (the end of the notice period).",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "Does your employment agreement say how much notice to give?",
+    "options": [
+     {
+      "label": "Yes",
+      "to": "notice-set",
+      "line": 132,
+      "target": "notice-set"
+     },
+     {
+      "label": "No, it doesn't say",
+      "to": "notice-reasonable",
+      "line": 133,
+      "target": "notice-reasonable"
+     }
+    ],
+    "line": 131
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 127
+  },
+  {
+   "id": "notice-set",
+   "title": "Your agreement gives a notice period",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "Give the amount of notice your agreement says.",
+     "line": 136,
+     "quotes": [
+      {
+       "text": "The employment agreement usually says what the notice period is.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "If it does, this is the amount of notice that must be given.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "You and your employer can agree to make it shorter or longer. Any change should be in writing.",
+     "line": 139,
+     "quotes": [
+      {
+       "text": "The employer and employee can agree to make the notice period shorter or longer.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "Any agreed change to the notice period should be recorded in writing.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": null,
+   "next": {
+    "to": "leave-counted",
+    "line": 142,
+    "target": "leave-counted"
+   },
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 135,
+   "nexts": [
+    {
+     "to": "leave-counted",
+     "line": 142,
+     "target": "leave-counted"
+    }
+   ]
+  },
+  {
+   "id": "notice-reasonable",
+   "title": "No notice period in your agreement",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "You must give \"reasonable notice\". There is no set length.",
+     "line": 145,
+     "quotes": [
+      {
+       "text": "If the agreement does not say what the notice period is, the employee must give ‘reasonable notice’.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "There’s no set timeframe for a reasonable notice period.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Generally 2 to 4 weeks is seen as reasonable, but it depends on your situation.",
+     "line": 148,
+     "quotes": [
+      {
+       "text": "Generally 2 to 4 weeks is seen as reasonable.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "It depends on things like: the type of job and how long it takes to find someone else, how much training they will need, how long you have been in the job, how easy it is for you to find another job, and what usually happens in your industry.",
+     "line": 150,
+     "quotes": [
+      {
+       "text": "the type of job and how long it will take to find someone else, for example, if it’s a specialised role",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "how much training someone will need to take over the role",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "how long the employee has been in the job",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "how easy it will be for the employee to find another job",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "what usually happens in that industry, sector or workplace.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "You and your employer must act in good faith: talk together about how long reasonable notice should be, and why.",
+     "line": 156,
+     "quotes": [
+      {
+       "text": "Employers and employees must act in good faith when deciding what’s reasonable.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "This means discussing together how long reasonable notice should be and why.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": null,
+   "next": {
+    "to": "leave-counted",
+    "line": 159,
+    "target": "leave-counted"
+   },
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 144,
+   "nexts": [
+    {
+     "to": "leave-counted",
+     "line": 159,
+     "target": "leave-counted"
+    }
+   ]
+  },
+  {
+   "id": "leave-counted",
+   "title": "Leave and your notice period",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "Some agreements say time on leave or holidays is not counted in the notice period. That could make your notice longer than you expect.",
+     "line": 162,
+     "quotes": [
+      {
+       "text": "Some employment agreements say that time on leave or holidays is not counted in the notice period.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "This means the notice period could be longer than expected.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Check your agreement for this, and work out your last day of employment.",
+     "line": 165,
+     "quotes": [
+      {
+       "text": "Employees and employers should check the employment agreement to see if it says anything about this that could affect:",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "what the last day of employment would be.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": null,
+   "next": {
+    "to": "write",
+    "line": 168,
+    "target": "write"
+   },
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 161,
+   "nexts": [
+    {
+     "to": "write",
+     "line": 168,
+     "target": "write"
+    }
+   ]
+  },
+  {
+   "id": "write",
+   "title": "Put it in writing",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "It's best to resign in writing, even if your agreement doesn't say so. An email or a short letter is most common.",
+     "line": 171,
+     "quotes": [
+      {
+       "text": "It’s best to put the resignation in writing, even if the employment agreement does not say to do this.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "Sending an email or giving a short letter are the most common ways to resign.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Say that you are resigning.",
+     "line": 174,
+     "quotes": [
+      {
+       "text": "that the employee is resigning, and",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Give your last day of employment (based on your notice period).",
+     "line": 176,
+     "quotes": [
+      {
+       "text": "the employee’s last day of employment (based on the notice period).",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "You do not have to say why you are resigning, unless you want to.",
+     "line": 178,
+     "quotes": [
+      {
+       "text": "The employee does not have to say why they’re resigning unless they want to.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "warning",
+     "text": "Employment New Zealand does not recommend giving notice by text or social media. It could be deleted or misunderstood.",
+     "line": 180,
+     "quotes": [
+      {
+       "text": "We do not recommend giving notice by text or over social media because it could be deleted or misunderstood.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Keep a copy of what you send, so you have a record.",
+     "line": 182,
+     "quotes": [
+      {
+       "text": "This means there’s a record of it which can help to avoid any misunderstandings.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "Have you handed in your resignation?",
+    "options": [
+     {
+      "label": "Yes, I've sent or given it",
+      "to": "reply",
+      "line": 185,
+      "target": "reply"
+     },
+     {
+      "label": "Not yet",
+      "to": "not-sent",
+      "line": 186,
+      "target": "not-sent"
+     }
+    ],
+    "line": 184
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 170
+  },
+  {
+   "id": "not-sent",
+   "title": "Not handed in yet",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "You have not resigned yet. Nothing has been sent to your employer.",
+     "line": 189
+    },
+    {
+     "kind": "say",
+     "text": "When you are ready, send your email or letter to the person your agreement names.",
+     "line": 190,
+     "quotes": [
+      {
+       "text": "who they need to tell about their resignation, for example, a manager, team leader or HR",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "What next?",
+    "options": [
+     {
+      "label": "I've sent it now",
+      "to": "reply",
+      "line": 193,
+      "target": "reply"
+     },
+     {
+      "label": "Go back to what to write",
+      "to": "write",
+      "line": 194,
+      "target": "write"
+     },
+     {
+      "label": "Finish for now",
+      "to": "end",
+      "line": 195,
+      "target": "__end"
+     }
+    ],
+    "line": 192
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 188
+  },
+  {
+   "id": "reply",
+   "title": "What your employer should do",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "Your employer must accept your resignation.",
+     "line": 198,
+     "quotes": [
+      {
+       "text": "An employer must accept an employee’s resignation.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "It's good practice for them to acknowledge it in writing. They should confirm they've received it, your last day of employment, and anything to do before you leave (such as handing over work and returning company property).",
+     "line": 200,
+     "quotes": [
+      {
+       "text": "It’s good practice for the employer to acknowledge the resignation in writing.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "they’ve received the resignation",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "what the last day of employment will be (based on the notice period), and",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "if there’s anything that needs to be done before the employee leaves, for example, handing over work and returning company property.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": null,
+   "next": {
+    "to": "during",
+    "line": 205,
+    "target": "during"
+   },
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 197,
+   "nexts": [
+    {
+     "to": "during",
+     "line": 205,
+     "target": "during"
+    }
+   ]
+  },
+  {
+   "id": "during",
+   "title": "Your notice period",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "Work carries on as normal, unless you and your employer agree something else.",
+     "line": 208,
+     "quotes": [
+      {
+       "text": "During the notice period, work carries on as normal unless another type of arrangement is agreed.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Your employer must pay you correctly. You should agree a plan with them for handing over your work.",
+     "line": 210,
+     "quotes": [
+      {
+       "text": "the employer must pay the employee correctly",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "the employer and employee should agree a plan for managing work and responsibilities",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "Does any of these apply to you?",
+    "options": [
+     {
+      "label": "Leaving earlier, or pay or leave instead of working",
+      "to": "early",
+      "line": 214,
+      "target": "early"
+     },
+     {
+      "label": "I don't feel safe working my notice",
+      "to": "unsafe",
+      "line": 215,
+      "target": "unsafe"
+     },
+     {
+      "label": "I want to start a new job before my notice ends",
+      "to": "new-job",
+      "line": 216,
+      "target": "new-job"
+     },
+     {
+      "label": "I want to take leave during my notice",
+      "to": "leave-in-notice",
+      "line": 217,
+      "target": "leave-in-notice"
+     },
+     {
+      "label": "No, I'll work my notice",
+      "to": "handover",
+      "line": 218,
+      "target": "handover"
+     }
+    ],
+    "line": 213
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 207
+  },
+  {
+   "id": "early",
+   "title": "Leaving earlier",
+   "lines": [],
+   "ask": {
+    "question": "Who wants it?",
+    "options": [
+     {
+      "label": "I want to leave earlier",
+      "to": "shorter",
+      "line": 222,
+      "target": "shorter"
+     },
+     {
+      "label": "My employer wants me to leave earlier",
+      "to": "employer-early",
+      "line": 223,
+      "target": "employer-early"
+     },
+     {
+      "label": "I've been offered pay or garden leave instead of working",
+      "to": "in-lieu",
+      "line": 224,
+      "target": "in-lieu"
+     },
+     {
+      "label": "Back to my notice period",
+      "to": "during",
+      "line": 225,
+      "target": "during"
+     }
+    ],
+    "line": 221
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 220
+  },
+  {
+   "id": "employer-early",
+   "title": "Your employer wants you to leave earlier",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "If your employer wants you to work a shorter notice period, you must agree.",
+     "line": 228,
+     "quotes": [
+      {
+       "text": "If the employer wants the employee to work a shorter notice period, the employee must agree.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "warning",
+     "text": "If you don't agree, your employer must still pay you for the full notice period, as long as you work it, or another arrangement is agreed (for example garden leave or pay instead of notice).",
+     "line": 230,
+     "quotes": [
+      {
+       "text": "If the employee does not agree, the employer must still pay them for the full notice period, as long as:",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "the employee works it, or",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "another arrangement is agreed, for example, garden leave or payment instead of notice.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "warning",
+     "text": "Even if you agree not to work some or all of your notice, your employer must still pay you for the full notice period.",
+     "line": 234,
+     "quotes": [
+      {
+       "text": "Even if the employee agrees not to work for some or all the notice period, their employer must still pay them for the full notice period.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "What next?",
+    "options": [
+     {
+      "label": "I've been offered pay or garden leave",
+      "to": "in-lieu",
+      "line": 237,
+      "target": "in-lieu"
+     },
+     {
+      "label": "Back to my notice period",
+      "to": "during",
+      "line": 238,
+      "target": "during"
+     }
+    ],
+    "line": 236
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 227
+  },
+  {
+   "id": "shorter",
+   "title": "You want to leave earlier",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "A shorter notice period needs both you and your employer to agree. It should be recorded in writing.",
+     "line": 241,
+     "quotes": [
+      {
+       "text": "If an employer or employee want a shorter notice period, both must agree.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "If they both agree, the shorter notice period should be recorded in writing.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "warning",
+     "text": "If YOU ask to leave early and your employer agrees, you are only paid for the part of the notice you actually worked.",
+     "line": 244,
+     "quotes": [
+      {
+       "text": "If the employee asks their employer to waive all or some of the notice period, and their employer agrees, the employee will only get paid for the part of the notice period they actually worked.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "If they don't agree, you must work the notice period in your employment agreement.",
+     "line": 246,
+     "quotes": [
+      {
+       "text": "If they do not agree, the employee must work the notice period that’s in the employment agreement.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "If your agreement has no notice period, you must work the notice period you and your employer agreed before, or the one you gave when you first gave notice.",
+     "line": 248,
+     "quotes": [
+      {
+       "text": "If there’s no notice period in the agreement, they must work the notice period that was:",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "previously agreed by the employer and employee, or",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "given when notice was first provided.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "What next?",
+    "options": [
+     {
+      "label": "What if I leave without enough notice?",
+      "to": "short-notice",
+      "line": 253,
+      "target": "short-notice"
+     },
+     {
+      "label": "Back to my notice period",
+      "to": "during",
+      "line": 254,
+      "target": "during"
+     }
+    ],
+    "line": 252
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 240
+  },
+  {
+   "id": "unsafe",
+   "title": "You don't want to work your notice",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "If you don't want to work your notice, for example because you feel unsafe, talk to your employer. You can also get legal advice if you need to.",
+     "line": 257,
+     "quotes": [
+      {
+       "text": "If an employee does not want to work the notice period, for example, because they feel unsafe, they should talk to their employer.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "They can also seek legal advice if they need to.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "The pages do not say what happens next in this case.",
+     "line": 260
+    }
+   ],
+   "ask": {
+    "question": "What next?",
+    "options": [
+     {
+      "label": "Back to my notice period",
+      "to": "during",
+      "line": 262,
+      "target": "during"
+     },
+     {
+      "label": "Finish for now",
+      "to": "end",
+      "line": 263,
+      "target": "__end"
+     }
+    ],
+    "line": 261
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 256
+  },
+  {
+   "id": "short-notice",
+   "title": "Not giving enough notice",
+   "lines": [
+    {
+     "kind": "warning",
+     "text": "If you don't give enough notice, your employer only has to pay you for the days you actually worked, and for paid leave or holidays they approved, during the notice period.",
+     "line": 266,
+     "quotes": [
+      {
+       "text": "If an employee does not give enough notice, the employer only has to pay them for the days they:",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "actually worked during the notice period, and",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "took paid leave or holidays (that the employer approved) during the notice period.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "If you give no notice at all, your employer does not have to pay you for the notice period, unless there is an agreed arrangement.",
+     "line": 270,
+     "quotes": [
+      {
+       "text": "If an employee does not give any notice, the employer does not have to pay them for the notice period, unless there is an agreed arrangement.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Your employer can only take money from your pay if all of these are true: you didn't work some or all of your notice; the amount is based on their actual loss; and you agreed in writing, or your agreement has a valid deduction clause.",
+     "line": 272,
+     "quotes": [
+      {
+       "text": "An employer can only deduct money from an employee’s pay, wages or holiday pay if:",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "the employee does not work some or all of the notice period",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "the amount deducted is based on the employer’s actual loss because the employee did not work the full notice period, and",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "the employee agrees to the deduction in writing, or the employment agreement has a valid deduction clause.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": null,
+   "next": {
+    "to": "during",
+    "line": 277,
+    "target": "during"
+   },
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 265,
+   "nexts": [
+    {
+     "to": "during",
+     "line": 277,
+     "target": "during"
+    }
+   ]
+  },
+  {
+   "id": "in-lieu",
+   "title": "Pay or leave instead of working your notice",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "Sometimes the notice isn't worked because you and your employer agree something else.",
+     "line": 280,
+     "quotes": [
+      {
+       "text": "Sometimes the notice period is not worked because the employer and employee agree to a different arrangement.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Your employer can ask you not to work your full notice only if you agree, or your agreement has a clause saying you can be paid instead.",
+     "line": 282,
+     "quotes": [
+      {
+       "text": "Their employer can ask the employee not to work their full notice period, but only if the employee:",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "has a clause in their employment agreement that says they can be paid instead of working their notice period.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "warning",
+     "text": "Even if you agree not to work some or all of your notice, your employer must still pay you for the full notice period.",
+     "line": 285,
+     "quotes": [
+      {
+       "text": "Even if the employee agrees not to work for some or all the notice period, their employer must still pay them for the full notice period.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "Which have you been offered?",
+    "options": [
+     {
+      "label": "Pay instead of working (payment in lieu of notice)",
+      "to": "pilon",
+      "line": 288,
+      "target": "pilon"
+     },
+     {
+      "label": "Leave instead of working (garden leave)",
+      "to": "garden",
+      "line": 289,
+      "target": "garden"
+     }
+    ],
+    "line": 287
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 279
+  },
+  {
+   "id": "pilon",
+   "title": "Payment in lieu of notice",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "Your employment ends when notice is given, and you are paid out for the notice period instead of working it.",
+     "line": 292,
+     "quotes": [
+      {
+       "text": "the employee’s employment ends when notice is given, and",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "they are paid out for the notice period instead of working it.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "There must be some form of agreement: a clause in your agreement, or agreed when notice is given. It should be in writing. The payment is made in your final pay.",
+     "line": 295,
+     "quotes": [
+      {
+       "text": "There must be some form of agreement to payment in lieu of notice.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "This could be through a clause in the employment agreement or it’s agreed to when notice is given.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "Agreement should be recorded in writing and the payment is made in the employee’s final pay.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": null,
+   "next": {
+    "to": "last-day",
+    "line": 299,
+    "target": "last-day"
+   },
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 291,
+   "nexts": [
+    {
+     "to": "last-day",
+     "line": 299,
+     "target": "last-day"
+    }
+   ]
+  },
+  {
+   "id": "garden",
+   "title": "Garden leave",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "You are still employed and paid for the notice period, but you don't go to work.",
+     "line": 302,
+     "quotes": [
+      {
+       "text": "The employee is still employed and paid for the notice period but does not go to work.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "It does not use up your annual holidays.",
+     "line": 304,
+     "quotes": [
+      {
+       "text": "Garden leave is different from annual holidays — it does not use annual holiday entitlement.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "warning",
+     "text": "There must be some form of agreement, and it must be recorded in writing.",
+     "line": 306,
+     "quotes": [
+      {
+       "text": "There must be some form of agreement to leave in lieu of notice.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "Agreement must be recorded in writing.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": null,
+   "next": {
+    "to": "last-day",
+    "line": 309,
+    "target": "last-day"
+   },
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 301,
+   "nexts": [
+    {
+     "to": "last-day",
+     "line": 309,
+     "target": "last-day"
+    }
+   ]
+  },
+  {
+   "id": "new-job",
+   "title": "Starting a new job during your notice",
+   "lines": [
+    {
+     "kind": "do",
+     "text": "Check your employment agreement first.",
+     "line": 312,
+     "quotes": [
+      {
+       "text": "check their employment agreement first, and",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Talk to your current employer as soon as possible.",
+     "line": 314,
+     "quotes": [
+      {
+       "text": "talk to their current employer as soon as possible.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "warning",
+     "text": "You cannot start a new job if your agreement has a clause about secondary employment (you can't have more than one job at a time). There must be a genuine reason for that clause. Your employer can still agree to the new job.",
+     "line": 316,
+     "quotes": [
+      {
+       "text": "The employee cannot start a new job if the employment agreement has a clause about secondary employment.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "This clause will say that the employee cannot have more than one job at the same time.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "There must be a genuine reason for this clause.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "The employer can still agree that the employee can start a new job.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "If there is no such clause, you should still talk to your employer. You should both consider all the circumstances and act in good faith.",
+     "line": 321,
+     "quotes": [
+      {
+       "text": "If the employment agreement doesn’t have a clause like this, the employee should talk to their current employer.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "Both parties should consider all the circumstances and act in good faith.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Having 2 or more jobs could also change how much tax you pay.",
+     "line": 324,
+     "quotes": [
+      {
+       "text": "If the employee has 2 or more jobs, it could also affect how much tax they pay.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": null,
+   "next": {
+    "to": "during",
+    "line": 326,
+    "target": "during"
+   },
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 311,
+   "nexts": [
+    {
+     "to": "during",
+     "line": 326,
+     "target": "during"
+    }
+   ]
+  },
+  {
+   "id": "leave-in-notice",
+   "title": "Taking leave during your notice",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "You can ask to take paid leave you haven't used, such as sick leave, annual holidays or alternative holidays. You must be paid for it.",
+     "line": 329,
+     "quotes": [
+      {
+       "text": "The employee can ask to take paid leave during the notice period if they have an entitlement they have not used.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "For example, sick leave, annual holidays or alternative holidays.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "The employee must be paid for any leave they take during the notice period.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "For annual leave or alternative holidays, your employer can say no if there is a good reason.",
+     "line": 333,
+     "quotes": [
+      {
+       "text": "If the employee has asked to take annual leave or alternative holidays, the employer can say no if there is a good reason.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Your employer can only make you take annual or alternative holidays in certain situations. The pages do not say which situations.",
+     "line": 335,
+     "quotes": [
+      {
+       "text": "An employer can only make an employee take annual holidays or alternative holidays in certain situations.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Your last day at work can be earlier than your last day of employment, if you take leave near the end of your notice or are rostered to finish earlier. For example, leave in the last 2 weeks makes your last day at work 2 weeks earlier.",
+     "line": 337,
+     "quotes": [
+      {
+       "text": "they take leave towards the end of the notice period, or",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "they are rostered to finish before their last day of employment.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "This is 2 weeks earlier than his last day of employment.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": null,
+   "next": {
+    "to": "during",
+    "line": 341,
+    "target": "during"
+   },
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 328,
+   "nexts": [
+    {
+     "to": "during",
+     "line": 341,
+     "target": "during"
+    }
+   ]
+  },
+  {
+   "id": "handover",
+   "title": "Working your notice",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "During your notice, you and your employer should:",
+     "line": 344,
+     "quotes": [
+      {
+       "text": "During the notice period the employer and employee should:",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Make sure any outstanding tasks are done.",
+     "line": 346,
+     "quotes": [
+      {
+       "text": "make sure any outstanding tasks are completed",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Hand over ongoing work to someone else.",
+     "line": 348,
+     "quotes": [
+      {
+       "text": "work together to assign and handover any ongoing work to someone else",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Organise and record important files, tools and processes, so others can find things.",
+     "line": 350,
+     "quotes": [
+      {
+       "text": "organise and record any important files, tools and processes so that others know where to find things",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Prepare for your last day at work.",
+     "line": 352,
+     "quotes": [
+      {
+       "text": "prepare for the employee’s last day at work.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Want to work from home during your notice? You must talk to your employer or ask for flexible working arrangements.",
+     "line": 354,
+     "quotes": [
+      {
+       "text": "If an employee wants to work from home during the notice period, they must talk to their employer or ask for flexible working arrangements.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Your employer can limit your access to workplace systems, information, clients or property.",
+     "line": 356,
+     "quotes": [
+      {
+       "text": "The employer can also limit the employee’s access to workplace systems, information, clients or property.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": null,
+   "next": {
+    "to": "last-day",
+    "line": 358,
+    "target": "last-day"
+   },
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 343,
+   "nexts": [
+    {
+     "to": "last-day",
+     "line": 358,
+     "target": "last-day"
+    }
+   ]
+  },
+  {
+   "id": "last-day",
+   "title": "Your last day",
+   "lines": [
+    {
+     "kind": "do",
+     "text": "Finish your last-day tasks, for example returning company property or setting up \"out of office\" messages.",
+     "line": 361,
+     "quotes": [
+      {
+       "text": "For example, organising to return company property or setting up ‘out of office’ messages.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Ask for a statement of service, and a reference if you want one.",
+     "line": 363,
+     "quotes": [
+      {
+       "text": "The employee can also ask for a statement of service and a reference.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Your employer should give a statement of service. They do not have to give a reference unless they agreed to.",
+     "line": 365,
+     "quotes": [
+      {
+       "text": "The employer should provide a statement of service.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "They do not have to provide a reference unless they’ve agreed to this.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Some duties carry on after you leave. Your employer must keep your personal details private. You must respect your employer's confidentiality and not share private work information.",
+     "line": 368,
+     "quotes": [
+      {
+       "text": "Some of these will continue after the employment ends.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "the employer must continue to keep the employee’s personal details private",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "the employee must continue to respect the employer’s confidentiality and not share private work information.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": null,
+   "next": {
+    "to": "final-pay",
+    "line": 372,
+    "target": "final-pay"
+   },
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 360,
+   "nexts": [
+    {
+     "to": "final-pay",
+     "line": 372,
+     "target": "final-pay"
+    }
+   ]
+  },
+  {
+   "id": "final-pay",
+   "title": "Your final pay",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "Your last pay must include your final wages, all the holiday pay you're entitled to, and any other payments owing.",
+     "line": 375,
+     "quotes": [
+      {
+       "text": "When an employee stops working for an employer, their last pay must include their final wages, all the holiday pay they’re entitled to, and any other payments owing.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Holiday pay must be paid on or before the pay day of the final pay period. This might be after your last day of work. Wages and other payments are usually paid at the same time.",
+     "line": 377,
+     "quotes": [
+      {
+       "text": "The final leave and holiday payment must be paid on or before the pay day of the final pay period.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "This might be after the employee's last day of work.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "The final wages or salary, and any other payments owing, is usually paid at the same time.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "If you gave the right amount of notice, your employer must pay you to the end of your notice period.",
+     "line": 381,
+     "quotes": [
+      {
+       "text": "If an employee has given the right amount of notice, their employer must pay them to the end of their notice period.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": null,
+   "next": {
+    "to": "holiday-pay",
+    "line": 383,
+    "target": "holiday-pay"
+   },
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 374,
+   "nexts": [
+    {
+     "to": "holiday-pay",
+     "line": 383,
+     "target": "holiday-pay"
+    }
+   ]
+  },
+  {
+   "id": "holiday-pay",
+   "title": "Annual holiday pay",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "How much you get for annual holidays depends on how long you have worked for your employer.",
+     "line": 386,
+     "quotes": [
+      {
+       "text": "How much an employee gets paid for annual holidays in their final pay depends on how long they have been working for their employer.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "warning",
+     "text": "The page shows two ways, but our saved copy lost the labels that say which is for whom. Check with your employer or Employment New Zealand which one applies to you.",
+     "line": 388
+    },
+    {
+     "kind": "say",
+     "text": "Way 1: 8% of your gross earnings (everything you have earned since you started, including other payments in your final pay), less anything already paid for annual holidays taken in advance or paid as you go.",
+     "line": 389,
+     "quotes": [
+      {
+       "text": "Employees will get an annual holiday payment of 8% of their gross earnings, less any amount they have already been paid for:",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "The employee’s gross earnings are everything they have earned since they started with their employer, including any other payments in their final pay.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "annual holidays taken in advance",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "annual holidays on a pay-as-you-go basis.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Way 2: pay for any annual holidays you have left, at the higher of your ordinary weekly pay or average weekly earnings. Plus 8% of your gross earnings since your last anniversary date, less anything already paid for holidays in advance or as you go.",
+     "line": 394,
+     "quotes": [
+      {
+       "text": "Employees must be paid for any remaining annual holidays that they’re entitled to.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "This is paid as if the leave is taken at the end of their employment, at whichever rate is higher of:",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "ordinary weekly pay, or",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "average weekly earnings.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "Employees will also get payment of 8% of their gross earnings since their last anniversary date, including other payments made in their final pay, minus any amount they have already been paid for:",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "annual holidays on pay-as-you-go basis.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": null,
+   "next": {
+    "to": "public-holidays",
+    "line": 401,
+    "target": "public-holidays"
+   },
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 385,
+   "nexts": [
+    {
+     "to": "public-holidays",
+     "line": 401,
+     "target": "public-holidays"
+    }
+   ]
+  },
+  {
+   "id": "public-holidays",
+   "title": "Public holidays after your last day",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "You can sometimes be paid for public holidays that fall after your last day at work.",
+     "line": 404,
+     "quotes": [
+      {
+       "text": "that fall after their last day at work.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "This can happen if you have worked for the employer for at least 12 months, are entitled to annual holidays, and have unused annual holidays when your job ends.",
+     "line": 406,
+     "quotes": [
+      {
+       "text": "they have worked for the employer for at least 12 months and are entitled to annual holidays, and",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "they have unused annual holidays they are entitled to at the time their employment ends.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "Does this apply to you?",
+    "options": [
+     {
+      "label": "Yes, or I'm not sure: how does it work?",
+      "to": "public-holidays-how",
+      "line": 410,
+      "target": "public-holidays-how"
+     },
+     {
+      "label": "No",
+      "to": "other-pay",
+      "line": 411,
+      "target": "other-pay"
+     }
+    ],
+    "line": 409
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 403
+  },
+  {
+   "id": "public-holidays-how",
+   "title": "How it works",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "Your employer treats your unused annual holidays as if you took them straight after your last day of employment.",
+     "line": 414,
+     "quotes": [
+      {
+       "text": "their employer will treat any unused annual holidays that they are entitled to as if they were taking it immediately after their last day of employment.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "If a public holiday falls in that time, on a day you would usually have worked, you must be paid for it.",
+     "line": 416,
+     "quotes": [
+      {
+       "text": "the employee must be paid for it if it falls on a day that they usually would have worked if they were still employed",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "That time is then extended by one day for each such public holiday, and the extra days may hold more public holidays.",
+     "line": 418,
+     "quotes": [
+      {
+       "text": "is extended by one day for each public holiday that they were entitled to be paid for – this extended period may have more public holidays, which they may also need to be paid for.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": null,
+   "next": {
+    "to": "other-pay",
+    "line": 420,
+    "target": "other-pay"
+   },
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 413,
+   "nexts": [
+    {
+     "to": "other-pay",
+     "line": 420,
+     "target": "other-pay"
+    }
+   ]
+  },
+  {
+   "id": "other-pay",
+   "title": "Other payments",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "Other money you are owed is included too, for example a payment in your agreement or a leaving package.",
+     "line": 423,
+     "quotes": [
+      {
+       "text": "other payments the employee is owed, for example, a payment included in the employment agreement or negotiated as part of a leaving package.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "Do any of these apply to you?",
+    "options": [
+     {
+      "label": "I'm owed alternative holidays",
+      "to": "alt-holidays",
+      "line": 426,
+      "target": "alt-holidays"
+     },
+     {
+      "label": "I have unused sick or bereavement leave",
+      "to": "sick-leave",
+      "line": 427,
+      "target": "sick-leave"
+     },
+     {
+      "label": "I've been on ACC",
+      "to": "acc",
+      "line": 428,
+      "target": "acc"
+     },
+     {
+      "label": "None of these, or I've read them",
+      "to": "check-pay",
+      "line": 429,
+      "target": "check-pay"
+     }
+    ],
+    "line": 425
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 422
+  },
+  {
+   "id": "alt-holidays",
+   "title": "Alternative holidays",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "If you worked a public holiday and are owed an alternative holiday, it must be paid in your final pay.",
+     "line": 432,
+     "quotes": [
+      {
+       "text": "If an employee has worked a public holiday and is owed an",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Some words of this part, about the rate, did not come through in our saved copy. It does say the rate does not depend on what you were paid when you earned the holiday. Check the rate with your employer.",
+     "line": 434,
+     "quotes": [
+      {
+       "text": "regardless of the rate of pay at the time they earned the alternative holiday.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": null,
+   "next": {
+    "to": "other-pay",
+    "line": 436,
+    "target": "other-pay"
+   },
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 431,
+   "nexts": [
+    {
+     "to": "other-pay",
+     "line": 436,
+     "target": "other-pay"
+    }
+   ]
+  },
+  {
+   "id": "sick-leave",
+   "title": "Sick and bereavement leave",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "There is no legal right to have unused sick leave or bereavement leave paid out when you leave.",
+     "line": 439,
+     "quotes": [
+      {
+       "text": "There is no legal entitlement for unused",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "to be paid out when they leave an employer.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "But if your agreement says unused sick leave is paid, your employer must do that. Your employer can also choose to pay it.",
+     "line": 442,
+     "quotes": [
+      {
+       "text": "required the payment of unused sick leave, the employer would have to comply with the agreement, or an employer could choose to make such a payment.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": null,
+   "next": {
+    "to": "other-pay",
+    "line": 444,
+    "target": "other-pay"
+   },
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 438,
+   "nexts": [
+    {
+     "to": "other-pay",
+     "line": 444,
+     "target": "other-pay"
+    }
+   ]
+  },
+  {
+   "id": "acc",
+   "title": "If you've been on ACC",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "Being on ACC counts as continuous employment, so you still get annual holidays on your anniversary date.",
+     "line": 447,
+     "quotes": [
+      {
+       "text": "Being on ACC is considered continuous employment.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "This means the employee will still get annual holiday entitlement on their anniversary date.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Your employer must pay any outstanding annual holidays in your final pay, at the higher of your average weekly earnings for the 12 months before your end date, or your ordinary weekly pay.",
+     "line": 450,
+     "quotes": [
+      {
+       "text": "If an employee leaves their job after being on ACC, their employer must pay any outstanding annual holidays in their final pay.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "average weekly earnings for the 12 months before their end date, or",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "ordinary weekly pay.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": null,
+   "next": {
+    "to": "other-pay",
+    "line": 454,
+    "target": "other-pay"
+   },
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 446,
+   "nexts": [
+    {
+     "to": "other-pay",
+     "line": 454,
+     "target": "other-pay"
+    }
+   ]
+  },
+  {
+   "id": "check-pay",
+   "title": "Check your final pay",
+   "lines": [],
+   "ask": {
+    "question": "Have you had your final pay?",
+    "options": [
+     {
+      "label": "Yes, and it looks right",
+      "to": "done",
+      "line": 458,
+      "target": "done"
+     },
+     {
+      "label": "Yes, but it looks wrong",
+      "to": "pay-wrong",
+      "line": 459,
+      "target": "pay-wrong"
+     },
+     {
+      "label": "Not yet",
+      "to": "not-paid",
+      "line": 460,
+      "target": "not-paid"
+     }
+    ],
+    "line": 457
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 456
+  },
+  {
+   "id": "not-paid",
+   "title": "Not paid yet",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "Holiday pay must be paid on or before the pay day of the final pay period. This might be after your last day of work.",
+     "line": 463,
+     "quotes": [
+      {
+       "text": "The final leave and holiday payment must be paid on or before the pay day of the final pay period.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "This might be after the employee's last day of work.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "The pages do not say what to do if that pay day has passed. If you are owed money, the steps for \"final pay looks wrong\" may help.",
+     "line": 466
+    }
+   ],
+   "ask": {
+    "question": "What next?",
+    "options": [
+     {
+      "label": "My final pay is late or wrong",
+      "to": "pay-wrong",
+      "line": 468,
+      "target": "pay-wrong"
+     },
+     {
+      "label": "Finish for now",
+      "to": "end",
+      "line": 469,
+      "target": "__end"
+     }
+    ],
+    "line": 467
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 462
+  },
+  {
+   "id": "pay-wrong",
+   "title": "If your final pay looks wrong",
+   "lines": [
+    {
+     "kind": "do",
+     "text": "First, check with your employer.",
+     "line": 472,
+     "quotes": [
+      {
+       "text": "If an employee does not receive everything they are owed in their final pay, they must first check with their employer.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "If that doesn't sort it out, or you want advice, contact Employment New Zealand: call 0800 20 90 20, email them, or fill out their online form.",
+     "line": 474,
+     "quotes": [
+      {
+       "text": "If that does not resolve the problem, or they want advice, they can:",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "call us on 0800 20 90 20",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "email us, or",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "fill out our online form.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "The email address and the form are on the Final pay page; they are not in our saved copy.",
+     "line": 479
+    },
+    {
+     "kind": "say",
+     "text": "You may have a claim for unpaid wages or holiday pay, or another breach of your employment agreement.",
+     "line": 480,
+     "quotes": [
+      {
+       "text": "They may have a claim for unpaid wages or holiday pay, or another breach of their employment agreement.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": null,
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": true,
+   "line": 471
+  },
+  {
+   "id": "done",
+   "title": "All done",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "Your final pay looks right to you. If you notice a problem later, check with your employer first, then contact Employment New Zealand on 0800 20 90 20.",
+     "line": 485,
+     "quotes": [
+      {
+       "text": "they must first check with their employer.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "call us on 0800 20 90 20",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": null,
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": true,
+   "line": 484
+  },
+  {
+   "id": "forced",
+   "title": "I feel I have no choice but to resign",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "If you feel you have no choice but to resign, it could be \"constructive dismissal\". That is a type of unjustified dismissal.",
+     "line": 491,
+     "quotes": [
+      {
+       "text": "If an employee feels they have no choice but to resign, it could be considered constructive dismissal.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "Constructive dismissal is a type of unjustified dismissal.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Before resigning, think about talking to your employer or getting legal advice.",
+     "line": 494,
+     "quotes": [
+      {
+       "text": "If an employee is feeling forced to resign, they may also want to talk to their employer or get legal advice before resigning.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "If you believe you have been constructively dismissed, you can raise a personal grievance.",
+     "line": 496,
+     "quotes": [
+      {
+       "text": "If an employee believes they have been constructively dismissed, they can raise a personal grievance.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "These pages do not say how to raise a personal grievance or by when. Get advice: Employment New Zealand's number is 0800 20 90 20.",
+     "line": 498,
+     "quotes": [
+      {
+       "text": "call us on 0800 20 90 20",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "What next?",
+    "options": [
+     {
+      "label": "I still want to resign: show me how",
+      "to": "job-type",
+      "line": 501,
+      "target": "job-type"
+     },
+     {
+      "label": "Finish for now",
+      "to": "end",
+      "line": 502,
+      "target": "__end"
+     }
+    ],
+    "line": 500
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 490
+  },
+  {
+   "id": "changed-mind",
+   "title": "Resigned in the heat of the moment?",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "If you resigned while upset or angry and have changed your mind, speak to your employer as soon as possible and clear up the confusion.",
+     "line": 505,
+     "quotes": [
+      {
+       "text": "If an employee resigns in the heat of the moment and then changes their mind, they should:",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "speak to their employer as soon as possible, and",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "clear up the confusion.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "You can ask to withdraw a resignation, but your employer does not have to agree.",
+     "line": 509,
+     "quotes": [
+      {
+       "text": "If an employee has resigned but later changes their mind, they can ask to withdraw their resignation.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "Their employer does not have to agree.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Whatever they decide, they should reply in writing.",
+     "line": 512,
+     "quotes": [
+      {
+       "text": "But whatever they decide, they should respond to the employee in writing so there are no misunderstandings.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Texts may not be enough here, because they can be read the wrong way.",
+     "line": 514,
+     "quotes": [
+      {
+       "text": "In these situations, it might not be appropriate to rely only on text messages.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "This is because they can be open to interpretation.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "What next?",
+    "options": [
+     {
+      "label": "My employer won't let me withdraw it: notice and final pay",
+      "to": "during",
+      "line": 518,
+      "target": "during"
+     },
+     {
+      "label": "Finish for now",
+      "to": "end",
+      "line": 519,
+      "target": "__end"
+     }
+    ],
+    "line": 517
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 504
+  }
+ ],
+ "start": "start"
+}

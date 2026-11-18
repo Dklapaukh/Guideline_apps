@@ -1,25 +1,33 @@
-Scheduled build run, 18 Nov 2026 (night, 10 pm).
+Scheduled build run, 19 Nov 2026 (early morning, 2 am).
 
-Your feedback: nothing new since the last run (your Clinic / Wayfinding / branding comments were acted on then).
+Your feedback: nothing new since the last run.
 
 Built:
-- App 4: Submitting a Law assignment online (University of Auckland Faculty of Law). 20 steps: what do you need
-  (submit, extension, something went wrong), how your course wants it (online only, hard copy too, take-home
-  test), tick-box checks (no name on it, Word file, 12 noon), upload in Canvas with Turnitin, check the preview,
-  check it arrived and get the receipt, then "Did it work?" with routes for a technical problem, wrong file,
-  late (5 marks a day, with a worked example) and asking for an extension. 63 of 63 quotes exact (web copy).
-- Reviewer found 1 missed instruction (take-home tests) and 3 route problems (retry routes skipped the checks;
-  hard-copy students were told "submitted"; a receipt asked for before it could exist). All fixed in one round.
-- The studio is republished with all three looks and branding.
-- Scores: to fix 0, to check 0, all apps. Tests: 15 of 15 pass.
+- App 5: Resigning from a job (Employment New Zealand: Resignation, Notice periods and Final pay pages).
+  Start screen asks what you need: I want to resign / I feel I have no choice but to resign / I resigned in the
+  heat of the moment / I've resigned, what about my final pay. The resign route covers job type (ongoing,
+  fixed-term, casual), checking your employment agreement, parental or defence force leave, how much notice
+  (your agreement's, or "reasonable", generally 2 to 4 weeks as printed), putting it in writing, what your
+  employer must do, the notice period (leaving earlier, your employer wanting you gone early, pay in lieu or
+  garden leave, feeling unsafe, a new job, working it out with a handover list), your last day, final pay
+  ("on or before the pay day of the final pay period"), holiday pay, public holidays, other payments, and what
+  to do if final pay looks wrong (0800 20 90 20). 45 short screens; 187 of 187 quotes exact (web copy).
+- Reviewer found 8 missed instructions. The big one: if your employer wants you to leave early, they must still
+  pay the full notice period. Also the no-notice-period fallback, "not safe to work my notice" hidden too deep,
+  a parental-leave last-day clash, and long holiday-pay screens. All fixed in one round.
+- Scores: to fix 0, to check 0, all apps. Tests: 16 of 16 pass.
 
-Gaps in the guideline: it is for Law students only; the page "recommends" the receipt but the PDF says it is
-not required (both shown); nothing on word limits, referencing or file names; nothing on resubmitting, a wrong
-file after the deadline, how to prove a technical fault, a help-desk contact, a final cut-off for late work, or
-whether "before the due date" for extensions means before 12 noon.
+Building blocks added: none needed.
+
+Gaps in the guideline: the saved Final pay page lost the labels on its two annual-holiday cases (the app shows
+both and says so, without guessing which is for whom); some link words are missing; two worked examples have
+dates that don't fit one year; nothing on how or by when to raise a personal grievance, what to do if the final
+pay day passes, or what last day to write when resigning on parental leave.
 
 Needs you:
-- Try "Change the look" in any app and say which should be the default (still open from last run).
+- Optional: save Employment NZ's "Final pay" page as a PDF into sources/ so the app can say which holiday-pay
+  case applies to whom.
+- Try "Change the look" in any app and say which should be the default (still open).
 - Is "a few steps away from buildings" in the earthquake app clear to you? (still open)
 
-Next: guideline 5 (resigning from a job, Employment New Zealand).
+Next: guideline 6 (adult choking, ANZCOR guideline 4).

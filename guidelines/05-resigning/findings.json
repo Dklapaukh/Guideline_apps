@@ -1,0 +1,71 @@
+{
+ "summary": {
+  "steps": 45,
+  "reachable": 45,
+  "fix": 0,
+  "check": 0,
+  "info": 10,
+  "quotes": 187,
+  "quotesExact": 187,
+  "numberLines": 5,
+  "numberLinesQuoted": 5,
+  "sourceAmounts": 10,
+  "sourceAmountsUsed": 4
+ },
+ "findings": [
+  {
+   "level": "info",
+   "step": "fixed-term-end",
+   "line": 48,
+   "message": "1 line in \"Finishing on your end date\" has no quote from the guideline (\"The pages do not say what else you need to do in this cas…\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "casual-decline",
+   "line": 70,
+   "message": "1 line in \"Saying no to an offer of work\" has no quote from the guideline (\"The pages do not say what else you need to do in this cas…\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "not-sent",
+   "line": 189,
+   "message": "1 line in \"Not handed in yet\" has no quote from the guideline (\"You have not resigned yet. Nothing has been sent to your …\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "unsafe",
+   "line": 260,
+   "message": "1 line in \"You don't want to work your notice\" has no quote from the guideline (\"The pages do not say what happens next in this case.\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "holiday-pay",
+   "line": 388,
+   "message": "1 line in \"Annual holiday pay\" has no quote from the guideline (\"The page shows two ways, but our saved copy lost the labe…\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "not-paid",
+   "line": 466,
+   "message": "1 line in \"Not paid yet\" has no quote from the guideline (\"The pages do not say what to do if that pay day has passe…\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "pay-wrong",
+   "line": 479,
+   "message": "1 line in \"If your final pay looks wrong\" has no quote from the guideline (\"The email address and the form are on the Final pay page;…\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "message": "The guideline mentions 6 amounts the template never uses: 4 week, 2 day, 3 week, 6 week, 5 day, 8 day. Some may be background; check none were left out."
+  },
+  {
+   "level": "info",
+   "message": "Nobody is named under \"Reviewed by:\", so the app shows \"Not reviewed\"."
+  },
+  {
+   "level": "info",
+   "message": "The saved guideline text is a web copy made by a fetch tool and may not be word-perfect, so a \"quote not found\" may be the copy's fault. Add the PDF to sources/ for exact checking."
+  }
+ ]
+}
