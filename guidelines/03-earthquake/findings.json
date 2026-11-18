@@ -1,0 +1,67 @@
+{
+ "summary": {
+  "steps": 18,
+  "reachable": 18,
+  "fix": 0,
+  "check": 0,
+  "info": 9,
+  "quotes": 77,
+  "quotesExact": 77,
+  "numberLines": 0,
+  "numberLinesQuoted": 0,
+  "sourceAmounts": 0,
+  "sourceAmountsUsed": 0
+ },
+ "findings": [
+  {
+   "level": "info",
+   "step": "outside",
+   "line": 99,
+   "message": "2 lines in \"Outside\" have no quote from the guideline (\"The guideline's wording here is unclear: it does not plai…\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "lift",
+   "line": 132,
+   "message": "1 line in \"In a lift\" has no quote from the guideline (\"The guideline does not say what to do if the lift is stuc…\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "elsewhere",
+   "line": 145,
+   "message": "1 line in \"Somewhere else\" has no quote from the guideline (\"The guideline does not give separate advice for crowds, a…\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "long-strong",
+   "line": 161,
+   "message": "1 line in \"Long or Strong, Get Gone\" has no quote from the guideline (\"The guideline does not say what to do if you are not sure…\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "get-gone",
+   "line": 169,
+   "message": "1 line in \"Get Gone now\" has no quote from the guideline (\"The guideline does not say whether to walk or drive. Foll…\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "after",
+   "line": 181,
+   "message": "1 line in \"Check yourself\" has no quote from the guideline (\"The guideline says \"signs of distress\" and does not say w…\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "property",
+   "line": 223,
+   "message": "1 line in \"If your property is damaged\" has no quote from the guideline (\"The guideline does not say when it is safe to go back int…\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "message": "Nobody is named under \"Reviewed by:\", so the app shows \"Not reviewed\"."
+  },
+  {
+   "level": "info",
+   "message": "The saved guideline text is a web copy made by a fetch tool and may not be word-perfect, so a \"quote not found\" may be the copy's fault. Add the PDF to sources/ for exact checking."
+  }
+ ]
+}

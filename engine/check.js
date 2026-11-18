@@ -10,6 +10,7 @@
 
 import { findQuote, amounts } from './quotes.js';
 import { findByName, closest, readKey, slug } from './util.js';
+import { LOOKS, parseColour, contrastWithWhite } from './looks.js';
 
 export const END = '__end';
 const END_WORDS = /^(end|finish|finished|stop|done|exit|complete)$/i;
@@ -179,6 +180,7 @@ export function checkSpec(input, { sourceText = '', findings: earlier = [] } = {
   if (!spec.sources.length) add('check', {}, 'The template names no source guideline ("Source: name - link").');
   if (!sourceText) add('info', {}, 'No saved guideline text was given, so quotes could not be checked.');
   if (!spec.reviewedBy) add('info', {}, 'Nobody is named under "Reviewed by:", so the app shows "Not reviewed".');
+  checkLook(spec, add);
 
   const count = (lvl) => findings.filter((f) => f.level === lvl).length;
   const summary = {
@@ -187,6 +189,32 @@ export function checkSpec(input, { sourceText = '', findings: earlier = [] } = {
     sourceAmounts: sourceAmounts.length, sourceAmountsUsed: sourceAmounts.length - missed.length,
   };
   return { spec, findings, summary };
+}
+
+/* Branding and look: a colour the app can't use, or white text that would be hard to read on it, or a look
+   that doesn't exist. Bad values are dropped (the app keeps its normal colours) and become findings. */
+function checkLook(spec, add) {
+  spec.brand = { name: '', colour: '', ...(spec.brand ?? {}) };
+  const c = spec.brand.colour;
+  if (c) {
+    const rgb = parseColour(c);
+    if (!rgb) { add('fix', {}, `"Brand colour: ${c}" is not a colour the app can read, so the look's own colour is used.`, 'Write it as a hex code, e.g. "Brand colour: #1d4ed8".'); spec.brand.colour = ''; }
+    else {
+      spec.brand.colour = '#' + rgb.map((v) => v.toString(16).padStart(2, '0')).join('');
+      const ratio = contrastWithWhite(rgb);
+      if (ratio < 4.5) add('check', {}, `White button text on the brand colour ${spec.brand.colour} is hard to read (contrast ${ratio.toFixed(1)} to 1; 4.5 or more is easy to read).`, 'Choose a darker shade of the brand colour.');
+    }
+  }
+  if (spec.look) {
+    const flat = (t) => slug(t).replace(/-/g, '');   // "Flight deck", "flight-deck" and "flightdeck" all match
+    const look = LOOKS.find((l) => flat(l.id) === flat(spec.look) || flat(l.name) === flat(spec.look));
+    if (look) spec.look = look.id;
+    else {
+      const near = closest(spec.look, LOOKS.map((l) => l.name));
+      add('check', {}, `"Look: ${spec.look}" is not one of the looks (${LOOKS.map((l) => l.name).join(', ')}), so the app opens in ${LOOKS[0].name}.`, near ? `Did you mean "${near}"?` : undefined);
+      spec.look = '';
+    }
+  }
 }
 
 /* A table: which input picks the row, duplicate or contradictory rows, overlapping or missing bands. */

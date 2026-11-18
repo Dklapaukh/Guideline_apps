@@ -135,3 +135,15 @@ End:
   assert.ok(has(res, 'check', /no row for "Infant"/));
   assert.ok(has(res, 'fix', /"or" between two different details/));
 });
+
+test('branding and look: bad colour, hard-to-read colour and unknown look become findings, never errors', () => {
+  const T = (top) => `# Brand test\nSource: Test\n${top}\n## Steps\n### a: Only\nSay: Hello\nEnd:\n`;
+  const bad = run(T('Brand: Acme\nBrand colour: blue-ish'));
+  assert.ok(has(bad, 'fix', /not a colour/)); assert.equal(bad.spec.brand.colour, ''); assert.equal(bad.spec.brand.name, 'Acme');
+  const light = run(T('Brand colour: #ffe066'));
+  assert.ok(has(light, 'check', /hard to read/)); assert.equal(light.spec.brand.colour, '#ffe066');
+  const good = run(T('Brand colour: #1D4ED8\nLook: Flight deck'));
+  assert.ok(!has(good, 'check', /hard to read/)); assert.equal(good.spec.brand.colour, '#1d4ed8'); assert.equal(good.spec.look, 'flightdeck');
+  const typo = run(T('Look: wayfindng'));
+  assert.ok(has(typo, 'check', /Did you mean "Wayfinding"/)); assert.equal(typo.spec.look, '');
+});

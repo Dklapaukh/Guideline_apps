@@ -5,7 +5,7 @@ import { readTemplate } from '../engine/template.js';
 import { checkSpec } from '../engine/check.js';
 import { mount } from '../engine/runtime.js';
 
-/* global APP_JS, APP_CSS, EXAMPLES */
+/* global APP_JS, APP_CSS, FONTS_LINK, EXAMPLES */
 const $ = (s) => document.querySelector(s);
 const esc = (t) => String(t ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 const store = { get: (k) => { try { return localStorage.getItem(k); } catch { return null; } }, set: (k, v) => { try { localStorage.setItem(k, v); } catch { /* private mode */ } } };
@@ -45,7 +45,7 @@ async function copy(button, text, what) {
 const safe = (t) => t.replace(/<\/(script)/gi, '<\\/$1').replace(/<!--/g, '<\\!--');
 function appFile() {
   const data = { ...latest, built: new Date().toISOString().slice(0, 10) + ' (studio)' };
-  return `<!DOCTYPE html>\n<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${esc(data.spec.title)}</title><style>${APP_CSS}</style></head>
+  return `<!DOCTYPE html>\n<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${esc(data.spec.title)}</title>${FONTS_LINK}<style>${APP_CSS}</style></head>
 <body><div id="app"></div><script type="application/json" id="spec">${safe(JSON.stringify(data))}</script><script>${safe(APP_JS)}</script></body></html>\n`;
 }
 

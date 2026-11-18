@@ -11,6 +11,11 @@
  "audience": "Food business staff using an MPI food control plan",
  "reviewedBy": "",
  "version": "",
+ "brand": {
+  "name": "",
+  "colour": ""
+ },
+ "look": "",
  "inputs": [],
  "tables": [],
  "steps": [

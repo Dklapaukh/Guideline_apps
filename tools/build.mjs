@@ -9,6 +9,7 @@ import { buildSync } from 'esbuild';
 import { createHash } from 'node:crypto';
 import { readTemplate } from '../engine/template.js';
 import { checkSpec } from '../engine/check.js';
+import { LOOKS, scopeLook, fontsHref } from '../engine/looks.js';
 
 // Today's date in New Zealand (the owner's time zone), as YYYY-MM-DD.
 export const nzDate = () => new Intl.DateTimeFormat('en-CA', { timeZone: 'Pacific/Auckland' }).format(new Date());
@@ -20,6 +21,12 @@ const read = (p) => (existsSync(p) ? readFileSync(p, 'utf8') : '');
 export function bundle(entry) {
   return buildSync({ entryPoints: [path.join(ROOT, entry)], bundle: true, format: 'iife', write: false, minify: false, target: 'es2020' }).outputFiles[0].text;
 }
+// Every app's stylesheet: the base, then each look scoped to html[data-look="<id>"] (see engine/looks.js).
+export function appCss() {
+  return [readFileSync(path.join(ROOT, 'engine/runtime.css'), 'utf8'),
+    ...LOOKS.map((l) => `/* look: ${l.name} */\n` + scopeLook(readFileSync(path.join(ROOT, 'engine/looks', l.id + '.css'), 'utf8'), l.id))].join('\n');
+}
+export const fontsLink = () => `<link rel="stylesheet" href="${fontsHref()}">`;
 // Safe to put inside <script>: stops "</script" in data from ending the tag early.
 export const scriptSafe = (text) => text.replace(/<\/(script)/gi, '<\\/$1').replace(/<!--/g, '<\\!--');
 
@@ -37,7 +44,7 @@ export function buildGuideline(dir, { built = nzDate(), outDir = dir } = {}) {
   summary.info = findings.filter((f) => f.level === 'info').length;
   // Keep the earlier build date when nothing changed, so an unchanged app's file stays byte-identical
   // (the nightly run republishes only apps whose site/apps file changed).
-  const hash = createHash('sha256').update(JSON.stringify({ spec, findings, summary }) + bundle('engine/app-entry.js') + read(path.join(ROOT, 'engine/runtime.css'))).digest('hex').slice(0, 16);
+  const hash = createHash('sha256').update(JSON.stringify({ spec, findings, summary }) + bundle('engine/app-entry.js') + appCss()).digest('hex').slice(0, 16);
   const stampFile = path.join(outDir, 'built.json');
   const previous = existsSync(stampFile) ? (() => { try { return JSON.parse(read(stampFile)); } catch { return {}; } })() : {};
   if (previous.hash === hash && previous.date) built = previous.date;
@@ -50,13 +57,13 @@ export function buildGuideline(dir, { built = nzDate(), outDir = dir } = {}) {
 }
 
 export function appHtml(title, data) {
-  const css = readFileSync(path.join(ROOT, 'engine/runtime.css'), 'utf8');
   return `<!DOCTYPE html>
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#14213d">
 <title>${title.replace(/</g, '&lt;')}</title>
-<style>${css}</style></head>
+${fontsLink()}
+<style>${appCss()}</style></head>
 <body><div id="app"></div>
 <script type="application/json" id="spec">${scriptSafe(JSON.stringify(data))}</script>
 <script>${scriptSafe(bundle('engine/app-entry.js'))}</script>

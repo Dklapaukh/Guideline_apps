@@ -4,7 +4,7 @@
 import { readdirSync, existsSync, readFileSync, writeFileSync, mkdirSync, copyFileSync } from 'node:fs';
 import path from 'node:path';
 import { buildSync } from 'esbuild';
-import { ROOT, buildGuideline, bundle, scriptSafe, nzDate } from './build.mjs';
+import { ROOT, buildGuideline, bundle, scriptSafe, nzDate, appCss, fontsLink } from './build.mjs';
 
 const date = process.argv.includes('--date') ? process.argv[process.argv.indexOf('--date') + 1] : nzDate();
 const G = path.join(ROOT, 'guidelines'), SITE = path.join(ROOT, 'site');
@@ -22,13 +22,13 @@ for (const id of readdirSync(G).filter((d) => existsSync(path.join(G, d, 'templa
 }
 
 // 2. The studio, with the finished-app code inside it so "Download app" works offline
-const css = readFileSync(path.join(ROOT, 'engine/runtime.css'), 'utf8');
+const css = appCss();
 const examples = [{ name: 'Blank template', template: readFileSync(path.join(ROOT, 'template/guideline-template.md'), 'utf8'), source: '' },
   ...rows.map((r) => ({ name: r.title, template: readFileSync(path.join(G, r.id, 'template.md'), 'utf8'), source: existsSync(path.join(G, r.id, 'source.txt')) ? readFileSync(path.join(G, r.id, 'source.txt'), 'utf8') : '' }))];
 const studioJs = buildSync({ entryPoints: [path.join(ROOT, 'studio/studio-entry.js')], bundle: true, format: 'iife', write: false, target: 'es2020',
-  define: { APP_JS: JSON.stringify(bundle('engine/app-entry.js')), APP_CSS: JSON.stringify(css), EXAMPLES: JSON.stringify(examples) } }).outputFiles[0].text;
+  define: { APP_JS: JSON.stringify(bundle('engine/app-entry.js')), APP_CSS: JSON.stringify(css), FONTS_LINK: JSON.stringify(fontsLink()), EXAMPLES: JSON.stringify(examples) } }).outputFiles[0].text;
 const studioHtml = readFileSync(path.join(ROOT, 'studio/studio.html'), 'utf8')
-  .replace('/*APP_CSS*/', () => css).replace('/*STUDIO_JS*/', () => scriptSafe(studioJs)).replace('{{DATE}}', () => date);  // functions: no $-pattern surprises
+  .replace('/*APP_CSS*/', () => css).replace('<!--FONTS-->', () => fontsLink()).replace('/*STUDIO_JS*/', () => scriptSafe(studioJs)).replace('{{DATE}}', () => date);  // functions: no $-pattern surprises
 writeFileSync(path.join(SITE, 'studio.html'), studioHtml);
 
 // 3. The dashboard

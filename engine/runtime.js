@@ -8,6 +8,7 @@
 
 import { testCondition, clock, formatDuration, keyMatches, findByName, slug } from './util.js';
 import { END } from './check.js';
+import { LOOKS, DEFAULT_LOOK } from './looks.js';
 
 export function mount(root, { spec, findings = [], summary = {}, built = '' }) {
   const S = {
@@ -18,6 +19,21 @@ export function mount(root, { spec, findings = [], summary = {}, built = '' }) {
   const esc = (t) => String(t ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
   const now = () => Date.now();
   const log = (what, detail = '') => S.log.push({ at: now(), what, detail });
+  const brand = spec.brand ?? {};
+
+  /* ---------- look and branding ---------- */
+  // The person's own choice (kept on this phone) wins, then the template's "Look:", then the default.
+  // A page that shows one fixed look (the design review page) marks <html data-look-lock> and gets no picker.
+  const html = root.ownerDocument.documentElement;
+  const lookLocked = html.hasAttribute('data-look-lock');
+  const LOOK_KEY = 'guideline-app-look';
+  const savedLook = () => { try { return localStorage.getItem(LOOK_KEY); } catch { return null; } };
+  function applyLook(id) {
+    if (!lookLocked) html.dataset.look = LOOKS.some((l) => l.id === id) ? id : (spec.look || DEFAULT_LOOK);
+    if (brand.colour) html.style.setProperty('--brand', brand.colour);
+  }
+  function pickLook(id) { try { localStorage.setItem(LOOK_KEY, id); } catch { /* private mode: this visit only */ } applyLook(id); render(); }
+  applyLook(savedLook());
   const counts = { fix: findings.filter((f) => f.level === 'fix').length, check: findings.filter((f) => f.level === 'check').length };
 
   /* ---------- moving through the steps ---------- */
@@ -54,7 +70,7 @@ export function mount(root, { spec, findings = [], summary = {}, built = '' }) {
   /* ---------- drawing ---------- */
   function render() {
     root.innerHTML = `
-      <header class="bar"><div class="t">${esc(spec.title)}</div><div class="clock" data-clock="elapsed">${S.startedAt ? clock(now() - S.startedAt) : ''}</div></header>
+      <header class="bar"><div class="t">${brand.name ? `<span class="brand">${esc(brand.name)}</span>` : ''}${esc(spec.title)}</div><div class="clock" data-clock="elapsed">${S.startedAt ? clock(now() - S.startedAt) : ''}</div></header>
       <div class="proto">Prototype built automatically from a guideline. ${spec.reviewedBy ? 'Reviewed by ' + esc(spec.reviewedBy) + '.' : 'Not reviewed.'} Not for real-world use.</div>
       ${reminderBar()}
       <main id="main">${S.tab === 'steps' ? (S.screen === 'start' ? startView() : S.screen === 'done' ? doneView() : stepView()) : S.tab === 'log' ? logView() : S.tab === 'checks' ? checksView() : aboutView()}</main>
@@ -68,7 +84,8 @@ export function mount(root, { spec, findings = [], summary = {}, built = '' }) {
       ${spec.warning ? `<p class="warn">${esc(spec.warning)}</p>` : ''}
       ${counts.fix ? `<p class="author">The template has ${counts.fix} problem${counts.fix > 1 ? 's' : ''} the author needs to fix (see Checks). The app still runs.</p>` : ''}
       ${inputsForm()}
-      <button class="big go" data-act="begin">Start</button></section>`;
+      <button class="big go" data-act="begin">Start</button>
+      ${lookLocked ? '' : '<p class="look-link"><button class="link" data-tab="about">Change the look</button></p>'}</section>`;
   }
   function inputsForm() {
     if (!spec.inputs.length) return '';
@@ -163,6 +180,7 @@ export function mount(root, { spec, findings = [], summary = {}, built = '' }) {
   function aboutView() {
     return `<section class="card"><h2>About</h2>${spec.about ? `<p>${esc(spec.about)}</p>` : ''}
       ${spec.inputs.length ? `<h3>Details</h3>${inputsForm()}` : ''}
+      ${lookLocked ? '' : `<h3>Look</h3><div class="look-pick">${LOOKS.map((l) => `<button data-look-pick="${l.id}" class="${html.dataset.look === l.id ? 'on' : ''}">${esc(l.name)}</button>`).join('')}</div>`}
       <h3>Source</h3><ul>${spec.sources.map((s) => `<li>${esc(s.name)}${s.link ? ` <a href="${esc(s.link)}" target="_blank" rel="noopener">link</a>` : ''}</li>`).join('') || '<li>Not stated</li>'}</ul>
       <p><small>${spec.version ? 'Guideline version: ' + esc(spec.version) + ' · ' : ''}${built ? 'Built ' + esc(built) + ' · ' : ''}${summary.quotes != null ? `${summary.quotesExact}/${summary.quotes} quotes confirmed` : ''}</small></p>
       ${S.screen !== 'start' ? '<button class="big" data-act="restart">Start again</button>' : ''}</section>`;
@@ -214,6 +232,7 @@ export function mount(root, { spec, findings = [], summary = {}, built = '' }) {
     const b = e.target.closest('button'); if (!b) return;
     const d = b.dataset;
     if (d.tab) { S.tab = d.tab; render(); return; }
+    if (d.lookPick) return pickLook(d.lookPick);
     if (d.input) { S.answers[d.input] = S.answers[d.input] === d.value ? undefined : d.value; if (S.screen === 'run') log('Detail changed', `${d.input}: ${d.value}`); render(); return; }
     if (d.opt !== undefined) {
       const s = byId.get(S.current), o = s.ask.options[+d.opt];

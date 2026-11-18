@@ -1,27 +1,16 @@
-/* DESIGN REVIEW PAGE: one phone page that shows a built app in each design "look" (engine/looks/*.css),
+/* DESIGN REVIEW PAGE: one phone page that shows a built app in each design "look" (engine/looks.js),
    with one-tap reactions and a comment box per look. Feedback is saved in the published page's database
    (collections "reactions" and "comments"), which the next run reads.
    Usage: node tools/review.mjs [guideline-id]     (default: the newest guideline)   -> site/review.html */
 import { readFileSync, writeFileSync, readdirSync, existsSync } from 'node:fs';
 import path from 'node:path';
 import { ROOT, nzDate } from './build.mjs';
+import { LOOKS } from '../engine/looks.js';
 
-// The looks on show, with the field each one borrows from and its web fonts (fallbacks are in each CSS file).
-export const LOOKS = [
-  { id: 'clinic', name: 'Clinic', from: 'Patient and wellbeing apps: calm cards, one teal action colour, soft and friendly.',
-    fonts: 'family=Inter:wght@400;600;700' },
-  { id: 'flightdeck', name: 'Flight deck', from: 'Aviation checklists and cockpit displays: dark, high contrast, built for stress and low light.',
-    fonts: 'family=IBM+Plex+Sans:wght@400;500;700&family=IBM+Plex+Sans+Condensed:wght@600;700&family=IBM+Plex+Mono:wght@500' },
-  { id: 'wayfinding', name: 'Wayfinding', from: 'Transit maps and road signs: bold type, actions as stations on a line, sign-yellow cautions.',
-    fonts: 'family=Archivo:wght@500;700;800;900' },
-];
-
-// A built app file with one look added: the look's fonts and CSS go after the base stylesheet, so they win.
+// A built app file shown in one fixed look (all looks are already inside every app; this picks one and hides
+// the app's own look picker, so each review tab shows exactly the look being judged).
 export function withLook(appHtml, look) {
-  const css = readFileSync(path.join(ROOT, 'engine/looks', look.id + '.css'), 'utf8');
-  return appHtml
-    .replace('<html lang="en">', `<html lang="en" data-look="${look.id}">`)
-    .replace('</head>', `<link rel="stylesheet" href="https://fonts.googleapis.com/css2?${look.fonts}&display=swap">\n<style>${css}</style></head>`);
+  return appHtml.replace('<html lang="en">', `<html lang="en" data-look="${look.id}" data-look-lock>`);
 }
 
 const esc = (t) => String(t).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));

@@ -13,9 +13,15 @@ Version: Guideline version or date
 Audience: Who the app is for (e.g. "trained first aiders", "kitchen staff")
 Warning: Optional banner shown on the start screen.
 Reviewed by:
+Brand:
+Brand colour:
+Look:
 
 > "Reviewed by" stays empty until a person has checked every step against the guideline. Until then the
 > app shows "Not reviewed".
+> Optional company branding: "Brand:" is the organisation's name (shown at the top), "Brand colour:" a hex code
+> such as #1d4ed8 (used for buttons or the route line, depending on the look). "Look:" is the design the app opens
+> in: Clinic (the default), Wayfinding or Flight deck. The person using the app can always change the look under About.
 
 ## Inputs
 

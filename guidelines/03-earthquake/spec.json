@@ -1,0 +1,1448 @@
+{
+ "title": "Earthquake: Drop, Cover and Hold, then what to do after",
+ "about": "Shows what to do while the ground is shaking, wherever you are, and then what to do when the shaking stops.",
+ "sources": [
+  {
+   "name": "Get Ready (NEMA), Earthquakes",
+   "link": "https://getready.govt.nz/emergency/earthquakes/"
+  },
+  {
+   "name": "Get Ready (NEMA), Earthquakes, NZ Sign Language version",
+   "link": "https://nzsl.getready.govt.nz/emergency/earthquakes"
+  }
+ ],
+ "warning": "Shaking now? Drop, Cover and Hold first. Read this when you are safe.",
+ "audience": "Anyone in New Zealand during or just after an earthquake",
+ "reviewedBy": "",
+ "version": "Get Ready (NEMA) earthquakes page and its NZ Sign Language version (nzsl.getready.govt.nz/emergency/earthquakes), read 18 Nov 2026, no review date shown",
+ "brand": {
+  "name": "",
+  "colour": ""
+ },
+ "look": "",
+ "inputs": [],
+ "tables": [],
+ "steps": [
+  {
+   "id": "start",
+   "title": "Shaking now: Drop, Cover and Hold",
+   "lines": [
+    {
+     "kind": "do",
+     "text": "Drop, Cover and Hold until the shaking is over.",
+     "line": 14,
+     "quotes": [
+      {
+       "text": "Drop, Cover and Hold until the shaking is over.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "warning",
+     "text": "Do not run outside. You could be hit by falling bricks and glass.",
+     "line": 16,
+     "quotes": [
+      {
+       "text": "Do not run outside or you risk getting hit by falling bricks and glass.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Use the version that works for your body.",
+     "line": 18,
+     "quotes": [
+      {
+       "text": "The best version of Drop, Cover, Hold is the one that works for your body and that you have practiced.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "Where are you?",
+    "options": [
+     {
+      "label": "Inside a building",
+      "to": "indoors",
+      "line": 21,
+      "target": "indoors"
+     },
+     {
+      "label": "In bed",
+      "to": "in-bed",
+      "line": 22,
+      "target": "in-bed"
+     },
+     {
+      "label": "I have a mobility problem, or use a cane, walker or wheelchair",
+      "to": "mobility",
+      "line": 23,
+      "target": "mobility"
+     },
+     {
+      "label": "Outside",
+      "to": "outside",
+      "line": 24,
+      "target": "outside"
+     },
+     {
+      "label": "Driving",
+      "to": "driving",
+      "line": 25,
+      "target": "driving"
+     },
+     {
+      "label": "In a lift",
+      "to": "lift",
+      "line": 26,
+      "target": "lift"
+     },
+     {
+      "label": "Somewhere else",
+      "to": "elsewhere",
+      "line": 27,
+      "target": "elsewhere"
+     }
+    ],
+    "line": 20
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 13
+  },
+  {
+   "id": "mobility",
+   "title": "Your version of Drop, Cover and Hold",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "Use the version that works for your body.",
+     "line": 30,
+     "quotes": [
+      {
+       "text": "The best version of Drop, Cover, Hold is the one that works for your body and that you have practiced.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "Which is closest to you?",
+    "options": [
+     {
+      "label": "I have a mobility impairment or use a cane",
+      "to": "cane",
+      "line": 33,
+      "target": "cane"
+     },
+     {
+      "label": "I can't get up from the floor without help",
+      "to": "cane",
+      "line": 34,
+      "target": "cane"
+     },
+     {
+      "label": "I use a walker or wheelchair",
+      "to": "wheelchair",
+      "line": 35,
+      "target": "wheelchair"
+     }
+    ],
+    "line": 32
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 29
+  },
+  {
+   "id": "indoors",
+   "title": "Inside: Drop, Cover and Hold",
+   "lines": [
+    {
+     "kind": "warning",
+     "text": "If you can't get up from the floor without help, don't drop to the ground.",
+     "line": 38,
+     "quotes": [
+      {
+       "text": "If you can’t get up from the floor without help, don’t drop to the ground in an earthquake.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Drop down on your hands and knees, or as low as you can.",
+     "line": 40,
+     "quotes": [
+      {
+       "text": "Drop down on your hands and knees or as low as you can.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "If you can't drop to the floor, brace yourself against a wall or sturdy furniture.",
+     "line": 42,
+     "quotes": [
+      {
+       "text": "Brace yourself against a wall or sturdy furniture if you cannot drop to the floor.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Cover your head and neck under a sturdy table or desk, if one is a few steps away.",
+     "line": 44,
+     "quotes": [
+      {
+       "text": "COVER your head and neck (or your entire body if possible) under a sturdy table or desk (if it is within a few steps of you).",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "No shelter nearby? Cover your head and neck with your arms and hands.",
+     "line": 46,
+     "quotes": [
+      {
+       "text": "If there is no shelter nearby, cover your head and neck with your arms and hands.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Hold on to your shelter, or your position, until the shaking stops.",
+     "line": 48,
+     "quotes": [
+      {
+       "text": "HOLD on to your shelter (or your position to protect your head and neck) until the shaking stops.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Under a table, hold on to the table legs. If the shaking moves your shelter, move with it.",
+     "line": 50,
+     "quotes": [
+      {
+       "text": "Hold on to the table legs to keep it from moving away from you.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "If the shaking shifts your shelter around, move with it.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Keep away from windows and tall furniture. Not in a doorway.",
+     "line": 53,
+     "quotes": [
+      {
+       "text": "Away from windows that can shatter and cause injury.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "And away from tall furniture that can fall on you.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "Not in a doorway.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "In most homes a doorway is no stronger than the rest of the house, and a swinging door can cause more injury.",
+     "line": 57,
+     "quotes": [
+      {
+       "text": "In most homes, doorways are not stronger than any other part of a house and a swinging door can cause more injury.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "note",
+     "text": "The table, no-shelter, hold and move-with-it lines are only on the Sign Language page (Section B). The windows, tall furniture and doorway lines come from its \"Get ready\" list of safe spaces.",
+     "line": 59
+    }
+   ],
+   "ask": null,
+   "next": {
+    "to": "shaking-stops",
+    "line": 60,
+    "target": "shaking-stops"
+   },
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 37,
+   "nexts": [
+    {
+     "to": "shaking-stops",
+     "line": 60,
+     "target": "shaking-stops"
+    }
+   ]
+  },
+  {
+   "id": "in-bed",
+   "title": "In bed: stay in bed",
+   "lines": [
+    {
+     "kind": "do",
+     "text": "Stay in bed. Pull the sheets and blankets over you.",
+     "line": 63,
+     "quotes": [
+      {
+       "text": "If you are in bed, stay in bed and pull the sheets and blankets over you and use your pillow to protect your head and neck.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Use your pillow to protect your head and neck.",
+     "line": 65,
+     "quotes": [
+      {
+       "text": "If you are in bed, stay in bed and pull the sheets and blankets over you and use your pillow to protect your head and neck.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "note",
+     "text": "Only on the Sign Language page (Section B).",
+     "line": 67
+    }
+   ],
+   "ask": null,
+   "next": {
+    "to": "shaking-stops",
+    "line": 68,
+    "target": "shaking-stops"
+   },
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 62,
+   "nexts": [
+    {
+     "to": "shaking-stops",
+     "line": 68,
+     "target": "shaking-stops"
+    }
+   ]
+  },
+  {
+   "id": "cane",
+   "title": "Using a cane, or can't get up from the floor",
+   "lines": [
+    {
+     "kind": "warning",
+     "text": "If you can't get up from the floor without help, don't drop to the ground.",
+     "line": 71,
+     "quotes": [
+      {
+       "text": "If you can’t get up from the floor without help, don’t drop to the ground in an earthquake.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Get as low as you can, or sit in a chair, on the side of the bed or on a couch.",
+     "line": 73,
+     "quotes": [
+      {
+       "text": "If you have a mobility impairment or use a cane, get as low as you can or sit on in a chair, on the side of the bed or on a couch.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Cover your head and neck with both hands.",
+     "line": 75,
+     "quotes": [
+      {
+       "text": "Cover your head and neck with both hands.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Curl your body as much as you can into your lap.",
+     "line": 77,
+     "quotes": [
+      {
+       "text": "Curl your body as much as you can into your lap.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Keep your cane near you so you can use it when the shaking stops.",
+     "line": 79,
+     "quotes": [
+      {
+       "text": "Keep your cane near you so you can use it when the shaking stops.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "note",
+     "text": "The cane lines are only on the Sign Language page (Section B). Its \"sit on in a chair\" is a typo on the page; the quote keeps it as written and the screen says \"sit in a chair\".",
+     "line": 81
+    }
+   ],
+   "ask": null,
+   "next": {
+    "to": "shaking-stops",
+    "line": 82,
+    "target": "shaking-stops"
+   },
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 70,
+   "nexts": [
+    {
+     "to": "shaking-stops",
+     "line": 82,
+     "target": "shaking-stops"
+    }
+   ]
+  },
+  {
+   "id": "wheelchair",
+   "title": "Walker or wheelchair: Lock, Cover and Hold",
+   "lines": [
+    {
+     "kind": "do",
+     "text": "Lock your wheels and get as low as you can.",
+     "line": 85,
+     "quotes": [
+      {
+       "text": "Lock your wheels and get as low as you can.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Cover your head and neck with both hands if you can.",
+     "line": 87,
+     "quotes": [
+      {
+       "text": "Cover your head and neck with both hands if you can.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Curl your body as much as you can into your lap.",
+     "line": 89,
+     "quotes": [
+      {
+       "text": "Curl your body as much as you can into your lap.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Hold on until the shaking stops.",
+     "line": 91,
+     "quotes": [
+      {
+       "text": "Hold on until the shaking stops.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "note",
+     "text": "Only on the Sign Language page (Section B): \"If you use a walker or wheelchair, Lock, Cover and Hold.\"",
+     "line": 93
+    }
+   ],
+   "ask": null,
+   "next": {
+    "to": "shaking-stops",
+    "line": 94,
+    "target": "shaking-stops"
+   },
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 84,
+   "nexts": [
+    {
+     "to": "shaking-stops",
+     "line": 94,
+     "target": "shaking-stops"
+    }
+   ]
+  },
+  {
+   "id": "outside",
+   "title": "Outside",
+   "lines": [
+    {
+     "kind": "do",
+     "text": "If you are outside, move no more than a few steps away from buildings, trees, streetlights and power lines, then Drop, Cover and Hold.",
+     "line": 97,
+     "quotes": [
+      {
+       "text": "If you are outside, move no more than a few steps away from buildings, trees, streetlights and power lines, then Drop, Cover and Hold.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "The guideline's wording here is unclear: it does not plainly say how far to move, or which way. Follow local advice.",
+     "line": 99
+    },
+    {
+     "kind": "do",
+     "text": "Drop down on your hands and knees, or as low as you can.",
+     "line": 100,
+     "quotes": [
+      {
+       "text": "Drop down on your hands and knees or as low as you can.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Cover your head and neck if you can.",
+     "line": 102,
+     "quotes": [
+      {
+       "text": "Cover your head and neck if you can.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Hold on to your position or shelter.",
+     "line": 104,
+     "quotes": [
+      {
+       "text": "Hold on to your position or shelter.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "The guideline does not give advice for crowds, or for being near cliffs or steep slopes. Follow local advice.",
+     "line": 106
+    },
+    {
+     "kind": "note",
+     "text": "Only on the Sign Language page (Section B). The screen shows the outside sentence word for word because it is ambiguous (it can be read as \"stay within a few steps of buildings\"); the app does not choose a reading. Gap: nothing on cliffs, slopes or crowds outdoors. The Drop, Cover and Hold how-to lines are from Section A.",
+     "line": 107
+    }
+   ],
+   "ask": null,
+   "next": {
+    "to": "shaking-stops",
+    "line": 108,
+    "target": "shaking-stops"
+   },
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 96,
+   "nexts": [
+    {
+     "to": "shaking-stops",
+     "line": 108,
+     "target": "shaking-stops"
+    }
+   ]
+  },
+  {
+   "id": "driving",
+   "title": "Driving",
+   "lines": [
+    {
+     "kind": "do",
+     "text": "Pull over to a clear place and stop.",
+     "line": 111,
+     "quotes": [
+      {
+       "text": "If you are driving, pull over to a clear location.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "Stop.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Wait there with your seatbelt on until the shaking stops.",
+     "line": 114,
+     "quotes": [
+      {
+       "text": "Wait there with your seatbelt fastened until the shaking stops.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "When the shaking stops, drive with caution. Avoid bridges and ramps: they may be damaged.",
+     "line": 116,
+     "quotes": [
+      {
+       "text": "Once the shaking stops, proceed with caution and avoid bridges or ramps as they may have been damaged.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "note",
+     "text": "Only on the Sign Language page (Section B).",
+     "line": 118
+    }
+   ],
+   "ask": null,
+   "next": {
+    "to": "shaking-stops",
+    "line": 119,
+    "target": "shaking-stops"
+   },
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 110,
+   "nexts": [
+    {
+     "to": "shaking-stops",
+     "line": 119,
+     "target": "shaking-stops"
+    }
+   ]
+  },
+  {
+   "id": "lift",
+   "title": "In a lift",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "If you are in a lift, Drop, Cover and Hold.",
+     "line": 122,
+     "quotes": [
+      {
+       "text": "If you are in an elevator, Drop, Cover and Hold.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Drop down on your hands and knees, or as low as you can.",
+     "line": 124,
+     "quotes": [
+      {
+       "text": "Drop down on your hands and knees or as low as you can.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Cover your head and neck if you can.",
+     "line": 126,
+     "quotes": [
+      {
+       "text": "Cover your head and neck if you can.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Hold on to your position or shelter.",
+     "line": 128,
+     "quotes": [
+      {
+       "text": "Hold on to your position or shelter.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "When the shaking stops, get out at the nearest floor if you can do it safely.",
+     "line": 130,
+     "quotes": [
+      {
+       "text": "When the shaking stops, try and get out at the nearest floor if you can safely do so.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "The guideline does not say what to do if the lift is stuck. Follow local advice.",
+     "line": 132
+    },
+    {
+     "kind": "note",
+     "text": "Only on the Sign Language page (Section B). Gap: nothing on a stuck lift.",
+     "line": 133
+    }
+   ],
+   "ask": null,
+   "next": {
+    "to": "shaking-stops",
+    "line": 134,
+    "target": "shaking-stops"
+   },
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 121,
+   "nexts": [
+    {
+     "to": "shaking-stops",
+     "line": 134,
+     "target": "shaking-stops"
+    }
+   ]
+  },
+  {
+   "id": "elsewhere",
+   "title": "Somewhere else",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "In an earthquake, Drop, Cover and Hold.",
+     "line": 137,
+     "quotes": [
+      {
+       "text": "In an earthquake Drop, Cover and Hold.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Drop down on your hands and knees, or as low as you can.",
+     "line": 139,
+     "quotes": [
+      {
+       "text": "Drop down on your hands and knees or as low as you can.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Cover your head and neck if you can.",
+     "line": 141,
+     "quotes": [
+      {
+       "text": "Cover your head and neck if you can.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Hold on to your position or shelter.",
+     "line": 143,
+     "quotes": [
+      {
+       "text": "Hold on to your position or shelter.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "The guideline does not give separate advice for crowds, a moving bus or train, being near a cliff or slope, or holding a baby or child. Follow local advice.",
+     "line": 145
+    },
+    {
+     "kind": "say",
+     "text": "When the shaking stops, if you are in a shop, an unfamiliar building or on public transport, follow the instructions of those in charge.",
+     "line": 146,
+     "quotes": [
+      {
+       "text": "If you are in a store, unfamiliar commercial building or on public transport, follow the instructions of those in charge.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "note",
+     "text": "The \"those in charge\" line is in the page's \"after an earthquake\" list, so the screen starts it with \"When the shaking stops\"; it is the only line on public transport.",
+     "line": 148
+    }
+   ],
+   "ask": null,
+   "next": {
+    "to": "shaking-stops",
+    "line": 149,
+    "target": "shaking-stops"
+   },
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 136,
+   "nexts": [
+    {
+     "to": "shaking-stops",
+     "line": 149,
+     "target": "shaking-stops"
+    }
+   ]
+  },
+  {
+   "id": "shaking-stops",
+   "title": "When the shaking stops: near the coast?",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "If you are near the coast, remember: Long or Strong, Get Gone.",
+     "line": 152,
+     "quotes": [
+      {
+       "text": "If you are near the coast remember, Long or Strong, Get Gone.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "Are you near the coast?",
+    "options": [
+     {
+      "label": "Yes",
+      "to": "long-strong",
+      "line": 155,
+      "target": "long-strong"
+     },
+     {
+      "label": "No",
+      "to": "after",
+      "line": 156,
+      "target": "after"
+     }
+    ],
+    "line": 154
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 151
+  },
+  {
+   "id": "long-strong",
+   "title": "Long or Strong, Get Gone",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "Long: the earthquake lasted longer than a minute. Strong: it was hard to stand.",
+     "line": 159,
+     "quotes": [
+      {
+       "text": "If the earthquake lasts longer than a minute or is strong enough to make it difficult to stand, move quickly to the nearest high ground or as far inland as you can out of tsunami evacuation zones.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "The guideline does not say what to do if you are not sure. Follow local advice.",
+     "line": 161
+    }
+   ],
+   "ask": {
+    "question": "Was it long or strong?",
+    "options": [
+     {
+      "label": "Yes: longer than a minute, or hard to stand",
+      "to": "get-gone",
+      "line": 163,
+      "target": "get-gone"
+     },
+     {
+      "label": "No",
+      "to": "after",
+      "line": 164,
+      "target": "after"
+     }
+    ],
+    "line": 162
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 158
+  },
+  {
+   "id": "get-gone",
+   "title": "Get Gone now",
+   "lines": [
+    {
+     "kind": "warning",
+     "text": "Move quickly to the nearest high ground, or as far inland as you can, out of tsunami evacuation zones.",
+     "line": 167,
+     "quotes": [
+      {
+       "text": "If the earthquake lasts longer than a minute or is strong enough to make it difficult to stand, move quickly to the nearest high ground or as far inland as you can out of tsunami evacuation zones.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "The guideline does not say whether to walk or drive. Follow local advice.",
+     "line": 169
+    },
+    {
+     "kind": "say",
+     "text": "Expect more shaking. Each time you feel shaking, Drop, Cover and Hold.",
+     "line": 170,
+     "quotes": [
+      {
+       "text": "Expect more shaking.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "Each time you feel earthquake shaking, Drop, Cover and Hold.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Find out more about how to protect yourself from a tsunami on the Get Ready website.",
+     "line": 173,
+     "quotes": [
+      {
+       "text": "Find out more about how to protect yourself from a tsunami.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "note",
+     "text": "This route ends here on purpose: the after-earthquake list (\"Do not run outside\", gas, neighbours, insurance) must not delay or contradict leaving a tsunami zone, and the source puts no job before evacuating.",
+     "line": 175
+    }
+   ],
+   "ask": null,
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": true,
+   "line": 166
+  },
+  {
+   "id": "after",
+   "title": "Check yourself",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "You do not have to leave a building straight away, unless it shows obvious signs of damage or you are in a tsunami evacuation zone.",
+     "line": 179,
+     "quotes": [
+      {
+       "text": "You do not have to evacuate a building straight away unless it is showing obvious signs of distress or you are in a tsunami evacuation zone.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "The guideline says \"signs of distress\" and does not say what these signs are.",
+     "line": 181
+    },
+    {
+     "kind": "note",
+     "text": "\"signs of distress\" is reworded as \"signs of damage\" on screen (plainer); the quote keeps the source words.",
+     "line": 182
+    },
+    {
+     "kind": "warning",
+     "text": "Expect more shaking. Each time you feel shaking, Drop, Cover and Hold.",
+     "line": 183,
+     "quotes": [
+      {
+       "text": "Expect more shaking.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "Each time you feel earthquake shaking, Drop, Cover and Hold.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Check yourself for injuries. Get first aid if you need it.",
+     "line": 186,
+     "quotes": [
+      {
+       "text": "Check yourself for injuries and get first aid if necessary.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Do not run outside. Staying inside is frightening, but it is much safer than going outside.",
+     "line": 188,
+     "quotes": [
+      {
+       "text": "Do not run outside.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "It is frightening to stay in a building immediately after an earthquake, but it is much safer than going outside.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "If you can, put on clothes that cover your arms and legs, and sturdy shoes.",
+     "line": 191,
+     "quotes": [
+      {
+       "text": "If you can, put on protective clothing that covers your arms and legs, and sturdy footwear.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "This protects you from broken objects.",
+     "line": 193,
+     "quotes": [
+      {
+       "text": "This is to protect yourself from injury by broken objects.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": null,
+   "next": {
+    "to": "hazards",
+    "line": 195,
+    "target": "hazards"
+   },
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 178,
+   "nexts": [
+    {
+     "to": "hazards",
+     "line": 195,
+     "target": "hazards"
+    }
+   ]
+  },
+  {
+   "id": "hazards",
+   "title": "Gas, power and water",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "Turn off water, electricity and gas if you are advised to.",
+     "line": 198,
+     "quotes": [
+      {
+       "text": "Turn off water, electricity and gas if advised to.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "warning",
+     "text": "If you smell gas or hear a blowing or hissing noise: open a window, get everyone out quickly, and turn off the gas if you can.",
+     "line": 200,
+     "quotes": [
+      {
+       "text": "If you smell gas or hear a blowing or hissing noise, open a window, get everyone out quickly and turn off the gas if you can.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "warning",
+     "text": "If you see sparks, broken wires or other electrical damage: turn off the electricity at the main fuse box, if it is safe to do so.",
+     "line": 202,
+     "quotes": [
+      {
+       "text": "If you see sparks, broken wires or evidence of electrical system damage, turn off the electricity at the main fuse box if it is safe to do so.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": null,
+   "next": {
+    "to": "others",
+    "line": 204,
+    "target": "others"
+   },
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 197,
+   "nexts": [
+    {
+     "to": "others",
+     "line": 204,
+     "target": "others"
+    }
+   ]
+  },
+  {
+   "id": "others",
+   "title": "Others around you",
+   "lines": [
+    {
+     "kind": "do",
+     "text": "Check on your neighbours and anyone who might need your help.",
+     "line": 207,
+     "quotes": [
+      {
+       "text": "Check on your neighbours and anyone who might need your help.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "In a shop, an unfamiliar building or on public transport, follow the instructions of those in charge.",
+     "line": 209,
+     "quotes": [
+      {
+       "text": "If you are in a store, unfamiliar commercial building or on public transport, follow the instructions of those in charge.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Use social media or text messages instead of calling, to keep phone lines clear for emergency calls.",
+     "line": 211,
+     "quotes": [
+      {
+       "text": "Use social media or text messages instead of calling to keep phone lines clear for emergency calls.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Keep control of your pets. Protect them from hazards, and protect other people from your animals.",
+     "line": 213,
+     "quotes": [
+      {
+       "text": "Keep control of your pets.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "Protect them from hazards and protect other people from your animals.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "Is your home or property damaged?",
+    "options": [
+     {
+      "label": "Yes",
+      "to": "property",
+      "line": 217,
+      "target": "property"
+     },
+     {
+      "label": "No",
+      "to": "finish",
+      "line": 218,
+      "target": "finish"
+     }
+    ],
+    "line": 216
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 206
+  },
+  {
+   "id": "property",
+   "title": "If your property is damaged",
+   "lines": [
+    {
+     "kind": "warning",
+     "text": "Do not do anything that puts your safety at risk or causes more damage to your property.",
+     "line": 221,
+     "quotes": [
+      {
+       "text": "Do not do anything that puts your safety at risk or causes more damage to your property.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "The guideline does not say when it is safe to go back into a damaged building. Follow local advice.",
+     "line": 223
+    },
+    {
+     "kind": "do",
+     "text": "Contact your insurance company as soon as possible.",
+     "line": 224,
+     "quotes": [
+      {
+       "text": "Contact your insurance company as soon as possible.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "If you rent, contact your landlord and your contents insurance company.",
+     "line": 226,
+     "quotes": [
+      {
+       "text": "If you rent your property, contact your landlord and your contents insurance company.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Take photos of any damage. It will help speed up your claims.",
+     "line": 228,
+     "quotes": [
+      {
+       "text": "Take photos of any damage.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "It will help speed up assessments of your claims.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": null,
+   "next": {
+    "to": "finish",
+    "line": 231,
+    "target": "finish"
+   },
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 220,
+   "nexts": [
+    {
+     "to": "finish",
+     "line": 231,
+     "target": "finish"
+    }
+   ]
+  },
+  {
+   "id": "finish",
+   "title": "Keep safe",
+   "lines": [
+    {
+     "kind": "warning",
+     "text": "Expect more shaking. It can happen minutes, days, weeks, months and even years after an earthquake.",
+     "line": 234,
+     "quotes": [
+      {
+       "text": "More shaking can happen minutes, days, weeks, months and even years following an earthquake.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Each time you feel shaking, Drop, Cover and Hold.",
+     "line": 236,
+     "quotes": [
+      {
+       "text": "Each time you feel earthquake shaking, Drop, Cover and Hold.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Find your local Civil Defence Emergency Management (CDEM) Group, and find out what support you can get if you have been affected.",
+     "line": 238,
+     "quotes": [
+      {
+       "text": "Find your local Civil Defence Emergency Management (CDEM) Group.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "Find out what support you can get if you have been affected by an emergency event.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "First aid saves lives. The St John website shows what to look for and what to do.",
+     "line": 241,
+     "quotes": [
+      {
+       "text": "First aid saves lives.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": null,
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": true,
+   "line": 233
+  }
+ ],
+ "start": "start"
+}

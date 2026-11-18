@@ -1,6 +1,7 @@
 /* LOOK A "Clinic": calm consumer-health cards (ideas from patient apps and wellbeing apps).
-   Soft tinted ground, borderless white cards, one teal action colour, big friendly type, floating tab bar. */
-:root { --ink:#16232b; --mut:#5b6b75; --bg:#eef3f4; --card:#fff; --line:#dfe7ea; --go:#0f766e; --gosoft:#d9f0ec;
+   Soft tinted ground, borderless white cards, one teal action colour, big friendly type, floating tab bar.
+   A brand colour replaces the teal everywhere. */
+:root { --ink:#16232b; --mut:#5b6b75; --bg:#eef3f4; --card:#fff; --line:#dfe7ea; --go:var(--brand, #0f766e); --gosoft:#d9f0ec; --gosoft:color-mix(in srgb, var(--go) 15%, #fff);
   --warn:#9a3412; --warnbg:#fff1e6; --due:#c2410c; --author:#6b21a8; --authorbg:#f4edfb; }
 html, body { font-family:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; background:var(--bg); }
 .bar { background:var(--bg); color:var(--ink); padding:14px 18px 6px; }

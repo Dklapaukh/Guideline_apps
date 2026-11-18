@@ -4,7 +4,7 @@
 :root { --ink:#e8edf2; --mut:#8a97a6; --bg:#0b0f14; --card:#121820; --line:#253040; --go:#38bdf8; --warn:#ffb020; --warnbg:#2a1f08;
   --due:#ff5a4f; --author:#c4a1ff; --authorbg:#1f1830; color-scheme:dark; }
 html, body { font-family:"IBM Plex Sans", system-ui, sans-serif; background:var(--bg); color:var(--ink); }
-.bar { background:#070a0e; border-bottom:1px solid var(--line); }
+.bar { background:#070a0e; border-bottom:1px solid var(--line); border-top:4px solid var(--brand, #070a0e); }   /* a brand shows as a stripe; the dark colours stay readable */
 .bar .t { font-family:"IBM Plex Sans Condensed", "IBM Plex Sans", sans-serif; text-transform:uppercase; letter-spacing:.08em; font-size:14px; color:var(--mut); }
 .bar .clock { font-family:"IBM Plex Mono", ui-monospace, monospace; color:var(--go); }
 .proto { background:#0f0b18; }
@@ -34,7 +34,7 @@ details.src summary { color:var(--go); } details.src { color:var(--mut); }
 .rem.due { background:#2a0d0b; border-color:var(--due); }
 .lookup, th, td { border-color:var(--line); }
 .inp input { background:#0b1118; color:var(--ink); border-color:var(--line); }
-.choices button { background:transparent; color:var(--ink); border-color:var(--line); border-radius:4px; } .choices button.on { background:var(--go); color:#04121c; }
+.choices button { background:transparent; color:var(--ink); border-color:var(--line); border-radius:4px; } .choices button.on, .look-pick button.on { background:var(--go); color:#04121c; }
 .log time { font-family:"IBM Plex Mono", monospace; }
 .tabs { background:#070a0e; border-top:1px solid var(--line); }
 .tabs button { text-transform:uppercase; letter-spacing:.08em; font-size:13px; }

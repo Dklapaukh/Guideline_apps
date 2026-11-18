@@ -40,6 +40,7 @@ Full help text is inside `template/guideline-template.md`. Line types:
 | `Show: Table name` (or `Table: Column`) | the table row for the current details (e.g. dose by weight) |
 | `Record: Adrenaline given` | a button that logs a time stamp and counts taps |
 | `End:` | marks a last step |
+| `Brand:` / `Brand colour:` / `Look:` (top) | company name and colour; the look the app opens in |
 | `Note:` | for authors, never shown |
 | `[if Weight < 10]` at the end of any line or answer | condition on the inputs (`=`, `is`, `is not`, `<`, `>`, `and`, `or`) |
 
@@ -65,7 +66,7 @@ earlier app must still pass. That is how the builder "learns": the library of bu
 queue in `docs/CURRICULUM.md` gets harder.
 
 ## Spec (what the runtime reads)
-`{ title, about, sources[{name, link}], warning, audience, reviewedBy, version, inputs[], tables[], steps[], start }`.
+`{ title, about, sources[{name, link}], warning, audience, reviewedBy, version, brand{name, colour}, look, inputs[], tables[], steps[], start }`.
 A step: `{ id, title, lines[{kind, text, quotes[], cond}], ask{question, options[{label, to, target, cond}]},
 next, nexts[], timer{ms, label, to, target}, reminders[{ms, every, text, id}], stop, end }`. `target` is filled
 by the checker (`__end` = finish; `null` = broken link, shown as a finding). Written to `guidelines/*/spec.json`.
@@ -96,4 +97,12 @@ draw a progress bar. Current looks:
 | flightdeck | aviation checklists and cockpit displays: dark, high contrast, monospace numbers |
 | wayfinding | transit maps and road signs: bold type, actions as stations on a red line, sign-yellow cautions |
 
-Published apps use the base look until the owner picks one; then that look becomes the base stylesheet.
+Every app carries all the looks (`engine/looks.js` lists them and scopes each sheet to `html[data-look="<id>"]`),
+so the person using it can switch under About ("Change the look" on the start screen); the choice is kept on that
+phone. The app opens in the template's `Look:` or else the default, Clinic (the owner's favourite in round 1; the
+owner found Wayfinding easiest to follow). The review page marks its copies `data-look-lock` so each shows one look.
+
+**Company branding**: `Brand:` (name, shown in the top bar) and `Brand colour:` (hex) at the top of a template. The
+runtime sets `--brand`; each look decides where it goes (Clinic: every action colour; Wayfinding: the route line;
+Flight deck: a stripe on the top bar, so its dark colours stay readable). A colour that can't be read is a `fix`
+finding and is ignored; one too light for white text is a `check`.

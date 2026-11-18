@@ -40,7 +40,7 @@ export function readTemplate(text) {
   const findings = [];
   const say = (level, line, message, extra = {}) => findings.push({ level, line, message, ...extra });
   const spec = { title: '', about: '', sources: [], warning: '', audience: '', reviewedBy: '', version: '',
-                 inputs: [], tables: [], steps: [], start: null };
+                 brand: { name: '', colour: '' }, look: '', inputs: [], tables: [], steps: [], start: null };
 
   const lines = String(text ?? '').replace(/\r\n?/g, '\n').split('\n');
   let section = 'top', step = null, table = null, lastLine = null, ask = null;
@@ -90,6 +90,9 @@ export function readTemplate(text) {
     else if (/^audience|^for|^user/.test(key)) spec.audience = value;
     else if (/^review/.test(key)) spec.reviewedBy = value;
     else if (/^version|^date|^updated/.test(key)) spec.version = value;
+    else if (/^(brand )?colou?r/.test(key)) spec.brand.colour = value;          // checked in check.js
+    else if (/^brand|^company|^organi[sz]ation/.test(key)) spec.brand.name = value;
+    else if (/^look|^design|^style/.test(key)) spec.look = value;
     else say('info', n, `"${key}" at the top is not a known field; kept as part of the description.`), spec.about += ' ' + value;
   }
 

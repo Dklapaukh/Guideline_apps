@@ -1,0 +1,109 @@
+Earthquakes - Get Ready, National Emergency Management Agency (NEMA), New Zealand. Read 18 Nov 2026; no date shown on either page.
+Section A from https://getready.govt.nz/emergency/earthquakes/ (main English page).
+Section B from https://nzsl.getready.govt.nz/emergency/earthquakes (Get Ready's NZ Sign Language version of the same page, which carries the longer Drop, Cover and Hold variants the main page no longer shows).
+Capture method: the site blocks direct download here, so each line was read from the page by a fetch tool asked to quote exact sentences (long sentences in pieces, rejoined here). Six of the Section B lines were confirmed EXACT in a second, separate read. Image captions, link labels and te reo Māori poster text are left out.
+
+==================== SECTION A: getready.govt.nz/emergency/earthquakes/ ====================
+
+What to do during an earthquake
+Drop, Cover and Hold is the right action to take in an earthquake. It:
+stops you being knocked over
+makes you a smaller target for falling and flying objects, and
+protects your head, neck and vital organs.
+Most injuries and deaths during earthquakes are caused by things falling on people rather than buildings collapsing.
+Do not run outside or you risk getting hit by falling bricks and glass.
+If you are near the coast remember, Long or Strong, Get Gone.
+Drop, Cover and Hold until the shaking is over.
+If the earthquake lasts longer than a minute or is strong enough to make it difficult to stand, move quickly to the nearest high ground or as far inland as you can out of tsunami evacuation zones.
+Find out more about how to protect yourself from a tsunami.
+
+Drop, Cover and Hold
+In an earthquake Drop, Cover and Hold.
+You need to practise the version of Drop, Cover, Hold that works for you and make it your immediate reaction when the ground starts shaking.
+The best version of Drop, Cover, Hold is the one that works for your body and that you have practiced.
+Drop down on your hands and knees or as low as you can.
+Brace yourself against a wall or sturdy furniture if you cannot drop to the floor.
+Cover your head and neck if you can.
+Hold on to your position or shelter.
+If you can’t get up from the floor without help, don’t drop to the ground in an earthquake.
+
+What to do after an earthquake
+Expect more shaking.
+Each time you feel earthquake shaking, Drop, Cover and Hold.
+More shaking can happen minutes, days, weeks, months and even years following an earthquake.
+Check yourself for injuries and get first aid if necessary.
+Do not run outside.
+It is frightening to stay in a building immediately after an earthquake, but it is much safer than going outside.
+An earthquake is not like a fire.
+You do not have to evacuate a building straight away unless it is showing obvious signs of distress or you are in a tsunami evacuation zone.
+Turn off water, electricity and gas if advised to.
+If you smell gas or hear a blowing or hissing noise, open a window, get everyone out quickly and turn off the gas if you can.
+If you see sparks, broken wires or evidence of electrical system damage, turn off the electricity at the main fuse box if it is safe to do so.
+If you can, put on protective clothing that covers your arms and legs, and sturdy footwear.
+This is to protect yourself from injury by broken objects.
+If you are in a store, unfamiliar commercial building or on public transport, follow the instructions of those in charge.
+Use social media or text messages instead of calling to keep phone lines clear for emergency calls.
+Keep control of your pets.
+Protect them from hazards and protect other people from your animals.
+Check on your neighbours and anyone who might need your help.
+Find out what support you can get if you have been affected by an emergency event.
+
+If your property is damaged
+Do not do anything that puts your safety at risk or causes more damage to your property.
+Contact your insurance company as soon as possible.
+If you rent your property, contact your landlord and your contents insurance company.
+Take photos of any damage.
+It will help speed up assessments of your claims.
+Find your local Civil Defence Emergency Management (CDEM) Group.
+First aid saves lives.
+Learn what to look for and what to do if you need to give first aid on the St John website.
+
+==================== SECTION B: nzsl.getready.govt.nz/emergency/earthquakes ====================
+
+Get ready before an earthquake
+Practise Drop, Cover and Hold at least twice a year.
+You can do this when the clocks change and by taking part in New Zealand ShakeOut, our national earthquake drill and tsunami hīkoi.
+It's important to practise the right action to take so that when a real earthquake happens, you know what to do.
+Identify safe spaces to Drop, Cover and Hold within your home, school, work and other places you often visit.
+Safe spaces can be:
+Somewhere close to you, no more than a few steps away, to avoid injury from flying debris.
+Under a strong table.
+Hold on to the table legs to keep it from moving away from you.
+Away from windows that can shatter and cause injury.
+And away from tall furniture that can fall on you.
+Not in a doorway.
+In most homes, doorways are not stronger than any other part of a house and a swinging door can cause more injury.
+
+What to do during an earthquake
+Do not run outside in an earthquake or you risk getting hit by falling bricks and glass.
+If you are near the coast remember, Long or Strong, Get Gone.
+Drop, Cover and Hold until the shaking is over.
+If the earthquake lasts longer than a minute or is strong enough to make it difficult to stand, move quickly to the nearest high ground or as far inland as you can out of tsunami evacuation zones.
+
+Learn how to Drop, Cover and Hold
+In an earthquake Drop, Cover and Hold.
+You need to practise the version of Drop, Cover, Hold that works for you and make it your immediate reaction when the ground starts shaking.
+DROP down on your hands and knees or as low as you can.
+Brace yourself against a wall or sturdy furniture if you cannot drop to the floor.
+COVER your head and neck (or your entire body if possible) under a sturdy table or desk (if it is within a few steps of you).
+If there is no shelter nearby, cover your head and neck with your arms and hands.
+HOLD on to your shelter (or your position to protect your head and neck) until the shaking stops.
+If the shaking shifts your shelter around, move with it.
+If you can't get up from the floor without help, don't drop to the ground in an earthquake.
+If you have a mobility impairment or use a cane, get as low as you can or sit on in a chair, on the side of the bed or on a couch.
+Cover your head and neck with both hands.
+Curl your body as much as you can into your lap.
+Keep your cane near you so you can use it when the shaking stops.
+If you use a walker or wheelchair, Lock, Cover and Hold.
+Lock your wheels and get as low as you can.
+Cover your head and neck with both hands if you can.
+Curl your body as much as you can into your lap.
+Hold on until the shaking stops.
+If you are in bed, stay in bed and pull the sheets and blankets over you and use your pillow to protect your head and neck.
+If you are outside, move no more than a few steps away from buildings, trees, streetlights and power lines, then Drop, Cover and Hold.
+If you are in an elevator, Drop, Cover and Hold.
+When the shaking stops, try and get out at the nearest floor if you can safely do so.
+If you are driving, pull over to a clear location.
+Stop.
+Wait there with your seatbelt fastened until the shaking stops.
+Once the shaking stops, proceed with caution and avoid bridges or ramps as they may have been damaged.

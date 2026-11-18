@@ -11,6 +11,11 @@
  "audience": "Anyone giving first aid for a burn",
  "reviewedBy": "",
  "version": "St John web page, read 18 Nov 2026 (no review date shown)",
+ "brand": {
+  "name": "",
+  "colour": ""
+ },
+ "look": "",
  "inputs": [],
  "tables": [],
  "steps": [

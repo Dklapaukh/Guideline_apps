@@ -1,7 +1,7 @@
 // Runtime behaviour the reviewer found broken: Back keeps the clock, timers fire on any tab, deadlines can't be pushed back.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { mkdtempSync, writeFileSync } from 'node:fs';
+import { mkdtempSync, writeFileSync, readFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { buildGuideline } from '../tools/build.mjs';
@@ -52,4 +52,41 @@ test('a deadline reminder is cleared by OK, never restarted; a repeated step sta
   assert.match(app.$('.rem').className, /due/);
   app.click('[data-remdone]');
   assert.equal(app.$('.rem'), null);
+});
+
+const B = `# Brand app
+Brand: Acme Ltd
+Brand colour: #1d4ed8
+Look: wayfinding
+## Steps
+### a: Only
+Say: Hello
+End:
+`;
+
+test('the template look and brand apply; the person can switch look and the choice is kept', () => {
+  const app = appFrom(B);
+  const html = app.window.document.documentElement;
+  assert.equal(html.dataset.look, 'wayfinding');
+  assert.equal(html.style.getPropertyValue('--brand'), '#1d4ed8');
+  assert.match(app.$('.bar .t').textContent, /Acme Ltd/);
+  app.click('[data-tab="about"]');
+  app.click('[data-look-pick="flightdeck"]');
+  assert.equal(html.dataset.look, 'flightdeck');
+  assert.equal(app.window.localStorage.getItem('guideline-app-look'), 'flightdeck');
+  assert.match(app.$('[data-look-pick="flightdeck"]').className, /on/);
+});
+
+test('with no look named the app opens in the default look; a locked page keeps its look and shows no picker', () => {
+  const plain = appFrom(T);
+  assert.equal(plain.window.document.documentElement.dataset.look, 'clinic');
+  const dir = mkdtempSync(path.join(tmpdir(), 'ga-rt-'));
+  writeFileSync(path.join(dir, 'template.md'), T);
+  buildGuideline(dir, { built: 'test' });
+  const file = path.join(dir, 'app.html');
+  writeFileSync(file, readFileSync(file, 'utf8').replace('<html lang="en">', '<html lang="en" data-look="flightdeck" data-look-lock>'));
+  const locked = openApp(file);
+  locked.click('[data-tab="about"]');
+  assert.equal(locked.window.document.documentElement.dataset.look, 'flightdeck');
+  assert.equal(locked.$('[data-look-pick]'), null);
 });

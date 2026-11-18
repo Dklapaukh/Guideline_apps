@@ -1,0 +1,11 @@
+{
+  "id": "03-earthquake",
+  "title": "Earthquake: Drop, Cover and Hold, then what to do after",
+  "domain": "non-medical",
+  "level": 1,
+  "url": "https://getready.govt.nz/emergency/earthquakes/",
+  "version": "Get Ready (NEMA) earthquakes page and its NZ Sign Language version (nzsl.getready.govt.nz/emergency/earthquakes), read 18 Nov 2026, no review date shown",
+  "sourceCopy": "web-fetch",
+  "sourceNote": "The site blocks direct download, so every line was read by a fetch tool asked to quote whole sentences exactly; six key lines were confirmed in a second read, but some small wording slips are possible. The main page gives the short Drop, Cover and Hold steps and the after-earthquake list; the wheelchair, cane, bed, outside, lift and driving lines come only from the Sign Language version of the same page and are kept in a separate, labelled section. Saving the page as a PDF into sources/ would make checking exact.",
+  "status": "Reviewer: 2 instructions missed and a tsunami-route mix-up, all fixed. 77 of 77 quotes exact (web copy)."
+}
