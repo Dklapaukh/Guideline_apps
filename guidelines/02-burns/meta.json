@@ -1,0 +1,11 @@
+{
+  "id": "02-burns",
+  "title": "Burns first aid",
+  "domain": "medical",
+  "level": 1,
+  "url": "https://www.stjohn.org.nz/first-aid/first-aid-library/burns/",
+  "version": "St John first aid library page, read 18 Nov 2026 (page shows no review date)",
+  "sourceCopy": "web-fetch",
+  "sourceNote": "The site blocks direct download. Thirteen lines were captured word for word by a fetch tool; the rest of the page was only available reworded, so lines based on it carry no quote. Saving the page as a PDF into sources/ would make checking exact.",
+  "status": "Reviewer: 6 instructions missed, all fixed. 14 of 14 quotes exact; rest of the page only available reworded."
+}

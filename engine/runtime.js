@@ -85,6 +85,7 @@ export function mount(root, { spec, findings = [], summary = {}, built = '' }) {
     if ((i.min != null && x < i.min) || (i.max != null && x > i.max)) return `Outside ${i.min}–${i.max}`;
     return null;
   }
+  // A step: title, then its timer (kept near the top so the clock is always in view), lines, question, buttons.
   function stepView() {
     const s = byId.get(S.current);
     const lines = s.lines.filter((l) => l.kind !== 'note').map(lineView).join('');
@@ -98,10 +99,10 @@ export function mount(root, { spec, findings = [], summary = {}, built = '' }) {
     return `<section class="card step">
       <div class="crumb">${S.history.length ? `<button class="link" data-act="back">‹ Back</button>` : ''}<span>Step ${S.history.length + 1}</span></div>
       <h2>${esc(s.title)}</h2>
-      ${lines}
       ${s.timer ? `<div class="timer ${S.timerDone ? 'due' : ''}"><div class="lbl">${esc(s.timer.label)}</div><div class="big-clock" data-clock="timer">${clock(s.timer.ms)}</div>
          ${S.timerDone && s.timer.target ? `<button class="big go" data-act="timer-go">Time's up: continue</button>` : ''}
          ${s.timer.to && !s.timer.target ? `<p class="author">The timer leads to "${esc(s.timer.to)}", which is missing.</p>` : ''}</div>` : ''}
+      ${lines}
       ${s.ask ? `<p class="q">${esc(s.ask.question)}</p><div class="opts">${opts || '<p class="author">No answer applies with the details entered (see Checks).</p>'}</div>` : ''}
       ${S.note ? `<p class="author">${esc(S.note)}</p>` : ''}
       ${next ? `<button class="big ${s.ask ? 'skip' : 'go'}" data-act="next">${s.ask ? 'Skip' : 'Next'}: ${esc(byId.get(next)?.title ?? 'Finish')}${nextDepends(s) ? ' <small>(depends on details not entered)</small>' : ''}</button>` : ''}
@@ -179,7 +180,11 @@ export function mount(root, { spec, findings = [], summary = {}, built = '' }) {
     for (const el of root.querySelectorAll('[data-clock]')) {
       const kind = el.dataset.clock;
       if (kind === 'elapsed' && S.startedAt) el.textContent = clock(t - S.startedAt);
-      if (kind === 'timer' && s?.timer) el.textContent = clock(s.timer.ms - (t - S.enteredAt));
+      if (kind === 'timer' && s?.timer) {
+        el.textContent = clock(s.timer.ms - (t - S.enteredAt));
+        // --p = share of the timer used (0 to 1), so a design can draw a progress bar or ring from it
+        el.parentElement.style.setProperty('--p', Math.min(1, (t - S.enteredAt) / s.timer.ms).toFixed(3));
+      }
       if (kind === 'rem') {
         const r = S.reminders[el.dataset.remId]; if (!r) continue;
         const left = r.dueAt - t;

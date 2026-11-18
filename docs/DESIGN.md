@@ -76,3 +76,24 @@ most websites directly, so `meta.json` says how good the copy is: `pdf` (exact, 
 `search-snippet` / `search-snippet-partial` (exact words from web search excerpts, may be incomplete),
 `web-fetch` (a fetch tool's rendering, may be reworded: a missing quote may be the copy's fault). Dropping the
 guideline PDF into `sources/` makes checking exact.
+
+## Looks and the owner's design brief
+The owner's brief (18 Nov 2026): the apps must look good as well as work. Clean, modern, mostly cards, but the
+design can change to suit the job. Whatever the user does should follow modern design practice and be as simple
+and obvious as possible. The audience is not technical, so ask for as few decisions or inputs at a time as possible
+and make the person feel supported. Show the owner more than one design and borrow ideas from many fields. Anything
+for the owner to review gets a link and a very easy way to give feedback; the owner reviews on a phone.
+
+How it works: the base stylesheet is `engine/runtime.css`. A **look** is one extra stylesheet in `engine/looks/<id>.css`
+that only restyles (no change to what the app does). `tools/review.mjs` builds `site/review.html`, which shows the
+newest app in every look with one-tap reactions and a comment box; feedback is saved in that page's database and
+read at the start of each run. The runtime sets `--p` (share of the timer used, 0 to 1) on `.timer` so a look can
+draw a progress bar. Current looks:
+
+| Look | Borrowed from |
+|---|---|
+| clinic | patient and wellbeing apps: calm cards, one teal action colour |
+| flightdeck | aviation checklists and cockpit displays: dark, high contrast, monospace numbers |
+| wayfinding | transit maps and road signs: bold type, actions as stations on a red line, sign-yellow cautions |
+
+Published apps use the base look until the owner picks one; then that look becomes the base stylesheet.

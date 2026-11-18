@@ -1,6 +1,6 @@
-# Nightly run: what the orchestrator does
+# Scheduled run: what the orchestrator does
 
-The scheduled task starts a fresh session each night with no memory. This page is the whole procedure. The
+A scheduled task starts a fresh session three times a day (01:47, 09:47 and 17:47 New Zealand time) with no memory. This page is the whole procedure. The
 session is the **orchestrator**: it plans, hands work to sub-agents, checks their work, and is the only one that
 publishes, commits and pushes. Nobody is watching: never stop to ask. If something needs the owner, write it
 under "Needs you" in `runs/LATEST.md` and carry on with what can be done.
@@ -8,22 +8,25 @@ under "Needs you" in `runs/LATEST.md` and carry on with what can be done.
 ## 0. Set up (about 2 minutes)
 1. `add_repo` (owner `Dklapaukh`, repo `Guideline_apps`, access `push`), clone into `/home/claude/guideline_apps`
    as its answer says, `register_repo_root`, then `npm ci`. `google-chrome` and `pdftotext` are installed.
-2. Load the page tools in one ToolSearch call (they are deferred): `select:mcp__claude-artifacts__read_comments,
-   mcp__claude-artifacts__reply_comment,mcp__claude-artifacts__get_artifact,mcp__claude-artifacts__list_files,
-   mcp__claude-artifacts__publish_files,mcp__claude-artifacts__guide`. Before the first publish, call `guide`
-   with topic `pages` once (the server requires it).
-3. Read `CLAUDE.md`, `docs/DESIGN.md`, `docs/LESSONS.md`, `docs/CURRICULUM.md`, `runs/LATEST.md`, `registry.json`.
+2. Pages are published with the **Artifact** tool and their feedback database read with **ArtifactData** (load it with
+   ToolSearch `select:ArtifactData` if it is deferred). Before the first new page, call Artifact `action: "quickstart"`
+   once, as that tool requires.
+3. Read `CLAUDE.md`, `docs/DESIGN.md` (including "Looks and the owner's design brief"), `docs/LESSONS.md`, `docs/CURRICULUM.md`, `runs/LATEST.md`, `registry.json`.
 4. `npm test`. If it fails before you change anything, fixing it is tonight's first job.
 
 ## 1. Owner feedback first
-For every slug in `registry.json` (apps, studio, dashboard): `read_comments`. Owner comments outrank the queue.
-Act on each (fix a template, add a guideline to the queue, change the engine), then reply in the thread with
-one or two plain sentences on what changed (`reply_comment`). If a comment is unclear, reply asking, and move on.
+1. **Design review**: ArtifactData `list` the collections `reactions` and `comments` of the review page
+   (`registry.json` → `review.url`). Reactions are love / parts / no per look; comments name the look they were left on.
+   Act on them (change a look in `engine/looks/`, drop a look nobody likes, add a new one from another field) and
+   record what changed in `runs/LATEST.md`.
+2. **Comments on pages**: for every page in `registry.json`, read comments sent to Claude (ArtifactComments tool, if
+   available) and reply in one or two plain sentences on what changed. Owner comments outrank the queue. If a
+   comment is unclear, reply asking, and move on.
 
 ## 2. Choose tonight's work (in this order)
 1. Anything the owner asked for in comments.
 2. A failing test, or a `fix` finding in a published app.
-3. The next `queued` guideline in `docs/CURRICULUM.md` (one per night; two only if both are level 1-2 and the
+3. The next `queued` guideline in `docs/CURRICULUM.md` (one per run; two only if both are level 1-2 and the
    first finished quickly). Row 16, the final exam, follows its own rules in that file.
 
 ## 3. Sub-agents (use the Agent tool with model "opus"; give each a complete brief; they don't see this chat)
@@ -57,20 +60,23 @@ the built app in the fake browser (`tests/helpers/explore.mjs`) and try the main
 fixes what can be fixed (back to 3b, at most twice) and leaves the rest listed in review.md.
 
 ## 4. Build, test, look
-`node tools/build-all.mjs` then `npm test` (all must pass). Then look at the new app on a phone-size screen:
-`node tools/screenshot.mjs site/apps/<id>.html "begin,next,next"` writes `/tmp/shots/<id>-0.png` (start screen)
-and one PNG after each tap ("begin", "next", "finish", or "opt:0" for the first answer). Open each PNG with the
-Read tool and fix anything cut off, ugly or unreadable.
+`node tools/build-all.mjs`, `node tools/review.mjs` (puts the newest app into the design review page, one copy per
+look) then `npm test` (all must pass). Then look at the new app on a phone-size screen: `node tools/screenshot.mjs
+site/apps/<id>.html "begin,next,next"` writes `/tmp/shots/<id>-0.png` and one PNG after each tap ("begin", "next",
+"finish", or "opt:0" for the first answer). If `google-chrome` is missing, use Playwright (`require('playwright')`,
+`chromium.launch()`) the same way. Open each PNG with the Read tool and fix anything cut off, ugly or unreadable,
+in every look.
 
-## 5. Publish (claude-artifacts tools)
+## 5. Publish (Artifact tool)
 - Which pages changed: `git status --short site/`. An unchanged app keeps its old build date, so its file is
   byte-identical and needs no republish. Republish only files that changed or are new.
-- New app: `publish_files` with `files: [{as: "index.html", path: "/home/claude/guideline_apps/site/apps/<id>.html"}]`,
-  `title` (the app title) and `icon` ("timer" or similar); add the returned slug and url to `registry.json`.
-- Existing page: `get_artifact` (live `version`), then `list_files` (the server requires it before changing a
-  page), then `publish_files` with the same `files`, `slug` and `base_version` = that version. Omit title and icon.
-- Studio (if the engine or examples changed) the same way, then rebuild and publish the dashboard last
-  (it contains the links). Every page stays private to the owner; never try to share anything.
+- New app: Artifact publish with `file_path` = `site/apps/<id>.html`, `icon` "timer" and a one-sentence `description`;
+  add the returned url to `registry.json` under `apps`.
+- Existing page (an app, studio, dashboard): Artifact `action: "read"` of its url first (the server refuses a
+  publish to a page this session has not read), then publish the new file with `url` set. Omit `icon`.
+- Review page: publish `site/review.html` to `registry.json` → `review.url` the same way. Omit `capabilities` so its
+  feedback database stays declared. Old feedback is kept; each item carries the round it belongs to.
+- Publish the dashboard last (it contains the links). Every page stays private to the owner; never share anything.
 
 ## 6. Record and save
 1. `docs/CURRICULUM.md`: mark the status (`built`, `built (needs review)`, or `skipped: reason`).
@@ -82,8 +88,13 @@ Read tool and fix anything cut off, ugly or unreadable.
 5. Commit to `main` with a clear message and push (`git -c push.negotiate=true push origin main`).
 
 ## 7. Finish
-End with a short summary (what was built, the dashboard link from `registry.json`, anything that needs the
-owner). Send it with SendUserMessage if available.
+End with a short summary for a phone screen: what was built, the dashboard and review links from `registry.json`,
+anything that needs the owner. The owner reads it on a phone, so keep it under 80 words.
+
+## When the queue is empty
+Improve what exists, in this order: the owner's design feedback, the looks (try one new look from a field not yet
+tried, such as wayfinding, cockpit, kitchen tickets or sports scoreboards), findings in published apps, then add
+new rows to the queue (mixed medical and non-medical, New Zealand sources first) and build them.
 
 ## Limits
 - Never write to any repository except Guideline_apps. Never weaken a test, never delete an app or its history.

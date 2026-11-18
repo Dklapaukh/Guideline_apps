@@ -1,0 +1,41 @@
+/* LOOK B "Flight deck": ideas from aviation quick-reference checklists and cockpit displays.
+   Dark, high-contrast, built for stress and low light: condensed caps for headings, monospace numbers,
+   amber for cautions, cyan for actions, each action is a checklist row with a square box. */
+:root { --ink:#e8edf2; --mut:#8a97a6; --bg:#0b0f14; --card:#121820; --line:#253040; --go:#38bdf8; --warn:#ffb020; --warnbg:#2a1f08;
+  --due:#ff5a4f; --author:#c4a1ff; --authorbg:#1f1830; color-scheme:dark; }
+html, body { font-family:"IBM Plex Sans", system-ui, sans-serif; background:var(--bg); color:var(--ink); }
+.bar { background:#070a0e; border-bottom:1px solid var(--line); }
+.bar .t { font-family:"IBM Plex Sans Condensed", "IBM Plex Sans", sans-serif; text-transform:uppercase; letter-spacing:.08em; font-size:14px; color:var(--mut); }
+.bar .clock { font-family:"IBM Plex Mono", ui-monospace, monospace; color:var(--go); }
+.proto { background:#0f0b18; }
+.card { background:var(--card); border:1px solid var(--line); border-radius:4px; margin:8px; }
+h1, h2 { font-family:"IBM Plex Sans Condensed", "IBM Plex Sans", sans-serif; text-transform:uppercase; letter-spacing:.04em; font-weight:700; }
+h2 { font-size:22px; border-bottom:1px solid var(--line); padding-bottom:10px; }
+h3 { color:var(--warn); }
+.crumb { font-family:"IBM Plex Mono", monospace; font-size:12px; text-transform:uppercase; }
+.link { color:var(--go); }
+.big { border-radius:4px; background:transparent; border:1px solid var(--line); color:var(--ink); }
+.big.go { background:var(--go); color:#04121c; border-color:var(--go); text-transform:uppercase; letter-spacing:.06em; }
+.big.opt { background:#0f1a24; border-color:#1f3a50; color:var(--ink); }
+.big.opt::before { content:"▸ "; color:var(--go); }
+.big.skip { color:var(--mut); }
+.q { font-family:"IBM Plex Sans Condensed", sans-serif; text-transform:uppercase; letter-spacing:.04em; color:var(--go); }
+.warn { background:var(--warnbg); color:var(--warn); border-left:4px solid var(--warn); border-radius:2px; text-transform:uppercase; font-size:15px; letter-spacing:.02em; }
+.do { border-bottom:1px dashed var(--line); font-weight:500; }
+.do input { accent-color:var(--go); border-radius:0; }
+details.src summary { color:var(--go); } details.src { color:var(--mut); }
+.timer { background:#06121b; border:1px solid #1f3a50; border-radius:4px; position:relative; }
+.timer::after { content:""; display:block; height:4px; margin-top:10px; background:linear-gradient(90deg, var(--go) calc(var(--p, 0) * 100%), #1c2633 0); }
+.timer .lbl { text-transform:uppercase; letter-spacing:.1em; font-size:12px; }
+.big-clock { font-family:"IBM Plex Mono", ui-monospace, monospace; font-weight:500; color:var(--go); font-size:56px; }
+.timer.due { background:#2a0d0b; border-color:var(--due); } .timer.due .big-clock { color:var(--due); }
+.reminders { background:var(--bg); }
+.rem { background:var(--card); border-color:var(--line); border-radius:4px; } .rem button { background:transparent; color:var(--ink); border-color:var(--line); }
+.rem.due { background:#2a0d0b; border-color:var(--due); }
+.lookup, th, td { border-color:var(--line); }
+.inp input { background:#0b1118; color:var(--ink); border-color:var(--line); }
+.choices button { background:transparent; color:var(--ink); border-color:var(--line); border-radius:4px; } .choices button.on { background:var(--go); color:#04121c; }
+.log time { font-family:"IBM Plex Mono", monospace; }
+.tabs { background:#070a0e; border-top:1px solid var(--line); }
+.tabs button { text-transform:uppercase; letter-spacing:.08em; font-size:13px; }
+.tabs button.on { color:var(--go); box-shadow:inset 0 3px 0 var(--go); }

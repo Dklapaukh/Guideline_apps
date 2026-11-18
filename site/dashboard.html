@@ -12,32 +12,38 @@ header{background:#14213d;color:#fff;padding:14px 16px}header h1{margin:0;font-s
 pre{white-space:pre-wrap;font:14px/1.45 ui-monospace,Menlo,monospace;background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px}
 table{border-collapse:collapse;width:100%;font-size:14px;background:#fff}td,th{border:1px solid var(--line);padding:4px 6px;text-align:left}
 h3{font-size:14px;text-transform:uppercase;letter-spacing:.04em;color:var(--mut);margin:18px 0 6px}
-</style></head><body><header><h1>Guideline Apps</h1><p>Prototype builder · 1 app · updated 2026-11-18</p></header><main>
+</style></head><body><header><h1>Guideline Apps</h1><p>Prototype builder · 2 apps · updated 2026-11-18</p></header><main>
 <div class="card"><h2>Studio</h2><p>Paste a filled-in template, see the checks and the app. No AI.</p><a class="open" href="https://claude.ai/artifact/WarG1PpPsgbDmY6ptrk4qT" target="_blank" rel="noopener">Open studio</a></div>
+<div class="card"><h2>Design review</h2><p>See the newest app in each candidate look and tap a reaction. Your choices steer the next builds.</p><a class="open" href="https://claude.ai/artifact/1ZSPzWhCERcqkTV583SKKi" target="_blank" rel="noopener">Review the looks</a></div>
 <h3>Apps</h3>
 <div class="card"><h2>Cooling freshly cooked food</h2>
 <div class="tags"><span>non-medical</span><span>level 1</span><span>source: search-snippet-partial</span></div>
 <div class="n"><div class="fix"><b>0</b>to fix</div><div class="check"><b>0</b>to check</div><div><b>12/12</b>quotes confirmed</div><div><b>8/8</b>steps reachable</div><div><b>100%</b>guideline numbers used</div></div>
 
-<a class="open" href="https://claude.ai/artifact/WtjUgJSGkSVNyeBuhfLt6H" target="_blank" rel="noopener">Open app</a></div>
-<h3>Latest nightly run</h3><pre>Set-up session, 18 Nov 2026 (not a nightly run).
+<a class="open" href="https://claude.ai/artifact/WtjUgJSGkSVNyeBuhfLt6H" target="_blank" rel="noopener">Open app</a></div><div class="card"><h2>Burns first aid</h2>
+<div class="tags"><span>medical</span><span>level 1</span><span>source: web-fetch</span></div>
+<div class="n"><div class="fix"><b>0</b>to fix</div><div class="check"><b>0</b>to check</div><div><b>14/14</b>quotes confirmed</div><div><b>9/9</b>steps reachable</div><div><b>100%</b>guideline numbers used</div></div>
+<p>Reviewer: 6 instructions missed, all fixed. 14 of 14 quotes exact; rest of the page only available reworded.</p>
+<a class="open" href="https://claude.ai/artifact/4iQJNgX9XncXAL3XwyCZ9P" target="_blank" rel="noopener">Open app</a></div>
+<h3>Latest nightly run</h3><pre>Attended session, 18 Nov 2026.
 
 Built:
-- The engine: template reader, checker (contradictions, gaps, unreachable steps, quote matching), phone runtime.
-- The Studio: paste a template, see checks and a live preview, copy the finished app. No AI.
-- App 1: Cooling freshly cooked food (MPI Yellow Card). 8 steps, 12 of 12 quotes found in the saved guideline text.
-  The 6-hour limit is a one-off deadline bar from the first screen. Two gaps in the guideline itself are shown in
-  the app: no action given if stage 1 takes over 2 hours, and the 4-hour stage limit vs the 6-hour total.
+- App 2: Burns first aid (Hato Hone St John page). 9 steps: what caused it, the 111 check, a 20-minute cooling
+  timer, cover. Chemical, smoke and clothing-on-fire routes. 14 of 14 quotes exact, but the St John site blocks
+  downloads, so only 13 lines were captured word for word; the rest was checked against a reworded copy.
+- Reviewer found 6 missed instructions (ask before touching, cool not cold water, bitumen, splashed clothing,
+  dressing choices, dry cough). All fixed. The chemical route no longer uses the 20-minute timer (the page gives
+  no soaking time).
+- Three design looks to choose from (clinic, flight deck, wayfinding) and a phone review page with one-tap
+  reactions. Timers now sit at the top of a step so the clock is always in view (all apps).
+- Scheduled runs: three a day.
 
-An independent reviewer then tried to break it and found 21 problems. Fixed: ordinary sentences with a colon were
-being hidden, arrows inside answer text, quotes attaching to the wrong line, the clock restarting after &quot;Back&quot;,
-timers not firing while another tab was open, names in non-Latin scripts, gaps in decimal number bands, tables
-keyed by a choice, a bad settings file crashing the build, slow quote checking, and the nightly instructions.
-Apps now also beep when something is due and carry on after the page is reloaded.
+Gaps found in the guideline: no soaking time for chemical burns; no advice if 20 minutes of cooling isn't possible;
+no &quot;see a doctor&quot; advice for heat burns.
 
-Needs you: nothing. Comments you leave on any app or this dashboard are read by the next run.
-Tip: guideline PDFs uploaded to the repo's sources/ folder make quote checking exact.
-Next run: guideline 2 in the queue (burns first aid).
+Needs you: tap a reaction on each look in the design review page. Tip: saving the St John burns page as a PDF into
+sources/ would make its quotes exact.
+Next run: republish app 1 and the studio (timer moved), then guideline 3 (earthquake).
 </pre>
-<h3>Guideline queue</h3><table><tr><th>#</th><th>Guideline</th><th>Type</th><th>Level</th><th>Status</th></tr><tr><td>1</td><td>Cooling freshly cooked food (MPI Yellow Card S39-00002)</td><td>non-medical</td><td>1</td><td>built</td></tr><tr><td>2</td><td>Burns first aid (cool the burn, St John / Health NZ)</td><td>medical</td><td>1</td><td>queued</td></tr><tr><td>3</td><td>Earthquake: Drop, Cover, Hold, then what to do after (NEMA Get Ready)</td><td>non-medical</td><td>1</td><td>queued</td></tr><tr><td>4</td><td>Adult choking (ANZCOR guideline 4)</td><td>medical</td><td>2</td><td>queued</td></tr><tr><td>5</td><td>Workplace fire: evacuation and extinguisher use (Fire and Emergency NZ)</td><td>non-medical</td><td>2</td><td>queued</td></tr><tr><td>6</td><td>Asthma attack first aid, repeat cycles (Asthma NZ / Asthma Australia 4x4x4)</td><td>medical</td><td>2</td><td>queued</td></tr><tr><td>7</td><td>Tsunami: Long or Strong, Get Gone, then return (NEMA)</td><td>non-medical</td><td>2</td><td>queued</td></tr><tr><td>8</td><td>Power cut: what food to keep or throw out, by hours without power (MPI)</td><td>non-medical</td><td>3</td><td>queued</td></tr><tr><td>9</td><td>Anaphylaxis action plan, adrenaline by weight, repeat after 5 minutes (ASCIA)</td><td>medical</td><td>3</td><td>queued</td></tr><tr><td>10</td><td>Low blood sugar: 15-15 treat and recheck cycles (Diabetes NZ / Health NZ)</td><td>medical</td><td>3</td><td>queued</td></tr><tr><td>11</td><td>Changing a car tyre safely at the roadside (NZTA / AA)</td><td>non-medical</td><td>2</td><td>queued</td></tr><tr><td>12</td><td>Notifiable workplace event: what to do and when (WorkSafe NZ)</td><td>non-medical</td><td>4</td><td>queued</td></tr><tr><td>13</td><td>Cyber security incident first steps (CERT NZ / NCSC)</td><td>non-medical</td><td>4</td><td>queued</td></tr><tr><td>14</td><td>Adult sepsis screening and first-hour actions (Health NZ)</td><td>medical</td><td>4</td><td>queued</td></tr><tr><td>15</td><td>Stroke: FAST, time windows and pre-alert (St John / Health NZ)</td><td>medical</td><td>4</td><td>queued</td></tr><tr><td>16</td><td>FINAL EXAM: Cardiac arrest (St John EAS 3.14), scored against Pocket Resus recordings</td><td>medical</td><td>5</td><td>locked until levels 1-4 are built</td></tr></table>
+<h3>Guideline queue</h3><table><tr><th>#</th><th>Guideline</th><th>Type</th><th>Level</th><th>Status</th></tr><tr><td>1</td><td>Cooling freshly cooked food (MPI Yellow Card S39-00002)</td><td>non-medical</td><td>1</td><td>built</td></tr><tr><td>2</td><td>Burns first aid (cool the burn, St John / Health NZ)</td><td>medical</td><td>1</td><td>built</td></tr><tr><td>3</td><td>Earthquake: Drop, Cover, Hold, then what to do after (NEMA Get Ready)</td><td>non-medical</td><td>1</td><td>queued</td></tr><tr><td>4</td><td>Adult choking (ANZCOR guideline 4)</td><td>medical</td><td>2</td><td>queued</td></tr><tr><td>5</td><td>Workplace fire: evacuation and extinguisher use (Fire and Emergency NZ)</td><td>non-medical</td><td>2</td><td>queued</td></tr><tr><td>6</td><td>Asthma attack first aid, repeat cycles (Asthma NZ / Asthma Australia 4x4x4)</td><td>medical</td><td>2</td><td>queued</td></tr><tr><td>7</td><td>Tsunami: Long or Strong, Get Gone, then return (NEMA)</td><td>non-medical</td><td>2</td><td>queued</td></tr><tr><td>8</td><td>Power cut: what food to keep or throw out, by hours without power (MPI)</td><td>non-medical</td><td>3</td><td>queued</td></tr><tr><td>9</td><td>Anaphylaxis action plan, adrenaline by weight, repeat after 5 minutes (ASCIA)</td><td>medical</td><td>3</td><td>queued</td></tr><tr><td>10</td><td>Low blood sugar: 15-15 treat and recheck cycles (Diabetes NZ / Health NZ)</td><td>medical</td><td>3</td><td>queued</td></tr><tr><td>11</td><td>Changing a car tyre safely at the roadside (NZTA / AA)</td><td>non-medical</td><td>2</td><td>queued</td></tr><tr><td>12</td><td>Notifiable workplace event: what to do and when (WorkSafe NZ)</td><td>non-medical</td><td>4</td><td>queued</td></tr><tr><td>13</td><td>Cyber security incident first steps (CERT NZ / NCSC)</td><td>non-medical</td><td>4</td><td>queued</td></tr><tr><td>14</td><td>Adult sepsis screening and first-hour actions (Health NZ)</td><td>medical</td><td>4</td><td>queued</td></tr><tr><td>15</td><td>Stroke: FAST, time windows and pre-alert (St John / Health NZ)</td><td>medical</td><td>4</td><td>queued</td></tr><tr><td>16</td><td>FINAL EXAM: Cardiac arrest (St John EAS 3.14), scored against Pocket Resus recordings</td><td>medical</td><td>5</td><td>locked until levels 1-4 are built</td></tr></table>
 </main></body></html>

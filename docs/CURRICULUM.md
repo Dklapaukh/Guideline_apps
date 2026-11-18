@@ -10,7 +10,7 @@ up (the owner can also ask for any guideline in a comment).
 | # | Guideline | Type | Level | Status |
 |---|---|---|---|---|
 | 1 | Cooling freshly cooked food (MPI Yellow Card S39-00002) | non-medical | 1 | built |
-| 2 | Burns first aid (cool the burn, St John / Health NZ) | medical | 1 | queued |
+| 2 | Burns first aid (cool the burn, St John / Health NZ) | medical | 1 | built |
 | 3 | Earthquake: Drop, Cover, Hold, then what to do after (NEMA Get Ready) | non-medical | 1 | queued |
 | 4 | Adult choking (ANZCOR guideline 4) | medical | 2 | queued |
 | 5 | Workplace fire: evacuation and extinguisher use (Fire and Emergency NZ) | non-medical | 2 | queued |

@@ -59,6 +59,7 @@ table{border-collapse:collapse;width:100%;font-size:14px;background:#fff}td,th{b
 h3{font-size:14px;text-transform:uppercase;letter-spacing:.04em;color:var(--mut);margin:18px 0 6px}
 </style></head><body><header><h1>Guideline Apps</h1><p>Prototype builder · ${rows.length} app${rows.length === 1 ? '' : 's'} · updated ${esc(date)}</p></header><main>
 ${registry.studio?.url ? `<div class="card"><h2>Studio</h2><p>Paste a filled-in template, see the checks and the app. No AI.</p><a class="open" href="${esc(registry.studio.url)}" target="_blank" rel="noopener">Open studio</a></div>` : ''}
+${registry.review?.url ? `<div class="card"><h2>Design review</h2><p>See the newest app in each candidate look and tap a reaction. Your choices steer the next builds.</p><a class="open" href="${esc(registry.review.url)}" target="_blank" rel="noopener">Review the looks</a></div>` : ''}
 <h3>Apps</h3>
 ${rows.map((r) => { const s = r.summary, m = r.meta; return `<div class="card"><h2>${esc(r.title)}</h2>
 <div class="tags"><span>${esc(m.domain ?? '')}</span><span>level ${esc(m.level ?? '?')}</span><span>source: ${esc(m.sourceCopy ?? 'unknown')}</span>${m.builtBy ? `<span>${esc(m.builtBy)}</span>` : ''}</div>

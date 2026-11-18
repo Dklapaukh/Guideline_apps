@@ -1,18 +1,19 @@
-Set-up session, 18 Nov 2026 (not a nightly run).
+Attended session, 18 Nov 2026.
 
 Built:
-- The engine: template reader, checker (contradictions, gaps, unreachable steps, quote matching), phone runtime.
-- The Studio: paste a template, see checks and a live preview, copy the finished app. No AI.
-- App 1: Cooling freshly cooked food (MPI Yellow Card). 8 steps, 12 of 12 quotes found in the saved guideline text.
-  The 6-hour limit is a one-off deadline bar from the first screen. Two gaps in the guideline itself are shown in
-  the app: no action given if stage 1 takes over 2 hours, and the 4-hour stage limit vs the 6-hour total.
+- App 2: Burns first aid (Hato Hone St John page). 9 steps: what caused it, the 111 check, a 20-minute cooling
+  timer, cover. Chemical, smoke and clothing-on-fire routes. 14 of 14 quotes exact, but the St John site blocks
+  downloads, so only 13 lines were captured word for word; the rest was checked against a reworded copy.
+- Reviewer found 6 missed instructions (ask before touching, cool not cold water, bitumen, splashed clothing,
+  dressing choices, dry cough). All fixed. The chemical route no longer uses the 20-minute timer (the page gives
+  no soaking time).
+- Three design looks to choose from (clinic, flight deck, wayfinding) and a phone review page with one-tap
+  reactions. Timers now sit at the top of a step so the clock is always in view (all apps).
+- Scheduled runs: three a day.
 
-An independent reviewer then tried to break it and found 21 problems. Fixed: ordinary sentences with a colon were
-being hidden, arrows inside answer text, quotes attaching to the wrong line, the clock restarting after "Back",
-timers not firing while another tab was open, names in non-Latin scripts, gaps in decimal number bands, tables
-keyed by a choice, a bad settings file crashing the build, slow quote checking, and the nightly instructions.
-Apps now also beep when something is due and carry on after the page is reloaded.
+Gaps found in the guideline: no soaking time for chemical burns; no advice if 20 minutes of cooling isn't possible;
+no "see a doctor" advice for heat burns.
 
-Needs you: nothing. Comments you leave on any app or this dashboard are read by the next run.
-Tip: guideline PDFs uploaded to the repo's sources/ folder make quote checking exact.
-Next run: guideline 2 in the queue (burns first aid).
+Needs you: tap a reaction on each look in the design review page. Tip: saving the St John burns page as a PDF into
+sources/ would make its quotes exact.
+Next run: republish app 1 and the studio (timer moved), then guideline 3 (earthquake).

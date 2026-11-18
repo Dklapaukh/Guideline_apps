@@ -1,5 +1,5 @@
 {
- "about": "Links to the published pages (claude.ai artifacts). Each nightly run republishes these slugs (get_artifact for the live version first); new apps are added here.",
+ "about": "Links to the published pages (claude.ai artifacts). Each run republishes changed pages to these URLs with the Artifact tool (read the page first, then publish with url); new apps are added here.",
  "studio": {
   "slug": "ef92ec1d-8385-43d8-bbf0-1c678bb0874e",
   "url": "https://claude.ai/artifact/WarG1PpPsgbDmY6ptrk4qT"
@@ -12,6 +12,13 @@
   "01-food-cooling": {
    "slug": "f2122183-989e-4685-9024-be6e1c1e28b6",
    "url": "https://claude.ai/artifact/WtjUgJSGkSVNyeBuhfLt6H"
+  },
+  "02-burns": {
+   "url": "https://claude.ai/artifact/4iQJNgX9XncXAL3XwyCZ9P"
   }
+ },
+ "review": {
+  "url": "https://claude.ai/artifact/1ZSPzWhCERcqkTV583SKKi",
+  "note": "Design review page (site/review.html, built by tools/review.mjs). Feedback lives in its database: collections reactions and comments."
  }
 }

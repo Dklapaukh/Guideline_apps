@@ -1,0 +1,28 @@
+/* LOOK A "Clinic": calm consumer-health cards (ideas from patient apps and wellbeing apps).
+   Soft tinted ground, borderless white cards, one teal action colour, big friendly type, floating tab bar. */
+:root { --ink:#16232b; --mut:#5b6b75; --bg:#eef3f4; --card:#fff; --line:#dfe7ea; --go:#0f766e; --gosoft:#d9f0ec;
+  --warn:#9a3412; --warnbg:#fff1e6; --due:#c2410c; --author:#6b21a8; --authorbg:#f4edfb; }
+html, body { font-family:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; background:var(--bg); }
+.bar { background:var(--bg); color:var(--ink); padding:14px 18px 6px; }
+.bar .t { font-size:15px; color:var(--mut); font-weight:600; }
+.bar .clock { background:var(--card); border-radius:999px; padding:4px 12px; font-size:15px; font-weight:600; color:var(--go); }
+.proto { background:transparent; color:var(--mut); padding:0 18px 4px; font-size:12px; }
+.card { border:0; border-radius:22px; padding:20px; margin:10px 12px; box-shadow:0 1px 2px rgba(22,35,43,.05), 0 8px 24px rgba(22,35,43,.06); }
+h1, h2 { font-family:"Inter", system-ui, sans-serif; font-weight:700; letter-spacing:-.02em; text-wrap:balance; }
+h2 { font-size:24px; } h3 { color:var(--go); }
+.crumb { font-size:13px; } .crumb span { background:var(--gosoft); color:var(--go); border-radius:999px; padding:2px 10px; font-weight:600; }
+.big { border-radius:16px; border:0; background:#f1f5f6; min-height:56px; }
+.big.go { background:var(--go); border-radius:999px; box-shadow:0 6px 16px rgba(15,118,110,.25); }
+.big.opt { background:#f4f8f8; border:1.5px solid var(--line); position:relative; padding-right:40px; }
+.big.opt::after { content:"›"; position:absolute; right:16px; top:50%; transform:translateY(-52%); font-size:26px; color:var(--go); }
+.q { font-size:20px; }
+.warn { border:0; border-radius:14px; padding:12px 14px; }
+.do { border-bottom:0; background:#f6f9f9; border-radius:14px; padding:12px; margin:8px 0; }
+.do input { accent-color:var(--go); border-radius:50%; }
+.timer { background:var(--gosoft); border-radius:20px; padding:18px; position:relative; overflow:hidden; }
+.timer::after { content:""; position:absolute; left:0; bottom:0; height:6px; width:calc(var(--p, 0) * 100%); background:var(--go); transition:width .25s linear; }
+.big-clock { color:var(--go); font-size:52px; letter-spacing:-.02em; }
+.rem { border:0; border-radius:16px; box-shadow:0 4px 14px rgba(22,35,43,.08); }
+.tabs { left:12px; right:12px; bottom:10px; border:0; border-radius:20px; box-shadow:0 8px 30px rgba(22,35,43,.15); overflow:hidden; }
+.tabs button.on { color:var(--go); box-shadow:none; background:var(--gosoft); }
+.choices button { border-radius:999px; } .choices button.on { background:var(--go); border-color:var(--go); }

@@ -1,0 +1,79 @@
+{
+ "summary": {
+  "steps": 9,
+  "reachable": 9,
+  "fix": 0,
+  "check": 0,
+  "info": 11,
+  "quotes": 14,
+  "quotesExact": 14,
+  "numberLines": 3,
+  "numberLinesQuoted": 1,
+  "sourceAmounts": 1,
+  "sourceAmountsUsed": 1
+ },
+ "findings": [
+  {
+   "level": "info",
+   "step": "start",
+   "line": 15,
+   "message": "2 lines in \"What caused the burn?\" have no quote from the guideline (\"If they are unconscious and need lifesaving first aid, do…\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "call-check",
+   "line": 27,
+   "message": "3 lines in \"Does this need an ambulance?\" have no quote from the guideline (\"Call 111 for an ambulance if any of these is true:\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "call-111",
+   "line": 40,
+   "message": "1 line in \"Call 111\" has no quote from the guideline (\"Start cooling the burn while you wait.\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "chemical",
+   "line": 46,
+   "message": "4 lines in \"Chemical burn\" have no quote from the guideline (\"Call 111.\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "smoke",
+   "line": 60,
+   "message": "3 lines in \"Burns in the mouth or throat\" have no quote from the guideline (\"The throat, airway and lungs may be damaged. Call 111 urg…\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "on-fire",
+   "line": 71,
+   "message": "2 lines in \"Clothing on fire\" have no quote from the guideline (\"Smother the flames with a coat or blanket if you can.\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "cool",
+   "line": 79,
+   "message": "4 lines in \"Cool the burn for at least 20 minutes\" have no quote from the guideline, including 1 with numbers (\"The timer shows the minimum. The page says \"at least\" 20 …\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "cool-short",
+   "line": 98,
+   "message": "2 lines in \"Cooling cut short\" have no quote from the guideline, including 1 with numbers (\"The page does not say what to do if the burn can't be coo…\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "cover",
+   "line": 109,
+   "message": "1 line in \"Cover the burn\" has no quote from the guideline (\"Use a sterile dressing if you have one, or wrap cling fil…\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "message": "Nobody is named under \"Reviewed by:\", so the app shows \"Not reviewed\"."
+  },
+  {
+   "level": "info",
+   "message": "The saved guideline text is a web copy made by a fetch tool and may not be word-perfect, so a \"quote not found\" may be the copy's fault. Add the PDF to sources/ for exact checking."
+  }
+ ]
+}
