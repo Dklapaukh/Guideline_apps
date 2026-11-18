@@ -21,7 +21,7 @@ Add new rows as ideas come up (the owner can also ask for any guideline in a com
 | 4 | Submitting a university assignment: checks before and after you submit (University of Auckland Faculty of Law) | education | 1 | built |
 | 5 | Resigning from a job: giving notice, final pay and holiday pay (Employment New Zealand) | workplace | 1 | built |
 | 6 | Adult choking (ANZCOR guideline 4) | medical | 2 | built |
-| 7 | Asking for an assignment extension or special consideration (a NZ university's policy) | education | 2 | queued |
+| 7 | Asking for an assignment extension or special consideration (a NZ university's policy) | education | 2 | built |
 | 8 | Workplace fire: evacuation and extinguisher use (Fire and Emergency NZ) | non-medical | 2 | queued |
 | 9 | Requesting annual holidays and what the employer must do (Employment New Zealand) | workplace | 2 | queued |
 | 10 | Asthma attack first aid, repeat cycles (Asthma NZ / Asthma Australia 4x4x4) | medical | 2 | queued |

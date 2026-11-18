@@ -1,0 +1,21 @@
+{
+  "id": "07-assignment-extension",
+  "title": "Asking for an assignment extension or special consideration (AUT, New Zealand)",
+  "domain": "education",
+  "level": 2,
+  "url": "https://www.aut.ac.nz/student-life/studying/study-help/assessments-and-exams/special-consideration",
+  "version": "Auckland University of Technology (AUT) 'Special consideration for an assessment' web page, no date or review date shown, read 19 Nov 2026",
+  "sourceCopy": "web-fetch",
+  "sourceNote": "AUT was chosen because its single university-wide page gives the clearest steps of the NZ universities checked: a no-evidence 3-day short extension (one per course, apply by midnight the day before, not for tests or exams) versus a Special Consideration Application for exceptional circumstances (up to 5 working days after the due date, with different evidence deadlines depending on whether you apply before or after the due date, and a Student Impairment Report for medical or mental-health reasons). Canterbury sends extension requests to the course coordinator and only covers special consideration; Otago's university procedures leave extensions to each Head of Department (Otago's Classics department page is clear but covers one department only); Auckland was not used again after app 4. The page covers both assignments and tests/exams together under 'assessment' (short extensions are for assignments only). Gaps in the source: it does not say who decides, how long a decision takes, or what the possible outcomes are; the only route if refused is to contact AUTSA advocates if you feel the outcome was unfair. The SCA tool link, the Student Impairment Report form and the SCA form's own rules could not be captured (the 2025 SCA Guide PDF was read but adds only screens of the tool, so it is not included). The site blocks direct download from here, so every line was read by a fetch tool asked to quote each sentence exactly; eleven key lines (deadlines, evidence timing, short-extension rules, AUTSA line) were confirmed EXACT in a second read, but small wording slips are possible. Saving the page as a PDF into sources/ would make checking exact.",
+  "testScenarios": [
+    "Needs 2 extra days, no exceptional circumstances, assignment due Monday 4pm, asking on Saturday, no short extension used yet in this course",
+    "Already used the short extension in this course and now needs more time",
+    "Asking for a short extension on Monday morning for an assignment due Monday 4pm",
+    "Wants a short extension for an in-class test",
+    "Was ill (medical) and missed the due date 3 working days ago",
+    "Laptop broke and lost the essay draft",
+    "Has a national sports event on the due date and has not applied yet",
+    "Application was declined and the student thinks it is unfair"
+  ],
+  "status": "Reviewer: 1 instruction missed and 12 route or wording problems, all fixed. 113 of 113 quotes exact (web copy)."
+}

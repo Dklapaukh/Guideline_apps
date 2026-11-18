@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#14213d">
+<title>More time for an assessment (AUT)</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Archivo:wght@500;700;800;900&family=IBM+Plex+Sans:wght@400;500;700&family=IBM+Plex+Sans+Condensed:wght@600;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>/* Phone-first, portrait, large tap targets. One stylesheet for every generated app; looks (engine/looks/) restyle it.
+   --brand is set by the runtime when the template gives "Brand colour:"; each look decides where it shows. */
+:root { --ink:#1b1f24; --mut:#5d6670; --bg:#f4f5f7; --card:#fff; --line:#dde1e6; --go:var(--brand, #0b6e4f); --warn:#9a3412; --warnbg:#fff4e5; --due:#b91c1c; --author:#6b21a8; --authorbg:#f5ecff; }
+* { box-sizing: border-box; }
+html, body { margin:0; background:var(--bg); color:var(--ink); font:17px/1.45 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+#app { max-width: 560px; margin: 0 auto; min-height: 100vh; padding-bottom: 72px; }
+.bar { position: sticky; top: 0; z-index: 3; display:flex; justify-content:space-between; align-items:center; gap:8px; padding:10px 14px; background:#14213d; color:#fff; }
+.bar .t { font-weight:600; font-size:16px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.bar .brand { font-weight:800; margin-right:6px; }
+.bar .clock:empty { display:none; }
+.bar .clock { font-variant-numeric: tabular-nums; font-size:18px; }
+.proto { font-size:12px; color:var(--author); background:var(--authorbg); padding:4px 14px; }
+.card { background:var(--card); margin:10px; padding:14px 16px; border-radius:12px; border:1px solid var(--line); }
+h1 { font-size:22px; margin:4px 0 8px; } h2 { font-size:21px; margin:2px 0 10px; } h3 { font-size:15px; margin:16px 0 6px; color:var(--mut); text-transform:uppercase; letter-spacing:.04em; }
+p { margin: 8px 0; } p.bul::before { content:"• "; color:var(--mut); }
+.big { display:block; width:100%; min-height:52px; margin:10px 0 0; padding:12px 14px; font:inherit; font-weight:600; border-radius:10px; border:1px solid var(--line); background:#eef1f4; color:var(--ink); text-align:left; }
+.big.go { background:var(--go); color:#fff; border-color:var(--go); text-align:center; }
+.big.opt { background:#e8f0fe; border-color:#b7c9f5; }
+.big.opt.broken { border-style:dashed; border-color:var(--author); }
+.big.skip { background:transparent; text-align:center; font-weight:500; color:var(--mut); }
+.link { background:none; border:0; color:#1d4ed8; font:inherit; padding:0; }
+.crumb { display:flex; justify-content:space-between; font-size:14px; color:var(--mut); }
+.q { font-weight:600; font-size:19px; margin-top:16px; }
+.warn { background:var(--warnbg); color:var(--warn); border-left:4px solid var(--warn); padding:8px 10px; border-radius:6px; font-weight:600; }
+.author { background:var(--authorbg); color:var(--author); border-left:4px solid var(--author); padding:8px 10px; border-radius:6px; font-size:15px; }
+.do { display:flex; flex-wrap:wrap; gap:10px; align-items:flex-start; padding:10px 0; border-bottom:1px solid var(--line); }
+.do input { width:26px; height:26px; margin:0; flex:none; } .do span { flex:1; }
+.do .src, .do .dep { flex-basis:100%; margin-left:36px; }
+.dep { display:block; color:var(--author); font-size:13px; }
+details.src { font-size:14px; color:var(--mut); margin:2px 0 4px; } details.src summary { cursor:pointer; color:#1d4ed8; }
+details.src q { font-style:italic; }
+.timer { margin:14px 0; padding:12px; border-radius:10px; background:#eef6f2; text-align:center; }
+.timer .lbl { color:var(--mut); font-size:14px; }
+.big-clock { font-size:44px; font-weight:700; font-variant-numeric:tabular-nums; }
+.timer.due { background:#fde8e8; } .timer.due .big-clock { color:var(--due); }
+.reminders { position:sticky; top:44px; z-index:2; background:var(--bg); padding:6px 10px 0; }
+.rem { display:flex; align-items:center; gap:8px; background:#fff; border:1px solid var(--line); border-radius:10px; padding:6px 8px; margin-bottom:6px; }
+.rem .rt { flex:1; font-weight:600; font-size:15px; } .rem .rc { font-variant-numeric:tabular-nums; font-size:15px; }
+.rem button { font:inherit; font-size:14px; padding:8px 10px; border-radius:8px; border:1px solid var(--line); background:#eef1f4; }
+.rem.due { border-color:var(--due); background:#fde8e8; } .rem.due .rc { color:var(--due); font-weight:700; }
+.rec { padding:6px 0; } .rec small { color:var(--mut); }
+.rec-btn { background:#fff7e6; border-color:#f2c46d; }
+.lookup { border:1px solid var(--line); border-radius:10px; padding:8px 10px; margin:8px 0; }
+.lookup .lk { font-weight:600; } .lookup .lv { display:flex; justify-content:space-between; gap:10px; padding:4px 0; border-top:1px dashed var(--line); }
+table { border-collapse:collapse; width:100%; font-size:14px; } th, td { border:1px solid var(--line); padding:4px 6px; text-align:left; }
+.inputs { margin:10px 0; } .inp { display:block; margin:10px 0; font-weight:600; }
+.inp input { display:block; width:100%; font:inherit; padding:10px; border-radius:8px; border:1px solid var(--line); margin-top:4px; }
+.inp small { font-weight:400; color:var(--mut); } .inp .bad { color:var(--due); font-weight:400; font-size:14px; }
+.choices { display:flex; flex-wrap:wrap; gap:6px; margin-top:4px; }
+.choices button { font:inherit; padding:10px 12px; border-radius:8px; border:1px solid var(--line); background:#eef1f4; }
+.choices button.on { background:#14213d; color:#fff; }
+.log { padding-left:0; list-style:none; } .log li { padding:6px 0; border-bottom:1px solid var(--line); } .log time { display:inline-block; min-width:56px; font-variant-numeric:tabular-nums; color:var(--mut); }
+.findings { padding-left:18px; } .findings li { margin:8px 0; font-size:15px; }
+.lvl-fix { color:var(--due); } .lvl-check { color:var(--warn); } .lvl-info { color:var(--mut); }
+.tabs { position:fixed; bottom:0; left:0; right:0; display:flex; background:#fff; border-top:1px solid var(--line); max-width:560px; margin:0 auto; }
+.tabs button { flex:1; font:inherit; font-size:15px; padding:14px 4px; background:none; border:0; color:var(--mut); }
+.look-link { text-align:center; font-size:14px; margin-top:14px; }
+.look-pick { display:flex; flex-wrap:wrap; gap:6px; }
+.look-pick button { font:inherit; padding:10px 14px; border-radius:999px; border:1px solid var(--line); background:var(--card); color:var(--ink); }
+.look-pick button.on { background:var(--go); border-color:var(--go); color:#fff; }
+.tabs button.on { color:#14213d; font-weight:700; box-shadow: inset 0 3px 0 #14213d; }
+
+/* look: Clinic */
+html[data-look="clinic"]{ --ink:#16232b; --mut:#5b6b75; --bg:#eef3f4; --card:#fff; --line:#dfe7ea; --go:var(--brand, #0f766e); --gosoft:#d9f0ec; --gosoft:color-mix(in srgb, var(--go) 15%, #fff);
+  --warn:#9a3412; --warnbg:#fff1e6; --due:#c2410c; --author:#6b21a8; --authorbg:#f4edfb; }html[data-look="clinic"], html[data-look="clinic"] body{ font-family:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; background:var(--bg); }html[data-look="clinic"] .bar{ background:var(--bg); color:var(--ink); padding:14px 18px 6px; }html[data-look="clinic"] .bar .t{ font-size:15px; color:var(--mut); font-weight:600; }html[data-look="clinic"] .bar .clock{ background:var(--card); border-radius:999px; padding:4px 12px; font-size:15px; font-weight:600; color:var(--go); }html[data-look="clinic"] .proto{ background:transparent; color:var(--mut); padding:0 18px 4px; font-size:12px; }html[data-look="clinic"] .card{ border:0; border-radius:22px; padding:20px; margin:10px 12px; box-shadow:0 1px 2px rgba(22,35,43,.05), 0 8px 24px rgba(22,35,43,.06); }html[data-look="clinic"] h1, html[data-look="clinic"] h2{ font-family:"Inter", system-ui, sans-serif; font-weight:700; letter-spacing:-.02em; text-wrap:balance; }html[data-look="clinic"] h2{ font-size:24px; }html[data-look="clinic"] h3{ color:var(--go); }html[data-look="clinic"] .crumb{ font-size:13px; }html[data-look="clinic"] .crumb span{ background:var(--gosoft); color:var(--go); border-radius:999px; padding:2px 10px; font-weight:600; }html[data-look="clinic"] .big{ border-radius:16px; border:0; background:#f1f5f6; min-height:56px; }html[data-look="clinic"] .big.go{ background:var(--go); border-radius:999px; box-shadow:0 6px 16px rgba(15,118,110,.25); }html[data-look="clinic"] .big.opt{ background:#f4f8f8; border:1.5px solid var(--line); position:relative; padding-right:40px; }html[data-look="clinic"] .big.opt::after{ content:"›"; position:absolute; right:16px; top:50%; transform:translateY(-52%); font-size:26px; color:var(--go); }html[data-look="clinic"] .q{ font-size:20px; }html[data-look="clinic"] .warn{ border:0; border-radius:14px; padding:12px 14px; }html[data-look="clinic"] .do{ border-bottom:0; background:#f6f9f9; border-radius:14px; padding:12px; margin:8px 0; }html[data-look="clinic"] .do input{ accent-color:var(--go); border-radius:50%; }html[data-look="clinic"] .timer{ background:var(--gosoft); border-radius:20px; padding:18px; position:relative; overflow:hidden; }html[data-look="clinic"] .timer::after{ content:""; position:absolute; left:0; bottom:0; height:6px; width:calc(var(--p, 0) * 100%); background:var(--go); transition:width .25s linear; }html[data-look="clinic"] .big-clock{ color:var(--go); font-size:52px; letter-spacing:-.02em; }html[data-look="clinic"] .rem{ border:0; border-radius:16px; box-shadow:0 4px 14px rgba(22,35,43,.08); }html[data-look="clinic"] .tabs{ left:12px; right:12px; bottom:10px; border:0; border-radius:20px; box-shadow:0 8px 30px rgba(22,35,43,.15); overflow:hidden; }html[data-look="clinic"] .tabs button.on{ color:var(--go); box-shadow:none; background:var(--gosoft); }html[data-look="clinic"] .choices button{ border-radius:999px; }html[data-look="clinic"] .choices button.on{ background:var(--go); border-color:var(--go); }
+
+/* look: Wayfinding */
+html[data-look="wayfinding"]{ --ink:#0a0a0a; --mut:#555; --bg:#ffffff; --card:#fff; --line:#0a0a0a; --go:#0a0a0a; --route:var(--brand, #e4002b); --sign:#ffd400;
+  --warn:#0a0a0a; --warnbg:#ffd400; --due:#e4002b; --author:#5b21b6; --authorbg:#efe9fb; }html[data-look="wayfinding"], html[data-look="wayfinding"] body{ font-family:"Archivo", "Helvetica Neue", Arial, sans-serif; background:var(--bg); }html[data-look="wayfinding"] .bar{ background:var(--ink); padding:12px 16px; }html[data-look="wayfinding"] .bar .t{ font-weight:800; letter-spacing:.01em; }html[data-look="wayfinding"] .bar .clock{ background:var(--sign); color:var(--ink); padding:2px 10px; font-weight:800; }html[data-look="wayfinding"] .proto{ background:#f2f2f2; color:var(--mut); }html[data-look="wayfinding"] .card{ border:0; border-radius:0; margin:0; padding:18px 18px 20px; }html[data-look="wayfinding"] h1, html[data-look="wayfinding"] h2{ font-weight:900; letter-spacing:-.02em; line-height:1.05; text-wrap:balance; }html[data-look="wayfinding"] h1{ font-size:32px; }html[data-look="wayfinding"] h2{ font-size:30px; margin-top:6px; }html[data-look="wayfinding"] .crumb{ flex-direction:row-reverse; justify-content:flex-end; gap:14px; align-items:center; }html[data-look="wayfinding"] .crumb span{ display:inline-grid; place-items:center; min-width:40px; height:40px; padding:0 8px; background:var(--route); color:#fff; font-weight:900; font-size:15px; border-radius:999px; }html[data-look="wayfinding"] .big{ border-radius:0; border:2px solid var(--ink); background:#fff; font-weight:800; min-height:58px; }html[data-look="wayfinding"] .big.go{ background:var(--ink); color:#fff; border-color:var(--ink); text-align:left; position:relative; padding-right:44px; }html[data-look="wayfinding"] .big.go::after{ content:"→"; position:absolute; right:16px; top:50%; transform:translateY(-50%); font-size:22px; }html[data-look="wayfinding"] .big.opt{ background:#fff; border-color:var(--ink); position:relative; padding-right:44px; }html[data-look="wayfinding"] .big.opt::after{ content:"→"; position:absolute; right:16px; top:50%; transform:translateY(-50%); color:var(--route); font-size:22px; }html[data-look="wayfinding"] .big.skip{ border:0; text-decoration:underline; }html[data-look="wayfinding"] .link{ color:var(--ink); text-decoration:underline; font-weight:700; }html[data-look="wayfinding"] .q{ font-size:22px; font-weight:900; }html[data-look="wayfinding"] .warn{ background:var(--sign); color:var(--ink); border:0; border-radius:0; padding:12px 14px; font-weight:800; }html[data-look="wayfinding"] .warn::before{ content:"!"; display:inline-grid; place-items:center; width:22px; height:22px; margin-right:8px; background:var(--ink); color:var(--sign); font-weight:900; border-radius:3px; vertical-align:-3px; }html[data-look="wayfinding"] .do{ position:relative; border-bottom:0; padding:12px 0 12px 44px; font-weight:700; }html[data-look="wayfinding"] .do::before{ content:""; position:absolute; left:15px; top:0; bottom:0; width:6px; background:var(--route); }html[data-look="wayfinding"] .do input{ position:absolute; left:6px; top:12px; width:24px; height:24px; accent-color:var(--route); }html[data-look="wayfinding"] .do .src, html[data-look="wayfinding"] .do .dep{ margin-left:0; }html[data-look="wayfinding"] details.src summary{ color:var(--ink); text-decoration:underline; }html[data-look="wayfinding"] .timer{ background:var(--ink); color:#fff; border-radius:0; text-align:left; padding:14px 16px; }html[data-look="wayfinding"] .timer .lbl{ color:#bbb; text-transform:uppercase; letter-spacing:.08em; font-size:12px; font-weight:700; }html[data-look="wayfinding"] .timer::after{ content:""; display:block; height:8px; margin-top:10px; background:linear-gradient(90deg, var(--sign) calc(var(--p, 0) * 100%), #333 0); }html[data-look="wayfinding"] .big-clock{ font-size:60px; font-weight:900; color:var(--sign); }html[data-look="wayfinding"] .timer.due{ background:var(--due); }html[data-look="wayfinding"] .timer.due .big-clock{ color:#fff; }html[data-look="wayfinding"] .rem{ border:2px solid var(--ink); border-radius:0; }html[data-look="wayfinding"] .rem button{ border-radius:0; border:2px solid var(--ink); background:#fff; font-weight:700; }html[data-look="wayfinding"] .rem.due{ background:var(--sign); }html[data-look="wayfinding"] .choices button{ border-radius:0; border:2px solid var(--ink); background:#fff; font-weight:700; }html[data-look="wayfinding"] .choices button.on{ background:var(--ink); color:#fff; }html[data-look="wayfinding"] .look-pick button{ border-radius:0; border:2px solid var(--ink); font-weight:700; }html[data-look="wayfinding"] .tabs{ border-top:2px solid var(--ink); }html[data-look="wayfinding"] .tabs button{ font-weight:800; color:var(--mut); }html[data-look="wayfinding"] .tabs button.on{ color:var(--ink); box-shadow:inset 0 4px 0 var(--route); }
+
+/* look: Flight deck */
+html[data-look="flightdeck"]{ --ink:#e8edf2; --mut:#8a97a6; --bg:#0b0f14; --card:#121820; --line:#253040; --go:#38bdf8; --warn:#ffb020; --warnbg:#2a1f08;
+  --due:#ff5a4f; --author:#c4a1ff; --authorbg:#1f1830; color-scheme:dark; }html[data-look="flightdeck"], html[data-look="flightdeck"] body{ font-family:"IBM Plex Sans", system-ui, sans-serif; background:var(--bg); color:var(--ink); }html[data-look="flightdeck"] .bar{ background:#070a0e; border-bottom:1px solid var(--line); border-top:4px solid var(--brand, #070a0e); }html[data-look="flightdeck"] .bar .t{ font-family:"IBM Plex Sans Condensed", "IBM Plex Sans", sans-serif; text-transform:uppercase; letter-spacing:.08em; font-size:14px; color:var(--mut); }html[data-look="flightdeck"] .bar .clock{ font-family:"IBM Plex Mono", ui-monospace, monospace; color:var(--go); }html[data-look="flightdeck"] .proto{ background:#0f0b18; }html[data-look="flightdeck"] .card{ background:var(--card); border:1px solid var(--line); border-radius:4px; margin:8px; }html[data-look="flightdeck"] h1, html[data-look="flightdeck"] h2{ font-family:"IBM Plex Sans Condensed", "IBM Plex Sans", sans-serif; text-transform:uppercase; letter-spacing:.04em; font-weight:700; }html[data-look="flightdeck"] h2{ font-size:22px; border-bottom:1px solid var(--line); padding-bottom:10px; }html[data-look="flightdeck"] h3{ color:var(--warn); }html[data-look="flightdeck"] .crumb{ font-family:"IBM Plex Mono", monospace; font-size:12px; text-transform:uppercase; }html[data-look="flightdeck"] .link{ color:var(--go); }html[data-look="flightdeck"] .big{ border-radius:4px; background:transparent; border:1px solid var(--line); color:var(--ink); }html[data-look="flightdeck"] .big.go{ background:var(--go); color:#04121c; border-color:var(--go); text-transform:uppercase; letter-spacing:.06em; }html[data-look="flightdeck"] .big.opt{ background:#0f1a24; border-color:#1f3a50; color:var(--ink); }html[data-look="flightdeck"] .big.opt::before{ content:"▸ "; color:var(--go); }html[data-look="flightdeck"] .big.skip{ color:var(--mut); }html[data-look="flightdeck"] .q{ font-family:"IBM Plex Sans Condensed", sans-serif; text-transform:uppercase; letter-spacing:.04em; color:var(--go); }html[data-look="flightdeck"] .warn{ background:var(--warnbg); color:var(--warn); border-left:4px solid var(--warn); border-radius:2px; text-transform:uppercase; font-size:15px; letter-spacing:.02em; }html[data-look="flightdeck"] .do{ border-bottom:1px dashed var(--line); font-weight:500; }html[data-look="flightdeck"] .do input{ accent-color:var(--go); border-radius:0; }html[data-look="flightdeck"] details.src summary{ color:var(--go); }html[data-look="flightdeck"] details.src{ color:var(--mut); }html[data-look="flightdeck"] .timer{ background:#06121b; border:1px solid #1f3a50; border-radius:4px; position:relative; }html[data-look="flightdeck"] .timer::after{ content:""; display:block; height:4px; margin-top:10px; background:linear-gradient(90deg, var(--go) calc(var(--p, 0) * 100%), #1c2633 0); }html[data-look="flightdeck"] .timer .lbl{ text-transform:uppercase; letter-spacing:.1em; font-size:12px; }html[data-look="flightdeck"] .big-clock{ font-family:"IBM Plex Mono", ui-monospace, monospace; font-weight:500; color:var(--go); font-size:56px; }html[data-look="flightdeck"] .timer.due{ background:#2a0d0b; border-color:var(--due); }html[data-look="flightdeck"] .timer.due .big-clock{ color:var(--due); }html[data-look="flightdeck"] .reminders{ background:var(--bg); }html[data-look="flightdeck"] .rem{ background:var(--card); border-color:var(--line); border-radius:4px; }html[data-look="flightdeck"] .rem button{ background:transparent; color:var(--ink); border-color:var(--line); }html[data-look="flightdeck"] .rem.due{ background:#2a0d0b; border-color:var(--due); }html[data-look="flightdeck"] .lookup, html[data-look="flightdeck"] th, html[data-look="flightdeck"] td{ border-color:var(--line); }html[data-look="flightdeck"] .inp input{ background:#0b1118; color:var(--ink); border-color:var(--line); }html[data-look="flightdeck"] .choices button{ background:transparent; color:var(--ink); border-color:var(--line); border-radius:4px; }html[data-look="flightdeck"] .choices button.on, html[data-look="flightdeck"] .look-pick button.on{ background:var(--go); color:#04121c; }html[data-look="flightdeck"] .log time{ font-family:"IBM Plex Mono", monospace; }html[data-look="flightdeck"] .tabs{ background:#070a0e; border-top:1px solid var(--line); }html[data-look="flightdeck"] .tabs button{ text-transform:uppercase; letter-spacing:.08em; font-size:13px; }html[data-look="flightdeck"] .tabs button.on{ color:var(--go); box-shadow:inset 0 3px 0 var(--go); }
+</style></head>
+<body><div id="app"></div>
+<script type="application/json" id="spec">{"spec":{"title":"More time for an assessment (AUT)","about":"Helps you work out whether to ask for a 3-day short extension or apply for special consideration at AUT, when to apply, what evidence you need and by when, and where to get help.","sources":[{"name":"Auckland University of Technology (AUT), Special consideration for an assessment","link":"https://www.aut.ac.nz/student-life/studying/study-help/assessments-and-exams/special-consideration"}],"warning":"This is AUT's guidance, for AUT students. If you study somewhere else, follow your own university's rules.","audience":"AUT students who need more time for an assignment, or whose test or exam has been affected by something serious","reviewedBy":"","version":"AUT \"Special consideration for an assessment\" web page, no date or review date shown, read 19 Nov 2026","brand":{"name":"","colour":""},"look":"","inputs":[],"tables":[],"steps":[{"id":"start","title":"What do you need?","lines":[{"kind":"say","text":"If something serious and outside your control affects an assessment, you can apply for special consideration. You could also ask for a short extension of up to 3 days.","line":13,"quotes":[{"text":"your ability to attempt or prepare for an assessment may be seriously affected by exceptional circumstances beyond your control.","where":"","check":"exact"},{"text":"If this happens, you can apply for special consideration for that assessment.","where":"","check":"exact"},{"text":"You could also apply for a short extension of up to 3 days","where":"","check":"exact"}]}],"ask":{"question":"What do you need?","options":[{"label":"Just a couple of extra days","to":"short-check","line":18,"target":"short-check"},{"label":"Something serious is affecting me","to":"reason","line":19,"target":"reason"},{"label":"My due date (or test or exam) has already passed","to":"past-due","line":20,"target":"past-due"},{"label":"I've applied. What happens next?","to":"next-steps","line":21,"target":"next-steps"}],"line":17},"next":null,"timer":null,"reminders":[],"stop":null,"end":false,"line":12},{"id":"short-check","title":"Can you get a short extension?","lines":[{"kind":"say","text":"A short extension gives you 3 calendar days. You don't need any evidence.","line":24,"quotes":[{"text":"The short extension is for 3 calendar days","where":"","check":"exact"},{"text":"You don't need to provide evidence for a short extension.","where":"","check":"exact"}]},{"kind":"say","text":"You can get one only if all three of these are true:","line":27},{"kind":"say","text":"1. It's an assignment, not a test or exam. Nothing done under controlled conditions can have a short extension.","line":28,"quotes":[{"text":"You can't apply for short extensions for tests and exams; any assessment conducted under controlled conditions is not eligible for a short extension","where":"","check":"exact"}]},{"kind":"say","text":"2. You haven't had a short extension in this course yet. You get one per course.","line":30,"quotes":[{"text":"You can only have one short extension per course.","where":"","check":"exact"}]},{"kind":"say","text":"3. You apply by midnight the day BEFORE it's due. For example, if it's due at 4pm on Monday, apply before midnight on Sunday.","line":32,"quotes":[{"text":"You must apply by midnight the day BEFORE your assessment is due","where":"","check":"exact"},{"text":"For example, if an assessment is due at 4pm on Monday 20 May, in order to be eligible for a short extension, you must apply BEFORE midnight on Sunday 19 May.","where":"","check":"exact"}]}],"ask":{"question":"Are all three true for you?","options":[{"label":"Yes, all three","to":"short-apply","line":36,"target":"short-apply"},{"label":"No, at least one isn't","to":"short-no","line":37,"target":"short-no"}],"line":35},"next":null,"timer":null,"reminders":[],"stop":null,"end":false,"line":23},{"id":"short-apply","title":"Apply for your short extension","lines":[{"kind":"do","text":"Open AUT's Special Consideration Application (SCA) tool. The link is on AUT's \"Special consideration for an assessment\" page.","line":40,"quotes":[{"text":"You must apply using the Special Consideration Application tool","where":"","check":"exact"}]},{"kind":"do","text":"The first time, Microsoft asks you to approve access. Click 'accept' and carry on.","line":42,"quotes":[{"text":"When you're accessing the tool for the first time, you'll be asked by Microsoft to approve access to the new software.","where":"","check":"exact"},{"text":"Make sure you click on ‘accept’ and proceed.","where":"","check":"exact"}]},{"kind":"do","text":"On the second screen, choose 'short extension'.","line":45,"quotes":[{"text":"select ‘short extension’ on the second screen","where":"","check":"exact"}]},{"kind":"say","text":"Need more than 3 days because of something serious? Then you need a standard extension, with evidence.","line":47,"quotes":[{"text":"If you need more time than 3 days because of valid exceptional circumstances, you need to apply for the standard extension and provide evidence","where":"","check":"exact"}]},{"kind":"say","text":"The page doesn't say how you'll hear that your short extension is confirmed, or what your new due time is. If you're unsure, contact the Student Hub: studenthub@aut.ac.nz or 0800 288 864.","line":49,"quotes":[{"text":"Email: studenthub@aut.ac.nz","where":"","check":"exact"},{"text":"Phone: 0800 288 864","where":"","check":"exact"}]}],"ask":{"question":"Is that everything?","options":[{"label":"Yes, I've applied","to":"end","line":53,"target":"__end"},{"label":"I need more than 3 days","to":"reason","line":54,"target":"reason"}],"line":52},"next":null,"timer":null,"reminders":[],"stop":null,"end":false,"line":39},{"id":"short-no","title":"A short extension isn't possible","lines":[{"kind":"say","text":"If something serious is affecting you, you can apply for special consideration instead. You'll need to provide evidence.","line":57,"quotes":[{"text":"If this happens, you can apply for special consideration for that assessment.","where":"","check":"exact"},{"text":"If you need more time than 3 days because of valid exceptional circumstances, you need to apply for the standard extension and provide evidence","where":"","check":"exact"},{"text":"If you need further extensions for the same course, you'll then need to provide evidence of exceptional circumstances.","where":"","check":"exact"}]},{"kind":"say","text":"Missed the short-extension deadline? You can still apply for special consideration, up to 5 working days after the due date.","line":61,"quotes":[{"text":"You can submit an SCA up to 5 working days after your assessment due date.","where":"","check":"exact"}]},{"kind":"say","text":"The page offers nothing else if you simply need more time. If you're unsure, contact the Student Hub: studenthub@aut.ac.nz or 0800 288 864.","line":63,"quotes":[{"text":"Email: studenthub@aut.ac.nz","where":"","check":"exact"},{"text":"Phone: 0800 288 864","where":"","check":"exact"}]}],"ask":{"question":"Is something serious affecting you?","options":[{"label":"Yes","to":"reason","line":67,"target":"reason"},{"label":"No","to":"end","line":68,"target":"__end"}],"line":66},"next":null,"timer":null,"reminders":[],"stop":null,"end":false,"line":56},{"id":"reason","title":"What's affecting you?","lines":[{"kind":"say","text":"Special consideration is for when something serious, beyond your control, affects an assessment. Pick the closest match.","line":71,"quotes":[{"text":"seriously affected by exceptional circumstances beyond your control","where":"","check":"exact"}]}],"ask":{"question":"What's affecting you?","options":[{"label":"A medical reason (illness, injury, COVID-19)","to":"report-medical","line":74,"target":"report-medical"},{"label":"My emotional or mental wellbeing","to":"report-mental","line":75,"target":"report-mental"},{"label":"Bereavement, being a victim of crime, or something else","to":"other-reason","line":76,"target":"other-reason"},{"label":"A sporting, cultural, religious or AUT commitment","to":"commitment","line":77,"target":"commitment"},{"label":"Computer or printer trouble, lost work, or I misread the date","to":"not-eligible","line":78,"target":"not-eligible"}],"line":73},"next":null,"timer":null,"reminders":[],"stop":null,"end":false,"line":70},{"id":"report-medical","title":"You need a Student Impairment Report","lines":[{"kind":"say","text":"For a medical reason, send a Student Impairment Report with your application. A suitably qualified person fills it in.","line":81,"quotes":[{"text":"you need to provide a completed Student Impairment Report to accompany your Special Consideration Application form.","where":"","check":"exact"},{"text":"The Student Impairment Report must be completed by a suitably qualified person.","where":"","check":"exact"}]},{"kind":"say","text":"COVID-19 counts: if you're unwell or isolating, have ongoing effects, or your whānau or household has been seriously affected. Choose the 'Medical' reason.","line":84,"quotes":[{"text":"You can apply for a special consideration for assessment if you have COVID-19 and are unwell or you’re needing to isolate.","where":"","check":"exact"},{"text":"You can also apply if you're suffering from ongoing health effects due to COVID-19 or your whānau or household has been seriously affected by COVID-19.","where":"","check":"exact"},{"text":"Use the ‘Medical’ reason for application.","where":"","check":"exact"}]},{"kind":"say","text":"If you couldn't see anyone in time through no fault of your own, that can be taken into account.","line":88,"quotes":[{"text":"though delays in accessing medical care through no fault of your own can be taken into account","where":"","check":"exact"}]}],"ask":{"question":"Who will fill in your report?","options":[{"label":"A nurse at the AUT Student Medical Centre","to":"med-nurse","line":91,"target":"med-nurse"},{"label":"My own doctor or practitioner outside AUT","to":"sir-external","line":92,"target":"sir-external"}],"line":90},"next":null,"timer":null,"reminders":[],"stop":null,"end":false,"line":80},{"id":"med-nurse","title":"Student Medical Centre","lines":[{"kind":"do","text":"Ask the registered nurses at the AUT Student Medical Centre to fill in your Student Impairment Report.","line":95,"quotes":[{"text":"registered nurses at the AUT Student Medical Centre can complete the Student Impairment Report for your Special Consideration Application.","where":"","check":"exact"}]}],"ask":null,"next":{"to":"when-apply","line":97,"target":"when-apply"},"timer":null,"reminders":[],"stop":null,"end":false,"line":94,"nexts":[{"to":"when-apply","line":97,"target":"when-apply"}]},{"id":"report-mental","title":"You need a Student Impairment Report","lines":[{"kind":"say","text":"If you need support urgently or on an ongoing basis, AUT's Student Counselling and Mental Health services take appointments.","line":100,"quotes":[{"text":"Student Counselling and Mental Health services are also available for appointments if you have urgent or ongoing needs for counselling and/or mental health support.","where":"","check":"exact"}]},{"kind":"say","text":"For an emotional or mental wellbeing reason, send a Student Impairment Report with your application. A suitably qualified person fills it in.","line":102,"quotes":[{"text":"you need to provide a completed Student Impairment Report to accompany your Special Consideration Application form.","where":"","check":"exact"},{"text":"The Student Impairment Report must be completed by a suitably qualified person.","where":"","check":"exact"}]}],"ask":{"question":"Who will fill in your report?","options":[{"label":"A qualified advisor at the Student Hub","to":"mental-hub","line":106,"target":"mental-hub"},{"label":"My own practitioner outside AUT","to":"sir-external","line":107,"target":"sir-external"}],"line":105},"next":null,"timer":null,"reminders":[],"stop":null,"end":false,"line":99},{"id":"mental-hub","title":"Book a Student Hub advisor","lines":[{"kind":"say","text":"A qualified advisor at your closest Student Hub can assess you for the report. To book:","line":110,"quotes":[{"text":"For emotional/mental wellbeing impairments, a qualified advisor at the Student Hub can assess you for a Student Impairment Report.","where":"","check":"exact"}]},{"kind":"do","text":"Log in to My AUT.","line":112,"quotes":[{"text":"Visit My AUT and log in","where":"","check":"exact"}]},{"kind":"do","text":"Click 'Make a booking'.","line":114,"quotes":[{"text":"Click on 'Make a booking'","where":"","check":"exact"}]},{"kind":"do","text":"Choose 'Book a Student Hub appointment'.","line":116,"quotes":[{"text":"Select 'Book a Student Hub appointment'","where":"","check":"exact"}]},{"kind":"do","text":"Click the 'Special Consideration Application' button.","line":118,"quotes":[{"text":"Click on the 'Special Consideration Application' button","where":"","check":"exact"}]}],"ask":null,"next":{"to":"when-apply","line":120,"target":"when-apply"},"timer":null,"reminders":[],"stop":null,"end":false,"line":109,"nexts":[{"to":"when-apply","line":120,"target":"when-apply"}]},{"id":"sir-external","title":"Your own practitioner","lines":[{"kind":"do","text":"Download the Student Impairment Report so your practitioner can fill it in. The form is linked from AUT's \"Special consideration for an assessment\" page.","line":123,"quotes":[{"text":"If you're seeing an external practitioner, you should download the Student Impairment Report so they can complete it for submission.","where":"","check":"exact"}]}],"ask":null,"next":{"to":"when-apply","line":125,"target":"when-apply"},"timer":null,"reminders":[],"stop":null,"end":false,"line":122,"nexts":[{"to":"when-apply","line":125,"target":"when-apply"}]},{"id":"other-reason","title":"What to send","lines":[{"kind":"say","text":"Bereavement, being a victim of crime, and other circumstances can all count.","line":128,"quotes":[{"text":"Bereavement","where":"","check":"exact"},{"text":"Being a victim of crime","where":"","check":"exact"},{"text":"Other circumstances","where":"","check":"exact"}]},{"kind":"say","text":"What you need to send depends on your situation. The application form explains it.","line":132,"quotes":[{"text":"The specific requirements for your application will depend on the situation and are explained in the Special Consideration Application (SCA) form.","where":"","check":"exact"}]}],"ask":null,"next":{"to":"when-apply","line":134,"target":"when-apply"},"timer":null,"reminders":[],"stop":null,"end":false,"line":127,"nexts":[{"to":"when-apply","line":134,"target":"when-apply"}]},{"id":"commitment","title":"A planned commitment","lines":[{"kind":"warning","text":"For essential sporting, cultural or religious commitments, and AUT-related commitments, applications must be made before the date of the commitment.","line":137,"quotes":[{"text":"Essential sporting, cultural or religious commitments (applications must be made before the date of the commitment)","where":"","check":"exact"},{"text":"AUT-related commitments (applications must be made before the date of the commitment)","where":"","check":"exact"}]},{"kind":"say","text":"What you need to send depends on your situation. The application form explains it.","line":140,"quotes":[{"text":"The specific requirements for your application will depend on the situation and are explained in the Special Consideration Application (SCA) form.","where":"","check":"exact"}]}],"ask":{"question":"Has the date of the commitment passed?","options":[{"label":"No, it's still ahead","to":"when-apply","line":143,"target":"when-apply"},{"label":"Yes, it has passed","to":"commitment-passed","line":144,"target":"commitment-passed"}],"line":142},"next":null,"timer":null,"reminders":[],"stop":null,"end":false,"line":136},{"id":"commitment-passed","title":"The commitment date has passed","lines":[{"kind":"say","text":"The page says applications for these commitments must be made before the date of the commitment. It doesn't say whether a late application can be considered.","line":147,"quotes":[{"text":"applications must be made before the date of the commitment","where":"","check":"exact"}]},{"kind":"do","text":"Contact the Student Hub as soon as you can: studenthub@aut.ac.nz or 0800 288 864.","line":149,"quotes":[{"text":"Email: studenthub@aut.ac.nz","where":"","check":"exact"},{"text":"Phone: 0800 288 864","where":"","check":"exact"}]},{"kind":"say","text":"AUTSA advocates can also give you advice and support.","line":152,"quotes":[{"text":"AUT Students' Association (AUTSA) has advocates who are there to provide advice and support while you're studying at AUT.","where":"","check":"exact"}]}],"ask":null,"next":null,"timer":null,"reminders":[],"stop":null,"end":true,"line":146},{"id":"not-eligible","title":"These don't count","lines":[{"kind":"say","text":"AUT does not count these as exceptional circumstances:","line":157,"quotes":[{"text":"Exceptional circumstances do not include:","where":"","check":"exact"}]},{"kind":"say","text":"Misreading assessment dates, times or instructions.","line":159,"quotes":[{"text":"Misreading assessment dates, times or instructions","where":"","check":"exact"}]},{"kind":"say","text":"Computer or printer problems, unless AUT officially announced that its own equipment failed.","line":161,"quotes":[{"text":"Computer problems, including printer problems, unless they relate to an officially notified failure of university equipment","where":"","check":"exact"}]},{"kind":"say","text":"Losing data. Keep backup copies of everything.","line":163,"quotes":[{"text":"Losing data – ensure that you keep backup copies of everything","where":"","check":"exact"}]},{"kind":"say","text":"A short extension needs no reason, so it may still be possible.","line":165,"quotes":[{"text":"If you don't have exceptional circumstances but simply need a couple of extra days to submit your assessment, you can apply for a short extension (3 days).","where":"","check":"exact"}]}],"ask":{"question":"What fits you?","options":[{"label":"Check if I can get a short extension","to":"short-check","line":168,"target":"short-check"},{"label":"AUT announced its equipment had failed","to":"other-reason","line":169,"target":"other-reason"},{"label":"Something serious is also affecting me","to":"reason","line":170,"target":"reason"},{"label":"Finish","to":"end","line":171,"target":"__end"}],"line":167},"next":null,"timer":null,"reminders":[],"stop":null,"end":false,"line":156},{"id":"when-apply","title":"Is it before or after the due date?","lines":[{"kind":"say","text":"You can apply up to 5 working days after the due date (or test or exam date). When your evidence is due depends on when you apply.","line":174,"quotes":[{"text":"You can submit an SCA up to 5 working days after your assessment due date.","where":"","check":"exact"}]}],"ask":{"question":"Where are you now?","options":[{"label":"Before the due date, or on the day","to":"apply-before","line":177,"target":"apply-before"},{"label":"After the due date: 5 working days or fewer","to":"apply-after","line":178,"target":"apply-after"},{"label":"More than 5 working days after the due date","to":"too-late","line":179,"target":"too-late"}],"line":176},"next":null,"timer":null,"reminders":[],"stop":null,"end":false,"line":173},{"id":"apply-before","title":"Apply now, then send evidence","lines":[{"kind":"do","text":"Open AUT's Special Consideration Application (SCA) tool and apply. The link is on AUT's \"Special consideration for an assessment\" page.","line":182,"quotes":[{"text":"To apply for special consideration:","where":"","check":"exact"}]},{"kind":"do","text":"The first time, Microsoft asks you to approve access. Click 'accept' and carry on.","line":184,"quotes":[{"text":"When you're accessing the tool for the first time, you'll be asked by Microsoft to approve access to the new software.","where":"","check":"exact"},{"text":"Make sure you click on ‘accept’ and proceed.","where":"","check":"exact"}]},{"kind":"warning","text":"Upload your evidence within 5 working days of sending your application.","line":187,"quotes":[{"text":"You must upload your supporting evidence within 5 working days of submitting your application.","where":"","check":"exact"}]},{"kind":"say","text":"Medical or mental health reason? The page says the Student Impairment Report should accompany your application, and also that evidence is due within 5 working days. It doesn't say whether the report can come later. If you can't get it in time, contact the Student Hub: studenthub@aut.ac.nz or 0800 288 864.","line":189,"quotes":[{"text":"you need to provide a completed Student Impairment Report to accompany your Special Consideration Application form.","where":"","check":"exact"},{"text":"Email: studenthub@aut.ac.nz","where":"","check":"exact"},{"text":"Phone: 0800 288 864","where":"","check":"exact"}]}],"ask":null,"next":{"to":"next-steps","line":193,"target":"next-steps"},"timer":null,"reminders":[],"stop":null,"end":false,"line":181,"nexts":[{"to":"next-steps","line":193,"target":"next-steps"}]},{"id":"past-due","title":"Your due date has passed","lines":[{"kind":"say","text":"A short extension is no longer possible: you had to apply by midnight the day before it was due.","line":196,"quotes":[{"text":"You must apply by midnight the day BEFORE your assessment is due","where":"","check":"exact"}]},{"kind":"say","text":"You can still apply for special consideration up to 5 working days after the due date (or test or exam date), if something serious and outside your control got in the way.","line":198,"quotes":[{"text":"You can submit an SCA up to 5 working days after your assessment due date.","where":"","check":"exact"}]}],"ask":{"question":"Is it 5 working days or fewer since the due date?","options":[{"label":"Yes, 5 working days or fewer","to":"reason-after","line":201,"target":"reason-after"},{"label":"No, it's more than 5 working days","to":"too-late","line":202,"target":"too-late"},{"label":"I'm not sure","to":"not-sure","line":203,"target":"not-sure"}],"line":200},"next":null,"timer":null,"reminders":[],"stop":null,"end":false,"line":195},{"id":"not-sure","title":"Check if you're still in time","lines":[{"kind":"say","text":"You can apply up to 5 working days after the due date. The page doesn't say how to count working days (for example, public holidays).","line":206,"quotes":[{"text":"You can submit an SCA up to 5 working days after your assessment due date.","where":"","check":"exact"}]},{"kind":"do","text":"Contact the Student Hub now to check: studenthub@aut.ac.nz or 0800 288 864.","line":208,"quotes":[{"text":"Email: studenthub@aut.ac.nz","where":"","check":"exact"},{"text":"Phone: 0800 288 864","where":"","check":"exact"}]}],"ask":{"question":"What next?","options":[{"label":"Carry on and apply","to":"reason-after","line":212,"target":"reason-after"},{"label":"Finish","to":"end","line":213,"target":"__end"}],"line":211},"next":null,"timer":null,"reminders":[],"stop":null,"end":false,"line":205},{"id":"reason-after","title":"What got in the way?","lines":[{"kind":"say","text":"Special consideration is for when something serious, beyond your control, affects an assessment. Pick the closest match.","line":216,"quotes":[{"text":"seriously affected by exceptional circumstances beyond your control","where":"","check":"exact"}]}],"ask":{"question":"What got in the way?","options":[{"label":"A medical reason (illness, injury, COVID-19)","to":"report-medical-after","line":219,"target":"report-medical-after"},{"label":"My emotional or mental wellbeing","to":"report-mental-after","line":220,"target":"report-mental-after"},{"label":"Bereavement, being a victim of crime, or something else","to":"other-reason-after","line":221,"target":"other-reason-after"},{"label":"A sporting, cultural, religious or AUT commitment","to":"commitment-after","line":222,"target":"commitment-after"},{"label":"Computer or printer trouble, lost work, or I misread the date","to":"not-eligible-after","line":223,"target":"not-eligible-after"}],"line":218},"next":null,"timer":null,"reminders":[],"stop":null,"end":false,"line":215},{"id":"report-medical-after","title":"You need a Student Impairment Report","lines":[{"kind":"say","text":"For a medical reason, send a Student Impairment Report with your application. A suitably qualified person fills it in.","line":226,"quotes":[{"text":"you need to provide a completed Student Impairment Report to accompany your Special Consideration Application form.","where":"","check":"exact"},{"text":"The Student Impairment Report must be completed by a suitably qualified person.","where":"","check":"exact"}]},{"kind":"say","text":"COVID-19 counts: if you're unwell or isolating, have ongoing effects, or your whānau or household has been seriously affected. Choose the 'Medical' reason.","line":229,"quotes":[{"text":"You can apply for a special consideration for assessment if you have COVID-19 and are unwell or you’re needing to isolate.","where":"","check":"exact"},{"text":"You can also apply if you're suffering from ongoing health effects due to COVID-19 or your whānau or household has been seriously affected by COVID-19.","where":"","check":"exact"},{"text":"Use the ‘Medical’ reason for application.","where":"","check":"exact"}]},{"kind":"say","text":"If you couldn't see anyone in time through no fault of your own, that can be taken into account.","line":233,"quotes":[{"text":"though delays in accessing medical care through no fault of your own can be taken into account","where":"","check":"exact"}]}],"ask":{"question":"Who will fill in your report?","options":[{"label":"A nurse at the AUT Student Medical Centre","to":"med-nurse-after","line":236,"target":"med-nurse-after"},{"label":"My own doctor or practitioner outside AUT","to":"sir-external-after","line":237,"target":"sir-external-after"}],"line":235},"next":null,"timer":null,"reminders":[],"stop":null,"end":false,"line":225},{"id":"med-nurse-after","title":"Student Medical Centre","lines":[{"kind":"do","text":"Ask the registered nurses at the AUT Student Medical Centre to fill in your Student Impairment Report.","line":240,"quotes":[{"text":"registered nurses at the AUT Student Medical Centre can complete the Student Impairment Report for your Special Consideration Application.","where":"","check":"exact"}]}],"ask":null,"next":{"to":"apply-after","line":242,"target":"apply-after"},"timer":null,"reminders":[],"stop":null,"end":false,"line":239,"nexts":[{"to":"apply-after","line":242,"target":"apply-after"}]},{"id":"report-mental-after","title":"You need a Student Impairment Report","lines":[{"kind":"say","text":"If you need support urgently or on an ongoing basis, AUT's Student Counselling and Mental Health services take appointments.","line":245,"quotes":[{"text":"Student Counselling and Mental Health services are also available for appointments if you have urgent or ongoing needs for counselling and/or mental health support.","where":"","check":"exact"}]},{"kind":"say","text":"For an emotional or mental wellbeing reason, send a Student Impairment Report with your application. A suitably qualified person fills it in.","line":247,"quotes":[{"text":"you need to provide a completed Student Impairment Report to accompany your Special Consideration Application form.","where":"","check":"exact"},{"text":"The Student Impairment Report must be completed by a suitably qualified person.","where":"","check":"exact"}]}],"ask":{"question":"Who will fill in your report?","options":[{"label":"A qualified advisor at the Student Hub","to":"mental-hub-after","line":251,"target":"mental-hub-after"},{"label":"My own practitioner outside AUT","to":"sir-external-after","line":252,"target":"sir-external-after"}],"line":250},"next":null,"timer":null,"reminders":[],"stop":null,"end":false,"line":244},{"id":"mental-hub-after","title":"Book a Student Hub advisor","lines":[{"kind":"say","text":"A qualified advisor at your closest Student Hub can assess you for the report. To book:","line":255,"quotes":[{"text":"For emotional/mental wellbeing impairments, a qualified advisor at the Student Hub can assess you for a Student Impairment Report.","where":"","check":"exact"}]},{"kind":"do","text":"Log in to My AUT.","line":257,"quotes":[{"text":"Visit My AUT and log in","where":"","check":"exact"}]},{"kind":"do","text":"Click 'Make a booking'.","line":259,"quotes":[{"text":"Click on 'Make a booking'","where":"","check":"exact"}]},{"kind":"do","text":"Choose 'Book a Student Hub appointment'.","line":261,"quotes":[{"text":"Select 'Book a Student Hub appointment'","where":"","check":"exact"}]},{"kind":"do","text":"Click the 'Special Consideration Application' button.","line":263,"quotes":[{"text":"Click on the 'Special Consideration Application' button","where":"","check":"exact"}]}],"ask":null,"next":{"to":"apply-after","line":265,"target":"apply-after"},"timer":null,"reminders":[],"stop":null,"end":false,"line":254,"nexts":[{"to":"apply-after","line":265,"target":"apply-after"}]},{"id":"sir-external-after","title":"Your own practitioner","lines":[{"kind":"do","text":"Download the Student Impairment Report so your practitioner can fill it in. The form is linked from AUT's \"Special consideration for an assessment\" page.","line":268,"quotes":[{"text":"If you're seeing an external practitioner, you should download the Student Impairment Report so they can complete it for submission.","where":"","check":"exact"}]}],"ask":null,"next":{"to":"apply-after","line":270,"target":"apply-after"},"timer":null,"reminders":[],"stop":null,"end":false,"line":267,"nexts":[{"to":"apply-after","line":270,"target":"apply-after"}]},{"id":"other-reason-after","title":"What to send","lines":[{"kind":"say","text":"Bereavement, being a victim of crime, and other circumstances can all count.","line":273,"quotes":[{"text":"Bereavement","where":"","check":"exact"},{"text":"Being a victim of crime","where":"","check":"exact"},{"text":"Other circumstances","where":"","check":"exact"}]},{"kind":"say","text":"What you need to send depends on your situation. The application form explains it.","line":277,"quotes":[{"text":"The specific requirements for your application will depend on the situation and are explained in the Special Consideration Application (SCA) form.","where":"","check":"exact"}]}],"ask":null,"next":{"to":"apply-after","line":279,"target":"apply-after"},"timer":null,"reminders":[],"stop":null,"end":false,"line":272,"nexts":[{"to":"apply-after","line":279,"target":"apply-after"}]},{"id":"commitment-after","title":"A planned commitment","lines":[{"kind":"warning","text":"For essential sporting, cultural or religious commitments, and AUT-related commitments, applications must be made before the date of the commitment.","line":282,"quotes":[{"text":"Essential sporting, cultural or religious commitments (applications must be made before the date of the commitment)","where":"","check":"exact"},{"text":"AUT-related commitments (applications must be made before the date of the commitment)","where":"","check":"exact"}]},{"kind":"say","text":"What you need to send depends on your situation. The application form explains it.","line":285,"quotes":[{"text":"The specific requirements for your application will depend on the situation and are explained in the Special Consideration Application (SCA) form.","where":"","check":"exact"}]}],"ask":{"question":"Has the date of the commitment passed?","options":[{"label":"No, it's still ahead","to":"apply-after","line":288,"target":"apply-after"},{"label":"Yes, it has passed","to":"commitment-passed","line":289,"target":"commitment-passed"}],"line":287},"next":null,"timer":null,"reminders":[],"stop":null,"end":false,"line":281},{"id":"not-eligible-after","title":"These don't count","lines":[{"kind":"say","text":"AUT does not count these as exceptional circumstances:","line":292,"quotes":[{"text":"Exceptional circumstances do not include:","where":"","check":"exact"}]},{"kind":"say","text":"Misreading assessment dates, times or instructions.","line":294,"quotes":[{"text":"Misreading assessment dates, times or instructions","where":"","check":"exact"}]},{"kind":"say","text":"Computer or printer problems, unless AUT officially announced that its own equipment failed.","line":296,"quotes":[{"text":"Computer problems, including printer problems, unless they relate to an officially notified failure of university equipment","where":"","check":"exact"}]},{"kind":"say","text":"Losing data. Keep backup copies of everything.","line":298,"quotes":[{"text":"Losing data – ensure that you keep backup copies of everything","where":"","check":"exact"}]}],"ask":{"question":"What fits you?","options":[{"label":"AUT announced its equipment had failed","to":"other-reason-after","line":301,"target":"other-reason-after"},{"label":"Something serious is also affecting me","to":"reason-after","line":302,"target":"reason-after"},{"label":"Finish","to":"end","line":303,"target":"__end"}],"line":300},"next":null,"timer":null,"reminders":[],"stop":null,"end":false,"line":291},{"id":"apply-after","title":"Apply now: your evidence is due soon","lines":[{"kind":"do","text":"Open AUT's Special Consideration Application (SCA) tool and apply. The link is on AUT's \"Special consideration for an assessment\" page.","line":306,"quotes":[{"text":"To apply for special consideration:","where":"","check":"exact"}]},{"kind":"do","text":"The first time, Microsoft asks you to approve access. Click 'accept' and carry on.","line":308,"quotes":[{"text":"When you're accessing the tool for the first time, you'll be asked by Microsoft to approve access to the new software.","where":"","check":"exact"},{"text":"Make sure you click on ‘accept’ and proceed.","where":"","check":"exact"}]},{"kind":"do","text":"Tell your AUT teaching department as soon as you can. If you don't have a valid reason, or don't tell them in time, you will get a failing grade. The page doesn't say how to tell them or exactly by when.","line":311,"quotes":[{"text":"If you don't have a valid reason for missing the due date or have not notified your AUT teaching department within the required time, you will receive a failing grade for your assignment or examination.","where":"","check":"exact"}]},{"kind":"warning","text":"Your evidence is due within 5 working days of the ORIGINAL due date, not of when you apply. You may have only a few days left.","line":313,"quotes":[{"text":"You must upload your supporting evidence within 5 working days of the original assessment due date.","where":"","check":"exact"}]},{"kind":"say","text":"Medical or mental health reason? The page says the Student Impairment Report should accompany your application, and also that evidence has a 5-working-day deadline. It doesn't say whether the report can come later. If you can't get it in time, contact the Student Hub: studenthub@aut.ac.nz or 0800 288 864.","line":315,"quotes":[{"text":"you need to provide a completed Student Impairment Report to accompany your Special Consideration Application form.","where":"","check":"exact"},{"text":"Email: studenthub@aut.ac.nz","where":"","check":"exact"},{"text":"Phone: 0800 288 864","where":"","check":"exact"}]}],"ask":null,"next":{"to":"next-steps","line":319,"target":"next-steps"},"timer":null,"reminders":[],"stop":null,"end":false,"line":305,"nexts":[{"to":"next-steps","line":319,"target":"next-steps"}]},{"id":"too-late","title":"More than 5 working days have passed","lines":[{"kind":"say","text":"The page says you can apply up to 5 working days after the due date. It doesn't say what you can do after that.","line":322,"quotes":[{"text":"You can submit an SCA up to 5 working days after your assessment due date.","where":"","check":"exact"}]},{"kind":"say","text":"Contact the Student Hub as soon as you can: studenthub@aut.ac.nz or 0800 288 864.","line":324,"quotes":[{"text":"Email: studenthub@aut.ac.nz","where":"","check":"exact"},{"text":"Phone: 0800 288 864","where":"","check":"exact"}]},{"kind":"say","text":"AUTSA advocates can also give you advice and support.","line":327,"quotes":[{"text":"AUT Students' Association (AUTSA) has advocates who are there to provide advice and support while you're studying at AUT.","where":"","check":"exact"}]}],"ask":null,"next":null,"timer":null,"reminders":[],"stop":null,"end":true,"line":321},{"id":"next-steps","title":"What happens next","lines":[{"kind":"say","text":"Keep track of your evidence deadline.","line":332},{"kind":"say","text":"Applied on or before the due date: evidence within 5 working days of applying.","line":333,"quotes":[{"text":"You must upload your supporting evidence within 5 working days of submitting your application.","where":"","check":"exact"}]},{"kind":"say","text":"Applied after the due date: evidence within 5 working days of the original due date.","line":335,"quotes":[{"text":"You must upload your supporting evidence within 5 working days of the original assessment due date.","where":"","check":"exact"}]},{"kind":"say","text":"The page doesn't say who decides, how long a decision takes, or what the possible outcomes are.","line":337},{"kind":"say","text":"Having trouble with the process, or feel the outcome was unfair? Contact the AUTSA advocates for advice and support.","line":338,"quotes":[{"text":"Contact them if you're having difficulties with the process or feel the outcome of your Special Consideration Application was unfair.","where":"","check":"exact"}]},{"kind":"say","text":"Any other questions: contact the Student Hub at studenthub@aut.ac.nz or 0800 288 864.","line":340,"quotes":[{"text":"Email: studenthub@aut.ac.nz","where":"","check":"exact"},{"text":"Phone: 0800 288 864","where":"","check":"exact"}]}],"ask":null,"next":null,"timer":null,"reminders":[],"stop":null,"end":true,"line":331}],"start":"start"},"findings":[{"level":"info","step":"short-check","line":27,"message":"1 line in \"Can you get a short extension?\" has no quote from the guideline (\"You can get one only if all three of these are true:\"). Fine for app wording; an instruction should quote its source."},{"level":"info","step":"next-steps","line":332,"message":"2 lines in \"What happens next\" have no quote from the guideline (\"Keep track of your evidence deadline.\"). Fine for app wording; an instruction should quote its source."},{"level":"info","message":"Nobody is named under \"Reviewed by:\", so the app shows \"Not reviewed\"."},{"level":"info","message":"The saved guideline text is a web copy made by a fetch tool and may not be word-perfect, so a \"quote not found\" may be the copy's fault. Add the PDF to sources/ for exact checking."}],"summary":{"steps":30,"reachable":30,"fix":0,"check":0,"info":4,"quotes":113,"quotesExact":113,"numberLines":2,"numberLinesQuoted":2,"sourceAmounts":1,"sourceAmountsUsed":1},"built":"2026-11-19"}</script>
+<script>(() => {
+  // engine/util.js
+  var slug = (text) => String(text).toLowerCase().normalize("NFKD").replace(/\p{M}/gu, "").replace(/[^\p{L}\p{N}]+/gu, "-").replace(/^-+|-+$/g, "") || "step";
+  function formatDuration(ms) {
+    const s = Math.max(0, Math.round(ms / 1e3));
+    const h = Math.floor(s / 3600), m = Math.floor(s % 3600 / 60), r = s % 60;
+    if (h) return `${h} h ${String(m).padStart(2, "0")} min`;
+    if (m) return r ? `${m} min ${r} s` : `${m} min`;
+    return `${r} s`;
+  }
+  function clock(ms) {
+    const s = Math.max(0, Math.ceil(ms / 1e3));
+    const h = Math.floor(s / 3600), m = Math.floor(s % 3600 / 60), r = s % 60;
+    return (h ? `${h}:${String(m).padStart(2, "0")}` : `${m}`) + ":" + String(r).padStart(2, "0");
+  }
+  function testCondition(cond, answers, inputs) {
+    if (!cond) return true;
+    let unknown = false;
+    for (const c of cond) {
+      const input = findByName(inputs, c.input, (i) => [i.id, i.label]);
+      const value = input ? answers[input.id] : answers[slug(c.input)];
+      if (value === void 0 || value === null || value === "") {
+        unknown = true;
+        continue;
+      }
+      const ok = compare(value, c.op, c.values);
+      if (!ok) return false;
+    }
+    return unknown ? null : true;
+  }
+  function compare(value, op, values) {
+    if (op === "=" || op === "!=") {
+      const hit = values.some((v) => String(v).toLowerCase() === String(value).toLowerCase());
+      return op === "=" ? hit : !hit;
+    }
+    const a = Number(value), b = parseFloat(values[0]);
+    return op === "<" ? a < b : op === "<=" ? a <= b : op === ">" ? a > b : a >= b;
+  }
+  function findByName(list, name, namesOf) {
+    const want = slug(name);
+    return list.find((x) => namesOf(x).some((n) => slug(n) === want)) ?? null;
+  }
+  function keyMatches(key, value) {
+    if (value === void 0 || value === null || value === "") return false;
+    if (key.kind === "value") return String(value).toLowerCase() === key.value.toLowerCase();
+    const v = Number(value);
+    if (Number.isNaN(v)) return false;
+    if (key.kind === "number") return v === key.value;
+    return (key.lowIn ? v >= key.low : v > key.low) && (key.highIn ? v <= key.high : v < key.high);
+  }
+
+  // engine/quotes.js
+  var UNIT = "(?:\u2103|mg|mcg|micrograms?|g|kg|ml|mL|l|L|litres?|liters?|mmol|J|joules?|%|\xB0C|degrees|seconds?|secs?|s|minutes?|mins?|hours?|hrs?|h|days?|weeks?|times|cm|mm|m|metres?|meters?|km|breaths|compressions)";
+  var AMOUNT = new RegExp("(\\d+(?:\\.\\d+)?)(?:\\s?(?:-|to|\u2013)\\s?(\\d+(?:\\.\\d+)?))?\\s?(" + UNIT + ")(?![\\p{L}])", "giu");
+
+  // engine/looks.js
+  var LOOKS = [
+    {
+      id: "clinic",
+      name: "Clinic",
+      from: "Patient and wellbeing apps: calm cards, one teal action colour, soft and friendly.",
+      fonts: "family=Inter:wght@400;600;700"
+    },
+    {
+      id: "wayfinding",
+      name: "Wayfinding",
+      from: "Transit maps and road signs: bold type, actions as stations on a line, sign-yellow cautions.",
+      fonts: "family=Archivo:wght@500;700;800;900"
+    },
+    {
+      id: "flightdeck",
+      name: "Flight deck",
+      from: "Aviation checklists and cockpit displays: dark, high contrast, built for stress and low light.",
+      fonts: "family=IBM+Plex+Sans:wght@400;500;700&family=IBM+Plex+Sans+Condensed:wght@600;700&family=IBM+Plex+Mono:wght@500"
+    }
+  ];
+  var DEFAULT_LOOK = LOOKS[0].id;
+
+  // engine/check.js
+  var END = "__end";
+
+  // engine/runtime.js
+  function mount(root, { spec, findings = [], summary = {}, built = "" }) {
+    const S = {
+      screen: "start",
+      tab: "steps",
+      answers: {},
+      current: null,
+      history: [],
+      ticks: {},
+      log: [],
+      startedAt: null,
+      enteredAt: null,
+      timerDone: false,
+      reminders: {},
+      records: {},
+      note: ""
+    };
+    const byId = new Map(spec.steps.map((s) => [s.id, s]));
+    const esc = (t) => String(t ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
+    const now = () => Date.now();
+    const log = (what, detail = "") => S.log.push({ at: now(), what, detail });
+    const brand = spec.brand ?? {};
+    const html = root.ownerDocument.documentElement;
+    const lookLocked = html.hasAttribute("data-look-lock");
+    const LOOK_KEY = "guideline-app-look";
+    const savedLook = () => {
+      try {
+        return localStorage.getItem(LOOK_KEY);
+      } catch {
+        return null;
+      }
+    };
+    function applyLook(id) {
+      if (!lookLocked) html.dataset.look = LOOKS.some((l) => l.id === id) ? id : spec.look || DEFAULT_LOOK;
+      if (brand.colour) html.style.setProperty("--brand", brand.colour);
+    }
+    function pickLook(id) {
+      try {
+        localStorage.setItem(LOOK_KEY, id);
+      } catch {
+      }
+      applyLook(id);
+      render();
+    }
+    applyLook(savedLook());
+    const counts = { fix: findings.filter((f) => f.level === "fix").length, check: findings.filter((f) => f.level === "check").length };
+    function begin() {
+      S.startedAt = now();
+      S.screen = "run";
+      log("Started");
+      const inputsGiven = spec.inputs.filter((i) => S.answers[i.id] !== void 0 && S.answers[i.id] !== "");
+      if (inputsGiven.length) log("Details", inputsGiven.map((i) => `${i.label}: ${S.answers[i.id]}${i.unit ? " " + i.unit : ""}`).join(", "));
+      go(spec.start, null);
+    }
+    function go(target, why) {
+      if (target === END) return finish(why);
+      const step = byId.get(target);
+      if (!step) {
+        S.note = "This leads to a step that is missing from the template (see Checks). Choose another option or go back.";
+        render();
+        return;
+      }
+      if (S.current) S.history.push({ id: S.current, enteredAt: S.enteredAt, timerDone: S.timerDone, reminders: JSON.parse(JSON.stringify(S.reminders)) });
+      S.current = step.id;
+      S.enteredAt = now();
+      S.timerDone = false;
+      S.note = "";
+      for (const k of Object.keys(S.ticks)) if (k.startsWith(step.id + ":")) delete S.ticks[k];
+      log(step.title, why ?? "");
+      if (step.stop) for (const id of Object.keys(S.reminders)) {
+        const want = step.stop.toLowerCase();
+        if (want === "all" || slug(step.stop) === id || S.reminders[id].text.toLowerCase().startsWith(want)) {
+          log("Reminder stopped", S.reminders[id].text);
+          delete S.reminders[id];
+        }
+      }
+      for (const r of step.reminders) if (!S.reminders[r.id]) {
+        S.reminders[r.id] = { text: r.text, ms: r.ms, every: r.every, once: !!r.once, dueAt: now() + r.ms, alerted: false };
+        log("Reminder started", `${r.text} (${r.once ? "after" : "every"} ${r.every})`);
+      }
+      render();
+    }
+    function back() {
+      const prev = S.history.pop();
+      if (!prev) return;
+      S.current = prev.id;
+      S.enteredAt = prev.enteredAt;
+      S.timerDone = prev.timerDone;
+      S.reminders = prev.reminders;
+      S.note = "";
+      log("Went back to", byId.get(prev.id).title);
+      render();
+    }
+    function finish(why) {
+      S.screen = "done";
+      log("Finished", why ?? "");
+      render();
+    }
+    function restart() {
+      try {
+        localStorage.removeItem(KEY);
+      } catch {
+      }
+      Object.assign(S, { screen: "start", tab: "steps", current: null, history: [], ticks: {}, log: [], startedAt: null, reminders: {}, records: {}, note: "" });
+      render();
+    }
+    function render() {
+      root.innerHTML = `
+      <header class="bar"><div class="t">${brand.name ? `<span class="brand">${esc(brand.name)}</span>` : ""}${esc(spec.title)}</div><div class="clock" data-clock="elapsed">${S.startedAt ? clock(now() - S.startedAt) : ""}</div></header>
+      <div class="proto">Prototype built automatically from a guideline. ${spec.reviewedBy ? "Reviewed by " + esc(spec.reviewedBy) + "." : "Not reviewed."} Not for real-world use.</div>
+      ${reminderBar()}
+      <main id="main">${S.tab === "steps" ? S.screen === "start" ? startView() : S.screen === "done" ? doneView() : stepView() : S.tab === "log" ? logView() : S.tab === "checks" ? checksView() : aboutView()}</main>
+      <nav class="tabs">${["steps", "log", "checks", "about"].map((t) => `<button data-tab="${t}" class="${S.tab === t ? "on" : ""}">${{ steps: "Steps", log: "Log", checks: `Checks${counts.fix + counts.check ? ` (${counts.fix + counts.check})` : ""}`, about: "About" }[t]}</button>`).join("")}</nav>`;
+      tick();
+    }
+    function startView() {
+      return `<section class="card">
+      <h1>${esc(spec.title)}</h1>
+      ${spec.about ? `<p>${esc(spec.about)}</p>` : ""}
+      ${spec.warning ? `<p class="warn">${esc(spec.warning)}</p>` : ""}
+      ${counts.fix ? `<p class="author">The template has ${counts.fix} problem${counts.fix > 1 ? "s" : ""} the author needs to fix (see Checks). The app still runs.</p>` : ""}
+      ${inputsForm()}
+      <button class="big go" data-act="begin">Start</button>
+      ${lookLocked ? "" : '<p class="look-link"><button class="link" data-tab="about">Change the look</button></p>'}</section>`;
+    }
+    function inputsForm() {
+      if (!spec.inputs.length) return "";
+      return `<div class="inputs">${spec.inputs.map((i) => `<label class="inp">${esc(i.label)}${i.unit ? ` (${esc(i.unit)})` : ""}${i.optional ? " <small>optional</small>" : ""}
+      ${i.type === "choice" ? `<span class="choices">${i.options.map((o) => `<button data-input="${i.id}" data-value="${esc(o)}" class="${S.answers[i.id] === o ? "on" : ""}">${esc(o)}</button>`).join("")}</span>` : `<input inputmode="decimal" data-num="${i.id}" value="${esc(S.answers[i.id] ?? "")}" placeholder="${i.min != null ? `${i.min}\u2013${i.max}` : ""}">`}
+      <span class="bad" data-bad="${i.id}">${esc(numberProblem(i, S.answers[i.id]) ?? "")}</span></label>`).join("")}</div>`;
+    }
+    function numberProblem(i, v) {
+      if (i.type !== "number" || v === void 0 || v === "") return null;
+      const x = Number(v);
+      if (Number.isNaN(x)) return "Not a number";
+      if (i.min != null && x < i.min || i.max != null && x > i.max) return `Outside ${i.min}\u2013${i.max}`;
+      return null;
+    }
+    function stepView() {
+      const s = byId.get(S.current);
+      const lines = s.lines.filter((l) => l.kind !== "note").map(lineView).join("");
+      const opts = (s.ask?.options ?? []).map((o, k) => {
+        const shown = testCondition(o.cond, S.answers, spec.inputs);
+        if (shown === false) return "";
+        return `<button class="big opt${o.target ? "" : " broken"}" data-opt="${k}">${esc(o.label)}${shown === null ? " <small>(depends on details)</small>" : ""}</button>`;
+      }).join("");
+      const next = nextTarget(s);
+      const final = s.end || !opts && !next && !s.timer?.target;
+      return `<section class="card step">
+      <div class="crumb">${S.history.length ? `<button class="link" data-act="back">\u2039 Back</button>` : ""}<span>Step ${S.history.length + 1}</span></div>
+      <h2>${esc(s.title)}</h2>
+      ${s.timer ? `<div class="timer ${S.timerDone ? "due" : ""}"><div class="lbl">${esc(s.timer.label)}</div><div class="big-clock" data-clock="timer">${clock(s.timer.ms)}</div>
+         ${S.timerDone && s.timer.target ? `<button class="big go" data-act="timer-go">Time's up: continue</button>` : ""}
+         ${s.timer.to && !s.timer.target ? `<p class="author">The timer leads to "${esc(s.timer.to)}", which is missing.</p>` : ""}</div>` : ""}
+      ${lines}
+      ${s.ask ? `<p class="q">${esc(s.ask.question)}</p><div class="opts">${opts || '<p class="author">No answer applies with the details entered (see Checks).</p>'}</div>` : ""}
+      ${S.note ? `<p class="author">${esc(S.note)}</p>` : ""}
+      ${next ? `<button class="big ${s.ask ? "skip" : "go"}" data-act="next">${s.ask ? "Skip" : "Next"}: ${esc(byId.get(next)?.title ?? "Finish")}${nextDepends(s) ? " <small>(depends on details not entered)</small>" : ""}</button>` : ""}
+      ${final ? `<button class="big go" data-act="finish">Finish</button>` : ""}
+    </section>`;
+    }
+    function nextTarget(s) {
+      const list = (s.nexts ?? []).filter((n) => n.target);
+      return list.find((n) => testCondition(n.cond, S.answers, spec.inputs) === true)?.target ?? list.find((n) => testCondition(n.cond, S.answers, spec.inputs) === null)?.target ?? null;
+    }
+    const nextDepends = (s) => {
+      const t = nextTarget(s);
+      const n = (s.nexts ?? []).find((x) => x.target === t);
+      return n && testCondition(n.cond, S.answers, spec.inputs) === null;
+    };
+    function lineView(l, k) {
+      const shown = testCondition(l.cond, S.answers, spec.inputs);
+      if (shown === false) return "";
+      const dep = shown === null ? `<small class="dep">Depends on: ${esc(l.cond.map((c) => c.input).join(", "))}</small>` : "";
+      const q = l.quotes?.length ? `<details class="src"><summary>Guideline</summary>${l.quotes.map((x) => `<q>${esc(x.text)}</q>${x.where ? ` <small>${esc(x.where)}</small>` : ""}${x.check && x.check !== "exact" ? ' <small class="dep">quote not confirmed</small>' : ""}`).join("<br>")}</details>` : "";
+      const key = `${S.current}:${k}`;
+      if (l.kind === "do") return `<label class="do"><input type="checkbox" data-tick="${key}" ${S.ticks[key] ? "checked" : ""}> <span>${esc(l.text)}</span>${dep}${q}</label>`;
+      if (l.kind === "warning") return `<p class="warn">${esc(l.text)}${dep}${q}</p>`;
+      if (l.kind === "record") {
+        const r = S.records[l.text];
+        return `<div class="rec"><button class="big rec-btn" data-rec="${esc(l.text)}">${esc(l.text)}</button><small data-clock="rec" data-rec-name="${esc(l.text)}">${r ? `${r.n}\xD7 \xB7 last ${formatDuration(now() - r.last)} ago` : "not yet"}</small>${dep}${q}</div>`;
+      }
+      if (l.kind === "show") return `<div class="show">${showTable(l)}${dep}${q}</div>`;
+      return `<p class="${l.bullet ? "bul" : ""}">${esc(l.text)}${dep}${q}</p>`;
+    }
+    function showTable(l) {
+      const t = spec.tables.find((x) => x.id === l.tableId);
+      if (!t) return `<p class="author">"${esc(l.table)}" table is missing from the template.</p>`;
+      const cols = l.column ? t.columns.filter((c) => slug(c) === slug(l.column)) : t.columns.slice(1);
+      if (!t.keyInput) return `<table><tr>${t.columns.map((c) => `<th>${esc(c)}</th>`).join("")}</tr>${t.rows.map((r) => `<tr>${t.columns.map((c) => `<td>${cell(r.cells[c])}</td>`).join("")}</tr>`).join("")}</table>`;
+      const inp = spec.inputs.find((i) => i.id === t.keyInput);
+      const v = S.answers[inp.id];
+      if (v === void 0 || v === "") return `<p><b>${esc(t.title)}:</b> enter ${esc(inp.label)} to see this. <button class="link" data-tab="about">Enter details</button></p>`;
+      const row = t.rows.find((r) => keyMatches(r.match, v));
+      if (!row) return `<p class="author"><b>${esc(t.title)}:</b> the table has no row for ${esc(inp.label)} ${esc(v)}${inp.unit ? " " + esc(inp.unit) : ""}.</p>`;
+      return `<div class="lookup"><div class="lk">${esc(t.title)} <small>(${esc(row.key)})</small></div>${cols.map((c) => `<div class="lv"><span>${esc(c)}</span><b>${cell(row.cells[c])}</b></div>`).join("")}</div>`;
+    }
+    const cell = (v) => /^\s*(-|–|—|n\/?a)?\s*$/i.test(v ?? "") ? "<i>Not stated in the guideline</i>" : esc(v);
+    function reminderBar() {
+      const list = Object.entries(S.reminders);
+      if (!list.length) return "";
+      return `<div class="reminders">${list.map(([id, r]) => `<div class="rem" data-rem="${id}"><span class="rt">${esc(r.text)}</span><span class="rc" data-clock="rem" data-rem-id="${id}"></span>${r.once && !r.alerted ? "" : `<button data-remdone="${id}">${r.once ? "OK" : "Done"}</button>`}<button class="x" data-remstop="${id}" title="Stop">\u2715</button></div>`).join("")}</div>`;
+    }
+    function doneView() {
+      return `<section class="card"><h2>Finished</h2><p>Total time ${clock((S.log.at(-1)?.at ?? now()) - (S.startedAt ?? now()))}.</p>${logList()}<button class="big" data-act="copy">Copy log</button><button class="big go" data-act="restart">Start again</button></section>`;
+    }
+    function logView() {
+      return `<section class="card"><h2>Log</h2>${S.log.length ? logList() + '<button class="big" data-act="copy">Copy log</button>' : "<p>Nothing yet.</p>"}</section>`;
+    }
+    function logList() {
+      return `<ol class="log">${S.log.map((e) => `<li><time>${S.startedAt ? clock(e.at - S.startedAt) : ""}</time> ${esc(e.what)}${e.detail ? ` <small>${esc(e.detail)}</small>` : ""}</li>`).join("")}</ol>`;
+    }
+    function logText() {
+      return S.log.map((e) => `${S.startedAt ? clock(e.at - S.startedAt) : ""}  ${e.what}${e.detail ? " - " + e.detail : ""}`).join("\n");
+    }
+    function checksView() {
+      const order = ["fix", "check", "info"];
+      const name = { fix: "Needs fixing", check: "Please check", info: "For information" };
+      const stepTitle = (id) => byId.get(id)?.title ?? id;
+      return `<section class="card"><h2>Author checks</h2><p>Found automatically by comparing the template with itself and with the guideline text. Fix them in the template; the app keeps running meanwhile.</p>
+      ${order.map((lvl) => {
+        const fs = findings.filter((f) => f.level === lvl);
+        return fs.length ? `<h3 class="lvl-${lvl}">${name[lvl]} (${fs.length})</h3><ul class="findings">${fs.map((f) => `<li class="lvl-${lvl}">${f.step ? `<b>${esc(stepTitle(f.step))}</b> \xB7 ` : ""}${f.line ? `<small>line ${f.line}</small> ` : ""}${esc(f.message)}${f.suggestion ? `<br><i>${esc(f.suggestion)}</i>` : ""}</li>`).join("")}</ul>` : "";
+      }).join("") || "<p>No findings.</p>"}
+    </section>`;
+    }
+    function aboutView() {
+      return `<section class="card"><h2>About</h2>${spec.about ? `<p>${esc(spec.about)}</p>` : ""}
+      ${spec.inputs.length ? `<h3>Details</h3>${inputsForm()}` : ""}
+      ${lookLocked ? "" : `<h3>Look</h3><div class="look-pick">${LOOKS.map((l) => `<button data-look-pick="${l.id}" class="${html.dataset.look === l.id ? "on" : ""}">${esc(l.name)}</button>`).join("")}</div>`}
+      <h3>Source</h3><ul>${spec.sources.map((s) => `<li>${esc(s.name)}${s.link ? ` <a href="${esc(s.link)}" target="_blank" rel="noopener">link</a>` : ""}</li>`).join("") || "<li>Not stated</li>"}</ul>
+      <p><small>${spec.version ? "Guideline version: " + esc(spec.version) + " \xB7 " : ""}${built ? "Built " + esc(built) + " \xB7 " : ""}${summary.quotes != null ? `${summary.quotesExact}/${summary.quotes} quotes confirmed` : ""}</small></p>
+      ${S.screen !== "start" ? '<button class="big" data-act="restart">Start again</button>' : ""}</section>`;
+    }
+    function tick() {
+      const t = now();
+      const s = S.screen === "run" && S.current && byId.get(S.current);
+      if (s?.timer && !S.timerDone && t - S.enteredAt >= s.timer.ms) {
+        S.timerDone = true;
+        log("Timer finished", `${s.title}: ${s.timer.label}`);
+        buzz();
+        render();
+        return;
+      }
+      let newlyDue = false;
+      for (const r of Object.values(S.reminders)) if (r.dueAt <= t && !r.alerted) {
+        r.alerted = true;
+        newlyDue = true;
+        log(r.once ? "Deadline reached" : "Reminder due", r.text);
+        buzz();
+      }
+      if (newlyDue) {
+        render();
+        return;
+      }
+      save();
+      for (const el of root.querySelectorAll("[data-clock]")) {
+        const kind = el.dataset.clock;
+        if (kind === "elapsed" && S.startedAt) el.textContent = clock(t - S.startedAt);
+        if (kind === "timer" && s?.timer) {
+          el.textContent = clock(s.timer.ms - (t - S.enteredAt));
+          el.parentElement.style.setProperty("--p", Math.min(1, (t - S.enteredAt) / s.timer.ms).toFixed(3));
+        }
+        if (kind === "rem") {
+          const r = S.reminders[el.dataset.remId];
+          if (!r) continue;
+          const left = r.dueAt - t;
+          el.textContent = left > 0 ? clock(left) : `${r.once ? "NOW" : "DUE"} \xB7 ${clock(-left)} ago`;
+          el.parentElement.classList.toggle("due", left <= 0);
+        }
+        if (kind === "rec") {
+          const r = S.records[el.dataset.recName];
+          if (r) el.textContent = `${r.n}\xD7 \xB7 last ${formatDuration(t - r.last)} ago`;
+        }
+      }
+    }
+    let audio = null;
+    const buzz = () => {
+      try {
+        navigator.vibrate?.([200, 100, 200]);
+      } catch {
+      }
+      try {
+        audio ?? (audio = new (window.AudioContext || window.webkitAudioContext)());
+        for (const at of [0, 0.3]) {
+          const o = audio.createOscillator(), g = audio.createGain();
+          o.frequency.value = 880;
+          g.gain.value = 0.2;
+          o.connect(g);
+          g.connect(audio.destination);
+          o.start(audio.currentTime + at);
+          o.stop(audio.currentTime + at + 0.18);
+        }
+      } catch {
+      }
+    };
+    const KEY = "guideline-app:" + slug(spec.title);
+    let lastSaved = "";
+    function save() {
+      try {
+        const j = JSON.stringify(S);
+        if (j !== lastSaved) {
+          localStorage.setItem(KEY, j);
+          lastSaved = j;
+        }
+      } catch {
+      }
+    }
+    function load() {
+      try {
+        const j = localStorage.getItem(KEY);
+        if (j) {
+          const old = JSON.parse(j);
+          if (old.screen === "run" && old.current && byId.has(old.current)) {
+            Object.assign(S, old, { tab: "steps", note: "Carried on from where this was left (the page was reloaded)." });
+          }
+        }
+      } catch {
+      }
+    }
+    root.addEventListener("click", (e) => {
+      var _a, _b;
+      const b = e.target.closest("button");
+      if (!b) return;
+      const d = b.dataset;
+      if (d.tab) {
+        S.tab = d.tab;
+        render();
+        return;
+      }
+      if (d.lookPick) return pickLook(d.lookPick);
+      if (d.input) {
+        S.answers[d.input] = S.answers[d.input] === d.value ? void 0 : d.value;
+        if (S.screen === "run") log("Detail changed", `${d.input}: ${d.value}`);
+        render();
+        return;
+      }
+      if (d.opt !== void 0) {
+        const s = byId.get(S.current), o = s.ask.options[+d.opt];
+        if (!o.target) {
+          S.note = `"${o.label}" leads to "${o.to}", which is missing from the template (see Checks).`;
+          render();
+          return;
+        }
+        return go(o.target, `${s.ask.question || s.title}: ${o.label}`);
+      }
+      if (d.rec) {
+        const r = (_a = S.records)[_b = d.rec] ?? (_a[_b] = { n: 0, last: 0 });
+        r.n++;
+        r.last = now();
+        log(d.rec);
+        render();
+        return;
+      }
+      if (d.remdone) {
+        const r = S.reminders[d.remdone];
+        if (r) {
+          log("Done", r.text);
+          if (r.once) delete S.reminders[d.remdone];
+          else {
+            r.dueAt = now() + r.ms;
+            r.alerted = false;
+          }
+        }
+        render();
+        return;
+      }
+      if (d.remstop) {
+        const r = S.reminders[d.remstop];
+        if (r) log("Reminder stopped", r.text);
+        delete S.reminders[d.remstop];
+        render();
+        return;
+      }
+      switch (d.act) {
+        case "begin":
+          try {
+            audio ?? (audio = new (window.AudioContext || window.webkitAudioContext)());
+          } catch {
+          }
+          return begin();
+        case "back":
+          return back();
+        case "next":
+          return go(nextTarget(byId.get(S.current)), "Next");
+        case "timer-go":
+          return go(byId.get(S.current).timer.target, "Timer finished");
+        case "finish":
+          return finish();
+        case "restart":
+          return restart();
+        case "copy":
+          try {
+            navigator.clipboard?.writeText(logText());
+            b.textContent = "Copied";
+          } catch {
+            b.textContent = "Could not copy";
+          }
+          return;
+      }
+    });
+    root.addEventListener("change", (e) => {
+      const el = e.target;
+      if (el.dataset.num && S.screen === "run") log("Detail changed", `${el.dataset.num}: ${el.value.trim()}`);
+      if (el.dataset.tick) {
+        S.ticks[el.dataset.tick] = el.checked;
+        const s = byId.get(S.current);
+        const l = s?.lines.filter((x) => x.kind !== "note")[+el.dataset.tick.split(":").pop()];
+        log(el.checked ? "Ticked" : "Unticked", l?.text ?? "");
+      }
+    });
+    root.addEventListener("input", (e) => {
+      const el = e.target;
+      if (el.dataset.num) {
+        S.answers[el.dataset.num] = el.value.trim();
+        const i = spec.inputs.find((x) => x.id === el.dataset.num);
+        const bad = root.querySelector(`[data-bad="${el.dataset.num}"]`);
+        if (bad) bad.textContent = numberProblem(i, el.value.trim()) ?? "";
+      }
+    });
+    load();
+    const timer = setInterval(tick, 250);
+    render();
+    return { state: S, render, stop: () => clearInterval(timer) };
+  }
+
+  // engine/app-entry.js
+  var data = JSON.parse(document.getElementById("spec").textContent);
+  window.__app = mount(document.getElementById("app"), data);
+})();
+</script>
+</body></html>

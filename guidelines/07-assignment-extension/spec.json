@@ -1,0 +1,2031 @@
+{
+ "title": "More time for an assessment (AUT)",
+ "about": "Helps you work out whether to ask for a 3-day short extension or apply for special consideration at AUT, when to apply, what evidence you need and by when, and where to get help.",
+ "sources": [
+  {
+   "name": "Auckland University of Technology (AUT), Special consideration for an assessment",
+   "link": "https://www.aut.ac.nz/student-life/studying/study-help/assessments-and-exams/special-consideration"
+  }
+ ],
+ "warning": "This is AUT's guidance, for AUT students. If you study somewhere else, follow your own university's rules.",
+ "audience": "AUT students who need more time for an assignment, or whose test or exam has been affected by something serious",
+ "reviewedBy": "",
+ "version": "AUT \"Special consideration for an assessment\" web page, no date or review date shown, read 19 Nov 2026",
+ "brand": {
+  "name": "",
+  "colour": ""
+ },
+ "look": "",
+ "inputs": [],
+ "tables": [],
+ "steps": [
+  {
+   "id": "start",
+   "title": "What do you need?",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "If something serious and outside your control affects an assessment, you can apply for special consideration. You could also ask for a short extension of up to 3 days.",
+     "line": 13,
+     "quotes": [
+      {
+       "text": "your ability to attempt or prepare for an assessment may be seriously affected by exceptional circumstances beyond your control.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "If this happens, you can apply for special consideration for that assessment.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "You could also apply for a short extension of up to 3 days",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "What do you need?",
+    "options": [
+     {
+      "label": "Just a couple of extra days",
+      "to": "short-check",
+      "line": 18,
+      "target": "short-check"
+     },
+     {
+      "label": "Something serious is affecting me",
+      "to": "reason",
+      "line": 19,
+      "target": "reason"
+     },
+     {
+      "label": "My due date (or test or exam) has already passed",
+      "to": "past-due",
+      "line": 20,
+      "target": "past-due"
+     },
+     {
+      "label": "I've applied. What happens next?",
+      "to": "next-steps",
+      "line": 21,
+      "target": "next-steps"
+     }
+    ],
+    "line": 17
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 12
+  },
+  {
+   "id": "short-check",
+   "title": "Can you get a short extension?",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "A short extension gives you 3 calendar days. You don't need any evidence.",
+     "line": 24,
+     "quotes": [
+      {
+       "text": "The short extension is for 3 calendar days",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "You don't need to provide evidence for a short extension.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "You can get one only if all three of these are true:",
+     "line": 27
+    },
+    {
+     "kind": "say",
+     "text": "1. It's an assignment, not a test or exam. Nothing done under controlled conditions can have a short extension.",
+     "line": 28,
+     "quotes": [
+      {
+       "text": "You can't apply for short extensions for tests and exams; any assessment conducted under controlled conditions is not eligible for a short extension",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "2. You haven't had a short extension in this course yet. You get one per course.",
+     "line": 30,
+     "quotes": [
+      {
+       "text": "You can only have one short extension per course.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "3. You apply by midnight the day BEFORE it's due. For example, if it's due at 4pm on Monday, apply before midnight on Sunday.",
+     "line": 32,
+     "quotes": [
+      {
+       "text": "You must apply by midnight the day BEFORE your assessment is due",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "For example, if an assessment is due at 4pm on Monday 20 May, in order to be eligible for a short extension, you must apply BEFORE midnight on Sunday 19 May.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "Are all three true for you?",
+    "options": [
+     {
+      "label": "Yes, all three",
+      "to": "short-apply",
+      "line": 36,
+      "target": "short-apply"
+     },
+     {
+      "label": "No, at least one isn't",
+      "to": "short-no",
+      "line": 37,
+      "target": "short-no"
+     }
+    ],
+    "line": 35
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 23
+  },
+  {
+   "id": "short-apply",
+   "title": "Apply for your short extension",
+   "lines": [
+    {
+     "kind": "do",
+     "text": "Open AUT's Special Consideration Application (SCA) tool. The link is on AUT's \"Special consideration for an assessment\" page.",
+     "line": 40,
+     "quotes": [
+      {
+       "text": "You must apply using the Special Consideration Application tool",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "The first time, Microsoft asks you to approve access. Click 'accept' and carry on.",
+     "line": 42,
+     "quotes": [
+      {
+       "text": "When you're accessing the tool for the first time, you'll be asked by Microsoft to approve access to the new software.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "Make sure you click on ‘accept’ and proceed.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "On the second screen, choose 'short extension'.",
+     "line": 45,
+     "quotes": [
+      {
+       "text": "select ‘short extension’ on the second screen",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Need more than 3 days because of something serious? Then you need a standard extension, with evidence.",
+     "line": 47,
+     "quotes": [
+      {
+       "text": "If you need more time than 3 days because of valid exceptional circumstances, you need to apply for the standard extension and provide evidence",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "The page doesn't say how you'll hear that your short extension is confirmed, or what your new due time is. If you're unsure, contact the Student Hub: studenthub@aut.ac.nz or 0800 288 864.",
+     "line": 49,
+     "quotes": [
+      {
+       "text": "Email: studenthub@aut.ac.nz",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "Phone: 0800 288 864",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "Is that everything?",
+    "options": [
+     {
+      "label": "Yes, I've applied",
+      "to": "end",
+      "line": 53,
+      "target": "__end"
+     },
+     {
+      "label": "I need more than 3 days",
+      "to": "reason",
+      "line": 54,
+      "target": "reason"
+     }
+    ],
+    "line": 52
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 39
+  },
+  {
+   "id": "short-no",
+   "title": "A short extension isn't possible",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "If something serious is affecting you, you can apply for special consideration instead. You'll need to provide evidence.",
+     "line": 57,
+     "quotes": [
+      {
+       "text": "If this happens, you can apply for special consideration for that assessment.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "If you need more time than 3 days because of valid exceptional circumstances, you need to apply for the standard extension and provide evidence",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "If you need further extensions for the same course, you'll then need to provide evidence of exceptional circumstances.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Missed the short-extension deadline? You can still apply for special consideration, up to 5 working days after the due date.",
+     "line": 61,
+     "quotes": [
+      {
+       "text": "You can submit an SCA up to 5 working days after your assessment due date.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "The page offers nothing else if you simply need more time. If you're unsure, contact the Student Hub: studenthub@aut.ac.nz or 0800 288 864.",
+     "line": 63,
+     "quotes": [
+      {
+       "text": "Email: studenthub@aut.ac.nz",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "Phone: 0800 288 864",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "Is something serious affecting you?",
+    "options": [
+     {
+      "label": "Yes",
+      "to": "reason",
+      "line": 67,
+      "target": "reason"
+     },
+     {
+      "label": "No",
+      "to": "end",
+      "line": 68,
+      "target": "__end"
+     }
+    ],
+    "line": 66
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 56
+  },
+  {
+   "id": "reason",
+   "title": "What's affecting you?",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "Special consideration is for when something serious, beyond your control, affects an assessment. Pick the closest match.",
+     "line": 71,
+     "quotes": [
+      {
+       "text": "seriously affected by exceptional circumstances beyond your control",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "What's affecting you?",
+    "options": [
+     {
+      "label": "A medical reason (illness, injury, COVID-19)",
+      "to": "report-medical",
+      "line": 74,
+      "target": "report-medical"
+     },
+     {
+      "label": "My emotional or mental wellbeing",
+      "to": "report-mental",
+      "line": 75,
+      "target": "report-mental"
+     },
+     {
+      "label": "Bereavement, being a victim of crime, or something else",
+      "to": "other-reason",
+      "line": 76,
+      "target": "other-reason"
+     },
+     {
+      "label": "A sporting, cultural, religious or AUT commitment",
+      "to": "commitment",
+      "line": 77,
+      "target": "commitment"
+     },
+     {
+      "label": "Computer or printer trouble, lost work, or I misread the date",
+      "to": "not-eligible",
+      "line": 78,
+      "target": "not-eligible"
+     }
+    ],
+    "line": 73
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 70
+  },
+  {
+   "id": "report-medical",
+   "title": "You need a Student Impairment Report",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "For a medical reason, send a Student Impairment Report with your application. A suitably qualified person fills it in.",
+     "line": 81,
+     "quotes": [
+      {
+       "text": "you need to provide a completed Student Impairment Report to accompany your Special Consideration Application form.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "The Student Impairment Report must be completed by a suitably qualified person.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "COVID-19 counts: if you're unwell or isolating, have ongoing effects, or your whānau or household has been seriously affected. Choose the 'Medical' reason.",
+     "line": 84,
+     "quotes": [
+      {
+       "text": "You can apply for a special consideration for assessment if you have COVID-19 and are unwell or you’re needing to isolate.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "You can also apply if you're suffering from ongoing health effects due to COVID-19 or your whānau or household has been seriously affected by COVID-19.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "Use the ‘Medical’ reason for application.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "If you couldn't see anyone in time through no fault of your own, that can be taken into account.",
+     "line": 88,
+     "quotes": [
+      {
+       "text": "though delays in accessing medical care through no fault of your own can be taken into account",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "Who will fill in your report?",
+    "options": [
+     {
+      "label": "A nurse at the AUT Student Medical Centre",
+      "to": "med-nurse",
+      "line": 91,
+      "target": "med-nurse"
+     },
+     {
+      "label": "My own doctor or practitioner outside AUT",
+      "to": "sir-external",
+      "line": 92,
+      "target": "sir-external"
+     }
+    ],
+    "line": 90
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 80
+  },
+  {
+   "id": "med-nurse",
+   "title": "Student Medical Centre",
+   "lines": [
+    {
+     "kind": "do",
+     "text": "Ask the registered nurses at the AUT Student Medical Centre to fill in your Student Impairment Report.",
+     "line": 95,
+     "quotes": [
+      {
+       "text": "registered nurses at the AUT Student Medical Centre can complete the Student Impairment Report for your Special Consideration Application.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": null,
+   "next": {
+    "to": "when-apply",
+    "line": 97,
+    "target": "when-apply"
+   },
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 94,
+   "nexts": [
+    {
+     "to": "when-apply",
+     "line": 97,
+     "target": "when-apply"
+    }
+   ]
+  },
+  {
+   "id": "report-mental",
+   "title": "You need a Student Impairment Report",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "If you need support urgently or on an ongoing basis, AUT's Student Counselling and Mental Health services take appointments.",
+     "line": 100,
+     "quotes": [
+      {
+       "text": "Student Counselling and Mental Health services are also available for appointments if you have urgent or ongoing needs for counselling and/or mental health support.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "For an emotional or mental wellbeing reason, send a Student Impairment Report with your application. A suitably qualified person fills it in.",
+     "line": 102,
+     "quotes": [
+      {
+       "text": "you need to provide a completed Student Impairment Report to accompany your Special Consideration Application form.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "The Student Impairment Report must be completed by a suitably qualified person.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "Who will fill in your report?",
+    "options": [
+     {
+      "label": "A qualified advisor at the Student Hub",
+      "to": "mental-hub",
+      "line": 106,
+      "target": "mental-hub"
+     },
+     {
+      "label": "My own practitioner outside AUT",
+      "to": "sir-external",
+      "line": 107,
+      "target": "sir-external"
+     }
+    ],
+    "line": 105
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 99
+  },
+  {
+   "id": "mental-hub",
+   "title": "Book a Student Hub advisor",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "A qualified advisor at your closest Student Hub can assess you for the report. To book:",
+     "line": 110,
+     "quotes": [
+      {
+       "text": "For emotional/mental wellbeing impairments, a qualified advisor at the Student Hub can assess you for a Student Impairment Report.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Log in to My AUT.",
+     "line": 112,
+     "quotes": [
+      {
+       "text": "Visit My AUT and log in",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Click 'Make a booking'.",
+     "line": 114,
+     "quotes": [
+      {
+       "text": "Click on 'Make a booking'",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Choose 'Book a Student Hub appointment'.",
+     "line": 116,
+     "quotes": [
+      {
+       "text": "Select 'Book a Student Hub appointment'",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Click the 'Special Consideration Application' button.",
+     "line": 118,
+     "quotes": [
+      {
+       "text": "Click on the 'Special Consideration Application' button",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": null,
+   "next": {
+    "to": "when-apply",
+    "line": 120,
+    "target": "when-apply"
+   },
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 109,
+   "nexts": [
+    {
+     "to": "when-apply",
+     "line": 120,
+     "target": "when-apply"
+    }
+   ]
+  },
+  {
+   "id": "sir-external",
+   "title": "Your own practitioner",
+   "lines": [
+    {
+     "kind": "do",
+     "text": "Download the Student Impairment Report so your practitioner can fill it in. The form is linked from AUT's \"Special consideration for an assessment\" page.",
+     "line": 123,
+     "quotes": [
+      {
+       "text": "If you're seeing an external practitioner, you should download the Student Impairment Report so they can complete it for submission.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": null,
+   "next": {
+    "to": "when-apply",
+    "line": 125,
+    "target": "when-apply"
+   },
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 122,
+   "nexts": [
+    {
+     "to": "when-apply",
+     "line": 125,
+     "target": "when-apply"
+    }
+   ]
+  },
+  {
+   "id": "other-reason",
+   "title": "What to send",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "Bereavement, being a victim of crime, and other circumstances can all count.",
+     "line": 128,
+     "quotes": [
+      {
+       "text": "Bereavement",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "Being a victim of crime",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "Other circumstances",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "What you need to send depends on your situation. The application form explains it.",
+     "line": 132,
+     "quotes": [
+      {
+       "text": "The specific requirements for your application will depend on the situation and are explained in the Special Consideration Application (SCA) form.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": null,
+   "next": {
+    "to": "when-apply",
+    "line": 134,
+    "target": "when-apply"
+   },
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 127,
+   "nexts": [
+    {
+     "to": "when-apply",
+     "line": 134,
+     "target": "when-apply"
+    }
+   ]
+  },
+  {
+   "id": "commitment",
+   "title": "A planned commitment",
+   "lines": [
+    {
+     "kind": "warning",
+     "text": "For essential sporting, cultural or religious commitments, and AUT-related commitments, applications must be made before the date of the commitment.",
+     "line": 137,
+     "quotes": [
+      {
+       "text": "Essential sporting, cultural or religious commitments (applications must be made before the date of the commitment)",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "AUT-related commitments (applications must be made before the date of the commitment)",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "What you need to send depends on your situation. The application form explains it.",
+     "line": 140,
+     "quotes": [
+      {
+       "text": "The specific requirements for your application will depend on the situation and are explained in the Special Consideration Application (SCA) form.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "Has the date of the commitment passed?",
+    "options": [
+     {
+      "label": "No, it's still ahead",
+      "to": "when-apply",
+      "line": 143,
+      "target": "when-apply"
+     },
+     {
+      "label": "Yes, it has passed",
+      "to": "commitment-passed",
+      "line": 144,
+      "target": "commitment-passed"
+     }
+    ],
+    "line": 142
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 136
+  },
+  {
+   "id": "commitment-passed",
+   "title": "The commitment date has passed",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "The page says applications for these commitments must be made before the date of the commitment. It doesn't say whether a late application can be considered.",
+     "line": 147,
+     "quotes": [
+      {
+       "text": "applications must be made before the date of the commitment",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Contact the Student Hub as soon as you can: studenthub@aut.ac.nz or 0800 288 864.",
+     "line": 149,
+     "quotes": [
+      {
+       "text": "Email: studenthub@aut.ac.nz",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "Phone: 0800 288 864",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "AUTSA advocates can also give you advice and support.",
+     "line": 152,
+     "quotes": [
+      {
+       "text": "AUT Students' Association (AUTSA) has advocates who are there to provide advice and support while you're studying at AUT.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": null,
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": true,
+   "line": 146
+  },
+  {
+   "id": "not-eligible",
+   "title": "These don't count",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "AUT does not count these as exceptional circumstances:",
+     "line": 157,
+     "quotes": [
+      {
+       "text": "Exceptional circumstances do not include:",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Misreading assessment dates, times or instructions.",
+     "line": 159,
+     "quotes": [
+      {
+       "text": "Misreading assessment dates, times or instructions",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Computer or printer problems, unless AUT officially announced that its own equipment failed.",
+     "line": 161,
+     "quotes": [
+      {
+       "text": "Computer problems, including printer problems, unless they relate to an officially notified failure of university equipment",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Losing data. Keep backup copies of everything.",
+     "line": 163,
+     "quotes": [
+      {
+       "text": "Losing data – ensure that you keep backup copies of everything",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "A short extension needs no reason, so it may still be possible.",
+     "line": 165,
+     "quotes": [
+      {
+       "text": "If you don't have exceptional circumstances but simply need a couple of extra days to submit your assessment, you can apply for a short extension (3 days).",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "What fits you?",
+    "options": [
+     {
+      "label": "Check if I can get a short extension",
+      "to": "short-check",
+      "line": 168,
+      "target": "short-check"
+     },
+     {
+      "label": "AUT announced its equipment had failed",
+      "to": "other-reason",
+      "line": 169,
+      "target": "other-reason"
+     },
+     {
+      "label": "Something serious is also affecting me",
+      "to": "reason",
+      "line": 170,
+      "target": "reason"
+     },
+     {
+      "label": "Finish",
+      "to": "end",
+      "line": 171,
+      "target": "__end"
+     }
+    ],
+    "line": 167
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 156
+  },
+  {
+   "id": "when-apply",
+   "title": "Is it before or after the due date?",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "You can apply up to 5 working days after the due date (or test or exam date). When your evidence is due depends on when you apply.",
+     "line": 174,
+     "quotes": [
+      {
+       "text": "You can submit an SCA up to 5 working days after your assessment due date.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "Where are you now?",
+    "options": [
+     {
+      "label": "Before the due date, or on the day",
+      "to": "apply-before",
+      "line": 177,
+      "target": "apply-before"
+     },
+     {
+      "label": "After the due date: 5 working days or fewer",
+      "to": "apply-after",
+      "line": 178,
+      "target": "apply-after"
+     },
+     {
+      "label": "More than 5 working days after the due date",
+      "to": "too-late",
+      "line": 179,
+      "target": "too-late"
+     }
+    ],
+    "line": 176
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 173
+  },
+  {
+   "id": "apply-before",
+   "title": "Apply now, then send evidence",
+   "lines": [
+    {
+     "kind": "do",
+     "text": "Open AUT's Special Consideration Application (SCA) tool and apply. The link is on AUT's \"Special consideration for an assessment\" page.",
+     "line": 182,
+     "quotes": [
+      {
+       "text": "To apply for special consideration:",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "The first time, Microsoft asks you to approve access. Click 'accept' and carry on.",
+     "line": 184,
+     "quotes": [
+      {
+       "text": "When you're accessing the tool for the first time, you'll be asked by Microsoft to approve access to the new software.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "Make sure you click on ‘accept’ and proceed.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "warning",
+     "text": "Upload your evidence within 5 working days of sending your application.",
+     "line": 187,
+     "quotes": [
+      {
+       "text": "You must upload your supporting evidence within 5 working days of submitting your application.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Medical or mental health reason? The page says the Student Impairment Report should accompany your application, and also that evidence is due within 5 working days. It doesn't say whether the report can come later. If you can't get it in time, contact the Student Hub: studenthub@aut.ac.nz or 0800 288 864.",
+     "line": 189,
+     "quotes": [
+      {
+       "text": "you need to provide a completed Student Impairment Report to accompany your Special Consideration Application form.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "Email: studenthub@aut.ac.nz",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "Phone: 0800 288 864",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": null,
+   "next": {
+    "to": "next-steps",
+    "line": 193,
+    "target": "next-steps"
+   },
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 181,
+   "nexts": [
+    {
+     "to": "next-steps",
+     "line": 193,
+     "target": "next-steps"
+    }
+   ]
+  },
+  {
+   "id": "past-due",
+   "title": "Your due date has passed",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "A short extension is no longer possible: you had to apply by midnight the day before it was due.",
+     "line": 196,
+     "quotes": [
+      {
+       "text": "You must apply by midnight the day BEFORE your assessment is due",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "You can still apply for special consideration up to 5 working days after the due date (or test or exam date), if something serious and outside your control got in the way.",
+     "line": 198,
+     "quotes": [
+      {
+       "text": "You can submit an SCA up to 5 working days after your assessment due date.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "Is it 5 working days or fewer since the due date?",
+    "options": [
+     {
+      "label": "Yes, 5 working days or fewer",
+      "to": "reason-after",
+      "line": 201,
+      "target": "reason-after"
+     },
+     {
+      "label": "No, it's more than 5 working days",
+      "to": "too-late",
+      "line": 202,
+      "target": "too-late"
+     },
+     {
+      "label": "I'm not sure",
+      "to": "not-sure",
+      "line": 203,
+      "target": "not-sure"
+     }
+    ],
+    "line": 200
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 195
+  },
+  {
+   "id": "not-sure",
+   "title": "Check if you're still in time",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "You can apply up to 5 working days after the due date. The page doesn't say how to count working days (for example, public holidays).",
+     "line": 206,
+     "quotes": [
+      {
+       "text": "You can submit an SCA up to 5 working days after your assessment due date.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Contact the Student Hub now to check: studenthub@aut.ac.nz or 0800 288 864.",
+     "line": 208,
+     "quotes": [
+      {
+       "text": "Email: studenthub@aut.ac.nz",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "Phone: 0800 288 864",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "What next?",
+    "options": [
+     {
+      "label": "Carry on and apply",
+      "to": "reason-after",
+      "line": 212,
+      "target": "reason-after"
+     },
+     {
+      "label": "Finish",
+      "to": "end",
+      "line": 213,
+      "target": "__end"
+     }
+    ],
+    "line": 211
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 205
+  },
+  {
+   "id": "reason-after",
+   "title": "What got in the way?",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "Special consideration is for when something serious, beyond your control, affects an assessment. Pick the closest match.",
+     "line": 216,
+     "quotes": [
+      {
+       "text": "seriously affected by exceptional circumstances beyond your control",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "What got in the way?",
+    "options": [
+     {
+      "label": "A medical reason (illness, injury, COVID-19)",
+      "to": "report-medical-after",
+      "line": 219,
+      "target": "report-medical-after"
+     },
+     {
+      "label": "My emotional or mental wellbeing",
+      "to": "report-mental-after",
+      "line": 220,
+      "target": "report-mental-after"
+     },
+     {
+      "label": "Bereavement, being a victim of crime, or something else",
+      "to": "other-reason-after",
+      "line": 221,
+      "target": "other-reason-after"
+     },
+     {
+      "label": "A sporting, cultural, religious or AUT commitment",
+      "to": "commitment-after",
+      "line": 222,
+      "target": "commitment-after"
+     },
+     {
+      "label": "Computer or printer trouble, lost work, or I misread the date",
+      "to": "not-eligible-after",
+      "line": 223,
+      "target": "not-eligible-after"
+     }
+    ],
+    "line": 218
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 215
+  },
+  {
+   "id": "report-medical-after",
+   "title": "You need a Student Impairment Report",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "For a medical reason, send a Student Impairment Report with your application. A suitably qualified person fills it in.",
+     "line": 226,
+     "quotes": [
+      {
+       "text": "you need to provide a completed Student Impairment Report to accompany your Special Consideration Application form.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "The Student Impairment Report must be completed by a suitably qualified person.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "COVID-19 counts: if you're unwell or isolating, have ongoing effects, or your whānau or household has been seriously affected. Choose the 'Medical' reason.",
+     "line": 229,
+     "quotes": [
+      {
+       "text": "You can apply for a special consideration for assessment if you have COVID-19 and are unwell or you’re needing to isolate.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "You can also apply if you're suffering from ongoing health effects due to COVID-19 or your whānau or household has been seriously affected by COVID-19.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "Use the ‘Medical’ reason for application.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "If you couldn't see anyone in time through no fault of your own, that can be taken into account.",
+     "line": 233,
+     "quotes": [
+      {
+       "text": "though delays in accessing medical care through no fault of your own can be taken into account",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "Who will fill in your report?",
+    "options": [
+     {
+      "label": "A nurse at the AUT Student Medical Centre",
+      "to": "med-nurse-after",
+      "line": 236,
+      "target": "med-nurse-after"
+     },
+     {
+      "label": "My own doctor or practitioner outside AUT",
+      "to": "sir-external-after",
+      "line": 237,
+      "target": "sir-external-after"
+     }
+    ],
+    "line": 235
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 225
+  },
+  {
+   "id": "med-nurse-after",
+   "title": "Student Medical Centre",
+   "lines": [
+    {
+     "kind": "do",
+     "text": "Ask the registered nurses at the AUT Student Medical Centre to fill in your Student Impairment Report.",
+     "line": 240,
+     "quotes": [
+      {
+       "text": "registered nurses at the AUT Student Medical Centre can complete the Student Impairment Report for your Special Consideration Application.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": null,
+   "next": {
+    "to": "apply-after",
+    "line": 242,
+    "target": "apply-after"
+   },
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 239,
+   "nexts": [
+    {
+     "to": "apply-after",
+     "line": 242,
+     "target": "apply-after"
+    }
+   ]
+  },
+  {
+   "id": "report-mental-after",
+   "title": "You need a Student Impairment Report",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "If you need support urgently or on an ongoing basis, AUT's Student Counselling and Mental Health services take appointments.",
+     "line": 245,
+     "quotes": [
+      {
+       "text": "Student Counselling and Mental Health services are also available for appointments if you have urgent or ongoing needs for counselling and/or mental health support.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "For an emotional or mental wellbeing reason, send a Student Impairment Report with your application. A suitably qualified person fills it in.",
+     "line": 247,
+     "quotes": [
+      {
+       "text": "you need to provide a completed Student Impairment Report to accompany your Special Consideration Application form.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "The Student Impairment Report must be completed by a suitably qualified person.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "Who will fill in your report?",
+    "options": [
+     {
+      "label": "A qualified advisor at the Student Hub",
+      "to": "mental-hub-after",
+      "line": 251,
+      "target": "mental-hub-after"
+     },
+     {
+      "label": "My own practitioner outside AUT",
+      "to": "sir-external-after",
+      "line": 252,
+      "target": "sir-external-after"
+     }
+    ],
+    "line": 250
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 244
+  },
+  {
+   "id": "mental-hub-after",
+   "title": "Book a Student Hub advisor",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "A qualified advisor at your closest Student Hub can assess you for the report. To book:",
+     "line": 255,
+     "quotes": [
+      {
+       "text": "For emotional/mental wellbeing impairments, a qualified advisor at the Student Hub can assess you for a Student Impairment Report.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Log in to My AUT.",
+     "line": 257,
+     "quotes": [
+      {
+       "text": "Visit My AUT and log in",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Click 'Make a booking'.",
+     "line": 259,
+     "quotes": [
+      {
+       "text": "Click on 'Make a booking'",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Choose 'Book a Student Hub appointment'.",
+     "line": 261,
+     "quotes": [
+      {
+       "text": "Select 'Book a Student Hub appointment'",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Click the 'Special Consideration Application' button.",
+     "line": 263,
+     "quotes": [
+      {
+       "text": "Click on the 'Special Consideration Application' button",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": null,
+   "next": {
+    "to": "apply-after",
+    "line": 265,
+    "target": "apply-after"
+   },
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 254,
+   "nexts": [
+    {
+     "to": "apply-after",
+     "line": 265,
+     "target": "apply-after"
+    }
+   ]
+  },
+  {
+   "id": "sir-external-after",
+   "title": "Your own practitioner",
+   "lines": [
+    {
+     "kind": "do",
+     "text": "Download the Student Impairment Report so your practitioner can fill it in. The form is linked from AUT's \"Special consideration for an assessment\" page.",
+     "line": 268,
+     "quotes": [
+      {
+       "text": "If you're seeing an external practitioner, you should download the Student Impairment Report so they can complete it for submission.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": null,
+   "next": {
+    "to": "apply-after",
+    "line": 270,
+    "target": "apply-after"
+   },
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 267,
+   "nexts": [
+    {
+     "to": "apply-after",
+     "line": 270,
+     "target": "apply-after"
+    }
+   ]
+  },
+  {
+   "id": "other-reason-after",
+   "title": "What to send",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "Bereavement, being a victim of crime, and other circumstances can all count.",
+     "line": 273,
+     "quotes": [
+      {
+       "text": "Bereavement",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "Being a victim of crime",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "Other circumstances",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "What you need to send depends on your situation. The application form explains it.",
+     "line": 277,
+     "quotes": [
+      {
+       "text": "The specific requirements for your application will depend on the situation and are explained in the Special Consideration Application (SCA) form.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": null,
+   "next": {
+    "to": "apply-after",
+    "line": 279,
+    "target": "apply-after"
+   },
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 272,
+   "nexts": [
+    {
+     "to": "apply-after",
+     "line": 279,
+     "target": "apply-after"
+    }
+   ]
+  },
+  {
+   "id": "commitment-after",
+   "title": "A planned commitment",
+   "lines": [
+    {
+     "kind": "warning",
+     "text": "For essential sporting, cultural or religious commitments, and AUT-related commitments, applications must be made before the date of the commitment.",
+     "line": 282,
+     "quotes": [
+      {
+       "text": "Essential sporting, cultural or religious commitments (applications must be made before the date of the commitment)",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "AUT-related commitments (applications must be made before the date of the commitment)",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "What you need to send depends on your situation. The application form explains it.",
+     "line": 285,
+     "quotes": [
+      {
+       "text": "The specific requirements for your application will depend on the situation and are explained in the Special Consideration Application (SCA) form.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "Has the date of the commitment passed?",
+    "options": [
+     {
+      "label": "No, it's still ahead",
+      "to": "apply-after",
+      "line": 288,
+      "target": "apply-after"
+     },
+     {
+      "label": "Yes, it has passed",
+      "to": "commitment-passed",
+      "line": 289,
+      "target": "commitment-passed"
+     }
+    ],
+    "line": 287
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 281
+  },
+  {
+   "id": "not-eligible-after",
+   "title": "These don't count",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "AUT does not count these as exceptional circumstances:",
+     "line": 292,
+     "quotes": [
+      {
+       "text": "Exceptional circumstances do not include:",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Misreading assessment dates, times or instructions.",
+     "line": 294,
+     "quotes": [
+      {
+       "text": "Misreading assessment dates, times or instructions",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Computer or printer problems, unless AUT officially announced that its own equipment failed.",
+     "line": 296,
+     "quotes": [
+      {
+       "text": "Computer problems, including printer problems, unless they relate to an officially notified failure of university equipment",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Losing data. Keep backup copies of everything.",
+     "line": 298,
+     "quotes": [
+      {
+       "text": "Losing data – ensure that you keep backup copies of everything",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "What fits you?",
+    "options": [
+     {
+      "label": "AUT announced its equipment had failed",
+      "to": "other-reason-after",
+      "line": 301,
+      "target": "other-reason-after"
+     },
+     {
+      "label": "Something serious is also affecting me",
+      "to": "reason-after",
+      "line": 302,
+      "target": "reason-after"
+     },
+     {
+      "label": "Finish",
+      "to": "end",
+      "line": 303,
+      "target": "__end"
+     }
+    ],
+    "line": 300
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 291
+  },
+  {
+   "id": "apply-after",
+   "title": "Apply now: your evidence is due soon",
+   "lines": [
+    {
+     "kind": "do",
+     "text": "Open AUT's Special Consideration Application (SCA) tool and apply. The link is on AUT's \"Special consideration for an assessment\" page.",
+     "line": 306,
+     "quotes": [
+      {
+       "text": "To apply for special consideration:",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "The first time, Microsoft asks you to approve access. Click 'accept' and carry on.",
+     "line": 308,
+     "quotes": [
+      {
+       "text": "When you're accessing the tool for the first time, you'll be asked by Microsoft to approve access to the new software.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "Make sure you click on ‘accept’ and proceed.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Tell your AUT teaching department as soon as you can. If you don't have a valid reason, or don't tell them in time, you will get a failing grade. The page doesn't say how to tell them or exactly by when.",
+     "line": 311,
+     "quotes": [
+      {
+       "text": "If you don't have a valid reason for missing the due date or have not notified your AUT teaching department within the required time, you will receive a failing grade for your assignment or examination.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "warning",
+     "text": "Your evidence is due within 5 working days of the ORIGINAL due date, not of when you apply. You may have only a few days left.",
+     "line": 313,
+     "quotes": [
+      {
+       "text": "You must upload your supporting evidence within 5 working days of the original assessment due date.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Medical or mental health reason? The page says the Student Impairment Report should accompany your application, and also that evidence has a 5-working-day deadline. It doesn't say whether the report can come later. If you can't get it in time, contact the Student Hub: studenthub@aut.ac.nz or 0800 288 864.",
+     "line": 315,
+     "quotes": [
+      {
+       "text": "you need to provide a completed Student Impairment Report to accompany your Special Consideration Application form.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "Email: studenthub@aut.ac.nz",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "Phone: 0800 288 864",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": null,
+   "next": {
+    "to": "next-steps",
+    "line": 319,
+    "target": "next-steps"
+   },
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 305,
+   "nexts": [
+    {
+     "to": "next-steps",
+     "line": 319,
+     "target": "next-steps"
+    }
+   ]
+  },
+  {
+   "id": "too-late",
+   "title": "More than 5 working days have passed",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "The page says you can apply up to 5 working days after the due date. It doesn't say what you can do after that.",
+     "line": 322,
+     "quotes": [
+      {
+       "text": "You can submit an SCA up to 5 working days after your assessment due date.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Contact the Student Hub as soon as you can: studenthub@aut.ac.nz or 0800 288 864.",
+     "line": 324,
+     "quotes": [
+      {
+       "text": "Email: studenthub@aut.ac.nz",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "Phone: 0800 288 864",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "AUTSA advocates can also give you advice and support.",
+     "line": 327,
+     "quotes": [
+      {
+       "text": "AUT Students' Association (AUTSA) has advocates who are there to provide advice and support while you're studying at AUT.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": null,
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": true,
+   "line": 321
+  },
+  {
+   "id": "next-steps",
+   "title": "What happens next",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "Keep track of your evidence deadline.",
+     "line": 332
+    },
+    {
+     "kind": "say",
+     "text": "Applied on or before the due date: evidence within 5 working days of applying.",
+     "line": 333,
+     "quotes": [
+      {
+       "text": "You must upload your supporting evidence within 5 working days of submitting your application.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Applied after the due date: evidence within 5 working days of the original due date.",
+     "line": 335,
+     "quotes": [
+      {
+       "text": "You must upload your supporting evidence within 5 working days of the original assessment due date.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "The page doesn't say who decides, how long a decision takes, or what the possible outcomes are.",
+     "line": 337
+    },
+    {
+     "kind": "say",
+     "text": "Having trouble with the process, or feel the outcome was unfair? Contact the AUTSA advocates for advice and support.",
+     "line": 338,
+     "quotes": [
+      {
+       "text": "Contact them if you're having difficulties with the process or feel the outcome of your Special Consideration Application was unfair.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Any other questions: contact the Student Hub at studenthub@aut.ac.nz or 0800 288 864.",
+     "line": 340,
+     "quotes": [
+      {
+       "text": "Email: studenthub@aut.ac.nz",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "Phone: 0800 288 864",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": null,
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": true,
+   "line": 331
+  }
+ ],
+ "start": "start"
+}

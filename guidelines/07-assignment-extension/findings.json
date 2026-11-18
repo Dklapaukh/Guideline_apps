@@ -1,0 +1,37 @@
+{
+ "summary": {
+  "steps": 30,
+  "reachable": 30,
+  "fix": 0,
+  "check": 0,
+  "info": 4,
+  "quotes": 113,
+  "quotesExact": 113,
+  "numberLines": 2,
+  "numberLinesQuoted": 2,
+  "sourceAmounts": 1,
+  "sourceAmountsUsed": 1
+ },
+ "findings": [
+  {
+   "level": "info",
+   "step": "short-check",
+   "line": 27,
+   "message": "1 line in \"Can you get a short extension?\" has no quote from the guideline (\"You can get one only if all three of these are true:\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "next-steps",
+   "line": 332,
+   "message": "2 lines in \"What happens next\" have no quote from the guideline (\"Keep track of your evidence deadline.\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "message": "Nobody is named under \"Reviewed by:\", so the app shows \"Not reviewed\"."
+  },
+  {
+   "level": "info",
+   "message": "The saved guideline text is a web copy made by a fetch tool and may not be word-perfect, so a \"quote not found\" may be the copy's fault. Add the PDF to sources/ for exact checking."
+  }
+ ]
+}
