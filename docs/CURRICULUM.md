@@ -27,7 +27,7 @@ Add new rows as ideas come up (the owner can also ask for any guideline in a com
 | 10 | Asthma attack first aid, repeat cycles (Asthma NZ / Asthma Australia 4x4x4) | medical | 2 | built |
 | 11 | Sick leave: telling your employer and proof of sickness (Employment New Zealand) | workplace | 2 | built |
 | 12 | Tsunami: Long or Strong, Get Gone, then return (NEMA) | non-medical | 2 | built |
-| 13 | Changing a car tyre safely at the roadside (NZTA / AA) | non-medical | 2 | queued |
+| 13 | Changing a car tyre safely at the roadside (NZTA / AA) | non-medical | 2 | built |
 | 14 | Power cut: what food to keep or throw out, by hours without power (MPI) | non-medical | 3 | queued |
 | 15 | Raising a problem at work: steps from talking to mediation (Employment New Zealand) | workplace | 3 | queued |
 | 16 | Anaphylaxis action plan, adrenaline by weight, repeat after 5 minutes (ASCIA) | medical | 3 | queued |

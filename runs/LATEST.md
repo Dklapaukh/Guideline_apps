@@ -1,44 +1,37 @@
-Scheduled build run, 20 Nov 2026 (second run, 2:30 am).
+Scheduled build run, 20 Nov 2026 (third run, 6 am).
 
 Your feedback: nothing new on the design review page or on any app.
 
 Built:
-- App 12: Tsunami (NZ), from NEMA's Get Ready page (and its Sign Language and large-print versions) and the
-  Civil Defence response messages. First screen gives the action straight away: long or strong earthquake, sea
-  suddenly rising or falling, or told to evacuate? Move immediately to high ground or inland, on foot if you can,
-  and don't wait for a warning. Then one question: what is happening?
-  - Shaking now: Drop, Cover and Hold, then "was it long or strong?" (yes: Get Gone; not sure: the guidance
-    doesn't cover this, so it shows the rule and lets you choose).
-  - Sea or noises: one tap to Get Gone. Lake signs have their own screen.
-  - Official warning: evacuate now, prepare to evacuate (radio, TV, website; still waiting or cancelled),
-    beach and marine advisory (stay out of the water), or outside the zones.
-  - Boats: small boat in shallow water (ashore on foot within ten minutes, or head past 50 m depth), deep water,
-    harbour or channel. Said plainly: this is for a local tsunami.
-  - After: only go home when officials say so; stay away from the water at least 24 hours; property damage.
-- Reviewer found 3 missed instructions (the main one: how to Drop, Cover and Hold) and 15 findings, including
-  a first-screen answer ("It's over: what now?") that could skip Get Gone. All fixed in one round.
-- Scores: to fix 0, to check 0, all apps. 121 of 121 quotes exact (web copy). Tests: 25 of 25 pass.
-
-Also: this run overlapped with the 1:30 am run and built sick leave a second time. Its copy was dropped, but
-one unused duplicate page was published before the overlap was noticed (see Needs you). The run procedure now
-checks for this before starting and before publishing.
+- App 13: Flat tyre (NZ), from the NZTA Road Code (breakdowns, tyre blowouts), Drive (changing a tyre, dealing
+  with a breakdown) and two AA NZ pages (how to change a tyre, breakdown safety guide). First screen is "get safe":
+  well off the road on a straight bit, hazard lights, be seen. Then one question at a time:
+  - Where are you? Tyre blew out (I've stopped now), stopped on a motorway, or another road.
+  - Change it yourself or call for help? Call for help is first on the motorway, because the AA breakdown guide
+    says not to fix the car yourself there; both sides are shown.
+  - The change as tick boxes, in a safe order: wheels straight, handbrake, gear, engine off, everyone out on the
+    side away from traffic, block the wheels, loosen the nuts before jacking, jack, swap, lower, tighten.
+  - Which spare? A space saver gets the 80 km/h limit. Then get the flat tyre fixed.
+  - Call for help: who to ring (***555, or *555 on Drive), roadside phone, then how to wait safely.
+- Reviewer found 5 missed instructions (incl. wheels straight ahead and the emergency roadside phone) and 14
+  findings, incl. getting people out before the car was secured. All fixed in one round.
+- Scores: to fix 0, to check 0, all apps. 118 of 118 quotes exact (web copy). Tests: 26 of 26 pass.
 
 Building blocks added: none.
 
 Gaps in the guideline (each said on screen):
-- "More than a minute" (Get Ready) vs "a minute or more" (Civil Defence) for a long earthquake.
-- Stay away from the water "at least 24 hours" (Get Ready) vs "be cautious" with no time (Civil Defence).
-- Nothing on going up a tall building if you can't get out of the zone: only "go as far or as high as you can".
-- Little for people who can't walk, run or cycle; boat advice only on the Civil Defence page, nothing for boats
-  in a harbour or channel deeper than 50 m.
-- Civil Defence still points to an old Twitter account (not shown in the app).
+- No distance or placement for a warning triangle.
+- AA breakdown guide says don't fix the car yourself; the AA tyre page and Drive teach you how.
+- Nothing on changing a tyre on a motorway shoulder, or on the traffic side.
+- No tightness value for wheel nuts, no order for five nuts, no "check again later".
+- ***555 (AA) vs *555 (Drive); inside light (Road Code) vs parking lights (AA).
+- Nothing on a stuck nut, a sinking jack, a flat spare, or bright clothing.
 
 Needs you:
 - Optional: delete the unused duplicate sick leave page (https://claude.ai/artifact/QkrFs1WcJrRDvke7wBzHNP).
-  The real one is on the dashboard.
-- Optional: save the Get Ready tsunami page as a PDF into sources/, so quotes can be checked exactly. Same for
-  Employment NZ, asthma, FENZ, AUT and ANZCOR pages (still open).
+- Optional: save the AA and Drive tyre pages as PDFs into sources/ so quotes can be checked exactly (same for
+  Get Ready, Employment NZ, asthma, FENZ, AUT and ANZCOR pages; still open).
 - Try "Change the look" in any app and say which should be the default (still open).
 - Is "a few steps away from buildings" in the earthquake app clear to you? (still open)
 
-Next: guideline 13 (changing a car tyre safely at the roadside).
+Next: guideline 14 (power cut: what food to keep or throw out).

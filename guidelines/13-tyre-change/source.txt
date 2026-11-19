@@ -1,0 +1,203 @@
+Changing a car tyre safely at the roadside - New Zealand sources: NZ Transport Agency Waka Kotahi (NZTA) official New Zealand Road Code, NZTA's Drive learning site (drive.govt.nz), and AA New Zealand. Read 20 Nov 2026 (NZ time); no last-updated date shown on any page.
+Section A from https://nzta.govt.nz/roadcode/general-road-code/about-driver-responsibility/breakdowns (Road Code: breakdowns, including on a motorway).
+Section B from https://nzta2.cwp.govt.nz/roadcode/general-road-code/about-driving/hazards-and-emergencies/tips-for-handling-driving-emergencies (Road Code: tips for handling driving emergencies, read through NZTA's own nzta2.cwp.govt.nz mirror because the nzta.govt.nz copy came back empty; only the tyre blowout part and the lines that mention hazard lights captured).
+Section C from https://drive.govt.nz/restricted-licence/skills/bonus-skills/changing-a-tyre (NZTA Drive: changing a tyre, safety tips, tyre blowout).
+Section D from https://drive.govt.nz/restricted-licence/skills/bonus-skills/dealing-with-a-breakdown (NZTA Drive: dealing with a breakdown).
+Section E from https://www.aa.co.nz/cars/owners/tyres/how-to-change-a-tyre/ (AA New Zealand: how to change a car tyre; the main step-by-step how-to).
+Section F from https://www.aa.co.nz/membership/roadservice-breakdown-assistance/breakdown-safety-guide/ (AA New Zealand: breakdown safety guide, 10 steps).
+Capture method (sourceCopy web-fetch): the sites block direct download here (curl refused by the proxy), so each line was read by a fetch tool asked to quote short exact sentences (long sentences in pieces, rejoined here). Key lines (numbers, speeds, "do not", "never", "don't") were confirmed EXACT in a second, separate read. Small wording slips (for example straight vs curly apostrophes) are still possible. Navigation, video, links, "next skill" links and page furniture are left out. List numbering is as the page shows it ("-" = bullet).
+
+==================== SECTION A: NZ Road Code - breakdowns (nzta.govt.nz) ====================
+
+If your vehicle breaks down:
+- indicate and steer your vehicle to a safe place off the road
+- open the bonnet to let others know you’ve broken down and need help
+- turn on your hazard lights or use a safety triangle to warn others
+- at night, turn on the inside light
+- if you don’t have a cellphone and it’s not safe to walk, wait for help in your car
+- don’t stand in the road
+- if you need help from other drivers, leave plenty of space for them to stop.
+
+If your vehicle breaks down on a motorway:
+- indicate and steer your vehicle as far off the road as possible – don’t stop suddenly
+- lift up the bonnet and boot and, if possible, hang something white on the driver’s door handle or window to show you need help
+- turn on your hazard lights or use a safety triangle to warn approaching traffic
+- at night, turn on the inside light
+- if you don’t have a cellphone and it isn’t safe to walk, stay in your car and wait for help
+- don’t stand on the motorway.
+
+==================== SECTION B: NZ Road Code - tips for handling driving emergencies (tyre blowouts and hazard-light lines) ====================
+
+Tips for handling driving emergencies
+
+Tyre blowouts
+Tyre blowouts can be dangerous, especially if you're driving fast, because they can cause your vehicle to lose control.
+A front-tyre blowout usually causes the vehicle to pull towards the side with the blowout.
+A rear-tyre blowout usually causes the vehicle to sway from side-to-side.
+You can try to avoid having a blowout by checking your tyres regularly.
+It's important to have correct tyre pressure.
+If a tyre has a large cut or bulge, or is very worn, it needs to be replaced.
+If you do have a blowout while driving, you should:
+- grip the steering wheel tightly
+- ease off the accelerator
+- try to keep the vehicle on its path
+- signal and steer to the side of the road once you've reduced speed.
+
+[Other sections of this page, only the hazard-light lines captured:]
+Engine failure: ... put your hazard lights on once you've stopped.
+Brake failure: ... warn other road users by switching on your headlights and hazard lights and sounding your horn
+Headlight failure: ... turn your hazard lights on.
+
+==================== SECTION C: Drive (NZTA) - Changing a tyre ====================
+
+Changing a tyre
+About 2 mins to read
+A flat tyre or blow out can happen when you least expect it.
+You need to be able to change a tyre so you can carry on your journey.
+
+Where should you practise this?
+You don’t have to have a flat tyre to practise changing one.
+Do this at home so you can be confident how to change a tyre before you need to do so.
+
+How to change a tyre
+- Take out the jack, tools and spare tyre.
+- Remove the hub cap on the flat tyre if there is one.
+- Loosen the wheel nuts with the tyre tool by turning anticlockwise. But don’t remove them yet.
+- Find the lifting point under your car where the jack needs to be placed.
+- Position the jack and gently turn it until the flat tyre is off the ground.
+- Remove the wheel nuts with your tyre tool, then remove the wheel and change it over with the spare.
+- Replace the wheel nuts and tighten by hand. Then lightly tighten with the tyre tool in this sequence:
+  1. Tighten the top wheel nut first.
+  2. Then the one directly opposite it.
+  3. Tighten the nut to the left.
+  4. Then the nut to the right.
+- Lower the jack down gently until your car is firmly on the ground, then remove the jack.
+- Fully tighten the wheel nuts with your tyre tool in the same sequence as above.
+- Give the tyre a good strong shake with both hands to make sure it’s on nice and tight.
+- Replace the hub cap if there is one, and put away the flat tyre, tools and jack.
+- Don’t forget to get the flat tyre repaired as soon as you can.
+
+Safety tips for when you’re changing a tyre
+- Never get underneath the car when it’s supported by the jack.
+- Don’t start or run the engine while the car’s supported by the jack.
+- Make sure all passengers are out of the car when you’re jacking it up.
+- Only use the jack at the lifting points. Using it in other places on the car could cause damage or lead the car to slip off.
+- Only use the jack on hard level surfaces. Avoid soft or uneven ground.
+- Remember, if you fit a space saver tyre you shouldn’t go above 80km/h. They’re not meant to be used at higher speeds. You should replace a space saver tyre with a full-size tyre as soon as you can.
+
+What if you have a tyre blow out?
+If a front tyre blows out, when all the air is immediately released from the tyre, the car will pull towards the side of the blowout.
+A rear tyre blowout will cause the back of the car to sway from side to side.
+If you do get a tyre blow out:
+1. Firmly grip the steering wheel. Don’t overcorrect.
+2. Check your mirrors and do a shoulder check to make sure no one is directly behind you.
+3. Brake slowly and smoothly.
+4. Indicate and move to the left of the road.
+5. Scan ahead for a level, firm and non-slippery surface to pull over and change the tyre. Stop as far away from traffic as possible.
+6. Make sure your wheels are pointing straight ahead.
+7. Put the hand brake (or park brake) on and switch on your hazard warning lights.
+8. If your car’s an automatic, put it in park. If it’s a manual, put it in first gear if you're on the flat or facing uphill, or reverse if you're facing downhill.
+9. Turn the engine off.
+10. Make sure the road is clear and safe before you get out of your car.
+
+==================== SECTION D: Drive (NZTA) - Dealing with a breakdown ====================
+
+Dealing with a breakdown
+About 2 mins to read
+Your car can always break down, even if it’s in good condition.
+If it does, you need to keep yourself, your passengers and other road users safe.
+
+Where should you practise this?
+Try this on a quiet street with not much traffic.
+
+If your car breaks down
+- Don’t stop suddenly.
+- Indicate and steer your car as far to the left of the road as you can.
+- Choose a safe spot to stop. Look for a straight piece of road rather than a corner.
+- If possible, pull completely off the road.
+- Turn on your hazard lights and, if it’s night-time, turn on the car’s inside light.
+- Lift up the bonnet and boot.
+- Call for help. This could be whānau, friends, the AA, *555, your local garage or tow truck operator.
+- Stay with your car until help arrives.
+- If you’re on a motorway, don’t walk along the motorway.
+- Once you’ve lifted the bonnet and boot, just wait in your car if it’s safe to do so.
+
+The most important thing here is to make sure your car doesn’t become a hazard to other road users.
+You should also focus on keeping yourself and your passengers safe.
+
+==================== SECTION E: AA New Zealand - How to change a car tyre ====================
+
+How to change a car tyre
+When you get a flat tyre, it’s normally at the most inconvenient time and place.
+You could be in the dark, the rain, or on the side of the motorway.
+Watch our video and you'll be more prepared for the unexpected.
+Even if you know what you’re doing, think about safety first and if you’re an AA Member, you can always call our Roadservice team on 0800 500 222.
+
+Before you start, preparation is important
+- If you haven't changed a tyre before, consider a practice run. It’s important to try this on a flat surface for safety reasons.
+- Keep a small plastic sheet in the car to kneel on, a pair of gloves to protect your hands and a torch with spare batteries. If you don’t have a plastic sheet you can always use a floor mat instead.
+- Read the car manual.
+- Regularly check the spare tyre pressure.
+- If the car is being used by more than one driver, make sure that the tools and jack are in the right place and that they are in good working condition.
+- Always consider safety first – be seen and use the car’s hazard lights.
+- Never attempt to change a tyre if your personal safety is at risk or if the tools are missing or are in poor condition
+
+Step-by-step instructions for changing a car tyre
+1. Make sure no one is inside the vehicle.
+2. Apply the handbrake and put the vehicle in park (if automatic) or in gear (if manual).
+3. Block the wheels on the side not being lifted.
+4. Remove the hub cap or wheel cover if fitted. Some vehicles (mostly 4WDs) will have a centre cover – remove this to make the wheel nuts accessible.
+5. Loosen the wheel nuts with the wheel wrench while the vehicle is on the ground. Do not remove them at this point.
+6. If the nuts are too tight to loosen by hand, apply pressure to the wheel wrench with your foot, ensuring that it’s in a horizontal position for your own safety. Here’s another tip – Lefty loosey, righty tighty!
+7. Place the jack underneath the jacking point of your vehicle on firm flat ground and slowly raise the vehicle. Refer to your car manual if you’re unsure of the jacking point location.
+8. Remove the nuts and wheel, pulling the wheel towards you with both hands.
+9. Lift the spare tyre into place. If using a space saver, it’s important to note that this is a temporary tyre [-] it’s not intended to be driven long distances or at speeds over 80km/h.
+10. Replace all wheel nuts, making sure these go on the right way - taper towards the wheel and tighten snugly.
+11. Lower the vehicle and tighten the wheel nuts using your wheel wrench. Again, you can stand on the wrench handle if needed.
+12. Refit the hubcap, wheel cover or centre cover.
+13. Take the punctured wheel to a tyre shop for repair or replacement.
+Tip: When finished, you can also use the plastic sheet that you kneel on to protect your boot from the flat dirty tyre.
+[Step 9: the fetch tool gave "this is a temporary tyre" and "it’s not intended ..." as two pieces; the joining punctuation is not known.]
+
+Changing tyres on tricky car models
+Some models do not have studs extending from the hub to hang the wheel on.
+Instead, their wheels have centring flanges with small pins which help you to position the wheel.
+Lifting the wheel onto this lines it up perfectly but it helps if there are two of you [-] one person to manoeuvre the wheel, and the other to guide you.
+To prevent theft, many alloy wheels have locking nuts which won't fit a standard socket or wheel brace.
+When buying a car with alloys, check its wheel brace or socket matches the alloy’s locking nuts.
+
+Fitting a heavy wheel
+We recommend two pairs of hands as this is quite a tricky job.
+If you're in doubt, it may be wise to get some expert help from our AA Roadservice team.
+1. Follow previous steps 1-8.
+2. Roll the wheel close to the hub.
+3. While one person lifts the tyre, the other should help centre it onto the wheel studs and loosely fit a wheel nut to keep the tyre in place. It helps if you haven't jacked the car up too far.
+4. Replace all wheel nuts, making sure these go on the right way - taper towards the wheel and tighten snugly.
+5. Lower the vehicle and tighten the wheel nuts using your wheel wrench. Again, you can stand on the wrench handle if needed.
+6. Refit the hubcap, wheel cover or centre cover.
+7. Take the punctured wheel to a tyre shop for repair or replacement.
+
+==================== SECTION F: AA New Zealand - Breakdown safety guide ====================
+
+Breakdown safety guide
+It’s best to be prepared and know what to do if you break down on a busy motorway or in another dangerous situation.
+Here are some tips to keep you and your passengers as safe as possible.
+We all hope we never experience breaking down, but it does happen.
+Maintaining our vehicles and ensuring our vehicles are in the best possible condition is important to reduce the likelihood of a breakdown, but these measures won't always prevent it.
+Keep these tips in your glovebox so they're on hand if ever you need them.
+
+10 steps to keep you safe if your vehicle breaks down
+- Park your vehicle as far to the left-hand side of the road as possible
+- Turn on hazard lights
+- If it's dark, raining or foggy, turn on your vehicle’s parking lights
+- If it’s safer to remain in the vehicle, ensure all occupants sit in seats as far from traffic as they can and fasten their seatbelts
+- If you feel it's safer for you and your passengers outside of the vehicle, ensure you:
+  1. leave the vehicle from the passenger side away from traffic (usually the passenger door)
+  2. take all passengers with you
+  3. find a safe area away from the road or behind a roadside barrier
+- If your life is at immediate risk call 111; if there is danger but not life threatening, call ***555 to inform Police
+- AA Members can call ***222 from their mobile phone for AA Roadservice assistance [-] request an AA Roadservice callout on the AA (NZ) App, or use an emergency roadside phone if available
+- Wait for AA Roadservice; do not attempt to fix the vehicle yourself
+- Do not approach the AA Roadservice vehicle when it arrives [-] stay in your vehicle or in the safe area you have moved to and wait for the service officer to approach you
+- Follow AA Roadservice instructions.
+[The fetch tool split the 111/***555, ***222 and Roadservice-vehicle bullets into two pieces each; whether they are one bullet or two, and the joining punctuation ([-]), is not certain. The page links a "Glovebox safety guide" PDF (aa.co.nz), not captured.]

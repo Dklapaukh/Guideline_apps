@@ -1,0 +1,1494 @@
+{
+ "title": "Flat Tyre: Get Safe, Then Change It",
+ "about": "Helps you deal with a flat or blown-out car tyre at the roadside: get safe first, decide whether to change it yourself or call for help, then change it step by step.",
+ "sources": [
+  {
+   "name": "AA New Zealand, How to change a car tyre",
+   "link": "https://www.aa.co.nz/cars/owners/tyres/how-to-change-a-tyre/"
+  },
+  {
+   "name": "AA New Zealand, Breakdown safety guide",
+   "link": "https://www.aa.co.nz/membership/roadservice-breakdown-assistance/breakdown-safety-guide/"
+  },
+  {
+   "name": "NZ Transport Agency Waka Kotahi, Road Code: breakdowns",
+   "link": "https://nzta.govt.nz/roadcode/general-road-code/about-driver-responsibility/breakdowns"
+  },
+  {
+   "name": "NZ Transport Agency Waka Kotahi, Road Code: tips for handling driving emergencies",
+   "link": "https://nzta2.cwp.govt.nz/roadcode/general-road-code/about-driving/hazards-and-emergencies/tips-for-handling-driving-emergencies"
+  },
+  {
+   "name": "NZTA Drive, Changing a tyre",
+   "link": "https://drive.govt.nz/restricted-licence/skills/bonus-skills/changing-a-tyre"
+  },
+  {
+   "name": "NZTA Drive, Dealing with a breakdown",
+   "link": "https://drive.govt.nz/restricted-licence/skills/bonus-skills/dealing-with-a-breakdown"
+  }
+ ],
+ "warning": "Stop somewhere safe before you read this. If you don't feel safe changing the tyre, call for help instead.",
+ "audience": "Any driver or passenger in New Zealand with a flat or blown-out tyre at the roadside",
+ "reviewedBy": "",
+ "version": "AA New Zealand 'How to change a car tyre' and 'Breakdown safety guide' pages; NZ Transport Agency Waka Kotahi Road Code pages 'If your vehicle breaks down' and 'Tips for handling driving emergencies' (tyre blowouts, read via NZTA's nzta2.cwp.govt.nz mirror); NZTA Drive pages 'Changing a tyre' and 'Dealing with a breakdown' (drive.govt.nz restricted-licence bonus skills); all read 20 Nov 2026 NZ time, no last-updated or review date shown on any page",
+ "brand": {
+  "name": "",
+  "colour": ""
+ },
+ "look": "",
+ "inputs": [],
+ "tables": [],
+ "steps": [
+  {
+   "id": "start",
+   "title": "Get safe first",
+   "lines": [
+    {
+     "kind": "warning",
+     "text": "Check you are in a safe spot: as far left as you can, off the road if possible, on a straight piece of road. Still driving? Don't stop suddenly, and don't read this until you've stopped.",
+     "line": 21,
+     "quotes": [
+      {
+       "text": "Don’t stop suddenly.",
+       "where": "Drive, breakdown",
+       "check": "exact"
+      },
+      {
+       "text": "Indicate and steer your car as far to the left of the road as you can.",
+       "where": "Drive, breakdown",
+       "check": "exact"
+      },
+      {
+       "text": "If possible, pull completely off the road.",
+       "where": "Drive, breakdown",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Not a safe spot? When it's clear, move to a straight piece of road, not a corner, with a level, firm and non-slippery surface.",
+     "line": 25,
+     "quotes": [
+      {
+       "text": "Look for a straight piece of road rather than a corner.",
+       "where": "Drive, breakdown",
+       "check": "exact"
+      },
+      {
+       "text": "Scan ahead for a level, firm and non-slippery surface to pull over and change the tyre.",
+       "where": "Drive, blowout",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Turn on your hazard lights. At night, turn on the inside light. (The AA says parking lights if it's dark, raining or foggy.)",
+     "line": 28,
+     "quotes": [
+      {
+       "text": "Turn on your hazard lights and, if it’s night-time, turn on the car’s inside light.",
+       "where": "Drive, breakdown",
+       "check": "exact"
+      },
+      {
+       "text": "If it's dark, raining or foggy, turn on your vehicle’s parking lights",
+       "where": "AA breakdown guide",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Be seen. The sources don't mention bright or reflective clothing.",
+     "line": 31,
+     "quotes": [
+      {
+       "text": "Always consider safety first – be seen and use the car’s hazard lights.",
+       "where": "AA tyre how-to",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "The Road Code says you can use a safety triangle instead of hazard lights. No source says how far away to put it.",
+     "line": 33,
+     "quotes": [
+      {
+       "text": "turn on your hazard lights or use a safety triangle to warn others",
+       "where": "Road Code",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Make sure the road is clear before you get out. Don't stand in the road.",
+     "line": 35,
+     "quotes": [
+      {
+       "text": "Make sure the road is clear and safe before you get out of your car.",
+       "where": "Drive, blowout",
+       "check": "exact"
+      },
+      {
+       "text": "don’t stand in the road",
+       "where": "Road Code",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "Where are you?",
+    "options": [
+     {
+      "label": "My tyre blew out (I've stopped now)",
+      "to": "blowout",
+      "line": 39,
+      "target": "blowout"
+     },
+     {
+      "label": "Stopped on a motorway",
+      "to": "motorway",
+      "line": 40,
+      "target": "motorway"
+     },
+     {
+      "label": "Stopped on another road",
+      "to": "decide",
+      "line": 41,
+      "target": "decide"
+     }
+    ],
+    "line": 38
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 20
+  },
+  {
+   "id": "blowout",
+   "title": "Tyre blew out: now you've stopped",
+   "lines": [
+    {
+     "kind": "do",
+     "text": "Make sure your wheels are pointing straight ahead.",
+     "line": 44,
+     "quotes": [
+      {
+       "text": "Make sure your wheels are pointing straight ahead.",
+       "where": "Drive, blowout",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Put the hand brake (or park brake) on and switch on your hazard warning lights.",
+     "line": 46,
+     "quotes": [
+      {
+       "text": "Put the hand brake (or park brake) on and switch on your hazard warning lights.",
+       "where": "Drive, blowout",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Turn the engine off.",
+     "line": 48,
+     "quotes": [
+      {
+       "text": "Turn the engine off.",
+       "where": "Drive, blowout",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Make sure the road is clear and safe before you get out.",
+     "line": 50,
+     "quotes": [
+      {
+       "text": "Make sure the road is clear and safe before you get out of your car.",
+       "where": "Drive, blowout",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "What to do if it happens again while driving (read this later, not now):",
+     "line": 52
+    },
+    {
+     "kind": "say",
+     "text": "Grip the steering wheel firmly. Don't overcorrect.",
+     "line": 53,
+     "quotes": [
+      {
+       "text": "Firmly grip the steering wheel. Don’t overcorrect.",
+       "where": "Drive, blowout",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Check your mirrors and do a shoulder check. Then brake slowly and smoothly. (The Road Code says ease off the accelerator.)",
+     "line": 55,
+     "quotes": [
+      {
+       "text": "Check your mirrors and do a shoulder check to make sure no one is directly behind you.",
+       "where": "Drive, blowout",
+       "check": "exact"
+      },
+      {
+       "text": "Brake slowly and smoothly.",
+       "where": "Drive, blowout",
+       "check": "exact"
+      },
+      {
+       "text": "ease off the accelerator",
+       "where": "Road Code, blowouts",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Try to keep the car on its path. Once you've slowed down, indicate and move to the left. Stop as far away from traffic as you can, on a level, firm, non-slippery surface.",
+     "line": 59,
+     "quotes": [
+      {
+       "text": "try to keep the vehicle on its path",
+       "where": "Road Code, blowouts",
+       "check": "exact"
+      },
+      {
+       "text": "signal and steer to the side of the road once you've reduced speed.",
+       "where": "Road Code, blowouts",
+       "check": "exact"
+      },
+      {
+       "text": "Indicate and move to the left of the road.",
+       "where": "Drive, blowout",
+       "check": "exact"
+      },
+      {
+       "text": "Stop as far away from traffic as possible.",
+       "where": "Drive, blowout",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "Where did you stop?",
+    "options": [
+     {
+      "label": "On a motorway",
+      "to": "motorway",
+      "line": 65,
+      "target": "motorway"
+     },
+     {
+      "label": "On another road",
+      "to": "decide",
+      "line": 66,
+      "target": "decide"
+     }
+    ],
+    "line": 64
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 43
+  },
+  {
+   "id": "motorway",
+   "title": "Stopped on a motorway",
+   "lines": [
+    {
+     "kind": "warning",
+     "text": "Don't stand on the motorway, and don't walk along it.",
+     "line": 69,
+     "quotes": [
+      {
+       "text": "don’t stand on the motorway.",
+       "where": "Road Code, motorway",
+       "check": "exact"
+      },
+      {
+       "text": "If you’re on a motorway, don’t walk along the motorway.",
+       "where": "Drive, breakdown",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Get as far off the road as possible. Turn on your hazard lights.",
+     "line": 72,
+     "quotes": [
+      {
+       "text": "indicate and steer your vehicle as far off the road as possible",
+       "where": "Road Code, motorway",
+       "check": "exact"
+      },
+      {
+       "text": "turn on your hazard lights or use a safety triangle to warn approaching traffic",
+       "where": "Road Code, motorway",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Lift the bonnet and boot. If you can, hang something white on the driver's door handle or window to show you need help.",
+     "line": 75,
+     "quotes": [
+      {
+       "text": "lift up the bonnet and boot and, if possible, hang something white on the driver’s door handle or window to show you need help",
+       "where": "Road Code, motorway",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "warning",
+     "text": "No source says whether it is safe to change a tyre beside a motorway. The AA breakdown guide says wait for help and don't fix the car yourself. If in doubt, call for help.",
+     "line": 77,
+     "quotes": [
+      {
+       "text": "Wait for AA Roadservice; do not attempt to fix the vehicle yourself",
+       "where": "AA breakdown guide",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "What will you do?",
+    "options": [
+     {
+      "label": "Call for help",
+      "to": "call-help",
+      "line": 80,
+      "target": "call-help"
+     },
+     {
+      "label": "Think about changing it myself",
+      "to": "decide",
+      "line": 81,
+      "target": "decide"
+     }
+    ],
+    "line": 79
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 68
+  },
+  {
+   "id": "decide",
+   "title": "Change it yourself, or call for help?",
+   "lines": [
+    {
+     "kind": "warning",
+     "text": "Never try to change a tyre if your personal safety is at risk, or if the tools are missing or in poor condition.",
+     "line": 84,
+     "quotes": [
+      {
+       "text": "Never attempt to change a tyre if your personal safety is at risk or if the tools are missing or are in poor condition",
+       "where": "AA tyre how-to",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "You need a jack, a wheel brace (wrench) and a spare tyre.",
+     "line": 86,
+     "quotes": [
+      {
+       "text": "Take out the jack, tools and spare tyre.",
+       "where": "Drive, changing a tyre",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "The sources differ here: the AA tyre page and Drive show you how to change it yourself; the AA breakdown guide says wait for help and don't fix the car yourself. If you're unsure, call for help.",
+     "line": 88,
+     "quotes": [
+      {
+       "text": "You need to be able to change a tyre so you can carry on your journey.",
+       "where": "Drive, changing a tyre",
+       "check": "exact"
+      },
+      {
+       "text": "Wait for AA Roadservice; do not attempt to fix the vehicle yourself",
+       "where": "AA breakdown guide",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "What will you do?",
+    "options": [
+     {
+      "label": "Change it myself: I have a spare and tools",
+      "to": "prepare",
+      "line": 92,
+      "target": "prepare"
+     },
+     {
+      "label": "Call for help",
+      "to": "call-help",
+      "line": 93,
+      "target": "call-help"
+     },
+     {
+      "label": "No usable spare, or tools missing",
+      "to": "call-help",
+      "line": 94,
+      "target": "call-help"
+     }
+    ],
+    "line": 91
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 83
+  },
+  {
+   "id": "call-help",
+   "title": "Call for help",
+   "lines": [
+    {
+     "kind": "warning",
+     "text": "If your life is at immediate risk, call 111.",
+     "line": 97,
+     "quotes": [
+      {
+       "text": "If your life is at immediate risk call 111",
+       "where": "AA breakdown guide",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Danger but not life-threatening: call ***555 to tell the Police. (Drive writes this number as *555.)",
+     "line": 99,
+     "quotes": [
+      {
+       "text": "if there is danger but not life threatening, call ***555 to inform Police",
+       "where": "AA breakdown guide",
+       "check": "exact"
+      },
+      {
+       "text": "This could be whānau, friends, the AA, *555, your local garage or tow truck operator.",
+       "where": "Drive, breakdown",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "AA Members: call ***222 from your mobile, or 0800 500 222, or use the AA (NZ) App, or use an emergency roadside phone if there is one. You could also call whānau, friends, your local garage or a tow truck operator.",
+     "line": 102,
+     "quotes": [
+      {
+       "text": "AA Members can call ***222 from their mobile phone for AA Roadservice assistance",
+       "where": "AA breakdown guide",
+       "check": "exact"
+      },
+      {
+       "text": "you can always call our Roadservice team on 0800 500 222.",
+       "where": "AA tyre how-to",
+       "check": "exact"
+      },
+      {
+       "text": "request an AA Roadservice callout on the AA (NZ) App, or use an emergency roadside phone if available",
+       "where": "AA breakdown guide",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Lift the bonnet and boot to show you need help.",
+     "line": 106,
+     "quotes": [
+      {
+       "text": "Lift up the bonnet and boot.",
+       "where": "Drive, breakdown",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "If you need help from other drivers, leave plenty of space for them to stop.",
+     "line": 108,
+     "quotes": [
+      {
+       "text": "if you need help from other drivers, leave plenty of space for them to stop.",
+       "where": "Road Code",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": null,
+   "next": {
+    "to": "wait-help",
+    "line": 110,
+    "target": "wait-help"
+   },
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 96,
+   "nexts": [
+    {
+     "to": "wait-help",
+     "line": 110,
+     "target": "wait-help"
+    }
+   ]
+  },
+  {
+   "id": "wait-help",
+   "title": "Wait safely for help",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "Stay with your car until help arrives. Wait in the car if it's safe to do so.",
+     "line": 113,
+     "quotes": [
+      {
+       "text": "Stay with your car until help arrives.",
+       "where": "Drive, breakdown",
+       "check": "exact"
+      },
+      {
+       "text": "Once you’ve lifted the bonnet and boot, just wait in your car if it’s safe to do so.",
+       "where": "Drive, breakdown",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "No cellphone, and not safe to walk? Wait for help in your car.",
+     "line": 116,
+     "quotes": [
+      {
+       "text": "if you don’t have a cellphone and it’s not safe to walk, wait for help in your car",
+       "where": "Road Code",
+       "check": "exact"
+      },
+      {
+       "text": "if you don’t have a cellphone and it isn’t safe to walk, stay in your car and wait for help",
+       "where": "Road Code, motorway",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Staying in the car: everyone sits as far from traffic as they can, seatbelts on.",
+     "line": 119,
+     "quotes": [
+      {
+       "text": "If it’s safer to remain in the vehicle, ensure all occupants sit in seats as far from traffic as they can and fasten their seatbelts",
+       "where": "AA breakdown guide",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Safer outside: get out on the side away from traffic, take everyone with you, and wait away from the road or behind a roadside barrier.",
+     "line": 121,
+     "quotes": [
+      {
+       "text": "leave the vehicle from the passenger side away from traffic (usually the passenger door)",
+       "where": "AA breakdown guide",
+       "check": "exact"
+      },
+      {
+       "text": "take all passengers with you",
+       "where": "AA breakdown guide",
+       "check": "exact"
+      },
+      {
+       "text": "find a safe area away from the road or behind a roadside barrier",
+       "where": "AA breakdown guide",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Don't walk up to the Roadservice vehicle when it arrives. Wait for the service officer to come to you, and follow their instructions.",
+     "line": 125,
+     "quotes": [
+      {
+       "text": "Do not approach the AA Roadservice vehicle when it arrives",
+       "where": "AA breakdown guide",
+       "check": "exact"
+      },
+      {
+       "text": "wait for the service officer to approach you",
+       "where": "AA breakdown guide",
+       "check": "exact"
+      },
+      {
+       "text": "Follow AA Roadservice instructions.",
+       "where": "AA breakdown guide",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Wait safely for help to arrive.",
+     "line": 129
+    }
+   ],
+   "ask": null,
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": true,
+   "line": 112
+  },
+  {
+   "id": "prepare",
+   "title": "Get the car ready",
+   "lines": [
+    {
+     "kind": "do",
+     "text": "Make sure your wheels are pointing straight ahead.",
+     "line": 132,
+     "quotes": [
+      {
+       "text": "Make sure your wheels are pointing straight ahead.",
+       "where": "Drive, blowout",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Put the handbrake on.",
+     "line": 134,
+     "quotes": [
+      {
+       "text": "Apply the handbrake",
+       "where": "AA tyre how-to, step 2",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Automatic: put it in park. Manual: put it in gear (Drive says first gear on the flat or facing uphill, reverse facing downhill).",
+     "line": 136,
+     "quotes": [
+      {
+       "text": "put the vehicle in park (if automatic) or in gear (if manual).",
+       "where": "AA tyre how-to, step 2",
+       "check": "exact"
+      },
+      {
+       "text": "If it’s a manual, put it in first gear if you're on the flat or facing uphill, or reverse if you're facing downhill.",
+       "where": "Drive, blowout",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Turn the engine off.",
+     "line": 139,
+     "quotes": [
+      {
+       "text": "Turn the engine off.",
+       "where": "Drive, blowout",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Get everyone out of the car, on the side away from traffic, once the road is clear.",
+     "line": 141,
+     "quotes": [
+      {
+       "text": "Make sure no one is inside the vehicle.",
+       "where": "AA tyre how-to, step 1",
+       "check": "exact"
+      },
+      {
+       "text": "Make sure all passengers are out of the car when you’re jacking it up.",
+       "where": "Drive, safety tips",
+       "check": "exact"
+      },
+      {
+       "text": "leave the vehicle from the passenger side away from traffic (usually the passenger door)",
+       "where": "AA breakdown guide",
+       "check": "exact"
+      },
+      {
+       "text": "Make sure the road is clear and safe before you get out of your car.",
+       "where": "Drive, blowout",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "No source says where passengers should wait while you change the tyre. The AA breakdown guide's advice for waiting outside: find a safe area away from the road or behind a roadside barrier.",
+     "line": 146,
+     "quotes": [
+      {
+       "text": "find a safe area away from the road or behind a roadside barrier",
+       "where": "AA breakdown guide",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Block the wheels on the side not being lifted. (The sources don't say what to block them with.)",
+     "line": 148,
+     "quotes": [
+      {
+       "text": "Block the wheels on the side not being lifted.",
+       "where": "AA tyre how-to, step 3",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Take out the jack, tools and spare tyre.",
+     "line": 150,
+     "quotes": [
+      {
+       "text": "Take out the jack, tools and spare tyre.",
+       "where": "Drive, changing a tyre",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Handy if you have them: a plastic sheet or floor mat to kneel on, gloves, and a torch.",
+     "line": 152,
+     "quotes": [
+      {
+       "text": "Keep a small plastic sheet in the car to kneel on, a pair of gloves to protect your hands and a torch with spare batteries.",
+       "where": "AA tyre how-to",
+       "check": "exact"
+      },
+      {
+       "text": "If you don’t have a plastic sheet you can always use a floor mat instead.",
+       "where": "AA tyre how-to",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": null,
+   "next": {
+    "to": "loosen",
+    "line": 155,
+    "target": "loosen"
+   },
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 131,
+   "nexts": [
+    {
+     "to": "loosen",
+     "line": 155,
+     "target": "loosen"
+    }
+   ]
+  },
+  {
+   "id": "loosen",
+   "title": "Loosen the nuts (car still on the ground)",
+   "lines": [
+    {
+     "kind": "do",
+     "text": "Take off the hub cap or wheel cover, if there is one. Some 4WDs have a centre cover: remove it to reach the nuts.",
+     "line": 158,
+     "quotes": [
+      {
+       "text": "Remove the hub cap or wheel cover if fitted.",
+       "where": "AA tyre how-to, step 4",
+       "check": "exact"
+      },
+      {
+       "text": "Some vehicles (mostly 4WDs) will have a centre cover – remove this to make the wheel nuts accessible.",
+       "where": "AA tyre how-to, step 4",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Loosen the wheel nuts by turning anticlockwise, while the car is on the ground. Don't take them off yet.",
+     "line": 161,
+     "quotes": [
+      {
+       "text": "Loosen the wheel nuts with the wheel wrench while the vehicle is on the ground. Do not remove them at this point.",
+       "where": "AA tyre how-to, step 5",
+       "check": "exact"
+      },
+      {
+       "text": "Loosen the wheel nuts with the tyre tool by turning anticlockwise. But don’t remove them yet.",
+       "where": "Drive, changing a tyre",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Too tight? Press the wrench with your foot, keeping the wrench horizontal for your safety. Lefty loosey, righty tighty!",
+     "line": 164,
+     "quotes": [
+      {
+       "text": "If the nuts are too tight to loosen by hand, apply pressure to the wheel wrench with your foot, ensuring that it’s in a horizontal position for your own safety.",
+       "where": "AA tyre how-to, step 6",
+       "check": "exact"
+      },
+      {
+       "text": "Lefty loosey, righty tighty!",
+       "where": "AA tyre how-to, step 6",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "The sources don't say what to do if a nut still won't move. If you're in doubt, get expert help.",
+     "line": 167,
+     "quotes": [
+      {
+       "text": "If you're in doubt, it may be wise to get some expert help from our AA Roadservice team.",
+       "where": "AA tyre how-to",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Alloy wheels may have locking nuts that won't fit a standard wheel brace.",
+     "line": 169,
+     "quotes": [
+      {
+       "text": "To prevent theft, many alloy wheels have locking nuts which won't fit a standard socket or wheel brace.",
+       "where": "AA tyre how-to",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "warning",
+     "text": "The sources don't say what to do if the wheel is on the traffic side. Don't stand in the road. If your safety is at risk, stop and call for help.",
+     "line": 171,
+     "quotes": [
+      {
+       "text": "don’t stand in the road",
+       "where": "Road Code",
+       "check": "exact"
+      },
+      {
+       "text": "Never attempt to change a tyre if your personal safety is at risk",
+       "where": "AA tyre how-to",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "Are the nuts loose?",
+    "options": [
+     {
+      "label": "Yes, all loosened",
+      "to": "jack",
+      "line": 175,
+      "target": "jack"
+     },
+     {
+      "label": "A nut won't move, or it isn't safe: get help",
+      "to": "call-help",
+      "line": 176,
+      "target": "call-help"
+     }
+    ],
+    "line": 174
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 157
+  },
+  {
+   "id": "jack",
+   "title": "Jack up the car",
+   "lines": [
+    {
+     "kind": "warning",
+     "text": "Never get under the car while it's on the jack. Don't start or run the engine while it's on the jack.",
+     "line": 179,
+     "quotes": [
+      {
+       "text": "Never get underneath the car when it’s supported by the jack.",
+       "where": "Drive, safety tips",
+       "check": "exact"
+      },
+      {
+       "text": "Don’t start or run the engine while the car’s supported by the jack.",
+       "where": "Drive, safety tips",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Find the jacking point under the car. Not sure where it is? Check your car manual.",
+     "line": 182,
+     "quotes": [
+      {
+       "text": "Find the lifting point under your car where the jack needs to be placed.",
+       "where": "Drive, changing a tyre",
+       "check": "exact"
+      },
+      {
+       "text": "Refer to your car manual if you’re unsure of the jacking point location.",
+       "where": "AA tyre how-to, step 7",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "warning",
+     "text": "Only use the jack at the lifting points. Anywhere else could cause damage or make the car slip off.",
+     "line": 185,
+     "quotes": [
+      {
+       "text": "Only use the jack at the lifting points. Using it in other places on the car could cause damage or lead the car to slip off.",
+       "where": "Drive, safety tips",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Only use the jack on hard, level ground. Avoid soft or uneven ground.",
+     "line": 187,
+     "quotes": [
+      {
+       "text": "Only use the jack on hard level surfaces. Avoid soft or uneven ground.",
+       "where": "Drive, changing a tyre",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Place the jack on firm, flat ground and raise the car slowly until the flat tyre is off the ground.",
+     "line": 189,
+     "quotes": [
+      {
+       "text": "Place the jack underneath the jacking point of your vehicle on firm flat ground and slowly raise the vehicle.",
+       "where": "AA tyre how-to, step 7",
+       "check": "exact"
+      },
+      {
+       "text": "Position the jack and gently turn it until the flat tyre is off the ground.",
+       "where": "Drive, changing a tyre",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Heavy wheel? It helps not to jack the car up too far.",
+     "line": 192,
+     "quotes": [
+      {
+       "text": "It helps if you haven't jacked the car up too far.",
+       "where": "AA tyre how-to, heavy wheel",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "The sources don't say what to do if the jack sinks or tilts. If you're in doubt, get expert help.",
+     "line": 194,
+     "quotes": [
+      {
+       "text": "If you're in doubt, it may be wise to get some expert help from our AA Roadservice team.",
+       "where": "AA tyre how-to",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": null,
+   "next": {
+    "to": "swap",
+    "line": 196,
+    "target": "swap"
+   },
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 178,
+   "nexts": [
+    {
+     "to": "swap",
+     "line": 196,
+     "target": "swap"
+    }
+   ]
+  },
+  {
+   "id": "swap",
+   "title": "Swap the wheel",
+   "lines": [
+    {
+     "kind": "do",
+     "text": "Take off the nuts and the wheel, pulling the wheel towards you with both hands.",
+     "line": 199,
+     "quotes": [
+      {
+       "text": "Remove the nuts and wheel, pulling the wheel towards you with both hands.",
+       "where": "AA tyre how-to, step 8",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Lift the spare into place.",
+     "line": 201,
+     "quotes": [
+      {
+       "text": "Lift the spare tyre into place.",
+       "where": "AA tyre how-to, step 9",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "For a heavy wheel the AA recommends two people: roll it close to the hub. One person lifts; the other centres it on the studs and loosely fits one nut to hold it.",
+     "line": 203,
+     "quotes": [
+      {
+       "text": "We recommend two pairs of hands as this is quite a tricky job.",
+       "where": "AA tyre how-to",
+       "check": "exact"
+      },
+      {
+       "text": "Roll the wheel close to the hub.",
+       "where": "AA tyre how-to, heavy wheel",
+       "check": "exact"
+      },
+      {
+       "text": "While one person lifts the tyre, the other should help centre it onto the wheel studs and loosely fit a wheel nut to keep the tyre in place.",
+       "where": "AA tyre how-to, heavy wheel",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "No studs to hang the wheel on? Some cars have small pins to line it up instead. Two people helps.",
+     "line": 207,
+     "quotes": [
+      {
+       "text": "Some models do not have studs extending from the hub to hang the wheel on.",
+       "where": "AA tyre how-to, tricky models",
+       "check": "exact"
+      },
+      {
+       "text": "Instead, their wheels have centring flanges with small pins which help you to position the wheel.",
+       "where": "AA tyre how-to, tricky models",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Put all the nuts back on the right way round (taper towards the wheel) and tighten them by hand.",
+     "line": 210,
+     "quotes": [
+      {
+       "text": "Replace all wheel nuts, making sure these go on the right way - taper towards the wheel and tighten snugly.",
+       "where": "AA tyre how-to, step 10",
+       "check": "exact"
+      },
+      {
+       "text": "Replace the wheel nuts and tighten by hand.",
+       "where": "Drive, changing a tyre",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Lightly tighten with the wheel brace in this order: top nut, then the one opposite, then the nut to the left, then the nut to the right.",
+     "line": 213,
+     "quotes": [
+      {
+       "text": "Then lightly tighten with the tyre tool in this sequence:",
+       "where": "Drive, changing a tyre",
+       "check": "exact"
+      },
+      {
+       "text": "Tighten the top wheel nut first.",
+       "where": "Drive, changing a tyre",
+       "check": "exact"
+      },
+      {
+       "text": "Then the one directly opposite it.",
+       "where": "Drive, changing a tyre",
+       "check": "exact"
+      },
+      {
+       "text": "Tighten the nut to the left.",
+       "where": "Drive, changing a tyre",
+       "check": "exact"
+      },
+      {
+       "text": "Then the nut to the right.",
+       "where": "Drive, changing a tyre",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "This order is from Drive; the sources don't give an order for wheels with five nuts.",
+     "line": 219
+    },
+    {
+     "kind": "say",
+     "text": "The sources don't say what to do if the spare is flat or won't fit. If you're in doubt, get expert help.",
+     "line": 220,
+     "quotes": [
+      {
+       "text": "If you're in doubt, it may be wise to get some expert help from our AA Roadservice team.",
+       "where": "AA tyre how-to",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "Is the spare on?",
+    "options": [
+     {
+      "label": "Yes, nuts on and lightly tightened",
+      "to": "lower",
+      "line": 223,
+      "target": "lower"
+     },
+     {
+      "label": "Spare is flat or won't fit: get help",
+      "to": "call-help",
+      "line": 224,
+      "target": "call-help"
+     }
+    ],
+    "line": 222
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 198
+  },
+  {
+   "id": "lower",
+   "title": "Lower the car and tighten",
+   "lines": [
+    {
+     "kind": "do",
+     "text": "Lower the jack gently until the car is firmly on the ground, then take the jack away.",
+     "line": 227,
+     "quotes": [
+      {
+       "text": "Lower the jack down gently until your car is firmly on the ground, then remove the jack.",
+       "where": "Drive, changing a tyre",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Fully tighten the nuts in the same order: top, opposite, left, right. You can stand on the wrench handle if needed.",
+     "line": 229,
+     "quotes": [
+      {
+       "text": "Fully tighten the wheel nuts with your tyre tool in the same sequence as above.",
+       "where": "Drive, changing a tyre",
+       "check": "exact"
+      },
+      {
+       "text": "Again, you can stand on the wrench handle if needed.",
+       "where": "AA tyre how-to, step 11",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "The sources don't say how tight is tight enough, or whether to check the nuts again later. Your car manual may say.",
+     "line": 232,
+     "quotes": [
+      {
+       "text": "Read the car manual.",
+       "where": "AA tyre how-to",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Give the wheel a good strong shake with both hands to make sure it's on tight.",
+     "line": 234,
+     "quotes": [
+      {
+       "text": "Give the tyre a good strong shake with both hands to make sure it’s on nice and tight.",
+       "where": "Drive, changing a tyre",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Put the hub cap or cover back, and put away the flat tyre, tools and jack.",
+     "line": 236,
+     "quotes": [
+      {
+       "text": "Refit the hubcap, wheel cover or centre cover.",
+       "where": "AA tyre how-to, step 12",
+       "check": "exact"
+      },
+      {
+       "text": "Replace the hub cap if there is one, and put away the flat tyre, tools and jack.",
+       "where": "Drive, changing a tyre",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Tip: the plastic sheet you knelt on can protect your boot from the dirty tyre.",
+     "line": 239,
+     "quotes": [
+      {
+       "text": "When finished, you can also use the plastic sheet that you kneel on to protect your boot from the flat dirty tyre.",
+       "where": "AA tyre how-to",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "Which spare did you fit?",
+    "options": [
+     {
+      "label": "A space saver (thin temporary spare)",
+      "to": "space-saver",
+      "line": 242,
+      "target": "space-saver"
+     },
+     {
+      "label": "A full-size tyre",
+      "to": "fix-tyre",
+      "line": 243,
+      "target": "fix-tyre"
+     },
+     {
+      "label": "Not sure",
+      "to": "space-saver",
+      "line": 244,
+      "target": "space-saver"
+     }
+    ],
+    "line": 241
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 226
+  },
+  {
+   "id": "space-saver",
+   "title": "Driving on a space saver",
+   "lines": [
+    {
+     "kind": "warning",
+     "text": "Don't go above 80km/h on a space saver.",
+     "line": 247,
+     "quotes": [
+      {
+       "text": "Remember, if you fit a space saver tyre you shouldn’t go above 80km/h.",
+       "where": "Drive, safety tips",
+       "check": "exact"
+      },
+      {
+       "text": "it’s not intended to be driven long distances or at speeds over 80km/h.",
+       "where": "AA tyre how-to, step 9",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "It's a temporary tyre, not for long distances (the sources don't say how far). Replace it with a full-size tyre as soon as you can.",
+     "line": 250,
+     "quotes": [
+      {
+       "text": "it’s important to note that this is a temporary tyre",
+       "where": "AA tyre how-to, step 9",
+       "check": "exact"
+      },
+      {
+       "text": "You should replace a space saver tyre with a full-size tyre as soon as you can.",
+       "where": "Drive, safety tips",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Not sure which spare you fitted? We show this screen just in case. Your car manual may say.",
+     "line": 253,
+     "quotes": [
+      {
+       "text": "Read the car manual.",
+       "where": "AA tyre how-to",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": null,
+   "next": {
+    "to": "fix-tyre",
+    "line": 255,
+    "target": "fix-tyre"
+   },
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 246,
+   "nexts": [
+    {
+     "to": "fix-tyre",
+     "line": 255,
+     "target": "fix-tyre"
+    }
+   ]
+  },
+  {
+   "id": "fix-tyre",
+   "title": "Get the flat tyre fixed",
+   "lines": [
+    {
+     "kind": "do",
+     "text": "Take the punctured wheel to a tyre shop for repair or replacement, as soon as you can.",
+     "line": 258,
+     "quotes": [
+      {
+       "text": "Take the punctured wheel to a tyre shop for repair or replacement.",
+       "where": "AA tyre how-to, step 13",
+       "check": "exact"
+      },
+      {
+       "text": "Don’t forget to get the flat tyre repaired as soon as you can.",
+       "where": "Drive, changing a tyre",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "For next time: check the spare tyre pressure regularly, and practise changing a tyre at home.",
+     "line": 261,
+     "quotes": [
+      {
+       "text": "Regularly check the spare tyre pressure.",
+       "where": "AA tyre how-to",
+       "check": "exact"
+      },
+      {
+       "text": "Do this at home so you can be confident how to change a tyre before you need to do so.",
+       "where": "Drive, changing a tyre",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Tyre changed. Get the flat one repaired or replaced soon.",
+     "line": 264
+    }
+   ],
+   "ask": null,
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": true,
+   "line": 257
+  }
+ ],
+ "start": "start"
+}
