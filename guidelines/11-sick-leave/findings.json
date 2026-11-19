@@ -1,0 +1,131 @@
+{
+ "summary": {
+  "steps": 39,
+  "reachable": 39,
+  "fix": 0,
+  "check": 0,
+  "info": 20,
+  "quotes": 107,
+  "quotesExact": 107,
+  "numberLines": 14,
+  "numberLinesQuoted": 14,
+  "sourceAmounts": 15,
+  "sourceAmountsUsed": 11
+ },
+ "findings": [
+  {
+   "level": "info",
+   "step": "cashup",
+   "line": 167,
+   "message": "\"Cashing up unused sick leave\" has a question with only one answer."
+  },
+  {
+   "level": "info",
+   "step": "none-left",
+   "line": 179,
+   "message": "\"No sick leave left\" has a question with only one answer."
+  },
+  {
+   "level": "info",
+   "step": "appt-routine",
+   "line": 208,
+   "message": "\"A routine appointment\" has a question with only one answer."
+  },
+  {
+   "level": "info",
+   "step": "part-day-pay",
+   "line": 236,
+   "message": "\"Pay for a part-day\" has a question with only one answer."
+  },
+  {
+   "level": "info",
+   "step": "acc-topup",
+   "line": 296,
+   "message": "\"Topping up ACC\" has a question with only one answer."
+  },
+  {
+   "level": "info",
+   "step": "emp-pay-proof",
+   "line": 382,
+   "message": "\"If proof is not given\" has a question with only one answer."
+  },
+  {
+   "level": "info",
+   "step": "emp-none",
+   "line": 393,
+   "message": "\"No sick leave left\" has a question with only one answer."
+  },
+  {
+   "level": "info",
+   "step": "today",
+   "line": 44,
+   "message": "1 line in \"Sick today\" has no quote from the guideline (\"Employment New Zealand does not say how (phone, text, ema…\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "proof-count",
+   "line": 71,
+   "message": "1 line in \"Counting the days\" has no quote from the guideline (\"The page doesn't say how days that are not in a row count.\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "proof-under3",
+   "line": 80,
+   "message": "1 line in \"Asked before day 3\" has no quote from the guideline (\"Employment New Zealand does not say what happens if your …\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "proof-3plus",
+   "line": 89,
+   "message": "1 line in \"Asked on or after day 3\" has no quote from the guideline (\"The page doesn't say how they should \"know\".\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "pay-proof",
+   "line": 105,
+   "message": "1 line in \"If you don't give proof\" has no quote from the guideline (\"Employment New Zealand does not explain what a \"reasonabl…\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "new-starter",
+   "line": 129,
+   "message": "2 lines in \"Not 6 months yet\" have no quote from the guideline (\"Paid sick leave starts once one of the rules is met. Empl…\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "ongoing",
+   "line": 254,
+   "message": "1 line in \"A long illness or injury\" has no quote from the guideline (\"The page does not say how long \"a reasonable period\" is.\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "emp-other",
+   "line": 311,
+   "message": "1 line in \"Other topics (employers)\" has no quote from the guideline (\"These screens are written for employees. Where your page …\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "emp-count",
+   "line": 340,
+   "message": "1 line in \"Counting the days\" has no quote from the guideline (\"The page doesn't say how days that are not in a row count.\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "emp-under3",
+   "line": 350,
+   "message": "1 line in \"Asking before day 3\" has no quote from the guideline (\"Employment New Zealand does not say what happens if you a…\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "message": "The guideline mentions 4 amounts the template never uses: 5-10 day, 8 hour, 4 hour, 52 week. Some may be background; check none were left out."
+  },
+  {
+   "level": "info",
+   "message": "Nobody is named under \"Reviewed by:\", so the app shows \"Not reviewed\"."
+  },
+  {
+   "level": "info",
+   "message": "The saved guideline text is a web copy made by a fetch tool and may not be word-perfect, so a \"quote not found\" may be the copy's fault. Add the PDF to sources/ for exact checking."
+  }
+ ]
+}

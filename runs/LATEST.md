@@ -1,35 +1,39 @@
-Scheduled build run, 19 Nov 2026 (night, 10 pm).
+Scheduled build run, 20 Nov 2026 (early morning, 1:30 am).
 
 Your feedback: nothing new on the design review page or on any app since the last run.
 
 Built:
-- App 10: Asthma attack first aid (NZ). First screen: check for danger signs (gasping, can hardly speak, blue
-  lips, very quiet, floppy or less responsive, frightened), with "Not breathing", "Known allergy" and "Dial 111"
-  answers before the usual route.
-  - Main route (NZ sources: the foundation's school poster and web page, and Health NZ): sit them up, give 2 puffs
-    (mild) or 6 puffs (moderate or worse), one at a time, 6 slow breaths per puff, then a 6-minute timer.
-  - Not improving: give 6 puffs now, call 111, then a reminder every 6 minutes until help arrives.
-  - Improving: keep watching, then always see a doctor.
-  - Extra screens: no reliever inhaler, not sure it is asthma, known allergy, not breathing, aged 12 and over.
-- Reviewer found 4 missed instructions (the main one: the first repeat puffs came at 12 minutes, not 6) and 11
-  findings in all. All 11 fixed in one round. Longest screen is 90 words counting quotes (61 words shown).
-- Scores: to fix 0, to check 0, all apps. 56 of 56 quotes exact (web copy). Tests: 23 of 23 pass.
+- App 11: Sick leave (NZ), from Employment New Zealand's pages for employees and employers (read 20 Nov 2026).
+  First screen: 10 days of paid sick leave a year, and today's rules apply until 6 August 2028 (the new
+  Employment Leave Act has passed but starts then, and the page says you cannot follow it early). Then a choice:
+  sick or caring for someone today / am I entitled / used up my sick leave / I'm an employer / something else.
+  - Sick today: tell your employer as soon as possible, then proof: who pays depends on how many days in a row
+    you had been sick when the employer asked (under 3: employer pays; 3 or more: you pay), with the page's own
+    examples. Then pay, and what happens without proof.
+  - Side screens: entitlement (6 months), carry-over up to 20 days, none left, holidays, appointments,
+    part-days, stress, long illness, ACC.
+  - Employer route: asking for proof, counting days, pay, and when staff have none left, on its own screens.
+- Reviewer found 3 missed instructions (the main one: the app asked how long you had been sick, not how long
+  when the employer asked, so some people were wrongly told "you pay") and 10 findings. All fixed in one round.
+  Longest screen is 113 words counting quotes (77 shown), a little over the 90 target.
+- Scores: to fix 0, to check 0, all apps. 107 of 107 quotes exact (web copy). Tests: 24 of 24 pass.
 
-Building blocks added: none.
+Building blocks added: none. Fixed: the researcher had filled "testInputs" with the wrong shape, which failed the
+route test; removed it (this app has no details to type) and made the instructions say what shape it takes.
 
 Gaps in the guideline (each said on screen):
-- The NZ asthma foundation is now the Cardiac and Respiratory Foundation NZ.
-- Its poster for ages 12 and over says one dose at a time, up to 6 times, with no fixed wait. Health NZ uses
-  6 puffs, 6 breaths, 6 minutes for adults too, so the app follows that and shows the 12+ poster on its own screen.
-- No NZ source covers having no reliever, not being sure it is asthma, or a known allergy. For these the app
-  shows Asthma Australia's guidance, clearly labelled (with 111, not 000), and no Australian numbers.
-- Nothing says what to do if they stop breathing; the app says to follow the 111 call taker.
+- Telling your employer is only "as soon as possible": nothing on how, who to tell, or how far before a shift.
+- No rule for sick days that are not in a row, and the 3-day rule depends on what the employer "knows".
+- "Reasonable excuse", "reasonable period" and "dependant" are not explained; no start date for the sick leave year.
+- The employer page's list of whose sickness a certificate can cover leaves out "child".
+- The employee page says the employer "does not have to agree" to leave when you've run out; the employer page
+  only says "you could agree".
+- The pages say nothing yet about what the 2028 law will change for sick leave.
 
 Needs you:
-- Optional: save the NZ asthma first aid posters (Cardiac and Respiratory Foundation NZ) as PDFs into sources/
-  (the site is blocked from here), so quotes can be checked exactly. Same for Employment NZ, FENZ, AUT and ANZCOR
-  pages (still open).
+- Optional: save the Employment NZ sick leave pages as PDFs into sources/ (the site is blocked from here), so
+  quotes can be checked exactly. Same for the asthma posters, FENZ, AUT and ANZCOR pages (still open).
 - Try "Change the look" in any app and say which should be the default (still open).
 - Is "a few steps away from buildings" in the earthquake app clear to you? (still open)
 
-Next: guideline 11 (sick leave, Employment New Zealand).
+Next: guideline 12 (tsunami: Long or Strong, Get Gone, NEMA).

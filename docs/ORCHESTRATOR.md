@@ -36,7 +36,7 @@ Run 3a and then 3b in sequence; 3c only if needed; 3d always, and it must not be
 `guidelines/<nn-short-name>/`: `source.txt` (the guideline's own words only, never a summary; WebSearch result
 excerpts are word for word and can be pieced together; WebFetch output is often reworded, so use it only to
 understand, or mark the copy `web-fetch`), and `meta.json` (`id, title, domain, level, url, version, sourceCopy,
-sourceNote`, optional `testInputs` list for the explorer). If a PDF of the guideline is in `sources/` (the owner may upload them there), extract it
+sourceNote`, optional `testInputs`: a list of objects, one per test run, mapping a details field id to a value, e.g. `[{"weight": "20"}]`; leave it out when the app has no details fields). If a PDF of the guideline is in `sources/` (the owner may upload them there), extract it
 with `pdftotext -layout` instead and mark `sourceCopy: "pdf"`. Report what could not be captured.
 
 **3b. Author.** Fill `template.md` from `template/guideline-template.md` using only `source.txt` (and the

@@ -1,0 +1,396 @@
+Taking sick leave, Managing sick leave, Pay for sick, bereavement and family violence leave, Employment Leave Act 2026 and Employment Leave Bill 2026 - Employment New Zealand (employment.govt.nz), New Zealand Government. Read 20 Nov 2026 (NZ time).
+Section A from https://www.employment.govt.nz/leave-and-holidays/sick-leave/taking-sick-leave (page title "Taking sick leave"; Published: 11 March 2024; Last modified: 7 September 2026; Written for: Employees)
+Section B from https://www.employment.govt.nz/leave-and-holidays/sick-leave/managing-sick-leave (page title "Managing sick leave"; Published: 11 March 2024; Last modified: 7 September 2026; Written for: Employers)
+Section C from https://www.employment.govt.nz/pay-and-hours/pay-and-wages/leave-and-holiday-pay/pay-for-sick-bereavement-and-family-violence-leave (page title "Pay for sick, bereavement and family violence leave"; Published: 1 March 2024; Last modified: 7 August 2026; Written for: Everyone) - only some sections
+Section D from https://www.employment.govt.nz/news-and-updates/employment-leave-act-2026 (news page "Employment Leave Act 2026"; Published: 7 August 2026; no last-modified date shown) - only the lines on timing and sick leave
+Section E from https://www.employment.govt.nz/news-and-updates/employment-leave-bill-2026 (news page "Employment Leave Bill 2026"; Published: 12 March 2026; "Update 15 July 2026" note; no last-modified date shown) - only the lines on timing and sick leave
+Capture method: web-fetch. No browser was available and direct download is not allowed, so each line was read by a fetch tool asked to quote exact sentences (long sentences in pieces, rejoined here). Key lines (10 days, 6 months, 20 days, as soon as possible, 3 days in a row, calendar days, which doctor, the no-sick-leave-left rule) were confirmed EXACT in a second, separate read, but small wording slips (quote marks, commas) are possible. Navigation, link-only lists, contact boxes, images, PDF charts and footers are left out. Square brackets [ ] are notes, not quotes: [link words missing] marks words that are links on the page and did not come through in the copy (the second read confirmed they were missing, not just dropped once); [sic] marks wording that is odd on the page itself. The sick leave landing page (https://www.employment.govt.nz/leave-and-holidays/sick-leave) and the "Changes to leave coming in 2028" page could not be read (fetch permission timed out).
+
+==================== SECTION A: Taking sick leave (for employees) ====================
+
+Taking sick leave
+Eligible employees are entitled to 10 days of paid sick leave each year, to care for themselves, their partners and children, or other dependants.
+
+Changes to leave coming in 2028
+The Employment Leave Act is going to replace the Holidays Act in August 2028.
+It will be a major change to how leave works.
+You must follow the current rules in the Holidays Act until the new law starts in 2028.
+To find out about the changes and how you can get ready for them, go to: [link]
+
+What you're entitled to
+Whether you are full-time, part-time or [link words missing], you are entitled to 10 days of [link words missing] per year if:
+you have been working for the same employer continuously for 6 months, or
+you have worked for the same employer for a period of 6 months for:
+an average of 10 hours per week, and
+at least 1 hour in every week or 40 hours in every month.
+You can accumulate up to 20 days of sick leave, which means you can carry over 10 days of unused sick leave into the next year.
+Your employer:
+cannot give you less sick leave than this, but can offer you more
+can, unless agreed otherwise, deduct a full day of sick leave entitlement even if you were only off for part of the day
+can ask for a medical certificate or other proof that you are sick or injured and cannot work
+is not legally required to give you additional time off work to visit the doctor or dentist for routine appointments unless your [link words missing] says so.
+If, in any year, you do not meet the criteria:
+you do not get any new sick leave entitlement
+you can still use any sick leave balance that has been carried over from the previous year.
+You should tell your employer as soon as possible if you need to take sick leave.
+[Links: "Chart for Employees to work out if they qualify for sick leave and bereavement leave [PDF, 600 KB]"; "Pay for sick, bereavement and family violence leave"]
+
+Taking sick leave during annual holidays
+If you're about to take annual holidays but get sick before you go, your employer must let you take sick leave for the relevant period.
+If you're already on annual holidays and get sick, you may be able to take sick leave instead of annual holidays for the relevant period.
+Your employer must agree to this.
+
+Stress leave
+Stress leave is not an entitlement under the law, but some employers offer it in their workplace policies or employment agreements.
+Stress leave can help manage the impact of work-related stress on your health.
+If stress is making you mentally or physically unwell, you can use sick leave just like you would for any illness or injury.
+Workplace stress is a health and safety issue.
+For more information about dealing with stress at work visit: Work-related stress - WorkSafe(external link)
+
+Sick leave is not pro-rated
+Sick leave entitlements are not pro-rated (assessed proportionately).
+Even if a part-time employee only works 3 days a week, they still get 10 days' sick leave a year and can accumulate up to 20 sick days a year.
+
+Carrying over unused sick leave
+If you have unused sick leave at the end of a 12-month period, it will be carried over and added to next year's entitlement – up to a maximum of 20 days of sick leave.
+You and your employer can agree that sick leave can accumulate to more than 20 days – either in your [link words missing] or through your [link words missing].
+Unused sick leave cannot be cashed up or be part of any final payment when you leave your job.
+
+Taking sick leave for appointments
+If you have a medical appointment (for example, to go to a doctor or dentist), you may be able to use sick leave for your appointment.
+It depends if it's a routine appointment or not.
+A routine appointment is one where you do not have to be diagnosed or treated for an illness, injury or condition.
+For example, getting a repeat prescription or getting a check-up at the dentist.
+An appointment that is not routine is one where you need to be diagnosed or treated for an illness, injury or condition.
+For example, you need to go to:
+the doctor because you are sick or injured
+hospital to have surgery
+physio.
+
+If it is a routine appointment
+Your employer is not legally required to give you leave unless your employment agreement says so.
+If there is nothing specified in the employment agreement, you and your employer can negotiate.
+For example, you could agree to use paid leave or unpaid leave.
+If you cannot agree, you can schedule these appointments for a time outside of work hours.
+
+If it is not a routine appointment
+If it is not a routine appointment, you can use sick leave to attend the appointment.
+
+Taking part-days sick
+The Holidays Act 2003 describes sick leave entitlement in days and does not divide it into part-days or hours.
+This means that if you work for part of the day and then go home sick, this can be counted as using a whole day of sick leave – no matter how much of the day you worked before going home.
+However, you and your employer can agree to describe your entitlement as hours or part-days if you want to.
+If you do agree to this, the number of hours or part-days must be equivalent to at least 10 full days a year.
+For example, if you worked a half day and then went home sick, your employer could deduct only a half day of sick leave.
+
+If you have no sick leave left
+Coming to work when you're sick can endanger the health or safety of other workers.
+If you have used up all your sick leave, you can ask to take:
+sick leave in advance
+[link words missing], or
+unpaid leave
+paid [link words missing], either as provided for in your employment agreement or or [sic] by agreement between the employer and you.
+Your employer does not have to agree to the request unless your employment agreement says they do.
+
+Providing proof of illness or injury
+If you request sick leave, your employer can ask you for proof of sickness or injury.
+This is usually a medical certificate from a doctor saying that you (or your spouse, partner, child, or other dependant) are sick or injured and cannot work.
+Your employer cannot tell you which doctor to go to.
+If your employer asks for proof, it could be you or your employer who pays for these costs.
+It depends how many days you've been sick.
+
+Sick for less than 3 days
+If you've been sick for less than 3 days, your employer must:
+ask for proof as soon as possible, and
+pay you back for any costs, for example, the cost of your doctor's visit.
+
+Sick for 3 or more days in a row
+If your employer knows you have been sick for 3 or more days in a row, they can ask for proof on or after the third day.
+You must pay for these costs yourself.
+The 3 days are counted as calendar days, not just workdays.
+This means it includes days you would not otherwise have worked.
+For example, a Saturday or Sunday, or another day you were already scheduled to have off.
+[Example] Jennifer works on Monday and takes a day's sick leave on Tuesday.
+She then has a 2-day scheduled break on Wednesday and Thursday (during which she is still sick).
+She calls her employer on Friday to tell them she will be off sick again.
+Her employer can ask for proof on Friday at Jennifer's expense, as she has been sick for 4 days in a row.
+If Jennifer's employer had asked for proof when she was sick on Tuesday, her employer would have had to cover the cost.
+[Example] Holly is sick on Monday and Tuesday, and on Wednesday she phones her employer to tell them that she will be off sick again.
+Holly's employer tells her that:
+she will need to bring a medical certificate to work on her return to prove that she was genuinely ill, and
+she will need to pay for the costs of getting the medical certificate herself, as she will have been sick for 3 days.
+If Holly's employer had asked for the certificate when she phoned in sick on Tuesday, her employer would have had to cover the cost.
+Holly's workplace policies state that sick leave is recorded and deducted in half-days.
+If Holly had come to work at lunchtime on Wednesday (and taken only a half day's sick leave), she would have been sick for less than 3 days.
+This means her employer would have had to cover the cost of the medical certificate.
+
+Getting paid for sick leave
+You must be paid for sick leave:
+in the payment that relates to the period in which the leave is taken
+what you would have been paid if you had worked that day – either your [link words missing] or [link words missing].
+You only get paid sick leave for days you would have worked if you had not been sick, known as [link words missing].
+If you are sick on a day that is not an otherwise working day, you are not entitled to paid sick leave – for example, if you were already on unpaid leave or you fell sick on a day you were not rostered to work.
+If your employer has asked you for proof of sickness or injury and you do not provide it and do not have a reasonable excuse for not providing it, they do not have to pay you for the sick leave until you do so.
+
+If you have an ongoing illness or injury
+If you are sick or injured for a reasonable period of time and can no longer do your job, your employer needs to know:
+how long you are likely to be off work, and
+whether you'll be able to do your job again.
+For more information, see: Health issues; Illness and injury
+
+ACC
+If you are injured in an accident and it is covered by ACC, you may be eligible for income support.
+
+When you are on ACC
+If you have an accident or injury covered by the Accident Compensation (ACC) scheme, your employer has payment responsibilities for the first week of your injury.
+ACC will pay you from the second week onwards.
+If you are receiving weekly ACC compensation, your employer cannot make you take time off in the form of sick leave or [sic: the sentence ends here on the page]
+
+The first week after your injury
+If your injury happened at work, your employer must pay you compensation of 80% of your usual earnings for that first week.
+If the injury did not happen at work, you can use sick leave or other paid leave (for example, annual holidays), if you have any.
+If you do not have any paid leave available, you will not be paid for that first week.
+
+If you are on ACC for more than 5 days
+If you are on ACC for more than 5 days, you and your employer can agree that your ACC payment is topped up.
+It can be topped up from 80% to 100% by using 1 day of your sick leave for every 5 days you are on ACC.
+If the injury happened at work, your employer can top up your payment in the first week and every week after this.
+If the injury did not happen at work, your employer can only top up your payment from the second week onwards.
+
+If you leave your job after being on ACC
+When you end a job after an extended period of being on ACC, this can affect your final holiday pay.
+Your final pay must include your final wages, all the holiday pay you're entitled to and any other payments owing.
+
+If you are unsure about your rights or responsibilities or need advice, call us on 0800 20 90 20 or email us your query.
+
+==================== SECTION B: Managing sick leave (for employers) ====================
+
+Managing sick leave
+Eligible employees are entitled to 10 days of paid sick leave each year to care for themselves, their partners and children, or other dependants.
+
+Changes to leave coming in 2028
+The Employment Leave Act is going to replace the Holidays Act in August 2028.
+It will be a major change to how leave works.
+You must follow the current rules in the Holidays Act until the new law starts in 2028.
+To find out about the changes and how you can get ready for them, go to: Changes to leave coming in 2028
+
+What an employee is entitled to
+All employees (including part-time and [link words missing] employees) are entitled to 10 days of sick leave each year once:
+they have been working for you continuously for 6 months, or
+they have worked for you for a period of 6 months for:
+an average of 10 hours per week, and
+at least 1 hour in every week or 40 hours in every month.
+If, in any year, an employee does not meet the criteria:
+they do not get any new sick leave entitlement
+they can still use any sick leave balance carried over from the previous year.
+Your employees should let you know as soon as possible when they need to take a sick day.
+[Link: "Work out if an employee qualifies for sick leave [PDF, 600 KB]"]
+
+Taking sick leave during annual holidays
+If an employee is about to take annual holidays but gets sick before they go, you must let them take sick leave for the relevant period.
+If an employee is already on annual holidays and gets sick, they may be able to take sick leave instead of annual holidays for the relevant period.
+You must agree to this.
+
+Stress leave
+Stress leave is not an entitlement under the law, but some employers offer it in their workplace policies or employment agreements.
+Stress leave can help manage the impact of work-related stress on an employee's health.
+If stress is making your employee mentally or physically unwell, they can use sick leave just like they would for any illness or injury.
+Workplace stress is a health and safety issue.
+
+Sick leave is 10 days per year and is not pro-rated
+Minimum sick leave entitlements increased from 5 to 10 days per year from 24 July 2021.
+Sick leave entitlements are not pro-rated (assessed proportionately).
+Even if a part-time employee only works 3 days a week, they still get 10 days sick leave a year and can accumulate up to 20 sick days a year.
+
+Carrying over unused sick leave
+If an employee has unused sick leave at the end of a 12-month period, it is added to the next year's entitlement – to a maximum of 20 days of sick leave.
+You and your employee can agree that sick leave accumulates to more than 20 days – either in their [link words missing] or through your workplace policies.
+Unused sick leave does not have to be cashed up and an employee is not entitled to have any unused sick leave paid out as part of any final payment to the employee when they leave.
+
+Employees taking sick leave for appointments
+If an employee has a medical appointment (for example, to go to a doctor or dentist), they may be able to use sick leave for their appointment.
+It depends if it's a routine appointment or not.
+A routine appointment is one where the employee does not have to be diagnosed or treated for an illness, injury or condition.
+For example, getting a repeat prescription or getting a check-up at the dentist.
+An appointment that is not routine is one where the employee needs to be diagnosed or treated for an illness, injury or condition.
+For example, they need to go to:
+the doctor because they are sick or injured
+hospital to have surgery
+physio.
+
+If it is a routine appointment
+You are not legally required to give employees leave unless their employment agreement says otherwise.
+If there is nothing specified in the employment agreement, you and your employee can negotiate.
+For example, you could agree to use paid leave or unpaid leave.
+If you cannot agree, the employee can schedule these appointments for a time outside of work hours.
+
+If it is not a routine appointment
+If it is not a routine appointment, the employee can use sick leave to attend the appointment.
+
+Taking part-days sick
+The Holidays Act 2003 describes sick leave entitlement in days and does not divide it into part days or hours.
+This means that if an employee works for part of the day and then goes home sick, it can be counted as using a whole day of sick leave – no matter how much of the day they worked before going home.
+However, you can agree with your employee to describe their entitlement as hours or part-days, if you want to.
+If you do agree to this, the number of hours or part-days must be equivalent to at least 10 full days a year.
+For example, if an employee worked a half-day, and then went home sick, you could agree to only deduct a half-day of sick leave.
+You would then pay them half their [link words missing] or [link words missing] for the time on sick leave.
+
+If an employee has no sick leave left
+If an employee has no sick leave left, you could agree with them that they:
+use sick leave in advance
+use some of their [link words missing]
+take unpaid leave
+take paid special leave, either as provided for in the employment agreement or workplace policies or by agreement between you and the employee.
+
+[The fetch copy placed the following pay examples straight after the list above; on the page they probably sit under a pay heading that did not come through.]
+[Example] James normally works 8 hours Tuesday to Friday and 4 hours on Saturday.
+If he is sick on Saturday, the employer should pay James his relevant daily pay for the sick day, which is 4 hours.
+If relevant daily pay is used for the calculation, the payment must include regular overtime if the employee would have worked overtime on the day if they had not been sick.
+[Example] Claire's employment agreement specifies an hour for lunch.
+But Claire usually takes only half an hour for lunch, at her employer's request.
+Instead, she gets an extra half hour payment each day.
+If Claire is sick, her sick leave payment includes the extra half-hour she is normally paid, even though it is not in her employment agreement.
+If an employee works continuously but has an irregular pattern, sick leave is payable if they were rostered to work on the day leave is taken, or they could have expected to be rostered.
+The sick leave is paid at the employee's relevant daily pay or average daily pay.
+
+Requesting proof of illness or injury
+If an employee requests sick leave, you can ask them for proof of sickness or injury.
+This is usually a medical certificate from a doctor saying that the employee (or their spouse, partner or dependant) is sick or injured and unable to work.
+You cannot tell an employee which doctor or practice they should go to.
+If you ask for proof, it could be you or your employee who pays for these costs.
+It depends how many days your employee has been sick.
+
+Sick for less than 3 days
+If your employee has been sick for less than 3 days, you must:
+ask for proof as soon as possible, and
+pay the employee back for any costs – for example, the cost of their doctor's visit.
+
+Sick for 3 or more days in a row
+If you know your employee has been sick for 3 or more days in a row, you can ask for proof on or after the third day.
+Your employee must pay for these costs.
+The 3 days are counted as calendar days, not just workdays.
+This means it includes days the employee would not otherwise have worked.
+For example, a Saturday or Sunday, or another day they were already scheduled to have off.
+[Example] Jennifer works on Monday and takes a day's sick leave on Tuesday.
+She then has a 2-day scheduled break on Wednesday and Thursday (during which she is still sick).
+She calls you on Friday to tell you she will be off sick again.
+You can ask for proof on Friday at Jennifer's expense, as she has been sick for 4 days in a row.
+If you had asked for proof when she was sick on Tuesday, you would have had to cover the cost.
+[Example] Holly is sick on Monday and Tuesday, and on Wednesday she phones you to tell you that she will be off sick again.
+You tell her that:
+she will need to bring a medical certificate to work on her return to prove that she was genuinely ill, and
+she will need to pay for the costs of getting the medical certificate herself, as she will have been sick for 3 days.
+If you had asked for the certificate when she phoned in sick on Tuesday, you would have had to cover the cost.
+Holly's workplace policies state that sick leave is recorded and deducted in half days.
+If Holly had come to work at lunchtime on Wednesday (and taken only a half-day's sick leave), she would have been sick for less than 3 days.
+This means you would have had to cover the cost of the medical certificate.
+
+Paying employees for sick leave
+Employees only get paid sick leave for days they would have worked if they had not been sick.
+These are known as otherwise working days.
+You do not have to pay an employee for sick leave if:
+you have asked them for proof of sickness or injury, and
+they have not provided this, and
+they do not have a reasonable excuse for not providing it.
+If they provide proof at a later date, you must pay them for that sick leave.
+
+How you pay sick leave to your employee
+Payment must be the employee's relevant daily pay, or their average daily pay in some cases.
+Payment for sick leave is made in the normal pay cycle.
+
+If an employee has an ongoing illness or injury
+If an employee is sick or injured for a reasonable period of time and can no longer do their job, you need to know:
+how long the employee is likely to be off work, and
+whether they'll be able to do their job again.
+
+When an employee is on ACC
+If an employee has an accident or injury covered by the Accident Compensation Corporation (ACC) scheme, you have payment responsibilities in the first week after their injury.
+ACC will pay the employee from the second week onwards.
+If the employee is receiving ACC payments, you cannot make them take this time as sick leave or annual holidays.
+
+Payment responsibilities for the first week after injury
+Your payment responsibilities for the first week after their injury depend on whether the injury happened at work or not.
+If the injury happened at work, you must pay compensation of 80% of the employee's usual earnings for that first week.
+If the injury did not happen at work, the employee can use sick leave or other paid leave (for example, annual holidays) if they have any.
+If they do not have any paid leave available, they will not be paid for that first week.
+
+If the employee is on ACC for more than 5 days
+If the employee is on ACC for more than 5 days, you and your employee can agree that you will top up their ACC payment.
+It can be topped up from 80% to 100% by using 1 day of sick leave for every 5 days they are on ACC.
+If the injury happened at work, you can top up the payment in the first week and every week after this.
+If the injury did not happen at work, you can only top up the payment from the second week onwards.
+
+If an employee leaves after being on ACC
+When an employee leaves their job after being on ACC compensation, this can affect their final holiday pay.
+Their final pay must include their final wages, all the holiday pay they're entitled to and any other payments owing.
+
+If you are unsure about your rights or responsibilities, or need advice, call us on 0800 20 90 20 or email us a query.
+
+==================== SECTION C: Pay for sick, bereavement and family violence leave (for everyone; some sections only) ====================
+
+Changes to leave coming in 2028
+The Employment Leave Act is going to replace the Holidays Act in August 2028.
+You must follow the current rules in the Holidays Act until the new law starts in 2028.
+
+What employees are entitled to
+Employees are entitled to paid [link words missing], [link words missing] and [link words missing]:
+after 6 months of continuous employment with the same employer, or
+if they have worked for the employer for 6 months for an average of 10 hours per week, including at least 1 hour in every week or 40 hours in every month.
+
+When employees are paid for sick, bereavement or family violence leave
+Payment for sick, bereavement, or family violence leave is only made when it is a day that the employee would have worked if they had not been on leave.
+If the employee works continuously but has an irregular pattern of work, it's an otherwise working day and they are entitled to paid leave if they:
+are rostered, or agreed to work, on the day they're taking leave, or
+could have expected to have worked or been rostered to work on the day they're taking leave.
+If it is not an otherwise working day, then the employee is not entitled to paid leave.
+For example, if the employee falls sick on a day they are not rostered to work, then they are not entitled to paid sick leave.
+Pay for sick, bereavement, and family violence leave is made in the normal pay cycle.
+
+Otherwise working day
+An otherwise working day is a day that the employee would have worked had the day not been a public holiday, sick leave, bereavement leave, family violence leave, annual holiday or alternative holiday for that employee.
+
+Calculating pay for leave [only these lines captured]
+RDP is the amount the employee would have earned if they had worked on the day in question.
+ADP is the daily average of the employee's gross earnings over the past 52 weeks, or weeks they've been employed if it's less than 52 weeks.
+
+Taking a part-day of sick, bereavement or family violence leave
+The law describes sick, bereavement and family violence leave entitlement in days and does not divide it into part-days or hours.
+This means that if an employee works for part of the day and then takes the rest of the day off, it can be counted as a using [sic] a whole day of leave, no matter how much of the day they worked before going home.
+Their employer can:
+deduct a full day of leave entitlement, and
+pay the employee a full day of RDP (or ADP if applicable).
+However, employers can agree with employees to take their entitlement as hours or part-days.
+For example, if an employee works a half-day and then takes the rest of the day off, their employer can agree to:
+deduct a half-day of the employee's leave entitlement
+pay for the time worked, and
+pay half the employee's RDP (or ADP if applicable) for the rest of the day.
+Alternatively, employers can choose to pay the employee for the time worked and a full day of RDP (or ADP if applicable) for a part-day of leave.
+However, if the employer deducts a full day of sick leave from the employee's entitlement, they must pay the employee a full day of RDP (or ADP if applicable).
+When deciding how to apply sick, bereavement, or family violence leave entitlements for part-days, employers should check the [link words missing] and any related leave policies to see what they say.
+
+Sick leave pay for employees on ACC [only these lines captured]
+If an employee is receiving weekly compensation from ACC (for example, after the first week), the employer does not have to pay them sick leave for the same period.
+Sick leave pay can be used to top-up ACC payments.
+
+==================== SECTION D: Employment Leave Act 2026 (news page; timing and sick leave lines only) ====================
+
+The Employment Leave Act 2026 has now passed into law.
+It will replace the Holidays Act in August 2028.
+The new law does not start until 6 August 2028.
+You must follow the current rules in the Holidays Act until the new law starts on 6 August 2028.
+You cannot start following the new law early, even if you are ready.
+The Employment Leave Act will change how leave is earned, taken and paid, including:
+sick leave
+[The page gives no detail of what changes for sick leave.]
+
+==================== SECTION E: Employment Leave Bill 2026 (older news page; timing lines only) ====================
+
+A new Employment Leave Bill has been introduced to replace the Holidays Act.
+The Bill is expected to pass this year.
+It is proposed that the new legislation will take effect 2 years later, in 2028.
+This gives employers and payroll providers time to update their systems and get everything ready.
+Update 15 July 2026: The Select Committee has considered the feedback it received on the Bill and reported back to the House.
+The bill will now move to the remaining Parliamentary stages.
+Until the new Bill takes effect, employers must continue to follow the current law.
+Employers must follow the current rules in the Holidays Act until the new legislation takes effect.
+The Bill could change through the parliamentary process.
