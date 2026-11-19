@@ -1,11 +1,12 @@
 /* EXPLORER: drives a built app through every route the person could take (every answer, Next, timer
    and finish), from a fixed start, and reports what it found. Used by tests and by the nightly run to
    prove an app works without anyone tapping through it.
-   explore(htmlPath, { inputs, maxRoutes }) -> { stepsSeen:Set, endings, routes, problems:[text] } */
+   await explore(htmlPath, { inputs, maxRoutes }) -> { stepsSeen:Set, endings, routes, problems:[text] }
+   It is async only to free memory: jsdom releases closed pages only when the event loop gets a turn. */
 import { openApp } from './fake-browser.mjs';
 
 // Breadth-first: each new route is one more move added to a route already tried.
-export function explore(htmlPath, { inputs = {}, maxRoutes = 400, maxDepth = 40 } = {}) {
+export async function explore(htmlPath, { inputs = {}, maxRoutes = 400, maxDepth = 40 } = {}) {
   const stepsSeen = new Set(), problems = [];
   let routes = 0, endings = 0;
   // A route is a list of choices; replay it from a fresh app each time (simple and repeatable).
@@ -14,19 +15,26 @@ export function explore(htmlPath, { inputs = {}, maxRoutes = 400, maxDepth = 40 
   while (queue.length && routes < maxRoutes) {
     const route = queue.shift();
     const app = openApp(htmlPath);
+    try { visit(route, app); } finally { app.window.close(); }
+    if (routes % 20 === 0) await new Promise((r) => setImmediate(r));   // let jsdom free closed pages
+  }
+  return { stepsSeen, endings, routes, problems };
+
+  // Replays one route on a fresh app, records what it reached, and queues every next move from there.
+  function visit(route, app) {
     try {
       setInputs(app, inputs);
       app.click('[data-act="begin"]');
       for (const choice of route) act(app, choice);
-    } catch (e) { problems.push(`route ${JSON.stringify(route)}: ${e.message}`); continue; }
+    } catch (e) { problems.push(`route ${JSON.stringify(route)}: ${e.message}`); return; }
     if (app.errors.length) problems.push(`route ${JSON.stringify(route)}: page error ${app.errors.join('; ')}`);
     routes++;
     const S = app.state;
-    if (S.screen === 'done') { endings++; continue; }
+    if (S.screen === 'done') { endings++; return; }
     stepsSeen.add(S.current);
     const key = S.current + '|' + route.filter((c) => c.startsWith('opt')).slice(-3).join(',');
-    if (route.length >= maxDepth || seenStates.has(S.current + '|' + route.length) ) continue;
-    if (seenStates.has(key) && route.length > 2) continue;   // loops: each step/answer pair explored once
+    if (route.length >= maxDepth || seenStates.has(S.current + '|' + route.length) ) return;
+    if (seenStates.has(key) && route.length > 2) return;   // loops: each step/answer pair explored once
     seenStates.add(key);
     const options = app.$$('[data-opt]').map((b) => 'opt:' + b.dataset.opt);
     const moves = [...options];
@@ -39,7 +47,6 @@ export function explore(htmlPath, { inputs = {}, maxRoutes = 400, maxDepth = 40 
     if (!moves.length) problems.push(`step "${s.title}" has nothing to tap (route ${JSON.stringify(route)})`);
     for (const m of moves) queue.push([...route, m]);
   }
-  return { stepsSeen, endings, routes, problems };
 }
 
 // Enters the test details: taps a choice button, or types into a number box.

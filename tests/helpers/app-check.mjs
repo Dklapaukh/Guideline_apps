@@ -14,7 +14,7 @@ const { spec, summary } = buildGuideline(dir, { built: 'test', outDir: out });
 const meta = existsSync(`${dir}/meta.json`) ? JSON.parse(readFileSync(`${dir}/meta.json`, 'utf8')) : {};
 const runs = [], seen = new Set();
 for (const inputs of meta.testInputs ?? [{}]) {
-  const r = explore(path.join(out, 'app.html'), { inputs });
+  const r = await explore(path.join(out, 'app.html'), { inputs });
   runs.push({ inputs, problems: r.problems, endings: r.endings });
   r.stepsSeen.forEach((id) => seen.add(id));
 }

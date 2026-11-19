@@ -1,0 +1,67 @@
+{
+ "summary": {
+  "steps": 20,
+  "reachable": 20,
+  "fix": 0,
+  "check": 0,
+  "info": 9,
+  "quotes": 122,
+  "quotesExact": 122,
+  "numberLines": 13,
+  "numberLinesQuoted": 13,
+  "sourceAmounts": 10,
+  "sourceAmountsUsed": 10
+ },
+ "findings": [
+  {
+   "level": "info",
+   "step": "just-off",
+   "line": 56,
+   "message": "1 line in \"Note when the power went off\" has no quote from the guideline (\"Tap the button to keep the time in the Log. The app will …\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "during",
+   "line": 72,
+   "message": "2 lines in \"While the power is off\" have no quote from the guideline (\"How long an unopened fridge stays cold. The sources disag…\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "waiting",
+   "line": 103,
+   "message": "1 line in \"Power still off: come back later\" has no quote from the guideline (\"Leave this app open. Any reminders keep running at the to…\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "thawed",
+   "line": 232,
+   "message": "1 line in \"Thawed: don't refreeze it\" has no quote from the guideline (\"Keep it or throw it out? The sources disagree:\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "thawed-baked",
+   "line": 292,
+   "message": "1 line in \"Thawed bread, cakes, pies or pastries\" has no quote from the guideline (\"Northland's table does not say what to do with bread or p…\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "thawed-fruit-veg",
+   "line": 315,
+   "message": "1 line in \"Thawed fruit or vegetables\" has no quote from the guideline (\"Northland's table does not say what to do with vegetables…\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "thawed-other",
+   "line": 325,
+   "message": "1 line in \"Other thawed food\" has no quote from the guideline (\"Northland's table only covers meat and fish, dairy, baked…\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "message": "Nobody is named under \"Reviewed by:\", so the app shows \"Not reviewed\"."
+  },
+  {
+   "level": "info",
+   "message": "The saved guideline text is a web copy made by a fetch tool and may not be word-perfect, so a \"quote not found\" may be the copy's fault. Add the PDF to sources/ for exact checking."
+  }
+ ]
+}

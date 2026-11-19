@@ -38,7 +38,7 @@ app.html      ◄── tested by tests/helpers/explore.mjs (every route, in a f
 | `studio/studio.html`, `studio/studio-entry.js` | the studio page |
 | `tests/checker.test.mjs` | reader and checker: every kind of finding, junk input never throws |
 | `tests/runtime.test.mjs` | the runtime: clocks, Back, reminders, details and tables, Record, Stop, looks and branding |
-| `tests/apps.test.mjs`, `tests/helpers/app-check.mjs`, `tests/helpers/explore.mjs`, `tests/helpers/fake-browser.mjs` | every guideline builds and every route works in a fake browser (jsdom, fake clock); each app runs in its own worker thread so memory is freed between apps |
+| `tests/apps.test.mjs`, `tests/helpers/app-check.mjs`, `tests/helpers/explore.mjs`, `tests/helpers/fake-browser.mjs` | every guideline builds and every route works in a fake browser (jsdom, fake clock); each app runs in its own worker thread, and the explorer closes every page it opens, so memory stays low |
 
 The **Studio** (`site/studio.html`) is the "guideline in, app out" website without AI: paste a template (and the
 guideline text), see the checks and a working preview as you type, download the finished app.

@@ -1,0 +1,172 @@
+Power cut: what food to keep or throw out - New Zealand sources: Ministry for Primary Industries (MPI) / New Zealand Food Safety, National Emergency Management Agency (NEMA: Civil Defence consistent messages and Get Ready), Northland Regional Council, Auckland Regional Public Health Service, Queenstown Lakes District Council (advice from Public Health Service - Southern), and Food Standards Australia New Zealand (FSANZ, joint Australia-NZ). Read 19 Nov 2026 (NZ time).
+Section A from https://www.mpi.govt.nz/food-safety-home/food-safety-in-natural-disasters-and-emergencies (MPI web page; "Last reviewed: 24.02.25"; only the food parts captured).
+Section B from https://www.mpi.govt.nz/dmsdocument/55615-Food-safety-in-the-home-after-flooding (MPI fact sheet "Food safety in the home after flooding", dated Feb 2023, points to the New Zealand Food Safety website; only the power-failure, refreezing and disposing parts captured). The same fact sheet is also hosted by Health NZ Hawke's Bay as "55615-2023-Cyclone-Gabrielle-Food-safety-FS-v2.pdf".
+Section C from https://www.civildefence.govt.nz/guidance-training/consistent-messages/response (NEMA consistent messages "Response: What to do in an emergency"; no date shown; only the power and food lines captured).
+Section D from https://getready.govt.nz/prepared/household/impacts/no-power (NEMA Get Ready "No power"; no date shown; only the food lines captured).
+Section E from https://www.nrc.govt.nz/civildefence/in-an-emergency/food-safety-in-power-cuts-and-floods/ (Northland Regional Council "Food safety - power cuts"; no date or source organisation shown; flood lines left out).
+Section F from https://arphs.health.nz/news/preventing-foodborne-illness-when-the-powers-out (Auckland Regional Public Health Service news item quoting Medical Officer of Health Dr David Sinclair; no date shown).
+Section G from https://sportrec.qldc.govt.nz/media/0gycy45p/qldc_cdem_emergency-posters-a3_keep-food-safe-in-a-power-cut_sep23.pdf (Queenstown Lakes District Council poster "How to keep food safe in a power cut", Sep 2023 in the file name; "Advice sourced from Public Health Service - Southern").
+Section H from https://www.foodstandards.gov.au/consumer/prevention-of-foodborne-illness/food-safety-in-an-emergency (FSANZ "Food safety in an emergency", "Page last updated: 2 October 2025"; only the power and food lines captured). FSANZ is the joint Australia-New Zealand food standards agency.
+Capture method (sourceCopy web-fetch): every site blocks direct download here (curl refused by the proxy) and web search gave titles only, so each line was read by a fetch tool asked to quote short exact sentences (long sentences in pieces, rejoined here). Key lines (every hour, day, temperature, "do not", "should not", "only", "except") were confirmed EXACT in a second, separate read for sections A, B, C, E and F. Sections D, G and H were read once. Small wording slips (apostrophe or dash style) are still possible. Navigation, links and page furniture are left out. "-" = bullet.
+
+==================== SECTION A: MPI - Food safety in natural disasters and emergencies (mpi.govt.nz) ====================
+
+Keep food and water safe
+[...] fridges, freezers, and ovens may break down, and food could spoil more quickly [start of sentence not captured]
+To avoid getting sick from food during emergencies:
+- eat foods that will expire soon first – for example, bread and meat because they spoil more quickly than non-perishable food
+- eat canned foods last
+- open the fridge and freezer as little as possible to help keep it cooler for longer
+- throw out bad or rotting food before it spoils other food.
+
+After an emergency, make sure food is safe
+Check the food – does it smell or look different? Has the colour changed and does it have a slimy texture? If so, it's probably unsafe to eat.
+If food is still visibly frozen (for example, it still has ice crystals on it), and packaging isn't damaged or open, you can still safely refreeze it.
+You should not refreeze food that has defrosted. You can still keep or use food that was frozen but has defrosted, you just need to keep it cold (like in the fridge).
+Do not use any tinned food that has been damaged (for example, if the can has broken open, become deeply dented, or is heavily rusted).
+
+==================== SECTION B: MPI / New Zealand Food Safety fact sheet - Food safety in the home after flooding (Feb 2023) ====================
+
+Power failures: What to do with the food in your fridge and freezer
+When the power goes out, here's what to do to avoid getting sick from unsafe food:
+- Eat foods that will expire soon first – such as bread, meat, salads, and dairy products – because they spoil more quickly than non-perishable food.
+- During the power failure, open your fridge or freezer as little as possible to help keep it cooler for longer.
+- Unopened fridges should hold refrigeration temperature for 4 hours.
+- Freezers will remain colder for longer if they are full (2−4 days) compared to if they are half full (1−2 days). So, leave already frozen food in the freezer if possible.
+- Eat your canned and non-perishable pantry foods last.
+
+Refreezing food
+Once the power is back on, check the food in your freezer.
+- If the food is still visibly frozen (for example, if it still has ice crystals on it) and the packaging isn't damaged or open, you can safely refreeze it.
+- If the food has thawed, you should not refreeze it.
+- You can still keep or use thawed food if it has not started to look or smell bad. Keep it cold (like in the fridge) until you are ready to eat or cook it.
+
+Disposing of food
+If in doubt, throw it out.
+- All perishable food can become unsafe to eat if it reaches temperatures where harmful bacteria can grow and cause of food poisoning.
+- Does the food from your fridge, freezer or pantry smell or look different? Has the colour changed and does it have a slimy texture? If so, it's likely unsafe and should be binned.
+- Throw away all food (except cans) and drinking water that have come into contact with floodwater, including items in twist-top bottles or stored in containers.
+- Place food waste in bin bags to avoid attracting rats, mice, and flies.
+
+==================== SECTION C: NEMA Civil Defence consistent messages - Response: What to do in an emergency ====================
+
+Food safety during power failures
+- Eat foods that will expire soon first – such as bread, meat, salads, and dairy products.
+- Eat canned and non-perishable pantry foods last.
+- Open your fridge and freezer as little as possible to help keep it cooler for longer.
+- Unopened fridges should hold refrigeration temperature for 4 hours.
+- Leave already frozen food in the freezer if possible.
+- Freezers will remain colder for longer if they are full (2–4 days) than if they are half full (1–2 days).
+Once the power is back on, check the food in your freezer.
+- If the food is still visibly frozen (for example, if it still has ice crystals on it) and the packaging isn't damaged or open, you can safely refreeze it.
+- If the food has thawed, you should not refreeze it.
+- You can still keep or use thawed food if it has not started to look or smell bad. Keep it cold (like in the fridge) until you eat or cook it.
+
+(Elsewhere on the same page, under the power-supply advice)
+Use torches or batter powered devices for lighting if the power goes out.
+Eat the food in your fridge first, then your freezer – remember the more times you open the door, the quicker things will go off. After that eat the food in the cupboard or your emergency kit.
+
+==================== SECTION D: NEMA Get Ready - No power ====================
+
+What would you do if the power was out for days?
+Stock up
+Have a stock of food that doesn't need to be cooked (canned is good) or something to cook your food on (gas barbecue or camp stove). Don't forget food for babies and pets.
+Fridge first
+If the power goes out, eat the food from your fridge first, then your freezer. Then eat the food in the cupboard or your emergency kit.
+
+==================== SECTION E: Northland Regional Council - Food safety in a power cut ====================
+
+Food safety in a power cut
+Sudden power cuts are frustrating and troublesome especially when they are prolonged. There are the immediate problems of cooking, lighting and heating. Cold showers are very unappealing in the middle of winter. We often forget about the food stored away in our refrigerator and freezer. If these foods warm up to above 5 degrees Celsius they can become unpleasant to eat and even make us very sick.
+What can you do to protect the food in your refrigerator and freezer during a power cut and how do you know what is safe to eat?
+
+Protecting the food in your refrigerator and freezer during a power cut
+The first advice is to not open the door of the refrigerator or freezer. Make sure you tell everyone in the house including the children. It might be a good idea to hang a big notice on the door to remind everyone.
+An unopened refrigerator will keep your food cool for at least 2 hours. A freezer that is half full will be okay for up to 24 hours and a full freezer for 48 hours.
+
+How do you know what is safe to eat?
+Once food reaches the temperature of 5 degrees Celsius or above for more than 2 hours it greatly increases the risk of growth by microorganisms that can cause illness.
+Do not use frozen food that has thawed or refrigerated food that has warmed up. The only exceptions to this are butter/margarine, hard cheeses, raw eggs (still in eggshells), fruit and vegetables.
+The rule of thumb is "if in doubt, throw it out".
+
+How to know if frozen food is safe to eat during a power cut
+(The table has no header row; each group's first row gives the two column conditions.)
+
+| Food | Still contains ice crystals. Kept under 5°C | Thawed, held above 5°C for over 2 hours |
+|---|---|---|
+| FROZEN MEAT AND FISH | | |
+| Meat | Refreeze or immediately use | Throw out |
+| Chicken | Refreeze or immediately use | Throw out |
+| Casseroles, stews, soups, pizza, sausage rolls | Refreeze or immediately use | Throw out |
+| Fish or shellfish | Refreeze or immediately use | Throw out |
+| FROZEN DAIRY PRODUCTS | | |
+| Ice cream | Throw out | Throw out |
+| Frozen yoghurt | Throw out | Throw out |
+| Milk | Refreeze or immediately use | Throw out |
+| FROZEN BAKED PRODUCTS | | |
+| Bread | Refreeze or use | Throw out if above 10°C for over 8 hours |
+| Muffins and cakes (no custard filling) | Refreeze or use | Throw out if above 10°C for over 8 hours |
+| Cakes, pies, pastries with custard filling, cheesecake | Refreeze or immediately use | Throw out |
+| FROZEN FRUIT AND VEGETABLES | | |
+| Fruit | Refreeze or use | Refreeze. Throw out if mould, yeasty smell or sliminess develops. |
+| Vegetables | Refreeze or use | Throw out if above 10°C for over 8 hours |
+
+The rule of thumb is "if in doubt throw it out".
+
+Hygiene
+Maintaining hygiene around food preparation and cooking requires more thought than normal during a power cut:
+- Cook food thoroughly.
+- Throw out cooked food if it can not be refrigerated or eaten immediately.
+- Always wash and dry your hands before preparing food - if water is in short supply keep some in a bowl with disinfectant.
+
+==================== SECTION F: Auckland Regional Public Health Service - preventing foodborne illness when the power's out ====================
+
+With some households in the region facing two or more days without electricity, it will be important to take care with food from the fridge and freezer.
+Auckland Regional Public Health Service (ARPHS) Medical Officer of Health, Dr David Sinclair, is advising people without power to follow guidelines around food spoilage to avoid food poisoning.
+"After today, highly perishable foods in the fridge like meat and fish may not be safe to eat," he said.
+- Throw out rotten or contaminated food quickly so it doesn't spoil other food in the fridge.
+- You can still eat food like raw vegetables, cheese and bread.
+- Dispose of any food from the freezer which has thawed out and been at room temperature for longer than two hours.
+- When the power comes back on, it is important not to refreeze food that has defrosted.
+- If the frozen food has ice crystals and the packaging is intact then it can be refrozen.
+And if you are unsure, have a closer look and smell. If the colour has changed, it has a slimy texture or if it smells off, it probably is off.
+If you eat food that has gone off, you can risk infection from salmonella, campylobacter and a range of food poisoning bacteria.
+Maintaining hygiene around food preparation and cooking requires more thought than normal.
+- always wash and dry your hands before preparing food – if water is in short supply keep some in a bowl with disinfectant
+- ensure all utensils are clean before use
+- cook food thoroughly.
+For health advice call Healthline for free anytime on 0800 611 116
+
+==================== SECTION G: Queenstown Lakes District Council poster - How to keep food safe in a power cut (advice from Public Health Service - Southern) ====================
+
+HOW TO KEEP FOOD SAFE IN A POWER CUT
+EAT FROM THE FRIDGE FIRST, THE FREEZER SECOND, AND THE PANTRY LAST.
+FRIDGE
+Eat foods that will expire soon first – such as bread, meat, salads, and dairy products. These spoil more quickly than non-perishable food.
+Open your fridge and freezer as little as possible to help keep it cooler for longer.
+Unopened fridges should hold refrigeration temperature for 4 hours.
+FREEZER
+Leave already frozen food in the freezer if possible.
+Freezers will remain colder for longer if they are full (2–4 days) than if they are half full (1–2 days).
+Eat canned and non-perishable pantry foods last.
+ONCE THE POWER IS BACK ON, CHECK THE FOOD IN YOUR FREEZER.
+If the food is still visibly frozen (for example, if it still has ice crystals on it) and the packaging isn't damaged or open, you can safely refreeze it.
+If the food has thawed, you should not refreeze it.
+You can still keep or use thawed food if it has not started to look or smell bad. Keep it cold (like in the fridge) until you eat or cook it.
+IF IN DOUBT, THROW IT OUT!
+(The order of the poster's boxes above is approximate; the fetch tool read the poster's text out of layout order.)
+
+==================== SECTION H: FSANZ (Food Standards Australia New Zealand) - Food safety in an emergency ====================
+
+Before
+- Prepare eskies with ice bricks or gel packs to keep food cold if the power goes out.
+During
+- Keep food cold, clean and check the label.
+- Keep the fridge door closed as much as possible. A fridge should keep food cold for around four hours - after that it can begin to spoil.
+- Keep the freezer door closed as much as possible. A freezer shouldn't defrost for around 24 hours.
+- If frozen foods have thawed don't refreeze!
+After
+- Throw out food that has touched flood water or has an unusual smell, colour or texture. Don't taste it to see if it's OK.
+- Check canned foods and throw out any cans that are dented, swollen, damaged or leaking.
+- Throw out food that has been near fire, including food in cans and jars even if they appear OK.
+- If in doubt, throw it out!
