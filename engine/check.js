@@ -9,12 +9,13 @@
    Pure function (node and browser). */
 
 import { findQuote, amounts } from './quotes.js';
-import { findByName, closest, readKey, slug } from './util.js';
+import { findByName, closest, readKey, slug, isNotStated } from './util.js';
 import { LOOKS, parseColour, contrastWithWhite } from './looks.js';
 
 export const END = '__end';
 const END_WORDS = /^(end|finish|finished|stop|done|exit|complete)$/i;
 
+// Links, checks and summarises a spec; earlier findings (from the reader) are kept first. Never throws.
 export function checkSpec(input, { sourceText = '', findings: earlier = [] } = {}) {
   const spec = JSON.parse(JSON.stringify(input));   // a copy (structuredClone is missing in older phone browsers)
   const findings = [...earlier];
@@ -72,7 +73,11 @@ export function checkSpec(input, { sourceText = '', findings: earlier = [] } = {
   for (const t of spec.tables) checkTable(t, spec, add);
   for (const s of spec.steps) for (const l of s.lines.filter((x) => x.kind === 'show')) {
     const t = findByName(spec.tables, l.table, (x) => [x.id, x.title]);
-    if (!t) { add('fix', { step: s.id, line: l.line }, `"Show: ${l.text}" names a table that doesn't exist.`, closest(l.table, spec.tables.map((x) => x.title)) ? `Did you mean "${closest(l.table, spec.tables.map((x) => x.title))}"?` : 'Add it under "## Tables".'); continue; }
+    if (!t) {
+      const near = closest(l.table, spec.tables.map((x) => x.title));
+      add('fix', { step: s.id, line: l.line }, `"Show: ${l.text}" names a table that doesn't exist.`, near ? `Did you mean "${near}"?` : 'Add it under "## Tables".');
+      continue;
+    }
     l.tableId = t.id;
     if (l.column && !t.columns.some((c) => slug(c) === slug(l.column))) add('fix', { step: s.id, line: l.line }, `Table "${t.title}" has no column "${l.column}" (columns: ${t.columns.join(', ')}).`);
   }
@@ -93,7 +98,7 @@ export function checkSpec(input, { sourceText = '', findings: earlier = [] } = {
       if (labels.has(k) && labels.get(k) !== o.target && !o.cond) add('check', { step: s.id, line: o.line }, `"${s.title}": the answer "${o.label}" appears twice and goes to two different places. Which one is right?`);
       labels.set(k, o.target);
     }
-    if (!out.length && !s.end && !exits(s).length && !(s.ask?.options.length)) {
+    if (!out.length && !s.end && !(s.ask?.options.length)) {
       add('check', where, `"${s.title}" has no way forward (no answers, "Next", timer or "End"). The app offers "Finish" here.`, 'Add "Next: <step>" or "End:" if this is meant to be the last step.');
     }
   }
@@ -117,31 +122,28 @@ export function checkSpec(input, { sourceText = '', findings: earlier = [] } = {
   /* ---- 4. Guideline support: quotes match the source, and numbers agree with their quotes ---- */
   let quoteCount = 0, quoteExact = 0, numberLines = 0, numberLinesQuoted = 0;
   const templateAmounts = new Set();
+  // Looks a quote up in the guideline text, counts it, marks it (q.check) and reports a near or missing match.
+  const checkQuote = (q, where) => {
+    quoteCount++;
+    const r = findQuote(q.text, sourceText);
+    q.check = r.found;
+    if (r.found === 'exact') quoteExact++;
+    else if (r.found === 'near') add('check', where, `The quote "${q.text}" is close to, but not the same as, the guideline${r.missing.length ? ` (the guideline doesn't have: ${r.missing.join(', ')})` : ''}.`, `Guideline text nearby: "${r.passage}"`);
+    else if (sourceText) add('check', where, `The quote "${q.text}" was not found in the saved guideline text.`, 'Check it against the guideline; the saved copy may also be incomplete.');
+    amounts(q.text).forEach((a) => templateAmounts.add(a));
+  };
   for (const s of spec.steps) {
     const holders = [s.timer, ...s.reminders].filter((h) => h?.quotes?.length);
     const stepQuotes = [...(s.quotes ?? []), ...s.lines.flatMap((l) => l.quotes ?? []), ...holders.flatMap((h) => h.quotes)];
-    for (const q of [...(s.quotes ?? []), ...holders.flatMap((h) => h.quotes)]) {   // quotes not under a text line: still checked
-      quoteCount++;
-      const r = findQuote(q.text, sourceText); q.check = r.found;
-      if (r.found === 'exact') quoteExact++;
-      else if (r.found === 'near') add('check', { step: s.id, line: s.line }, `The quote "${q.text}" is close to, but not the same as, the guideline.`, `Guideline text nearby: "${r.passage}"`);
-      else if (sourceText) add('check', { step: s.id, line: s.line }, `The quote "${q.text}" was not found in the saved guideline text.`);
-      amounts(q.text).forEach((a) => templateAmounts.add(a));
-    }
+    for (const q of [...(s.quotes ?? []), ...holders.flatMap((h) => h.quotes)]) checkQuote(q, { step: s.id, line: s.line });   // quotes not under a text line: still checked
     for (const l of s.lines) {
       const said = l.kind === 'show' || l.kind === 'note' ? [] : amounts(l.text);
       said.forEach((a) => templateAmounts.add(a));
       if (said.length) { numberLines++; if (l.quotes?.length) numberLinesQuoted++; }
       for (const q of l.quotes ?? []) {
-        quoteCount++;
-        const r = findQuote(q.text, sourceText);
-        q.check = r.found;
-        if (r.found === 'exact') quoteExact++;
-        else if (r.found === 'near') add('check', { step: s.id, line: l.line }, `The quote "${q.text}" is close to, but not the same as, the guideline${r.missing.length ? ` (the guideline doesn't have: ${r.missing.join(', ')})` : ''}.`, `Guideline text nearby: "${r.passage}"`);
-        else if (sourceText) add('check', { step: s.id, line: l.line }, `The quote "${q.text}" was not found in the saved guideline text.`, 'Check it against the guideline; the saved copy may also be incomplete.');
-        amounts(q.text).forEach((a) => templateAmounts.add(a));
+        checkQuote(q, { step: s.id, line: l.line });
         const quoted = amounts(q.text);
-        const differ = said.filter((a) => quoted.length && !quoted.includes(a) && !quoted.some((b) => sameUnit(a, b) && rangeHas(b, a)));
+        const differ = said.filter((a) => quoted.length && !agrees(a, quoted));
         if (differ.length) add('check', { step: s.id, line: l.line }, `This line says ${differ.join(', ')}, but its quote says ${quoted.join(', ')}. Which is right?`);
       }
     }
@@ -151,7 +153,7 @@ export function checkSpec(input, { sourceText = '', findings: earlier = [] } = {
     for (const t of timed) {
       const a = amounts(t.label)[0];
       if (a) templateAmounts.add(a);
-      if (a && quotedTimes.length && !quotedTimes.includes(a) && !quotedTimes.some((b) => sameUnit(a, b) && rangeHas(b, a))) add('check', { step: s.id, line: t.line }, `The ${t.what} is ${t.label}, but the quotes in this step give ${quotedTimes.join(', ')}.`);
+      if (a && quotedTimes.length && !agrees(a, quotedTimes)) add('check', { step: s.id, line: t.line }, `The ${t.what} is ${t.label}, but the quotes in this step give ${quotedTimes.join(', ')}.`);
       if (!quotedTimes.length) add('info', { step: s.id, line: t.line }, `The ${t.what} (${t.label}) has no quote in this step showing where the time comes from.`);
     }
   }
@@ -257,12 +259,16 @@ function checkTable(t, spec, add) {
     for (const o of inp.options) if (!t.rows.some((r) => r.key.toLowerCase() === o.toLowerCase())) add('check', where, `Table "${t.title}" has no row for "${o}", so the app will say "no row" when "${inp.label}" is ${o}.`);
   }
   for (const r of t.rows) for (const [col, v] of Object.entries(r.cells)) {
-    if (/^\s*(-|–|—|n\/?a)?\s*$/i.test(v) && col !== t.columns[0]) add('info', { table: t.id, line: r.line }, `Table "${t.title}", row "${r.key}", column "${col}" is empty or "-". The app shows "Not stated in the guideline", not zero.`);
+    if (isNotStated(v) && col !== t.columns[0]) add('info', { table: t.id, line: r.line }, `Table "${t.title}", row "${r.key}", column "${col}" is empty or "-". The app shows "Not stated in the guideline", not zero.`);
   }
 }
 
+// Cuts long text for a finding message.
 const short = (t) => (t.length > 60 ? t.slice(0, 57) + '…' : t);
+// Two normalised amounts ("5 minute", "20-40 ml/kg") have the same unit.
 const sameUnit = (a, b) => a.split(' ')[1] === b.split(' ')[1];
+// An amount agrees with a quote's amounts if one is the same, or a quoted range with the same unit contains it.
+const agrees = (amount, quoted) => quoted.includes(amount) || quoted.some((b) => sameUnit(amount, b) && rangeHas(b, amount));
 // "20-40 ml/kg" contains "30 ml/kg"
 function rangeHas(range, single) {
   const m = /^(\d+(?:\.\d+)?)-(\d+(?:\.\d+)?)/.exec(range);

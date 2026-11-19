@@ -5,6 +5,8 @@ import { readFileSync } from 'node:fs';
 
 export const T0 = 1700000000000;          // fixed start time
 
+// Opens one app with the clock frozen at T0. advance(ms) moves time on and runs the app's tick; click, type and
+// tick act like a person; errors collects any page error.
 export function openApp(htmlPath) {
   const html = readFileSync(htmlPath, 'utf8');
   let now = T0, tickFn = null;

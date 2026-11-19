@@ -4,6 +4,7 @@
    explore(htmlPath, { inputs, maxRoutes }) -> { stepsSeen:Set, endings, routes, problems:[text] } */
 import { openApp } from './fake-browser.mjs';
 
+// Breadth-first: each new route is one more move added to a route already tried.
 export function explore(htmlPath, { inputs = {}, maxRoutes = 400, maxDepth = 40 } = {}) {
   const stepsSeen = new Set(), problems = [];
   let routes = 0, endings = 0;
@@ -41,12 +42,14 @@ export function explore(htmlPath, { inputs = {}, maxRoutes = 400, maxDepth = 40 
   return { stepsSeen, endings, routes, problems };
 }
 
+// Enters the test details: taps a choice button, or types into a number box.
 function setInputs(app, inputs) {
   for (const [id, v] of Object.entries(inputs)) {
     const choice = app.$(`[data-input="${id}"][data-value="${v}"]`);
     if (choice) app.click(choice); else app.type(`[data-num="${id}"]`, String(v));
   }
 }
+// Makes one move on the current step: an answer, Next, Finish, or letting the timer run out and continuing.
 function act(app, choice) {
   if (choice.startsWith('opt:')) app.click(`[data-opt="${choice.slice(4)}"]`);
   else if (choice === 'next') app.click('[data-act="next"]');

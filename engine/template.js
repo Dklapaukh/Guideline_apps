@@ -27,15 +27,17 @@ const KEYS = {
   note: ['note', 'author note', 'comment'],
 };
 const KEY_OF = new Map(Object.entries(KEYS).flatMap(([k, list]) => list.map((w) => [w, k])));
+// The arrow between an answer and its step: "->", "-->", "→", "=>" or "—>", with any spaces around it.
 const ARROW = /\s*(?:-->|->|→|=>|—>)\s*/;
 // Splits "label -> target" on the LAST arrow, so arrows inside the label survive ("Breathing → normal -> end").
 function splitArrow(text) {
-  const all = [...text.matchAll(/\s*(?:-->|->|→|=>|—>)\s*/g)];
+  const all = [...text.matchAll(new RegExp(ARROW.source, 'g'))];
   if (!all.length) return [text, null];
   const m = all.at(-1);
   return [text.slice(0, m.index), text.slice(m.index + m[0].length)];
 }
 
+// Reads the whole template line by line; the section (top, Inputs, Tables, Steps, Notes) decides how each line is read.
 export function readTemplate(text) {
   const findings = [];
   const say = (level, line, message, extra = {}) => findings.push({ level, line, message, ...extra });
@@ -120,7 +122,9 @@ export function readTemplate(text) {
   }
 
   /* ---- tables: "### Title", optional "Key: Weight", "Source: ...", then a markdown table ---- */
+  // A new, empty table; readTableLine fills it from the lines below its heading.
   function newTable(title) { return { id: slug(title), title, key: null, columns: [], rows: [], source: '', line: null }; }
+  // One line under a table heading: a header or data row, the "|---|" line, "Key:" or "Source:".
   function readTableLine(bare, n) {
     if (!table) { table = newTable('Table'); spec.tables.push(table); say('info', n, 'Table rows came before a "### Table name" heading; it was named "Table".'); }
     table.line ??= n;
@@ -139,12 +143,14 @@ export function readTemplate(text) {
   }
 
   /* ---- steps ---- */
+  // A new step from "### id: Title" (or "### Title", whose id is made from the title).
   function newStep(heading, n) {
     const m = /^([\w-]+)\s*:\s*(.+)$/.exec(heading);
     const title = m ? m[2].trim() : heading;
     return { id: m ? slug(m[1]) : slug(title), title, lines: [], ask: null, next: null, timer: null,
              reminders: [], stop: null, end: false, line: n };
   }
+  // One line in a step: an answer ("- Yes -> step"), a bullet, a typed line ("Timer: ...") or plain text.
   function readStepLine(bare, n) {
     if (!step) { step = newStep('Start', n); spec.steps.push(step); say('info', n, 'Text came before the first "### step" heading; it was put in a step called "Start".'); }
     const { text, cond, condProblem } = splitCondition(bare);
@@ -213,6 +219,7 @@ export function readTemplate(text) {
       case 'end': step.end = true; if (value) addLine({ kind: 'say', text: value, cond, line: n }); return;
     }
   }
+  // Adds a shown line to the step; a Quote line straight after it supports it.
   function addLine(l) { step.lines.push(l); lastLine = l; }
 
   spec.start = spec.steps[0]?.id ?? null;

@@ -90,3 +90,43 @@ test('with no look named the app opens in the default look; a locked page keeps 
   assert.equal(locked.window.document.documentElement.dataset.look, 'flightdeck');
   assert.equal(locked.$('[data-look-pick]'), null);
 });
+
+const D = `# Details test
+## Inputs
+- Weight (kg): number, 1-100
+- Group: choice: Adult | Child
+## Tables
+### Dose
+Key: Weight
+| Weight | Dose |
+|---|---|
+| up to 10 | 1 mg |
+| over 10 | - |
+## Steps
+### a: Look up
+Show: Dose
+Say: Adults only [if Group = Adult]
+Record: Dose given
+Remind: every 5 minutes: Recheck
+Next: b
+### b: Stop it
+Stop: Recheck
+End:
+`;
+
+test('details pick the table row and the lines shown; "-" reads "Not stated"; Record counts; Stop ends a reminder', () => {
+  const app = appFrom(D);
+  app.type('[data-num="weight"]', '8');
+  app.click('[data-input="group"][data-value="Child"]');
+  app.click('[data-act="begin"]');
+  assert.match(app.text(), /1 mg/);
+  assert.doesNotMatch(app.text(), /Adults only/, 'a line whose condition is false is hidden');
+  app.click('[data-rec="Dose given"]'); app.click('[data-rec="Dose given"]');
+  assert.equal(app.state.records['Dose given'].n, 2);
+  assert.ok(app.$('.rem'), 'the reminder is running');
+  app.click('[data-act="next"]');
+  assert.equal(app.$('.rem'), null, 'Stop: ended the reminder');
+  app.click('[data-act="back"]');
+  app.click('[data-tab="about"]'); app.type('[data-num="weight"]', '20'); app.click('[data-tab="steps"]');
+  assert.match(app.text(), /Not stated in the guideline/);
+});

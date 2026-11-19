@@ -128,8 +128,13 @@ html[data-look="flightdeck"]{ --ink:#e8edf2; --mut:#8a97a6; --bg:#0b0f14; --card
     const v = Number(value);
     if (Number.isNaN(v)) return false;
     if (key.kind === "number") return v === key.value;
-    return (key.lowIn ? v >= key.low : v > key.low) && (key.highIn ? v <= key.high : v < key.high);
+    const low = key.low ?? -Infinity, high = key.high ?? Infinity;
+    return (key.lowIn ? v >= low : v > low) && (key.highIn ? v <= high : v < high);
   }
+  var isNotStated = (cell) => /^\s*(-|–|—|n\/?a)?\s*$/i.test(cell ?? "");
+
+  // engine/page.js
+  var escapeHtml = (text) => String(text ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
 
   // engine/quotes.js
   var UNIT = "(?:\u2103|mg|mcg|micrograms?|g|kg|ml|mL|l|L|litres?|liters?|mmol|J|joules?|%|\xB0C|degrees|seconds?|secs?|s|minutes?|mins?|hours?|hrs?|h|days?|weeks?|times|cm|mm|m|metres?|meters?|km|breaths|compressions)";
@@ -179,7 +184,6 @@ html[data-look="flightdeck"]{ --ink:#e8edf2; --mut:#8a97a6; --bg:#0b0f14; --card
       note: ""
     };
     const byId = new Map(spec.steps.map((s) => [s.id, s]));
-    const esc = (t) => String(t ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
     const now = () => Date.now();
     const log = (what, detail = "") => S.log.push({ at: now(), what, detail });
     const brand = spec.brand ?? {};
@@ -269,8 +273,8 @@ html[data-look="flightdeck"]{ --ink:#e8edf2; --mut:#8a97a6; --bg:#0b0f14; --card
     }
     function render() {
       root.innerHTML = `
-      <header class="bar"><div class="t">${brand.name ? `<span class="brand">${esc(brand.name)}</span>` : ""}${esc(spec.title)}</div><div class="clock" data-clock="elapsed">${S.startedAt ? clock(now() - S.startedAt) : ""}</div></header>
-      <div class="proto">Prototype built automatically from a guideline. ${spec.reviewedBy ? "Reviewed by " + esc(spec.reviewedBy) + "." : "Not reviewed."} Not for real-world use.</div>
+      <header class="bar"><div class="t">${brand.name ? `<span class="brand">${escapeHtml(brand.name)}</span>` : ""}${escapeHtml(spec.title)}</div><div class="clock" data-clock="elapsed">${S.startedAt ? clock(now() - S.startedAt) : ""}</div></header>
+      <div class="proto">Prototype built automatically from a guideline. ${spec.reviewedBy ? "Reviewed by " + escapeHtml(spec.reviewedBy) + "." : "Not reviewed."} Not for real-world use.</div>
       ${reminderBar()}
       <main id="main">${S.tab === "steps" ? S.screen === "start" ? startView() : S.screen === "done" ? doneView() : stepView() : S.tab === "log" ? logView() : S.tab === "checks" ? checksView() : aboutView()}</main>
       <nav class="tabs">${["steps", "log", "checks", "about"].map((t) => `<button data-tab="${t}" class="${S.tab === t ? "on" : ""}">${{ steps: "Steps", log: "Log", checks: `Checks${counts.fix + counts.check ? ` (${counts.fix + counts.check})` : ""}`, about: "About" }[t]}</button>`).join("")}</nav>`;
@@ -278,9 +282,9 @@ html[data-look="flightdeck"]{ --ink:#e8edf2; --mut:#8a97a6; --bg:#0b0f14; --card
     }
     function startView() {
       return `<section class="card">
-      <h1>${esc(spec.title)}</h1>
-      ${spec.about ? `<p>${esc(spec.about)}</p>` : ""}
-      ${spec.warning ? `<p class="warn">${esc(spec.warning)}</p>` : ""}
+      <h1>${escapeHtml(spec.title)}</h1>
+      ${spec.about ? `<p>${escapeHtml(spec.about)}</p>` : ""}
+      ${spec.warning ? `<p class="warn">${escapeHtml(spec.warning)}</p>` : ""}
       ${counts.fix ? `<p class="author">The template has ${counts.fix} problem${counts.fix > 1 ? "s" : ""} the author needs to fix (see Checks). The app still runs.</p>` : ""}
       ${inputsForm()}
       <button class="big go" data-act="begin">Start</button>
@@ -288,9 +292,9 @@ html[data-look="flightdeck"]{ --ink:#e8edf2; --mut:#8a97a6; --bg:#0b0f14; --card
     }
     function inputsForm() {
       if (!spec.inputs.length) return "";
-      return `<div class="inputs">${spec.inputs.map((i) => `<label class="inp">${esc(i.label)}${i.unit ? ` (${esc(i.unit)})` : ""}${i.optional ? " <small>optional</small>" : ""}
-      ${i.type === "choice" ? `<span class="choices">${i.options.map((o) => `<button data-input="${i.id}" data-value="${esc(o)}" class="${S.answers[i.id] === o ? "on" : ""}">${esc(o)}</button>`).join("")}</span>` : `<input inputmode="decimal" data-num="${i.id}" value="${esc(S.answers[i.id] ?? "")}" placeholder="${i.min != null ? `${i.min}\u2013${i.max}` : ""}">`}
-      <span class="bad" data-bad="${i.id}">${esc(numberProblem(i, S.answers[i.id]) ?? "")}</span></label>`).join("")}</div>`;
+      return `<div class="inputs">${spec.inputs.map((i) => `<label class="inp">${escapeHtml(i.label)}${i.unit ? ` (${escapeHtml(i.unit)})` : ""}${i.optional ? " <small>optional</small>" : ""}
+      ${i.type === "choice" ? `<span class="choices">${i.options.map((o) => `<button data-input="${i.id}" data-value="${escapeHtml(o)}" class="${S.answers[i.id] === o ? "on" : ""}">${escapeHtml(o)}</button>`).join("")}</span>` : `<input inputmode="decimal" data-num="${i.id}" value="${escapeHtml(S.answers[i.id] ?? "")}" placeholder="${i.min != null ? `${i.min}\u2013${i.max}` : ""}">`}
+      <span class="bad" data-bad="${i.id}">${escapeHtml(numberProblem(i, S.answers[i.id]) ?? "")}</span></label>`).join("")}</div>`;
     }
     function numberProblem(i, v) {
       if (i.type !== "number" || v === void 0 || v === "") return null;
@@ -305,20 +309,20 @@ html[data-look="flightdeck"]{ --ink:#e8edf2; --mut:#8a97a6; --bg:#0b0f14; --card
       const opts = (s.ask?.options ?? []).map((o, k) => {
         const shown = testCondition(o.cond, S.answers, spec.inputs);
         if (shown === false) return "";
-        return `<button class="big opt${o.target ? "" : " broken"}" data-opt="${k}">${esc(o.label)}${shown === null ? " <small>(depends on details)</small>" : ""}</button>`;
+        return `<button class="big opt${o.target ? "" : " broken"}" data-opt="${k}">${escapeHtml(o.label)}${shown === null ? " <small>(depends on details)</small>" : ""}</button>`;
       }).join("");
       const next = nextTarget(s);
       const final = s.end || !opts && !next && !s.timer?.target;
       return `<section class="card step">
       <div class="crumb">${S.history.length ? `<button class="link" data-act="back">\u2039 Back</button>` : ""}<span>Step ${S.history.length + 1}</span></div>
-      <h2>${esc(s.title)}</h2>
-      ${s.timer ? `<div class="timer ${S.timerDone ? "due" : ""}"><div class="lbl">${esc(s.timer.label)}</div><div class="big-clock" data-clock="timer">${clock(s.timer.ms)}</div>
+      <h2>${escapeHtml(s.title)}</h2>
+      ${s.timer ? `<div class="timer ${S.timerDone ? "due" : ""}"><div class="lbl">${escapeHtml(s.timer.label)}</div><div class="big-clock" data-clock="timer">${clock(s.timer.ms)}</div>
          ${S.timerDone && s.timer.target ? `<button class="big go" data-act="timer-go">Time's up: continue</button>` : ""}
-         ${s.timer.to && !s.timer.target ? `<p class="author">The timer leads to "${esc(s.timer.to)}", which is missing.</p>` : ""}</div>` : ""}
+         ${s.timer.to && !s.timer.target ? `<p class="author">The timer leads to "${escapeHtml(s.timer.to)}", which is missing.</p>` : ""}</div>` : ""}
       ${lines}
-      ${s.ask ? `<p class="q">${esc(s.ask.question)}</p><div class="opts">${opts || '<p class="author">No answer applies with the details entered (see Checks).</p>'}</div>` : ""}
-      ${S.note ? `<p class="author">${esc(S.note)}</p>` : ""}
-      ${next ? `<button class="big ${s.ask ? "skip" : "go"}" data-act="next">${s.ask ? "Skip" : "Next"}: ${esc(byId.get(next)?.title ?? "Finish")}${nextDepends(s) ? " <small>(depends on details not entered)</small>" : ""}</button>` : ""}
+      ${s.ask ? `<p class="q">${escapeHtml(s.ask.question)}</p><div class="opts">${opts || '<p class="author">No answer applies with the details entered (see Checks).</p>'}</div>` : ""}
+      ${S.note ? `<p class="author">${escapeHtml(S.note)}</p>` : ""}
+      ${next ? `<button class="big ${s.ask ? "skip" : "go"}" data-act="next">${s.ask ? "Skip" : "Next"}: ${escapeHtml(byId.get(next)?.title ?? "Finish")}${nextDepends(s) ? " <small>(depends on details not entered)</small>" : ""}</button>` : ""}
       ${final ? `<button class="big go" data-act="finish">Finish</button>` : ""}
     </section>`;
     }
@@ -334,35 +338,35 @@ html[data-look="flightdeck"]{ --ink:#e8edf2; --mut:#8a97a6; --bg:#0b0f14; --card
     function lineView(l, k) {
       const shown = testCondition(l.cond, S.answers, spec.inputs);
       if (shown === false) return "";
-      const dep = shown === null ? `<small class="dep">Depends on: ${esc(l.cond.map((c) => c.input).join(", "))}</small>` : "";
-      const q = l.quotes?.length ? `<details class="src"><summary>Guideline</summary>${l.quotes.map((x) => `<q>${esc(x.text)}</q>${x.where ? ` <small>${esc(x.where)}</small>` : ""}${x.check && x.check !== "exact" ? ' <small class="dep">quote not confirmed</small>' : ""}`).join("<br>")}</details>` : "";
+      const dep = shown === null ? `<small class="dep">Depends on: ${escapeHtml(l.cond.map((c) => c.input).join(", "))}</small>` : "";
+      const q = l.quotes?.length ? `<details class="src"><summary>Guideline</summary>${l.quotes.map((x) => `<q>${escapeHtml(x.text)}</q>${x.where ? ` <small>${escapeHtml(x.where)}</small>` : ""}${x.check && x.check !== "exact" ? ' <small class="dep">quote not confirmed</small>' : ""}`).join("<br>")}</details>` : "";
       const key = `${S.current}:${k}`;
-      if (l.kind === "do") return `<label class="do"><input type="checkbox" data-tick="${key}" ${S.ticks[key] ? "checked" : ""}> <span>${esc(l.text)}</span>${dep}${q}</label>`;
-      if (l.kind === "warning") return `<p class="warn">${esc(l.text)}${dep}${q}</p>`;
+      if (l.kind === "do") return `<label class="do"><input type="checkbox" data-tick="${key}" ${S.ticks[key] ? "checked" : ""}> <span>${escapeHtml(l.text)}</span>${dep}${q}</label>`;
+      if (l.kind === "warning") return `<p class="warn">${escapeHtml(l.text)}${dep}${q}</p>`;
       if (l.kind === "record") {
         const r = S.records[l.text];
-        return `<div class="rec"><button class="big rec-btn" data-rec="${esc(l.text)}">${esc(l.text)}</button><small data-clock="rec" data-rec-name="${esc(l.text)}">${r ? `${r.n}\xD7 \xB7 last ${formatDuration(now() - r.last)} ago` : "not yet"}</small>${dep}${q}</div>`;
+        return `<div class="rec"><button class="big rec-btn" data-rec="${escapeHtml(l.text)}">${escapeHtml(l.text)}</button><small data-clock="rec" data-rec-name="${escapeHtml(l.text)}">${r ? `${r.n}\xD7 \xB7 last ${formatDuration(now() - r.last)} ago` : "not yet"}</small>${dep}${q}</div>`;
       }
       if (l.kind === "show") return `<div class="show">${showTable(l)}${dep}${q}</div>`;
-      return `<p class="${l.bullet ? "bul" : ""}">${esc(l.text)}${dep}${q}</p>`;
+      return `<p class="${l.bullet ? "bul" : ""}">${escapeHtml(l.text)}${dep}${q}</p>`;
     }
     function showTable(l) {
       const t = spec.tables.find((x) => x.id === l.tableId);
-      if (!t) return `<p class="author">"${esc(l.table)}" table is missing from the template.</p>`;
+      if (!t) return `<p class="author">"${escapeHtml(l.table)}" table is missing from the template.</p>`;
       const cols = l.column ? t.columns.filter((c) => slug(c) === slug(l.column)) : t.columns.slice(1);
-      if (!t.keyInput) return `<table><tr>${t.columns.map((c) => `<th>${esc(c)}</th>`).join("")}</tr>${t.rows.map((r) => `<tr>${t.columns.map((c) => `<td>${cell(r.cells[c])}</td>`).join("")}</tr>`).join("")}</table>`;
+      if (!t.keyInput) return `<table><tr>${t.columns.map((c) => `<th>${escapeHtml(c)}</th>`).join("")}</tr>${t.rows.map((r) => `<tr>${t.columns.map((c) => `<td>${cell(r.cells[c])}</td>`).join("")}</tr>`).join("")}</table>`;
       const inp = spec.inputs.find((i) => i.id === t.keyInput);
       const v = S.answers[inp.id];
-      if (v === void 0 || v === "") return `<p><b>${esc(t.title)}:</b> enter ${esc(inp.label)} to see this. <button class="link" data-tab="about">Enter details</button></p>`;
+      if (v === void 0 || v === "") return `<p><b>${escapeHtml(t.title)}:</b> enter ${escapeHtml(inp.label)} to see this. <button class="link" data-tab="about">Enter details</button></p>`;
       const row = t.rows.find((r) => keyMatches(r.match, v));
-      if (!row) return `<p class="author"><b>${esc(t.title)}:</b> the table has no row for ${esc(inp.label)} ${esc(v)}${inp.unit ? " " + esc(inp.unit) : ""}.</p>`;
-      return `<div class="lookup"><div class="lk">${esc(t.title)} <small>(${esc(row.key)})</small></div>${cols.map((c) => `<div class="lv"><span>${esc(c)}</span><b>${cell(row.cells[c])}</b></div>`).join("")}</div>`;
+      if (!row) return `<p class="author"><b>${escapeHtml(t.title)}:</b> the table has no row for ${escapeHtml(inp.label)} ${escapeHtml(v)}${inp.unit ? " " + escapeHtml(inp.unit) : ""}.</p>`;
+      return `<div class="lookup"><div class="lk">${escapeHtml(t.title)} <small>(${escapeHtml(row.key)})</small></div>${cols.map((c) => `<div class="lv"><span>${escapeHtml(c)}</span><b>${cell(row.cells[c])}</b></div>`).join("")}</div>`;
     }
-    const cell = (v) => /^\s*(-|–|—|n\/?a)?\s*$/i.test(v ?? "") ? "<i>Not stated in the guideline</i>" : esc(v);
+    const cell = (v) => isNotStated(v) ? "<i>Not stated in the guideline</i>" : escapeHtml(v);
     function reminderBar() {
       const list = Object.entries(S.reminders);
       if (!list.length) return "";
-      return `<div class="reminders">${list.map(([id, r]) => `<div class="rem" data-rem="${id}"><span class="rt">${esc(r.text)}</span><span class="rc" data-clock="rem" data-rem-id="${id}"></span>${r.once && !r.alerted ? "" : `<button data-remdone="${id}">${r.once ? "OK" : "Done"}</button>`}<button class="x" data-remstop="${id}" title="Stop">\u2715</button></div>`).join("")}</div>`;
+      return `<div class="reminders">${list.map(([id, r]) => `<div class="rem" data-rem="${id}"><span class="rt">${escapeHtml(r.text)}</span><span class="rc" data-clock="rem" data-rem-id="${id}"></span>${r.once && !r.alerted ? "" : `<button data-remdone="${id}">${r.once ? "OK" : "Done"}</button>`}<button class="x" data-remstop="${id}" title="Stop">\u2715</button></div>`).join("")}</div>`;
     }
     function doneView() {
       return `<section class="card"><h2>Finished</h2><p>Total time ${clock((S.log.at(-1)?.at ?? now()) - (S.startedAt ?? now()))}.</p>${logList()}<button class="big" data-act="copy">Copy log</button><button class="big go" data-act="restart">Start again</button></section>`;
@@ -371,7 +375,7 @@ html[data-look="flightdeck"]{ --ink:#e8edf2; --mut:#8a97a6; --bg:#0b0f14; --card
       return `<section class="card"><h2>Log</h2>${S.log.length ? logList() + '<button class="big" data-act="copy">Copy log</button>' : "<p>Nothing yet.</p>"}</section>`;
     }
     function logList() {
-      return `<ol class="log">${S.log.map((e) => `<li><time>${S.startedAt ? clock(e.at - S.startedAt) : ""}</time> ${esc(e.what)}${e.detail ? ` <small>${esc(e.detail)}</small>` : ""}</li>`).join("")}</ol>`;
+      return `<ol class="log">${S.log.map((e) => `<li><time>${S.startedAt ? clock(e.at - S.startedAt) : ""}</time> ${escapeHtml(e.what)}${e.detail ? ` <small>${escapeHtml(e.detail)}</small>` : ""}</li>`).join("")}</ol>`;
     }
     function logText() {
       return S.log.map((e) => `${S.startedAt ? clock(e.at - S.startedAt) : ""}  ${e.what}${e.detail ? " - " + e.detail : ""}`).join("\n");
@@ -383,16 +387,16 @@ html[data-look="flightdeck"]{ --ink:#e8edf2; --mut:#8a97a6; --bg:#0b0f14; --card
       return `<section class="card"><h2>Author checks</h2><p>Found automatically by comparing the template with itself and with the guideline text. Fix them in the template; the app keeps running meanwhile.</p>
       ${order.map((lvl) => {
         const fs = findings.filter((f) => f.level === lvl);
-        return fs.length ? `<h3 class="lvl-${lvl}">${name[lvl]} (${fs.length})</h3><ul class="findings">${fs.map((f) => `<li class="lvl-${lvl}">${f.step ? `<b>${esc(stepTitle(f.step))}</b> \xB7 ` : ""}${f.line ? `<small>line ${f.line}</small> ` : ""}${esc(f.message)}${f.suggestion ? `<br><i>${esc(f.suggestion)}</i>` : ""}</li>`).join("")}</ul>` : "";
+        return fs.length ? `<h3 class="lvl-${lvl}">${name[lvl]} (${fs.length})</h3><ul class="findings">${fs.map((f) => `<li class="lvl-${lvl}">${f.step ? `<b>${escapeHtml(stepTitle(f.step))}</b> \xB7 ` : ""}${f.line ? `<small>line ${f.line}</small> ` : ""}${escapeHtml(f.message)}${f.suggestion ? `<br><i>${escapeHtml(f.suggestion)}</i>` : ""}</li>`).join("")}</ul>` : "";
       }).join("") || "<p>No findings.</p>"}
     </section>`;
     }
     function aboutView() {
-      return `<section class="card"><h2>About</h2>${spec.about ? `<p>${esc(spec.about)}</p>` : ""}
+      return `<section class="card"><h2>About</h2>${spec.about ? `<p>${escapeHtml(spec.about)}</p>` : ""}
       ${spec.inputs.length ? `<h3>Details</h3>${inputsForm()}` : ""}
-      ${lookLocked ? "" : `<h3>Look</h3><div class="look-pick">${LOOKS.map((l) => `<button data-look-pick="${l.id}" class="${html.dataset.look === l.id ? "on" : ""}">${esc(l.name)}</button>`).join("")}</div>`}
-      <h3>Source</h3><ul>${spec.sources.map((s) => `<li>${esc(s.name)}${s.link ? ` <a href="${esc(s.link)}" target="_blank" rel="noopener">link</a>` : ""}</li>`).join("") || "<li>Not stated</li>"}</ul>
-      <p><small>${spec.version ? "Guideline version: " + esc(spec.version) + " \xB7 " : ""}${built ? "Built " + esc(built) + " \xB7 " : ""}${summary.quotes != null ? `${summary.quotesExact}/${summary.quotes} quotes confirmed` : ""}</small></p>
+      ${lookLocked ? "" : `<h3>Look</h3><div class="look-pick">${LOOKS.map((l) => `<button data-look-pick="${l.id}" class="${html.dataset.look === l.id ? "on" : ""}">${escapeHtml(l.name)}</button>`).join("")}</div>`}
+      <h3>Source</h3><ul>${spec.sources.map((s) => `<li>${escapeHtml(s.name)}${s.link ? ` <a href="${escapeHtml(s.link)}" target="_blank" rel="noopener">link</a>` : ""}</li>`).join("") || "<li>Not stated</li>"}</ul>
+      <p><small>${spec.version ? "Guideline version: " + escapeHtml(spec.version) + " \xB7 " : ""}${built ? "Built " + escapeHtml(built) + " \xB7 " : ""}${summary.quotes != null ? `${summary.quotesExact}/${summary.quotes} quotes confirmed` : ""}</small></p>
       ${S.screen !== "start" ? '<button class="big" data-act="restart">Start again</button>' : ""}</section>`;
     }
     function tick() {
@@ -438,13 +442,16 @@ html[data-look="flightdeck"]{ --ink:#e8edf2; --mut:#8a97a6; --bg:#0b0f14; --card
       }
     }
     let audio = null;
+    const startAudio = () => {
+      audio ?? (audio = new (window.AudioContext || window.webkitAudioContext)());
+    };
     const buzz = () => {
       try {
         navigator.vibrate?.([200, 100, 200]);
       } catch {
       }
       try {
-        audio ?? (audio = new (window.AudioContext || window.webkitAudioContext)());
+        startAudio();
         for (const at of [0, 0.3]) {
           const o = audio.createOscillator(), g = audio.createGain();
           o.frequency.value = 880;
@@ -538,10 +545,11 @@ html[data-look="flightdeck"]{ --ink:#e8edf2; --mut:#8a97a6; --bg:#0b0f14; --card
       switch (d.act) {
         case "begin":
           try {
-            audio ?? (audio = new (window.AudioContext || window.webkitAudioContext)());
+            startAudio();
           } catch {
           }
           return begin();
+        // phones only allow sound that starts on a tap
         case "back":
           return back();
         case "next":

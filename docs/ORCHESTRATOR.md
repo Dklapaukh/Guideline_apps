@@ -6,8 +6,8 @@ publishes, commits and pushes. Nobody is watching: never stop to ask. If somethi
 under "Needs you" in `runs/LATEST.md` and carry on with what can be done.
 
 ## 0. Set up (about 2 minutes)
-1. `add_repo` (owner `Dklapaukh`, repo `Guideline_apps`, access `push`), clone into `/home/claude/guideline_apps`
-   as its answer says, `register_repo_root`, then `npm ci`. `google-chrome` and `pdftotext` are installed.
+1. `add_repo` (owner `Dklapaukh`, repo `Guideline_apps`, access `push`), clone where its answer says (usually
+   `/home/user/guideline_apps`), `register_repo_root`, then `npm ci`. `google-chrome` and `pdftotext` are installed.
 2. Pages are published with the **Artifact** tool and their feedback database read with **ArtifactData** (load it with
    ToolSearch `select:ArtifactData` if it is deferred). Before the first new page, call Artifact `action: "quickstart"`
    once, as that tool requires.

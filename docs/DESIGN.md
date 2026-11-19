@@ -20,6 +20,26 @@ app.html      ◄── tested by tests/helpers/explore.mjs (every route, in a f
                   AI step 2: an independent reviewer compares the template with the guideline
 ```
 
+## Where things live
+| File | Does (main function) |
+|---|---|
+| `template/guideline-template.md` | the blank template with its help text |
+| `engine/template.js` | reads a template into a spec (`readTemplate`) |
+| `engine/check.js` | links steps and lists findings (`checkSpec`; tables `checkTable`, branding `checkLook`) |
+| `engine/quotes.js` | quote matching (`findQuote`) and amounts with units (`amounts`) |
+| `engine/util.js` | durations, conditions (`parseCondition`, `testCondition`), names (`slug`, `closest`), table keys (`readKey`, `keyMatches`, `isNotStated`) |
+| `engine/looks.js`, `engine/looks/*.css`, `engine/runtime.css` | the looks and the base stylesheet (`LOOKS`, `scopeLook`, brand colour checks) |
+| `engine/page.js` | safe HTML (`escapeHtml`, `scriptSafe`) and the one-file app page (`appPage`), shared by builder, review page and studio |
+| `engine/runtime.js`, `engine/app-entry.js` | draws and runs the app (`mount`); the entry starts it from the embedded spec |
+| `tools/build.mjs` | builds one guideline folder (`buildGuideline`) |
+| `tools/build-all.mjs` | builds every app, the studio and the dashboard into `site/` |
+| `tools/review.mjs`, `studio/review.html` | the design review page (`site/review.html`) |
+| `tools/screenshot.mjs` | phone-size screenshots of a built app |
+| `studio/studio.html`, `studio/studio-entry.js` | the studio page |
+| `tests/checker.test.mjs` | reader and checker: every kind of finding, junk input never throws |
+| `tests/runtime.test.mjs` | the runtime: clocks, Back, reminders, details and tables, Record, Stop, looks and branding |
+| `tests/apps.test.mjs`, `tests/helpers/explore.mjs`, `tests/helpers/fake-browser.mjs` | every guideline builds and every route works in a fake browser (jsdom, fake clock) |
+
 The **Studio** (`site/studio.html`) is the "guideline in, app out" website without AI: paste a template (and the
 guideline text), see the checks and a working preview as you type, download the finished app.
 
@@ -42,7 +62,7 @@ Full help text is inside `template/guideline-template.md`. Line types:
 | `End:` | marks a last step |
 | `Brand:` / `Brand colour:` / `Look:` (top) | company name and colour; the look the app opens in |
 | `Note:` | for authors, never shown |
-| `[if Weight < 10]` at the end of any line or answer | condition on the inputs (`=`, `is`, `is not`, `<`, `>`, `and`, `or`) |
+| `[if Weight < 10]` at the end of any line or answer | condition on the inputs: `=`/`is`, `is not`, `<`, `<=`, `>`, `>=`, `under`, `over`, `at least`, `at most`; join details with `and`; `or` only between values of one detail (`Group = Adult or Child`) |
 
 Inputs (`## Inputs`): numbers with a range and unit, or choices. Tables (`## Tables`): markdown tables keyed by an
 input; rows can be words or number bands (`0-5`, `under 5`, `over 40`, `40+`); `-` means "not stated" and shows
@@ -68,7 +88,9 @@ queue in `docs/CURRICULUM.md` gets harder.
 ## Spec (what the runtime reads)
 `{ title, about, sources[{name, link}], warning, audience, reviewedBy, version, brand{name, colour}, look, inputs[], tables[], steps[], start }`.
 A step: `{ id, title, lines[{kind, text, quotes[], cond}], ask{question, options[{label, to, target, cond}]},
-next, nexts[], timer{ms, label, to, target}, reminders[{ms, every, text, id}], stop, end }`. `target` is filled
+next, nexts[], timer{ms, label, to, target}, reminders[{ms, every, once, text, id}], stop, end }`. An input:
+`{ id, label, unit, type: number|choice, options[], min, max, optional, whole }`. A table: `{ id, title, key, keyInput,
+columns[], rows[{key, cells, match}] }`; an open band end (`over 40`) is stored as `null` and means "no limit". `target` is filled
 by the checker (`__end` = finish; `null` = broken link, shown as a finding). Written to `guidelines/*/spec.json`.
 
 ## Source text quality
@@ -89,13 +111,13 @@ How it works: the base stylesheet is `engine/runtime.css`. A **look** is one ext
 that only restyles (no change to what the app does). `tools/review.mjs` builds `site/review.html`, which shows the
 newest app in every look with one-tap reactions and a comment box; feedback is saved in that page's database and
 read at the start of each run. The runtime sets `--p` (share of the timer used, 0 to 1) on `.timer` so a look can
-draw a progress bar. Current looks:
+draw a progress bar. Current looks (the list itself, in this order, is `LOOKS` in `engine/looks.js`):
 
 | Look | Borrowed from |
 |---|---|
 | clinic | patient and wellbeing apps: calm cards, one teal action colour |
-| flightdeck | aviation checklists and cockpit displays: dark, high contrast, monospace numbers |
 | wayfinding | transit maps and road signs: bold type, actions as stations on a red line, sign-yellow cautions |
+| flightdeck | aviation checklists and cockpit displays: dark, high contrast, monospace numbers |
 
 Every app carries all the looks (`engine/looks.js` lists them and scopes each sheet to `html[data-look="<id>"]`),
 so the person using it can switch under About ("Change the look" on the start screen); the choice is kept on that

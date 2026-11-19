@@ -4,14 +4,16 @@
 import { readTemplate } from '../engine/template.js';
 import { checkSpec } from '../engine/check.js';
 import { mount } from '../engine/runtime.js';
+import { escapeHtml as esc, appPage } from '../engine/page.js';
 
 /* global APP_JS, APP_CSS, FONTS_LINK, EXAMPLES */
 const $ = (s) => document.querySelector(s);
-const esc = (t) => String(t ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+// localStorage that never throws (private browsing): the studio keeps the typed template between visits.
 const store = { get: (k) => { try { return localStorage.getItem(k); } catch { return null; } }, set: (k, v) => { try { localStorage.setItem(k, v); } catch { /* private mode */ } } };
 
 let app = null, latest = null, timer = null;
 
+// Re-reads and re-checks the typed template, then redraws the checks list and the live preview.
 function update() {
   const text = $('#tpl').value, source = $('#src').value;
   store.set('studio-template', text); store.set('studio-source', source);
@@ -29,6 +31,7 @@ function update() {
   app = mount($('#preview #app'), latest);
 }
 
+// Shows one of the four panes (template, guideline text, checks, preview).
 function show(tab) {
   for (const t of ['template', 'source', 'checks', 'preview']) {
     $(`#pane-${t}`).hidden = t !== tab;
@@ -42,11 +45,9 @@ async function copy(button, text, what) {
   catch { button.textContent = 'Copy blocked here'; }
   setTimeout(() => { button.textContent = `Copy ${what.toLowerCase()}`; }, 2500);
 }
-const safe = (t) => t.replace(/<\/(script)/gi, '<\\/$1').replace(/<!--/g, '<\\!--');
+// The finished app as one HTML file, made the same way as the builder makes it (engine/page.js).
 function appFile() {
-  const data = { ...latest, built: new Date().toISOString().slice(0, 10) + ' (studio)' };
-  return `<!DOCTYPE html>\n<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${esc(data.spec.title)}</title>${FONTS_LINK}<style>${APP_CSS}</style></head>
-<body><div id="app"></div><script type="application/json" id="spec">${safe(JSON.stringify(data))}</script><script>${safe(APP_JS)}</script></body></html>\n`;
+  return appPage({ ...latest, built: new Date().toISOString().slice(0, 10) + ' (studio)' }, { css: APP_CSS, js: APP_JS, fontsLink: FONTS_LINK });
 }
 
 $('#tpl').addEventListener('input', () => { clearTimeout(timer); timer = setTimeout(update, 300); });

@@ -6,17 +6,18 @@
    mount(root, { spec, findings, summary, built }) -> app   (app.state is exposed for tests)
    Uses only Date.now(), setInterval and the DOM, so tests can run it in a fake browser with a fake clock. */
 
-import { testCondition, clock, formatDuration, keyMatches, findByName, slug } from './util.js';
+import { testCondition, clock, formatDuration, keyMatches, isNotStated, slug } from './util.js';
+import { escapeHtml as esc } from './page.js';
 import { END } from './check.js';
 import { LOOKS, DEFAULT_LOOK } from './looks.js';
 
+// Draws the app into root and starts its clock. Returns { state, render, stop } (stop ends the clock, for tests and the studio).
 export function mount(root, { spec, findings = [], summary = {}, built = '' }) {
   const S = {
     screen: 'start', tab: 'steps', answers: {}, current: null, history: [], ticks: {}, log: [],
     startedAt: null, enteredAt: null, timerDone: false, reminders: {}, records: {}, note: '',
   };
   const byId = new Map(spec.steps.map((s) => [s.id, s]));
-  const esc = (t) => String(t ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
   const now = () => Date.now();
   const log = (what, detail = '') => S.log.push({ at: now(), what, detail });
   const brand = spec.brand ?? {};
@@ -28,21 +29,25 @@ export function mount(root, { spec, findings = [], summary = {}, built = '' }) {
   const lookLocked = html.hasAttribute('data-look-lock');
   const LOOK_KEY = 'guideline-app-look';
   const savedLook = () => { try { return localStorage.getItem(LOOK_KEY); } catch { return null; } };
+  // Sets the look on <html> (an unknown id falls back to the template's look, then the default) and the brand colour.
   function applyLook(id) {
     if (!lookLocked) html.dataset.look = LOOKS.some((l) => l.id === id) ? id : (spec.look || DEFAULT_LOOK);
     if (brand.colour) html.style.setProperty('--brand', brand.colour);
   }
+  // The person picked a look under About: keep it on this phone and redraw.
   function pickLook(id) { try { localStorage.setItem(LOOK_KEY, id); } catch { /* private mode: this visit only */ } applyLook(id); render(); }
   applyLook(savedLook());
   const counts = { fix: findings.filter((f) => f.level === 'fix').length, check: findings.filter((f) => f.level === 'check').length };
 
   /* ---------- moving through the steps ---------- */
+  // "Start": log the details entered and open the first step.
   function begin() {
     S.startedAt = now(); S.screen = 'run'; log('Started');
     const inputsGiven = spec.inputs.filter((i) => S.answers[i.id] !== undefined && S.answers[i.id] !== '');
     if (inputsGiven.length) log('Details', inputsGiven.map((i) => `${i.label}: ${S.answers[i.id]}${i.unit ? ' ' + i.unit : ''}`).join(', '));
     go(spec.start, null);
   }
+  // Moves to a step (or finishes): saves where we were for "Back", clears the step's ticks, stops and starts reminders.
   function go(target, why) {
     if (target === END) return finish(why);
     const step = byId.get(target);
@@ -59,15 +64,19 @@ export function mount(root, { spec, findings = [], summary = {}, built = '' }) {
     for (const r of step.reminders) if (!S.reminders[r.id]) { S.reminders[r.id] = { text: r.text, ms: r.ms, every: r.every, once: !!r.once, dueAt: now() + r.ms, alerted: false }; log('Reminder started', `${r.text} (${r.once ? 'after' : 'every'} ${r.every})`); }
     render();
   }
+  // "Back": returns to the previous step exactly as it was (its clock, timer and reminders).
   function back() {
     const prev = S.history.pop(); if (!prev) return;
     S.current = prev.id; S.enteredAt = prev.enteredAt; S.timerDone = prev.timerDone; S.reminders = prev.reminders; S.note = '';
     log('Went back to', byId.get(prev.id).title); render();
   }
+  // Shows the finished screen with the log.
   function finish(why) { S.screen = 'done'; log('Finished', why ?? ''); render(); }
+  // "Start again": clears this run (and its saved copy) but keeps the details entered.
   function restart() { try { localStorage.removeItem(KEY); } catch { /* fine */ } Object.assign(S, { screen: 'start', tab: 'steps', current: null, history: [], ticks: {}, log: [], startedAt: null, reminders: {}, records: {}, note: '' }); render(); }
 
   /* ---------- drawing ---------- */
+  // Redraws the whole screen from the state: top bar, prototype banner, reminders, the open tab, tab bar.
   function render() {
     root.innerHTML = `
       <header class="bar"><div class="t">${brand.name ? `<span class="brand">${esc(brand.name)}</span>` : ''}${esc(spec.title)}</div><div class="clock" data-clock="elapsed">${S.startedAt ? clock(now() - S.startedAt) : ''}</div></header>
@@ -77,6 +86,7 @@ export function mount(root, { spec, findings = [], summary = {}, built = '' }) {
       <nav class="tabs">${['steps', 'log', 'checks', 'about'].map((t) => `<button data-tab="${t}" class="${S.tab === t ? 'on' : ''}">${{ steps: 'Steps', log: 'Log', checks: `Checks${counts.fix + counts.check ? ` (${counts.fix + counts.check})` : ''}`, about: 'About' }[t]}</button>`).join('')}</nav>`;
     tick();
   }
+  // The start screen: title, about, warning, details form and "Start".
   function startView() {
     return `<section class="card">
       <h1>${esc(spec.title)}</h1>
@@ -87,6 +97,7 @@ export function mount(root, { spec, findings = [], summary = {}, built = '' }) {
       <button class="big go" data-act="begin">Start</button>
       ${lookLocked ? '' : '<p class="look-link"><button class="link" data-tab="about">Change the look</button></p>'}</section>`;
   }
+  // The details form: a row of buttons for a choice, a number box (with its allowed range) for a number.
   function inputsForm() {
     if (!spec.inputs.length) return '';
     return `<div class="inputs">${spec.inputs.map((i) => `<label class="inp">${esc(i.label)}${i.unit ? ` (${esc(i.unit)})` : ''}${i.optional ? ' <small>optional</small>' : ''}
@@ -95,6 +106,7 @@ export function mount(root, { spec, findings = [], summary = {}, built = '' }) {
         : `<input inputmode="decimal" data-num="${i.id}" value="${esc(S.answers[i.id] ?? '')}" placeholder="${i.min != null ? `${i.min}–${i.max}` : ''}">`}
       <span class="bad" data-bad="${i.id}">${esc(numberProblem(i, S.answers[i.id]) ?? '')}</span></label>`).join('')}</div>`;
   }
+  // Why a typed number can't be used ("Not a number", out of range), or null if it is fine or empty.
   function numberProblem(i, v) {
     if (i.type !== 'number' || v === undefined || v === '') return null;
     const x = Number(v);
@@ -133,6 +145,8 @@ export function mount(root, { spec, findings = [], summary = {}, built = '' }) {
       ?? list.find((n) => testCondition(n.cond, S.answers, spec.inputs) === null)?.target ?? null;
   }
   const nextDepends = (s) => { const t = nextTarget(s); const n = (s.nexts ?? []).find((x) => x.target === t); return n && testCondition(n.cond, S.answers, spec.inputs) === null; };
+  // One line of a step (text, tick box, warning, record button or table look-up) with its guideline quotes.
+  // A line whose condition is false is hidden; one that depends on details not entered is shown and marked.
   function lineView(l, k) {
     const shown = testCondition(l.cond, S.answers, spec.inputs);
     if (shown === false) return '';
@@ -145,6 +159,7 @@ export function mount(root, { spec, findings = [], summary = {}, built = '' }) {
     if (l.kind === 'show') return `<div class="show">${showTable(l)}${dep}${q}</div>`;
     return `<p class="${l.bullet ? 'bul' : ''}">${esc(l.text)}${dep}${q}</p>`;
   }
+  // A "Show:" line: the table row for the details entered, the whole table if no input picks the row, or a prompt.
   function showTable(l) {
     const t = spec.tables.find((x) => x.id === l.tableId);
     if (!t) return `<p class="author">"${esc(l.table)}" table is missing from the template.</p>`;
@@ -157,18 +172,21 @@ export function mount(root, { spec, findings = [], summary = {}, built = '' }) {
     if (!row) return `<p class="author"><b>${esc(t.title)}:</b> the table has no row for ${esc(inp.label)} ${esc(v)}${inp.unit ? ' ' + esc(inp.unit) : ''}.</p>`;
     return `<div class="lookup"><div class="lk">${esc(t.title)} <small>(${esc(row.key)})</small></div>${cols.map((c) => `<div class="lv"><span>${esc(c)}</span><b>${cell(row.cells[c])}</b></div>`).join('')}</div>`;
   }
-  const cell = (v) => (/^\s*(-|–|—|n\/?a)?\s*$/i.test(v ?? '') ? '<i>Not stated in the guideline</i>' : esc(v));
+  const cell = (v) => (isNotStated(v) ? '<i>Not stated in the guideline</i>' : esc(v));
+  // The bar of running reminders and deadlines (shown on every tab), each with Done/OK and stop.
   function reminderBar() {
     const list = Object.entries(S.reminders);
     if (!list.length) return '';
     return `<div class="reminders">${list.map(([id, r]) => `<div class="rem" data-rem="${id}"><span class="rt">${esc(r.text)}</span><span class="rc" data-clock="rem" data-rem-id="${id}"></span>${r.once && !r.alerted ? '' : `<button data-remdone="${id}">${r.once ? 'OK' : 'Done'}</button>`}<button class="x" data-remstop="${id}" title="Stop">✕</button></div>`).join('')}</div>`;
   }
+  // The finished screen, the Log tab, the log as a list and as plain text for "Copy log".
   function doneView() {
     return `<section class="card"><h2>Finished</h2><p>Total time ${clock((S.log.at(-1)?.at ?? now()) - (S.startedAt ?? now()))}.</p>${logList()}<button class="big" data-act="copy">Copy log</button><button class="big go" data-act="restart">Start again</button></section>`;
   }
   function logView() { return `<section class="card"><h2>Log</h2>${S.log.length ? logList() + '<button class="big" data-act="copy">Copy log</button>' : '<p>Nothing yet.</p>'}</section>`; }
   function logList() { return `<ol class="log">${S.log.map((e) => `<li><time>${S.startedAt ? clock(e.at - S.startedAt) : ''}</time> ${esc(e.what)}${e.detail ? ` <small>${esc(e.detail)}</small>` : ''}</li>`).join('')}</ol>`; }
   function logText() { return S.log.map((e) => `${S.startedAt ? clock(e.at - S.startedAt) : ''}  ${e.what}${e.detail ? ' - ' + e.detail : ''}`).join('\n'); }
+  // The Checks tab: the checker's findings, most serious first.
   function checksView() {
     const order = ['fix', 'check', 'info'];
     const name = { fix: 'Needs fixing', check: 'Please check', info: 'For information' };
@@ -177,6 +195,7 @@ export function mount(root, { spec, findings = [], summary = {}, built = '' }) {
       ${order.map((lvl) => { const fs = findings.filter((f) => f.level === lvl); return fs.length ? `<h3 class="lvl-${lvl}">${name[lvl]} (${fs.length})</h3><ul class="findings">${fs.map((f) => `<li class="lvl-${lvl}">${f.step ? `<b>${esc(stepTitle(f.step))}</b> · ` : ''}${f.line ? `<small>line ${f.line}</small> ` : ''}${esc(f.message)}${f.suggestion ? `<br><i>${esc(f.suggestion)}</i>` : ''}</li>`).join('')}</ul>` : ''; }).join('') || '<p>No findings.</p>'}
     </section>`;
   }
+  // The About tab: about text, details, look picker, sources, version and build date.
   function aboutView() {
     return `<section class="card"><h2>About</h2>${spec.about ? `<p>${esc(spec.about)}</p>` : ''}
       ${spec.inputs.length ? `<h3>Details</h3>${inputsForm()}` : ''}
@@ -187,6 +206,7 @@ export function mount(root, { spec, findings = [], summary = {}, built = '' }) {
   }
 
   /* ---------- the clock: countdowns, reminders (checked from the state, whichever tab is open) ---------- */
+  // Runs four times a second: fires a finished timer or a due reminder (with a buzz), saves, and updates the clocks in place.
   function tick() {
     const t = now();
     const s = S.screen === 'run' && S.current && byId.get(S.current);
@@ -214,16 +234,18 @@ export function mount(root, { spec, findings = [], summary = {}, built = '' }) {
   }
   // Alert: vibrate where the phone allows it, and two short beeps (sound works after the first tap on Start).
   let audio = null;
+  const startAudio = () => { audio ??= new (window.AudioContext || window.webkitAudioContext)(); };   // throws where there is no sound
   const buzz = () => {
     try { navigator.vibrate?.([200, 100, 200]); } catch { /* not supported */ }
     try {
-      audio ??= new (window.AudioContext || window.webkitAudioContext)();
+      startAudio();
       for (const at of [0, 0.3]) { const o = audio.createOscillator(), g = audio.createGain(); o.frequency.value = 880; g.gain.value = 0.2; o.connect(g); g.connect(audio.destination); o.start(audio.currentTime + at); o.stop(audio.currentTime + at + 0.18); }
     } catch { /* no sound available */ }
   };
   // Keeps the run through a page reload (one phone, one browser). Times are absolute, so clocks carry on correctly.
   const KEY = 'guideline-app:' + slug(spec.title);
   let lastSaved = '';
+  // save: writes the state when it changed; load: carries on a run that was in progress when the page was reloaded.
   function save() { try { const j = JSON.stringify(S); if (j !== lastSaved) { localStorage.setItem(KEY, j); lastSaved = j; } } catch { /* storage unavailable */ } }
   function load() { try { const j = localStorage.getItem(KEY); if (j) { const old = JSON.parse(j); if (old.screen === 'run' && old.current && byId.has(old.current)) { Object.assign(S, old, { tab: 'steps', note: 'Carried on from where this was left (the page was reloaded).' }); } } } catch { /* ignore a bad save */ } }
 
@@ -247,7 +269,7 @@ export function mount(root, { spec, findings = [], summary = {}, built = '' }) {
     }
     if (d.remstop) { const r = S.reminders[d.remstop]; if (r) log('Reminder stopped', r.text); delete S.reminders[d.remstop]; render(); return; }
     switch (d.act) {
-      case 'begin': try { audio ??= new (window.AudioContext || window.webkitAudioContext)(); } catch { /* no sound */ } return begin();
+      case 'begin': try { startAudio(); } catch { /* no sound */ } return begin();   // phones only allow sound that starts on a tap
       case 'back': return back();
       case 'next': return go(nextTarget(byId.get(S.current)), 'Next');
       case 'timer-go': return go(byId.get(S.current).timer.target, 'Timer finished');
@@ -276,4 +298,3 @@ export function mount(root, { spec, findings = [], summary = {}, built = '' }) {
   return { state: S, render, stop: () => clearInterval(timer) };
 }
 
-export { findByName };

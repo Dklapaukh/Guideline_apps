@@ -62,6 +62,7 @@ export function testCondition(cond, answers, inputs) {
   }
   return unknown ? null : true;
 }
+// One comparison: "=" and "!=" match any of the listed values (ignoring case); < <= > >= compare numbers.
 function compare(value, op, values) {
   if (op === '=' || op === '!=') {
     const hit = values.some((v) => String(v).toLowerCase() === String(value).toLowerCase());
@@ -90,6 +91,7 @@ export function closest(name, candidates) {
   }
   return best && bestD <= Math.max(2, Math.floor(want.length / 3)) ? best : null;
 }
+// How many letters must change to turn a into b (Levenshtein distance, one row of memory).
 function editDistance(a, b) {
   const row = Array.from({ length: b.length + 1 }, (_, j) => j);
   for (let i = 1; i <= a.length; i++) {
@@ -119,11 +121,17 @@ export function readKey(text) {
   if ((m = new RegExp(`^${num}$`).exec(t))) return { kind: 'number', value: +m[1] };
   return { kind: 'value', value: String(text).trim() };
 }
+// Does a table row key (from readKey) fit the value entered? Never true for an empty value.
 export function keyMatches(key, value) {
   if (value === undefined || value === null || value === '') return false;
   if (key.kind === 'value') return String(value).toLowerCase() === key.value.toLowerCase();
   const v = Number(value);
   if (Number.isNaN(v)) return false;
   if (key.kind === 'number') return v === key.value;
-  return (key.lowIn ? v >= key.low : v > key.low) && (key.highIn ? v <= key.high : v < key.high);
+  // An open end is ±Infinity, which JSON (the spec inside a built app) stores as null: null means "no limit".
+  const low = key.low ?? -Infinity, high = key.high ?? Infinity;
+  return (key.lowIn ? v >= low : v > low) && (key.highIn ? v <= high : v < high);
 }
+
+// A table cell that gives no value: empty, "-", a dash or "n/a". Shown as "Not stated in the guideline", never zero.
+export const isNotStated = (cell) => /^\s*(-|–|—|n\/?a)?\s*$/i.test(cell ?? '');

@@ -32,3 +32,7 @@ Needs you:
 - Is "a few steps away from buildings" in the earthquake app clear to you? (still open)
 
 Next: guideline 8 (workplace fire: evacuation and extinguisher use, Fire and Emergency NZ).
+
+Audit:
+- 19 Nov 2026: 17 findings, 14 fixed, 3 left as suggestions (runs/audit-2026-11-19.md). Fixed a bug where table rows
+  like "over 10" never matched in a built app.

@@ -4,11 +4,13 @@
 import { readdirSync, existsSync, readFileSync, writeFileSync, mkdirSync, copyFileSync } from 'node:fs';
 import path from 'node:path';
 import { buildSync } from 'esbuild';
-import { ROOT, buildGuideline, bundle, scriptSafe, nzDate, appCss, fontsLink } from './build.mjs';
+import { ROOT, buildGuideline, bundle, nzDate, appCss, fontsLink } from './build.mjs';
+import { escapeHtml as esc, scriptSafe } from '../engine/page.js';
 
 const date = process.argv.includes('--date') ? process.argv[process.argv.indexOf('--date') + 1] : nzDate();
 const G = path.join(ROOT, 'guidelines'), SITE = path.join(ROOT, 'site');
 mkdirSync(path.join(SITE, 'apps'), { recursive: true });
+// Reads a JSON file, or gives the fallback if it is missing or broken.
 const readJson = (p, fallback) => { try { return existsSync(p) ? JSON.parse(readFileSync(p, 'utf8')) : fallback; } catch { console.log('Could not read ' + p); return fallback; } };
 
 // 1. Every guideline
@@ -38,8 +40,8 @@ const curriculum = existsSync(path.join(ROOT, 'docs/CURRICULUM.md')) ? readFileS
 writeFileSync(path.join(SITE, 'dashboard.html'), dashboardHtml({ rows, registry, latestRun, curriculum, date }));
 console.log('site/ built', date);
 
+// The dashboard page: a card per app (scores, status, link), the latest run report and the guideline queue.
 function dashboardHtml({ rows, registry, latestRun, curriculum, date }) {
-  const esc = (t) => String(t ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
   const link = (id) => registry.apps?.[id]?.url;
   const pct = (a, b) => (b ? Math.round((100 * a) / b) + '%' : '-');
   const queue = [...curriculum.matchAll(/^\|\s*(\d+)\s*\|([^|]*)\|([^|]*)\|([^|]*)\|([^|]*)\|/gm)].map((m) => m.slice(1).map((s) => s.trim()));

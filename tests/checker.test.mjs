@@ -147,3 +147,19 @@ test('branding and look: bad colour, hard-to-read colour and unknown look become
   const typo = run(T('Look: wayfindng'));
   assert.ok(has(typo, 'check', /Did you mean "Wayfinding"/)); assert.equal(typo.spec.look, '');
 });
+
+test('the same reminder with two intervals, and two "Next" lines, are contradictions to check', () => {
+  const res = run(`# T
+Source: Test
+## Steps
+### a: A
+Remind: every 5 minutes: Recheck
+Next: b
+Next: a
+### b: B
+Remind: every 10 minutes: Recheck
+End:
+`);
+  assert.ok(has(res, 'check', /"Recheck" is reminded every 10 minutes here but every 5 minutes/));
+  assert.ok(has(res, 'check', /two "Next" lines/));
+});

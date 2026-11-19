@@ -84,6 +84,7 @@ export function amounts(text) {
   for (const m of sameWords(text).matchAll(AMOUNT)) out.push(normalAmount(m[1], m[2], m[3]));
   return out;
 }
+// One spelling per amount: "5 mins" -> "5 minute", "1-2 litres" -> "1-2 l", so amounts can be compared.
 function normalAmount(a, b, unit) {
   const u = unit.toLowerCase().replace(/s$/, '').replace(/^(min|minute)$/, 'minute').replace(/^(sec|second|s)$/, 'second')
     .replace(/^(h|hr|hour)$/, 'hour').replace(/^(litre|liter|l)$/, 'l').replace(/^(microgram|mcg)$/, 'mcg').replace(/^joule$/, 'j');
