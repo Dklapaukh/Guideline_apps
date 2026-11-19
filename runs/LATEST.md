@@ -40,4 +40,4 @@ Needs you:
 Idea for a later run: when several "after" reminders are waiting, show only the next one, so they don't fill
 the screen (this app has four).
 
-Next: guideline 15 (raising a problem at work: from talking to mediation).
+Next: guideline 15 (seizure first aid). The queue was reworked on 20 Nov at your request: it now favours guidelines used under time pressure, where the next step depends on what has happened and the record matters (see docs/CURRICULUM.md).

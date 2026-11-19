@@ -45,7 +45,7 @@ with `pdftotext -layout` instead and mark `sourceCopy: "pdf"`. Report what could
 
 **3b. Author.** Fill `template.md` from `template/guideline-template.md` using only `source.txt` (and the
 researcher's notes). Every instruction gets a `Quote:` copied exactly from `source.txt`. Follow
-`docs/LESSONS.md`. Design for "right information at the right time": timers and reminders where the guideline
+`docs/LESSONS.md`. Design for "right information at the right time" and "record as you go": Record buttons for every time or decision someone will need afterwards (handover, report, audit), timers and reminders where the guideline
 gives times, questions where it branches, tables where it gives numbers by size or age. Gaps and contradictions
 in the guideline go in the step (plainly) and in `## Notes`. Leave `Reviewed by:` empty. Then run
 `node tools/build.mjs guidelines/<id>` and fix every `fix` finding and every `check` finding that is the
@@ -98,7 +98,7 @@ anything that needs the owner. The owner reads it on a phone, so keep it under 8
 ## When the queue is empty
 Improve what exists, in this order: the owner's design feedback, the looks (try one new look from a field not yet
 tried, such as wayfinding, cockpit, kitchen tickets or sports scoreboards), findings in published apps, then add
-new rows to the queue (mixed medical and non-medical, New Zealand sources first) and build them.
+new rows to the queue that pass the three questions at the top of `docs/CURRICULUM.md` (New Zealand sources first) and build them.
 
 ## Limits
 - Never write to any repository except Guideline_apps. Never weaken a test, never delete an app or its history.
