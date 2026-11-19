@@ -1,0 +1,1189 @@
+{
+ "title": "Asthma attack first aid",
+ "about": "Guides you through first aid for an asthma attack in New Zealand: sitting the person up, giving reliever puffs, waiting 6 minutes, and calling 111 if they are not improving.",
+ "sources": [
+  {
+   "name": "Cardiac and Respiratory Foundation NZ, Asthma First Aid in School poster (July 2026)",
+   "link": "https://cardiacandrespiratory.org.nz/documents/72/CRFNZ_Asthma_First_aid_in_school_A3_poster_2026_WWW.pdf"
+  },
+  {
+   "name": "Cardiac and Respiratory Foundation NZ, Asthma First Aid poster, adolescent and adult 12 years + (July 2026)",
+   "link": "https://cardiacandrespiratory.org.nz/documents/71/CRFNZ_Asthma_First_aid_poster_12_WWW.pdf"
+  },
+  {
+   "name": "Cardiac and Respiratory Foundation NZ, Asthma web page",
+   "link": "https://cardiacandrespiratory.org.nz/your-health/understanding-conditions/asthma/"
+  },
+  {
+   "name": "Health New Zealand Te Whatu Ora, Mate huangō Asthma",
+   "link": "https://info.health.nz/conditions-treatments/lungs/asthma"
+  },
+  {
+   "name": "Asthma Australia, Asthma First Aid poster, Blue/Grey Reliever v13 (2026), used only for clearly labelled lines",
+   "link": "https://asthma.org.au/wp-content/uploads/2021/12/AA26-Blue-1st-Aid-A4_Web-1.pdf"
+  }
+ ],
+ "warning": "If the person has severe asthma or is frightened, dial 111 for an ambulance now.",
+ "audience": "Anyone helping a child or adult having an asthma attack in New Zealand",
+ "reviewedBy": "",
+ "version": "Foundation posters dated July 2026; Foundation and Health NZ web pages undated; Asthma Australia poster v13 (2026); all read 19 Nov 2026",
+ "brand": {
+  "name": "",
+  "colour": ""
+ },
+ "look": "",
+ "inputs": [],
+ "tables": [],
+ "steps": [
+  {
+   "id": "start",
+   "title": "Check them now",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "Dial 111 now if they are:",
+     "line": 17
+    },
+    {
+     "kind": "say",
+     "text": "frightened, or have severe asthma",
+     "bullet": true,
+     "line": 18,
+     "quotes": [
+      {
+       "text": "severe asthma or is frightened",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "gasping, or can hardly speak two words",
+     "bullet": true,
+     "line": 20,
+     "quotes": [
+      {
+       "text": "gasping for breath, difficulty speaking two words",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "blue lips, or very quiet with no wheeze",
+     "bullet": true,
+     "line": 22,
+     "quotes": [
+      {
+       "text": "blueness around their lips",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "there may be no wheeze",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "breathing fast, or ribs sucking in",
+     "bullet": true,
+     "line": 25,
+     "quotes": [
+      {
+       "text": "breathe rapidly",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "(in-drawing)",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "very tired, floppy or less responsive",
+     "bullet": true,
+     "line": 28,
+     "quotes": [
+      {
+       "text": "is very tired or less responsive",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "Which fits?",
+    "options": [
+     {
+      "label": "Not breathing",
+      "to": "not-breathing",
+      "line": 31,
+      "target": "not-breathing"
+     },
+     {
+      "label": "Known allergy, sudden breathing difficulty",
+      "to": "allergy",
+      "line": 32,
+      "target": "allergy"
+     },
+     {
+      "label": "Any sign above: dial 111",
+      "to": "call-now",
+      "line": 33,
+      "target": "call-now"
+     },
+     {
+      "label": "None of these",
+      "to": "sit",
+      "line": 34,
+      "target": "sit"
+     }
+    ],
+    "line": 30
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 16
+  },
+  {
+   "id": "call-now",
+   "title": "Dial 111 now",
+   "lines": [
+    {
+     "kind": "do",
+     "text": "Dial 111 for an ambulance now.",
+     "line": 37,
+     "quotes": [
+      {
+       "text": "dial 111 for an ambulance immediately.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Sit them upright, leaning forward slightly, arms on their knees or a table. Stay with them and reassure them.",
+     "line": 39,
+     "quotes": [
+      {
+       "text": "Sit the child upright and stay with them.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "Lean them forward slightly",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "stay with them and reassure them.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "Next?",
+    "options": [
+     {
+      "label": "Give the puffs",
+      "to": "puffs-6",
+      "line": 44,
+      "target": "puffs-6"
+     },
+     {
+      "label": "Known allergy and sudden breathing difficulty",
+      "to": "allergy",
+      "line": 45,
+      "target": "allergy"
+     },
+     {
+      "label": "Not breathing",
+      "to": "not-breathing",
+      "line": 46,
+      "target": "not-breathing"
+     }
+    ],
+    "line": 43
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 36
+  },
+  {
+   "id": "sit",
+   "title": "Sit them up",
+   "lines": [
+    {
+     "kind": "do",
+     "text": "Sit them upright, leaning forward slightly, arms on their knees or a table. Stay with them and reassure them.",
+     "line": 49,
+     "quotes": [
+      {
+       "text": "Sit the child upright and stay with them.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "Lean them forward slightly",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "stay with them and reassure them.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "How bad are their symptoms?",
+    "options": [
+     {
+      "label": "Mild: short of breath, wheeze, cough, tight chest",
+      "to": "puffs-2",
+      "line": 54,
+      "target": "puffs-2"
+     },
+     {
+      "label": "Moderate or worse: loud wheeze, hard to breathe, short sentences only",
+      "to": "puffs-6",
+      "line": 55,
+      "target": "puffs-6"
+     },
+     {
+      "label": "Not sure it is asthma",
+      "to": "not-sure",
+      "line": 56,
+      "target": "not-sure"
+     }
+    ],
+    "line": 53
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 48
+  },
+  {
+   "id": "puffs-2",
+   "title": "Give 2 puffs",
+   "lines": [
+    {
+     "kind": "do",
+     "text": "Give 2 puffs of reliever, one at a time. 6 slow breaths per puff.",
+     "line": 59,
+     "quotes": [
+      {
+       "text": "2 puffs of reliever inhaler, one puff of medicine at a time, taking 6 breaths per puff.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "six slow breaths for each puff.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Use a spacer when possible. Help them breathe as normally as possible.",
+     "line": 62,
+     "quotes": [
+      {
+       "text": "using a spacer when possible.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "breathe as normally as possible.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Have their own action plan? Follow it.",
+     "line": 65,
+     "quotes": [
+      {
+       "text": "or in your action plan.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "Done?",
+    "options": [
+     {
+      "label": "Done: start the 6-minute wait",
+      "to": "wait",
+      "line": 68,
+      "target": "wait"
+     },
+     {
+      "label": "Aged 12 or over? Read this",
+      "to": "adult-12",
+      "line": 69,
+      "target": "adult-12"
+     },
+     {
+      "label": "No reliever inhaler here",
+      "to": "no-reliever",
+      "line": 70,
+      "target": "no-reliever"
+     }
+    ],
+    "line": 67
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 58
+  },
+  {
+   "id": "puffs-6",
+   "title": "Give 6 puffs",
+   "lines": [
+    {
+     "kind": "do",
+     "text": "Give 6 puffs of reliever, one at a time. 6 slow breaths per puff.",
+     "line": 73,
+     "quotes": [
+      {
+       "text": "6 puffs of reliever inhaler, one puff of medicine at a time, taking 6 breaths per puff.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "six slow breaths for each puff.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Use a spacer when possible. Help them breathe as normally as possible.",
+     "line": 76,
+     "quotes": [
+      {
+       "text": "using a spacer when possible.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "breathe as normally as possible.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Have their own action plan? Follow it.",
+     "line": 79,
+     "quotes": [
+      {
+       "text": "or in your action plan.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "Done?",
+    "options": [
+     {
+      "label": "Done: start the 6-minute wait",
+      "to": "wait",
+      "line": 82,
+      "target": "wait"
+     },
+     {
+      "label": "Aged 12 or over? Read this",
+      "to": "adult-12",
+      "line": 83,
+      "target": "adult-12"
+     },
+     {
+      "label": "No reliever inhaler here",
+      "to": "no-reliever",
+      "line": 84,
+      "target": "no-reliever"
+     }
+    ],
+    "line": 81
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 72
+  },
+  {
+   "id": "adult-12",
+   "title": "Aged 12 or over",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "The Foundation's poster for ages 12+ differs:",
+     "line": 87
+    },
+    {
+     "kind": "say",
+     "text": "One dose of reliever at a time, up to 6 times.",
+     "bullet": true,
+     "line": 88,
+     "quotes": [
+      {
+       "text": "Give ONE dose at a time",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "up to 6 times.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "If not improving, dial 111 at once. No wait time is given.",
+     "bullet": true,
+     "line": 91,
+     "quotes": [
+      {
+       "text": "If not improving, dial 111 for an ambulance immediately.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Health NZ uses 6 puffs, 6 breaths, 6 minutes for adults too; this app follows it.",
+     "line": 93,
+     "quotes": [
+      {
+       "text": "take 6 puffs (adults and tamariki)",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "Then?",
+    "options": [
+     {
+      "label": "Puffs given: start the 6-minute wait",
+      "to": "wait",
+      "line": 96,
+      "target": "wait"
+     },
+     {
+      "label": "Not improving: dial 111",
+      "to": "call-111",
+      "line": 97,
+      "target": "call-111"
+     }
+    ],
+    "line": 95
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 86
+  },
+  {
+   "id": "wait",
+   "title": "Wait 6 minutes",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "Stay with them and watch carefully.",
+     "line": 100,
+     "quotes": [
+      {
+       "text": "watch carefully",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "warning",
+     "text": "Call 111 now if they get worse quickly or the reliever isn't working.",
+     "line": 102,
+     "quotes": [
+      {
+       "text": "symptoms get worse very quickly",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "reliever inhaler has little or no effect",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "Complaining that the reliever medicine is not working",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "Getting worse?",
+    "options": [
+     {
+      "label": "Worse, or you are frightened: call 111",
+      "to": "call-111",
+      "line": 109,
+      "target": "call-111"
+     },
+     {
+      "label": "Not breathing or not responding",
+      "to": "not-breathing",
+      "line": 110,
+      "target": "not-breathing"
+     },
+     {
+      "label": "Ambulance arrived",
+      "to": "handover",
+      "line": 111,
+      "target": "handover"
+     }
+    ],
+    "line": 108
+   },
+   "next": null,
+   "timer": {
+    "ms": 360000,
+    "label": "6 minutes",
+    "to": "check",
+    "line": 106,
+    "quotes": [
+     {
+      "text": "If not improving after 6 minutes",
+      "where": "",
+      "check": "exact"
+     }
+    ],
+    "target": "check"
+   },
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 99
+  },
+  {
+   "id": "check",
+   "title": "After 6 minutes",
+   "lines": [],
+   "ask": {
+    "question": "Are they improving?",
+    "options": [
+     {
+      "label": "Yes",
+      "to": "monitor",
+      "line": 115,
+      "target": "monitor"
+     },
+     {
+      "label": "No: give 6 more puffs and call 111",
+      "to": "call-111",
+      "line": 116,
+      "target": "call-111"
+     },
+     {
+      "label": "Not breathing or not responding",
+      "to": "not-breathing",
+      "line": 117,
+      "target": "not-breathing"
+     },
+     {
+      "label": "Ambulance arrived",
+      "to": "handover",
+      "line": 118,
+      "target": "handover"
+     }
+    ],
+    "line": 114
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 113
+  },
+  {
+   "id": "call-111",
+   "title": "Puffs now, and call 111",
+   "lines": [
+    {
+     "kind": "do",
+     "text": "Give 6 puffs now, one at a time, as before.",
+     "line": 121,
+     "quotes": [
+      {
+       "text": "repeat the whole sequence of 6 puffs.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Call 111 if not done yet. For a child, contact a parent or caregiver.",
+     "line": 123,
+     "quotes": [
+      {
+       "text": "call an ambulance and contact a parent or caregiver.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Repeat every 6 minutes until help arrives (tap Done on the reminder).",
+     "line": 125,
+     "quotes": [
+      {
+       "text": "every 6 minutes until help arrives",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "You will not overdose them.",
+     "line": 129,
+     "quotes": [
+      {
+       "text": "you will not overdose",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "What now?",
+    "options": [
+     {
+      "label": "Ambulance arrived",
+      "to": "handover",
+      "line": 132,
+      "target": "handover"
+     },
+     {
+      "label": "Not breathing",
+      "to": "not-breathing",
+      "line": 133,
+      "target": "not-breathing"
+     },
+     {
+      "label": "Reliever has run out",
+      "to": "no-reliever",
+      "line": 134,
+      "target": "no-reliever"
+     }
+    ],
+    "line": 131
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [
+    {
+     "ms": 360000,
+     "every": "6 minutes",
+     "once": false,
+     "text": "Give 6 more puffs",
+     "id": "give-6-more-puffs",
+     "line": 127,
+     "quotes": [
+      {
+       "text": "repeat every 6 minutes.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "stop": null,
+   "end": false,
+   "line": 120
+  },
+  {
+   "id": "monitor",
+   "title": "They are improving",
+   "lines": [
+    {
+     "kind": "do",
+     "text": "Stay and keep watching. For a child, contact a parent or caregiver.",
+     "line": 137,
+     "quotes": [
+      {
+       "text": "keep monitoring and contact a parent or caregiver.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Give more puffs if needed. Not getting easier to breathe? Call 111.",
+     "line": 139,
+     "quotes": [
+      {
+       "text": "If necessary, repeat puffs of reliever inhaler.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "not finding it easier to breathe",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "How are they now?",
+    "options": [
+     {
+      "label": "No wheeze, cough or breathlessness",
+      "to": "all-ok",
+      "line": 143,
+      "target": "all-ok"
+     },
+     {
+      "label": "Not getting easier: call 111",
+      "to": "call-111",
+      "line": 144,
+      "target": "call-111"
+     },
+     {
+      "label": "Ambulance arrived",
+      "to": "handover",
+      "line": 145,
+      "target": "handover"
+     }
+    ],
+    "line": 142
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 136
+  },
+  {
+   "id": "all-ok",
+   "title": "All OK",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "They can go back to a quiet activity. If symptoms come back, repeat the treatment and rest.",
+     "line": 148,
+     "quotes": [
+      {
+       "text": "return to a quiet activity.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "If symptoms recur, repeat treatment and rest.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Always see a doctor after an asthma attack.",
+     "line": 151,
+     "quotes": [
+      {
+       "text": "always see a doctor after an asthma attack.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Attacks more frequent or worrying? See a doctor as soon as possible.",
+     "line": 153,
+     "quotes": [
+      {
+       "text": "more frequent or worrying, see your doctor as soon as possible.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "What now?",
+    "options": [
+     {
+      "label": "Symptoms are back: start again",
+      "to": "start",
+      "line": 156,
+      "target": "start"
+     },
+     {
+      "label": "Finish",
+      "to": "end",
+      "line": 157,
+      "target": "__end"
+     }
+    ],
+    "line": 155
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 147
+  },
+  {
+   "id": "allergy",
+   "title": "Known allergy",
+   "lines": [
+    {
+     "kind": "warning",
+     "text": "The NZ asthma guidance does not cover this.",
+     "line": 160
+    },
+    {
+     "kind": "do",
+     "text": "Dial 111 now.",
+     "line": 161,
+     "quotes": [
+      {
+       "text": "FOR AN AMBULANCE IMMEDIATELY IF THE PERSON:",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "Ambulance 111",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Asthma Australia's guidance (not the NZ posters) says: \"GIVE ADRENALINE FIRST (if available)\". It does not say what next; follow the 111 call taker.",
+     "line": 164,
+     "quotes": [
+      {
+       "text": "SUDDEN BREATHING DIFFICULTY, GIVE ADRENALINE FIRST (if available)",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "Then?",
+    "options": [
+     {
+      "label": "Adrenaline given, or none here",
+      "to": "sit",
+      "line": 167,
+      "target": "sit"
+     },
+     {
+      "label": "Not breathing",
+      "to": "not-breathing",
+      "line": 168,
+      "target": "not-breathing"
+     },
+     {
+      "label": "Ambulance arrived",
+      "to": "handover",
+      "line": 169,
+      "target": "handover"
+     }
+    ],
+    "line": 166
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 159
+  },
+  {
+   "id": "not-sure",
+   "title": "Not sure it is asthma",
+   "lines": [
+    {
+     "kind": "warning",
+     "text": "The NZ asthma guidance does not cover this.",
+     "line": 172
+    },
+    {
+     "kind": "do",
+     "text": "Dial 111 now.",
+     "line": 173,
+     "quotes": [
+      {
+       "text": "FOR AN AMBULANCE IMMEDIATELY IF THE PERSON:",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "Ambulance 111",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Asthma Australia's guidance (not the NZ posters) says to call an ambulance if you are unsure it is asthma.",
+     "line": 176,
+     "quotes": [
+      {
+       "text": "is unsure if it is asthma",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "Then?",
+    "options": [
+     {
+      "label": "It is asthma",
+      "to": "sit",
+      "line": 179,
+      "target": "sit"
+     },
+     {
+      "label": "Not breathing",
+      "to": "not-breathing",
+      "line": 180,
+      "target": "not-breathing"
+     },
+     {
+      "label": "Ambulance arrived",
+      "to": "handover",
+      "line": 181,
+      "target": "handover"
+     }
+    ],
+    "line": 178
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 171
+  },
+  {
+   "id": "no-reliever",
+   "title": "No reliever inhaler",
+   "lines": [
+    {
+     "kind": "warning",
+     "text": "The NZ asthma guidance does not say what to do without a reliever.",
+     "line": 184
+    },
+    {
+     "kind": "do",
+     "text": "Dial 111 now. Keep them upright and stay with them.",
+     "line": 185,
+     "quotes": [
+      {
+       "text": "Ambulance 111",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "Sit the child upright and stay with them.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Asthma Australia's guidance (not the NZ posters) says to call an ambulance at once if no reliever is available.",
+     "line": 188,
+     "quotes": [
+      {
+       "text": "a reliever is not available",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "Then?",
+    "options": [
+     {
+      "label": "A reliever is here now",
+      "to": "puffs-6",
+      "line": 191,
+      "target": "puffs-6"
+     },
+     {
+      "label": "Not breathing",
+      "to": "not-breathing",
+      "line": 192,
+      "target": "not-breathing"
+     },
+     {
+      "label": "Ambulance arrived",
+      "to": "handover",
+      "line": 193,
+      "target": "handover"
+     }
+    ],
+    "line": 190
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 183
+  },
+  {
+   "id": "not-breathing",
+   "title": "Not breathing",
+   "lines": [
+    {
+     "kind": "do",
+     "text": "Call 111 now if no one has. Tell the call taker and follow their instructions.",
+     "line": 196,
+     "quotes": [
+      {
+       "text": "is not breathing",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "The NZ asthma guidance does not say what to do next.",
+     "line": 198
+    },
+    {
+     "kind": "note",
+     "text": "Gap in the guideline (lessons trap 13). No CPR steps are in these sources, so none are added.",
+     "line": 199
+    }
+   ],
+   "ask": {
+    "question": "Then?",
+    "options": [
+     {
+      "label": "Ambulance arrived",
+      "to": "handover",
+      "line": 201,
+      "target": "handover"
+     },
+     {
+      "label": "Breathing again",
+      "to": "call-111",
+      "line": 202,
+      "target": "call-111"
+     }
+    ],
+    "line": 200
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 195
+  },
+  {
+   "id": "handover",
+   "title": "The ambulance has arrived",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "Tell them what happened, how many puffs you gave and when, and follow their advice.",
+     "line": 206
+    },
+    {
+     "kind": "note",
+     "text": "App wording; the sources give no handover step. The log shows when each step was tapped.",
+     "line": 207
+    },
+    {
+     "kind": "do",
+     "text": "Always see a doctor after an asthma attack.",
+     "line": 208,
+     "quotes": [
+      {
+       "text": "always see a doctor after an asthma attack.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": null,
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": "all",
+   "end": true,
+   "line": 204
+  }
+ ],
+ "start": "start"
+}

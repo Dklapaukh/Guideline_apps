@@ -1,0 +1,71 @@
+{
+ "summary": {
+  "steps": 16,
+  "reachable": 16,
+  "fix": 0,
+  "check": 0,
+  "info": 10,
+  "quotes": 56,
+  "quotesExact": 56,
+  "numberLines": 3,
+  "numberLinesQuoted": 3,
+  "sourceAmounts": 5,
+  "sourceAmountsUsed": 3
+ },
+ "findings": [
+  {
+   "level": "info",
+   "step": "start",
+   "line": 17,
+   "message": "1 line in \"Check them now\" has no quote from the guideline (\"Dial 111 now if they are:\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "adult-12",
+   "line": 87,
+   "message": "1 line in \"Aged 12 or over\" has no quote from the guideline (\"The Foundation's poster for ages 12+ differs:\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "allergy",
+   "line": 160,
+   "message": "1 line in \"Known allergy\" has no quote from the guideline (\"The NZ asthma guidance does not cover this.\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "not-sure",
+   "line": 172,
+   "message": "1 line in \"Not sure it is asthma\" has no quote from the guideline (\"The NZ asthma guidance does not cover this.\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "no-reliever",
+   "line": 184,
+   "message": "1 line in \"No reliever inhaler\" has no quote from the guideline (\"The NZ asthma guidance does not say what to do without a …\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "not-breathing",
+   "line": 198,
+   "message": "1 line in \"Not breathing\" has no quote from the guideline (\"The NZ asthma guidance does not say what to do next.\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "handover",
+   "line": 206,
+   "message": "1 line in \"The ambulance has arrived\" has no quote from the guideline (\"Tell them what happened, how many puffs you gave and when…\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "message": "The guideline mentions 2 amounts the template never uses: 4 breath, 4 minute. Some may be background; check none were left out."
+  },
+  {
+   "level": "info",
+   "message": "Nobody is named under \"Reviewed by:\", so the app shows \"Not reviewed\"."
+  },
+  {
+   "level": "info",
+   "message": "The saved guideline text is a web copy made by a fetch tool and may not be word-perfect, so a \"quote not found\" may be the copy's fault. Add the PDF to sources/ for exact checking."
+  }
+ ]
+}
