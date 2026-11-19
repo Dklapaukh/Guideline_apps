@@ -23,7 +23,7 @@ Add new rows as ideas come up (the owner can also ask for any guideline in a com
 | 6 | Adult choking (ANZCOR guideline 4) | medical | 2 | built |
 | 7 | Asking for an assignment extension or special consideration (a NZ university's policy) | education | 2 | built |
 | 8 | Workplace fire: evacuation and extinguisher use (Fire and Emergency NZ) | non-medical | 2 | built |
-| 9 | Requesting annual holidays and what the employer must do (Employment New Zealand) | workplace | 2 | queued |
+| 9 | Requesting annual holidays and what the employer must do (Employment New Zealand) | workplace | 2 | built |
 | 10 | Asthma attack first aid, repeat cycles (Asthma NZ / Asthma Australia 4x4x4) | medical | 2 | queued |
 | 11 | Sick leave: telling your employer and proof of sickness (Employment New Zealand) | workplace | 2 | queued |
 | 12 | Tsunami: Long or Strong, Get Gone, then return (NEMA) | non-medical | 2 | queued |

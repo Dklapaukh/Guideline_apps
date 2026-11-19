@@ -12,7 +12,7 @@ header{background:#14213d;color:#fff;padding:14px 16px}header h1{margin:0;font-s
 pre{white-space:pre-wrap;font:14px/1.45 ui-monospace,Menlo,monospace;background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px}
 table{border-collapse:collapse;width:100%;font-size:14px;background:#fff}td,th{border:1px solid var(--line);padding:4px 6px;text-align:left}
 h3{font-size:14px;text-transform:uppercase;letter-spacing:.04em;color:var(--mut);margin:18px 0 6px}
-</style></head><body><header><h1>Guideline Apps</h1><p>Prototype builder · 8 apps · updated 2026-11-19</p></header><main>
+</style></head><body><header><h1>Guideline Apps</h1><p>Prototype builder · 9 apps · updated 2026-11-19</p></header><main>
 <div class="card"><h2>Studio</h2><p>Paste a filled-in template, see the checks and the app. No AI.</p><a class="open" href="https://claude.ai/artifact/WarG1PpPsgbDmY6ptrk4qT" target="_blank" rel="noopener">Open studio</a></div>
 <div class="card"><h2>Design review</h2><p>See the newest app in each candidate look and tap a reaction. Your choices steer the next builds.</p><a class="open" href="https://claude.ai/artifact/1ZSPzWhCERcqkTV583SKKi" target="_blank" rel="noopener">Review the looks</a></div>
 <h3>Apps</h3>
@@ -48,44 +48,45 @@ h3{font-size:14px;text-transform:uppercase;letter-spacing:.04em;color:var(--mut)
 <div class="tags"><span>non-medical</span><span>level 2</span><span>source: web-fetch</span></div>
 <div class="n"><div class="fix"><b>0</b>to fix</div><div class="check"><b>0</b>to check</div><div><b>78/78</b>quotes confirmed</div><div><b>19/19</b>steps reachable</div><div><b>50%</b>guideline numbers used</div></div>
 <p>Reviewer: 1 instruction missed and a safety-order problem (the extinguisher route skipped raising the alarm), all fixed. 78 of 78 quotes exact (web copy).</p>
-<a class="open" href="https://claude.ai/artifact/WjKfozCohV6WZ3LVw9jQMP" target="_blank" rel="noopener">Open app</a></div>
-<h3>Latest run</h3><pre>Scheduled build run, 19 Nov 2026 (afternoon, 2 pm).
+<a class="open" href="https://claude.ai/artifact/WjKfozCohV6WZ3LVw9jQMP" target="_blank" rel="noopener">Open app</a></div><div class="card"><h2>Annual holidays (NZ)</h2>
+<div class="tags"><span>workplace</span><span>level 2</span><span>source: web-fetch</span></div>
+<div class="n"><div class="fix"><b>0</b>to fix</div><div class="check"><b>0</b>to check</div><div><b>158/158</b>quotes confirmed</div><div><b>46/46</b>steps reachable</div><div><b>53%</b>guideline numbers used</div></div>
+<p>Reviewer: 5 instructions missed (incl. employer cash-up limits), 17 findings, all fixed. 158 of 158 quotes exact (web copy).</p>
+<a class="open" href="https://claude.ai/artifact/SosXDGMBN8bSr9UxiPwAoT" target="_blank" rel="noopener">Open app</a></div>
+<h3>Latest run</h3><pre>Scheduled build run, 19 Nov 2026 (evening, 6 pm).
 
 Your feedback: nothing new on the design review page or on any app since the last run.
 
 Built:
-- App 8: What to do in a fire at work (Fire and Emergency NZ). First screen: &quot;There's a fire, or the alarm is
-  going&quot; / &quot;Should I use the fire extinguisher?&quot; / &quot;Get ready: what to know before a fire&quot;.
-  - Fire route (5 screens): shout &quot;Fire, Fire, Fire&quot;, set off the call point and call 111 (ask for FIRE); leave
-    by the nearest exit, use the stairs, check your area for people; get low in smoke and close doors; once out,
-    give the address and say who is missing; go to your workplace's assembly point and stay out.
-  - Extinguisher route: first raise the alarm, then one yes/no check per screen (small enough and safe to get
-    near, a safe way out, 111 called and everyone out, right extinguisher, confident). Any &quot;no&quot; or &quot;not sure&quot;
-    sends you to &quot;Stop fighting the fire. Leave now.&quot; Then PTASS (pull, test, aim, squeeze, sweep) from a safe
-    distance, and &quot;Is the fire out?&quot;
-  - Get ready route: read your workplace's Fire Action Notice, ways out, what a business should have, and the
-    6 classes of fire.
-- Reviewer found 1 missed instruction (&quot;check the area you are in for other people&quot;) and a safety-order problem:
-  &quot;get out&quot; from the extinguisher route skipped raising the alarm. Also too much text on in-fire screens. All 14
-  findings fixed in one round.
-- Scores: to fix 0, to check 0, all apps. 78 of 78 quotes exact (web copy). Tests: 21 of 21 pass.
+- App 9: Annual holidays (Employment New Zealand). First screen: &quot;I want to ask for time off&quot; / &quot;My employer
+  wants me to take holidays, or there's a closedown&quot; / &quot;I want to cash up some holidays&quot; / &quot;I'm an employer&quot; /
+  &quot;Something else (cancelling, holiday pay, leaving a job)&quot;.
+  - Asking: are you entitled yet (4 weeks after 12 months), how to ask, then &quot;agreed&quot;, &quot;said no&quot; or &quot;no answer&quot;.
+    Not entitled yet leads to taking holidays in advance.
+  - Employer wants you to take holidays: the 14 days' notice rule, annual closedowns (enough holidays, not
+    enough, not entitled yet and the 8% payment), a second or different closedown, and a sudden closure.
+  - Cashing up: up to 1 week a year, only once entitled, in writing, and what to do if you feel pressured.
+  - Employers get their own screens for each of these.
+- Reviewer found 5 missed instructions (the main one: the employer's cash-up limits) and 17 findings in all,
+  including too much text per screen. All 17 fixed in one round. Longest screen is now 93 words.
+- Scores: to fix 0, to check 0, all apps. 158 of 158 quotes exact (web copy). Tests: 22 of 22 pass.
 
-Building blocks added: none.
+Building blocks added: none. Test fix: the route tests ran out of memory once app 9 was added (the fake
+browser keeps memory from every page it opens). Each app's routes now run in their own worker, so memory is
+freed between apps. The checks themselves are unchanged.
 
-Gaps in the guideline: none of the FENZ pages read mention lifts (the app says &quot;use the stairs&quot; and to follow
-your workplace's plan). &quot;Close doors&quot; is only in FENZ's home escape plan. The table of which extinguisher suits
-which fire could not be read. FENZ does not say what to do once a fire is put out, or if the assembly point is
-unsafe. Each is said on screen. FENZ's Fire Action Notice leaves exits and the assembly point blank for each
-building, so the app points you to your own workplace's notice.
+Gaps in the guideline (each said on screen): Employment NZ doesn't say how far ahead to ask for leave, or what to
+do if a request gets no answer. &quot;Good reason&quot; to refuse leave is not explained. The pages disagree on whether an
+employer can cancel approved holidays, on whether you can be made to take holidays in advance for a closedown,
+and on where the 8% for a part-year starts counting from. Some words on the cash-up page could not be read.
 
 Needs you:
-- Optional: save FENZ's Fire Action Notice and extinguisher pages as PDFs into sources/ (fireandemergency.nz is
-  blocked from here), so quotes can be checked exactly.
-- Optional: save AUT's special consideration page and the ANZCOR Guideline 4 PDF into sources/ (still open).
+- Optional: save Employment NZ's annual holiday pages as PDFs into sources/ (the site is blocked from here), so
+  quotes can be checked exactly. Same for FENZ, AUT and ANZCOR pages (still open).
 - Try &quot;Change the look&quot; in any app and say which should be the default (still open).
 - Is &quot;a few steps away from buildings&quot; in the earthquake app clear to you? (still open)
 
-Next: guideline 9 (requesting annual holidays, Employment New Zealand).
+Next: guideline 10 (asthma attack first aid, Asthma NZ).
 </pre>
-<h3>Guideline queue</h3><table><tr><th>#</th><th>Guideline</th><th>Type</th><th>Level</th><th>Status</th></tr><tr><td>1</td><td>Cooling freshly cooked food (MPI Yellow Card S39-00002)</td><td>non-medical</td><td>1</td><td>built</td></tr><tr><td>2</td><td>Burns first aid (cool the burn, St John / Health NZ)</td><td>medical</td><td>1</td><td>built</td></tr><tr><td>3</td><td>Earthquake: Drop, Cover, Hold, then what to do after (NEMA Get Ready)</td><td>non-medical</td><td>1</td><td>built</td></tr><tr><td>4</td><td>Submitting a university assignment: checks before and after you submit (University of Auckland Faculty of Law)</td><td>education</td><td>1</td><td>built</td></tr><tr><td>5</td><td>Resigning from a job: giving notice, final pay and holiday pay (Employment New Zealand)</td><td>workplace</td><td>1</td><td>built</td></tr><tr><td>6</td><td>Adult choking (ANZCOR guideline 4)</td><td>medical</td><td>2</td><td>built</td></tr><tr><td>7</td><td>Asking for an assignment extension or special consideration (a NZ university's policy)</td><td>education</td><td>2</td><td>built</td></tr><tr><td>8</td><td>Workplace fire: evacuation and extinguisher use (Fire and Emergency NZ)</td><td>non-medical</td><td>2</td><td>built</td></tr><tr><td>9</td><td>Requesting annual holidays and what the employer must do (Employment New Zealand)</td><td>workplace</td><td>2</td><td>queued</td></tr><tr><td>10</td><td>Asthma attack first aid, repeat cycles (Asthma NZ / Asthma Australia 4x4x4)</td><td>medical</td><td>2</td><td>queued</td></tr><tr><td>11</td><td>Sick leave: telling your employer and proof of sickness (Employment New Zealand)</td><td>workplace</td><td>2</td><td>queued</td></tr><tr><td>12</td><td>Tsunami: Long or Strong, Get Gone, then return (NEMA)</td><td>non-medical</td><td>2</td><td>queued</td></tr><tr><td>13</td><td>Changing a car tyre safely at the roadside (NZTA / AA)</td><td>non-medical</td><td>2</td><td>queued</td></tr><tr><td>14</td><td>Power cut: what food to keep or throw out, by hours without power (MPI)</td><td>non-medical</td><td>3</td><td>queued</td></tr><tr><td>15</td><td>Raising a problem at work: steps from talking to mediation (Employment New Zealand)</td><td>workplace</td><td>3</td><td>queued</td></tr><tr><td>16</td><td>Anaphylaxis action plan, adrenaline by weight, repeat after 5 minutes (ASCIA)</td><td>medical</td><td>3</td><td>queued</td></tr><tr><td>17</td><td>Privacy breach: is it serious harm, and notifying (Office of the Privacy Commissioner)</td><td>workplace</td><td>3</td><td>queued</td></tr><tr><td>18</td><td>Low blood sugar: 15-15 treat and recheck cycles (Diabetes NZ / Health NZ)</td><td>medical</td><td>3</td><td>queued</td></tr><tr><td>19</td><td>Taking on a new employee: agreement, right to work, tax code (Employment New Zealand / IRD)</td><td>workplace</td><td>3</td><td>queued</td></tr><tr><td>20</td><td>Notifiable workplace event: what to do and when (WorkSafe NZ)</td><td>workplace</td><td>4</td><td>queued</td></tr><tr><td>21</td><td>Cyber security incident first steps (CERT NZ / NCSC)</td><td>non-medical</td><td>4</td><td>queued</td></tr><tr><td>22</td><td>Adult sepsis screening and first-hour actions (Health NZ)</td><td>medical</td><td>4</td><td>queued</td></tr><tr><td>23</td><td>Stroke: FAST, time windows and pre-alert (St John / Health NZ)</td><td>medical</td><td>4</td><td>queued</td></tr><tr><td>24</td><td>FINAL EXAM: Cardiac arrest (St John EAS 3.14), scored against Pocket Resus recordings</td><td>medical</td><td>5</td><td>locked until every other row is built or skipped</td></tr></table>
+<h3>Guideline queue</h3><table><tr><th>#</th><th>Guideline</th><th>Type</th><th>Level</th><th>Status</th></tr><tr><td>1</td><td>Cooling freshly cooked food (MPI Yellow Card S39-00002)</td><td>non-medical</td><td>1</td><td>built</td></tr><tr><td>2</td><td>Burns first aid (cool the burn, St John / Health NZ)</td><td>medical</td><td>1</td><td>built</td></tr><tr><td>3</td><td>Earthquake: Drop, Cover, Hold, then what to do after (NEMA Get Ready)</td><td>non-medical</td><td>1</td><td>built</td></tr><tr><td>4</td><td>Submitting a university assignment: checks before and after you submit (University of Auckland Faculty of Law)</td><td>education</td><td>1</td><td>built</td></tr><tr><td>5</td><td>Resigning from a job: giving notice, final pay and holiday pay (Employment New Zealand)</td><td>workplace</td><td>1</td><td>built</td></tr><tr><td>6</td><td>Adult choking (ANZCOR guideline 4)</td><td>medical</td><td>2</td><td>built</td></tr><tr><td>7</td><td>Asking for an assignment extension or special consideration (a NZ university's policy)</td><td>education</td><td>2</td><td>built</td></tr><tr><td>8</td><td>Workplace fire: evacuation and extinguisher use (Fire and Emergency NZ)</td><td>non-medical</td><td>2</td><td>built</td></tr><tr><td>9</td><td>Requesting annual holidays and what the employer must do (Employment New Zealand)</td><td>workplace</td><td>2</td><td>built</td></tr><tr><td>10</td><td>Asthma attack first aid, repeat cycles (Asthma NZ / Asthma Australia 4x4x4)</td><td>medical</td><td>2</td><td>queued</td></tr><tr><td>11</td><td>Sick leave: telling your employer and proof of sickness (Employment New Zealand)</td><td>workplace</td><td>2</td><td>queued</td></tr><tr><td>12</td><td>Tsunami: Long or Strong, Get Gone, then return (NEMA)</td><td>non-medical</td><td>2</td><td>queued</td></tr><tr><td>13</td><td>Changing a car tyre safely at the roadside (NZTA / AA)</td><td>non-medical</td><td>2</td><td>queued</td></tr><tr><td>14</td><td>Power cut: what food to keep or throw out, by hours without power (MPI)</td><td>non-medical</td><td>3</td><td>queued</td></tr><tr><td>15</td><td>Raising a problem at work: steps from talking to mediation (Employment New Zealand)</td><td>workplace</td><td>3</td><td>queued</td></tr><tr><td>16</td><td>Anaphylaxis action plan, adrenaline by weight, repeat after 5 minutes (ASCIA)</td><td>medical</td><td>3</td><td>queued</td></tr><tr><td>17</td><td>Privacy breach: is it serious harm, and notifying (Office of the Privacy Commissioner)</td><td>workplace</td><td>3</td><td>queued</td></tr><tr><td>18</td><td>Low blood sugar: 15-15 treat and recheck cycles (Diabetes NZ / Health NZ)</td><td>medical</td><td>3</td><td>queued</td></tr><tr><td>19</td><td>Taking on a new employee: agreement, right to work, tax code (Employment New Zealand / IRD)</td><td>workplace</td><td>3</td><td>queued</td></tr><tr><td>20</td><td>Notifiable workplace event: what to do and when (WorkSafe NZ)</td><td>workplace</td><td>4</td><td>queued</td></tr><tr><td>21</td><td>Cyber security incident first steps (CERT NZ / NCSC)</td><td>non-medical</td><td>4</td><td>queued</td></tr><tr><td>22</td><td>Adult sepsis screening and first-hour actions (Health NZ)</td><td>medical</td><td>4</td><td>queued</td></tr><tr><td>23</td><td>Stroke: FAST, time windows and pre-alert (St John / Health NZ)</td><td>medical</td><td>4</td><td>queued</td></tr><tr><td>24</td><td>FINAL EXAM: Cardiac arrest (St John EAS 3.14), scored against Pocket Resus recordings</td><td>medical</td><td>5</td><td>locked until every other row is built or skipped</td></tr></table>
 </main></body></html>

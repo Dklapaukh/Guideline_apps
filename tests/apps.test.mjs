@@ -1,31 +1,31 @@
 // Every guideline folder builds, and every route through its app works in a fake browser.
+// The work for each app runs in its own worker thread (tests/helpers/app-check.mjs) so memory is freed between apps.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { readdirSync, existsSync, readFileSync, mkdtempSync } from 'node:fs';
-import { tmpdir } from 'node:os';
-import path from 'node:path';
-import { buildGuideline } from '../tools/build.mjs';
-import { explore } from './helpers/explore.mjs';
+import { readdirSync, existsSync } from 'node:fs';
+import { Worker } from 'node:worker_threads';
+
+// Runs app-check.mjs for one guideline folder and resolves with what it posts back.
+function checkApp(dir) {
+  return new Promise((resolve, reject) => {
+    const w = new Worker(new URL('./helpers/app-check.mjs', import.meta.url), { workerData: { dir } });
+    w.once('message', resolve);
+    w.once('error', reject);
+    w.once('exit', (code) => code !== 0 && reject(new Error(`app check for ${dir} stopped with code ${code}`)));
+  });
+}
 
 const dirs = readdirSync('guidelines').filter((d) => existsSync(`guidelines/${d}/template.md`));
 for (const d of dirs) {
-  test(`${d}: builds, every reachable step can be visited, every route can finish or continue`, () => {
-    const out = mkdtempSync(path.join(tmpdir(), 'ga-'));            // build into a scratch folder: tests never change the repo
-    const { spec, summary } = buildGuideline(`guidelines/${d}`, { built: 'test', outDir: out });
-    const meta = existsSync(`guidelines/${d}/meta.json`) ? JSON.parse(readFileSync(`guidelines/${d}/meta.json`, 'utf8')) : {};
-    const seen = new Set();
-    for (const inputs of meta.testInputs ?? [{}]) {
-      const r = explore(path.join(out, 'app.html'), { inputs });
-      assert.deepEqual(r.problems, [], `problems with inputs ${JSON.stringify(inputs)}`);
-      assert.ok(r.endings > 0 || spec.steps.length === 0, 'at least one route reaches the end');
-      r.stepsSeen.forEach((id) => seen.add(id));
+  test(`${d}: builds, every reachable step can be visited, every route can finish or continue`, async () => {
+    const r = await checkApp(`guidelines/${d}`);
+    for (const run of r.runs) {
+      assert.deepEqual(run.problems, [], `problems with inputs ${JSON.stringify(run.inputs)}`);
+      assert.ok(run.endings > 0 || r.stepCount === 0, 'at least one route reaches the end');
     }
     // Every step the checker says is reachable was actually shown on some route (add testInputs to meta.json
     // when a step only appears for certain details).
-    const reachableIds = JSON.parse(readFileSync(path.join(out, 'findings.json'), 'utf8')).findings
-      .filter((f) => /Nothing leads to/.test(f.message)).map((f) => f.step);
-    const missing = spec.steps.map((s) => s.id).filter((id) => !reachableIds.includes(id) && !seen.has(id));
-    assert.deepEqual(missing, [], 'reachable steps the explorer never reached');
-    assert.ok(summary.reachable >= 1);
+    assert.deepEqual(r.missing, [], 'reachable steps the explorer never reached');
+    assert.ok(r.reachable >= 1);
   });
 }

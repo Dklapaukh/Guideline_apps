@@ -1,0 +1,475 @@
+Annual holidays, Taking annual holidays, Managing annual holidays, Annual closedowns and holidays, Cashing-up annual holidays and Annual holiday pay - Employment New Zealand (employment.govt.nz), New Zealand Government. Read 19 Nov 2026.
+Section A from https://www.employment.govt.nz/leave-and-holidays/annual-holidays (page title "Annual holidays"; no last-modified date came through)
+Section B from https://www.employment.govt.nz/leave-and-holidays/annual-holidays/taking-annual-holidays (page title "Taking annual holidays"; Last modified: 7 September 2026) - written for employees
+Section C from https://www.employment.govt.nz/leave-and-holidays/annual-holidays/managing-annual-holidays (page title "Managing annual holidays"; Last modified: 11 November 2025) - written for employers
+Section D from https://www.employment.govt.nz/leave-and-holidays/annual-holidays/annual-closedowns-and-holidays (page title "Annual closedowns and holidays"; Last modified: 7 August 2026)
+Section E from https://www.employment.govt.nz/pay-and-hours/pay-and-wages/leave-and-holiday-pay/cashing-up-annual-holidays (page title "Cashing-up annual holidays"; Last modified: 7 August 2026)
+Section F from https://www.employment.govt.nz/pay-and-hours/pay-and-wages/leave-and-holiday-pay/annual-holiday-pay (page title "Annual holiday pay"; Last modified: 7 August 2026) - only the parts on how holiday pay is worked out and when it is paid
+Capture method: web-fetch. The site blocks direct download here (curl refused) and no browser was available, so each line was read by a fetch tool asked to quote exact sentences (long sentences in pieces, rejoined here). Key lines (4 weeks, 12 months, 2 of 4 weeks in one go, 14 days' notice, closedown rules, advance holidays, cancelling, 1 week cash-up, writing, 8%, the dates in examples) were confirmed EXACT in a second, separate read, but small wording slips (quote marks, commas) are possible. Navigation, link-only lists, contact boxes, images, PDF guides and footers are left out. Square brackets [ ] are notes, not quotes: [link words missing] marks words that are links on the page and did not come through in the copy; [sic] marks wording that is odd on the page itself. Left out: the "How other types of leave affect annual holiday entitlement" sections of B and C (leave without pay, sick/bereavement/family violence leave, public holidays, parental leave), and on F the gross earnings detail, the employee-with-no-entitlement, ACC and payment-scenario sections.
+
+==================== SECTION A: Annual holidays ====================
+
+Annual holidays
+All employees become entitled to 4 weeks annual holidays (annual leave) after 12 months of continuous employment.
+
+[The page is a short landing page. Its three sub-page summaries read:]
+Managing annual holidays
+An employer must give their employees at least 4 weeks paid annual holidays (annual leave) – and keep accurate records of what employees are entitled to and have taken.
+Taking annual holidays
+You are entitled to at least 4 weeks of paid annual holidays (annual leave) when you have worked for your employer for 12 months.
+Annual closedowns and holidays
+If a workplace has an annual closedown, employees may be required to use some of their annual holidays during this time.
+
+==================== SECTION B: Taking annual holidays ====================
+
+Taking annual holidays
+You are entitled to at least 4 weeks of paid annual holidays (annual leave) when you have worked for your employer for 12 months.
+
+Changes to leave coming in 2028
+The Employment Leave Act is going to replace the Holidays Act in August 2028.
+It will be a major change to how leave works.
+You must follow the current rules in the Holidays Act until the new law starts in 2028.
+
+What you're entitled to
+After each 12 months of continuous employment with an employer, you are entitled to no less than 4 weeks of annual holidays as paid time off work.
+Your employment agreement will say what your annual holidays entitlement is.
+You may take annual holidays in advance of becoming entitled to them if both you and your employer agree.
+Certain employees can agree to be paid at least 8% of gross earnings in addition to their usual pay instead of taking annual holidays, but only if they meet certain criteria.
+Your annual holidays entitlement stays available until you have taken the holidays or it has been paid out ('cashed-up').
+Your employer:
+must allow you to take annual holidays when you want to unless they have a good reason not to
+must pay you for annual holidays before you take them unless you have agreed to be paid in your normal pay cycle
+can require you to take annual holidays in certain circumstances
+can choose to let you take some of your annual holiday entitlement in advance.
+[A link "Good reason" follows here; no text explaining it is on this page.]
+In some cases, you can agree with your employer to have your annual holidays paid out with your regular pay instead of taking time off.
+This is called 'pay-as-you-go' holiday pay.
+This can only happen if you:
+are on a fixed-term agreement of less than 12 months, or
+work so irregularly or intermittently that it is impossible in practice for your employer to provide you with 4 weeks' annual holidays in the normal way.
+You can also ask to ‘cash-up’ up to 1 week of your annual holidays each year.
+If your employer agrees, you can exchange up to 1 week of your holidays for pay.
+
+Calculating annual holiday entitlement
+What constitutes a ‘working week’ and how you calculate your holiday entitlement depends on your working arrangement.
+If you usually work the same number of days or hours each week, your ‘working week’ will be clear.
+If your ‘working week’ is not clear, you and your employer can agree on how your entitlement to 4 weeks of annual holidays will be met.
+This can be by:
+defining a week in terms of days or hours, or
+agreeing to a method your employer will use to define it.
+
+If you work the same days and hours each week
+If you work the same hours on the same days each week, your annual holiday entitlement is simple to work out.
+For example, if you are working 3 x 8-hour days each week at the time you take annual holidays, a week will be 3 days, or 24 hours (3 days x 8 hours).
+
+If you have a consistent pattern of work, but it's not the same every week
+You may have a consistent pattern of work, but it’s not the same each week.
+This could be because:
+you work the same total number of hours or days each week, but the number of hours each day or the days worked each week change
+the total number of days you work each week is the same, but the total number of hours changes
+the total number of hours you work each week is the same, but the total number of days you work changes
+you have a work pattern that is consistent but not based on a 7-day cycle, for example, you work 4 days on, 4 days off.
+If this is the case, you can agree with your employer to work out your annual holiday entitlement in either days or hours.
+Your employer should discuss the consequences of the choice with you and help you choose the best option for your situation.
+
+If you have an unpredictable work pattern
+You may have an unpredictable work pattern and it's not possible to define in advance what a working week looks like – for example, you have no guaranteed hours or you work to a roster that changes unpredictably each week.
+If this is the case, you and your employer should try to identify if there is a pattern of work that could be used to calculate a working week for annual holiday entitlement.
+This must be a fair and reasonable reflection of your working week and agreed to by both parties.
+It could be based on:
+the agreed hours in your employment agreement
+the days and hours you have been working in the weeks leading up to the annual holiday being taken
+another method (for example, the average number of hours worked over a set period) agreed to by you and your employer.
+Under New Zealand law, annual holidays are not accrued.
+Employees get their 4-week annual holiday entitlement after they’ve worked for their employer for 12 months and for each 12 months after.
+If you take annual holidays before you are entitled to them, you are taking them in advance.
+However, some payroll systems work by accruing holidays from when employment starts.
+For example, your payslip or pay record might show ‘accrued holidays’ or ‘accrued leave’ based on the hours or days you’ve worked.
+If your annual holidays are being accrued, it’s possible you will not get the correct entitlement, especially if your days or hours of work have changed or vary.
+This is because your holiday entitlement should be based on what a week is for you at the time you take your holiday.
+We recommend talking to your employer if you think you might not be getting your 4-week annual holiday entitlement.
+
+Getting paid for annual holidays
+You are entitled to be paid for annual holidays before they start unless you and your employer agree that you will be paid for annual holidays in your normal pay cycle.
+If you agree to be paid in your normal pay cycle, this should be recorded in writing – usually in your employment agreement.
+
+When you can take annual holidays
+In general, you should be able to decide when to take your annual holidays.
+Your employer must:
+agree to your request for annual holidays before you take the time off – or have a good reason for declining it, for example, others having already arranged holidays at the same time
+allow you to take at least 2 of your 4 weeks’ annual holidays in one go
+allow you to take annual holidays within 12 months of the date you become entitled to them.
+Your employer can refuse a request to take annual holidays in advance.
+
+When you might be required to take annual holidays
+Your employer can require you to take annual holidays if:
+you cannot agree with them about when your annual holidays will be taken, and they give you at least 14 days' notice, or
+they regularly close down for a certain period every year and give you at least 14 days’ notice.
+Your employer cannot make you take annual holidays if:
+your employer closes the workplace unexpectedly (for example, if there was a natural disaster), and
+you are given less than 14 days' notice, and
+you are willing and able to work.
+Your employer cannot make you take annual holidays in advance.
+
+Cancelling annual holidays
+Sometimes you or your employer might want to cancel annual holidays that have already been arranged.
+Neither you nor your employer have to accept the other’s request to cancel annual holidays but you should negotiate a solution together in good faith.
+For example, you could agree to:
+take a holiday at another time, or
+reduce the amount of annual holidays you take.
+Any changes to arrangements should be in writing.
+[Story on the page, not labelled as an example:]
+Vinh has been working as an administrator for a small mechanic for 2 years.
+He has arranged with his boss to take 2 weeks of his annual holidays over the school holidays in a month’s time.
+1 week before Vinh is about to go on holiday Vinh’s boss asks him to cancel his arranged annual holidays as the workshop has become unexpectedly busy.
+Vinh does not agree to cancel all his requested holidays because he wants to spend time with his family over the school holidays.
+However, he does offer to postpone 2 days of his arranged annual holidays and work these days to support the business.
+[The story ends here; the page does not say how the boss responded.]
+
+When employment ends
+When you leave a job, if you have unused annual holidays or have annual holidays you are not yet entitled to take (because you have not yet worked 12 months), your employer must pay you their cash equivalent in your final pay.
+
+==================== SECTION C: Managing annual holidays ====================
+
+Managing annual holidays
+An employer must give their employees at least 4 weeks paid annual holidays (annual leave) – and keep accurate records of what employees are entitled to and have taken.
+
+Changes to leave coming in 2028
+The Employment Leave Act is going to replace the Holidays Act in August 2028.
+It will be a major change to how leave works.
+You must follow the current rules in the Holidays Act until the new law starts in 2028.
+
+What you must do
+As an employer, you must:
+give all your employees at least 4 weeks of paid holidays each year
+be reasonable in considering requests to take annual holidays
+keep accurate records to track annual holiday entitlements and payments.
+
+What you cannot do
+You cannot give an employee less than 4 weeks annual holidays each year, even if their employment agreement says so.
+
+How annual holiday entitlement works
+Your employees become entitled to a minimum of 4 weeks annual holidays when they have worked continuously for you for 12 months.
+You can, however, choose to:
+give employees more than their minimum entitlement of 4 weeks of annual holidays each year – this should be documented in their [link words missing]
+allow employees to take annual holidays before they are entitled to them (in advance).
+An employee’s annual holiday entitlement does not expire.
+The employee remains entitled to their annual holidays until they:
+take the holidays
+cash them up, or
+their employment ends, and they are paid out for them.
+In some cases, you can agree with an employee that they be paid 8% of their gross pay instead of getting paid annual holidays – referred to as ‘pay-as-you-go’ holiday pay.
+This can only happen if the employee:
+has a [link words missing] of less than 12 months, or
+works so irregularly that it is impossible in practice for you to provide them with 4 weeks’ annual holidays in the normal way.
+
+Calculating annual holiday entitlements
+What constitutes a ‘working week’, and how you calculate an employee’s annual holiday entitlement, will depend on their working arrangement.
+
+Employees with a predictable work pattern
+For employees who work the same hours on the same days each week, annual holiday entitlement is simple to work out.
+Every 12 months, on their anniversary for annual holidays entitlement, they can take 4 of their working weeks as paid annual holidays.
+For example, if an employee works 3 days each week, they can take 12 days of annual holidays. (3 days x 4 weeks = 12 days.)
+If they work 5 days each week, they can take 20 days of annual holidays.
+Some employees have a consistent pattern of work, but it's not the same every week.
+In this case, you can agree with your employee to work out their annual holiday entitlement in either days or hours.
+For example, if:
+they work the same total number of hours or days each week, but the number of hours each day or the days worked each week changes – you could agree to work out the annual holiday entitlement in either days or hours
+the total number of days they work each week is the same but the total number of hours changes – you might agree to work out their annual holiday entitlement in days
+the total number of hours they work each week is the same but the total number of days they work changes – you might agree to work out their annual holiday entitlement in hours
+they have a work pattern that is consistent but not based on a 7-day cycle, for example, they work 4 days on and 4 days off – you might agree to define the week by using the longest week in the pattern, or by using an average week based on the pattern or by just referring to the week at the time the annual holiday is taken.
+You should discuss the options and their consequences with your employees, in [link words missing], and help them to decide what’s best for them.
+The option agreed should be used consistently for that employee unless their situation changes.
+If the employee’s work pattern does change, their situation must be reviewed, and their annual holiday entitlement recalculated based on the new work pattern.
+
+Employees with an unpredictable work pattern
+For some employees, it may not be possible to define what a ‘working week’ looks like in advance – for example, if they have no guaranteed hours, or work to a roster that changes unpredictably each week.
+If this is the case, you should try to identify with them whether there is a pattern of work that could be used to work out a working week for their annual holiday entitlement.
+This could be based on:
+the agreed hours in their employment agreement if these are a fair and reasonable reflection of their working week, or
+the days and hours they have actually been working in the weeks leading up to the leave.
+
+When employment ends
+When an employee leaves, you must pay them for any unused annual holidays that they are entitled to.
+This should be paid at the greater rate of their [link words missing] when they finish employment or their [link words missing] for the 12 months up to the end of the last pay period before employment ended.
+If an employee has not yet become entitled to annual holidays or has worked a part-year since their last entitlement anniversary, you must pay them 8% of their total before-tax earnings from the time they started the job, less any amount paid to them for annual holidays taken in advance or paid on a pay-as-you-go basis.
+
+Approving and declining annual holiday requests
+Annual holidays (also called ‘annual leave’) can be taken at any time agreed to by you and an employee.
+You must allow your employees to:
+take annual holidays within 12 months of the date on which they become entitled to them.
+take at least 2 of their 4 weeks of annual holidays at once, if they wish to.
+
+What you can and cannot do
+As an employer, you can:
+choose whether or not to agree to an employee taking unpaid leave, or annual holidays in advance if they do not have annual holidays they are entitled to use
+require employees, in specific circumstances, to take annual holidays
+cancel annual holidays that have already been approved, if you have a good reason, or the employee asks you to.
+You cannot unreasonably refuse an employee who wants to take annual holidays they're entitled to.
+
+Requests to take annual holidays in advance
+Employees can ask to take annual holidays before they are entitled to them (‘in advance’) but you do not have to agree to the request unless there is a relevant clause in their [link words missing].
+Employees can ask for annual holidays in advance if they:
+have not completed 12 months of continuous service, or
+have used all of their current entitlement.
+When you agree to an employee taking annual holidays in advance, you should make sure they agree in writing that if they leave your employment before, they become entitled to annual holidays, you can recover the overpayment from their final pay. [sic: the comma after "before" is on the page]
+
+Requiring employees to take annual holidays
+You can only require employees to take annual holidays if:
+you cannot reach agreement about when annual holidays (that the employee is entitled to) will be taken, and you give the employee at least 14 days' notice, or
+you regularly close down for a certain period every year (for example, over Christmas) and give the employee at least 14 days’ notice.
+An employer cannot require an employee to take annual holidays in advance, except when there is an annual closedown.
+
+Unexpected closedowns
+If you close down your workplace unexpectedly (for example, after a natural disaster) and an employee refuses to take annual holidays with less than 14 days' notice and is willing and able to work – they cannot be made to take annual holidays.
+
+Cancelling annual holidays
+You or your employee may wish to cancel annual holidays that have already been arranged.
+You do not have to agree to a cancellation request – and your employee does not have to agree if you ask them to cancel annual holidays.
+Both parties should negotiate in good faith – for example, you could agree:
+to postpone the annual holidays to another time
+to reduce the number of annual holidays taken.
+
+==================== SECTION D: Annual closedowns and holidays ====================
+
+Annual closedowns and holidays
+
+Changes to leave coming in 2028
+The Employment Leave Act is going to replace the Holidays Act in August 2028.
+It will be a major change to how leave works.
+You must follow the current rules in the Holidays Act until the new law starts in 2028.
+
+What is an annual closedown?
+An annual closedown is when a workplace shuts each year, often for a holiday or seasonal break, and employees are required to take time off.
+Annual closedowns often happen over Christmas, but some industries have them at the end of a season.
+An annual closedown can occur:
+across an entire workplace
+for part of a workplace – for example, where a factory closes each year for maintenance while the office stays open
+for different parts of a workplace at different times.
+An employer can only have 1 annual closedown in any 12-month period and must give their employees 14 days' notice before it starts.
+They can have different annual closedown periods for different parts of a workplace.
+An annual closedown can also happen when the workplace stays open, but the employer temporarily stops work for 1 or more employees.
+For example, this could happen when a customer service centre stays open between Christmas and New Year but has fewer employees working than usual.
+Instead of having an annual closedown, the employer could consider other options like asking employees to take annual holidays, leave without pay or paid special leave.
+
+If an employee is entitled to annual holidays
+If at the start of the annual closedown an employee has [link words missing] they're able to use, they must do so (as long as they get 14 days' notice).
+Payment for these annual holidays is calculated in the usual way.
+If they do not have enough annual holidays to cover the whole annual closedown period, then:
+their employer can choose to also let them take annual holidays in advance
+they may agree with their employer to use other types of holidays or leave, such as alternative holidays, leave without pay, or another form of leave (with or without pay) not provided by law.
+
+Example: Employer does not agree to employee taking annual holidays in advance
+Mayce has been working for Erin for 2 years.
+The workplace has an annual closedown of 4 weeks for most of January each year.
+Mayce gets 4 weeks' annual holidays each year, but she has already taken 2 of these weeks in advance, so she will only have 2 weeks' annual holidays entitlement at the time of the annual closedown.
+Mayce asks Erin if she can take 2 weeks' annual holidays in advance at the time of the annual closedown this year so that she will have enough annual holidays to cover the entire annual closedown.
+Erin considers Mayce's request and tells her she can only take 1 week of annual holidays in advance, because if she took 2 weeks in advance this year the following year Mayce would only have 2 weeks' annual holidays to cover the next annual closedown.
+By agreeing only to 1 week of annual holidays in advance this year, Mayce gets 3 weeks' total annual holidays (2 weeks' entitlement and 1 week taken in advance) to cover this closedown and will only have to take 1 week's unpaid leave to cover the annual closedown.
+Mayce will still have 3 weeks' annual holidays left for the following year's annual closedown.
+
+If an employee is not yet entitled to annual holidays
+An employee may not yet be entitled to annual holidays at the start of annual closedown.
+This could be because they have:
+not worked for their employer for 12 months continuously
+taken unpaid leave of more than a week and this has moved their anniversary date for annual holidays entitlement, or
+at some time, received pay for their annual holidays on a pay-as-you-go basis.
+If the employee is not entitled to annual holidays, their employer must:
+1. Pay the employee 8% of their gross earnings as at the annual closedown date.
+Employees must be paid an additional 8% of their gross earnings up to the annual closedown date, from:
+the start of their employment, if they've not worked for their employer continuously for 12 months, or
+their last anniversary date for annual holidays, if they've already worked for their employer continuously for at least 12 months.
+Any amount already paid as 8% pay-as-you-go, or already paid as annual holidays in advance, must be subtracted.
+2. Move the anniversary date for annual holidays entitlement.
+The anniversary date for their annual holidays entitlement will be moved to the date the annual closedown starts (or another nearby date that their employer chooses) – meaning they'll receive their next leave entitlement 12 months from this date.
+In this situation, the employee is then not otherwise entitled to:
+any annual holidays for the period of employment up to the start of the annual closedown
+any pay for the period of the closedown.
+However, an employee could agree with their employer to take some annual holidays in advance in addition to the 8% payment.
+
+Example: Employee takes annual holidays in advance during annual closedown
+Kenny started working for his employer Tania on 15 September.
+Two months later, at the beginning of November, Tania gives notice to all her employees that the workplace will have its annual closedown from 24 December until 5 January.
+Tania must pay Kenny 8% of his gross earnings from 15 September until 23 December.
+This amount is similar to 1 week's pay for Kenny.
+Kenny is worried about how he will cope financially for the rest of the annual closedown as he was out of work for a while before working for Tania.
+Kenny asks Tania if he can have 1 week of annual holidays in advance to tide him over.
+Tania agrees but reminds Kenny that this will mean the next year he will have only 3 weeks of annual holidays.
+Tania also reminds Kenny that she will need to move his anniversary date for the calculation of annual holidays.
+This means Kenny would not have any annual holidays entitlement available until the following December.
+Kenny is fine with this, and he and Tania agree to the week's annual holidays in advance in writing.
+Kenny's anniversary date for annual holidays would normally be moved forward to 24 December (the start of the actual annual closedown period), but Tania chooses to make the date 17 December so that every year her employees will be entitled to annual holidays at the start of the annual closedown period.
+This means Kenny will be entitled to 4 weeks' annual holidays (less the week taken in advance) from 17 December the following year.
+
+Public holidays and other leave during annual closedowns
+An employee can also take any of the following types of leave during an annual closedown:
+alternative holidays
+sick leave
+bereavement leave
+family violence leave.
+There may also be a public holiday that falls during the closedown period.
+For any of these leave types, the employee must be paid for that leave day as if the closedown were not happening.
+This means if they would normally work that day (an otherwise working day), they must be paid the correct leave type for that day.
+This applies even if they're on another type of leave for the rest of the closedown period — including unpaid leave.
+
+Example: Sick leave and public holidays
+A workplace has an annual closedown from 25 December to 4 January.
+An employee takes 1 of the days as sick leave.
+There are also 4 public holidays that fall during the closedown.
+The sick leave day and the 4 public holidays are all on days the employee would normally work if there were no closedown.
+This means the employee must be paid 1 day of sick leave and 4 public holidays.
+This must be separate from any other leave they are using for the closedown (for example, annual holidays or unpaid leave).
+
+Other types of closedowns
+An employer and employee may agree to other types of closedowns.
+This could be because the employer wants to implement a closedown that is:
+not an annual closedown, or
+in addition to an annual closedown that has already happened in the last 12 months.
+If an employer and employee agree to other types of closedowns, they will also need to agree how these other types of closedowns will be treated and what annual holidays and/or leave arrangements will apply.
+The employer can only require their employees to take annual holidays for these other types of closedowns if:
+the employee has annual holidays they are entitled to take (not annual holidays in advance)
+the employer has been unable to reach agreement with the employee about when they will take these annual holidays
+the employer has given their employee 14 days' notice.
+Alternatively, the employer could make other arrangements with their employees for other types of closedowns for example, they might choose to continue to pay their employees but not require them to work.
+The date of the employee's entitlement to annual holidays is not affected by these other types of closedowns.
+
+==================== SECTION E: Cashing-up annual holidays ====================
+
+Cashing-up annual holidays
+Employees can ask to cash-up up to 1 week of their 4-week annual holiday entitlement each year.
+Cashing-up means getting annual holidays paid out instead of taking time off from work.
+
+Changes to leave coming in 2028
+The Employment Leave Act is going to replace the Holidays Act in August 2028.
+It will be a major change to how leave works.
+You must follow the current rules in the Holidays Act until the new law starts in 2028.
+
+Asking to cash-up
+[link words missing] can ask their [link words missing] to [link words missing] up to 1 week of their 4-week minimum entitlement each year and get paid that money instead of taking it as holidays.
+Employees can:
+make 1 request to cash-up the whole week, or
+make multiple requests until the whole week is cashed-up.
+Requests to cash-up must be in writing.
+
+Some employers do not allow cashing-up
+Check the workplace policy or employment agreement to see if it says anything about cashing-up and what’s allowed.
+
+When employees can cash-up
+Annual holidays cannot be cashed-up until the employee gets their annual holiday entitlement.
+For example, an employee who starts work on 1 June 2024 can ask to cash-up up to 1 week of holiday when they become entitled to annual holidays on 1 June 2025.
+They can make their request at any point in the entitlement year that runs from 1 June 2025 to 31 May 2026.
+
+Considering requests to cash-up
+Employers:
+must consider a cash-up request within a reasonable time
+can say no
+must tell the employee what their decision is and put it in writing
+do not have to give a reason for their decision.
+
+Employer can have a workplace policy
+An employer can have a [link words missing] about cashing-up which can apply to the whole workplace or just parts of it.
+The policy can say that the employer does not have to consider requests for cashing-up annual holidays.
+If this is the case, then the above does not apply.
+The policy must not:
+allow an employee to cash-up more than 1 week of their 4-week minimum annual holiday entitlement each year
+say how many requests to cash-up an employee can make.
+Employers who decide to develop a workplace policy about cashing-up should:
+consult with employees (and unions if applicable)
+make sure new and existing employees know about the policy.
+
+Cash-ups cannot be required
+Employers must not pressure employees into cashing-up holidays.
+Employers and employees must not:
+discuss a requirement to cash-up as part of wage or salary negotiations
+make asking for, or receiving, a cash-up a term or condition of employment.
+This applies to terms and conditions that have been agreed to verbally as well as in writing.
+However, employers can include a process for making a cash-up request in the [link words missing]
+
+Paying out cashed-up annual holidays
+If an employer agrees to cash-up annual holidays, they must make the payment as soon as they can.
+This is usually the next payday.
+The payment must be at least the amount the employee would have got if they had taken the holidays.
+The employer must keep a record of:
+the portion of annual holidays cashed-up – for example, the whole week or part of the week
+the amount of the payment
+the date the payment was made.
+If the employer and employee cannot agree on:
+the portion of annual holidays that will be, or have been, cashed-up, or
+the payment amount
+we may be able to help and decide for them.
+If an employer pays a cash-up which the employee did not ask for, then the employee:
+can keep their entitlement to the annual holidays that were cashed-up, and
+may be able to keep the cash-up money. Recovering the payment would be treated as a deduction.
+The employer may also face a [link words missing] which the [link words missing] can order.
+Penalties can be up to $10,000 per [link words missing] if the employer is an individual or $20,000 per breach if the employer is a company or other entity.
+To avoid any misunderstandings about whether an employee has asked to cash-up, employers should make sure employees put requests to cash-up in writing.
+
+Parental leave can affect cash-up amount
+Taking [link words missing] may affect how much cashed-up annual holidays are paid out at.
+
+Cashing-up more than 1 week of holidays
+Under the law, employees get a minimum of 4 weeks’ annual holidays each year and only up to 1 of those weeks can be cashed-up.
+They must have at least 3 weeks of annual holidays that they can take off work.
+Employers must not allow employees to cash-up more than 1 week of their minimum entitlement each year.
+In workplaces where employees get more than the minimum of 4 weeks’ annual holidays they may be able to cash-up the extra weeks.
+It depends on what it says in their employment agreement or workplace policy, and if their employer agrees to it.
+For example, an employment agreement that provides 5 weeks’ annual holidays each year could allow for up to 2 weeks to be cashed-up.
+The employee could cash-up:
+1 week of their minimum 4-week entitlement, and
+the extra 5th week.
+
+Saving annual leave to cash up
+It’s not possible to ‘save up’ weeks of annual holidays and cash them up in one go later.
+For example, if an employee does not take any holidays for 2 years and has 8 weeks owing they can still only cash-up a maximum of 1 week.
+They cannot cash-up 2 weeks at the same time or in the same entitlement year.
+
+==================== SECTION F: Annual holiday pay (parts only) ====================
+
+Annual holiday pay
+Employees are entitled to paid annual holidays (annual leave) after 12 months of continuous employment.
+Find out how to calculate annual holiday pay using ordinary weekly pay or average weekly earnings.
+
+Calculating annual holiday pay
+When an employee takes all or part of their annual holiday entitlement, their annual holiday pay is at least the greater of:
+their [link words missing] as at the beginning of the annual holiday, or
+their [link words missing] for the 12 months immediately before the end of the last pay period before the annual holiday is taken.
+[The two missing link words are, from the headings below, ordinary weekly pay (OWP) and average weekly earnings (AWE); inferred, not quoted.]
+
+Ordinary weekly pay
+Ordinary weekly pay (OWP) is the amount an employee receives under their employment agreement for an ordinary working week, including payments that are a regular part of the employee's pay and relate to the work they do each week.
+OWP includes:
+regular salary or wages
+regular allowances, like a shift allowance
+regular productivity or incentive-based payments (including commission or piece rates)
+the cash value of board or lodgings
+regular overtime.
+Irregular or one-off payments (like bonuses), discretionary payments, and employer contributions to superannuation schemes are not included in OWP.
+
+Ordinary weekly pay formula
+If it's not possible to work out OWP, employers must calculate it using the OWP formula:
+Go to the end of the last pay period before the employee is taking annual holidays.
+From that date go back 4 weeks (if the pay period is longer than 4 weeks, go back the number of weeks in the pay period).
+Take the gross earnings for that period (a).
+Deduct any one-off, irregular, or other payments that the employer is not bound to pay (b).
+Divide the answer by 4.
+
+Compare OWP with average weekly earnings
+Once you've worked out the OWP rate, compare it to the employee's average weekly earnings and pay at least the greater amount for the annual holidays.
+
+Average weekly earnings
+Average weekly earnings (AWE) are the weekly average of an employee's gross earnings over the 12 months before they take annual holidays.
+To calculate AWE:
+take the employee's [link words missing] over the 12 months leading up to the last pay period before the [link words missing]
+divide that figure by 52.
+If the employee has been employed for less than 12 months, their AWE is the weekly average of their gross earnings for the time they have been employed.
+Count the number of whole or part-weeks they've been employed and divide their gross earnings by that number to get their AWE.
+
+When to calculate and pay annual holidays
+Employers must calculate and [link words missing] each time an employee takes annual holidays.
+The employer must pay the employee for the holiday before they take it unless they have agreed in writing to be paid in their normal pay cycle.
+Employers and employees should check the [link words missing] to see what it says.
+If an employee takes a period of [link words missing] that covers more than 1 pay period, the calculation for the entire time on annual holidays is still done at the start of the annual holiday rather than each pay period.
+This applies even if the employee has agreed to be paid for the annual holidays as part of their normal pay cycle.
+Some payroll systems recalculate holiday pay during the holiday.
+If the employee receives more than if the calculation had been done once at the start of the annual holiday, this complies with the law.
+If the employee receives less than they would have if the calculation had been done once at the start of the annual holidays, it is not compliant with the law.

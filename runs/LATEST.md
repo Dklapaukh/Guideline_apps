@@ -1,37 +1,34 @@
-Scheduled build run, 19 Nov 2026 (afternoon, 2 pm).
+Scheduled build run, 19 Nov 2026 (evening, 6 pm).
 
 Your feedback: nothing new on the design review page or on any app since the last run.
 
 Built:
-- App 8: What to do in a fire at work (Fire and Emergency NZ). First screen: "There's a fire, or the alarm is
-  going" / "Should I use the fire extinguisher?" / "Get ready: what to know before a fire".
-  - Fire route (5 screens): shout "Fire, Fire, Fire", set off the call point and call 111 (ask for FIRE); leave
-    by the nearest exit, use the stairs, check your area for people; get low in smoke and close doors; once out,
-    give the address and say who is missing; go to your workplace's assembly point and stay out.
-  - Extinguisher route: first raise the alarm, then one yes/no check per screen (small enough and safe to get
-    near, a safe way out, 111 called and everyone out, right extinguisher, confident). Any "no" or "not sure"
-    sends you to "Stop fighting the fire. Leave now." Then PTASS (pull, test, aim, squeeze, sweep) from a safe
-    distance, and "Is the fire out?"
-  - Get ready route: read your workplace's Fire Action Notice, ways out, what a business should have, and the
-    6 classes of fire.
-- Reviewer found 1 missed instruction ("check the area you are in for other people") and a safety-order problem:
-  "get out" from the extinguisher route skipped raising the alarm. Also too much text on in-fire screens. All 14
-  findings fixed in one round.
-- Scores: to fix 0, to check 0, all apps. 78 of 78 quotes exact (web copy). Tests: 21 of 21 pass.
+- App 9: Annual holidays (Employment New Zealand). First screen: "I want to ask for time off" / "My employer
+  wants me to take holidays, or there's a closedown" / "I want to cash up some holidays" / "I'm an employer" /
+  "Something else (cancelling, holiday pay, leaving a job)".
+  - Asking: are you entitled yet (4 weeks after 12 months), how to ask, then "agreed", "said no" or "no answer".
+    Not entitled yet leads to taking holidays in advance.
+  - Employer wants you to take holidays: the 14 days' notice rule, annual closedowns (enough holidays, not
+    enough, not entitled yet and the 8% payment), a second or different closedown, and a sudden closure.
+  - Cashing up: up to 1 week a year, only once entitled, in writing, and what to do if you feel pressured.
+  - Employers get their own screens for each of these.
+- Reviewer found 5 missed instructions (the main one: the employer's cash-up limits) and 17 findings in all,
+  including too much text per screen. All 17 fixed in one round. Longest screen is now 93 words.
+- Scores: to fix 0, to check 0, all apps. 158 of 158 quotes exact (web copy). Tests: 22 of 22 pass.
 
-Building blocks added: none.
+Building blocks added: none. Test fix: the route tests ran out of memory once app 9 was added (the fake
+browser keeps memory from every page it opens). Each app's routes now run in their own worker, so memory is
+freed between apps. The checks themselves are unchanged.
 
-Gaps in the guideline: none of the FENZ pages read mention lifts (the app says "use the stairs" and to follow
-your workplace's plan). "Close doors" is only in FENZ's home escape plan. The table of which extinguisher suits
-which fire could not be read. FENZ does not say what to do once a fire is put out, or if the assembly point is
-unsafe. Each is said on screen. FENZ's Fire Action Notice leaves exits and the assembly point blank for each
-building, so the app points you to your own workplace's notice.
+Gaps in the guideline (each said on screen): Employment NZ doesn't say how far ahead to ask for leave, or what to
+do if a request gets no answer. "Good reason" to refuse leave is not explained. The pages disagree on whether an
+employer can cancel approved holidays, on whether you can be made to take holidays in advance for a closedown,
+and on where the 8% for a part-year starts counting from. Some words on the cash-up page could not be read.
 
 Needs you:
-- Optional: save FENZ's Fire Action Notice and extinguisher pages as PDFs into sources/ (fireandemergency.nz is
-  blocked from here), so quotes can be checked exactly.
-- Optional: save AUT's special consideration page and the ANZCOR Guideline 4 PDF into sources/ (still open).
+- Optional: save Employment NZ's annual holiday pages as PDFs into sources/ (the site is blocked from here), so
+  quotes can be checked exactly. Same for FENZ, AUT and ANZCOR pages (still open).
 - Try "Change the look" in any app and say which should be the default (still open).
 - Is "a few steps away from buildings" in the earthquake app clear to you? (still open)
 
-Next: guideline 9 (requesting annual holidays, Employment New Zealand).
+Next: guideline 10 (asthma attack first aid, Asthma NZ).

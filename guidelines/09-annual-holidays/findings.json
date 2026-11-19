@@ -1,0 +1,185 @@
+{
+ "summary": {
+  "steps": 46,
+  "reachable": 46,
+  "fix": 0,
+  "check": 0,
+  "info": 29,
+  "quotes": 158,
+  "quotesExact": 158,
+  "numberLines": 28,
+  "numberLinesQuoted": 28,
+  "sourceAmounts": 17,
+  "sourceAmountsUsed": 9
+ },
+ "findings": [
+  {
+   "level": "info",
+   "step": "payg",
+   "line": 57,
+   "message": "\"Holiday pay with your wages\" has a question with only one answer."
+  },
+  {
+   "level": "info",
+   "step": "not-asked",
+   "line": 78,
+   "message": "\"Before you ask\" has a question with only one answer."
+  },
+  {
+   "level": "info",
+   "step": "no-answer",
+   "line": 104,
+   "message": "\"No answer to your request\" has a question with only one answer."
+  },
+  {
+   "level": "info",
+   "step": "advance",
+   "line": 116,
+   "message": "\"Holidays in advance\" has a question with only one answer."
+  },
+  {
+   "level": "info",
+   "step": "required-disagree",
+   "line": 134,
+   "message": "\"You can't agree on when\" has a question with only one answer."
+  },
+  {
+   "level": "info",
+   "step": "advance-no",
+   "line": 151,
+   "message": "\"Not for a closedown\" has a question with only one answer."
+  },
+  {
+   "level": "info",
+   "step": "unexpected",
+   "line": 166,
+   "message": "\"The workplace closed suddenly\" has a question with only one answer."
+  },
+  {
+   "level": "info",
+   "step": "closedown-leave",
+   "line": 241,
+   "message": "\"Sick leave and public holidays in a closedown\" has a question with only one answer."
+  },
+  {
+   "level": "info",
+   "step": "other-closedown",
+   "line": 258,
+   "message": "\"Other kinds of closedown\" has a question with only one answer."
+  },
+  {
+   "level": "info",
+   "step": "emp-cashup-policy",
+   "line": 332,
+   "message": "\"A workplace policy on cashing up\" has a question with only one answer."
+  },
+  {
+   "level": "info",
+   "step": "cashup-paid",
+   "line": 347,
+   "message": "\"Paying out a cash-up\" has a question with only one answer."
+  },
+  {
+   "level": "info",
+   "step": "cashup-pressure",
+   "line": 364,
+   "message": "\"Cash-ups can't be required\" has a question with only one answer."
+  },
+  {
+   "level": "info",
+   "step": "emp-advance",
+   "line": 408,
+   "message": "\"A request for holidays in advance\" has a question with only one answer."
+  },
+  {
+   "level": "info",
+   "step": "cancel",
+   "line": 434,
+   "message": "\"Cancelling arranged holidays\" has a question with only one answer."
+  },
+  {
+   "level": "info",
+   "step": "week-same",
+   "line": 451,
+   "message": "\"Same days and hours each week\" has a question with only one answer."
+  },
+  {
+   "level": "info",
+   "step": "week-pattern",
+   "line": 461,
+   "message": "\"A steady pattern that changes\" has a question with only one answer."
+  },
+  {
+   "level": "info",
+   "step": "week-unpredictable",
+   "line": 473,
+   "message": "\"Unpredictable hours\" has a question with only one answer."
+  },
+  {
+   "level": "info",
+   "step": "week-accrued",
+   "line": 482,
+   "message": "\"\"Accrued\" leave on your payslip\" has a question with only one answer."
+  },
+  {
+   "level": "info",
+   "step": "holiday-pay-when",
+   "line": 502,
+   "message": "\"When holiday pay is paid\" has a question with only one answer."
+  },
+  {
+   "level": "info",
+   "step": "leaving-pay",
+   "line": 519,
+   "message": "\"The 8% in the final pay\" has a question with only one answer."
+  },
+  {
+   "level": "info",
+   "step": "ask-time",
+   "line": 65,
+   "message": "1 line in \"Asking for time off\" has no quote from the guideline (\"Employment New Zealand does not say how far ahead to ask,…\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "not-asked",
+   "line": 77,
+   "message": "1 line in \"Before you ask\" has no quote from the guideline (\"Come back to this app once you have an answer.\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "declined",
+   "line": 95,
+   "message": "1 line in \"Your employer said no\" has no quote from the guideline (\"Employment New Zealand does not explain what counts as a …\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "no-answer",
+   "line": 101,
+   "message": "1 line in \"No answer to your request\" has no quote from the guideline (\"Employment New Zealand does not say what to do if your re…\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "unexpected",
+   "line": 165,
+   "message": "1 line in \"The workplace closed suddenly\" has no quote from the guideline (\"Employment New Zealand does not say what applies if not a…\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "emp-request",
+   "line": 385,
+   "message": "1 line in \"A request for time off\" has no quote from the guideline (\"Employment New Zealand does not explain what counts as a …\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "message": "The guideline mentions 8 amounts the template never uses: 24 hour, 8 hour, 4 day, 2 week, 2 day, 3 week, 1 day, 5 week. Some may be background; check none were left out."
+  },
+  {
+   "level": "info",
+   "message": "Nobody is named under \"Reviewed by:\", so the app shows \"Not reviewed\"."
+  },
+  {
+   "level": "info",
+   "message": "The saved guideline text is a web copy made by a fetch tool and may not be word-perfect, so a \"quote not found\" may be the copy's fault. Add the PDF to sources/ for exact checking."
+  }
+ ]
+}
