@@ -1,39 +1,44 @@
-Scheduled build run, 20 Nov 2026 (early morning, 1:30 am).
+Scheduled build run, 20 Nov 2026 (second run, 2:30 am).
 
-Your feedback: nothing new on the design review page or on any app since the last run.
+Your feedback: nothing new on the design review page or on any app.
 
 Built:
-- App 11: Sick leave (NZ), from Employment New Zealand's pages for employees and employers (read 20 Nov 2026).
-  First screen: 10 days of paid sick leave a year, and today's rules apply until 6 August 2028 (the new
-  Employment Leave Act has passed but starts then, and the page says you cannot follow it early). Then a choice:
-  sick or caring for someone today / am I entitled / used up my sick leave / I'm an employer / something else.
-  - Sick today: tell your employer as soon as possible, then proof: who pays depends on how many days in a row
-    you had been sick when the employer asked (under 3: employer pays; 3 or more: you pay), with the page's own
-    examples. Then pay, and what happens without proof.
-  - Side screens: entitlement (6 months), carry-over up to 20 days, none left, holidays, appointments,
-    part-days, stress, long illness, ACC.
-  - Employer route: asking for proof, counting days, pay, and when staff have none left, on its own screens.
-- Reviewer found 3 missed instructions (the main one: the app asked how long you had been sick, not how long
-  when the employer asked, so some people were wrongly told "you pay") and 10 findings. All fixed in one round.
-  Longest screen is 113 words counting quotes (77 shown), a little over the 90 target.
-- Scores: to fix 0, to check 0, all apps. 107 of 107 quotes exact (web copy). Tests: 24 of 24 pass.
+- App 12: Tsunami (NZ), from NEMA's Get Ready page (and its Sign Language and large-print versions) and the
+  Civil Defence response messages. First screen gives the action straight away: long or strong earthquake, sea
+  suddenly rising or falling, or told to evacuate? Move immediately to high ground or inland, on foot if you can,
+  and don't wait for a warning. Then one question: what is happening?
+  - Shaking now: Drop, Cover and Hold, then "was it long or strong?" (yes: Get Gone; not sure: the guidance
+    doesn't cover this, so it shows the rule and lets you choose).
+  - Sea or noises: one tap to Get Gone. Lake signs have their own screen.
+  - Official warning: evacuate now, prepare to evacuate (radio, TV, website; still waiting or cancelled),
+    beach and marine advisory (stay out of the water), or outside the zones.
+  - Boats: small boat in shallow water (ashore on foot within ten minutes, or head past 50 m depth), deep water,
+    harbour or channel. Said plainly: this is for a local tsunami.
+  - After: only go home when officials say so; stay away from the water at least 24 hours; property damage.
+- Reviewer found 3 missed instructions (the main one: how to Drop, Cover and Hold) and 15 findings, including
+  a first-screen answer ("It's over: what now?") that could skip Get Gone. All fixed in one round.
+- Scores: to fix 0, to check 0, all apps. 121 of 121 quotes exact (web copy). Tests: 25 of 25 pass.
 
-Building blocks added: none. Fixed: the researcher had filled "testInputs" with the wrong shape, which failed the
-route test; removed it (this app has no details to type) and made the instructions say what shape it takes.
+Also: this run overlapped with the 1:30 am run and built sick leave a second time. Its copy was dropped, but
+one unused duplicate page was published before the overlap was noticed (see Needs you). The run procedure now
+checks for this before starting and before publishing.
+
+Building blocks added: none.
 
 Gaps in the guideline (each said on screen):
-- Telling your employer is only "as soon as possible": nothing on how, who to tell, or how far before a shift.
-- No rule for sick days that are not in a row, and the 3-day rule depends on what the employer "knows".
-- "Reasonable excuse", "reasonable period" and "dependant" are not explained; no start date for the sick leave year.
-- The employer page's list of whose sickness a certificate can cover leaves out "child".
-- The employee page says the employer "does not have to agree" to leave when you've run out; the employer page
-  only says "you could agree".
-- The pages say nothing yet about what the 2028 law will change for sick leave.
+- "More than a minute" (Get Ready) vs "a minute or more" (Civil Defence) for a long earthquake.
+- Stay away from the water "at least 24 hours" (Get Ready) vs "be cautious" with no time (Civil Defence).
+- Nothing on going up a tall building if you can't get out of the zone: only "go as far or as high as you can".
+- Little for people who can't walk, run or cycle; boat advice only on the Civil Defence page, nothing for boats
+  in a harbour or channel deeper than 50 m.
+- Civil Defence still points to an old Twitter account (not shown in the app).
 
 Needs you:
-- Optional: save the Employment NZ sick leave pages as PDFs into sources/ (the site is blocked from here), so
-  quotes can be checked exactly. Same for the asthma posters, FENZ, AUT and ANZCOR pages (still open).
+- Optional: delete the unused duplicate sick leave page (https://claude.ai/artifact/QkrFs1WcJrRDvke7wBzHNP).
+  The real one is on the dashboard.
+- Optional: save the Get Ready tsunami page as a PDF into sources/, so quotes can be checked exactly. Same for
+  Employment NZ, asthma, FENZ, AUT and ANZCOR pages (still open).
 - Try "Change the look" in any app and say which should be the default (still open).
 - Is "a few steps away from buildings" in the earthquake app clear to you? (still open)
 
-Next: guideline 12 (tsunami: Long or Strong, Get Gone, NEMA).
+Next: guideline 13 (changing a car tyre safely at the roadside).

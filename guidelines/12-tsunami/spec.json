@@ -1,0 +1,2036 @@
+{
+ "title": "Tsunami: Long or Strong, Get Gone",
+ "about": "Shows what to do fast if a tsunami may be coming (natural signs, an earthquake, or a warning), on land, at a lake or on a boat, and what to do after.",
+ "sources": [
+  {
+   "name": "Get Ready (NEMA), Tsunami",
+   "link": "https://getready.govt.nz/emergency/tsunami/"
+  },
+  {
+   "name": "Get Ready (NEMA), Tsunami, NZ Sign Language version",
+   "link": "https://nzsl.getready.govt.nz/emergency/tsunami"
+  },
+  {
+   "name": "Get Ready (NEMA), Tsunami, large print (08-tsunami-lp-en-dec24)",
+   "link": "https://getready.govt.nz/assets/Uploads/documents/alternate-formats/large-print/pdf/08-tsunami-lp-en-dec24.pdf"
+  },
+  {
+   "name": "Civil Defence (NEMA), Response: What to do during a tsunami",
+   "link": "https://www.civildefence.govt.nz/cdem-sector/consistent-messages/tsunami/response-what-to-do-during-a-tsunami"
+  }
+ ],
+ "warning": "Near the coast and felt a long or strong earthquake? Go to high ground or inland now. Look at this only when you've stopped somewhere safe.",
+ "audience": "Anyone in New Zealand near the coast, a lake or on a boat when a tsunami may be coming, and just after",
+ "reviewedBy": "",
+ "version": "Get Ready (NEMA) tsunami page, its NZ Sign Language version and large-print copy (file dated Dec 2024), and NEMA's Civil Defence response messages page, read 19 Nov 2026, no review date shown on any web page",
+ "brand": {
+  "name": "",
+  "colour": ""
+ },
+ "look": "",
+ "inputs": [],
+ "tables": [],
+ "steps": [
+  {
+   "id": "start",
+   "title": "Long or Strong, Get Gone",
+   "lines": [
+    {
+     "kind": "warning",
+     "text": "Long or strong earthquake, sea suddenly rising or falling, or told to evacuate? Move immediately to the nearest high ground or as far inland as possible.",
+     "line": 19,
+     "quotes": [
+      {
+       "text": "If an earthquake is Long or Strong: Get Gone.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "See a sudden rise or fall in sea level",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "advise people near the coast in affected areas to evacuate immediately",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "Move immediately to the nearest high ground or as far inland as possible.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Don't wait for a warning. Walk, run or cycle.",
+     "line": 24,
+     "quotes": [
+      {
+       "text": "Don’t wait for an official tsunami warning.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "Walk, run or cycle, if you can.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "What is happening?",
+    "options": [
+     {
+      "label": "Shaking now",
+      "to": "quake",
+      "line": 28,
+      "target": "quake"
+     },
+     {
+      "label": "Shaking has stopped",
+      "to": "long-strong",
+      "line": 29,
+      "target": "long-strong"
+     },
+     {
+      "label": "Sea rose or fell, or loud noises",
+      "to": "get-gone",
+      "line": 30,
+      "target": "get-gone"
+     },
+     {
+      "label": "Lake: strange water or rock falls",
+      "to": "lake",
+      "line": 31,
+      "target": "lake"
+     },
+     {
+      "label": "Official warning or alert",
+      "to": "official",
+      "line": 32,
+      "target": "official"
+     },
+     {
+      "label": "Friends or online say tsunami",
+      "to": "informal",
+      "line": 33,
+      "target": "informal"
+     },
+     {
+      "label": "On a boat or at a marina",
+      "to": "boat",
+      "line": 34,
+      "target": "boat"
+     },
+     {
+      "label": "All-clear given: going home",
+      "to": "after",
+      "line": 35,
+      "target": "after"
+     }
+    ],
+    "line": 27
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 18
+  },
+  {
+   "id": "quake",
+   "title": "Shaking now: Drop, Cover and Hold",
+   "lines": [
+    {
+     "kind": "warning",
+     "text": "Drop, Cover and Hold. Protect yourself from the earthquake first.",
+     "line": 38,
+     "quotes": [
+      {
+       "text": "Drop, Cover and Hold during the shaking.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "Protect yourself from the earthquake first.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Get down on your hands and knees or as low as you can. Cover your head and neck. Hold on.",
+     "line": 41,
+     "quotes": [
+      {
+       "text": "Drop down on your hands and knees or as low as you can.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "Cover your head and neck if you can.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "Hold on to your position or shelter.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Can't get up from the floor without help? Don't drop: brace against a wall or sturdy furniture.",
+     "line": 45,
+     "quotes": [
+      {
+       "text": "If you can’t get up from the floor without help, don’t drop to the ground in an earthquake.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "Brace yourself against a wall or sturdy furniture if you cannot drop to the floor.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "As soon as the shaking stops, tap Next.",
+     "line": 48
+    }
+   ],
+   "ask": null,
+   "next": {
+    "to": "long-strong",
+    "line": 49,
+    "target": "long-strong"
+   },
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 37,
+   "nexts": [
+    {
+     "to": "long-strong",
+     "line": 49,
+     "target": "long-strong"
+    }
+   ]
+  },
+  {
+   "id": "long-strong",
+   "title": "Was it long or strong?",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "Strong: it was hard to stand. Long: it lasted more than a minute (Civil Defence: a minute or more).",
+     "line": 52,
+     "quotes": [
+      {
+       "text": "If you feel an earthquake that makes it hard to stand or lasts more than a minute, move immediately to higher ground or as far inland as possible out of tsunami evacuation zones.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "Feel a strong earthquake that makes it hard to stand up, or a weak rolling earthquake that lasts a minute or more.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "Was it long or strong?",
+    "options": [
+     {
+      "label": "Yes",
+      "to": "get-gone",
+      "line": 56,
+      "target": "get-gone"
+     },
+     {
+      "label": "No",
+      "to": "not-long",
+      "line": 57,
+      "target": "not-long"
+     },
+     {
+      "label": "I'm not sure",
+      "to": "not-sure",
+      "line": 58,
+      "target": "not-sure"
+     }
+    ],
+    "line": 55
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 51
+  },
+  {
+   "id": "not-sure",
+   "title": "Not sure if it was long or strong",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "Near the coast, a long or strong earthquake means leave as soon as the shaking stops.",
+     "line": 61,
+     "quotes": [
+      {
+       "text": "Anyone near the coast who feels a long or strong earthquake should self-evacuate as soon as the shaking stops.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "At a mountain lake, even a small earthquake could cause a tsunami.",
+     "line": 63,
+     "quotes": [
+      {
+       "text": "Even a small earthquake could trigger a landslide at a mountain lake and create a tsunami.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "The guidance doesn't say what to do if you're not sure.",
+     "line": 65
+    }
+   ],
+   "ask": {
+    "question": "What will you do?",
+    "options": [
+     {
+      "label": "Go to high ground or inland",
+      "to": "get-gone",
+      "line": 67,
+      "target": "get-gone"
+     },
+     {
+      "label": "Stay and watch for signs",
+      "to": "not-long",
+      "line": 68,
+      "target": "not-long"
+     }
+    ],
+    "line": 66
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 60
+  },
+  {
+   "id": "not-long",
+   "title": "Watch for signs and warnings",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "Expect more shaking. It may cause another tsunami.",
+     "line": 71,
+     "quotes": [
+      {
+       "text": "If there was an earthquake, expect more shaking.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "More earthquake shaking may generate another tsunami.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Act if the sea suddenly rises or falls, or makes loud or unusual noises.",
+     "line": 74,
+     "quotes": [
+      {
+       "text": "See a sudden rise or fall in sea level",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "Hear loud or unusual noises from the sea",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Mountain lake or fiord? Even a small quake can cause a tsunami; signs may be weak.",
+     "line": 77,
+     "quotes": [
+      {
+       "text": "Even a small earthquake could trigger a large landslide at a mountain lake or fiord/sound that generates a tsunami.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "In these cases, natural warning signs may be weak or unnoticeable.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Warnings come on radio, TV or a mobile alert. Follow them immediately.",
+     "line": 80,
+     "quotes": [
+      {
+       "text": "Tsunami warnings will also be broadcast on radio and television.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "An Emergency Mobile Alert may also be issued if there is a threat of flooding of land areas.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "Immediately follow the advice of any emergency warning.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "Has anything changed?",
+    "options": [
+     {
+      "label": "Sea rose or fell, or loud noises",
+      "to": "get-gone",
+      "line": 85,
+      "target": "get-gone"
+     },
+     {
+      "label": "Lake: strange water or rock falls",
+      "to": "lake",
+      "line": 86,
+      "target": "lake"
+     },
+     {
+      "label": "Official warning",
+      "to": "official",
+      "line": 87,
+      "target": "official"
+     },
+     {
+      "label": "Nothing more",
+      "to": "end",
+      "line": 88,
+      "target": "__end"
+     }
+    ],
+    "line": 84
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 70
+  },
+  {
+   "id": "lake",
+   "title": "At a lake: move away from the water",
+   "lines": [
+    {
+     "kind": "warning",
+     "text": "Move away from the water's edge to higher ground now.",
+     "line": 91,
+     "quotes": [
+      {
+       "text": "If you are at a lake or any other large body of water, move away from the water's edge to higher ground immediately if you experience any of the following:",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "The signs: a long or strong earthquake, a sudden rise or fall in the water, unusual waves, landslides or rock falls, or loud unusual noises.",
+     "line": 93,
+     "quotes": [
+      {
+       "text": "Feel a strong earthquake that makes it hard to stand up, or a long weak rolling earthquake that lasts a minute or more.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "See a sudden rise or fall in water level, or unusual waves or water behaviour without an obvious cause (such as the wind or a boat).",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "See indications of landslides or rock falls occurring (for example, rocks falling or large dust clouds).",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "Hear loud and unusual noises from the water or surrounding area (for example, glacier cracking or rocks falling).",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "When you can:",
+    "options": [
+     {
+      "label": "I've reached higher ground",
+      "to": "stay-there",
+      "line": 99,
+      "target": "stay-there"
+     },
+     {
+      "label": "More help for the way",
+      "to": "get-gone",
+      "line": 100,
+      "target": "get-gone"
+     }
+    ],
+    "line": 98
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 90
+  },
+  {
+   "id": "get-gone",
+   "title": "Get Gone now",
+   "lines": [
+    {
+     "kind": "warning",
+     "text": "Move immediately to the nearest high ground or as far inland as you can, out of tsunami evacuation zones.",
+     "line": 103,
+     "quotes": [
+      {
+       "text": "Move immediately to the nearest high ground or as far inland as you can, out of tsunami evacuation zones.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Walk, run or cycle if at all possible.",
+     "line": 105,
+     "quotes": [
+      {
+       "text": "Walk, run or cycle if at all possible to reduce the chances of getting stuck in traffic congestion.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Don't spend time looking for pets; take them only if it won't delay you. Grab bag: if possible.",
+     "line": 107,
+     "quotes": [
+      {
+       "text": "Take your animals with you only if it will not delay you.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "Do not spend time looking for them and if you are not at home, do not return to get them.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "Take your grab bag with you if possible, but do not travel into the evacuation zone to collect your grab bag or other belongings.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "What do you need now?",
+    "options": [
+     {
+      "label": "Tips for the way",
+      "to": "on-the-way",
+      "line": 112,
+      "target": "on-the-way"
+     },
+     {
+      "label": "Can't get out of the zone",
+      "to": "cant-get-out",
+      "line": 113,
+      "target": "cant-get-out"
+     },
+     {
+      "label": "Can't walk, or must drive",
+      "to": "driving",
+      "line": 114,
+      "target": "driving"
+     },
+     {
+      "label": "I've reached safety",
+      "to": "stay-there",
+      "line": 115,
+      "target": "stay-there"
+     }
+    ],
+    "line": 111
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 102
+  },
+  {
+   "id": "on-the-way",
+   "title": "On the way",
+   "lines": [
+    {
+     "kind": "warning",
+     "text": "Avoid earthquake damage, especially fallen power lines. Bridges may be damaged, and there may be landslides.",
+     "line": 118,
+     "quotes": [
+      {
+       "text": "While evacuating, avoid hazards caused by earthquake damage, especially fallen power lines.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "For example, a large local earthquake may damage powerlines and bridges and create liquefaction and landslides.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Follow tsunami evacuation route signs or maps if there are any. If a route is slow or congested, use a different one.",
+     "line": 121,
+     "quotes": [
+      {
+       "text": "Evacuate via the routes shown on tsunami evacuation route signs or drawn on tsunami evacuation maps if these are available.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "If these routes appear slow or congested, use a different route.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Not at home? Don't go back for pets. Don't go into the zone for your grab bag or belongings.",
+     "line": 124,
+     "quotes": [
+      {
+       "text": "Do not spend time looking for them and if you are not at home, do not return to get them.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "Take your grab bag with you if possible, but do not travel into the evacuation zone to collect your grab bag or other belongings.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "When you've stopped:",
+    "options": [
+     {
+      "label": "I've reached safety",
+      "to": "stay-there",
+      "line": 128,
+      "target": "stay-there"
+     },
+     {
+      "label": "Still on my way",
+      "to": "get-gone",
+      "line": 129,
+      "target": "get-gone"
+     }
+    ],
+    "line": 127
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 117
+  },
+  {
+   "id": "cant-get-out",
+   "title": "Can't get out of the zone",
+   "lines": [
+    {
+     "kind": "warning",
+     "text": "Go as far or as high as you can. Every metre makes a difference.",
+     "line": 132,
+     "quotes": [
+      {
+       "text": "Even if you can't get out of your evacuation zone, go as far or as high as you can.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "Every metre makes a difference.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "The guidance does not say which buildings or places are safe to go up. Follow local advice and your Civil Defence Group's evacuation maps.",
+     "line": 135,
+     "quotes": [
+      {
+       "text": "Your Civil Defence Emergency Management Group has tsunami evacuation zone maps and advice.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "When you've stopped:",
+    "options": [
+     {
+      "label": "I've reached safety",
+      "to": "stay-there",
+      "line": 138,
+      "target": "stay-there"
+     },
+     {
+      "label": "Still on my way",
+      "to": "get-gone",
+      "line": 139,
+      "target": "get-gone"
+     }
+    ],
+    "line": 137
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 131
+  },
+  {
+   "id": "driving",
+   "title": "Can't walk, or have to drive",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "Vehicles on roads should be kept for emergency services and people with mobility impairments, including wheelchair users.",
+     "line": 142,
+     "quotes": [
+      {
+       "text": "Use of vehicles on roads should be limited to emergency services and those with mobility impairments, including wheelchair users.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "warning",
+     "text": "If you have to drive, keep going once you are well outside all evacuation zones, to leave room for others behind you.",
+     "line": 144,
+     "quotes": [
+      {
+       "text": "If you have to drive, keep going once you are well outside of all evacuation zones, to allow room for others behind you.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "The guidance says nothing more for people who can't walk, run or cycle. Follow local advice.",
+     "line": 146
+    }
+   ],
+   "ask": {
+    "question": "When you've stopped:",
+    "options": [
+     {
+      "label": "I've reached safety",
+      "to": "stay-there",
+      "line": 148,
+      "target": "stay-there"
+     },
+     {
+      "label": "Still on my way",
+      "to": "get-gone",
+      "line": 149,
+      "target": "get-gone"
+     }
+    ],
+    "line": 147
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 141
+  },
+  {
+   "id": "stay-there",
+   "title": "Stay there until the all-clear",
+   "lines": [
+    {
+     "kind": "warning",
+     "text": "Do not return until you get an official all-clear message from Civil Defence.",
+     "line": 152,
+     "quotes": [
+      {
+       "text": "Do not return until you get an official all-clear message from Civil Defence.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Tsunami activity can continue for several hours, and the first wave may not be the largest.",
+     "line": 154,
+     "quotes": [
+      {
+       "text": "Tsunami activity can continue for several hours, and the first wave may not be the largest.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Expect aftershocks. Each time you feel one, drop, cover and hold. Aftershocks may generate another tsunami.",
+     "line": 156,
+     "quotes": [
+      {
+       "text": "If there was an earthquake, expect aftershocks.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "Each time you feel one, drop, cover, and hold.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "Aftershocks may generate another tsunami.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "For updates, listen to the radio or follow your Civil Defence Group online.",
+     "line": 160,
+     "quotes": [
+      {
+       "text": "Listen to the radio or follow your Civil Defence Emergency Management Group online.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": null,
+   "next": {
+    "to": "after",
+    "line": 162,
+    "target": "after"
+   },
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 151,
+   "nexts": [
+    {
+     "to": "after",
+     "line": 162,
+     "target": "after"
+    }
+   ]
+  },
+  {
+   "id": "official",
+   "title": "Official warning",
+   "lines": [
+    {
+     "kind": "warning",
+     "text": "Immediately follow the advice of any emergency warning. Do not wait for more messages before you act.",
+     "line": 165,
+     "quotes": [
+      {
+       "text": "Immediately follow the advice of any emergency warning.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "Do not wait for more messages before you act.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Felt a long or strong earthquake? Don't wait for an alert: go as soon as the shaking stops.",
+     "line": 168,
+     "quotes": [
+      {
+       "text": "Do not wait for an Emergency Mobile Alert if you felt a long or strong earthquake.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "Self-evacuate as soon as the shaking stops.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "What does the warning tell you?",
+    "options": [
+     {
+      "label": "Evacuate immediately",
+      "to": "get-gone",
+      "line": 172,
+      "target": "get-gone"
+     },
+     {
+      "label": "Prepare to evacuate",
+      "to": "prepare",
+      "line": 173,
+      "target": "prepare"
+     },
+     {
+      "label": "Tsunami activity advisory: stay out of the water",
+      "to": "advisory",
+      "line": 174,
+      "target": "advisory"
+     },
+     {
+      "label": "I know I'm outside the evacuation zones",
+      "to": "outside-zone",
+      "line": 175,
+      "target": "outside-zone"
+     }
+    ],
+    "line": 171
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 164
+  },
+  {
+   "id": "prepare",
+   "title": "Prepare to evacuate",
+   "lines": [
+    {
+     "kind": "do",
+     "text": "Listen to the radio or TV for updates, and check your Civil Defence Group's website. Follow any instructions about evacuating.",
+     "line": 178,
+     "quotes": [
+      {
+       "text": "Listen to the radio or TV for updates, and check your local Civil Defence Emergency Management Group's website",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "Listen to local Civil Defence Emergency Management authorities and follow any instructions regarding evacuation of your area.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Leave your phone on and charged so you get alerts.",
+     "line": 181,
+     "quotes": [
+      {
+       "text": "Leave cell phones on and charged so you can receive alerts.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Put food, clothing and medication in your grab bag.",
+     "line": 183,
+     "quotes": [
+      {
+       "text": "Put essential items such as food, clothing, and medication in your grab bag to take when you evacuate.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Find any pets. Bring them only if it won't delay you.",
+     "line": 185,
+     "quotes": [
+      {
+       "text": "Find any pets and bring them with you when you evacuate, only if it will not delay you.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": null,
+   "next": {
+    "to": "prepare-more",
+    "line": 187,
+    "target": "prepare-more"
+   },
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 177,
+   "nexts": [
+    {
+     "to": "prepare-more",
+     "line": 187,
+     "target": "prepare-more"
+    }
+   ]
+  },
+  {
+   "id": "prepare-more",
+   "title": "While you wait",
+   "lines": [
+    {
+     "kind": "do",
+     "text": "Secure your home as you would for a long time away.",
+     "line": 190,
+     "quotes": [
+      {
+       "text": "Secure your whare/home as you normally would when leaving for an extended period.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Tell your neighbours. Help any who need help to evacuate.",
+     "line": 192,
+     "quotes": [
+      {
+       "text": "Share information with your neighbours. They may not be aware of the tsunami warning.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "Help neighbours who need assistance to evacuate.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Farming? Evacuate family and staff first; move livestock to higher ground if you have time.",
+     "line": 195,
+     "quotes": [
+      {
+       "text": "If you are farming along the coast or river estuary, evacuate your whānau/family and staff first. If you have time, move livestock to higher ground.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Not sure of your zone? Search your address on the evacuation zone maps.",
+     "line": 197,
+     "quotes": [
+      {
+       "text": "Search your home, work or school address to find out if it is in a tsunami evacuation zone.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "What now?",
+    "options": [
+     {
+      "label": "Time to go",
+      "to": "get-gone",
+      "line": 200,
+      "target": "get-gone"
+     },
+     {
+      "label": "Still waiting",
+      "to": "prepare",
+      "line": 201,
+      "target": "prepare"
+     },
+     {
+      "label": "I know I'm outside the zones",
+      "to": "outside-zone",
+      "line": 202,
+      "target": "outside-zone"
+     },
+     {
+      "label": "Cancelled or all-clear",
+      "to": "after",
+      "line": 203,
+      "target": "after"
+     }
+    ],
+    "line": 199
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 189
+  },
+  {
+   "id": "outside-zone",
+   "title": "Outside the evacuation zones",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "If you are outside the tsunami evacuation zones, you do not need to evacuate. Staying where you are helps reduce congestion for those who must.",
+     "line": 206,
+     "quotes": [
+      {
+       "text": "If you are outside of tsunami evacuation zones you do not need to evacuate.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "If you stay where you are, it will help to reduce congestion for those who must evacuate.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Not sure? The guidance doesn't say. If you are told to evacuate immediately, move immediately.",
+     "line": 209,
+     "quotes": [
+      {
+       "text": "If you are advised to evacuate immediately, you should:",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "What will you do?",
+    "options": [
+     {
+      "label": "I'm outside: staying here",
+      "to": "stay-there",
+      "line": 212,
+      "target": "stay-there"
+     },
+     {
+      "label": "Go to high ground or inland",
+      "to": "get-gone",
+      "line": 213,
+      "target": "get-gone"
+     }
+    ],
+    "line": 211
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 205
+  },
+  {
+   "id": "advisory",
+   "title": "Activity advisory: stay out of the water",
+   "lines": [
+    {
+     "kind": "warning",
+     "text": "Stay out of the water (sea, rivers and estuaries, including boats) and off beaches and shore areas.",
+     "line": 216,
+     "quotes": [
+      {
+       "text": "Evacuation of land areas is not required but people should stay out of the water (sea, rivers, and estuaries, including boats) and stay off beaches and shore areas when a tsunami activity advisory is issued.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Land flooding isn't expected, but this can change. Don't swim, surf, fish or boat: currents can drown.",
+     "line": 218,
+     "quotes": [
+      {
+       "text": "A tsunami activity advisory will be issued when inundation of land areas near the shore is not expected (although this assessment may change)",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "Do not go swimming, surfing, fishing or engage in small boat activities when a tsunami activity advisory is issued.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "Strong currents and surges can injure and drown people.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "At a marina or on a boat: go ashore; don't go back unless Civil Defence says.",
+     "line": 222,
+     "quotes": [
+      {
+       "text": "People on boats, liveaboards and at marinas should leave their boats/vessels and move onto shore. Do not return to boats unless instructed by Civil Defence.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Out at sea? The guidance doesn't say whether to come in. Listen to Maritime Radio.",
+     "line": 224,
+     "quotes": [
+      {
+       "text": "Coastal Navigational Warnings will be issued by the Rescue Coordination Centre New Zealand (RCCNZ), via Maritime Radio.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": null,
+   "next": {
+    "to": "stay-there",
+    "line": 226,
+    "target": "stay-there"
+   },
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 215,
+   "nexts": [
+    {
+     "to": "stay-there",
+     "line": 226,
+     "target": "stay-there"
+    }
+   ]
+  },
+  {
+   "id": "informal",
+   "title": "Warning from friends, media or online",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "If the warning seems trustworthy, consider evacuating. If you feel a threat is near, move immediately to high ground or inland.",
+     "line": 229,
+     "quotes": [
+      {
+       "text": "If the warning seems trustworthy, consider evacuating.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "If you feel a tsunami threat is imminent, move immediately to the nearest high ground or as far inland as you can, out of tsunami evacuation zones.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Check the warning once you've evacuated, or on the way if it won't slow you down. Trust official warnings over informal ones.",
+     "line": 232,
+     "quotes": [
+      {
+       "text": "Check the accuracy of the warning once you have evacuated or en route if it won’t slow you down.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "If official warnings are available, trust their message over informal warnings.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "What will you do?",
+    "options": [
+     {
+      "label": "Go now",
+      "to": "get-gone",
+      "line": 236,
+      "target": "get-gone"
+     },
+     {
+      "label": "There is an official warning",
+      "to": "official",
+      "line": 237,
+      "target": "official"
+     },
+     {
+      "label": "Not going for now: watch for signs",
+      "to": "not-long",
+      "line": 238,
+      "target": "not-long"
+     }
+    ],
+    "line": 235
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 228
+  },
+  {
+   "id": "boat",
+   "title": "On a boat or at a marina",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "This is for a local tsunami (minutes away). Distant one? Check with your harbourmaster.",
+     "line": 241,
+     "quotes": [
+      {
+       "text": "In a local source tsunami, which can arrive in minutes, you need to take action quickly.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "Check with your local harbourmaster to find out what your local tsunami response procedures are.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "At sea you may feel the quake through the hull, or see sudden extreme changes in currents.",
+     "line": 244,
+     "quotes": [
+      {
+       "text": "You may feel the earthquake through the hull of your boat.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "You could see a rapid and extreme shift in currents and simultaneous changes in wind wave heights.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "Where is your boat?",
+    "options": [
+     {
+      "label": "On land or at a dock",
+      "to": "boat-dock",
+      "line": 248,
+      "target": "boat-dock"
+     },
+     {
+      "label": "Shallower than 50 metres",
+      "to": "boat-shallow",
+      "line": 249,
+      "target": "boat-shallow"
+     },
+     {
+      "label": "Over 50 metres, outside harbours/channels",
+      "to": "boat-deep",
+      "line": 250,
+      "target": "boat-deep"
+     },
+     {
+      "label": "Over 50 metres, in a harbour or channel",
+      "to": "boat-harbour",
+      "line": 251,
+      "target": "boat-harbour"
+     }
+    ],
+    "line": 247
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 240
+  },
+  {
+   "id": "boat-dock",
+   "title": "Leave your boat",
+   "lines": [
+    {
+     "kind": "warning",
+     "text": "Leave your boat. Move immediately to the nearest high ground or as far inland as you can.",
+     "line": 254,
+     "quotes": [
+      {
+       "text": "If you are on land or tied up at dock, and you see or hear natural warning signs of a tsunami, leave your boat, move immediately to the nearest high ground or as far inland as you can, out of tsunami evacuation zones.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": null,
+   "next": {
+    "to": "get-gone",
+    "line": 256,
+    "target": "get-gone"
+   },
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 253,
+   "nexts": [
+    {
+     "to": "get-gone",
+     "line": 256,
+     "target": "get-gone"
+    }
+   ]
+  },
+  {
+   "id": "boat-shallow",
+   "title": "Shallower than 50 metres",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "Stop commercial fishing immediately. Free the vessel from anything on the bottom, or gear that might drag (cut lines if necessary).",
+     "line": 259,
+     "quotes": [
+      {
+       "text": "Stop commercial fishing operations immediately.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "Free the vessel from any bottom attachment and gear that might drag in currents (cut lines if necessary).",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "warning",
+     "text": "If you can beach or dock your small boat and leave on foot within ten minutes of a natural warning, that is your best chance.",
+     "line": 262,
+     "quotes": [
+      {
+       "text": "If you can beach or dock your small boat and evacuate on foot within ten minutes of a natural warning, then this is your best chance.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "Small boat: can you be ashore on foot within ten minutes of first noticing the sign?",
+    "options": [
+     {
+      "label": "Yes",
+      "to": "boat-dock",
+      "line": 265,
+      "target": "boat-dock"
+     },
+     {
+      "label": "No",
+      "to": "boat-to-deep",
+      "line": 266,
+      "target": "boat-to-deep"
+     }
+    ],
+    "line": 264
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 258
+  },
+  {
+   "id": "boat-to-deep",
+   "title": "Head for deep water",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "Head for the deepest water you can, more than 50 metres deep, directly away from the shore.",
+     "line": 269,
+     "quotes": [
+      {
+       "text": "If evacuation on foot is not possible, head for the deepest water possible, greater than 50 metres deep.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "Proceed directly away from the shore.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Sail directly into waves. Tsunami can mix with wind waves in unusual ways. Keep as far as you can from other vessels.",
+     "line": 272,
+     "quotes": [
+      {
+       "text": "Sail directly into waves. Be aware that tsunami can interact with wind waves and produce unusual effects.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "Maintain as much separation as possible from other vessels.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": null,
+   "next": {
+    "to": "boat-at-sea",
+    "line": 275,
+    "target": "boat-at-sea"
+   },
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 268,
+   "nexts": [
+    {
+     "to": "boat-at-sea",
+     "line": 275,
+     "target": "boat-at-sea"
+    }
+   ]
+  },
+  {
+   "id": "boat-deep",
+   "title": "Deeper than 50 metres",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "Outside harbours and channels, keep heading to deeper water. It is safer from tsunami currents and waves.",
+     "line": 278,
+     "quotes": [
+      {
+       "text": "If you are on the water at greater than 50 metres outside of harbours/channels, continue to head to deeper water which is safer from tsunami currents and waves.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": null,
+   "next": {
+    "to": "boat-at-sea",
+    "line": 280,
+    "target": "boat-at-sea"
+   },
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 277,
+   "nexts": [
+    {
+     "to": "boat-at-sea",
+     "line": 280,
+     "target": "boat-at-sea"
+    }
+   ]
+  },
+  {
+   "id": "boat-harbour",
+   "title": "Deep water in a harbour or channel",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "The guidance does not say what to do in deep water inside a harbour or channel. Tsunami are often most destructive in bays and harbours.",
+     "line": 283,
+     "quotes": [
+      {
+       "text": "Tsunami are often most destructive in bays and harbours, not just because of the waves, but because of the strong currents they generate in local waterways.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Check with your local harbourmaster, and listen to Maritime Radio.",
+     "line": 285,
+     "quotes": [
+      {
+       "text": "Check with your local harbourmaster to find out what your local tsunami response procedures are.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "Coastal Navigational Warnings will be issued by the Rescue Coordination Centre New Zealand (RCCNZ), via Maritime Radio.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": null,
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": true,
+   "line": 282
+  },
+  {
+   "id": "boat-at-sea",
+   "title": "Stay at sea",
+   "lines": [
+    {
+     "kind": "warning",
+     "text": "Do not return to port if you are at sea and a tsunami warning is issued. Ports may be damaged and full of debris.",
+     "line": 291,
+     "quotes": [
+      {
+       "text": "Do not return to port if you are at sea and a tsunami warning is issued.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "Port and harbour facilities may become damaged and hazardous with debris.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Listen to maritime radio to find out when it is safe to return. Navigate carefully: the seafloor may have changed.",
+     "line": 294,
+     "quotes": [
+      {
+       "text": "Listen to maritime radio reports to find out when it is safe to return and be careful navigating when you return as the seafloor may have changed and there may be debris.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "The guidance says nothing more for small boats at sea.",
+     "line": 296
+    }
+   ],
+   "ask": null,
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": true,
+   "line": 290
+  },
+  {
+   "id": "after",
+   "title": "After a tsunami",
+   "lines": [
+    {
+     "kind": "warning",
+     "text": "Only return home once you are told it is safe to do so.",
+     "line": 300,
+     "quotes": [
+      {
+       "text": "Only return home once you are told it is safe to do so.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Listen to the radio or follow your Civil Defence Group online.",
+     "line": 302,
+     "quotes": [
+      {
+       "text": "Listen to the radio or follow your Civil Defence Emergency Management Group online.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "If there was an earthquake, expect more shaking. It may cause another tsunami. Be prepared to evacuate.",
+     "line": 304,
+     "quotes": [
+      {
+       "text": "If there was an earthquake, expect more shaking.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "More earthquake shaking may generate another tsunami.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "Be prepared to evacuate.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "Which is you?",
+    "options": [
+     {
+      "label": "The all-clear was given",
+      "to": "after-water",
+      "line": 309,
+      "target": "after-water"
+     },
+     {
+      "label": "Shaking only just stopped, and I'm near the coast",
+      "to": "long-strong",
+      "line": 310,
+      "target": "long-strong"
+     }
+    ],
+    "line": 308
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 299
+  },
+  {
+   "id": "after-water",
+   "title": "Stay away from the water",
+   "lines": [
+    {
+     "kind": "warning",
+     "text": "Stay away from coastal water, tidal estuaries, rivers and streams for at least 24 hours after any tsunami or tsunami warning.",
+     "line": 313,
+     "quotes": [
+      {
+       "text": "Stay away from coastal water, tidal estuaries, rivers and streams for at least 24 hours after any tsunami or tsunami warning.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Even small waves create dangerous currents. (Civil Defence just says \"be cautious\", with no time.)",
+     "line": 315,
+     "quotes": [
+      {
+       "text": "Even small waves create dangerous currents.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "Be cautious in and around coastal water, tidal estuaries, rivers and streams after any tsunami or tsunami warning",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Avoid areas hit by the tsunami: you could hamper rescue and be at risk.",
+     "line": 318,
+     "quotes": [
+      {
+       "text": "Avoid areas impacted by the tsunami.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "You might hamper rescue and other emergency operations and be at further risk from the residual effects of tsunami flooding.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": null,
+   "next": {
+    "to": "after-help",
+    "line": 321,
+    "target": "after-help"
+   },
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 312,
+   "nexts": [
+    {
+     "to": "after-help",
+     "line": 321,
+     "target": "after-help"
+    }
+   ]
+  },
+  {
+   "id": "after-help",
+   "title": "Help and support",
+   "lines": [
+    {
+     "kind": "do",
+     "text": "Help others if you can, especially people who may need extra help.",
+     "line": 324,
+     "quotes": [
+      {
+       "text": "Help others if you can, especially people who may need extra help.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Find out what support you can get. First aid saves lives: the St John website shows what to do.",
+     "line": 326,
+     "quotes": [
+      {
+       "text": "Find out what support you can get if you have been affected by an emergency event.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "First aid saves lives.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "Is your home or property damaged?",
+    "options": [
+     {
+      "label": "Yes",
+      "to": "property",
+      "line": 330,
+      "target": "property"
+     },
+     {
+      "label": "No",
+      "to": "finish",
+      "line": 331,
+      "target": "finish"
+     }
+    ],
+    "line": 329
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 323
+  },
+  {
+   "id": "property",
+   "title": "If your property is damaged",
+   "lines": [
+    {
+     "kind": "warning",
+     "text": "Do not do anything that puts your safety at risk or causes more damage to your property.",
+     "line": 334,
+     "quotes": [
+      {
+       "text": "Do not do anything that puts your safety at risk or causes more damage to your property.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "The guidance does not say when a damaged building is safe to enter. Follow local advice.",
+     "line": 336
+    },
+    {
+     "kind": "do",
+     "text": "Contact your insurer as soon as possible. Renting? Contact your landlord too.",
+     "line": 337,
+     "quotes": [
+      {
+       "text": "Contact your insurance company as soon as possible.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "If you rent your property, contact your landlord and your contents insurance company.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Take photos of any damage: it speeds up claims.",
+     "line": 340,
+     "quotes": [
+      {
+       "text": "Take photos of any damage.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "It will help speed up assessments of your claims.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": null,
+   "next": {
+    "to": "finish",
+    "line": 343,
+    "target": "finish"
+   },
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 333,
+   "nexts": [
+    {
+     "to": "finish",
+     "line": 343,
+     "target": "finish"
+    }
+   ]
+  },
+  {
+   "id": "finish",
+   "title": "Keep safe",
+   "lines": [
+    {
+     "kind": "warning",
+     "text": "More earthquake shaking may generate another tsunami. Be prepared to evacuate. Remember: Long or Strong, Get Gone.",
+     "line": 346,
+     "quotes": [
+      {
+       "text": "More earthquake shaking may generate another tsunami.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "Be prepared to evacuate.",
+       "where": "",
+       "check": "exact"
+      },
+      {
+       "text": "Remember: Long or Strong, Get Gone.",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Practise your tsunami hīkoi (evacuation walk) so it comes naturally.",
+     "line": 350,
+     "quotes": [
+      {
+       "text": "Regularly practise your tsunami hīkoi (evacuation walk).",
+       "where": "",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": null,
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": true,
+   "line": 345
+  }
+ ],
+ "start": "start"
+}

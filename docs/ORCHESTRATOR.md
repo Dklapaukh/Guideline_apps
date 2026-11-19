@@ -29,6 +29,10 @@ under "Needs you" in `runs/LATEST.md` and carry on with what can be done.
 3. The next `queued` guideline in `docs/CURRICULUM.md` (one per run; two only if both are level 1-2 and the
    first finished quickly). The last row, the final exam, follows its own rules in that file.
 
+Runs can overlap. Before starting a guideline, `git fetch --depth=10 origin main` and check that
+`origin/main` has no `guidelines/<id>/` for it yet; check again before publishing a new app. If another run got
+there first, drop your copy and take the next queued row.
+
 ## 3. Sub-agents (use the Agent tool with model "opus"; give each a complete brief; they don't see this chat)
 Run 3a and then 3b in sequence; 3c only if needed; 3d always, and it must not be the agent that wrote the template.
 

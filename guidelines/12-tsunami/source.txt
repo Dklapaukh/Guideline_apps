@@ -1,0 +1,479 @@
+Tsunami - Get Ready, National Emergency Management Agency (NEMA), New Zealand, plus NEMA's Civil Defence "consistent messages" response page. Read 19 Nov 2026; no last-updated date shown on any web page.
+Section A from https://getready.govt.nz/emergency/tsunami/ (main English page).
+Section B from https://nzsl.getready.govt.nz/emergency/tsunami (Get Ready's NZ Sign Language version of the same page; has headings and the bullet lists the main page copy lost).
+Section C from https://getready.govt.nz/assets/Uploads/documents/alternate-formats/large-print/pdf/08-tsunami-lp-en-dec24.pdf (NEMA large-print version of the tsunami page, file dated dec24; only the "during" part captured).
+Section D from https://www.civildefence.govt.nz/cdem-sector/consistent-messages/tsunami/response-what-to-do-during-a-tsunami (NEMA's official tsunami response messages for Civil Defence groups; the only official page found with boat / at-sea advice, warning types and evacuation detail).
+Capture method (sourceCopy web-fetch): the sites block direct download here, so each line was read by a fetch tool asked to quote exact sentences (long sentences in pieces, rejoined here). Key lines (numbers, "do not", times) were confirmed EXACT in a second, separate read. Small wording slips are still possible. Navigation, image captions, download/link labels and te reo Maori poster text are left out. Where the fetch tool showed a lead-in line with no list after it, that is marked.
+
+==================== SECTION A: getready.govt.nz/emergency/tsunami/ ====================
+
+All of New Zealand’s coastline and large lakes are at risk of tsunami.
+Knowing the warning signs and the right action to take can help save lives.
+Find out what to do before, during and after a tsunami.
+
+[Video narration]
+When an earthquake happens, you need to think.
+Is it hard to stand up?
+Or has it lasted longer than a minute?
+Then, if you’re near the coast…
+… Move immediately to the nearest high ground…
+… Or as far inland as possible.
+Don’t wait for an official tsunami warning.
+Go immediately.
+Then stay there until you’ve been given the all clear.
+If an earthquake is Long or Strong, Get Gone.
+
+If an earthquake is Long or Strong: Get Gone.
+Move immediately to the nearest high ground or as far inland as possible.
+Don’t wait for an official tsunami warning.
+
+Find out your tsunami risk.
+Your Civil Defence Emergency Management Group has tsunami evacuation zone maps and advice.
+Make sure you know where to go, whether you are at home, at work or out and about.
+Review your insurance regularly.
+Having insurance cover for your home and contents is important to help you get back on your feet if you suffer damage in a disaster.
+We can't predict disasters, but we can prepare for them.
+One of the best places to start is with your home.
+Find out what you can do to make your home safer.
+Make a plan online with your whānau to get through an emergency.
+Think about the things you need every day and work out what you would do if you didn't have them.
+Check if you live work or play in a tsunami zone
+Search your home, work or school address to find out if it is in a tsunami evacuation zone.
+Make sure you know where to go, whether you are at home, at work, or out and about.
+In an emergency, you may be stuck at home for three days or more.
+Your house is already full of emergency items disguised as everyday things.
+Figure out what supplies you need and make a plan to get through.
+
+Remember, Long or Strong, Get Gone.
+Drop, Cover and Hold during the shaking.
+Protect yourself from the earthquake first.
+As soon as the shaking stops, move immediately to the nearest high ground or as far inland as you can out of tsunami evacuation zones.
+
+For a local source tsunami, which could arrive in minutes, there won’t be time for an official warning.
+It is important to recognise the natural warning signs and act quickly.
+Drop, Cover and Hold if there is earthquake shaking.
+As soon as the shaking stops, move immediately to the nearest high ground or as far inland as you can out of tsunami evacuation zones.
+Even if you can't get out of your evacuation zone, go as far or as high as you can.
+Every metre makes a difference.
+If you are near a shore and experience any of the following, take action.
+[list items not captured from this page by the fetch tool; the same list from NEMA's large-print copy is in Section C]
+Do not wait for official warnings.
+Remember, Long or Strong, Get Gone.
+Walk, run or cycle if at all possible to reduce the chances of getting stuck in traffic congestion.
+Take your animals with you only if it will not delay you.
+Do not spend time looking for them and if you are not at home, do not return to get them.
+While evacuating, avoid hazards caused by earthquake damage, especially fallen power lines.
+Do not return until you get an official all-clear message from Civil Defence.
+
+When tsunami travel across the ocean from far away, we have more time to warn people what to do.
+Civil Defence issues tsunami warnings in New Zealand.
+Tsunami warnings are published on the National Emergency Management Agency's website [link words missing].
+Tsunami warnings will also be broadcast on radio and television.
+An Emergency Mobile Alert may also be issued if there is a threat of flooding of land areas.
+Warnings may also be broadcast through:
+[list items not captured from this page; see Section B]
+Contact your Civil Defence Emergency Management Group for more advice.
+They can tell you about the warnings used in your area.
+Immediately follow the advice of any emergency warning.
+Do not wait for more messages before you act.
+
+You might receive informal warnings.
+Informal warnings could come from:
+[list items not captured from this page; see Section B]
+If the warning seems trustworthy, consider evacuating.
+Check the accuracy of the warning once you have evacuated or en route if it won't slow you down.
+If official warnings are available, trust their message over informal warnings.
+
+Tsunami can also happen in lakes and other large bodies of water.
+They can be caused by:
+[list items not captured from this page; see Section B]
+Even a small earthquake could trigger a landslide at a mountain lake and create a tsunami.
+It's important to recognise the natural warning signs and act quickly.
+If you are at a lake or any other large body of water and experience the following, move away from the water's edge to higher ground immediately.
+[list items not captured from this page; see Section B]
+
+In an earthquake Drop, Cover and Hold.
+You need to practise the version of DROP, COVER, HOLD that works for you and make it your immediate reaction when the ground starts shaking.
+The best version of Drop, Cover, Hold is the one that works for your body and that you have practiced.
+Drop down on your hands and knees or as low as you can.
+Brace yourself against a wall or sturdy furniture if you cannot drop to the floor.
+Cover your head and neck if you can.
+Hold on to your position or shelter.
+If you can’t get up from the floor without help, don’t drop to the ground in an earthquake.
+
+Only return home once you are told it is safe to do so.
+Listen to the radio or follow your Civil Defence Emergency Management Group online.
+They will give you information and instructions.
+If there was an earthquake, expect more shaking.
+More earthquake shaking may generate another tsunami.
+Be prepared to evacuate.
+Stay away from coastal water, tidal estuaries, rivers and streams for at least 24 hours after any tsunami or tsunami warning.
+Even small waves create dangerous currents.
+Avoid areas impacted by the tsunami.
+You might hamper rescue and other emergency operations and be at further risk from the residual effects of tsunami flooding.
+Help others if you can, especially people who may need extra help.
+Find out what support you can get if you have been affected by an emergency event.
+First aid saves lives.
+Learn what to look for and what to do if you need to give first aid on the St John website.
+
+A tsunami is a series of powerful waves with strong current.
+They can be caused by an earthquake, volcanic eruption, landslide or even a meteorite impact.
+They can travel many thousands of kilometres across the oceans at speeds of up to 800 kilometres per hour.
+Tsunami waves contain considerable energy.
+They travel much further compared to ordinary coastal waves.
+Even small tsunami can be dangerous to those in or near the water.
+New Zealand’s entire coastline and some of our larger lakes are at risk of tsunami.
+Tsunami can flood our shores, causing property damage, injuries and loss of life.
+The biggest tsunami in New Zealand are likely to be caused by events close to our shore and can arrive within minutes.
+There are three different types of tsunami, depending on where they start.
+Distant tsunami are generated from a long way away, such as from across the Pacific in Chile.
+In this case, we will have more than three hours warning time for New Zealand.
+There will be time for official warning messages.
+Regional tsunami are generated between one and three hours travel time.
+An eruption from an underwater volcano in the Kermadec Trench to the north of New Zealand could create a regional tsunami.
+There will be time for official warning messages.
+Local tsunami come from very close to New Zealand.
+In this case, there won't be time for an official warning.
+People in coastal areas need to take immediate action.
+Remember: Long or Strong, Get Gone.
+If you feel an earthquake that makes it hard to stand or lasts more than a minute, move immediately to higher ground or as far inland as possible out of tsunami evacuation zones.
+Remember if an earthquake is LONG or STRONG, GET GONE.
+
+==================== SECTION B: nzsl.getready.govt.nz/emergency/tsunami ====================
+
+All of New Zealand’s coastline and large lakes are at risk of tsunami.
+Knowing the warning signs and the right action to take can help save lives.
+Find out what to do before, during and after a tsunami.
+Remember: Long or Strong, Get Gone
+If an earthquake is Long or Strong: Get Gone.
+Move immediately to the nearest high ground or as far inland as possible.
+Don’t wait for an official tsunami warning.
+
+About tsunami
+In New Zealand, we have a lot of natural hazards.
+Earthquakes, floods, landslides, severe weather, tsunami, volcanic activity, and other hazards can happen any time and often without warning.
+All of New Zealand’s coastline is at risk of tsunami.
+Knowing the warning signs and the right action to take can help save lives.
+You can reduce the impacts of tsunami by finding out your tsunami risk.
+Your Civil Defence Emergency Management Group has tsunami evacuation zone maps and advice.
+Make sure you know where to go, whether you are at home, at work or out and about.
+You should also review your insurance regularly.
+Having insurance cover for your home and contents is important to help you get back on your feet if you suffer damage in a disaster.
+We can’t predict disasters, but we can prepare for them.
+One of the best places to start is with your home.
+Find out what you can do to make your home safer.
+
+Get ready before a tsunami
+Work out what supplies you may need and make a plan with your whānau.
+Know your tsunami evacuation zones.
+Make sure you know where to go, whether you are at home, at work or on holiday.
+Your local Civil Defence Emergency Group has tsunami evacuation zone advice.
+Understand the different types of warnings: Natural, Official and Unofficial.
+Regularly practise your tsunami hīkoi (evacuation walk).
+Make a plan online with your whānau to get through an emergency.
+Think about the things you need every day and work out what you would do if you didn't have them.
+In an emergency, you may be stuck at home for three days or more.
+Your house is already full of emergency items disguised as everyday things.
+Figure out what supplies you need and make a plan to get through.
+
+Tsunami Hīkoi
+If you are in a tsunami evacuation zone, you should practise your evacuation route, or ‘tsunami hīkoi’.
+A tsunami hīkoi is a walk that takes you along your tsunami evacuation route either inland or towards high ground.
+Practicing your tsunami evacuation route helps your muscle memory kick in when an event happens, even in a very stressful situation.
+Check to see if your home, work, school or community meeting place is in a tsunami evacuation zone.
+Plan a route that takes you safely out of the zone.
+Plan to walk or bike if you can.
+Your Civil Defence Emergency Management Group has tsunami evacuation zone maps and advice.
+Decide where you will go (and make sure everyone in your family knows, in case you’re not all together).
+Your evacuation place will probably be with friends or family, so make sure they know your plans.
+Practise your tsunami hīkoi with your family, colleagues or classmates.
+Tsunami hīkoi week and ShakeOut are great opportunities to practise.
+If you have a pet you could walk them along your tsunami evacuation route.
+
+Natural tsunami warnings
+Know the natural warning signs and take action.
+For a local source tsunami, which could arrive in minutes, there won’t be time for an official warning.
+It is important to recognise the natural warning signs and act quickly.
+Drop, Cover and Hold if there is earthquake shaking.
+As soon as the shaking stops, move immediately to the nearest high ground or as far inland as you can out of tsunami evacuation zones.
+Even if you can't get out of your evacuation zone, go as far or as high as you can.
+Every metre makes a difference.
+Take action if you are near the shore and see a sudden rise or fall in sea level or feel a strong earthquake that makes it hard to stand or a long earthquake that lasts more than a minute.
+Do not wait for official warnings.
+Remember, if an earthquake is Long or Strong, Get Gone.
+Walk, run or cycle if at all possible to reduce the chances of getting stuck in traffic congestion.
+Take your animals with you only if it will not delay you.
+Do not spend time looking for them and if you are not at home, do not return to get them.
+While evacuating, avoid hazards caused by earthquake damage, especially fallen power lines.
+Do not return until you get an official all-clear message from Civil Defence.
+
+Official tsunami warnings
+When tsunami travel across the ocean from far away, we have more time to warn people what to do.
+Civil Defence issues tsunami warnings in New Zealand.
+Tsunami warnings are published on the National Emergency Management Agency’s website.
+Tsunami warnings will also be broadcast on radio and television.
+An Emergency Mobile Alert may also be issued if there is a threat of flooding of land areas.
+Warnings may also be broadcast through:
+- siren
+- phone
+- mobile text
+- loud hailer, or
+- other local arrangements.
+Contact your Civil Defence Emergency Management Group for more advice.
+They can tell you about the warnings used in your area.
+Immediately follow the advice of any emergency warning.
+Do not wait for more messages before you act.
+
+Unofficial or informal tsunami warnings
+You might receive informal tsunami warnings.
+Informal warnings could come from:
+- friends
+- other members of the public
+- international media, and
+- the internet.
+If the warning seems trustworthy, consider evacuating.
+Check the accuracy of the warning once you have evacuated or en route if it won’t slow you down.
+If official warnings are available, trust their message over informal warnings.
+
+Lake tsunami
+Tsunami can happen in lakes and other large bodies of water.
+They can be caused by:
+- Earthquakes
+- landslides
+- rock falls
+- volcanic eruptions
+- dam failures
+- glacier collapses
+Even a small earthquake could trigger a landslide at a mountain lake and create a tsunami.
+It’s important to recognise the natural warning signs and act quickly.
+If you are at a lake or any other large body of water and experience any of the following, move away from the water’s edge to higher ground immediately.
+- Feel a strong earthquake that makes it hard to stand up.
+- Or a long, weak, rolling earthquake that lasts a minute or more.
+- Remember: Long or Strong, Get Gone.
+- See a sudden rise or fall in water level.
+- Or see unusual waves or water behaviour without an obvious cause.
+- See indications of landslides or rock falls.
+- Hear loud and unusual noises from the water or surrounding area.
+
+What to do after a tsunami
+After a tsunami, only return home once you are told it is safe to do so.
+Follow your Civil Defence Emergency Management Group online.
+They will give you information and instructions.
+If you felt an earthquake, expect more shaking.
+More earthquake shaking may generate another tsunami.
+Be prepared to evacuate.
+Stay away from coastal water, tidal estuaries, rivers and streams for at least 24 hours after any tsunami or tsunami warning.
+Even small waves create dangerous currents.
+Avoid areas impacted by the tsunami.
+You might hamper rescue and other emergency operations and be at further risk from the residual effects of tsunami flooding.
+Help others if you can, especially people who may need extra help.
+Find out what support you can get if you have been affected by an emergency event.
+If your property is damaged:
+Do not do anything that puts your safety at risk or causes more damage to your property.
+Contact your insurance company as soon as possible.
+If you rent your property, contact your landlord and your contents insurance company.
+Take photos of any damage.
+It will help speed up assessments of your claims.
+First aid saves lives.
+Learn what to look for and what to do if you need to give first aid on the St John website.
+
+==================== SECTION C: Get Ready large-print tsunami page (08-tsunami-lp-en-dec24.pdf), "during" part only ====================
+
+What to do during a tsunami or when a tsunami warning is issued
+Know the natural warning signs and take action
+For a local source tsunami, which could arrive in minutes, there won't be time for an official warning.
+It is important to recognise the natural warning signs and act quickly.
+Drop, Cover and Hold if there is earthquake shaking.
+As soon as the shaking stops, move immediately to the nearest high ground or as far inland as you can out of tsunami evacuation zones.
+Even if you can't get out of your evacuation zone, go as far or as high as you can.
+Every metre makes a difference.
+If you are near a shore and experience any of the following, take action.
+Do not wait for official warnings.
+- Feel a strong earthquake that makes it hard to stand or a long earthquake that lasts more than a minute
+- See a sudden rise or fall in sea level
+- Hear loud or unusual noises from the sea
+Remember, Long or Strong, Get Gone
+Drop, Cover and Hold during the shaking.
+Protect yourself from the earthquake first.
+As soon as the shaking stops, move immediately to the nearest high ground or as far inland as you can out of tsunami evacuation zones.
+Walk, run or cycle if at all possible to reduce the chances of getting stuck in traffic congestion.
+Take your animals with you only if it will not delay you.
+Do not spend time looking for them and if you are not at home, do not return to get them.
+What to do after a Tsunami
+Only return home once you are told it is safe to do so.
+Listen to the radio or follow your Civil Defence Emergency Management Group online.
+
+==================== SECTION D: civildefence.govt.nz consistent messages, "Response: What to do during a tsunami" ====================
+
+Response: What to do during a tsunami
+This page provides tsunami response messages.
+For a local-source tsunami which can arrive in minutes, there is not enough time for an official warning.
+It is important to recognise the natural warning signs and act quickly.
+Remember, LONG or STRONG, GET GONE.
+If there is earthquake shaking, drop, cover and hold.
+Protect yourself from the earthquake first, then act as soon as the shaking stops.
+If you are near the coast, you need to act immediately if you experience any of the following:
+- Feel a strong earthquake that makes it hard to stand up, or a weak rolling earthquake that lasts a minute or more.
+- See a sudden rise or fall in water level.
+- Hear loud and unusual noises from the water.
+Move immediately to the nearest high ground or as far inland as you can, out of tsunami evacuation zones.
+Do not wait for official warnings.
+Walk, run or cycle, if you can.
+This reduces the chances of getting stuck due to damaged roads or traffic congestion.
+While evacuating, be aware of other hazards.
+For example, a large local earthquake may damage powerlines and bridges and create liquefaction and landslides.
+Do not return until an official all-clear message is given by Civil Defence Emergency Management.
+Tsunami activity can continue for several hours, and the first wave may not be the largest.
+If there was an earthquake, expect aftershocks.
+Each time you feel one, drop, cover, and hold.
+Aftershocks may generate another tsunami.
+Listen to the radio and/or TV for updates, local CDEM Groups' websites and social media and @NZCivilDefence Twitter.
+When tsunami travel across the ocean from far away, there is time to issue official warnings.
+The National Emergency Management Agency is responsible for issuing tsunami warnings in New Zealand.
+Tsunami warnings are published on www.civildefence.govt.nz and Twitter @NZCivilDefence.
+Tsunami warnings will also be broadcast on radio and television.
+If there is a land threat, Emergency Mobile Alerts (EMA) will be issued by the National Emergency Management Agency and Civil Defence Emergency Management Groups to areas under threat.
+If strong and unusual currents and unpredictable surges are expected near the shore, a local EMA may be issued by your local Civil Defence Emergency Management Group.
+Your local area may have its own methods for broadcasting warnings.
+These might include sirens, phone calls, local EMAs, or warnings through loud hailers.
+Contact your local Civil Defence Emergency Management Group or your local council to find out about the warnings you can expect to receive in your area.
+Immediately follow the advice of any emergency warning.
+Do not wait for more messages before you act.
+Depending on the location of the earthquake, you may have a number of hours in which to take appropriate action.
+
+Tsunami threat to land and marine areas warning
+A tsunami threat to land and marine areas warning will be issued when coastal inundation (flooding of land areas) is expected, and unusually strong and hazardous currents and unpredictable surges are expected near the shore.
+The land warning may apply to all of New Zealand's coastline, or only to certain areas.
+A land warning means that evacuations may be required in some areas.
+An Emergency Mobile Alert will be issued to the areas under land threat.
+This will advise people to evacuate immediately or prepare to evacuate.
+Listen to local Civil Defence Emergency Management authorities and follow any instructions regarding evacuation of your area.
+
+Tsunami activity advisory
+A tsunami activity advisory will be issued when inundation of land areas near the shore is not expected (although this assessment may change), but strong and unusual currents and unpredictable surges are expected near the shore.
+The tsunami activity advisory may apply to all of New Zealand's coastline or only certain areas.
+Strong currents and surges can injure and drown people.
+There is a danger to swimmers, surfers, people fishing, small boats and anyone in or near the water close to shore.
+Evacuation of land areas is not required but people should stay out of the water (sea, rivers, and estuaries, including boats) and stay off beaches and shore areas when a tsunami activity advisory is issued.
+Do not go swimming, surfing, fishing or engage in small boat activities when a tsunami activity advisory is issued.
+People on boats, liveaboards and at marinas should leave their boats/vessels and move onto shore. Do not return to boats unless instructed by Civil Defence.
+[exact position of the line above within this section not confirmed]
+
+[Informal warnings]
+A tsunami warning could also come from friends, neighbours, your community or international media.
+If you trust them and you feel unsafe, consider evacuating.
+If you feel a tsunami threat is imminent, move immediately to the nearest high ground or as far inland as you can, out of tsunami evacuation zones.
+Check the accuracy of the warning once you have arrived at your safe location or en route only if it won't slow you down.
+You can check the warnings at civildefence.govt.nz or via TV/radio broadcasts, news websites, or through your local Civil Defence Emergency Management Group and emergency services.
+If official warnings are available, trust their message over informal warnings.
+
+[Evacuation]
+Anyone near the coast who feels a long or strong earthquake should self-evacuate as soon as the shaking stops.
+Do not wait for an official warning.
+If you are inside a tsunami evacuation zone when a tsunami is expected, you may need to evacuate.
+If you are outside of tsunami evacuation zones you do not need to evacuate.
+If you stay where you are, it will help to reduce congestion for those who must evacuate.
+
+Advised to evacuate immediately
+Land and marine tsunami warnings for local and regional tsunami will advise people near the coast in affected areas to evacuate immediately.
+The National Emergency Management Agency will issue an Emergency Mobile Alert to areas under land threat advising people near the coast in affected areas to evacuate immediately.
+Civil Defence Emergency Management Groups will also issue supporting Emergency Mobile Alerts providing local information.
+Do not wait for an Emergency Mobile Alert if you felt a long or strong earthquake.
+Self-evacuate as soon as the shaking stops.
+Remember, LONG or STRONG, GET GONE.
+If you are advised to evacuate immediately, you should:
+- Move immediately to the nearest high ground or as far inland as you can, out of tsunami evacuation zones.
+- Walk, run or cycle, if you can.
+  This reduces the chances of getting stuck due to damaged roads or traffic congestion, especially in a local source tsunami event where there may only be a few minutes available to get to safety.
+- Use of vehicles on roads should be limited to emergency services and those with mobility impairments, including wheelchair users.
+- If you have to drive, keep going once you are well outside of all evacuation zones, to allow room for others behind you.
+- Evacuate via the routes shown on tsunami evacuation route signs or drawn on tsunami evacuation maps if these are available.
+- Take your grab bag with you if possible, but do not travel into the evacuation zone to collect your grab bag or other belongings.
+- Take your animals with you only if it will not delay you.
+  Do not spend time looking for them and if you are not at home, do not return to get them.
+
+Advised to prepare to evacuate
+Land and marine tsunami warnings for distant tsunami will advise people near the coast to prepare to evacuate.
+If you are advised to prepare to evacuate you should:
+- Listen to local Civil Defence Emergency Management authorities and follow any instructions regarding evacuation of your area.
+- Leave cell phones on and charged so you can receive alerts.
+- Listen to the radio or TV for updates, and check your local Civil Defence Emergency Management Group's website
+- Find any pets and bring them with you when you evacuate, only if it will not delay you.
+- Put essential items such as food, clothing, and medication in your grab bag to take when you evacuate.
+- Secure your whare/home as you normally would when leaving for an extended period.
+- Share information with your neighbours. They may not be aware of the tsunami warning.
+- Help neighbours who need assistance to evacuate.
+- If you are farming along the coast or river estuary, evacuate your whānau/family and staff first. If you have time, move livestock to higher ground.
+When it is time to evacuate:
+- Evacuate via the routes shown on tsunami evacuation route signs or drawn on evacuation maps if these are available.
+- If these routes appear slow or congested, use a different route.
+- Walk, run or cycle, if you can.
+  This reduces the chances of getting stuck due to damaged roads or traffic congestion.
+- If you have to drive, keep going once you are well outside of all evacuation zones, to allow room for others behind you.
+
+Cancellations
+Once you have evacuated, follow official advice from your local Civil Defence Emergency Management Group about when it is safe to return to tsunami evacuation zones.
+Do not return until an official all-clear message is given by Civil Defence Emergency Management.
+Tsunami activity will continue for several hours and the first wave may not be the largest.
+Aftershocks may cause additional tsunami events.
+[Boats]
+Tsunami are often most destructive in bays and harbours, not just because of the waves, but because of the strong currents they generate in local waterways.
+Tsunami dangers for boats include:
+- Strong and unpredictable currents and surges that can affect ports and marinas even during small tsunami.
+- Grounding of vessels, as water levels can suddenly drop.
+- Capsizing from incoming surges (bores), complex coastal waves, and surges hitting grounded boats.
+- Collision with other boats, docks, debris and changes to the seafloor (e.g. movement of sand bars, wrecks, reefs and boulders).
+Depending on the nature of the tsunami and your location, you may need different action plans:
+What would you do if you were getting ready to head out? Out on the water? Coming back in?
+What would you do if you had minutes until a tsunami hit – or an hour, or a few hours?
+In the event of a potential tsunami threat, Coastal Navigational Warnings will be issued by the Rescue Coordination Centre New Zealand (RCCNZ), via Maritime Radio.
+Along with the RCCNZ, the National Emergency Management Agency will advise each regional Civil Defence Emergency Management Group (CDEM Group).
+Each regional CDEM Group will inform the mariner as quickly as possible via their regional council and harbourmasters/port authorities.
+Port authorities would likely take their own precautions as per their Emergency Operating Procedures.
+[links to a Hawke's Bay boat safe-distance image and the LINZ Nautical Almanac left out]
+
+Local source tsunami
+In a local source tsunami, which can arrive in minutes, you need to take action quickly.
+Be aware of the natural warning signs:
+Onshore:
+- Feel a strong earthquake that makes it hard to stand up, or a weak rolling earthquake that lasts a minute or more.
+- See a sudden rise or fall in water level.
+- Hear loud and unusual noises from the water.
+Offshore:
+- You may feel the earthquake through the hull of your boat.
+- You could see a rapid and extreme shift in currents and simultaneous changes in wind wave heights.
+If you are on land or tied up at dock, and you see or hear natural warning signs of a tsunami, leave your boat, move immediately to the nearest high ground or as far inland as you can, out of tsunami evacuation zones.
+If you are on the water shallower than 50 metres or 27.3 fathoms depth:
+- Stop commercial fishing operations immediately.
+- Free the vessel from any bottom attachment and gear that might drag in currents (cut lines if necessary).
+- If you can beach or dock your small boat and evacuate on foot within ten minutes of a natural warning, then this is your best chance.
+- If evacuation on foot is not possible, head for the deepest water possible, greater than 50 metres deep.
+- Proceed directly away from the shore.
+- Sail directly into waves. Be aware that tsunami can interact with wind waves and produce unusual effects.
+- Maintain as much separation as possible from other vessels.
+If you are on the water at greater than 50 metres outside of harbours/channels, continue to head to deeper water which is safer from tsunami currents and waves.
+Do not return to port if you are at sea and a tsunami warning is issued.
+Port and harbour facilities may become damaged and hazardous with debris.
+Listen to maritime radio reports to find out when it is safe to return and be careful navigating when you return as the seafloor may have changed and there may be debris.
+
+Regional or distant source tsunami
+Check with your local harbourmaster to find out what your local tsunami response procedures are.
+Follow official advice from your local Civil Defence Emergency Management Group about when it is safe to return to tsunami evacuation zones.
+Do not return until an official all-clear message is given by Civil Defence Emergency Management.
+Tsunami activity will continue for several hours and the first wave may not be the largest.
+If there was an earthquake, expect aftershocks. Each time you feel one, drop, cover, and hold.
+Aftershocks may generate another tsunami. Be prepared to evacuate.
+Be cautious in and around coastal water, tidal estuaries, rivers and streams after any tsunami or tsunami warning, as even small waves create dangerous currents that can injure or drown people.
+[Lake tsunami]
+Tsunami can happen at inland locations in lakes and other large bodies of water – not only on the coast.
+Lake tsunami can be caused by earthquakes, landslides (starting above the lake or underwater), rock falls, volcanic eruptions, dam failures and glacier collapses.
+Even a small earthquake could trigger a large landslide at a mountain lake or fiord/sound that generates a tsunami.
+In these cases, natural warning signs may be weak or unnoticeable.
+It is important to recognise natural warning signs and act quickly.
+If you are at a lake or any other large body of water, move away from the water's edge to higher ground immediately if you experience any of the following:
+- Feel a strong earthquake that makes it hard to stand up, or a long weak rolling earthquake that lasts a minute or more.
+  Remember: LONG or STRONG, GET GONE.
+- See a sudden rise or fall in water level, or unusual waves or water behaviour without an obvious cause (such as the wind or a boat).
+- See indications of landslides or rock falls occurring (for example, rocks falling or large dust clouds).
+- Hear loud and unusual noises from the water or surrounding area (for example, glacier cracking or rocks falling).
+More information about lake tsunami is available on the GeoNet website.

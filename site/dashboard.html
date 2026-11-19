@@ -12,7 +12,7 @@ header{background:#14213d;color:#fff;padding:14px 16px}header h1{margin:0;font-s
 pre{white-space:pre-wrap;font:14px/1.45 ui-monospace,Menlo,monospace;background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px}
 table{border-collapse:collapse;width:100%;font-size:14px;background:#fff}td,th{border:1px solid var(--line);padding:4px 6px;text-align:left}
 h3{font-size:14px;text-transform:uppercase;letter-spacing:.04em;color:var(--mut);margin:18px 0 6px}
-</style></head><body><header><h1>Guideline Apps</h1><p>Prototype builder · 11 apps · updated 2026-11-20</p></header><main>
+</style></head><body><header><h1>Guideline Apps</h1><p>Prototype builder · 12 apps · updated 2026-11-20</p></header><main>
 <div class="card"><h2>Studio</h2><p>Paste a filled-in template, see the checks and the app. No AI.</p><a class="open" href="https://claude.ai/artifact/WarG1PpPsgbDmY6ptrk4qT" target="_blank" rel="noopener">Open studio</a></div>
 <div class="card"><h2>Design review</h2><p>See the newest app in each candidate look and tap a reaction. Your choices steer the next builds.</p><a class="open" href="https://claude.ai/artifact/1ZSPzWhCERcqkTV583SKKi" target="_blank" rel="noopener">Review the looks</a></div>
 <h3>Apps</h3>
@@ -60,46 +60,55 @@ h3{font-size:14px;text-transform:uppercase;letter-spacing:.04em;color:var(--mut)
 <div class="tags"><span>workplace</span><span>level 2</span><span>source: web-fetch</span></div>
 <div class="n"><div class="fix"><b>0</b>to fix</div><div class="check"><b>0</b>to check</div><div><b>107/107</b>quotes confirmed</div><div><b>39/39</b>steps reachable</div><div><b>73%</b>guideline numbers used</div></div>
 <p>Reviewer: 3 instructions missed (incl. who pays for proof depends on when the employer asks), 10 findings, all fixed. 107 of 107 quotes exact (web copy).</p>
-<a class="open" href="https://claude.ai/artifact/Lxxeena5vBsk7xjviyJdNK" target="_blank" rel="noopener">Open app</a></div>
-<h3>Latest run</h3><pre>Scheduled build run, 20 Nov 2026 (early morning, 1:30 am).
+<a class="open" href="https://claude.ai/artifact/Lxxeena5vBsk7xjviyJdNK" target="_blank" rel="noopener">Open app</a></div><div class="card"><h2>Tsunami: Long or Strong, Get Gone</h2>
+<div class="tags"><span>non-medical</span><span>level 2</span><span>source: web-fetch</span></div>
+<div class="n"><div class="fix"><b>0</b>to fix</div><div class="check"><b>0</b>to check</div><div><b>121/121</b>quotes confirmed</div><div><b>29/29</b>steps reachable</div><div><b>100%</b>guideline numbers used</div></div>
+<p>Reviewer: 3 instructions missed (incl. how to Drop, Cover and Hold) and 15 findings, all fixed. 121 of 121 quotes exact (web copy).</p>
+<a class="open" href="https://claude.ai/artifact/1Aomve5mRtfSgs9Tirb7i9" target="_blank" rel="noopener">Open app</a></div>
+<h3>Latest run</h3><pre>Scheduled build run, 20 Nov 2026 (second run, 2:30 am).
 
-Your feedback: nothing new on the design review page or on any app since the last run.
+Your feedback: nothing new on the design review page or on any app.
 
 Built:
-- App 11: Sick leave (NZ), from Employment New Zealand's pages for employees and employers (read 20 Nov 2026).
-  First screen: 10 days of paid sick leave a year, and today's rules apply until 6 August 2028 (the new
-  Employment Leave Act has passed but starts then, and the page says you cannot follow it early). Then a choice:
-  sick or caring for someone today / am I entitled / used up my sick leave / I'm an employer / something else.
-  - Sick today: tell your employer as soon as possible, then proof: who pays depends on how many days in a row
-    you had been sick when the employer asked (under 3: employer pays; 3 or more: you pay), with the page's own
-    examples. Then pay, and what happens without proof.
-  - Side screens: entitlement (6 months), carry-over up to 20 days, none left, holidays, appointments,
-    part-days, stress, long illness, ACC.
-  - Employer route: asking for proof, counting days, pay, and when staff have none left, on its own screens.
-- Reviewer found 3 missed instructions (the main one: the app asked how long you had been sick, not how long
-  when the employer asked, so some people were wrongly told &quot;you pay&quot;) and 10 findings. All fixed in one round.
-  Longest screen is 113 words counting quotes (77 shown), a little over the 90 target.
-- Scores: to fix 0, to check 0, all apps. 107 of 107 quotes exact (web copy). Tests: 24 of 24 pass.
+- App 12: Tsunami (NZ), from NEMA's Get Ready page (and its Sign Language and large-print versions) and the
+  Civil Defence response messages. First screen gives the action straight away: long or strong earthquake, sea
+  suddenly rising or falling, or told to evacuate? Move immediately to high ground or inland, on foot if you can,
+  and don't wait for a warning. Then one question: what is happening?
+  - Shaking now: Drop, Cover and Hold, then &quot;was it long or strong?&quot; (yes: Get Gone; not sure: the guidance
+    doesn't cover this, so it shows the rule and lets you choose).
+  - Sea or noises: one tap to Get Gone. Lake signs have their own screen.
+  - Official warning: evacuate now, prepare to evacuate (radio, TV, website; still waiting or cancelled),
+    beach and marine advisory (stay out of the water), or outside the zones.
+  - Boats: small boat in shallow water (ashore on foot within ten minutes, or head past 50 m depth), deep water,
+    harbour or channel. Said plainly: this is for a local tsunami.
+  - After: only go home when officials say so; stay away from the water at least 24 hours; property damage.
+- Reviewer found 3 missed instructions (the main one: how to Drop, Cover and Hold) and 15 findings, including
+  a first-screen answer (&quot;It's over: what now?&quot;) that could skip Get Gone. All fixed in one round.
+- Scores: to fix 0, to check 0, all apps. 121 of 121 quotes exact (web copy). Tests: 25 of 25 pass.
 
-Building blocks added: none. Fixed: the researcher had filled &quot;testInputs&quot; with the wrong shape, which failed the
-route test; removed it (this app has no details to type) and made the instructions say what shape it takes.
+Also: this run overlapped with the 1:30 am run and built sick leave a second time. Its copy was dropped, but
+one unused duplicate page was published before the overlap was noticed (see Needs you). The run procedure now
+checks for this before starting and before publishing.
+
+Building blocks added: none.
 
 Gaps in the guideline (each said on screen):
-- Telling your employer is only &quot;as soon as possible&quot;: nothing on how, who to tell, or how far before a shift.
-- No rule for sick days that are not in a row, and the 3-day rule depends on what the employer &quot;knows&quot;.
-- &quot;Reasonable excuse&quot;, &quot;reasonable period&quot; and &quot;dependant&quot; are not explained; no start date for the sick leave year.
-- The employer page's list of whose sickness a certificate can cover leaves out &quot;child&quot;.
-- The employee page says the employer &quot;does not have to agree&quot; to leave when you've run out; the employer page
-  only says &quot;you could agree&quot;.
-- The pages say nothing yet about what the 2028 law will change for sick leave.
+- &quot;More than a minute&quot; (Get Ready) vs &quot;a minute or more&quot; (Civil Defence) for a long earthquake.
+- Stay away from the water &quot;at least 24 hours&quot; (Get Ready) vs &quot;be cautious&quot; with no time (Civil Defence).
+- Nothing on going up a tall building if you can't get out of the zone: only &quot;go as far or as high as you can&quot;.
+- Little for people who can't walk, run or cycle; boat advice only on the Civil Defence page, nothing for boats
+  in a harbour or channel deeper than 50 m.
+- Civil Defence still points to an old Twitter account (not shown in the app).
 
 Needs you:
-- Optional: save the Employment NZ sick leave pages as PDFs into sources/ (the site is blocked from here), so
-  quotes can be checked exactly. Same for the asthma posters, FENZ, AUT and ANZCOR pages (still open).
+- Optional: delete the unused duplicate sick leave page (https://claude.ai/artifact/QkrFs1WcJrRDvke7wBzHNP).
+  The real one is on the dashboard.
+- Optional: save the Get Ready tsunami page as a PDF into sources/, so quotes can be checked exactly. Same for
+  Employment NZ, asthma, FENZ, AUT and ANZCOR pages (still open).
 - Try &quot;Change the look&quot; in any app and say which should be the default (still open).
 - Is &quot;a few steps away from buildings&quot; in the earthquake app clear to you? (still open)
 
-Next: guideline 12 (tsunami: Long or Strong, Get Gone, NEMA).
+Next: guideline 13 (changing a car tyre safely at the roadside).
 </pre>
-<h3>Guideline queue</h3><table><tr><th>#</th><th>Guideline</th><th>Type</th><th>Level</th><th>Status</th></tr><tr><td>1</td><td>Cooling freshly cooked food (MPI Yellow Card S39-00002)</td><td>non-medical</td><td>1</td><td>built</td></tr><tr><td>2</td><td>Burns first aid (cool the burn, St John / Health NZ)</td><td>medical</td><td>1</td><td>built</td></tr><tr><td>3</td><td>Earthquake: Drop, Cover, Hold, then what to do after (NEMA Get Ready)</td><td>non-medical</td><td>1</td><td>built</td></tr><tr><td>4</td><td>Submitting a university assignment: checks before and after you submit (University of Auckland Faculty of Law)</td><td>education</td><td>1</td><td>built</td></tr><tr><td>5</td><td>Resigning from a job: giving notice, final pay and holiday pay (Employment New Zealand)</td><td>workplace</td><td>1</td><td>built</td></tr><tr><td>6</td><td>Adult choking (ANZCOR guideline 4)</td><td>medical</td><td>2</td><td>built</td></tr><tr><td>7</td><td>Asking for an assignment extension or special consideration (a NZ university's policy)</td><td>education</td><td>2</td><td>built</td></tr><tr><td>8</td><td>Workplace fire: evacuation and extinguisher use (Fire and Emergency NZ)</td><td>non-medical</td><td>2</td><td>built</td></tr><tr><td>9</td><td>Requesting annual holidays and what the employer must do (Employment New Zealand)</td><td>workplace</td><td>2</td><td>built</td></tr><tr><td>10</td><td>Asthma attack first aid, repeat cycles (Asthma NZ / Asthma Australia 4x4x4)</td><td>medical</td><td>2</td><td>built</td></tr><tr><td>11</td><td>Sick leave: telling your employer and proof of sickness (Employment New Zealand)</td><td>workplace</td><td>2</td><td>built</td></tr><tr><td>12</td><td>Tsunami: Long or Strong, Get Gone, then return (NEMA)</td><td>non-medical</td><td>2</td><td>queued</td></tr><tr><td>13</td><td>Changing a car tyre safely at the roadside (NZTA / AA)</td><td>non-medical</td><td>2</td><td>queued</td></tr><tr><td>14</td><td>Power cut: what food to keep or throw out, by hours without power (MPI)</td><td>non-medical</td><td>3</td><td>queued</td></tr><tr><td>15</td><td>Raising a problem at work: steps from talking to mediation (Employment New Zealand)</td><td>workplace</td><td>3</td><td>queued</td></tr><tr><td>16</td><td>Anaphylaxis action plan, adrenaline by weight, repeat after 5 minutes (ASCIA)</td><td>medical</td><td>3</td><td>queued</td></tr><tr><td>17</td><td>Privacy breach: is it serious harm, and notifying (Office of the Privacy Commissioner)</td><td>workplace</td><td>3</td><td>queued</td></tr><tr><td>18</td><td>Low blood sugar: 15-15 treat and recheck cycles (Diabetes NZ / Health NZ)</td><td>medical</td><td>3</td><td>queued</td></tr><tr><td>19</td><td>Taking on a new employee: agreement, right to work, tax code (Employment New Zealand / IRD)</td><td>workplace</td><td>3</td><td>queued</td></tr><tr><td>20</td><td>Notifiable workplace event: what to do and when (WorkSafe NZ)</td><td>workplace</td><td>4</td><td>queued</td></tr><tr><td>21</td><td>Cyber security incident first steps (CERT NZ / NCSC)</td><td>non-medical</td><td>4</td><td>queued</td></tr><tr><td>22</td><td>Adult sepsis screening and first-hour actions (Health NZ)</td><td>medical</td><td>4</td><td>queued</td></tr><tr><td>23</td><td>Stroke: FAST, time windows and pre-alert (St John / Health NZ)</td><td>medical</td><td>4</td><td>queued</td></tr><tr><td>24</td><td>FINAL EXAM: Cardiac arrest (St John EAS 3.14), scored against Pocket Resus recordings</td><td>medical</td><td>5</td><td>locked until every other row is built or skipped</td></tr></table>
+<h3>Guideline queue</h3><table><tr><th>#</th><th>Guideline</th><th>Type</th><th>Level</th><th>Status</th></tr><tr><td>1</td><td>Cooling freshly cooked food (MPI Yellow Card S39-00002)</td><td>non-medical</td><td>1</td><td>built</td></tr><tr><td>2</td><td>Burns first aid (cool the burn, St John / Health NZ)</td><td>medical</td><td>1</td><td>built</td></tr><tr><td>3</td><td>Earthquake: Drop, Cover, Hold, then what to do after (NEMA Get Ready)</td><td>non-medical</td><td>1</td><td>built</td></tr><tr><td>4</td><td>Submitting a university assignment: checks before and after you submit (University of Auckland Faculty of Law)</td><td>education</td><td>1</td><td>built</td></tr><tr><td>5</td><td>Resigning from a job: giving notice, final pay and holiday pay (Employment New Zealand)</td><td>workplace</td><td>1</td><td>built</td></tr><tr><td>6</td><td>Adult choking (ANZCOR guideline 4)</td><td>medical</td><td>2</td><td>built</td></tr><tr><td>7</td><td>Asking for an assignment extension or special consideration (a NZ university's policy)</td><td>education</td><td>2</td><td>built</td></tr><tr><td>8</td><td>Workplace fire: evacuation and extinguisher use (Fire and Emergency NZ)</td><td>non-medical</td><td>2</td><td>built</td></tr><tr><td>9</td><td>Requesting annual holidays and what the employer must do (Employment New Zealand)</td><td>workplace</td><td>2</td><td>built</td></tr><tr><td>10</td><td>Asthma attack first aid, repeat cycles (Asthma NZ / Asthma Australia 4x4x4)</td><td>medical</td><td>2</td><td>built</td></tr><tr><td>11</td><td>Sick leave: telling your employer and proof of sickness (Employment New Zealand)</td><td>workplace</td><td>2</td><td>built</td></tr><tr><td>12</td><td>Tsunami: Long or Strong, Get Gone, then return (NEMA)</td><td>non-medical</td><td>2</td><td>built</td></tr><tr><td>13</td><td>Changing a car tyre safely at the roadside (NZTA / AA)</td><td>non-medical</td><td>2</td><td>queued</td></tr><tr><td>14</td><td>Power cut: what food to keep or throw out, by hours without power (MPI)</td><td>non-medical</td><td>3</td><td>queued</td></tr><tr><td>15</td><td>Raising a problem at work: steps from talking to mediation (Employment New Zealand)</td><td>workplace</td><td>3</td><td>queued</td></tr><tr><td>16</td><td>Anaphylaxis action plan, adrenaline by weight, repeat after 5 minutes (ASCIA)</td><td>medical</td><td>3</td><td>queued</td></tr><tr><td>17</td><td>Privacy breach: is it serious harm, and notifying (Office of the Privacy Commissioner)</td><td>workplace</td><td>3</td><td>queued</td></tr><tr><td>18</td><td>Low blood sugar: 15-15 treat and recheck cycles (Diabetes NZ / Health NZ)</td><td>medical</td><td>3</td><td>queued</td></tr><tr><td>19</td><td>Taking on a new employee: agreement, right to work, tax code (Employment New Zealand / IRD)</td><td>workplace</td><td>3</td><td>queued</td></tr><tr><td>20</td><td>Notifiable workplace event: what to do and when (WorkSafe NZ)</td><td>workplace</td><td>4</td><td>queued</td></tr><tr><td>21</td><td>Cyber security incident first steps (CERT NZ / NCSC)</td><td>non-medical</td><td>4</td><td>queued</td></tr><tr><td>22</td><td>Adult sepsis screening and first-hour actions (Health NZ)</td><td>medical</td><td>4</td><td>queued</td></tr><tr><td>23</td><td>Stroke: FAST, time windows and pre-alert (St John / Health NZ)</td><td>medical</td><td>4</td><td>queued</td></tr><tr><td>24</td><td>FINAL EXAM: Cardiac arrest (St John EAS 3.14), scored against Pocket Resus recordings</td><td>medical</td><td>5</td><td>locked until every other row is built or skipped</td></tr></table>
 </main></body></html>
