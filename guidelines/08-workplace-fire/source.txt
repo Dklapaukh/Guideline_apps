@@ -1,0 +1,177 @@
+Workplace fire: evacuation and extinguisher use. Fire and Emergency New Zealand (FENZ), fireandemergency.nz.
+Copy made 19 Nov 2026 through a web fetch tool (fireandemergency.nz cannot be downloaded from this workspace,
+and web search gave no text excerpts). The tool would only quote short pieces, so long sentences are split
+across lines. Each part below is labelled with the FENZ page or document it comes from. All parts are FENZ.
+Lines are copied as the tool quoted them; spelling slips in the original (e.g. "exitnguisher", "it anyone")
+are kept.
+
+=== Source: FENZ Fire Action Notice (English, handwritten version), https://www.fireandemergency.nz/assets/Documents/EvacuationSchemes/Fire-Action-Notice-English-handwritten.pdf ===
+(A notice for display in buildings. The lines after "LOCATED", "ASSEMBLE" and "IF YOU REQUIRE ASSISTANCE TO
+EVACUATE" are blanks that each building fills in; no wording follows them on the FENZ copy.)
+FIRE ACTION
+NOTICE
+IF YOU DISCOVER A FIRE
+WARN OTHER BUILDING OCCUPANTS
+& DIAL 111 FROM A SAFE PHONE – ASK FOR
+FIRE
+FIREFIGHTING EQUIPMENT IS LOCATED
+WHEN WARNED OF A FIRE IN THIS BUILDING
+YOU MUST LEAVE THE BUILDING IMMEDIATELY
+USING THE NEAREST EXIT
+EXITS ARE LOCATED
+ASSEMBLE
+IF YOU REQUIRE ASSISTANCE TO EVACUATE
+
+=== Source: FENZ "Example Evacuation Scheme Document" (Office Building exemplar), https://www.fireandemergency.nz/assets/Documents/EvacuationSchemes/Office-Building-exemplar-supporting-documents.pdf ===
+(A worked example for a made-up office at "123 Standard Street". The assembly point, warden roles and
+flagpole are that example building's, not a general rule. No date or version shown.)
+If you discover a fire
+Warn occupants in the immediate area by shouting “Fire, Fire, Fire”
+Operate the nearest fire alarm manual call point (these are red boxes with break-glass panels)
+Call Fire and Emergency on 111 (dial 1 for an outside line if using an internal phone)
+Evacuate the building, if on upper floors use the stairs
+Report to the Building Warden at the alarm panel (beside main front exit)
+Go to the grass area beside the carpark
+
+If you are warned of a fire
+Shout “Fire, Fire, Fire”
+Activate the nearest manual call point if the alarm is not already sounding
+Assist others to evacuate as required
+Evacuate the building, if on upper floors use the stairs
+Go to the grass area beside the carpark
+
+After hours, if you discover a fire
+Evacuate the building, assisting anyone else you see on the way
+If the primary assembly area becomes unsafe, move to the flagpole in the reserve next door.
+Liaise with Fire and Emergency upon their arrival
+
+After hours, if you hear the alarm
+Check the area you are in for other people
+Evacuate the building, assisting anyone else you see on the way
+Go to the grass area beside the carpark
+
+Area Wardens, upon hearing the alarm
+Tell other occupants to evacuate the building
+ensure that nobody re-enters the building until the all-clear has been given by the Head Warden or Fire and Emergency
+
+Head Warden, upon hearing the alarm
+Go to the alarm panel and note the location of the alarm activation
+Confirm that the 111 call has been made – if in any doubt, make another 111 call
+If the primary assembly area becomes unsafe, direct everyone to move to the flagpole in the reserve next door.
+Do not allow anyone to re-enter the building until the emergency is over and Fire and Emergency have given the all clear
+
+Training topics listed (no instructions given for these):
+Importance of closing doors to restrict fire spread
+Use of fire extinguishers
+
+=== Source: FENZ "Our 3-Step Escape Plan" checklist (shown on the business fire safety checklist and evacuation schemes pages), https://www.fireandemergency.nz/building-fire-safety/business-fire-safety-checklist/ ===
+(Written for homes: it says "A house fire" and uses a "Meeting Place". FENZ shows it on its business pages too.)
+Our 3-Step Escape Plan
+First Escape Route
+Second Escape Route
+Meeting Place
+Your checklist
+Get low
+Smoke is poisonous and more deadly than flames.
+If you breathe smoke for more than a few breaths it can kill you.
+Be fast
+A house fire can kill you in less than three minutes.
+Don't spend time trying to save possessions.
+Close doors
+A closed door buys you time.
+It slows down the spread of fire, giving you more time to get to safety.
+Get out - stay out!
+People have died by going back into a fire.
+Don't leave the meeting place to go back inside for any reason.
+Call emergency services as soon as you are out and safe.
+Ask for FIRE.
+Clearly state your address and let the operator know it anyone is still inside or has not made it to the safe meeting place.
+
+Business fire safety checklist
+You have monitored fire alarms that are connected to the Fire and Emergency New Zealand Communication Centres.
+You have fire extinguishers in the building and key staff have been trained to use them.
+You have a working fire hose reel in the building that can be accessed and used by emergency services.
+You have an evacuation scheme that has been approved by Fire and Emergency New Zealand.
+Your employees understand the evacuation scheme and can action it in an emergency.
+
+=== Source: FENZ "Commercial use of fire extinguishers", https://fireandemergency.nz/business-and-landlords/commercial-use-of-fire-extinguishers ===
+80% of all fires in commercial properties get extinguished in the early stages by members of the public
+without the need for firefighters.
+Of these fires, 90% get extinguished using a fire extinguisher.
+Fire and Emergency recommends the use of fire extinguishers to ensure the safety of building occupants and employees.
+
+When to use an extinguisher
+Only use fire extinguishers when it is safe to do so, e.g. when the fire is no larger than a waste paper basket
+or pot on a stove.
+Always have a safe path of escape, and ensure Fire and Emergency has been called.
+See our advice on how to use a fire exitnguisher.
+
+Extinguisher suitability table (the marks in each cell are symbols that could not be read)
+Type of extinguisher: Water, Wet chemical, Foam, Dry powder, Carbon dioxide
+Class A: Flammable solids e.g. paper, plastic, wood
+Class B: Flammable liquids e.g. paint, petrol, oil
+Class C: Flammable gases e.g. butane, CNG, LPG
+Class D: Flammable metals e.g. titanium, magnesium
+Class E: Electrical equipment e.g. cables, computers, switchboards
+Class F: Cooking oils and fats e.g. chip pans, fryers
+Recommended: Most effective on this type of fire.
+Limited: May be effective on small fires of this type.
+Not Suitable: Not effective on this type of fire.
+
+=== Source: FENZ fire extinguisher position document, https://www.fireandemergency.nz/assets/Documents/Business-and-Landlords/Protecting-your-business-or-Property/Fire-Extinguisher-Position.pdf ===
+Fire extinguishers should only be used when it is safe to do so
+Always have a safe path of escape if you are attempting to extinguish a fire,
+ensure Fire and Emergency has been called.
+Always turn off the supply of gas before extinguishing gas fires.
+Special purpose extinguishers are available for metal fires.
+For more information, refer to the manufacturer’s instructions or New Zealand Standard NZS 4503:2005
+
+=== Source: FENZ "Fire extinguishers" (home fire safety; the advice on how to use one), https://www.fireandemergency.nz/mi_NZ/home-fire-safety/specialised-safety-devices/fire-extinguishers/ ===
+(Read from the mi_NZ address; the text is in English. Written for homes; it points businesses to the
+commercial page above.)
+Fire extinguishers
+If you have a fire extinguisher in your home, you'll be better prepared to put out small fires before they become big ones.
+For businesses, please view our commercial advice on fire extinguishers.
+
+Using a fire extinguisher
+Only use a fire extinguishers when:
+It's safe to do so considering the size and location of the fire
+your extinguisher will only last 10-15 seconds once started
+You're confident you understand how to use the extinguisher correctly.
+Everyone has been evacuated and accounted for at your safe meeting place.
+Fire and Emergency New Zealand has been called.
+You can safely access and retreat from the fire.
+Remember, life is more important than property.
+Don't put yourself or others at risk.
+
+Operating a fire extinguisher
+When operating a fire extinguisher, use the 'PTASS' technique:
+Pull the safety pin or remove the clip.
+Test squirt the extinguisher to make sure it is working.
+Aim the nozzle at the base of the fire from a safe distance.
+Most extinguishers are designed to be operated from about 2 - 3 metres away.
+Squeeze the handles.
+Sweep the extinguisher from side to side while aiming at the base of the fire.
+
+Types of fire extinguisher
+There are many different types of fire extinguishers:
+Water
+Foam
+Wet chemical
+Dry powder
+Carbon dioxide
+Specialised materials for Class D fires
+The type of fire extinguisher you need depends on the class of fire you're most likely to experience.
+There are 6 classes of fire:
+Class A (Wood paper plastics)
+Class B (Flammable & combustible liquids)
+Class C (Flammable gases)
+Class D (Fires involving combustible metals)
+Class E (Electrically energised equipment)
+Class F (Cooking oils and fats)
+
+Choosing a fire extinguisher
+A Wet Chemical extinguisher is best for extinguishing cooking oil and fat fires.
+However, don't use wet chemical extinguishers on fires with a live electrical source.
+While an ABE Dry Powder extinguisher is suitable for other types of fire in your home, you should never use it on a cooking oil or fat fire
+the pressure from a dry powder extinguisher will cause the fire to spread.

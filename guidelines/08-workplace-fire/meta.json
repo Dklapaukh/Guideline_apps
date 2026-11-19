@@ -1,0 +1,11 @@
+{
+  "id": "08-workplace-fire",
+  "title": "Workplace fire: evacuation and extinguisher use",
+  "domain": "non-medical",
+  "level": 2,
+  "url": "https://www.fireandemergency.nz/assets/Documents/EvacuationSchemes/Fire-Action-Notice-English-handwritten.pdf",
+  "version": "Fire and Emergency New Zealand Fire Action Notice, evacuation scheme exemplar and fire extinguisher pages (no dates shown; site footer © 2026), read 19 Nov 2026",
+  "sourceCopy": "web-fetch",
+  "sourceNote": "fireandemergency.nz is blocked from this workspace and web search gave no text excerpts, so every part was read through a fetch tool that would only quote short pieces; long sentences are split across lines and a few words may differ from the original. All parts are from Fire and Emergency New Zealand and each is labelled with its page. The evacuation steps come from the FENZ Fire Action Notice (a short notice with blanks each building fills in for exits, equipment and assembly point) and from FENZ's example evacuation scheme for a made-up office building, whose assembly point (grass area beside the carpark, flagpole) and warden roles belong to that example only. The get low, close doors and stay out advice comes from FENZ's 3-Step Escape Plan, which is written for homes but is shown on FENZ's business pages. None of the FENZ pages read say anything about lifts; the example only says to use the stairs from upper floors. FENZ does give extinguisher steps (PTASS: pull, test, aim, squeeze, sweep) but on its home fire safety page; the commercial page only says when to use one. The symbols in the extinguisher suitability table (which extinguisher suits which class of fire) could not be read, so that table is copied without its marks. The Word copy of the Fire Action Notice could not be read. WorkSafe NZ was not needed. Saving the FENZ PDFs into sources/ would make checking exact.",
+  "status": "Reviewer: 1 instruction missed and a safety-order problem (the extinguisher route skipped raising the alarm), all fixed. 78 of 78 quotes exact (web copy)."
+}

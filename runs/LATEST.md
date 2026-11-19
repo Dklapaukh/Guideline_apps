@@ -1,38 +1,37 @@
-Scheduled build run, 19 Nov 2026 (morning, 10 am).
+Scheduled build run, 19 Nov 2026 (afternoon, 2 pm).
 
-Your feedback: nothing new since the last run. Your earlier design comment (Clinic looks more modern, Wayfinding
-easiest to follow, people should be able to choose looks or add company branding) was already acted on.
+Your feedback: nothing new on the design review page or on any app since the last run.
 
 Built:
-- App 7: Asking for more time on an assessment (AUT "Special consideration for an assessment" page). AUT was
-  chosen because one university-wide page gives the clearest steps of the NZ universities checked. First screen:
-  "What do you need?" (a couple of extra days / something serious is affecting me / my due date has passed / I've
-  applied, what happens next). Short extension: 3 calendar days, no evidence, only if all three rules fit (not a
-  test or exam, one per course, apply by midnight the day before). Special consideration: picks the reason, says
-  who can fill in a Student Impairment Report (with the Student Hub booking steps), then shows the right evidence
-  deadline for applying before or after the due date. Each route is 3 to 7 short screens.
-- Reviewer found 1 missed instruction (tell the teaching department, or risk a failing grade) and 12 route or
-  wording problems, the main ones: students past the due date were asked "before or after?" again, "I'm not sure"
-  led to a "too late" screen, and the "apply before the commitment" rule was softened. All fixed in one round.
-- Scores: to fix 0, to check 0, all apps. 113 of 113 quotes exact (web copy). Tests: 18 of 18 pass.
+- App 8: What to do in a fire at work (Fire and Emergency NZ). First screen: "There's a fire, or the alarm is
+  going" / "Should I use the fire extinguisher?" / "Get ready: what to know before a fire".
+  - Fire route (5 screens): shout "Fire, Fire, Fire", set off the call point and call 111 (ask for FIRE); leave
+    by the nearest exit, use the stairs, check your area for people; get low in smoke and close doors; once out,
+    give the address and say who is missing; go to your workplace's assembly point and stay out.
+  - Extinguisher route: first raise the alarm, then one yes/no check per screen (small enough and safe to get
+    near, a safe way out, 111 called and everyone out, right extinguisher, confident). Any "no" or "not sure"
+    sends you to "Stop fighting the fire. Leave now." Then PTASS (pull, test, aim, squeeze, sweep) from a safe
+    distance, and "Is the fire out?"
+  - Get ready route: read your workplace's Fire Action Notice, ways out, what a business should have, and the
+    6 classes of fire.
+- Reviewer found 1 missed instruction ("check the area you are in for other people") and a safety-order problem:
+  "get out" from the extinguisher route skipped raising the alarm. Also too much text on in-fire screens. All 14
+  findings fixed in one round.
+- Scores: to fix 0, to check 0, all apps. 78 of 78 quotes exact (web copy). Tests: 21 of 21 pass.
 
-Building blocks added: none. Idea for later: an answer that the app remembers (e.g. "past the due date"), so
-later screens can change without copying them. App 7 has 9 copied screens for this reason.
+Building blocks added: none.
 
-Gaps in the guideline: AUT's page does not say who decides, how long a decision takes, what the outcomes can be,
-or how to appeal (only "contact AUTSA advocates"). It does not say what to do more than 5 working days late, what
-evidence other reasons need, or whether the impairment report must come with the application or can follow
-within 5 working days. Each is said on screen.
+Gaps in the guideline: none of the FENZ pages read mention lifts (the app says "use the stairs" and to follow
+your workplace's plan). "Close doors" is only in FENZ's home escape plan. The table of which extinguisher suits
+which fire could not be read. FENZ does not say what to do once a fire is put out, or if the assembly point is
+unsafe. Each is said on screen. FENZ's Fire Action Notice leaves exits and the assembly point blank for each
+building, so the app points you to your own workplace's notice.
 
 Needs you:
-- Optional: save AUT's special consideration page as a PDF into sources/ (aut.ac.nz is blocked from here), so
-  quotes can be checked exactly.
-- Optional: save the ANZCOR Guideline 4 PDF into sources/ (still open).
+- Optional: save FENZ's Fire Action Notice and extinguisher pages as PDFs into sources/ (fireandemergency.nz is
+  blocked from here), so quotes can be checked exactly.
+- Optional: save AUT's special consideration page and the ANZCOR Guideline 4 PDF into sources/ (still open).
 - Try "Change the look" in any app and say which should be the default (still open).
 - Is "a few steps away from buildings" in the earthquake app clear to you? (still open)
 
-Next: guideline 8 (workplace fire: evacuation and extinguisher use, Fire and Emergency NZ).
-
-Audit:
-- 19 Nov 2026: 17 findings, 14 fixed, 3 left as suggestions (runs/audit-2026-11-19.md). Fixed a bug where table rows
-  like "over 10" never matched in a built app.
+Next: guideline 9 (requesting annual holidays, Employment New Zealand).

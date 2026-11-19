@@ -1,0 +1,65 @@
+{
+ "summary": {
+  "steps": 19,
+  "reachable": 19,
+  "fix": 0,
+  "check": 0,
+  "info": 9,
+  "quotes": 78,
+  "quotesExact": 78,
+  "numberLines": 2,
+  "numberLinesQuoted": 2,
+  "sourceAmounts": 4,
+  "sourceAmountsUsed": 2
+ },
+ "findings": [
+  {
+   "level": "info",
+   "step": "leave",
+   "line": 47,
+   "message": "1 line in \"Get out now\" has no quote from the guideline (\"Lifts: FENZ doesn't say. Follow your workplace's plan.\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "assemble",
+   "line": 72,
+   "message": "1 line in \"Go to the assembly point\" has no quote from the guideline (\"It should be on the Fire Action Notice on your wall.\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "stay-out",
+   "line": 80,
+   "message": "2 lines in \"Stay out\" have no quote from the guideline (\"Your workplace's plan says who can give the all-clear.\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "ext-done",
+   "line": 155,
+   "message": "2 lines in \"The fire is out\" have no quote from the guideline (\"Well done.\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "prep-notice",
+   "line": 179,
+   "message": "1 line in \"Read your Fire Action Notice\" has no quote from the guideline (\"FENZ leaves these blank for each building to fill in, so …\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "prep-plan",
+   "line": 196,
+   "message": "1 line in \"Know your way out\" has no quote from the guideline (\"These FENZ pages say nothing about lifts. Check your work…\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "message": "The guideline mentions 2 amounts the template never uses: 80 %, 90 %. Some may be background; check none were left out."
+  },
+  {
+   "level": "info",
+   "message": "Nobody is named under \"Reviewed by:\", so the app shows \"Not reviewed\"."
+  },
+  {
+   "level": "info",
+   "message": "The saved guideline text is a web copy made by a fetch tool and may not be word-perfect, so a \"quote not found\" may be the copy's fault. Add the PDF to sources/ for exact checking."
+  }
+ ]
+}
