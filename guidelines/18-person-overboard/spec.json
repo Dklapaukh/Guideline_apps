@@ -1,0 +1,1867 @@
+{
+ "title": "Person overboard",
+ "about": "Helps the skipper and crew of a small boat in New Zealand when someone falls overboard: shout, throw something that floats, keep watching, stop and turn back, call for help (VHF Channel 16 Mayday or 111), get the person back on board, warm them, and report it. It keeps the times for the handover. Where New Zealand guidance says nothing, Australian (Victoria) and UK (RYA) guidance is shown and labelled.",
+ "sources": [
+  {
+   "name": "Coastguard New Zealand, \"What to do in an emergency\" (main source)",
+   "link": "https://coastguard.nz/boating-essentials/safety-on-the-water/safety-articles/what-to-do-in-an-emergency"
+  },
+  {
+   "name": "Maritime New Zealand, \"Radio a MAYDAY\"",
+   "link": "https://maritimenz.govt.nz/commercial/safety/maritime-radio/radio-a-mayday"
+  },
+  {
+   "name": "Greater Wellington Regional Council Harbours, \"Wellington Skippers Cockpit Guide\" (First edition, January 2023)",
+   "link": "https://www.gw.govt.nz/assets/Documents/2023/01/Wellington-Skippers-Cockpit-Guide_Web.pdf"
+  },
+  {
+   "name": "Northland Regional Council, \"Distress, urgency and calls\"",
+   "link": "https://www.nrc.govt.nz/resource-library-summary/publications/coast/boating-in-northland/distress-urgency-and-calls"
+  },
+  {
+   "name": "Maritime New Zealand, \"Surviving in cold water\"",
+   "link": "https://maritimenz.govt.nz/recreational-craft/getting-started/before-you-go/lifejackets/surviving-in-cold-water/"
+  },
+  {
+   "name": "Water Safety New Zealand, \"Cold water survival\"",
+   "link": "https://www.watersafetynz.org/stay-safe/cold-water-survival"
+  },
+  {
+   "name": "Tasman District Council (Harbourmaster), \"Maritime accidents and responsibilities\"",
+   "link": "https://tasman.govt.nz/my-region/recreation/maritime/water-safety/maritime-accidents-and-responsibilities"
+  },
+  {
+   "name": "NOT NZ: Safe Transport Victoria (Australia), Recreational Boating Safety Handbook, \"Person Overboard\"",
+   "link": "https://handbook.safetransport.vic.gov.au/boating-essentials/emergency-procedures/person-overboard/"
+  },
+  {
+   "name": "NOT NZ: Royal Yachting Association (UK), \"Man overboard\"",
+   "link": "https://www.rya.org.uk/water-safety/man-overboard"
+  }
+ ],
+ "warning": "Emergency: VHF Channel 16 or call 111. Best used by a crew member who is not steering or watching the person. Lines marked Australian or UK are not New Zealand guidance.",
+ "audience": "Skippers and crew of small recreational boats in New Zealand",
+ "reviewedBy": "",
+ "version": "Coastguard NZ 'What to do in an emergency' (no date, footer 2026); Maritime NZ 'Radio a MAYDAY' (no date); Wellington Skippers Cockpit Guide (First edition, January 2023); Northland RC 'Distress, urgency and calls' (no date); Maritime NZ 'Surviving in cold water' (no date); Water Safety NZ 'Cold water survival' (no date, footer 2026); Tasman DC 'Maritime accidents and responsibilities' (no date); NOT NZ: Safe Transport Victoria 'Person Overboard' (last modified 31 Jul 2023); NOT NZ: RYA 'Man overboard' (last updated 29 Oct 2025); all read 21 Nov 2026",
+ "brand": {
+  "name": "",
+  "colour": ""
+ },
+ "look": "",
+ "inputs": [],
+ "tables": [],
+ "steps": [
+  {
+   "id": "start",
+   "title": "Person overboard! Shout",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "Shout loudly so everyone on board knows someone has gone overboard.",
+     "line": 20,
+     "quotes": [
+      {
+       "text": "Shout loudly, to make sure everyone knows that someone's gone overboard",
+       "where": "Coastguard NZ",
+       "check": "exact"
+      },
+      {
+       "text": "Shout - to alert the skipper.",
+       "where": "Wellington guide",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "record",
+     "text": "Person went overboard",
+     "line": 23
+    },
+    {
+     "kind": "say",
+     "text": "Tap the button: the app keeps the clock time.",
+     "line": 24
+    }
+   ],
+   "ask": {
+    "question": "Then?",
+    "options": [
+     {
+      "label": "Done: next",
+      "to": "throw",
+      "line": 26,
+      "target": "throw"
+     },
+     {
+      "label": "They are already back on board",
+      "to": "aboard",
+      "line": 27,
+      "target": "aboard"
+     }
+    ],
+    "line": 25
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 19
+  },
+  {
+   "id": "throw",
+   "title": "Throw something that floats",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "Throw a life buoy, line or lifejacket as close as you can to the person. It helps them float and marks where they are.",
+     "line": 30,
+     "quotes": [
+      {
+       "text": "Throw a life buoy, line or lifejacket as close as you can to the person, not only to help them stay afloat but also to mark their position",
+       "where": "Coastguard NZ",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Keep throwing things that float: they make a path back.",
+     "line": 32,
+     "quotes": [
+      {
+       "text": "Throw - things that float to make a path back and gives the person in the water something to grab onto.",
+       "where": "Wellington guide",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "record",
+     "text": "Flotation thrown",
+     "line": 34
+    },
+    {
+     "kind": "warning",
+     "text": "Avoid jumping in the water if possible. If you must, take a flotation device with you.",
+     "line": 35,
+     "quotes": [
+      {
+       "text": "Avoid jumping in the water if possible. If you must, ensure that you take a flotation device to offer support if you get tired.",
+       "where": "Wellington guide",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": null,
+   "next": {
+    "to": "watch",
+    "line": 37,
+    "target": "watch"
+   },
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 29,
+   "nexts": [
+    {
+     "to": "watch",
+     "line": 37,
+     "target": "watch"
+    }
+   ]
+  },
+  {
+   "id": "watch",
+   "title": "Watch and point. Don't look away",
+   "lines": [
+    {
+     "kind": "do",
+     "text": "Watch the person. Don't take your eyes off them. Keep pointing at them.",
+     "line": 40,
+     "quotes": [
+      {
+       "text": "Watch the person carefully - it's easy to lose sight of someone in the water, so don't take your eyes off them!",
+       "where": "Coastguard NZ",
+       "check": "exact"
+      },
+      {
+       "text": "Point - keep pointing in the direction of the person in the water, even if you can't see them.",
+       "where": "Wellington guide",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Australian guide (Victoria): ask one person on board to point continuously, so others can get gear ready.",
+     "line": 43,
+     "quotes": [
+      {
+       "text": "Ask someone on board to point continuously at the person in the water for the reference of others on board who may be preparing equipment or other head-down activities.",
+       "where": "Victoria, Australia",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "Can you see them?",
+    "options": [
+     {
+      "label": "Yes",
+      "to": "stop",
+      "line": 46,
+      "target": "stop"
+     },
+     {
+      "label": "No, we lost sight of them",
+      "to": "lost",
+      "line": 47,
+      "target": "lost"
+     }
+    ],
+    "line": 45
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 39
+  },
+  {
+   "id": "lost",
+   "title": "Lost sight: keep pointing",
+   "lines": [
+    {
+     "kind": "record",
+     "text": "Lost sight of person",
+     "line": 50
+    },
+    {
+     "kind": "say",
+     "text": "Keep pointing in the direction of the person, even if you can't see them.",
+     "line": 51,
+     "quotes": [
+      {
+       "text": "Point - keep pointing in the direction of the person in the water, even if you can't see them.",
+       "where": "Wellington guide",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "App's note: the sources do not say how to search. Next: stop, turn back and mark the position.",
+     "line": 53
+    }
+   ],
+   "ask": null,
+   "next": {
+    "to": "stop",
+    "line": 54,
+    "target": "stop"
+   },
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 49,
+   "nexts": [
+    {
+     "to": "stop",
+     "line": 54,
+     "target": "stop"
+    }
+   ]
+  },
+  {
+   "id": "stop",
+   "title": "Stop the boat and turn back",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "Stop the boat and turn back as soon as you're able.",
+     "line": 57,
+     "quotes": [
+      {
+       "text": "Stop the boat and turn back as soon as you're able.",
+       "where": "Coastguard NZ",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "record",
+     "text": "Boat stopped, turning back",
+     "line": 59
+    },
+    {
+     "kind": "warning",
+     "text": "The propeller is always a danger to anyone in the water.",
+     "line": 60,
+     "quotes": [
+      {
+       "text": "Remember that the prop is always a danger to anyone in the water, so take care as you approach them.",
+       "where": "Coastguard NZ",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Australian guide (Victoria): if they are close to the boat, put the motor in neutral and swing the propeller quickly away from them.",
+     "line": 62,
+     "quotes": [
+      {
+       "text": "If the person overboard is close to the vessel put the motor in neutral, raise the alarm and swing the propeller quickly away from them.",
+       "where": "Victoria, Australia",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "No New Zealand source names a way to turn back.",
+     "line": 64
+    }
+   ],
+   "ask": null,
+   "next": {
+    "to": "mark",
+    "line": 65,
+    "target": "mark"
+   },
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 56,
+   "nexts": [
+    {
+     "to": "mark",
+     "line": 65,
+     "target": "mark"
+    }
+   ]
+  },
+  {
+   "id": "mark",
+   "title": "Mark where it happened",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "The flotation you threw marks their position.",
+     "line": 68,
+     "quotes": [
+      {
+       "text": "but also to mark their position",
+       "where": "Coastguard NZ",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Australian guide (Victoria): check your bearings on landmarks; on a GPS or chart plotter you may be able to make a waypoint. It helps if a search is needed. UK guide (RYA): press the man overboard button on the plotter.",
+     "line": 70,
+     "quotes": [
+      {
+       "text": "Check your bearings relative to any prominent landmarks. If operating with a GPS or chart plotter it may be possible to quickly create a waypoint where the event occurred. These will assist if a search is required.",
+       "where": "Victoria, Australia",
+       "check": "exact"
+      },
+      {
+       "text": "Press the man overboard button on the plotter to provide a last known position",
+       "where": "RYA, UK",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "write",
+     "text": "Position (GPS reading, or bearing from a landmark)",
+     "line": 73
+    },
+    {
+     "kind": "record",
+     "text": "Position marked",
+     "line": 74
+    }
+   ],
+   "ask": null,
+   "next": {
+    "to": "help",
+    "line": 75,
+    "target": "help"
+   },
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 67,
+   "nexts": [
+    {
+     "to": "help",
+     "line": 75,
+     "target": "help"
+    }
+   ]
+  },
+  {
+   "id": "help",
+   "title": "Call for help?",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "Coastguard NZ gives a person overboard as an example of a Mayday: grave and imminent danger, needing immediate help.",
+     "line": 78,
+     "quotes": [
+      {
+       "text": "A distress/Mayday call is used to indicate that a boat or person is threatened by grave and imminent danger and requires immediate assistance",
+       "where": "Coastguard NZ",
+       "check": "exact"
+      },
+      {
+       "text": "for example, a boat taking on water, a vessel on fire, a person overboard or a serious medical emergency such as a heart attack.",
+       "where": "Coastguard NZ",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Wellington and Northland describe Pan-pan for urgent problems with no immediate danger. No source gives Pan-pan wording.",
+     "line": 81,
+     "quotes": [
+      {
+       "text": "Pan-pan: Urgent situation with NO immediate danger (engine failure, drifting safely etc).",
+       "where": "Wellington guide",
+       "check": "exact"
+      },
+      {
+       "text": "Note: when MAYDAY is not warranted but urgency is required for the safety of a vessel or person, PAN PAN should be used.",
+       "where": "Northland RC",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "App's suggestion: if there is crew, one person can call while the skipper goes back to the person.",
+     "line": 84
+    },
+    {
+     "kind": "say",
+     "text": "How long someone lasts in the water (the sources differ; none is a countdown):",
+     "line": 85
+    },
+    {
+     "kind": "say",
+     "text": "Wellington guide: 1-3 hours with a life jacket on, around 10 minutes without.",
+     "bullet": true,
+     "line": 86,
+     "quotes": [
+      {
+       "text": "you will survive 1-3 hours in the water with a life jacket on and around 10 minutes without.",
+       "where": "Wellington guide",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Maritime NZ: even a fit person can drown in under 10 minutes in cold water.",
+     "bullet": true,
+     "line": 88,
+     "quotes": [
+      {
+       "text": "drown in under 10 minutes, long before hypothermia sets in.",
+       "where": "Maritime NZ cold water",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "UK guide (RYA): crews have, on average, less than 11 minutes to recover someone from cold water before they become unresponsive.",
+     "bullet": true,
+     "line": 90,
+     "quotes": [
+      {
+       "text": "less than 11 minutes to recover a crewmate who has fallen overboard into cold water before the victim becomes unresponsive.",
+       "where": "RYA, UK",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "How will you call?",
+    "options": [
+     {
+      "label": "VHF radio (Mayday)",
+      "to": "radio",
+      "line": 93,
+      "target": "radio"
+     },
+     {
+      "label": "Mobile phone: 111",
+      "to": "phone",
+      "line": 94,
+      "target": "phone"
+     },
+     {
+      "label": "No radio or phone: other signals",
+      "to": "signals",
+      "line": 95,
+      "target": "signals"
+     },
+     {
+      "label": "Not calling yet, or already called: go back to them",
+      "to": "approach",
+      "line": 96,
+      "target": "approach"
+     }
+    ],
+    "line": 92
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 77
+  },
+  {
+   "id": "radio",
+   "title": "Mayday: set up the radio",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "Maritime NZ: before the call, put your lifejacket on and set off your distress beacon, if you carry one.",
+     "line": 99,
+     "quotes": [
+      {
+       "text": "Wear your lifejacket and activate your distress beacon (if carried on your vessel).",
+       "where": "Maritime NZ Mayday",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "record",
+     "text": "Beacon activated",
+     "line": 101
+    },
+    {
+     "kind": "do",
+     "text": "Switch the radio on to full power. Turn to Channel 16.",
+     "line": 102,
+     "quotes": [
+      {
+       "text": "Switch your radio on to full power and turn to:",
+       "where": "Maritime NZ Mayday",
+       "check": "exact"
+      },
+      {
+       "text": "VHF: channel 16",
+       "where": "Maritime NZ Mayday",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Coastguard NZ: or another local VHF channel you know is being monitored.",
+     "line": 105,
+     "quotes": [
+      {
+       "text": "or another local VHF channel you know is being monitored",
+       "where": "Coastguard NZ",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "SSB radio: 2182kHZ, 4125kHZ, 6215kHZ or 8291kHZ.",
+     "line": 107,
+     "quotes": [
+      {
+       "text": "SSB: 2182kHZ, 4125kHZ, 6215kHZ or 8291kHZ",
+       "where": "Maritime NZ Mayday",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "UK guide (RYA): issue a MAYDAY or DSC alert.",
+     "line": 109,
+     "quotes": [
+      {
+       "text": "issue a MAYDAY or DSC Alert.",
+       "where": "RYA, UK",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": null,
+   "next": {
+    "to": "script",
+    "line": 111,
+    "target": "script"
+   },
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 98,
+   "nexts": [
+    {
+     "to": "script",
+     "line": 111,
+     "target": "script"
+    }
+   ]
+  },
+  {
+   "id": "script",
+   "title": "Mayday: say this",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "Coastguard NZ example call, with your details in the brackets:",
+     "line": 114
+    },
+    {
+     "kind": "say",
+     "text": "\"Mayday. Mayday. Mayday.\"",
+     "bullet": true,
+     "line": 115,
+     "quotes": [
+      {
+       "text": "Mayday. Mayday. Mayday.",
+       "where": "Coastguard NZ",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "\"This is [boat name], [boat name], [boat name], [call sign].\"",
+     "bullet": true,
+     "line": 117,
+     "quotes": [
+      {
+       "text": "This is Achiever, Achiever, Achiever ZMW3545.",
+       "where": "Coastguard NZ",
+       "check": "exact"
+      },
+      {
+       "text": "\"This is [vessel name]\" 3 times",
+       "where": "Maritime NZ Mayday",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "\"Mayday, [boat name] [call sign].\"",
+     "bullet": true,
+     "line": 120,
+     "quotes": [
+      {
+       "text": "Mayday, Achiever ZMW3545.",
+       "where": "Coastguard NZ",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "\"We are at (state your general geographical position) in position (latitude & longitude).\" Maritime NZ: or bearing and distance from a known landmark.",
+     "bullet": true,
+     "line": 122,
+     "quotes": [
+      {
+       "text": "We are at (state your general geographical position) in position (latitude & longitude).",
+       "where": "Coastguard NZ",
+       "check": "exact"
+      },
+      {
+       "text": "[vessel's latitude and longitude OR bearing and distance from a known landmark]",
+       "where": "Maritime NZ Mayday",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "\"We have (state what is wrong, the nature of your distress).\" App's note: here, a person overboard.",
+     "bullet": true,
+     "line": 125,
+     "quotes": [
+      {
+       "text": "We have (state what is wrong, the nature of your distress).",
+       "where": "Coastguard NZ",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "\"We require immediate assistance.\"",
+     "bullet": true,
+     "line": 127,
+     "quotes": [
+      {
+       "text": "We require immediate assistance.",
+       "where": "Coastguard NZ",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "\"We have (state how many people on-board).\"",
+     "bullet": true,
+     "line": 129,
+     "quotes": [
+      {
+       "text": "We have (state how many people on-board).",
+       "where": "Coastguard NZ",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Any other helpful information. Maritime NZ: for example a description of your boat, and any liferaft or dinghy.",
+     "bullet": true,
+     "line": 131,
+     "quotes": [
+      {
+       "text": "Any other helpful information.",
+       "where": "Coastguard NZ",
+       "check": "exact"
+      },
+      {
+       "text": "[any other information, e.g. number of persons on board, description of vessel, liferaft or dinghy",
+       "where": "Maritime NZ Mayday",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "\"Over.\"",
+     "bullet": true,
+     "line": 134,
+     "quotes": [
+      {
+       "text": "Over.",
+       "where": "Coastguard NZ",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "write",
+     "text": "Position you are reading out",
+     "line": 136
+    },
+    {
+     "kind": "record",
+     "text": "Mayday sent",
+     "line": 137
+    }
+   ],
+   "ask": null,
+   "next": {
+    "to": "reply",
+    "line": 138,
+    "target": "reply"
+   },
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 113,
+   "nexts": [
+    {
+     "to": "reply",
+     "line": 138,
+     "target": "reply"
+    }
+   ]
+  },
+  {
+   "id": "reply",
+   "title": "Listen for a reply",
+   "lines": [
+    {
+     "kind": "do",
+     "text": "Wait a short time. Listen on the same channel.",
+     "line": 141,
+     "quotes": [
+      {
+       "text": "wait a short time for a reply, listening on the same frequency for an acknowledgement.",
+       "where": "Maritime NZ Mayday",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Coastguard Radio, Maritime Radio or a nearby boat may answer.",
+     "line": 143,
+     "quotes": [
+      {
+       "text": "Wait for a response from either Coastguard Radio or Maritime Radio (or a nearby vessel).",
+       "where": "Coastguard NZ",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "Did anyone reply?",
+    "options": [
+     {
+      "label": "Yes",
+      "to": "contact",
+      "line": 146,
+      "target": "contact"
+     },
+     {
+      "label": "No reply",
+      "to": "no-reply",
+      "line": 147,
+      "target": "no-reply"
+     }
+    ],
+    "line": 145
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 140
+  },
+  {
+   "id": "no-reply",
+   "title": "No reply: call again",
+   "lines": [
+    {
+     "kind": "do",
+     "text": "Repeat the Mayday call. If needed, try every distress frequency on your radio.",
+     "line": 150,
+     "quotes": [
+      {
+       "text": "repeat the MAYDAY distress call",
+       "where": "Maritime NZ Mayday",
+       "check": "exact"
+      },
+      {
+       "text": "if needed, work through all the distress frequencies on your radio and repeat the call.",
+       "where": "Maritime NZ Mayday",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "Then?",
+    "options": [
+     {
+      "label": "Go through the Mayday again",
+      "to": "script",
+      "line": 154,
+      "target": "script"
+     },
+     {
+      "label": "Try 111 on a mobile",
+      "to": "phone",
+      "line": 155,
+      "target": "phone"
+     },
+     {
+      "label": "Go back to the person now",
+      "to": "approach",
+      "line": 156,
+      "target": "approach"
+     }
+    ],
+    "line": 153
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 149
+  },
+  {
+   "id": "contact",
+   "title": "Help answered: follow their instructions",
+   "lines": [
+    {
+     "kind": "record",
+     "text": "Reply received",
+     "line": 159
+    },
+    {
+     "kind": "do",
+     "text": "Tell them if you set off an EPIRB or PLB. Follow their instructions.",
+     "line": 160,
+     "quotes": [
+      {
+       "text": "tell them you have activated your EPIRB or PLB if you have one",
+       "where": "Maritime NZ Mayday",
+       "check": "exact"
+      },
+      {
+       "text": "follow their instructions.",
+       "where": "Maritime NZ Mayday",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "They will ask for more information and confirm help is being sent.",
+     "line": 163,
+     "quotes": [
+      {
+       "text": "They will then ask for more information and confirm assistance is being sent to you as soon as possible.",
+       "where": "Coastguard NZ",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "write",
+     "text": "Description of the person",
+     "line": 165
+    }
+   ],
+   "ask": {
+    "question": "Where is the person?",
+    "options": [
+     {
+      "label": "Still in the water: go back to them",
+      "to": "approach",
+      "line": 167,
+      "target": "approach"
+     },
+     {
+      "label": "On board now",
+      "to": "warm",
+      "line": 168,
+      "target": "warm"
+     }
+    ],
+    "line": 166
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 158
+  },
+  {
+   "id": "phone",
+   "title": "Call 111 and ask for Police",
+   "lines": [
+    {
+     "kind": "do",
+     "text": "Call 111 from your mobile. Ask for Police.",
+     "line": 171,
+     "quotes": [
+      {
+       "text": "call 111 from your mobile phone and ask for Police.",
+       "where": "Coastguard NZ",
+       "check": "exact"
+      },
+      {
+       "text": "You can either call 111 and Police will task Coastguard with responding",
+       "where": "Coastguard NZ",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "record",
+     "text": "111 called",
+     "line": 174
+    },
+    {
+     "kind": "say",
+     "text": "Coastguard NZ and the Wellington guide say *500 is for non-urgent help. (A Northland page lists *500 for emergency calls too; the sources disagree.)",
+     "line": 175,
+     "quotes": [
+      {
+       "text": "For non-urgent assistance such as an electrical problem or mechanical issue, call our Operations Centre on *500 from your mobile phone.",
+       "where": "Coastguard NZ",
+       "check": "exact"
+      },
+      {
+       "text": "All emergency distress calls - VHF channel 16 or phone *500",
+       "where": "Northland RC",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "write",
+     "text": "Description of the person",
+     "line": 178
+    }
+   ],
+   "ask": {
+    "question": "Where is the person?",
+    "options": [
+     {
+      "label": "Still in the water: go back to them",
+      "to": "approach",
+      "line": 180,
+      "target": "approach"
+     },
+     {
+      "label": "On board now",
+      "to": "warm",
+      "line": 181,
+      "target": "warm"
+     }
+    ],
+    "line": 179
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 170
+  },
+  {
+   "id": "signals",
+   "title": "No radio or phone: signal distress",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "Other ways to signal distress (Northland RC):",
+     "line": 184
+    },
+    {
+     "kind": "say",
+     "text": "Slowly raise and lower your outstretched arms, again and again.",
+     "bullet": true,
+     "line": 185,
+     "quotes": [
+      {
+       "text": "Slowly and repeatedly raising and lowering your arms outstretched to each side.",
+       "where": "Northland RC",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Keep sounding a fog horn or siren.",
+     "bullet": true,
+     "line": 187,
+     "quotes": [
+      {
+       "text": "Continuously sounding a fog horn or siren.",
+       "where": "Northland RC",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "A hand-held or parachute flare showing a red light.",
+     "bullet": true,
+     "line": 189,
+     "quotes": [
+      {
+       "text": "Using a hand-held flare or parachute flare showing a red light.",
+       "where": "Northland RC",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "SOS by sound, light or mirror: three shorts, three longs, three shorts.",
+     "bullet": true,
+     "line": 191,
+     "quotes": [
+      {
+       "text": "Signalling SOS by any signal method, including sound, light or mirror.",
+       "where": "Northland RC",
+       "check": "exact"
+      },
+      {
+       "text": "The SOS signal is: three shorts, three longs, three shorts.",
+       "where": "Northland RC",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "warning",
+     "text": "Use these signals only to show you are in distress.",
+     "line": 194,
+     "quotes": [
+      {
+       "text": "Use these signals only to indicate distress",
+       "where": "Northland RC",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "record",
+     "text": "Distress signal used",
+     "line": 196
+    }
+   ],
+   "ask": {
+    "question": "Where is the person?",
+    "options": [
+     {
+      "label": "Still in the water: go back to them",
+      "to": "approach",
+      "line": 198,
+      "target": "approach"
+     },
+     {
+      "label": "On board now",
+      "to": "warm",
+      "line": 199,
+      "target": "warm"
+     }
+    ],
+    "line": 197
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 183
+  },
+  {
+   "id": "approach",
+   "title": "Go back to the person",
+   "lines": [
+    {
+     "kind": "warning",
+     "text": "Take care with the propeller as you approach.",
+     "line": 202,
+     "quotes": [
+      {
+       "text": "Remember that the prop is always a danger to anyone in the water, so take care as you approach them.",
+       "where": "Coastguard NZ",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "UK guide (RYA): get recovery gear ready, tell the person you are coming back, and aim to come up upwind of them so the boat drifts towards them. Brief the crew on your next steps.",
+     "line": 204,
+     "quotes": [
+      {
+       "text": "Prepare your recovery equipment and reassure the casualty that you will be returning to them.",
+       "where": "RYA, UK",
+       "check": "exact"
+      },
+      {
+       "text": "Aim to position your vessel upwind of them, so that as you slow down the vessel is blown towards them.",
+       "where": "RYA, UK",
+       "check": "exact"
+      },
+      {
+       "text": "Always ensure the crew is properly briefed on your next steps during recovery.",
+       "where": "RYA, UK",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "No New Zealand source says how to approach.",
+     "line": 208
+    }
+   ],
+   "ask": {
+    "question": "Then?",
+    "options": [
+     {
+      "label": "We are beside them",
+      "to": "alongside",
+      "line": 210,
+      "target": "alongside"
+     },
+     {
+      "label": "Lost sight of them",
+      "to": "lost-again",
+      "line": 211,
+      "target": "lost-again"
+     },
+     {
+      "label": "Call for help now",
+      "to": "help",
+      "line": 212,
+      "target": "help"
+     }
+    ],
+    "line": 209
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 201
+  },
+  {
+   "id": "lost-again",
+   "title": "Lost sight again",
+   "lines": [
+    {
+     "kind": "record",
+     "text": "Lost sight of person",
+     "line": 215
+    },
+    {
+     "kind": "say",
+     "text": "Keep pointing in the direction of the person, even if you can't see them.",
+     "line": 216,
+     "quotes": [
+      {
+       "text": "Point - keep pointing in the direction of the person in the water, even if you can't see them.",
+       "where": "Wellington guide",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "App's note: the sources do not say how to search. If you marked the position, it is in the Log.",
+     "line": 218
+    }
+   ],
+   "ask": {
+    "question": "Then?",
+    "options": [
+     {
+      "label": "We can see them again",
+      "to": "approach",
+      "line": 220,
+      "target": "approach"
+     },
+     {
+      "label": "Call for help now",
+      "to": "help",
+      "line": 221,
+      "target": "help"
+     }
+    ],
+    "line": 219
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 214
+  },
+  {
+   "id": "alongside",
+   "title": "Beside them: the propeller",
+   "lines": [
+    {
+     "kind": "do",
+     "text": "Australian and UK guides: once beside them, engine in neutral or off, so the propeller can't hit them.",
+     "line": 224,
+     "quotes": [
+      {
+       "text": "Position the vessel to bring the person alongside then stop engines to avoid striking them with a spinning propeller.",
+       "where": "Victoria, Australia",
+       "check": "exact"
+      },
+      {
+       "text": "Once alongside the casualty, it's important to ensure that engines are left in neutral or switched off.",
+       "where": "RYA, UK",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "UK guide (RYA): whether you switch the engine off depends on the weather, your boat and other things. It is the skipper's call, but a spinning propeller must not hit them.",
+     "line": 227,
+     "quotes": [
+      {
+       "text": "Whether or not you switch off the engine depends on weather conditions, your vessel, or a variety of other factors. Regardless, risk to the casualty from a spinning propellor must be avoided at all costs.",
+       "where": "RYA, UK",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "New Zealand sources only say take care with the prop.",
+     "line": 229
+    }
+   ],
+   "ask": null,
+   "next": {
+    "to": "recover",
+    "line": 230,
+    "target": "recover"
+   },
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 223,
+   "nexts": [
+    {
+     "to": "recover",
+     "line": 230,
+     "target": "recover"
+    }
+   ]
+  },
+  {
+   "id": "recover",
+   "title": "Get them back on board",
+   "lines": [
+    {
+     "kind": "do",
+     "text": "Use the boat hook to help recover them.",
+     "line": 233,
+     "quotes": [
+      {
+       "text": "your boat hook can be used for checking the depth of water, pushing off, or helping recover a person overboard.",
+       "where": "Wellington guide",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Australian guide (Victoria): bring them in over the stern if you can; a small boat might capsize or take on water over the side. A ladder helps.",
+     "line": 235,
+     "quotes": [
+      {
+       "text": "Help the person into the vessel, preferably over the stern, as a small vessel might capsize or take on water if you try taking them in over the side.",
+       "where": "Victoria, Australia",
+       "check": "exact"
+      },
+      {
+       "text": "It is recommended that your vessel is fitted with a ladder or that you carry a portable ladder to help with reboarding a person in the water.",
+       "where": "Victoria, Australia",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "UK guide (RYA): if they are awake and can help, throw a heaving line.",
+     "line": 238,
+     "quotes": [
+      {
+       "text": "If the casualty is conscious and can assist in their recovery, throw a heaving line to help recover them.",
+       "where": "RYA, UK",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "Are they back on board?",
+    "options": [
+     {
+      "label": "Yes",
+      "to": "aboard",
+      "line": 241,
+      "target": "aboard"
+     },
+     {
+      "label": "Not yet: it's hard",
+      "to": "hard",
+      "line": 242,
+      "target": "hard"
+     }
+    ],
+    "line": 240
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 232
+  },
+  {
+   "id": "hard",
+   "title": "Hard to get them in",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "Australian guide (Victoria): someone who can't help themselves is hard to get back into a boat.",
+     "line": 245,
+     "quotes": [
+      {
+       "text": "If they cannot help themselves, it is difficult to get them back into the vessel.",
+       "where": "Victoria, Australia",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "UK guide (RYA): a scramble net, ladder, or swim platform on the stern (calm conditions only) can help; so can a lifting device.",
+     "line": 247,
+     "quotes": [
+      {
+       "text": "A scramble net, rescue ladder, boarding ladder, or swim platform on the stern (calm conditions only) can be useful in helping to recover a man overboard.",
+       "where": "RYA, UK",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "warning",
+     "text": "UK guide (RYA): if they are unconscious, a crew member must fix a lifting device to their lifejacket or harness. Crew reaching overboard or lowered towards them are at risk too.",
+     "line": 249,
+     "quotes": [
+      {
+       "text": "A crew member will need to secure a lifting device to the casualty's lifejacket or harness. In this situation, other crew members will be at risk reaching overboard or being lowered towards the casualty to make contact.",
+       "where": "RYA, UK",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "warning",
+     "text": "UK guide (RYA): try to lift them lying flat, but drowning is the main risk, so getting them on board comes first.",
+     "line": 251,
+     "quotes": [
+      {
+       "text": "When lifting a casualty onboard, they should remain in a horizontal position to avoid the potential medical complications caused by hydrostatic squeeze. However, drowning remains the primary risk, therefore recovery onboard is the priority.",
+       "where": "RYA, UK",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "Then?",
+    "options": [
+     {
+      "label": "They are on board now",
+      "to": "aboard",
+      "line": 254,
+      "target": "aboard"
+     },
+     {
+      "label": "Still in the water: call for help",
+      "to": "help",
+      "line": 255,
+      "target": "help"
+     },
+     {
+      "label": "Keep trying",
+      "to": "recover",
+      "line": 256,
+      "target": "recover"
+     }
+    ],
+    "line": 253
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 244
+  },
+  {
+   "id": "aboard",
+   "title": "Back on board",
+   "lines": [
+    {
+     "kind": "record",
+     "text": "Person back on board",
+     "line": 259
+    },
+    {
+     "kind": "say",
+     "text": "Australian guide (Victoria): they may be hurt, cold or exhausted.",
+     "line": 260,
+     "quotes": [
+      {
+       "text": "A person recovered from the water may be hurt, cold or exhausted.",
+       "where": "Victoria, Australia",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "UK guide (RYA): watch them carefully and give first aid; for someone not breathing or unconscious, take all the appropriate steps. These sources give no first aid steps.",
+     "line": 262,
+     "quotes": [
+      {
+       "text": "Once the casualty is onboard, they need to be carefully monitored. First aid needs to be provided and for non-breathing or unconscious casualties all the appropriate steps should be taken.",
+       "where": "RYA, UK",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "Do they need help now (not breathing, unconscious or hurt)?",
+    "options": [
+     {
+      "label": "Yes: call for help now",
+      "to": "urgent",
+      "line": 265,
+      "target": "urgent"
+     },
+     {
+      "label": "No, or help is already called: warm them",
+      "to": "warm",
+      "line": 266,
+      "target": "warm"
+     }
+    ],
+    "line": 264
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 258
+  },
+  {
+   "id": "urgent",
+   "title": "Call for help now",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "Coastguard NZ: if someone is injured or life is in danger, immediately call VHF Channel 16, or 111 from your mobile and ask for Police.",
+     "line": 269,
+     "quotes": [
+      {
+       "text": "If your boat is sinking, someone is injured or life is in danger, immediately call VHF Channel 16 (the international maritime distress channel) or another local VHF channel you know is being monitored, or call 111 from your mobile phone and ask for Police.",
+       "where": "Coastguard NZ",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "How will you call?",
+    "options": [
+     {
+      "label": "VHF radio (Mayday)",
+      "to": "radio",
+      "line": 272,
+      "target": "radio"
+     },
+     {
+      "label": "Mobile phone: 111",
+      "to": "phone",
+      "line": 273,
+      "target": "phone"
+     }
+    ],
+    "line": 271
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 268
+  },
+  {
+   "id": "warm",
+   "title": "Warm them up",
+   "lines": [
+    {
+     "kind": "do",
+     "text": "Take off all their wet clothing. Wrap them in dry clothing or blankets.",
+     "line": 276,
+     "quotes": [
+      {
+       "text": "Remove all wet clothing and warm the person by wrapping them in dry clothing or blankets.",
+       "where": "Water Safety NZ",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Get them out of the wind.",
+     "line": 278,
+     "quotes": [
+      {
+       "text": "Get out of the water and the wind as soon as possible to keep warm.",
+       "where": "Wellington guide",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Children lose body heat much faster than adults.",
+     "line": 280,
+     "quotes": [
+      {
+       "text": "Kids lose body heat much faster than adults.",
+       "where": "Wellington guide",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "UK guide (RYA): they are at risk of shock, hypothermia, secondary drowning and injuries, and should go to a medical facility to be checked. No New Zealand source says to seek medical care.",
+     "line": 282,
+     "quotes": [
+      {
+       "text": "Conscious casualties or those who have recovered themselves are at risk of shock, hypothermia, secondary drowning, and injuries incurred during their fall or recovery.",
+       "where": "RYA, UK",
+       "check": "exact"
+      },
+      {
+       "text": "Wet clothing should be removed, and the casualty should be warmed, carefully monitored, and transported to a medical facility for review.",
+       "where": "RYA, UK",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": null,
+   "next": {
+    "to": "cancel",
+    "line": 285,
+    "target": "cancel"
+   },
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 275,
+   "nexts": [
+    {
+     "to": "cancel",
+     "line": 285,
+     "target": "cancel"
+    }
+   ]
+  },
+  {
+   "id": "cancel",
+   "title": "Called for help? Tell them",
+   "lines": [
+    {
+     "kind": "do",
+     "text": "If you called for help and no longer need it, cancel the call.",
+     "line": 288,
+     "quotes": [
+      {
+       "text": "Calls and messages must be cancelled if assistance is no longer required or when the incident is over.",
+       "where": "Northland RC",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "record",
+     "text": "Help call cancelled",
+     "line": 290
+    },
+    {
+     "kind": "say",
+     "text": "No source says how to cancel a Mayday or a beacon you set off on purpose. App's suggestion: ask Coastguard or Maritime Radio. (Wellington's 0508 472 269 is for a beacon set off by accident.)",
+     "line": 291,
+     "quotes": [
+      {
+       "text": "If you accidentally activate your PLB or EPIRB, call 0508 472 269 or Maritime Radio on VHF 16.",
+       "where": "Wellington guide",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": null,
+   "next": {
+    "to": "report",
+    "line": 293,
+    "target": "report"
+   },
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 287,
+   "nexts": [
+    {
+     "to": "report",
+     "line": 293,
+     "target": "report"
+    }
+   ]
+  },
+  {
+   "id": "report",
+   "title": "Report it",
+   "lines": [
+    {
+     "kind": "do",
+     "text": "Tasman harbourmaster page: report any accident or incident straight away to Maritime Radio (VHF 16) or RCCNZ (0508 222 433).",
+     "line": 296,
+     "quotes": [
+      {
+       "text": "You must also report any accident or incident to Maritime Radio on VHF 16 or RCCNZ on 0508 222 433 immediately",
+       "where": "Tasman harbourmaster",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "record",
+     "text": "Reported to Maritime Radio or RCCNZ",
+     "line": 298
+    },
+    {
+     "kind": "say",
+     "text": "If you made a Mayday, Maritime Radio may already know. The page does not say whether that counts as reporting.",
+     "line": 299
+    },
+    {
+     "kind": "do",
+     "text": "Report it to Maritime NZ, on the forms on their website, within 24 hours.",
+     "line": 300,
+     "quotes": [
+      {
+       "text": "and to Maritime NZ on the forms available from their website within 24 hours.",
+       "where": "Tasman harbourmaster",
+       "check": "exact"
+      },
+      {
+       "text": "You'll need to contact Maritime NZ to report any accident.",
+       "where": "Coastguard NZ",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "record",
+     "text": "Reported to Maritime NZ",
+     "line": 303
+    },
+    {
+     "kind": "say",
+     "text": "The harbourmaster must also be told about a collision, sinking, grounding, a dangerous boat, an obstruction or damage to a navigation aid.",
+     "line": 304,
+     "quotes": [
+      {
+       "text": "The master of any vessel (recreational or commercial) must report to the Harbourmaster as soon as practicable if:",
+       "where": "Tasman harbourmaster",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": null,
+   "next": {
+    "to": "handover",
+    "line": 306,
+    "target": "handover"
+   },
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 295,
+   "nexts": [
+    {
+     "to": "handover",
+     "line": 306,
+     "target": "handover"
+    }
+   ]
+  },
+  {
+   "id": "handover",
+   "title": "Handover summary",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "Give rescuers, the harbourmaster or Maritime NZ:",
+     "line": 309
+    },
+    {
+     "kind": "say",
+     "text": "The times in the Log: person went overboard, lost sight, position marked, Mayday sent or 111 called, back on board",
+     "bullet": true,
+     "line": 310
+    },
+    {
+     "kind": "say",
+     "text": "The position and the description of the person you typed",
+     "bullet": true,
+     "line": 311
+    },
+    {
+     "kind": "say",
+     "text": "What happened, and how the person is now",
+     "bullet": true,
+     "line": 312
+    },
+    {
+     "kind": "say",
+     "text": "This list is the app's summary. No source lists what to record after a person overboard, or says to note the time.",
+     "line": 313
+    },
+    {
+     "kind": "write",
+     "text": "Anything else to hand over",
+     "line": 314
+    },
+    {
+     "kind": "say",
+     "text": "Keep this phone's Log. Do what Coastguard, Police or Maritime NZ tell you.",
+     "line": 315
+    }
+   ],
+   "ask": null,
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": true,
+   "line": 308
+  }
+ ],
+ "start": "start"
+}

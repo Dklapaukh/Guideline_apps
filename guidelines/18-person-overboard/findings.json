@@ -1,0 +1,95 @@
+{
+ "summary": {
+  "steps": 25,
+  "reachable": 25,
+  "fix": 0,
+  "check": 0,
+  "info": 14,
+  "quotes": 87,
+  "quotesExact": 87,
+  "numberLines": 4,
+  "numberLinesQuoted": 4,
+  "sourceAmounts": 16,
+  "sourceAmountsUsed": 5
+ },
+ "findings": [
+  {
+   "level": "info",
+   "step": "start",
+   "line": 24,
+   "message": "1 line in \"Person overboard! Shout\" has no quote from the guideline (\"Tap the button: the app keeps the clock time.\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "lost",
+   "line": 53,
+   "message": "1 line in \"Lost sight: keep pointing\" has no quote from the guideline (\"App's note: the sources do not say how to search. Next: s…\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "stop",
+   "line": 64,
+   "message": "1 line in \"Stop the boat and turn back\" has no quote from the guideline (\"No New Zealand source names a way to turn back.\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "help",
+   "line": 84,
+   "message": "2 lines in \"Call for help?\" have no quote from the guideline (\"App's suggestion: if there is crew, one person can call w…\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "script",
+   "line": 114,
+   "message": "1 line in \"Mayday: say this\" has no quote from the guideline (\"Coastguard NZ example call, with your details in the brac…\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "signals",
+   "line": 184,
+   "message": "1 line in \"No radio or phone: signal distress\" has no quote from the guideline (\"Other ways to signal distress (Northland RC):\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "approach",
+   "line": 208,
+   "message": "1 line in \"Go back to the person\" has no quote from the guideline (\"No New Zealand source says how to approach.\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "lost-again",
+   "line": 218,
+   "message": "1 line in \"Lost sight again\" has no quote from the guideline (\"App's note: the sources do not say how to search. If you …\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "alongside",
+   "line": 229,
+   "message": "1 line in \"Beside them: the propeller\" has no quote from the guideline (\"New Zealand sources only say take care with the prop.\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "report",
+   "line": 299,
+   "message": "1 line in \"Report it\" has no quote from the guideline (\"If you made a Mayday, Maritime Radio may already know. Th…\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "handover",
+   "line": 309,
+   "message": "6 lines in \"Handover summary\" have no quote from the guideline (\"Give rescuers, the harbourmaster or Maritime NZ:\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "message": "The guideline mentions 11 amounts the template never uses: 48 hour, 25 time, 37.6 °c, 20-30 time, 15 °c, 1-3 minute, 30 minute, 1 minute, 1 hour, 5-7 second, 15 degree. Some may be background; check none were left out."
+  },
+  {
+   "level": "info",
+   "message": "Nobody is named under \"Reviewed by:\", so the app shows \"Not reviewed\"."
+  },
+  {
+   "level": "info",
+   "message": "The saved guideline text is a web copy made by a fetch tool and may not be word-perfect, so a \"quote not found\" may be the copy's fault. Add the PDF to sources/ for exact checking."
+  }
+ ]
+}
