@@ -51,7 +51,7 @@ above; say in the row which of them it meets (T = time pressure, N = next step d
 | 16 | Severe bleeding: pressure, tourniquet and the time it went on (ANZCOR guideline 9.1.1) [T N R] | medical | 2 | built |
 | 17 | Bomb threat by phone: what to ask and write down during the call, then evacuate or not (NZ Police) [T R] | non-medical | 2 | built |
 | 18 | Person overboard from a boat: mark the position and time, recover, call for help (Maritime NZ / Coastguard) [T N R] | non-medical | 2 | built |
-| 19 | Opioid overdose: naloxone, repeat doses, recovery position (Health NZ / NZ Drug Foundation) [T N R] | medical | 2 | queued |
+| 19 | Opioid overdose: naloxone, repeat doses, recovery position (Health NZ / NZ Drug Foundation) [T N R] | medical | 2 | built |
 | 20 | School or early learning lockdown: alert, lock, roll check, all-clear (Ministry of Education) [T N R] | non-medical | 2 | queued |
 | 21 | Anaphylaxis action plan, adrenaline by weight, repeat after 5 minutes (ASCIA) [T N R] | medical | 3 | queued |
 | 22 | Low blood sugar: 15-15 treat and recheck cycles (Diabetes NZ / Health NZ) [T N R] | medical | 3 | queued |

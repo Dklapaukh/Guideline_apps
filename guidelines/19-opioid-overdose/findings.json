@@ -1,0 +1,59 @@
+{
+ "summary": {
+  "steps": 14,
+  "reachable": 14,
+  "fix": 0,
+  "check": 0,
+  "info": 8,
+  "quotes": 118,
+  "quotesExact": 118,
+  "numberLines": 20,
+  "numberLinesQuoted": 20,
+  "sourceAmounts": 16,
+  "sourceAmountsUsed": 11
+ },
+ "findings": [
+  {
+   "level": "info",
+   "step": "start",
+   "line": 20,
+   "message": "1 line in \"Overdose? Check, then call 111\" has no quote from the guideline (\"It may be an opioid overdose if they:\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "prepare",
+   "line": 102,
+   "message": "1 line in \"Get the naloxone ready\" has no quote from the guideline (\"Snap the top off. Which way the dot faces differs:\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "check",
+   "line": 156,
+   "message": "2 lines in \"Breathing well, or waking?\" have no quote from the guideline (\"No response? The sources say give another dose with a new…\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "woke",
+   "line": 249,
+   "message": "2 lines in \"They woke up: stay with them\" have no quote from the guideline (\"How long naloxone lasts differs:\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "handover",
+   "line": 295,
+   "message": "1 line in \"Tell the paramedics\" has no quote from the guideline (\"The Log also has when 111 was called, the recovery positi…\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "message": "The guideline mentions 5 amounts the template never uses: 23 g, 25 g, 25 °c, 1.8 mg, 0.4 ml. Some may be background; check none were left out."
+  },
+  {
+   "level": "info",
+   "message": "Nobody is named under \"Reviewed by:\", so the app shows \"Not reviewed\"."
+  },
+  {
+   "level": "info",
+   "message": "The saved guideline text is a web copy made by a fetch tool and may not be word-perfect, so a \"quote not found\" may be the copy's fault. Add the PDF to sources/ for exact checking."
+  }
+ ]
+}

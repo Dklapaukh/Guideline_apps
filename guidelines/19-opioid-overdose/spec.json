@@ -1,0 +1,1729 @@
+{
+ "title": "Opioid overdose",
+ "about": "Helps a bystander in New Zealand when someone may have overdosed on opioids: the signs, calling 111, giving naloxone from a kit (or what to do with no kit), waiting and repeating a dose, rescue breathing, staying with them, and the dose times the paramedics need.",
+ "sources": [
+  {
+   "name": "Healthify He Puna Waiora, \"Naloxone for opioid overdose\" (reviewed 18 Dec 2025) (main source)",
+   "link": "https://healthify.nz/medicines/n/naloxone-for-opioid-overdose/"
+  },
+  {
+   "name": "Community Alcohol and Drug Services, \"Naloxone Emergency Kit\" pamphlet v7 (April 2026)",
+   "link": "https://healthify.nz/assets/Brochures/I-Naloxone-pamphlet-v7-April-2026.pdf"
+  },
+  {
+   "name": "Healthify He Puna Waiora, \"Opioid overdose\" (reviewed 8 Feb 2022)",
+   "link": "https://healthify.nz/opioid-overdose"
+  },
+  {
+   "name": "The Level (NZ Drug Foundation), \"How to use injectable naloxone\" (27 July 2022)",
+   "link": "https://thelevel.org.nz/news-and-stories/how-to-use-naloxone-ampoules"
+  },
+  {
+   "name": "The Level (NZ Drug Foundation), \"How to use Nyxoid to reverse an opioid overdose\" (14 September 2021)",
+   "link": "https://thelevel.org.nz/news-and-stories/how-and-when-to-use-nyxoid-nasal-spray-to-respond-to-an-opioid-overdose"
+  },
+  {
+   "name": "Medsafe (NZ), Consumer Medicine Information \"NYXOID\" (May 2019)",
+   "link": "https://www.medsafe.govt.nz/Consumers/CMI/n/nyxoid.pdf"
+  },
+  {
+   "name": "AUSTRALIAN: NSW Health, \"Consumer information sheet - Prenoxad\" (26 July 2023)",
+   "link": "https://www.health.nsw.gov.au/aod/programs/Pages/naloxone-factsheet-prenoxad.aspx"
+  },
+  {
+   "name": "AUSTRALIAN: Australian Government Department of Health, \"How to administer naloxone\" (no date)",
+   "link": "https://www.health.gov.au/our-work/take-home-naloxone-program/how-to-administer-naloxone"
+  }
+ ],
+ "warning": "An overdose is an emergency: call 111. The sources do not all agree; where they differ, the app shows each one.",
+ "audience": "A bystander in New Zealand helping someone who may have overdosed on opioids, with or without a naloxone kit",
+ "reviewedBy": "",
+ "version": "Healthify 'Naloxone for opioid overdose' (reviewed 18 Dec 2025, updated 25 Mar 2026); CADS 'Naloxone Emergency Kit' pamphlet v7 (April 2026); Healthify 'Opioid overdose' (reviewed 8 Feb 2022, updated 25 Mar 2025); The Level 'How to use injectable naloxone' (27 Jul 2022) and 'How to use Nyxoid' (14 Sep 2021); Medsafe Nyxoid CMI (May 2019); AUSTRALIAN: NSW Health Prenoxad sheet (26 Jul 2023), health.gov.au 'How to administer naloxone' (no date); all read 21 Nov 2026",
+ "brand": {
+  "name": "",
+  "colour": ""
+ },
+ "look": "",
+ "inputs": [],
+ "tables": [],
+ "steps": [
+  {
+   "id": "start",
+   "title": "Overdose? Check, then call 111",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "It may be an opioid overdose if they:",
+     "line": 20
+    },
+    {
+     "kind": "say",
+     "text": "are very sleepy or hard to wake (passed out)",
+     "bullet": true,
+     "line": 21,
+     "quotes": [
+      {
+       "text": "are very sleepy or hard to wake up (passed out)",
+       "where": "Healthify, Opioid overdose",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "have little or no breathing, or snore or gurgle",
+     "bullet": true,
+     "line": 23,
+     "quotes": [
+      {
+       "text": "have irregular, little or no breathing",
+       "where": "Healthify, Opioid overdose",
+       "check": "exact"
+      },
+      {
+       "text": "are snoring unusually or deeply",
+       "where": "Healthify, Opioid overdose",
+       "check": "exact"
+      },
+      {
+       "text": "are making gurgling sounds",
+       "where": "Healthify, Opioid overdose",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "have blue lips or nails, or tiny pupils",
+     "bullet": true,
+     "line": 27,
+     "quotes": [
+      {
+       "text": "have blue lips or nails",
+       "where": "Healthify, Opioid overdose",
+       "check": "exact"
+      },
+      {
+       "text": "have tiny pupils.",
+       "where": "Healthify, Opioid overdose",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "warning",
+     "text": "No response? Don't assume they are asleep. Do not leave them to sleep it off.",
+     "line": 30,
+     "quotes": [
+      {
+       "text": "If you can't get a response from someone don't assume they are asleep",
+       "where": "kit pamphlet",
+       "check": "exact"
+      },
+      {
+       "text": "Do not leave people to 'sleep it off'.",
+       "where": "kit pamphlet",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Call 111 now, or have someone call. Say you think it is an overdose, and if you have naloxone.",
+     "line": 33,
+     "quotes": [
+      {
+       "text": "Call 111 for help if you suspect someone has overdosed on opioids.",
+       "where": "Healthify, Opioid overdose",
+       "check": "exact"
+      },
+      {
+       "text": "Call, or have someone call 111 before administering naloxone.",
+       "where": "The Level",
+       "check": "exact"
+      },
+      {
+       "text": "Let the emergency dispatcher know you think someone is experiencing an overdose and that you have naloxone with you.",
+       "where": "The Level",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "record",
+     "text": "111 called",
+     "line": 37
+    },
+    {
+     "kind": "say",
+     "text": "Australian (NSW): call for help from other people if you are alone.",
+     "line": 38,
+     "quotes": [
+      {
+       "text": "Call for help from other people if you are alone.",
+       "where": "NSW, Australian",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Stay with them until the paramedics arrive. Stay on the phone: they can give advice.",
+     "line": 40,
+     "quotes": [
+      {
+       "text": "stay with the person until the paramedics arrive.",
+       "where": "Healthify",
+       "check": "exact"
+      },
+      {
+       "text": "Stay with the person.",
+       "where": "Healthify, Opioid overdose",
+       "check": "exact"
+      },
+      {
+       "text": "Stay on the phone with the emergency services.",
+       "where": "Healthify, Opioid overdose",
+       "check": "exact"
+      },
+      {
+       "text": "They can provide advice until help arrives.",
+       "where": "Healthify, Opioid overdose",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "What now?",
+    "options": [
+     {
+      "label": "I have a naloxone kit",
+      "to": "safe",
+      "line": 46,
+      "target": "safe"
+     },
+     {
+      "label": "No kit",
+      "to": "no-kit",
+      "line": 47,
+      "target": "no-kit"
+     },
+     {
+      "label": "Not sure it is an overdose",
+      "to": "unsure",
+      "line": 48,
+      "target": "unsure"
+     }
+    ],
+    "line": 45
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 19
+  },
+  {
+   "id": "unsure",
+   "title": "Not sure it is an overdose",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "The Level: if you think it is an opioid overdose but are unsure, use naloxone anyway. It won't hurt them.",
+     "line": 51,
+     "quotes": [
+      {
+       "text": "If you think someone is experiencing an opioid overdose but are unsure, you should use naloxone anyway",
+       "where": "The Level",
+       "check": "exact"
+      },
+      {
+       "text": "it won't hurt them, even if they haven't overdosed on opioids.",
+       "where": "The Level",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Healthify: if it is not an overdose, it won't cause any harm.",
+     "line": 54,
+     "quotes": [
+      {
+       "text": "If it turns out not to be an overdose, it won't cause any harm.",
+       "where": "Healthify",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Naloxone only works on opioids, not other drugs (kit pamphlet).",
+     "line": 56,
+     "quotes": [
+      {
+       "text": "Naloxone only works if someone has taken an opioid—it won't work for other drugs or medications",
+       "where": "kit pamphlet",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Call 111 if you have not already.",
+     "line": 58,
+     "quotes": [
+      {
+       "text": "Call 111 for help if you suspect someone has overdosed on opioids.",
+       "where": "Healthify, Opioid overdose",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "What now?",
+    "options": [
+     {
+      "label": "I have a naloxone kit",
+      "to": "safe",
+      "line": 61,
+      "target": "safe"
+     },
+     {
+      "label": "No kit",
+      "to": "no-kit",
+      "line": 62,
+      "target": "no-kit"
+     }
+    ],
+    "line": 60
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 50
+  },
+  {
+   "id": "no-kit",
+   "title": "No naloxone kit: while you wait",
+   "lines": [
+    {
+     "kind": "do",
+     "text": "Stay with them. Check for danger. Try to wake them.",
+     "line": 65,
+     "quotes": [
+      {
+       "text": "Stay with the person.",
+       "where": "Healthify, Opioid overdose",
+       "check": "exact"
+      },
+      {
+       "text": "Check for danger.",
+       "where": "Healthify, Opioid overdose",
+       "check": "exact"
+      },
+      {
+       "text": "Try to wake the person.",
+       "where": "Healthify, Opioid overdose",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Make sure the airway is clear: tilt the head back and clear the airway.",
+     "line": 69,
+     "quotes": [
+      {
+       "text": "Make sure airways are clear. Tilt the head back and clear the airways.",
+       "where": "Healthify, Opioid overdose",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Stay on the phone with 111. They may ask you to do rescue breathing or CPR.",
+     "line": 71,
+     "quotes": [
+      {
+       "text": "Stay on the phone with the emergency services.",
+       "where": "Healthify, Opioid overdose",
+       "check": "exact"
+      },
+      {
+       "text": "They may ask you to provide rescue breathing or CPR.",
+       "where": "Healthify, Opioid overdose",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "This page (the only no-kit advice) does not mention the recovery position. Healthify's naloxone page says turn them on their side to prevent choking, but in its list for when you use naloxone.",
+     "line": 74,
+     "quotes": [
+      {
+       "text": "Turn them on their side to prevent choking (recovery position).",
+       "where": "Healthify",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "record",
+     "text": "Recovery position",
+     "line": 76
+    }
+   ],
+   "ask": {
+    "question": "How are they?",
+    "options": [
+     {
+      "label": "Not breathing",
+      "to": "breathe",
+      "line": 78,
+      "target": "breathe"
+     },
+     {
+      "label": "They woke up",
+      "to": "woke",
+      "line": 79,
+      "target": "woke"
+     },
+     {
+      "label": "Ambulance arrived",
+      "to": "handover",
+      "line": 80,
+      "target": "handover"
+     }
+    ],
+    "line": 77
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 64
+  },
+  {
+   "id": "safe",
+   "title": "Safe place, airway, on their side",
+   "lines": [
+    {
+     "kind": "do",
+     "text": "Check they are in a safe place and that you can't wake them.",
+     "line": 83,
+     "quotes": [
+      {
+       "text": "Check the person is in a safe place and that you can't wake them up.",
+       "where": "Healthify",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Australian (NSW): clear away any uncapped needles or sharp objects.",
+     "line": 85,
+     "quotes": [
+      {
+       "text": "clear away any uncapped needles or other sharp objects",
+       "where": "NSW, Australian",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Make sure their airway is clear. Put them in the recovery position (on their side).",
+     "line": 87,
+     "quotes": [
+      {
+       "text": "Make sure their airways are clear and place the person in the recovery position",
+       "where": "kit pamphlet",
+       "check": "exact"
+      },
+      {
+       "text": "Turn them on their side to prevent choking (recovery position).",
+       "where": "Healthify",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "record",
+     "text": "Recovery position",
+     "line": 90
+    },
+    {
+     "kind": "say",
+     "text": "The NZ kit pamphlet puts them on their side before the naloxone (its step 3, then step 4). Other sources differ on when; the app follows the NZ kit, as injectable naloxone is the only kind in NZ.",
+     "line": 91,
+     "quotes": [
+      {
+       "text": "In Aotearoa New Zealand, only injectable naloxone is currently available.",
+       "where": "Healthify",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": null,
+   "next": {
+    "to": "prepare",
+    "line": 93,
+    "target": "prepare"
+   },
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 82,
+   "nexts": [
+    {
+     "to": "prepare",
+     "line": 93,
+     "target": "prepare"
+    }
+   ]
+  },
+  {
+   "id": "prepare",
+   "title": "Get the naloxone ready",
+   "lines": [
+    {
+     "kind": "do",
+     "text": "Follow the leaflet in your kit, especially where the sources below differ.",
+     "line": 96,
+     "quotes": [
+      {
+       "text": "see the leaflet in the emergency kit",
+       "where": "Healthify",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Attach the needle to the syringe. Both must be unused and sterile (clean).",
+     "line": 98,
+     "quotes": [
+      {
+       "text": "Attach the needle to the syringe - ensure they are both unused and sterile (clean).",
+       "where": "The Level",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Swirl the ampoule so the liquid goes to the bottom.",
+     "line": 100,
+     "quotes": [
+      {
+       "text": "Swirl the the ampoule to move the liquid to the bottom.",
+       "where": "The Level",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Snap the top off. Which way the dot faces differs:",
+     "line": 102
+    },
+    {
+     "kind": "say",
+     "text": "NZ kit pamphlet: turn the dot away from you, then push to snap the top off.",
+     "bullet": true,
+     "line": 103,
+     "quotes": [
+      {
+       "text": "Turn the dot on the Naloxone vial away from you then push to snap top off vial",
+       "where": "kit pamphlet",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "The Level says the opposite: blue dot facing towards you, push the top away from you.",
+     "bullet": true,
+     "line": 105,
+     "quotes": [
+      {
+       "text": "Hold the ampoule with the blue dot facing towards you.",
+       "where": "The Level",
+       "check": "exact"
+      },
+      {
+       "text": "Snap open the vial by pushing the top away from you.",
+       "where": "The Level",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Put the needle in the ampoule and pull up the plunger to draw up the naloxone.",
+     "line": 108,
+     "quotes": [
+      {
+       "text": "Insert the needle into the ampoule; pull up the plunger to draw the naloxone into the syringe.",
+       "where": "The Level",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "How much to draw up: no NZ source says in words. The kit has 5 x 1ml Naloxone 0.4mg ampoules.",
+     "line": 110,
+     "quotes": [
+      {
+       "text": "5 x 1ml Naloxone 0.4mg ampoules",
+       "where": "kit pamphlet",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": null,
+   "next": {
+    "to": "inject",
+    "line": 112,
+    "target": "inject"
+   },
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 95,
+   "nexts": [
+    {
+     "to": "inject",
+     "line": 112,
+     "target": "inject"
+    }
+   ]
+  },
+  {
+   "id": "inject",
+   "title": "Inject the first dose",
+   "lines": [
+    {
+     "kind": "do",
+     "text": "Inject into a muscle: outer thigh or upper arm. You can go through clothing. Push the plunger all the way down.",
+     "line": 115,
+     "quotes": [
+      {
+       "text": "Inject naloxone into a muscle - either the outer thigh or upper arm. You can go through clothing.",
+       "where": "The Level",
+       "check": "exact"
+      },
+      {
+       "text": "Make sure you push the plunger all the way down.",
+       "where": "The Level",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "record",
+     "text": "Naloxone dose given",
+     "line": 118
+    },
+    {
+     "kind": "warning",
+     "text": "Tap \"Naloxone dose given\" as you inject. It logs the clock time for the paramedics.",
+     "line": 119,
+     "quotes": [
+      {
+       "text": "When you give naloxone, take note of the time so you can tell the paramedics.",
+       "where": "Healthify",
+       "check": "exact"
+      },
+      {
+       "text": "taking note of the time you do this so you can tell the paramedics",
+       "where": "kit pamphlet",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Put the needle somewhere safe.",
+     "line": 122,
+     "quotes": [
+      {
+       "text": "Place the needle somewhere safe.",
+       "where": "The Level",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": null,
+   "next": {
+    "to": "wait-first",
+    "line": 124,
+    "target": "wait-first"
+   },
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 114,
+   "nexts": [
+    {
+     "to": "wait-first",
+     "line": 124,
+     "target": "wait-first"
+    }
+   ]
+  },
+  {
+   "id": "wait-first",
+   "title": "Wait and watch",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "The timer is 3 minutes: the only time inside all three NZ sources for the injection.",
+     "line": 131,
+     "quotes": [
+      {
+       "text": "If after 3 minutes the person is still unconscious",
+       "where": "The Level",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Healthify: no response in 2 to 5 minutes.",
+     "bullet": true,
+     "line": 133,
+     "quotes": [
+      {
+       "text": "If the person doesn't respond in 2 to 5 minutes",
+       "where": "Healthify",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "NZ kit pamphlet: no response after 3-5 minutes.",
+     "bullet": true,
+     "line": 135,
+     "quotes": [
+      {
+       "text": "If there has been no response after 3-5 minutes",
+       "where": "kit pamphlet",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "The Level: wait 2-3 minutes to see if there is a response.",
+     "bullet": true,
+     "line": 137,
+     "quotes": [
+      {
+       "text": "Wait 2-3 minutes to see if there's a response.",
+       "where": "The Level",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "The Level: repeat if still unconscious after 3 minutes.",
+     "bullet": true,
+     "line": 139,
+     "quotes": [
+      {
+       "text": "If after 3 minutes the person is still unconscious",
+       "where": "The Level",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Others: Nyxoid spray (Medsafe, not available in NZ) and Australian (NSW): 2 to 3 minutes.",
+     "line": 141,
+     "quotes": [
+      {
+       "text": "If the patient is no better within 2 - 3 minutes, a second dose can be given.",
+       "where": "Medsafe Nyxoid",
+       "check": "exact"
+      },
+      {
+       "text": "Repeat naloxone injections every 2 to 3 minutes until person recovers.",
+       "where": "NSW, Australian",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "The 20-minute bar starts now, as you leave the dose screen (Healthify and the kit pamphlet: naloxone only lasts 20 minutes). It does not restart on later doses.",
+     "line": 144,
+     "quotes": [
+      {
+       "text": "naloxone only lasts 20 minutes",
+       "where": "kit pamphlet",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "The Level: if you know how to do CPR, you can do it while you wait.",
+     "line": 146,
+     "quotes": [
+      {
+       "text": "If you know how to do CPR, you can do this while you're waiting for the naloxone to take effect.",
+       "where": "The Level",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "While you wait?",
+    "options": [
+     {
+      "label": "Not breathing",
+      "to": "breathe",
+      "line": 149,
+      "target": "breathe"
+     },
+     {
+      "label": "They woke up",
+      "to": "woke",
+      "line": 150,
+      "target": "woke"
+     },
+     {
+      "label": "Ambulance arrived",
+      "to": "handover",
+      "line": 151,
+      "target": "handover"
+     }
+    ],
+    "line": 148
+   },
+   "next": null,
+   "timer": {
+    "ms": 180000,
+    "label": "3 minutes",
+    "to": "check",
+    "line": 129,
+    "quotes": [
+     {
+      "text": "If after 3 minutes the person is still unconscious",
+      "where": "The Level",
+      "check": "exact"
+     }
+    ],
+    "target": "check"
+   },
+   "reminders": [
+    {
+     "ms": 1200000,
+     "every": "20 minutes",
+     "once": true,
+     "text": "Naloxone may wear off about now (20 min after the first dose). Stay with them",
+     "id": "naloxone-may-wear-off-about-now-20-min-a",
+     "line": 127,
+     "quotes": [
+      {
+       "text": "Naloxone only lasts 20 minutes and they could drop again.",
+       "where": "Healthify",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "stop": null,
+   "end": false,
+   "line": 126
+  },
+  {
+   "id": "check",
+   "title": "Breathing well, or waking?",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "Look and listen: are they waking up, and breathing well?",
+     "line": 154,
+     "quotes": [
+      {
+       "text": "Listen and look for normal breathing",
+       "where": "NSW, Australian",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "No response? The sources say give another dose with a new ampoule, needle and syringe:",
+     "line": 156
+    },
+    {
+     "kind": "say",
+     "text": "Healthify: no response in 2 to 5 minutes: a second dose.",
+     "bullet": true,
+     "line": 157,
+     "quotes": [
+      {
+       "text": "If the person doesn't respond in 2 to 5 minutes, you will need to give a second dose.",
+       "where": "Healthify",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "NZ kit pamphlet: no response after 3-5 minutes: another dose.",
+     "bullet": true,
+     "line": 159,
+     "quotes": [
+      {
+       "text": "If there has been no response after 3-5 minutes administer another dose of naloxone",
+       "where": "kit pamphlet",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "The Level: still unconscious after 3 minutes: repeat with new kit items.",
+     "bullet": true,
+     "line": 161,
+     "quotes": [
+      {
+       "text": "you can repeat the above steps using a new ampoule, needle, and syringe.",
+       "where": "The Level",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Check the time of the last dose under the dose button or in the Log.",
+     "line": 163
+    },
+    {
+     "kind": "say",
+     "text": "How many doses differs: Healthify and the kit pamphlet describe a second dose only. The Level: as many as you need until help arrives; no maximum dose.",
+     "line": 164,
+     "quotes": [
+      {
+       "text": "You can repeat the process as many times as you need to until help arrives.",
+       "where": "The Level",
+       "check": "exact"
+      },
+      {
+       "text": "There is no maximum dose of naloxone ampoules",
+       "where": "The Level",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "The kit has 5 ampoules. No source says what to do when they run out. 111 can advise.",
+     "line": 167,
+     "quotes": [
+      {
+       "text": "5 x 1ml Naloxone 0.4mg ampoules",
+       "where": "kit pamphlet",
+       "check": "exact"
+      },
+      {
+       "text": "They can provide advice until help arrives.",
+       "where": "Healthify, Opioid overdose",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "How are they?",
+    "options": [
+     {
+      "label": "Waking up and breathing",
+      "to": "woke",
+      "line": 171,
+      "target": "woke"
+     },
+     {
+      "label": "No response: give another dose",
+      "to": "again",
+      "line": 172,
+      "target": "again"
+     },
+     {
+      "label": "Not breathing",
+      "to": "breathe",
+      "line": 173,
+      "target": "breathe"
+     },
+     {
+      "label": "No ampoules left",
+      "to": "no-kit",
+      "line": 174,
+      "target": "no-kit"
+     },
+     {
+      "label": "Ambulance arrived",
+      "to": "handover",
+      "line": 175,
+      "target": "handover"
+     }
+    ],
+    "line": 170
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 153
+  },
+  {
+   "id": "again",
+   "title": "Another dose",
+   "lines": [
+    {
+     "kind": "do",
+     "text": "Repeat the steps with a new ampoule, needle and syringe (follow your kit leaflet).",
+     "line": 178,
+     "quotes": [
+      {
+       "text": "you can repeat the above steps using a new ampoule, needle, and syringe.",
+       "where": "The Level",
+       "check": "exact"
+      },
+      {
+       "text": "see the leaflet in the emergency kit",
+       "where": "Healthify",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Inject into a muscle: outer thigh or upper arm. Push the plunger all the way down.",
+     "line": 181,
+     "quotes": [
+      {
+       "text": "Inject naloxone into a muscle - either the outer thigh or upper arm.",
+       "where": "The Level",
+       "check": "exact"
+      },
+      {
+       "text": "Make sure you push the plunger all the way down.",
+       "where": "The Level",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "record",
+     "text": "Naloxone dose given",
+     "line": 184
+    },
+    {
+     "kind": "warning",
+     "text": "Tap \"Naloxone dose given\" as you inject. It logs the time and counts the doses.",
+     "line": 185,
+     "quotes": [
+      {
+       "text": "administer another dose of naloxone and record the time you",
+       "where": "kit pamphlet",
+       "check": "exact"
+      },
+      {
+       "text": "Take note of the time you give this.",
+       "where": "Healthify",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Put the needle somewhere safe.",
+     "line": 188,
+     "quotes": [
+      {
+       "text": "Place the needle somewhere safe.",
+       "where": "The Level",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": null,
+   "next": {
+    "to": "wait",
+    "line": 190,
+    "target": "wait"
+   },
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 177,
+   "nexts": [
+    {
+     "to": "wait",
+     "line": 190,
+     "target": "wait"
+    }
+   ]
+  },
+  {
+   "id": "wait",
+   "title": "Wait and watch again",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "3 minutes again: inside Healthify's 2 to 5 minutes,",
+     "line": 195,
+     "quotes": [
+      {
+       "text": "If the person doesn't respond in 2 to 5 minutes",
+       "where": "Healthify",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "the kit's 3-5 minutes,",
+     "line": 197,
+     "quotes": [
+      {
+       "text": "If there has been no response after 3-5 minutes",
+       "where": "kit pamphlet",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "and The Level's \"after 3 minutes\".",
+     "line": 199,
+     "quotes": [
+      {
+       "text": "If after 3 minutes the person is still unconscious",
+       "where": "The Level",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Australian (NSW): repeat every 2 to 3 minutes until they recover.",
+     "line": 201,
+     "quotes": [
+      {
+       "text": "Repeat naloxone injections every 2 to 3 minutes until person recovers.",
+       "where": "NSW, Australian",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "While you wait?",
+    "options": [
+     {
+      "label": "Not breathing",
+      "to": "breathe",
+      "line": 204,
+      "target": "breathe"
+     },
+     {
+      "label": "They woke up",
+      "to": "woke",
+      "line": 205,
+      "target": "woke"
+     },
+     {
+      "label": "Ambulance arrived",
+      "to": "handover",
+      "line": 206,
+      "target": "handover"
+     }
+    ],
+    "line": 203
+   },
+   "next": null,
+   "timer": {
+    "ms": 180000,
+    "label": "3 minutes",
+    "to": "check",
+    "line": 193,
+    "quotes": [
+     {
+      "text": "If after 3 minutes the person is still unconscious",
+      "where": "The Level",
+      "check": "exact"
+     }
+    ],
+    "target": "check"
+   },
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 192
+  },
+  {
+   "id": "breathe",
+   "title": "Not breathing: rescue breathing",
+   "lines": [
+    {
+     "kind": "warning",
+     "text": "Not breathing? Give rescue breathing: 2 breaths every 5 seconds. You need to get them breathing.",
+     "line": 209,
+     "quotes": [
+      {
+       "text": "apply rescue breathing (2 breaths every 5 seconds)",
+       "where": "Healthify",
+       "check": "exact"
+      },
+      {
+       "text": "You need to get the person breathing.",
+       "where": "Healthify",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "record",
+     "text": "Rescue breathing started",
+     "line": 212
+    },
+    {
+     "kind": "do",
+     "text": "Keep up rescue breathing and follow the 111 call-taker. They can advise and may ask for rescue breathing or CPR.",
+     "line": 213,
+     "quotes": [
+      {
+       "text": "They can provide advice until help arrives.",
+       "where": "Healthify, Opioid overdose",
+       "check": "exact"
+      },
+      {
+       "text": "They may ask you to provide rescue breathing or CPR.",
+       "where": "Healthify, Opioid overdose",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "When differs: Healthify says if not breathing after the second dose; the kit pamphlet says if not breathing (its step 6, after the first dose).",
+     "line": 216,
+     "quotes": [
+      {
+       "text": "If after giving the second dose the person is not breathing",
+       "where": "Healthify",
+       "check": "exact"
+      },
+      {
+       "text": "If the person is not breathing apply rescue breathing",
+       "where": "kit pamphlet",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "The sources clash here, and do not explain it. The kit pamphlet says naloxone is not effective against slowed breathing (respiratory depression). Healthify says naloxone wearing off could make breathing stop again. Keep giving naloxone as the kit says, and breathe for them.",
+     "line": 219,
+     "quotes": [
+      {
+       "text": "naloxone is not effective against respiratory depression",
+       "where": "kit pamphlet",
+       "check": "exact"
+      },
+      {
+       "text": "could cause breathing to stop again.",
+       "where": "Healthify",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "How: NZ sources give only \"2 breaths every 5 seconds\". They do not say how to position the person for it. Follow the 111 call-taker.",
+     "line": 222,
+     "quotes": [
+      {
+       "text": "(2 breaths every 5 seconds)",
+       "where": "Healthify",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Australian (NSW), if you know how: roll them onto their back, tilt the head back, clear the airway, pinch the nose, seal your mouth over theirs, 2 quick breaths.",
+     "line": 224,
+     "quotes": [
+      {
+       "text": "provide rescue breathing (if you know how)",
+       "where": "NSW, Australian",
+       "check": "exact"
+      },
+      {
+       "text": "Roll the person onto their back",
+       "where": "NSW, Australian",
+       "check": "exact"
+      },
+      {
+       "text": "Tilt head backwards to open the airway",
+       "where": "NSW, Australian",
+       "check": "exact"
+      },
+      {
+       "text": "Clear the airway of any blockages",
+       "where": "NSW, Australian",
+       "check": "exact"
+      },
+      {
+       "text": "Pinch off nose and seal your mouth over theirs and give 2 quick breaths",
+       "where": "NSW, Australian",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "CPR: no NZ source gives CPR steps. The Level and NSW (Australian): CPR if you know how.",
+     "line": 230,
+     "quotes": [
+      {
+       "text": "If you know how to do CPR",
+       "where": "The Level",
+       "check": "exact"
+      },
+      {
+       "text": "Commence CPR if you know how.",
+       "where": "NSW, Australian",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "Now?",
+    "options": [
+     {
+      "label": "Still not breathing, I have a kit: another dose",
+      "to": "again",
+      "line": 234,
+      "target": "again"
+     },
+     {
+      "label": "Still not breathing, no kit: keep breathing",
+      "to": "breathe",
+      "line": 235,
+      "target": "breathe"
+     },
+     {
+      "label": "Breathing now, not awake",
+      "to": "check",
+      "line": 236,
+      "target": "check"
+     },
+     {
+      "label": "They woke up",
+      "to": "woke",
+      "line": 237,
+      "target": "woke"
+     },
+     {
+      "label": "Ambulance arrived",
+      "to": "handover",
+      "line": 238,
+      "target": "handover"
+     }
+    ],
+    "line": 233
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 208
+  },
+  {
+   "id": "woke",
+   "title": "They woke up: stay with them",
+   "lines": [
+    {
+     "kind": "record",
+     "text": "Person woke up",
+     "line": 241
+    },
+    {
+     "kind": "do",
+     "text": "Keep the ambulance coming, even if they seem fine. They may still need medical help.",
+     "line": 242,
+     "quotes": [
+      {
+       "text": "That person may need medical help after you give them naloxone.",
+       "where": "The Level",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Australian (health.gov.au): it is vital to call an ambulance, as naloxone wears off and they can overdose again.",
+     "line": 244,
+     "quotes": [
+      {
+       "text": "It is vital to call an ambulance because naloxone only lasts for about 30 to 90 minutes and the person can",
+       "where": "health.gov.au, Australian",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Stay with them until the paramedics arrive. Naloxone can wear off and they could drop again.",
+     "line": 246,
+     "quotes": [
+      {
+       "text": "If the person wakes up stay with them until the paramedics arrive.",
+       "where": "Healthify",
+       "check": "exact"
+      },
+      {
+       "text": "they could drop again.",
+       "where": "Healthify",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "How long naloxone lasts differs:",
+     "line": 249
+    },
+    {
+     "kind": "say",
+     "text": "Healthify (things to remember) and the NZ kit pamphlet: only 20 minutes.",
+     "bullet": true,
+     "line": 250,
+     "quotes": [
+      {
+       "text": "Naloxone only lasts 20 minutes",
+       "where": "Healthify",
+       "check": "exact"
+      },
+      {
+       "text": "naloxone only lasts 20 minutes",
+       "where": "kit pamphlet",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Healthify (later on the same page): 20 to 90 minutes.",
+     "bullet": true,
+     "line": 253,
+     "quotes": [
+      {
+       "text": "Naloxone is active in the body for only 20 to 90 minutes",
+       "where": "Healthify",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Australian (NSW, health.gov.au): about 30 to 90 minutes.",
+     "bullet": true,
+     "line": 255,
+     "quotes": [
+      {
+       "text": "effects last about 30-90 minutes",
+       "where": "NSW, Australian",
+       "check": "exact"
+      },
+      {
+       "text": "naloxone only lasts for about 30 to 90 minutes",
+       "where": "health.gov.au, Australian",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "The 20-minute bar started as you left the first dose screen. The part of the Medsafe leaflet that was captured gives no time.",
+     "line": 258
+    },
+    {
+     "kind": "say",
+     "text": "They may wake suddenly with withdrawal symptoms (Healthify):",
+     "line": 259,
+     "quotes": [
+      {
+       "text": "the person may wake up suddenly and experience withdrawal symptoms.",
+       "where": "Healthify",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "feeling nervous, restless or irritable",
+     "bullet": true,
+     "line": 261,
+     "quotes": [
+      {
+       "text": "feeling nervous, restless or irritable",
+       "where": "Healthify",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "body aches; dizziness or weakness; anxiety",
+     "bullet": true,
+     "line": 263,
+     "quotes": [
+      {
+       "text": "body aches",
+       "where": "Healthify",
+       "check": "exact"
+      },
+      {
+       "text": "dizziness or weakness",
+       "where": "Healthify",
+       "check": "exact"
+      },
+      {
+       "text": "anxiety",
+       "where": "Healthify",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "fast heartbeat; confusion",
+     "bullet": true,
+     "line": 267,
+     "quotes": [
+      {
+       "text": "fast heartbeat",
+       "where": "Healthify",
+       "check": "exact"
+      },
+      {
+       "text": "confusion.",
+       "where": "Healthify",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Australian (NSW): once they recover, recovery position, mouth pointing to the ground; look and listen for normal breathing.",
+     "line": 270,
+     "quotes": [
+      {
+       "text": "mouth open pointing towards the ground",
+       "where": "NSW, Australian",
+       "check": "exact"
+      },
+      {
+       "text": "Listen and look for normal breathing",
+       "where": "NSW, Australian",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "record",
+     "text": "Recovery position",
+     "line": 273
+    }
+   ],
+   "ask": {
+    "question": "How are they?",
+    "options": [
+     {
+      "label": "Drowsy again, or breathing badly",
+      "to": "dropped",
+      "line": 275,
+      "target": "dropped"
+     },
+     {
+      "label": "Ambulance arrived",
+      "to": "handover",
+      "line": 276,
+      "target": "handover"
+     }
+    ],
+    "line": 274
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 240
+  },
+  {
+   "id": "dropped",
+   "title": "Dropping again",
+   "lines": [
+    {
+     "kind": "record",
+     "text": "Naloxone wore off",
+     "line": 279
+    },
+    {
+     "kind": "say",
+     "text": "Naloxone wears off before most opioids do, so breathing could stop again. It may need to be used again.",
+     "line": 280,
+     "quotes": [
+      {
+       "text": "the effects of naloxone are likely to wear off before the opioids are gone from the body, which",
+       "where": "Healthify",
+       "check": "exact"
+      },
+      {
+       "text": "could cause breathing to stop again.",
+       "where": "Healthify",
+       "check": "exact"
+      },
+      {
+       "text": "Naloxone may need to be used again",
+       "where": "Healthify",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "What now?",
+    "options": [
+     {
+      "label": "Give another dose",
+      "to": "again",
+      "line": 285,
+      "target": "again"
+     },
+     {
+      "label": "Not breathing",
+      "to": "breathe",
+      "line": 286,
+      "target": "breathe"
+     },
+     {
+      "label": "No kit, or no ampoules left",
+      "to": "no-kit",
+      "line": 287,
+      "target": "no-kit"
+     },
+     {
+      "label": "Ambulance arrived",
+      "to": "handover",
+      "line": 288,
+      "target": "handover"
+     }
+    ],
+    "line": 284
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 278
+  },
+  {
+   "id": "handover",
+   "title": "Tell the paramedics",
+   "lines": [
+    {
+     "kind": "do",
+     "text": "Tell them the time of each naloxone dose. Each \"Naloxone dose given\" tap is in the Log with its clock time and count.",
+     "line": 292,
+     "quotes": [
+      {
+       "text": "take note of the time so you can tell the paramedics.",
+       "where": "Healthify",
+       "check": "exact"
+      },
+      {
+       "text": "record the time you",
+       "where": "kit pamphlet",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "The Log also has when 111 was called, the recovery position, rescue breathing, and when they woke or dropped again. No NZ source lists anything else to tell them.",
+     "line": 295
+    },
+    {
+     "kind": "say",
+     "text": "Australian (NSW, Prenoxad syringe): hand the used syringe to the ambulance crew so they know it has been given. NZ sources do not say this.",
+     "line": 296,
+     "quotes": [
+      {
+       "text": "hand it to the ambulance crew so that they know it has been administered.",
+       "where": "NSW, Australian",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Dispose of any sharps safely.",
+     "line": 298,
+     "quotes": [
+      {
+       "text": "dispose of any sharps safely!",
+       "where": "kit pamphlet",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": null,
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": "all",
+   "end": true,
+   "line": 290
+  }
+ ],
+ "start": "start"
+}

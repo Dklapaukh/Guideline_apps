@@ -1,0 +1,306 @@
+Opioid overdose (signs, call 111, naloxone, repeat doses, rescue breathing, recovery position, stay with them),
+word-for-word copies from New Zealand sources first, then two Australian sources (read 21 Nov 2026, NZ time).
+The sources do NOT say the same things (for example the wait before a second naloxone dose is "2 to 5 minutes"
+on Healthify, "3-5 minutes" on the NZ kit pamphlet and "2-3 minutes" on The Level, Nyxoid and Prenoxad; how
+long naloxone lasts is "20 minutes", "20 to 90 minutes" or "about 30 to 90 minutes"), so each is kept under its
+own heading; never mix them. Main source is SOURCE A. Sources G and H are AUSTRALIAN (they say dial 000, not 111).
+Capture method (web-fetch copy): direct download is refused here (the network proxy blocks healthify.nz and
+medsafe.govt.nz downloads) and web search gave titles only, so every line was read by a fetch tool asked to
+quote exact lines (long sentences in pieces, rejoined here). Small slips (apostrophe, capital letter or dash
+style) are possible. Lines in [square brackets] are notes added here, not guideline text. "-" = bullet.
+No PDF was in sources/.
+
+=====================================================================================================
+SOURCE A. Healthify He Puna Waiora (NZ) "Naloxone for opioid overdose"
+https://healthify.nz/medicines/n/naloxone-for-opioid-overdose/
+Reviewed: 18 Dec 2025 by Angela Lambie, Pharmacist, Health New Zealand | Te Whatu Ora Waitematā.
+Page last updated: 25 Mar 2026.
+=====================================================================================================
+A1. What is naloxone?
+It's given as an injection and starts to work quickly, usually within a few minutes.
+If taken soon enough after an opioid overdose, it can save a life.
+
+A2. Availability of naloxone in New Zealand
+In Aotearoa New Zealand, only injectable naloxone is currently available.
+It works very quickly, usually within 2 to 5 minutes.
+The medicine comes in a glass ampoule and must be injected into the muscle of a person experiencing an overdose.
+You can get free injectable naloxone kits from:
+[list of places not captured; elsewhere on the page: a local needle exchange, a healthcare provider, or opioid
+substitution services - from a summary, not exact words]
+Note: Nasal spray naloxone (known as Nyxoid or Narcan) is currently unavailable in Aotearoa New Zealand.
+
+A3. How to use naloxone for an opioid overdose? (+ VIDEO)
+For detailed instructions on how to give naloxone also see the leaflet in the emergency kit or the guides:
+[links to guides not captured]
+
+A4. Things to remember when using naloxone
+- Always call an ambulance (dial 111) and stay with the person until the paramedics arrive.
+- Check the person is in a safe place and that you can't wake them up.
+- Turn them on their side to prevent choking (recovery position).
+- When you give naloxone, take note of the time so you can tell the paramedics.
+- If the person doesn't respond in 2 to 5 minutes, you will need to give a second dose.
+- Take note of the time you give this.
+- If after giving the second dose the person is not breathing, apply rescue breathing (2 breaths every 5 seconds).
+- You need to get the person breathing.
+- If the person wakes up stay with them until the paramedics arrive.
+- Naloxone only lasts 20 minutes and they could drop again.
+
+A5. Do I still need to call the paramedics if naloxone has worked?
+Naloxone is active in the body for only 20 to 90 minutes, but the effects of most opioids can last longer.
+This means that the effects of naloxone are likely to wear off before the opioids are gone from the body, which
+could cause breathing to stop again.
+Naloxone may need to be used again, depending on the amount and type of opioids taken or the way they've been
+taken – either swallowed, inhaled or injected.
+[Summary only, not exact words: "An overdose is always an emergency. Even if naloxone has been given, always call
+for help." was given as a quote by the fetch tool but its place on the page was not confirmed.]
+
+A6. Can naloxone harm someone?
+Naloxone is safe to use if you think someone might be having an opioid overdose.
+If it turns out not to be an overdose, it won't cause any harm.
+After receiving naloxone, the person may wake up suddenly and experience withdrawal symptoms.
+[Withdrawal symptoms listed, each as printed:]
+- feeling nervous, restless or irritable
+- body aches
+- dizziness or weakness
+- anxiety
+- fast heartbeat
+- confusion.
+Very rarely, people who take opioids can have more serious side effects following naloxone such as seizures,
+pulmonary oedema, and ventricular arrhythmias if a large dose of naloxone is given.
+
+=====================================================================================================
+SOURCE B. "Naloxone Emergency Kit" pamphlet, Community Alcohol and Drug Services, April 2026
+(the leaflet in the NZ kit; hosted by Healthify)
+https://healthify.nz/assets/Brochures/I-Naloxone-pamphlet-v7-April-2026.pdf
+=====================================================================================================
+[The PDF text came out of order (columns scrambled). The numbered steps are put back in number order here;
+the wording of each is as captured.]
+
+B1. OPIOID OVERDOSE—WHAT TO DO
+1. Safety: Check the person is in a safe place and that you can't wake them up
+2. Call an ambulance (111)
+3. Make sure their airways are clear and place the person in the recovery position
+4. Turn the dot on the Naloxone vial away from you then push to snap top off vial
+5. After injecting into the muscle (see below) taking note of the time you do this so you can tell the paramedics
+[The "(see below)" text about where or how to inject was not found in the captured text.]
+6. If the person is not breathing apply rescue breathing (2 breaths every 5 seconds) because naloxone is not
+effective against respiratory depression. You need to get the person breathing!
+7. If there has been no response after 3-5 minutes administer another dose of naloxone and record the time you
+do this
+8. If the person comes around stay with them—naloxone only lasts 20 minutes and they could drop again.
+
+B2. Signs of an overdose
+If you can't get a response from someone don't assume they are asleep
+Unusual or deep snoring is a common sign of OD
+Do not leave people to 'sleep it off'.
+[Any other items under this heading were not captured; the fetch tool found only these three lines.]
+
+B3. You can be at greater risk of an overdose if:
+- You mix opioids with other drugs such as alcohol and benzos
+- You haven't used opioids in a while (after time in prison or police cells, after detox, after a period of
+  abstinence/ not using)
+- You're using alone
+- The strength of the drug changes.
+Remember to stay safe, use protective equipment and dispose of any sharps safely!
+
+B4. This kit contains:
+- 5 x 1ml Naloxone 0.4mg ampoules
+- 10 x alcohol swabs
+- 5 x 3mls syringes
+- 5 x 23G or 25G needles
+
+B5. Cautions
+Naloxone should never be considered as a safety net to take extra risks
+Naloxone only works if someone has taken an opioid—it won't work for other drugs or medications
+Please note: you need to store the ampoules below 25°C and protect them from light.
+
+=====================================================================================================
+SOURCE C. Healthify He Puna Waiora (NZ) "Opioid overdose"
+https://healthify.nz/opioid-overdose
+Reviewed: 08 Feb 2022 by Sandra Ponen, Pharmacist, Healthify He Puna Waiora. Page last updated: 25 Mar 2025.
+=====================================================================================================
+C1. Opioid overdose is an emergency
+Opioid overdose is an emergency and must be treated immediately.
+Call 111 for help if you suspect someone has overdosed on opioids.
+
+C2. What are the symptoms of an opioid overdose?
+A person may have opioid overdose if they:
+- are very sleepy or hard to wake up (passed out)
+- have irregular, little or no breathing
+- are snoring unusually or deeply
+- are making gurgling sounds
+- have blue lips or nails
+- limp and floppy
+- vomit
+- have tiny pupils.
+It can cause death in a worst case event.
+
+C3. How is opioid overdose treated?
+Opioid overdose is an emergency. Call 111 for help if you suspect someone has overdosed on opioids.
+While you are waiting for help:
+- Stay with the person.
+- Check for danger.
+- Try to wake the person.
+- Make sure airways are clear. Tilt the head back and clear the airways.
+- Stay on the phone with the emergency services.
+They can provide advice until help arrives.
+They may ask you to provide rescue breathing or CPR.
+
+C4. Naloxone emergency kit
+Opioid overdose is treated with the medicine naloxone.
+If taken soon enough after an opioid overdose, it can reverse the effects of opioids and save lives.
+If you are at risk of opioid overdose you can be prescribed a naloxone emergency kit for use in an emergency.
+
+=====================================================================================================
+SOURCE D. The Level (NZ Drug Foundation) "How to use injectable naloxone" (27 July 2022)
+https://thelevel.org.nz/news-and-stories/how-to-use-naloxone-ampoules
+=====================================================================================================
+D1. When should I use naloxone? [signs]
+- Unconsciousness - someone not responding to their name or being touched
+- Difficulty breathing or shallow, slow breathing
+- Making choking, gurgling, or snoring sounds
+- Blue lips, tongue and hands and/or skin that is cold and pale
+- Pinpoint pupils
+If you think someone is experiencing an opioid overdose but are unsure, you should use naloxone anyway
+[cut here; the next captured piece is:] it won't hurt them, even if they haven't overdosed on opioids.
+There is no maximum dose of naloxone ampoules meaning that you are not at risk of giving someone too much.
+
+D2. How do I use naloxone?
+1. Call, or have someone call 111 before administering naloxone. Let the emergency dispatcher know you think
+   someone is experiencing an overdose and that you have naloxone with you. That person may need medical help
+   after you give them naloxone.
+2. Check the person is in a safe place for you to administer naloxone.
+3. Attach the needle to the syringe - ensure they are both unused and sterile (clean).
+4. Swirl the the ampoule to move the liquid to the bottom.
+5. Hold the ampoule with the blue dot facing towards you.
+6. Snap open the vial by pushing the top away from you.
+7. Insert the needle into the ampoule; pull up the plunger to draw the naloxone into the syringe.
+8. Inject naloxone into a muscle - either the outer thigh or upper arm. You can go through clothing. Make sure
+   you push the plunger all the way down.
+9. Place the needle somewhere safe.
+10. Wait 2-3 minutes to see if there's a response. If after 3 minutes the person is still unconscious (not
+   'coming to'), you can repeat the above steps using a new ampoule, needle, and syringe.
+You can repeat the process as many times as you need to until help arrives.
+If you know how to do CPR, you can do this while you're waiting for the naloxone to take effect.
+[No recovery position step is in this article's injectable steps.]
+
+=====================================================================================================
+SOURCE E. The Level (NZ Drug Foundation) "How to use Nyxoid to reverse an opioid overdose"
+(Emily Hughes, 14 September 2021)
+https://thelevel.org.nz/news-and-stories/how-and-when-to-use-nyxoid-nasal-spray-to-respond-to-an-opioid-overdose
+=====================================================================================================
+Unfortunately, Nyxoid and nasal spray versions of naloxone are not currently available in New Zealand.
+[Healthify, SOURCE A, updated 25 Mar 2026, still says nasal spray is unavailable in NZ.]
+
+E1. Signs
+- Unconsciousness and the person doesn't respond to their name or being touched
+- Difficulty breathing
+- Making choking, gurgling or snoring sounds
+- Blue lips, tongue and hands and their skin is cool and pale
+- Pinpoint pupils
+
+E2. Steps for using Nyxoid
+1. Always call an ambulance on 111 before you administer Nyxoid. Let them know you think someone is experiencing
+   an opioid overdose. The person may still need medical help after you give them Nyxoid.
+2. Support the person's neck and gently lay them on their back, letting their head tilt back.
+3. Make sure their nose area is clear from blood, mucus, or any other object. If it isn't clear, remove the
+   blockage first.
+4. Take Nyxoid out of the blister pack. Place your thumb on the bottom of the spray and two fingers on either
+   side of the nozzle. Make sure not to press down just yet.
+5. Insert the device into one of the person's nostrils. Now push firmly on the bottom of the spray until it
+   makes a 'click' sound. This means the naloxone is released.
+6. You can then remove the nozzle from the person's nostril and place them on their side, in the recovery
+   position.
+7. If they don't regain consciousness or start breathing normally after 2-3 minutes, you can use a new nasal
+   spray in the other nostril, repeating the process.
+You can repeat the process as many times as you need to until help arrives.
+
+=====================================================================================================
+SOURCE F. Medsafe (NZ) Consumer Medicine Information "NYXOID" (prepared May 2019; sponsor Mundipharma New
+Zealand Limited)
+https://www.medsafe.govt.nz/Consumers/CMI/n/nyxoid.pdf
+=====================================================================================================
+[Only selected lines were captured, not the whole leaflet.]
+This medicine contains the active substance naloxone.
+NYXOID contains 1.8 mg of naloxone (as naloxone hydrochloride dihydrate) as the active ingredient.
+Each nasal spray contains one single dose of naloxone.
+NYXOID is packed in a box containing 2 nasal sprays individually sealed in blisters.
+One spray of NYXOID is given into one nostril.
+Each Nyxoid nasal spray contains one single dose of naloxone and cannot be reused.
+NYXOID is to be given right away following a suspected overdose and does not take the place of emergency
+medical care.
+The signs and symptoms of an opioid overdose can return after this nasal spray is given.
+another dose after 2 to 3 minutes using a new nasal spray may be administered. [start of sentence not captured]
+[Steps, as captured; the fetch tool numbered them 1-6 but the leaflet's own numbering and any steps between
+these lines (e.g. how to spray) were not captured:]
+- Call for an ambulance before giving Nyxoid.
+- Lay the patient on their back. Support the back of the neck and allow the head to tilt back.
+- It's best to check that the nose is clear before giving Nyxoid.
+- Place the patient into the recovery position on their side with mouth open pointing towards the ground and stay
+  with them until the emergency services arrive.
+- If the patient is no better within 2 - 3 minutes, a second dose can be given.
+- Further doses may be given every 2 -3 minutes, if needed, until the emergency services arrive.
+[The leaflet gives no time for how long naloxone lasts.]
+
+=====================================================================================================
+SOURCE G. AUSTRALIAN: NSW Health "Consumer information sheet - Prenoxad®" (Last updated: 26 July 2023)
+https://www.health.nsw.gov.au/aod/programs/Pages/naloxone-factsheet-prenoxad.aspx
+[Australian source, used only where NZ sources are silent. Says call 000 (Australia). Prenoxad is not named by
+any NZ source captured here; the NZ kit uses ampoules.]
+=====================================================================================================
+G1. When to recognise an opioid overdose
+- Person is unconscious and does not respond to their name or physical stimulus (e.g. squeezing their shoulder)
+- Person has blue lips, tongue and hands, cool pale skin
+- Person is breathing infrequently, snoring or not breathing at all
+- 'Pinned' (small) pupils
+
+G2. How to respond to an opioid overdose
+1. Danger and call for help: Check the environment is safe – clear away any uncapped needles or other sharp
+   objects. Call for help from other people if you are alone.
+2. Is this an overdose? Look for pale cold skin, not breathing normally and unable to rouse the person by calling
+   their name or squeezing their shoulder.
+3. Call an Ambulance: Call 000 and follow instructions. Let them know you think it may be an overdose. Police do
+   not routinely attend.
+4. Administer Naloxone (Prenoxad®) while waiting for Ambulance: Inject one dose of naloxone into muscle in upper
+   arm or outer thigh. Note time given.
+   - Open plastic packaging by pulling the red tear strip on the side of the box
+   - Unscrew the clear plastic top from the syringeRemove needle from packaging (with cover still on) and screw
+     onto the syringe   [missing space after "syringe" is in the original]
+   - Remove needle cover and inject the first dose of 0.4 ml by pushing the plunger to the first black line
+   - Take out the syringe with the needle attached and safely put it back into the case
+   - Repeat naloxone injections every 2 to 3 minutes until person recovers.
+5. Airways and breathing: If not breathing normally, clear airways and provide rescue breathing (if you know how):
+   - Roll the person onto their back
+   - Place one hand on forehead and place other hand under chin
+   - Tilt head backwards to open the airway
+   - Clear the airway of any blockages
+   - Pinch off nose and seal your mouth over theirs and give 2 quick breaths
+6. Recovery: If person recovers, put them into recovery position:
+   - Roll person onto side (see diagram)
+   - Tilt head back: airway open, mouth open pointing towards the ground.
+   - Clear any obstructions from their mouth or throat
+   - Listen and look for normal breathing
+
+G3. Continuing care
+If person is not recovering, repeat naloxone injections every 2 to 3 minutes.
+Commence CPR if you know how.
+Continue until ambulance arrives.
+Stay until the ambulance comes: After using Prenoxad® injection, keep the syringe in the box/disposal container
+and hand it to the ambulance crew so that they know it has been administered.
+
+G4. About naloxone
+Naloxone is used to reverse opioid overdose (e.g. heroin, morphine, oxycodone, methadone).
+It takes two to five minutes to start working and effects last about 30-90 minutes.
+
+=====================================================================================================
+SOURCE H. AUSTRALIAN: Australian Government Department of Health "How to administer naloxone" (Take Home
+Naloxone program; no date shown)
+https://www.health.gov.au/our-work/take-home-naloxone-program/how-to-administer-naloxone
+=====================================================================================================
+Anyone can administer naloxone.
+Just follow the instructions provided with the packaging.
+To use naloxone:
+1. Administer the naloxone, following the instructions you've been given
+2. Call 000 for an ambulance immediately
+It is vital to call an ambulance because naloxone only lasts for about 30 to 90 minutes and the person can
+overdose again once it wears off.
