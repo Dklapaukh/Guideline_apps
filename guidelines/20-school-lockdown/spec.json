@@ -1,0 +1,2923 @@
+{
+ "title": "School lockdown",
+ "about": "For staff at a New Zealand school or early learning service in a lockdown: alert, call 111, roll check, lock, stay inside, all-clear, reunite. Keeps the times.",
+ "sources": [
+  {
+   "name": "Ministry of Education, \"Planning and preparing for emergencies: Practical information and guidance for schools and early childhood services\" (October 2026) (main source)",
+   "link": "https://web-assets.education.govt.nz/s3fs-public/2026-10/Planning%20and%20preparing%20for%20emergencies%20-%20Oct%202026.pdf?VersionId=E9A478ZxdUjYLRILTD87Aab5k2PVb.5w"
+  },
+  {
+   "name": "Ministry of Education, \"Prepare for an emergency or traumatic incident\" (schools)",
+   "link": "https://www.education.govt.nz/education-professionals/schools-year-0-13/health-and-safety/prepare-emergency-or-traumatic-incident"
+  },
+  {
+   "name": "Ministry of Education, \"Prepare for an emergency or traumatic incident\" (early learning)",
+   "link": "https://www.education.govt.nz/education-professionals/early-learning/health-and-safety/prepare-emergency-or-traumatic-incident-early-learning"
+  },
+  {
+   "name": "Ministry of Education, \"Emergency events\" (parents and caregivers)",
+   "link": "https://education.govt.nz/parents-and-caregivers/schools-year-0-13/health-safety-and-wellbeing/emergency-events"
+  },
+  {
+   "name": "Ministry of Education, \"Respond at school to an emergency or traumatic incident\"",
+   "link": "https://www.education.govt.nz/education-professionals/schools-year-0-13/health-safety-and-wellbeing/respond-school-emergency-or-traumatic-incident"
+  },
+  {
+   "name": "New Zealand Police, \"Know what to do: Escape. Hide. Tell\"",
+   "link": "https://www.police.govt.nz/advice-services/protecting-crowded-places-attack/know-what-do-escape-hide-tell"
+  },
+  {
+   "name": "SUPERSEDED: Ministry of Education, \"Planning and preparing for emergencies\" (January 2025), used only to show differences",
+   "link": "https://web-assets.education.govt.nz/s3fs-public/2025-01/PLANNING%20AND%20PREPARING%20FOR%20EMERGENCIES%20(1).pdf?VersionId=Fz9LyrQGYGu5kKoGug23TN9R3ZSTBS72"
+  }
+ ],
+ "warning": "Danger now? Call 111 when it is safe. Your school's or service's own emergency management plan comes first. Lines marked \"2025 edition\" are from the replaced guide.",
+ "audience": "Principals, early learning managers and staff in New Zealand schools and early learning services",
+ "reviewedBy": "",
+ "version": "Ministry of Education 'Planning and preparing for emergencies' (October 2026, ISBN 978-1-75991-452-7); Ministry 'Prepare for an emergency or traumatic incident' pages for schools (updated 17 Sep 2026) and early learning (updated 19 Oct 2026); Ministry parents page 'Emergency events' (updated 4 May 2026); Ministry 'Respond at school to an emergency or traumatic incident' (updated 21 Sep 2026); NZ Police 'Know what to do: Escape. Hide. Tell' (no date, copyright 2026); SUPERSEDED January 2025 edition for differences only; all read 21 Nov 2026",
+ "brand": {
+  "name": "",
+  "colour": ""
+ },
+ "look": "flightdeck",
+ "inputs": [],
+ "tables": [],
+ "steps": [
+  {
+   "id": "start",
+   "title": "Lockdown: what is happening?",
+   "lines": [],
+   "ask": {
+    "question": "What is happening?",
+    "options": [
+     {
+      "label": "An attacker is near me now",
+      "to": "attack",
+      "line": 23,
+      "target": "attack"
+     },
+     {
+      "label": "I am staff: I heard the lockdown alert",
+      "to": "room",
+      "line": 24,
+      "target": "room"
+     },
+     {
+      "label": "I am calling a lockdown or shelter in place (principal, manager or delegate)",
+      "to": "called",
+      "line": 25,
+      "target": "called"
+     },
+     {
+      "label": "Police or another service told us to lock down or shelter in place",
+      "to": "told",
+      "line": 26,
+      "target": "told"
+     },
+     {
+      "label": "We got a threat by email, post or phone",
+      "to": "threat",
+      "line": 27,
+      "target": "threat"
+     }
+    ],
+    "line": 22
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 21
+  },
+  {
+   "id": "threat",
+   "title": "Threat received: call Police",
+   "lines": [
+    {
+     "kind": "do",
+     "text": "Call NZ Police: 111 for emergencies, 105 if it is not an emergency.",
+     "line": 30,
+     "quotes": [
+      {
+       "text": "If your school receives a threat by email, post or phone, call NZ Police.",
+       "where": "Ministry schools page",
+       "check": "exact"
+      },
+      {
+       "text": "Call 111 for emergency incidents.",
+       "where": "Ministry schools page",
+       "check": "exact"
+      },
+      {
+       "text": "Call 105 for non-emergency incidents.",
+       "where": "Ministry early learning page",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "record",
+     "text": "Police called about the threat",
+     "line": 34
+    },
+    {
+     "kind": "more",
+     "text": "Police will assess it, decide if it is credible, and tell you what to do. This may include a lockdown, evacuation or another safety measure.",
+     "line": 35,
+     "quotes": [
+      {
+       "text": "Police will assess the information you give them, determine whether it is credible, and tell you what actions you need to take.",
+       "where": "Ministry schools page",
+       "check": "exact"
+      },
+      {
+       "text": "This may include a lockdown, evacuation or another safety measure.",
+       "where": "Ministry schools page",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "more",
+     "text": "Not an emergency? The early learning page says you can also complete an online report.",
+     "line": 38,
+     "quotes": [
+      {
+       "text": "You can also complete an online report for non-emergency events.",
+       "where": "Ministry early learning page",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "What did Police say?",
+    "options": [
+     {
+      "label": "Lock down",
+      "to": "lockdown",
+      "line": 41,
+      "target": "lockdown"
+     },
+     {
+      "label": "Shelter in place",
+      "to": "shelter",
+      "line": 42,
+      "target": "shelter"
+     },
+     {
+      "label": "Not told yet, or limited information",
+      "to": "called",
+      "line": 43,
+      "target": "called"
+     },
+     {
+      "label": "Something else (evacuate or another measure)",
+      "to": "other",
+      "line": 44,
+      "target": "other"
+     }
+    ],
+    "line": 40
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 29
+  },
+  {
+   "id": "other",
+   "title": "Not a lockdown",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "Respond as your emergency management plan sets out, and follow Police.",
+     "line": 47,
+     "quotes": [
+      {
+       "text": "Respond to event as outlined in the emergency management plan",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      },
+      {
+       "text": "tell you what actions you need to take.",
+       "where": "Ministry schools page",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "tip",
+     "text": "This app covers lockdown and shelter in place only.",
+     "line": 50
+    },
+    {
+     "kind": "say",
+     "text": "Follow your emergency management plan.",
+     "line": 51
+    }
+   ],
+   "ask": null,
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": true,
+   "line": 46
+  },
+  {
+   "id": "told",
+   "title": "Told to lock down or shelter in place",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "Note who told you, then start it.",
+     "line": 54,
+     "quotes": [
+      {
+       "text": "Instruction to lockdown/shelter in place received from: [Police/emergency services/we initiated it ourselves]",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "record",
+     "text": "Instruction received",
+     "line": 56
+    },
+    {
+     "kind": "write",
+     "text": "Instruction received from",
+     "line": 57
+    },
+    {
+     "kind": "more",
+     "text": "An instruction can come from Police, the principal or delegate, the early childhood service manager or person responsible, other emergency services, or the Ministry of Education (at the direction of Police or another emergency service).",
+     "line": 58,
+     "quotes": [
+      {
+       "text": "Instructions to shelter in place or lockdown may be initiated by:",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      },
+      {
+       "text": "the Ministry of Education (at the direction of the Police or other emergency service).",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "more",
+     "text": "If Police started it, they advise when it is lifted, through the principal or manager or through the Ministry.",
+     "line": 61,
+     "quotes": [
+      {
+       "text": "If the Police initiated the shelter in place or lockdown, they would provide advice on lifting the shelter in place or lockdown directive through the principal or early childhood service manager directly or through the Ministry of Education.",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "more",
+     "text": "2025 edition: Police will usually say \"lockdown\" rather than \"shelter in place\".",
+     "line": 63,
+     "quotes": [
+      {
+       "text": "Police will usually direct you to lockdown rather than use the term ‘shelter in place’.",
+       "where": "2025 edition, replaced",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "Which were you told?",
+    "options": [
+     {
+      "label": "Lockdown",
+      "to": "lockdown",
+      "line": 66,
+      "target": "lockdown"
+     },
+     {
+      "label": "Shelter in place",
+      "to": "shelter",
+      "line": 67,
+      "target": "shelter"
+     }
+    ],
+    "line": 65
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 53
+  },
+  {
+   "id": "called",
+   "title": "Lockdown or shelter in place?",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "Limited information? Lock down until Police or emergency services tell you more.",
+     "line": 70,
+     "quotes": [
+      {
+       "text": "If you have limited information at the time you are advised of an incident/event, implementing a lockdown is advised until you get further information from the Police or other emergency services.",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "more",
+     "text": "Lockdown: the threat is directly related to your school or centre, for example an attacker on your grounds.",
+     "line": 72,
+     "quotes": [
+      {
+       "text": "Lockdown – issued when the threat is directly related to your school/centre.",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      },
+      {
+       "text": "For example, an attacker on your property/grounds.",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "more",
+     "text": "Shelter in place: the threat is external and not directed at you, for example wasps, toxic smoke, a chemical spill or an offender nearby.",
+     "line": 75,
+     "quotes": [
+      {
+       "text": "Shelter in place – issued when the threat is external and not directed at your school/centre.",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      },
+      {
+       "text": "For example, if there is a swarm of wasps, toxic smoke, chemical spill, or a threat from an offender nearby",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "more",
+     "text": "If you made the decision, you lift it yourself.",
+     "line": 78,
+     "quotes": [
+      {
+       "text": "If you made the decision to shelter in place or lockdown, you would lift the directive yourself.",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "Which one?",
+    "options": [
+     {
+      "label": "Lockdown: threat aimed at us (e.g. attacker on grounds)",
+      "to": "lockdown",
+      "line": 81,
+      "target": "lockdown"
+     },
+     {
+      "label": "Shelter in place: threat outside, not aimed at us (e.g. wasps, smoke)",
+      "to": "shelter",
+      "line": 82,
+      "target": "shelter"
+     },
+     {
+      "label": "Not sure: lockdown until Police say more",
+      "to": "lockdown",
+      "line": 83,
+      "target": "lockdown"
+     }
+    ],
+    "line": 80
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 69
+  },
+  {
+   "id": "lockdown",
+   "title": "Starting a lockdown",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "Everyone must quickly move inside and stay there.",
+     "line": 86,
+     "quotes": [
+      {
+       "text": "When activated, children, students, staff, volunteers and visitors must quickly move inside the facility and remain there for safety.",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "record",
+     "text": "Lockdown started",
+     "line": 88
+    },
+    {
+     "kind": "tip",
+     "text": "Tap the buttons as you go: the app keeps the times and names for later.",
+     "line": 89
+    }
+   ],
+   "ask": null,
+   "next": {
+    "to": "alert",
+    "line": 90,
+    "target": "alert"
+   },
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 85,
+   "nexts": [
+    {
+     "to": "alert",
+     "line": 90,
+     "target": "alert"
+    }
+   ]
+  },
+  {
+   "id": "shelter",
+   "title": "Starting a shelter in place",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "Everyone moves quickly inside and stays there. Usual inside activities can carry on where possible.",
+     "line": 93,
+     "quotes": [
+      {
+       "text": "When activated, children, students, staff, volunteers and visitors must quickly move inside the facility and remain there for safety.",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      },
+      {
+       "text": "which could allow for the controlled movement of staff, students and children to their usual classrooms and continue with usual inside activities where possible.",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "record",
+     "text": "Shelter in place started",
+     "line": 96
+    },
+    {
+     "kind": "tip",
+     "text": "Tap the buttons as you go: the app keeps the times and names for later.",
+     "line": 97
+    },
+    {
+     "kind": "more",
+     "text": "2025 edition: entries and exits restricted; no one in or out until the authorities give an all-clear; ventilation could be shut down and doors and windows closed if necessary.",
+     "line": 98,
+     "quotes": [
+      {
+       "text": "The entries and exits to the buildings should be restricted, however normal instructional activities continue as much as possible.",
+       "where": "2025 edition, replaced",
+       "check": "exact"
+      },
+      {
+       "text": "No one should be allowed in or out of the grounds and buildings until the authorities give an all-clear signal.",
+       "where": "2025 edition, replaced",
+       "check": "exact"
+      },
+      {
+       "text": "Heating, ventilation, and air conditioning systems could be shut down if necessary (to prevent spread of harmful air) and doors and windows could be closed.",
+       "where": "2025 edition, replaced",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": null,
+   "next": {
+    "to": "alert",
+    "line": 102,
+    "target": "alert"
+   },
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 92,
+   "nexts": [
+    {
+     "to": "alert",
+     "line": 102,
+     "target": "alert"
+    }
+   ]
+  },
+  {
+   "id": "alert",
+   "title": "Alert everyone on site",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "Start it with the signal in your emergency management plan. Alert everyone, including visitors and contractors.",
+     "line": 105,
+     "quotes": [
+      {
+       "text": "Initiate lockdown/shelter in place using [insert method in the emergency management plan e.g. sounding airhorn 3 times]",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      },
+      {
+       "text": "Once initiated, staff should activate their emergency management plan, alerting everyone on site of the situation, including visitors and contractors.",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "warning",
+     "text": "Intruder or attacker? Sounding any alarm may not be right. Tell staff the way your plan sets out.",
+     "line": 108,
+     "quotes": [
+      {
+       "text": "In the case of an intruder/attacker it may not be appropriate to sound any type of alarm – how will you communicate with staff?",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "record",
+     "text": "Alert given",
+     "line": 110
+    },
+    {
+     "kind": "more",
+     "text": "The guide sets no national signal. \"Sounding airhorn 3 times\" is only its fill-in example; each school or service writes its own in its plan.",
+     "line": 111,
+     "quotes": [
+      {
+       "text": "[insert method in the emergency management plan e.g. sounding airhorn 3 times]",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "more",
+     "text": "Parents and caregivers on site must follow staff instructions.",
+     "line": 113,
+     "quotes": [
+      {
+       "text": "If parents and caregivers are also onsite, they will be required to follow staff instructions.",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": null,
+   "next": {
+    "to": "police",
+    "line": 115,
+    "target": "police"
+   },
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 104,
+   "nexts": [
+    {
+     "to": "police",
+     "line": 115,
+     "target": "police"
+    }
+   ]
+  },
+  {
+   "id": "police",
+   "title": "Police or emergency services",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "Notify Police or other emergency services if relevant, and keep communication open both ways.",
+     "line": 118,
+     "quotes": [
+      {
+       "text": "Notify Police or other emergency services (if relevant) and keep communication open for updates both ways.",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "Do Police or emergency services already know?",
+    "options": [
+     {
+      "label": "No: call 111 now (when it is safe)",
+      "to": "call111",
+      "line": 121,
+      "target": "call111"
+     },
+     {
+      "label": "Yes (they told us, or we are in contact), or not needed for this event",
+      "to": "roll",
+      "line": 122,
+      "target": "roll"
+     }
+    ],
+    "line": 120
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 117
+  },
+  {
+   "id": "call111",
+   "title": "Call 111 when it is safe",
+   "lines": [
+    {
+     "kind": "do",
+     "text": "Call 111 when it is safe. Stay on the line if asked.",
+     "line": 125,
+     "quotes": [
+      {
+       "text": "Call Emergency Services if needed - 111",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      },
+      {
+       "text": "Tell - police by calling 111 when it is safe.",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      },
+      {
+       "text": "You may be asked to stay on the line and provide further information that the operator requests or if the situation changes.",
+       "where": "Police",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "record",
+     "text": "111 called",
+     "line": 129
+    },
+    {
+     "kind": "more",
+     "text": "Police: if it is safe, find out the exact location, what the offenders look like and which way they are going, weapons, how many people are there and who is hurt, and what the offenders intend (if known).",
+     "line": 130,
+     "quotes": [
+      {
+       "text": "exact location of the incident.",
+       "where": "Police",
+       "check": "exact"
+      },
+      {
+       "text": "description of the offender/s and whether they are moving in any particular direction.",
+       "where": "Police",
+       "check": "exact"
+      },
+      {
+       "text": "details of any weapons being used.",
+       "where": "Police",
+       "check": "exact"
+      },
+      {
+       "text": "number of people in the area and any that have been injured.",
+       "where": "Police",
+       "check": "exact"
+      },
+      {
+       "text": "the intent of the offender/s (if known or apparent).",
+       "where": "Police",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "more",
+     "text": "Police help that is not urgent: 105.",
+     "line": 136,
+     "quotes": [
+      {
+       "text": "Or call 105 if you need Police assistance but it is not urgent",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": null,
+   "next": {
+    "to": "roll",
+    "line": 138,
+    "target": "roll"
+   },
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 124,
+   "nexts": [
+    {
+     "to": "roll",
+     "line": 138,
+     "target": "roll"
+    }
+   ]
+  },
+  {
+   "id": "roll",
+   "title": "Is everyone inside?",
+   "lines": [
+    {
+     "kind": "do",
+     "text": "Check that everyone is inside. Note the names of anyone unaccounted for.",
+     "line": 141,
+     "quotes": [
+      {
+       "text": "Check that everyone is inside. Note any names of anyone who is unaccounted for.",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "write",
+     "text": "Names of anyone unaccounted for",
+     "line": 143
+    },
+    {
+     "kind": "record",
+     "text": "Roll checked",
+     "line": 144
+    },
+    {
+     "kind": "more",
+     "text": "2025 edition: staff take attendance if possible and list missing and extra children in the room. The 2026 edition does not mention extra children.",
+     "line": 145,
+     "quotes": [
+      {
+       "text": "The staff will take attendance, if possible, and prepare a list of missing and extra children/students in the room.",
+       "where": "2025 edition, replaced",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "more",
+     "text": "The guide does not say what to do about children still outside or in the toilets, beyond everyone moving to the required location.",
+     "line": 147,
+     "quotes": [
+      {
+       "text": "You must ensure everyone moves to and remains at the required location until the further notice.",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": null,
+   "next": {
+    "to": "secure",
+    "line": 149,
+    "target": "secure"
+   },
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 140,
+   "nexts": [
+    {
+     "to": "secure",
+     "line": 149,
+     "target": "secure"
+    }
+   ]
+  },
+  {
+   "id": "secure",
+   "title": "Secure your locations",
+   "lines": [
+    {
+     "kind": "do",
+     "text": "Secure your locations as required. This may include locking doors and entrances.",
+     "line": 152,
+     "quotes": [
+      {
+       "text": "Secure your lockdown/shelter in place location(s) as required.",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      },
+      {
+       "text": "This may include locking/securing doors/entrances",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "record",
+     "text": "Locations secured",
+     "line": 155
+    },
+    {
+     "kind": "more",
+     "text": "Attacker near? Police's Escape. Hide. Tell. advice: lock doors and windows, barricade entries where possible, stay away from doors, be quiet and still.",
+     "line": 156,
+     "quotes": [
+      {
+       "text": "Secure your environment by locking doors and windows and barricading entries where possible.",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      },
+      {
+       "text": "Stay away from doors and be as quiet and still as possible so you do not give away your hiding place.",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": null,
+   "next": {
+    "to": "staff",
+    "line": 159,
+    "target": "staff"
+   },
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 151,
+   "nexts": [
+    {
+     "to": "staff",
+     "line": 159,
+     "target": "staff"
+    }
+   ]
+  },
+  {
+   "id": "staff",
+   "title": "Keep staff updated",
+   "lines": [
+    {
+     "kind": "do",
+     "text": "Use the emergency staff channel to give updates and get information.",
+     "line": 162,
+     "quotes": [
+      {
+       "text": "Use the emergency staff communication channel to give updates and provide information to the emergency management team.",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Staff need to know if it is lockdown or shelter in place.",
+     "line": 164,
+     "quotes": [
+      {
+       "text": "They will need to know whether it is a shelter in place or lockdown event and respond accordingly.",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "record",
+     "text": "Staff updated",
+     "line": 166
+    },
+    {
+     "kind": "more",
+     "text": "Student phones may alert an intruder to where people are hiding, overwhelm networks, and expose children to distressing news.",
+     "line": 167,
+     "quotes": [
+      {
+       "text": "alert an intruder to the location of students/children and staff in hiding",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      },
+      {
+       "text": "overwhelm local communication networks",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      },
+      {
+       "text": "expose children and students to distressing information relating to the event.",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "more",
+     "text": "Consider turning off alarm bells to avoid confusion.",
+     "line": 171,
+     "quotes": [
+      {
+       "text": "Consider turning off alarm bells to avoid confusion.",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": null,
+   "next": {
+    "to": "tell",
+    "line": 173,
+    "target": "tell"
+   },
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 161,
+   "nexts": [
+    {
+     "to": "tell",
+     "line": 173,
+     "target": "tell"
+    }
+   ]
+  },
+  {
+   "id": "tell",
+   "title": "Tell parents, off-site groups, Ministry",
+   "lines": [
+    {
+     "kind": "do",
+     "text": "Tell parents and off-site groups to stay away until advised otherwise.",
+     "line": 176,
+     "quotes": [
+      {
+       "text": "Inform parents/caregivers/community of the situation and to stay away until advised otherwise.",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      },
+      {
+       "text": "Inform groups/individuals currently off-site that we are in lockdown/shelter in place (and to stay away until advised otherwise)",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "record",
+     "text": "Parents messaged",
+     "line": 179
+    },
+    {
+     "kind": "record",
+     "text": "Off-site groups told",
+     "line": 180
+    },
+    {
+     "kind": "more",
+     "text": "The guide's message (fill in the brackets): \"URGENT: The centre/school is currently in lockdown due to [reason]. All [children/students] and staff are safe. Do not come to the centre until advised. We will send updates when possible.\"",
+     "line": 181,
+     "quotes": [
+      {
+       "text": "URGENT: The centre/school is currently in lockdown due to [reason].",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      },
+      {
+       "text": "All [children/students] and staff are safe.",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      },
+      {
+       "text": "Do not come to the centre until advised.",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      },
+      {
+       "text": "We will send updates when possible.",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "more",
+     "text": "Prepare to update off-site groups regularly. The guide gives no time between updates.",
+     "line": 186,
+     "quotes": [
+      {
+       "text": "prepare to update them regularly.",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Advise the Ministry of Education local office.",
+     "line": 188,
+     "quotes": [
+      {
+       "text": "Advise the Ministry of Education local office about the situation.",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "record",
+     "text": "Ministry local office told",
+     "line": 190
+    }
+   ],
+   "ask": null,
+   "next": {
+    "to": "hold",
+    "line": 191,
+    "target": "hold"
+   },
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 175,
+   "nexts": [
+    {
+     "to": "hold",
+     "line": 191,
+     "target": "hold"
+    }
+   ]
+  },
+  {
+   "id": "hold",
+   "title": "Stay inside until further notice",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "Everyone stays where they are until further notice.",
+     "line": 194,
+     "quotes": [
+      {
+       "text": "You must ensure everyone moves to and remains at the required location until the further notice.",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Keep direct contact with Police (or the Ministry) for updates.",
+     "line": 196,
+     "quotes": [
+      {
+       "text": "Maintain direct communication with emergency services/Police (or Ministry of Education where Police have asked them to direct schools and services to lockdown) to get updates about the event.",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "more",
+     "text": "The guide gives no time limits.",
+     "line": 198
+    },
+    {
+     "kind": "more",
+     "text": "2025 edition: remain in the room until Police instruct or a formal announcement ends the lockdown.",
+     "line": 199,
+     "quotes": [
+      {
+       "text": "Everyone will remain in the room until further instruction is received from NZ Police or until a formal announcement is made signifying the end of the lockdown.",
+       "where": "2025 edition, replaced",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "What now?",
+    "options": [
+     {
+      "label": "Toilets, first aid, food or water needed",
+      "to": "needs",
+      "line": 202,
+      "target": "needs"
+     },
+     {
+      "label": "Attacker near: Escape. Hide. Tell.",
+      "to": "attack",
+      "line": 203,
+      "target": "attack"
+     },
+     {
+      "label": "Lockdown: advised we can move to shelter in place",
+      "to": "stepdown",
+      "line": 204,
+      "target": "stepdown"
+     },
+     {
+      "label": "Lockdown or shelter in place lifted",
+      "to": "lifted",
+      "line": 205,
+      "target": "lifted"
+     }
+    ],
+    "line": 201
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 193
+  },
+  {
+   "id": "needs",
+   "title": "Toilets, first aid, food, water",
+   "lines": [
+    {
+     "kind": "do",
+     "text": "If needed, organise safe access to toilets, first aid, food and water.",
+     "line": 208,
+     "quotes": [
+      {
+       "text": "If needed, organise safe access to the necessary toileting facilities, first aid, food and water supplies etc.",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Bathroom only if it is deemed safe and an adult goes with the child.",
+     "line": 210,
+     "quotes": [
+      {
+       "text": "not using the bathroom unless it is deemed safe, and the child is accompanied by an adult.",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "record",
+     "text": "Child left room (bathroom or first aid)",
+     "line": 212
+    },
+    {
+     "kind": "write",
+     "text": "Who left and who went with them",
+     "line": 213
+    },
+    {
+     "kind": "more",
+     "text": "2025 edition: a designated staff member goes with the child, with permission from the person managing the lockdown; camp toilets if bathrooms can't be reached safely.",
+     "line": 214,
+     "quotes": [
+      {
+       "text": "This may include the requirement that they can only do so if the child/student is accompanied by a designated staff member.",
+       "where": "2025 edition, replaced",
+       "check": "exact"
+      },
+      {
+       "text": "Schools may need to have alternative arrangements in place if bathrooms can’t be safely accessed such as camp toilets or similar.",
+       "where": "2025 edition, replaced",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "more",
+     "text": "Medicines (for example an inhaler or EpiPen) are in the guide's planning list.",
+     "line": 217,
+     "quotes": [
+      {
+       "text": "Access to medications (for example, inhaler or EpiPen).",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": null,
+   "next": {
+    "to": "hold",
+    "line": 219,
+    "target": "hold"
+   },
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 207,
+   "nexts": [
+    {
+     "to": "hold",
+     "line": 219,
+     "target": "hold"
+    }
+   ]
+  },
+  {
+   "id": "stepdown",
+   "title": "Move to shelter in place",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "Police, emergency services or others advise you can safely move from lockdown to shelter in place.",
+     "line": 222,
+     "quotes": [
+      {
+       "text": "Advised by Police/emergency services/other that we can safely move from lockdown to shelter in place.",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "record",
+     "text": "Moved to shelter in place",
+     "line": 224
+    },
+    {
+     "kind": "write",
+     "text": "Advised by",
+     "line": 225
+    },
+    {
+     "kind": "say",
+     "text": "Staff need to know it is now shelter in place.",
+     "line": 226,
+     "quotes": [
+      {
+       "text": "They will need to know whether it is a shelter in place or lockdown event and respond accordingly.",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "more",
+     "text": "This can allow controlled movement to usual classrooms and usual inside activities where possible.",
+     "line": 228,
+     "quotes": [
+      {
+       "text": "which could allow for the controlled movement of staff, students and children to their usual classrooms and continue with usual inside activities where possible.",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": null,
+   "next": {
+    "to": "hold",
+    "line": 230,
+    "target": "hold"
+   },
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 221,
+   "nexts": [
+    {
+     "to": "hold",
+     "line": 230,
+     "target": "hold"
+    }
+   ]
+  },
+  {
+   "id": "lifted",
+   "title": "Lifted: the all-clear",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "Whoever started it lifts it. Then follow the steps in your emergency management plan.",
+     "line": 233,
+     "quotes": [
+      {
+       "text": "Who lifts the shelter in place or lockdown depends on who initiated the shelter in place or lockdown.",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      },
+      {
+       "text": "Advised by Police/emergency services/other to come out of lockdown or shelter in place.",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      },
+      {
+       "text": "Once the directive has been lifted, follow the steps set out in your emergency management plan.",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "record",
+     "text": "All-clear (lifted)",
+     "line": 237
+    },
+    {
+     "kind": "write",
+     "text": "Lifted on whose advice",
+     "line": 238
+    },
+    {
+     "kind": "warning",
+     "text": "An automatic alarm stopping does not mean it is over. Signal the end the way your plan sets out.",
+     "line": 239,
+     "quotes": [
+      {
+       "text": "You will need to ensure staff, children, students, or visitors do not assume the situation has been resolved when the automatic alarm stops ringing.",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      },
+      {
+       "text": "How will you signal the end to a lockdown or shelter in place instruction?",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "more",
+     "text": "If Police started it, they advise you directly or through the Ministry. The guide sets no national all-clear signal or wording; each plan decides it.",
+     "line": 242,
+     "quotes": [
+      {
+       "text": "If the Police initiated the shelter in place or lockdown, they would provide advice on lifting the shelter in place or lockdown directive through the principal or early childhood service manager directly or through the Ministry of Education.",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "Then?",
+    "options": [
+     {
+      "label": "Reunite children with families",
+      "to": "reunite",
+      "line": 245,
+      "target": "reunite"
+     },
+     {
+      "label": "Resume usual activities until end of day",
+      "to": "resume",
+      "line": 246,
+      "target": "resume"
+     }
+    ],
+    "line": 244
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 232
+  },
+  {
+   "id": "reunite",
+   "title": "Reunite children with families",
+   "lines": [
+    {
+     "kind": "do",
+     "text": "Tell parents where and when they can collect their child. In the message, remind them of the pick-up process.",
+     "line": 249,
+     "quotes": [
+      {
+       "text": "Initiate reunification process and notify parents and caregivers about where and when they can collect their child.",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      },
+      {
+       "text": "When you are sending parents and caregivers messages for them to come and collect their child(ren), reinforce the reunification process.",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "record",
+     "text": "Parents told where and when to collect",
+     "line": 252
+    },
+    {
+     "kind": "do",
+     "text": "Consider moving children in class groups to an assigned area before pick-up.",
+     "line": 253,
+     "quotes": [
+      {
+       "text": "Consider organising children and young people into class groups and moving them to an assigned area before they are picked up.",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "more",
+     "text": "The guide's message (fill in the brackets): \"The emergency has ended. All [children/students] and staff are safe. We will [remain open/close for the rest of the day]. Please collect your child [time or instructions].\"",
+     "line": 255,
+     "quotes": [
+      {
+       "text": "The emergency has ended.",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      },
+      {
+       "text": "All [children/students] and staff are safe.",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      },
+      {
+       "text": "We will [remain open/close for the rest of the day].",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      },
+      {
+       "text": "Please collect your child [time or instructions].",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": null,
+   "next": {
+    "to": "release",
+    "line": 260,
+    "target": "release"
+   },
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 248,
+   "nexts": [
+    {
+     "to": "release",
+     "line": 260,
+     "target": "release"
+    }
+   ]
+  },
+  {
+   "id": "release",
+   "title": "Hand each child over",
+   "lines": [
+    {
+     "kind": "do",
+     "text": "Release each child only to the parent or usual caregiver, or someone they approved. Early learning: day-to-day carer or authorised in writing.",
+     "line": 263,
+     "quotes": [
+      {
+       "text": "Each child or young person can only be released to the parent or usual caregiver, or someone identified/approved by the parent or usual caregiver.",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      },
+      {
+       "text": "For early childhood services, the person collecting the child must be either the person providing day-to-day care or be authorised in writing.",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "write",
+     "text": "Who collected each child",
+     "line": 266,
+     "quotes": [
+      {
+       "text": "You will need a system to record who has taken the child and evidence that the parent/guardian has given authority for the adult to pick up the child.",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "more",
+     "text": "A child who cannot be safely collected stays in your care until arrangements are made. A student going home alone needs support at home and a safe route; consider whether home is empty.",
+     "line": 268,
+     "quotes": [
+      {
+       "text": "If for whatever reason, a child cannot be safely collected, the school or early childhood service will need to take responsibility for their care until appropriate arrangements are put in place.",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      },
+      {
+       "text": "You will need to ensure the student has appropriate support at home following an emergency event and they have a safe route home.",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      },
+      {
+       "text": "Also consider if the student is going to an empty home.",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": null,
+   "next": {
+    "to": "debrief",
+    "line": 272,
+    "target": "debrief"
+   },
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 262,
+   "nexts": [
+    {
+     "to": "debrief",
+     "line": 272,
+     "target": "debrief"
+    }
+   ]
+  },
+  {
+   "id": "resume",
+   "title": "Back to usual activities",
+   "lines": [
+    {
+     "kind": "do",
+     "text": "Tell parents the lockdown has ended and you are resuming usual activities until the normal end of day.",
+     "line": 275,
+     "quotes": [
+      {
+       "text": "Advise parents and caregivers that the lockdown/shelter in place has ended and we are resuming with our usual activities until the normal end of day.",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "record",
+     "text": "Parents told it has ended",
+     "line": 277
+    },
+    {
+     "kind": "more",
+     "text": "The guide's message (fill in the brackets): \"The emergency has ended. All [children/students] and staff are safe. We will [remain open/close for the rest of the day].\"",
+     "line": 278,
+     "quotes": [
+      {
+       "text": "The emergency has ended.",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      },
+      {
+       "text": "We will [remain open/close for the rest of the day].",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": null,
+   "next": {
+    "to": "debrief",
+    "line": 281,
+    "target": "debrief"
+   },
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 274,
+   "nexts": [
+    {
+     "to": "debrief",
+     "line": 281,
+     "target": "debrief"
+    }
+   ]
+  },
+  {
+   "id": "debrief",
+   "title": "Debrief and support",
+   "lines": [
+    {
+     "kind": "do",
+     "text": "Debrief: what worked well, what did not, people's roles and actions, and whether your procedures fit real life.",
+     "line": 284,
+     "quotes": [
+      {
+       "text": "Following your practice drill or an actual event, you will need to debrief and evaluate the effectiveness of your emergency management plan.",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      },
+      {
+       "text": "what worked well",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      },
+      {
+       "text": "what did not work well",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      },
+      {
+       "text": "assess the effectiveness of people’s roles and actions",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      },
+      {
+       "text": "are the documented procedures fit for purpose and reflect what happens in real life.",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Ministry Traumatic Incident team, any time: 0800 848 326.",
+     "line": 290,
+     "quotes": [
+      {
+       "text": "You can contact them at any time.",
+       "where": "Ministry respond page",
+       "check": "exact"
+      },
+      {
+       "text": "Freephone (NZ only): 0800 TI TEAM (0800 848 326)",
+       "where": "Ministry respond page",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "record",
+     "text": "Traumatic Incident team contacted",
+     "line": 293
+    },
+    {
+     "kind": "more",
+     "text": "Debriefs work well when led by people not directly involved. You could involve Police and invite the Ministry TI team. Share the key findings with staff, board, service providers and community.",
+     "line": 294,
+     "quotes": [
+      {
+       "text": "Post-incident evaluation has been found to work well when it is led or coordinated by people not directly involved in the incident.",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      },
+      {
+       "text": "You could involve the Police to help you assess, and if involved, invite Ministry of Education Traumatic Incident Team members to participate.",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      },
+      {
+       "text": "Communicate key findings of the debrief to your staff, board, service providers, and community.",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "more",
+     "text": "TI teams do not take over; they help your team respond. In bigger events you can ask for a team to come to you.",
+     "line": 298,
+     "quotes": [
+      {
+       "text": "The Ministry TI teams do not take over and manage the incident for you; rather they can help your management team to respond.",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      },
+      {
+       "text": "In bigger events you can request that a team (usually two or three people) come to the school or early childhood service to support your management team.",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": null,
+   "next": {
+    "to": "summary",
+    "line": 301,
+    "target": "summary"
+   },
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 283,
+   "nexts": [
+    {
+     "to": "summary",
+     "line": 301,
+     "target": "summary"
+    }
+   ]
+  },
+  {
+   "id": "summary",
+   "title": "Summary for the debrief",
+   "lines": [
+    {
+     "kind": "tip",
+     "text": "The Log has every time you tapped and the names you typed. Show it at the debrief.",
+     "line": 304
+    },
+    {
+     "kind": "write",
+     "text": "Anything else to note",
+     "line": 305
+    },
+    {
+     "kind": "more",
+     "text": "The guide has no incident-report form or deadline. Its after-event steps are the debrief, the Ministry local office and the TI team.",
+     "line": 306
+    },
+    {
+     "kind": "say",
+     "text": "Keep this phone's Log for the debrief.",
+     "line": 307
+    }
+   ],
+   "ask": null,
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": true,
+   "line": 303
+  },
+  {
+   "id": "room",
+   "title": "Alert heard: get everyone inside",
+   "lines": [
+    {
+     "kind": "do",
+     "text": "Get everyone quickly inside to the required location.",
+     "line": 310,
+     "quotes": [
+      {
+       "text": "When activated, children, students, staff, volunteers and visitors must quickly move inside the facility and remain there for safety.",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "record",
+     "text": "Alert heard",
+     "line": 312
+    },
+    {
+     "kind": "tip",
+     "text": "Tap the buttons as you go: the app keeps the times and names for later.",
+     "line": 313
+    },
+    {
+     "kind": "more",
+     "text": "2025 edition: staff move children and visitors into the closest classrooms or inside areas and lock the doors immediately.",
+     "line": 314,
+     "quotes": [
+      {
+       "text": "Staff will move children and visitors into the closest school classrooms or inside areas of the early learning service and lock the doors immediately.",
+       "where": "2025 edition, replaced",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "more",
+     "text": "The guide does not say what to do about children still outside or in the toilets.",
+     "line": 316
+    }
+   ],
+   "ask": {
+    "question": "Is it a lockdown or shelter in place?",
+    "options": [
+     {
+      "label": "Lockdown",
+      "to": "room-lock",
+      "line": 318,
+      "target": "room-lock"
+     },
+     {
+      "label": "Not told yet",
+      "to": "room-unsure",
+      "line": 319,
+      "target": "room-unsure"
+     },
+     {
+      "label": "Shelter in place",
+      "to": "room-shelter",
+      "line": 320,
+      "target": "room-shelter"
+     }
+    ],
+    "line": 317
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 309
+  },
+  {
+   "id": "room-unsure",
+   "title": "Not told which yet",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "Staff need to know which it is. Check your staff channel.",
+     "line": 323,
+     "quotes": [
+      {
+       "text": "They will need to know whether it is a shelter in place or lockdown event and respond accordingly.",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "With limited information, the guide advises a lockdown.",
+     "line": 325,
+     "quotes": [
+      {
+       "text": "If you have limited information at the time you are advised of an incident/event, implementing a lockdown is advised until you get further information from the Police or other emergency services.",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "Then?",
+    "options": [
+     {
+      "label": "Lock down",
+      "to": "room-lock",
+      "line": 328,
+      "target": "room-lock"
+     },
+     {
+      "label": "Told: shelter in place",
+      "to": "room-shelter",
+      "line": 329,
+      "target": "room-shelter"
+     }
+    ],
+    "line": 327
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 322
+  },
+  {
+   "id": "room-lock",
+   "title": "Lock the doors",
+   "lines": [
+    {
+     "kind": "do",
+     "text": "Lock the doors and entrances.",
+     "line": 332,
+     "quotes": [
+      {
+       "text": "This may include locking/securing doors/entrances",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "record",
+     "text": "Room locked",
+     "line": 334
+    },
+    {
+     "kind": "do",
+     "text": "Attacker near? Police's Hide advice: lock windows, barricade, stay away from doors, be quiet and still, silence phones.",
+     "line": 335,
+     "quotes": [
+      {
+       "text": "Secure your environment by locking doors and windows and barricading entries where possible.",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      },
+      {
+       "text": "Stay away from doors and be as quiet and still as possible so you do not give away your hiding place.",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      },
+      {
+       "text": "Silence your mobile phone.",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "more",
+     "text": "Note any exit points. Staff should know how to silence phones and tell others to put theirs on silent.",
+     "line": 339,
+     "quotes": [
+      {
+       "text": "Note any potential exit points.",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      },
+      {
+       "text": "Do staff members know how to silence their phones if they are hiding and know to direct others with phones to put them on silent mode?",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "more",
+     "text": "2025 edition: lock the doors immediately.",
+     "line": 342,
+     "quotes": [
+      {
+       "text": "lock the doors immediately.",
+       "where": "2025 edition, replaced",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": null,
+   "next": {
+    "to": "room-roll",
+    "line": 344,
+    "target": "room-roll"
+   },
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 331,
+   "nexts": [
+    {
+     "to": "room-roll",
+     "line": 344,
+     "target": "room-roll"
+    }
+   ]
+  },
+  {
+   "id": "room-roll",
+   "title": "Who is here?",
+   "lines": [
+    {
+     "kind": "do",
+     "text": "Check that everyone is inside. Note the names of anyone unaccounted for.",
+     "line": 347,
+     "quotes": [
+      {
+       "text": "Check that everyone is inside. Note any names of anyone who is unaccounted for.",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "write",
+     "text": "Names of anyone unaccounted for",
+     "line": 349
+    },
+    {
+     "kind": "record",
+     "text": "Roll checked",
+     "line": 350
+    },
+    {
+     "kind": "more",
+     "text": "2025 edition: take attendance if possible and list missing and extra children in the room. The 2026 edition does not mention extra children.",
+     "line": 351,
+     "quotes": [
+      {
+       "text": "The staff will take attendance, if possible, and prepare a list of missing and extra children/students in the room.",
+       "where": "2025 edition, replaced",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "tip",
+     "text": "The names you type are kept in the Log with the time.",
+     "line": 353
+    }
+   ],
+   "ask": null,
+   "next": {
+    "to": "room-hold",
+    "line": 354,
+    "target": "room-hold"
+   },
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 346,
+   "nexts": [
+    {
+     "to": "room-hold",
+     "line": 354,
+     "target": "room-hold"
+    }
+   ]
+  },
+  {
+   "id": "room-hold",
+   "title": "Stay put until further notice",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "Everyone stays where they are until further notice.",
+     "line": 357,
+     "quotes": [
+      {
+       "text": "You must ensure everyone moves to and remains at the required location until the further notice.",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Bathroom only if it is deemed safe and an adult goes with the child.",
+     "line": 359,
+     "quotes": [
+      {
+       "text": "not using the bathroom unless it is deemed safe, and the child is accompanied by an adult.",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "more",
+     "text": "Students should tell their teacher if they have contacted their parents. Encourage them not to post misleading or incorrect messages on social media.",
+     "line": 361,
+     "quotes": [
+      {
+       "text": "make sure students know they are to advise their teacher if they have contacted their parents or caregivers.",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      },
+      {
+       "text": "Encourage students (and others) to avoid posting potentially misleading or incorrect messages on social media.",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "more",
+     "text": "The guide gives no time limits.",
+     "line": 364
+    }
+   ],
+   "ask": {
+    "question": "What now?",
+    "options": [
+     {
+      "label": "Attacker near: Escape. Hide. Tell.",
+      "to": "attack",
+      "line": 366,
+      "target": "attack"
+     },
+     {
+      "label": "Someone knocks at the door",
+      "to": "knock",
+      "line": 367,
+      "target": "knock"
+     },
+     {
+      "label": "Child needs the bathroom or first aid",
+      "to": "room-needs",
+      "line": 368,
+      "target": "room-needs"
+     },
+     {
+      "label": "Told to move to shelter in place",
+      "to": "room-shelter",
+      "line": 369,
+      "target": "room-shelter"
+     },
+     {
+      "label": "Lifted (all-clear)",
+      "to": "room-lifted",
+      "line": 370,
+      "target": "room-lifted"
+     }
+    ],
+    "line": 365
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 356
+  },
+  {
+   "id": "room-needs",
+   "title": "Bathroom or first aid",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "Bathroom only if it is deemed safe and an adult goes with the child.",
+     "line": 373,
+     "quotes": [
+      {
+       "text": "not using the bathroom unless it is deemed safe, and the child is accompanied by an adult.",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "record",
+     "text": "Child left room (bathroom or first aid)",
+     "line": 375
+    },
+    {
+     "kind": "write",
+     "text": "Who left and who went with them",
+     "line": 376
+    },
+    {
+     "kind": "more",
+     "text": "2025 edition: only if permitted by the person managing the lockdown, with a designated staff member.",
+     "line": 377,
+     "quotes": [
+      {
+       "text": "Children and students will be able to go to the bathroom if permitted by the person responsible for managing the lockdown (e.g., principal or early learning service manager).",
+       "where": "2025 edition, replaced",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": null,
+   "next": {
+    "to": "room-hold",
+    "line": 379,
+    "target": "room-hold"
+   },
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 372,
+   "nexts": [
+    {
+     "to": "room-hold",
+     "line": 379,
+     "target": "room-hold"
+    }
+   ]
+  },
+  {
+   "id": "knock",
+   "title": "Someone knocks at the door",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "The guides do not say whether to open a locked door to a knock. Follow your plan and your staff channel.",
+     "line": 382,
+     "quotes": [
+      {
+       "text": "You must ensure everyone moves to and remains at the required location until the further notice.",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "record",
+     "text": "Knock at the door",
+     "line": 384
+    },
+    {
+     "kind": "more",
+     "text": "Police (general advice for an attack): stay away from doors and be quiet and still so you do not give away your hiding place.",
+     "line": 385,
+     "quotes": [
+      {
+       "text": "Stay away from doors and be as quiet and still as possible so you do not give away your hiding place.",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": null,
+   "next": {
+    "to": "room-hold",
+    "line": 387,
+    "target": "room-hold"
+   },
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 381,
+   "nexts": [
+    {
+     "to": "room-hold",
+     "line": 387,
+     "target": "room-hold"
+    }
+   ]
+  },
+  {
+   "id": "room-shelter",
+   "title": "Shelter in place",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "Stay inside. It can allow controlled movement to usual classrooms and usual inside activities where possible.",
+     "line": 390,
+     "quotes": [
+      {
+       "text": "which could allow for the controlled movement of staff, students and children to their usual classrooms and continue with usual inside activities where possible.",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "record",
+     "text": "Shelter in place",
+     "line": 392
+    },
+    {
+     "kind": "more",
+     "text": "2025 edition: everyone moves inside to their own classroom; doors and windows could be closed.",
+     "line": 393,
+     "quotes": [
+      {
+       "text": "When a shelter in place is activated, everyone should move quickly inside to their own classroom or inside area in an early learning service.",
+       "where": "2025 edition, replaced",
+       "check": "exact"
+      },
+      {
+       "text": "Heating, ventilation, and air conditioning systems could be shut down if necessary (to prevent spread of harmful air) and doors and windows could be closed.",
+       "where": "2025 edition, replaced",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": null,
+   "next": {
+    "to": "room-roll",
+    "line": 396,
+    "target": "room-roll"
+   },
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 389,
+   "nexts": [
+    {
+     "to": "room-roll",
+     "line": 396,
+     "target": "room-roll"
+    }
+   ]
+  },
+  {
+   "id": "room-lifted",
+   "title": "All-clear",
+   "lines": [
+    {
+     "kind": "warning",
+     "text": "Only when it is officially lifted. An automatic alarm stopping does not mean it is over.",
+     "line": 399,
+     "quotes": [
+      {
+       "text": "You will need to ensure staff, children, students, or visitors do not assume the situation has been resolved when the automatic alarm stops ringing.",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "record",
+     "text": "All-clear heard",
+     "line": 401
+    },
+    {
+     "kind": "write",
+     "text": "Lifted on whose advice",
+     "line": 402
+    },
+    {
+     "kind": "more",
+     "text": "Whoever started it lifts it; the guide sets no national all-clear signal.",
+     "line": 403,
+     "quotes": [
+      {
+       "text": "Who lifts the shelter in place or lockdown depends on who initiated the shelter in place or lockdown.",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "Then?",
+    "options": [
+     {
+      "label": "Follow the principal's or manager's instructions",
+      "to": "room-end",
+      "line": 406,
+      "target": "room-end"
+     },
+     {
+      "label": "I am helping with collection",
+      "to": "release",
+      "line": 407,
+      "target": "release"
+     }
+    ],
+    "line": 405
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 398
+  },
+  {
+   "id": "room-end",
+   "title": "After the all-clear",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "Follow the steps set out in your emergency management plan.",
+     "line": 410,
+     "quotes": [
+      {
+       "text": "Once the directive has been lifted, follow the steps set out in your emergency management plan.",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "The guide does not list a classroom teacher's own steps after the all-clear.",
+     "line": 412
+    },
+    {
+     "kind": "more",
+     "text": "There will be a debrief after an actual event.",
+     "line": 413,
+     "quotes": [
+      {
+       "text": "Following your practice drill or an actual event, you will need to debrief and evaluate the effectiveness of your emergency management plan.",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "tip",
+     "text": "The Log has every time you tapped and the names you typed. Show it at the debrief.",
+     "line": 415
+    },
+    {
+     "kind": "say",
+     "text": "Keep this phone's Log for the debrief.",
+     "line": 416
+    }
+   ],
+   "ask": null,
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": true,
+   "line": 409
+  },
+  {
+   "id": "attack",
+   "title": "Attacker near: Escape. Hide. Tell.",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "Can you see a safe way out? Then leave the area now.",
+     "line": 419,
+     "quotes": [
+      {
+       "text": "Escape - If you see a safe way out leave the area immediately.",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "warning",
+     "text": "Do not move closer to see what is happening.",
+     "line": 421,
+     "quotes": [
+      {
+       "text": "Do not move closer to see what is happening - this may put you in danger.",
+       "where": "Police",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "Is there a safe way out?",
+    "options": [
+     {
+      "label": "Yes: escape",
+      "to": "escape",
+      "line": 424,
+      "target": "escape"
+     },
+     {
+      "label": "No: hide",
+      "to": "hide",
+      "line": 425,
+      "target": "hide"
+     }
+    ],
+    "line": 423
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 418
+  },
+  {
+   "id": "escape",
+   "title": "Escape",
+   "lines": [
+    {
+     "kind": "do",
+     "text": "Move quickly and quietly away. Take your phone if you can, but don't go back for it. Leave other belongings.",
+     "line": 428,
+     "quotes": [
+      {
+       "text": "Move quickly and quietly away from danger if it is safe to do so.",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      },
+      {
+       "text": "Take your mobile phone with you if you can, but do not go back to get it if it puts you in danger.",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      },
+      {
+       "text": "Leave other belongings behind.",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "record",
+     "text": "Escaped",
+     "line": 432
+    },
+    {
+     "kind": "write",
+     "text": "Who is with me",
+     "line": 433
+    },
+    {
+     "kind": "more",
+     "text": "Encourage others to go with you, but don't let their hesitation slow you down.",
+     "line": 434,
+     "quotes": [
+      {
+       "text": "Encourage others to go with you, but don’t let their hesitation slow you down.",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "more",
+     "text": "Police: try to stop others from entering the area, but only if it doesn't put you in any danger. You may still need to hide once you have escaped.",
+     "line": 436,
+     "quotes": [
+      {
+       "text": "Try to stop others from entering the area, but only if it doesn’t put you in any danger.",
+       "where": "Police",
+       "check": "exact"
+      },
+      {
+       "text": "In some situations you may still need to hide once you have escaped the immediate area.",
+       "where": "Police",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "Then?",
+    "options": [
+     {
+      "label": "Safe: call 111",
+      "to": "tell111",
+      "line": 440,
+      "target": "tell111"
+     },
+     {
+      "label": "Need to hide now",
+      "to": "hide",
+      "line": 441,
+      "target": "hide"
+     }
+    ],
+    "line": 439
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 427
+  },
+  {
+   "id": "hide",
+   "title": "Hide: stay out of sight",
+   "lines": [
+    {
+     "kind": "do",
+     "text": "Police's Hide advice: silence your phone. Lock doors and windows; barricade entries where possible.",
+     "line": 444,
+     "quotes": [
+      {
+       "text": "Hide - stay out of sight",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      },
+      {
+       "text": "Silence your mobile phone.",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      },
+      {
+       "text": "Secure your environment by locking doors and windows and barricading entries where possible.",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Stay away from doors. Be as quiet and still as possible.",
+     "line": 448,
+     "quotes": [
+      {
+       "text": "Stay away from doors and be as quiet and still as possible so you do not give away your hiding place.",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "record",
+     "text": "Hiding",
+     "line": 450
+    },
+    {
+     "kind": "more",
+     "text": "Police: you may have to hide before you have the opportunity to escape. Note any exit points.",
+     "line": 451,
+     "quotes": [
+      {
+       "text": "For example, you may have to hide before you have the opportunity to escape.",
+       "where": "Police",
+       "check": "exact"
+      },
+      {
+       "text": "Note any potential exit points.",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "more",
+     "text": "Police: first aid to injured people may save lives, but only if it does not put you or others in danger. As a last resort, if the attacker finds you, consider something to defend yourself.",
+     "line": 454,
+     "quotes": [
+      {
+       "text": "If you come across any injured people while hiding, providing first aid may help save their lives.",
+       "where": "Police",
+       "check": "exact"
+      },
+      {
+       "text": "But only help if it does not put yourself and others in any danger.",
+       "where": "Police",
+       "check": "exact"
+      },
+      {
+       "text": "Consider looking for something you can use to defend yourself as a last resort if you are found by the attacker.",
+       "where": "Police",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "Then?",
+    "options": [
+     {
+      "label": "Safe to call 111 now",
+      "to": "tell111",
+      "line": 459,
+      "target": "tell111"
+     },
+     {
+      "label": "A safe way out opened",
+      "to": "escape",
+      "line": 460,
+      "target": "escape"
+     }
+    ],
+    "line": 458
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 443
+  },
+  {
+   "id": "tell111",
+   "title": "Tell: call 111 when safe",
+   "lines": [
+    {
+     "kind": "do",
+     "text": "Call Police on 111 when it is safe. Stay on the line if asked.",
+     "line": 463,
+     "quotes": [
+      {
+       "text": "Tell - police by calling 111 when it is safe.",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      },
+      {
+       "text": "You may be asked to stay on the line and provide further information that the operator requests or if the situation changes.",
+       "where": "Police",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "record",
+     "text": "111 called",
+     "line": 466
+    },
+    {
+     "kind": "more",
+     "text": "Give as much as you can: where you are, what is around you, the attackers and what has happened. If safe: exact location, what the offenders look like and which way they are going, weapons, how many people and who is hurt, their intent (if known).",
+     "line": 467,
+     "quotes": [
+      {
+       "text": "The more information you can give about your location, surroundings, the attackers and the events that have occurred, the better.",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      },
+      {
+       "text": "exact location of the incident.",
+       "where": "Police",
+       "check": "exact"
+      },
+      {
+       "text": "description of the offender/s and whether they are moving in any particular direction.",
+       "where": "Police",
+       "check": "exact"
+      },
+      {
+       "text": "details of any weapons being used.",
+       "where": "Police",
+       "check": "exact"
+      },
+      {
+       "text": "number of people in the area and any that have been injured.",
+       "where": "Police",
+       "check": "exact"
+      },
+      {
+       "text": "the intent of the offender/s (if known or apparent).",
+       "where": "Police",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": null,
+   "next": {
+    "to": "alert-staff",
+    "line": 474,
+    "target": "alert-staff"
+   },
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 462,
+   "nexts": [
+    {
+     "to": "alert-staff",
+     "line": 474,
+     "target": "alert-staff"
+    }
+   ]
+  },
+  {
+   "id": "alert-staff",
+   "title": "Alert the principal and staff",
+   "lines": [
+    {
+     "kind": "do",
+     "text": "When it is safe, tell the principal or manager and all staff.",
+     "line": 477,
+     "quotes": [
+      {
+       "text": "Notify service provider/principal and all staff",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "record",
+     "text": "Principal and staff alerted",
+     "line": 479
+    },
+    {
+     "kind": "more",
+     "text": "The guide's plan asks whether staff hiding near an attacker can send and receive texts, and notes it may not be right to sound an alarm.",
+     "line": 480,
+     "quotes": [
+      {
+       "text": "Do staff members have cell phones to send and receive texts, if a trespasser or attacker is nearby and they are hiding?",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      },
+      {
+       "text": "In the case of an intruder/attacker it may not be appropriate to sound any type of alarm – how will you communicate with staff?",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "Who are you?",
+    "options": [
+     {
+      "label": "Principal, manager or delegate: call the lockdown",
+      "to": "lockdown-attack",
+      "line": 484,
+      "target": "lockdown-attack"
+     },
+     {
+      "label": "Lockdown already called: I lead it",
+      "to": "hold",
+      "line": 485,
+      "target": "hold"
+     },
+     {
+      "label": "I am staff: stay hidden",
+      "to": "room-hold",
+      "line": 486,
+      "target": "room-hold"
+     }
+    ],
+    "line": 483
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 476
+  },
+  {
+   "id": "lockdown-attack",
+   "title": "Starting a lockdown",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "Everyone must quickly move inside and stay there. Alert everyone the way your plan sets out.",
+     "line": 489,
+     "quotes": [
+      {
+       "text": "When activated, children, students, staff, volunteers and visitors must quickly move inside the facility and remain there for safety.",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      },
+      {
+       "text": "Once initiated, staff should activate their emergency management plan, alerting everyone on site of the situation, including visitors and contractors.",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "warning",
+     "text": "Sounding any alarm may not be right with an attacker.",
+     "line": 492,
+     "quotes": [
+      {
+       "text": "In the case of an intruder/attacker it may not be appropriate to sound any type of alarm – how will you communicate with staff?",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "record",
+     "text": "Lockdown started",
+     "line": 494
+    },
+    {
+     "kind": "say",
+     "text": "You have called 111. Keep communication open both ways.",
+     "line": 495,
+     "quotes": [
+      {
+       "text": "Notify Police or other emergency services (if relevant) and keep communication open for updates both ways.",
+       "where": "Ministry guide 2026",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": null,
+   "next": {
+    "to": "roll",
+    "line": 497,
+    "target": "roll"
+   },
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 488,
+   "nexts": [
+    {
+     "to": "roll",
+     "line": 497,
+     "target": "roll"
+    }
+   ]
+  }
+ ],
+ "start": "start"
+}

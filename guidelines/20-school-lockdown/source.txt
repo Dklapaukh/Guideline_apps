@@ -1,0 +1,462 @@
+School or early learning lockdown (alert, lock, roll check, stay inside, call 111, parents, all-clear, after),
+word-for-word copies from New Zealand sources only (read 21 Nov 2026, NZ time). No Australian source was used.
+Main source is SOURCE A (Ministry of Education, October 2026). SOURCE F is the EARLIER January 2025 edition of
+the same guide (superseded); it is kept only because it words some steps differently (for example it says staff
+"take attendance, if possible, and prepare a list of missing and extra children/students in the room", which the
+October 2026 edition does not say). Never mix the two; where they differ, A is current.
+Capture method (web-fetch copy): direct download is refused here (the network proxy blocks education.govt.nz,
+web-assets.education.govt.nz and police.govt.nz), so every line was read by a fetch tool asked to quote exact
+lines (long sentences in pieces, rejoined here). Small slips (apostrophe, capital letter or dash style) are
+possible. Lines in [square brackets] are notes added here, not guideline text. "-" = bullet.
+No PDF was in sources/.
+
+=====================================================================================================
+SOURCE A. Ministry of Education | Te Tāhuhu o te Mātauranga (NZ)
+"Planning and preparing for emergencies: Practical information and guidance for schools and early
+childhood services", October 2026 (online ISBN 978-1-75991-452-7)
+https://web-assets.education.govt.nz/s3fs-public/2026-10/Planning%20and%20preparing%20for%20emergencies%20-%20Oct%202026.pdf?VersionId=E9A478ZxdUjYLRILTD87Aab5k2PVb.5w
+[Linked from the Ministry pages in SOURCE B. Section numbers below (A1, A2...) are added here; the PDF's own
+headings are not numbered.]
+=====================================================================================================
+A1. Basic emergency response process
+While every event is unique, you can include in your plan an initial high-level process. There are some basic
+steps that can be followed when responding to emergencies.
+Example emergency response process
+[diagram boxes, in the order read:]
+Emergency event
+Assess impact on school/early childhood service - and depending on the event will:
+Call Emergency Services if needed - 111
+Or call 105 if you need Police assistance but it is not urgent
+Respond to event as outlined in the emergency management plan
+Consider need for evacuation, shelter in place or lockdown
+Notify service provider/principal and all staff
+Initiate parent/caregiver contact plan
+[Elsewhere in the guide, in a list of supplies:] Air horns – to signal fire, lockdown or other emergency procedures.
+
+A2. Communicating in an emergency (staff, phones, parents)
+Communication with staff is a critical part of managing the response to an emergency.
+In addition to the alert signals to evacuate, lockdown and shelter in place, you will need a plan to keep staff
+up to date throughout the emergency.
+Ensure you have communication systems in place and know who is responsible for staff communications.
+Work out what communication methods work best for you and your staff.
+As part of your "phone away for the day" process, you may want to consider student mobile phone usage during an
+emergency event.
+Phone use may:
+- alert an intruder to the location of students/children and staff in hiding
+- overwhelm local communication networks
+- expose children and students to distressing information relating to the event.
+Have a plan to communicate with parents and caregivers during an emergency.
+Consider the best messaging to send to parents/caregivers during different stages of an emergency.
+Develop some message templates that cover:
+[message templates; the evacuation template is left out here]
+Initial alert (lockdown/shelter in place)
+URGENT: The centre/school is currently in lockdown due to [reason].
+All [children/students] and staff are safe.
+Do not come to the centre until advised.
+We will send updates when possible.
+[next template; its heading was not captured]
+The emergency has ended.
+All [children/students] and staff are safe.
+We will [remain open/close for the rest of the day].
+Please collect your child [time or instructions].
+When you are sending parents and caregivers messages for them to come and collect their child(ren), reinforce
+the reunification process.
+Document school protocols about the use of cell phones and other devices in an emergency and make sure students
+know they are to advise their teacher if they have contacted their parents or caregivers.
+This is particularly important if the child/student is going to be collected by their parent or caregiver.
+Encourage students (and others) to avoid posting potentially misleading or incorrect messages on social media.
+This also reduces the load on the mobile network during emergencies.
+
+A3. Alarms and signals to evacuate, lockdown or shelter in place
+Consider these things when planning how to raise the alarm and signal an evacuation, lockdown or shelter in place.
+- Do you have distinct alert signals or warning systems which can be heard both inside and outside, including,
+  for example, the swimming pool and gymnasium?
+- Is there one warning system for evacuating out of the building and another system for returning to or
+  remaining in the building in a lockdown/shelter in place situation?
+- In the case of an intruder/attacker it may not be appropriate to sound any type of alarm – how will you
+  communicate with staff?
+- How will you communicate with staff once everyone is inside? They will need to know whether it is a shelter
+  in place or lockdown event and respond accordingly.
+- Do staff members have cell phones to send and receive texts, if a trespasser or attacker is nearby and they
+  are hiding?
+- Do staff have access to email to send and receive messages from?
+- Who has access to systems to support messaging with staff?
+- How will you signal the end to a lockdown or shelter in place instruction?
+- Consider turning off alarm bells to avoid confusion. You will need to ensure staff, children, students, or
+  visitors do not assume the situation has been resolved when the automatic alarm stops ringing.
+
+A4. Shelter in place and lockdown
+A shelter in place or lockdown instruction can help prevent harm when a serious threat arises.
+When activated, children, students, staff, volunteers and visitors must quickly move inside the facility and
+remain there for safety.
+The difference between shelter in place and lockdown is:
+- Shelter in place – issued when the threat is external and not directed at your school/centre.
+  For example, if there is a swarm of wasps, toxic smoke, chemical spill, or a threat from an offender nearby
+- Lockdown – issued when the threat is directly related to your school/centre.
+  For example, an attacker on your property/grounds.
+
+Initiating a shelter in place or lockdown
+Instructions to shelter in place or lockdown may be initiated by:
+- the New Zealand Police
+- the school principal or delegate
+- the early childhood service manager or person responsible
+- other emergency services
+- the Ministry of Education (at the direction of the Police or other emergency service).
+Once initiated, staff should activate their emergency management plan, alerting everyone on site of the
+situation, including visitors and contractors.
+If parents and caregivers are also onsite, they will be required to follow staff instructions.
+You must ensure everyone moves to and remains at the required location until the further notice.
+This may include locking/securing doors/entrances and not using the bathroom unless it is deemed safe, and the
+child is accompanied by an adult.
+The Ministry may also be asked by the Police or other emergency services to direct schools and early childhood
+services to lockdown and will provide further information as soon as it becomes available.
+If you have limited information at the time you are advised of an incident/event, implementing a lockdown is
+advised until you get further information from the Police or other emergency services.
+On receipt of further information and where appropriate, you could choose to move to a shelter in place response
+which could allow for the controlled movement of staff, students and children to their usual classrooms and
+continue with usual inside activities where possible.
+
+Lifting a shelter in place or lockdown
+Who lifts the shelter in place or lockdown depends on who initiated the shelter in place or lockdown.
+If you made the decision to shelter in place or lockdown, you would lift the directive yourself.
+If the Police initiated the shelter in place or lockdown, they would provide advice on lifting the shelter in
+place or lockdown directive through the principal or early childhood service manager directly or through the
+Ministry of Education.
+Once the directive has been lifted, follow the steps set out in your emergency management plan.
+
+Shelter in place and lockdown equipment
+Consider the following when planning for a shelter in place or lockdown directive.
+- Are school building, classroom, or early childhood service doors lockable and who can lock them?
+- Can contact be made quickly across campus, including external buildings off the main building site, e.g. Teen
+  Parent Units, Health Schools?
+- Can ventilation and air conditioning systems be quickly shut down?
+- Is each classroom equipped with an emergency lockdown kit?
+- Managing the toileting needs of children/students.
+- Having a supply of containers/lunch boxes that could be kept in the classroom with water, muesli bars and
+  other age-appropriate food items.
+- Access to medications (for example, inhaler or EpiPen).
+- Keeping blankets and supplies accessible to the classroom/block of classrooms.
+- Having a supply of games, cards in the classroom to keep students/children occupied.
+
+A5. Escape. Hide. Tell. (in the shelter in place and lockdown section)
+An attacker on your premises may require a combination of responses.
+Escape - If you see a safe way out leave the area immediately.
+- Move quickly and quietly away from danger if it is safe to do so.
+- Take your mobile phone with you if you can, but do not go back to get it if it puts you in danger.
+- Leave other belongings behind.
+- Encourage others to go with you, but don’t let their hesitation slow you down.
+If you cannot escape completely…
+Hide - stay out of sight
+- Silence your mobile phone.
+- Secure your environment by locking doors and windows and barricading entries where possible.
+- Stay away from doors and be as quiet and still as possible so you do not give away your hiding place.
+- Note any potential exit points.
+As soon as it is safe to do so…
+Tell - police by calling 111 when it is safe.
+- The more information you can give about your location, surroundings, the attackers and the events that have
+  occurred, the better.
+More information and resources are available on the Police website.
+
+Protecting our crowded places from attack
+See Appendix 1 for more guidance to support your planning for security-related events including trespassers
+and attackers.
+The guidance has been developed with NZ Police and aligns with the New Zealand strategy for crowded places.
+
+Escape. Hide. Tell. – things to consider
+- Depending on the size of your site/campus, and the ages and capability of your children and young people, can
+  some groups move away from potential harm (escape)?
+- What messaging can be used to signal some groups could escape?
+- Consider a verbal warning system directing people away from the area where the danger is.
+  For example, at a secondary school “intruder in C block… move away from this area.”
+- Do staff members know how to silence their phones if they are hiding and know to direct others with phones to
+  put them on silent mode?
+
+A6. Lockdown and shelter in place drills
+For schools
+Drills for lockdown/shelter in place should be practiced with students present.
+To minimise anxiety in students, all practice drills should be explained, and scenarios used should be age
+appropriate. For example, a bee swarm or chemical spill.
+For early childhood services
+Children should participate in all drills, except lockdown drills.
+To prevent distress, confusion or fear in young children, you are expected to hold lockdown drills without the
+children present.
+For safety planning, New Zealand Police advise that schools and early child services should have more
+detailed/realistic drills without students present.
+[Elsewhere, for early childhood services:] Drills need to be carried out at least once every 4 months and align
+with your emergency plan.
+[Calendar examples:] Shelter in place/lockdown drill [school calendar]; Lockdown drill (staff only
+participating) [early childhood calendar]
+
+A7. Debriefing
+Following your practice drill or an actual event, you will need to debrief and evaluate the effectiveness of
+your emergency management plan.
+In a debriefing session discuss:
+- what worked well
+- what did not work well
+- assess the effectiveness of people’s roles and actions
+- are the documented procedures fit for purpose and reflect what happens in real life.
+Post-incident evaluation has been found to work well when it is led or coordinated by people not directly
+involved in the incident.
+You could involve the Police to help you assess, and if involved, invite Ministry of Education Traumatic
+Incident Team members to participate.
+Communicate key findings of the debrief to your staff, board, service providers, and community.
+Include any resulting changes to your plans and procedures that will impact future emergency management.
+
+A8. Reuniting children/students with families
+After an emergency, you will need a process to reunited children and young people with their
+parents/caregivers/whānau.
+Collection process
+Each child or young person can only be released to the parent or usual caregiver, or someone
+identified/approved by the parent or usual caregiver.
+For early childhood services
+For early childhood services, the person collecting the child must be either the person providing day-to-day
+care or be authorised in writing.
+You will need a system to record who has taken the child and evidence that the parent/guardian has given
+authority for the adult to pick up the child.
+Consider organising children and young people into class groups and moving them to an assigned area before they
+are picked up.
+Thinking about how they can be picked up by parents and caregivers, consider vehicle parking, access and
+location constraints and how to minimise any further disruption.
+For this to work, everyone needs to know the process and where the evacuation and reunification points are.
+Consider testing the reunification process during your emergency plan testing.
+Additional authorised people
+You may want to record up to 10 people who are pre-authorised to collect each child.
+These can include people who are not immediate family, like a neighbour or close friend.
+If a child cannot be safely collected
+If for whatever reason, a child cannot be safely collected, the school or early childhood service will need to
+take responsibility for their care until appropriate arrangements are put in place.
+When a reunification process is not needed
+A school may make the decision that it is appropriate and safe for a student to make their own way home
+following an event or may do so following contact with a parent or caregiver.
+You will need to ensure the student has appropriate support at home following an emergency event and they have
+a safe route home.
+Also consider if the student is going to an empty home.
+They may be safer remaining at school until a parent or caregiver will be home to support them or can collect
+them from school.
+
+A9. Example procedure - lockdown/shelter in place (page 45)
+[a single-column checklist of lines; square-bracket placeholders here ARE in the guide, to be filled in by each
+school]
+Lockdown/Shelter in place checklist
+Instruction to lockdown/shelter in place received from: [Police/emergency services/we initiated it ourselves]
+Initiate lockdown/shelter in place using [insert method in the emergency management plan e.g. sounding airhorn 3 times]
+Check that everyone is inside. Note any names of anyone who is unaccounted for.
+Secure your lockdown/shelter in place location(s) as required.
+Notify Police or other emergency services (if relevant) and keep communication open for updates both ways.
+Use the emergency staff communication channel to give updates and provide information to the emergency
+management team.
+Inform groups/individuals currently off-site that we are in lockdown/shelter in place (and to stay away until
+advised otherwise) – prepare to update them regularly.
+Inform parents/caregivers/community of the situation and to stay away until advised otherwise. [clarify what
+facts and information you want to give them]
+Advise the Ministry of Education local office about the situation.
+Maintain direct communication with emergency services/Police (or Ministry of Education where Police have asked
+them to direct schools and services to lockdown) to get updates about the event.
+If needed, organise safe access to the necessary toileting facilities, first aid, food and water supplies etc.
+Advised by Police/emergency services/other that we can safely move from lockdown to shelter in place.
+Advised by Police/emergency services/other to come out of lockdown or shelter in place.
+Initiate reunification process and notify parents and caregivers about where and when they can collect their child.
+or
+Advise parents and caregivers that the lockdown/shelter in place has ended and we are resuming with our usual
+activities until the normal end of day.
+
+A10. Appendix 1: Protecting Crowded Places (parts on respond and recovery)
+Respond
+Evacuation, lockdown, or shelter in place are all emergency responses which may be required if there is a
+security-related incident including a trespasser or attacker on your grounds.
+It is likely you will call the Police (or other emergency providers depending on the nature of the incident) who
+will lead the response and will be situation specific.
+It is vital you provide Police and other emergency services with the best information possible.
+Escape. Hide. Tell.
+In addition to a lockdown, key messaging from New Zealand Police for people at a crowded place that is attacked
+is to:
+- Escape - Move quickly and quietly away from danger, but only if it is safe to do so
+- Hide - Stay out of sight and silence your mobile phone
+- Tell - Call the Police by dialling 111 when it is safe.
+Recovery
+When a traumatic incident impacts on a school or early childhood service community, the way it is managed
+strongly influences people's recovery and can minimise further risk.
+Traumatic incidents
+After an incident occurs, you may wish to phone the local Ministry office to talk with someone from the traumatic
+incident (TI) team, to run something by them or have what you have already done affirmed, and to discuss what
+you might need to do next.
+In bigger events you can request that a team (usually two or three people) come to the school or early childhood
+service to support your management team.
+The Ministry TI teams do not take over and manage the incident for you; rather they can help your management
+team to respond.
+The Ministry's traumatic incidents and emergencies guidance can support you to develop a policy about how you
+will manage the wellbeing of children, students and staff following an emergency event.
+To contact the Traumatic incident team phone 0800 848 326.
+[Appendix 1 sections on deter/detect/delay and increasing resilience were not captured word for word.]
+
+=====================================================================================================
+SOURCE B. Ministry of Education (NZ) web pages "Prepare for an emergency or traumatic incident"
+B1 schools: https://www.education.govt.nz/education-professionals/schools-year-0-13/health-and-safety/prepare-emergency-or-traumatic-incident
+   (date published 12 August 2024, last updated 17 September 2026)
+B2 early learning: https://www.education.govt.nz/education-professionals/early-learning/health-and-safety/prepare-emergency-or-traumatic-incident-early-learning
+   (date published 19 April 2026, last updated 19 October 2026)
+=====================================================================================================
+B1/B2. Threats [same wording on both pages, "school" / "service"]
+If your school receives a threat by email, post or phone, call NZ Police.
+[B2: If your service receives a threat by email, post or phone, call NZ Police.]
+Police will assess the information you give them, determine whether it is credible, and tell you what actions
+you need to take.
+This may include a lockdown, evacuation or another safety measure.
+Call 111 for emergency incidents.
+[B2 also:] Call 105 for non-emergency incidents.
+[B2 also:] You can also complete an online report for non-emergency events.
+Police plans [both pages]
+Police use a tool called Realtime Intelligence for Operational Deployment (RIOD).
+[Things you can send them include:] shelter-in-place or lockdown procedures.
+
+=====================================================================================================
+SOURCE C. Ministry of Education (NZ) page for parents and caregivers "Emergency events" (schools)
+https://education.govt.nz/parents-and-caregivers/schools-year-0-13/health-safety-and-wellbeing/emergency-events
+Date published 19 December 2023, last updated 4 May 2026. [The page does not use the word "lockdown".]
+=====================================================================================================
+During an emergency event
+Follow instructions from your child's school.
+If your child contacts you, be calm.
+Tell them to follow the directions of staff.
+Wait to hear from your school
+Your school will take care of your child until it is safe for you to pick them up.
+They will let you know when it is safe.
+Stay away from the school until you have officially been told it is safe.
+Arriving at school too early could interfere with the emergency response.
+You might also put more people in danger.
+After the event
+If your child's wellbeing has been affected by an event, talk to your school.
+
+=====================================================================================================
+SOURCE D. Ministry of Education (NZ) "Respond at school to an emergency or traumatic incident"
+https://www.education.govt.nz/education-professionals/schools-year-0-13/health-safety-and-wellbeing/respond-school-emergency-or-traumatic-incident
+Date published 9 August 2024, last updated 21 September 2026.
+=====================================================================================================
+Call emergency services
+Call emergency services on 111 when you need Police, fire or ambulance.
+Contact the traumatic incident team
+Traumatic incident teams are based in all our regional offices.
+You can contact them at any time.
+Freephone (NZ only): 0800 TI TEAM (0800 848 326)
+What our traumatic incident teams do
+After a sudden and disruptive event, our traumatic incident teams work alongside your school's leadership team.
+They will help you put processes in place for the safety and wellbeing of students and staff.
+That includes returning your school or kura to normal operations as much as possible.
+
+=====================================================================================================
+SOURCE E. New Zealand Police "Know what to do: Escape. Hide. Tell"
+https://www.police.govt.nz/advice-services/protecting-crowded-places-attack/know-what-do-escape-hide-tell
+No date on the page (copyright 2026). [General public advice for an active armed offender in a crowded place;
+not written for schools. The escape/hide/tell lines match SOURCE A5; only the extra lines are copied here.]
+=====================================================================================================
+Knowing what to do during an active armed offender attack in a crowded place can save lives.
+In the unlikely event that you are caught up in such an event, it is important to be prepared to react quickly.
+You need to remember three words: ESCAPE. HIDE. TELL.
+TELL - police by calling 111 when it is safe.
+The more information you can give about your location, surroundings, the attackers and the events that have
+occurred, the better.
+You may be asked to stay on the line and provide further information that the operator requests or if the
+situation changes.
+If it is safe to do so, try to obtain the following information:
+- exact location of the incident.
+- description of the offender/s and whether they are moving in any particular direction.
+- details of any weapons being used.
+- number of people in the area and any that have been injured.
+- the intent of the offender/s (if known or apparent).
+Always try to be aware of your surroundings.
+If you see a commotion, hear screams, gunfire or loud noises, try to identify where it is coming from.
+If you think it is dangerous, consider what you can do to keep yourself safe.
+For example, you may have to hide before you have the opportunity to escape.
+In some situations you may still need to hide once you have escaped the immediate area.
+If you come across any injured people while hiding, providing first aid may help save their lives.
+But only help if it does not put yourself and others in any danger.
+Try to stop others from entering the area, but only if it doesn’t put you in any danger.
+Do not move closer to see what is happening - this may put you in danger.
+Consider looking for something you can use to defend yourself as a last resort if you are found by the attacker.
+
+=====================================================================================================
+SOURCE F. SUPERSEDED EARLIER EDITION: Ministry of Education (NZ) "Planning and preparing for emergencies:
+Practical information and guidance for schools and early learning services", January 2025
+https://web-assets.education.govt.nz/s3fs-public/2025-01/PLANNING%20AND%20PREPARING%20FOR%20EMERGENCIES%20(1).pdf?VersionId=Fz9LyrQGYGu5kKoGug23TN9R3ZSTBS72
+[Replaced by SOURCE A (October 2026). Only the lockdown parts that are worded differently are copied.]
+=====================================================================================================
+F1. 1.17. Shelter in place and lockdown (parts)
+The principal or early learning service manager, is responsible for alerting everyone on site of the situation,
+including visitors and contractors.
+Both shelter in place and lockdown require everyone to quickly move inside.
+Police will usually direct you to lockdown rather than use the term ‘shelter in place’.
+The nature of the situation described to you by Police (or other emergency services) will determine whether the
+school or service moves to a lockdown (incident directed at the school/service) or shelter in place (incident
+nearby but not directed at the school/service).
+Shelter in place
+A shelter in place directive is issued when the threat is external and not directed at the school or early
+learning service.
+For example, a school or early learning service may be asked to activate their shelter in place plan if there is
+a report of a swarm of wasps, toxic smoke from a nearby fire, a chemical spill nearby, or active armed offender
+incident in the community (but not in or near the school grounds).
+When a shelter in place is activated, everyone should move quickly inside to their own classroom or inside area
+in an early learning service.
+The entries and exits to the buildings should be restricted, however normal instructional activities continue
+as much as possible.
+No one should be allowed in or out of the grounds and buildings until the authorities give an all-clear signal.
+Heating, ventilation, and air conditioning systems could be shut down if necessary (to prevent spread of harmful
+air) and doors and windows could be closed.
+Lockdown
+A lockdown instruction is only likely to be issued if the threat is directly to the school or early learning
+service.
+This will generally be an attacker on the school or early learning service grounds or in the buildings, or on
+instruction from Police.
+Staff will move children and visitors into the closest school classrooms or inside areas of the early learning
+service and lock the doors immediately.
+The staff will take attendance, if possible, and prepare a list of missing and extra children/students in the room.
+Everyone will remain in the room until further instruction is received from NZ Police or until a formal
+announcement is made signifying the end of the lockdown.
+Children and students will be able to go to the bathroom if permitted by the person responsible for managing the
+lockdown (e.g., principal or early learning service manager).
+This would generally be managed in accordance with the emergency management plan.
+This may include the requirement that they can only do so if the child/student is accompanied by a designated
+staff member.
+Schools may need to have alternative arrangements in place if bathrooms can’t be safely accessed such as camp
+toilets or similar.
+Signal (parts)
+During some emergencies you might want to consider turning off automatic bells to avoid confusion.
+You will need to ensure staff, children, students, or visitors do not assume the situation has been resolved when
+the automatic alarm rings.
+Attackers on your premises (part)
+Delaying their access to potential victims should be a priority.
+
+F2. 1.23. Example checklist - lockdown / shelter in place
+[two tick columns: a tick-box column (symbol lost) and "N/A"]
+Lockdown / Shelter in Place Checklist
+Consider using this checklist to help you during your emergency.
+- Initiated lockdown/shelter in place (either directed by Police/emergency services or initiated by school/ECE)
+- Is everyone inside?
+- Have we notified Police or other emergency services (if relevant)?
+- Have we informed our parent/caregiver community of the situation and to stay away until advised otherwise?
+- Have we got a communication channel in place with staff so they can get updates and provide information to
+  the emergency management team?
+- Have we notified groups/individuals currently off-site we are in lockdown/shelter in place (and to stay away
+  until advised otherwise)?
+- Have we advised the Ministry of Education (Te Mahau) local office?
+- Have we established direct communication with emergency services/Police (or Ministry of Education where Police
+  have asked them to direct schools and services to lockdown) to get updates about the event?
+- Have we checked our emergency management plan?
+- Can we safely move down from lockdown to shelter-in-place using up to date information from Police/emergency
+  services/other? (If the emergency event is not directly targeted at the school/service, shelter in place is
+  recommended.)
+- If needed, is there safe access to the necessary toileting facilities, first aid, food and water supplies etc.?
+- Are we updating our parents/caregivers regularly?
+- Have we initiated our reunification process and notified parents and caregivers about where and when they can
+  collect their child?
+  Or
+- Have we advised that the lockdown/shelter in place has ended and we are resuming with our usual activities
+  until the normal end of day?
+
+F3. Practice drills (part)
+Drills for lockdown/shelter in place should be practiced with students present.
+To minimise anxiety in students, all practice drills should be explained, and scenarios used should be age
+appropriate e.g. a bee swarm or chemical spill.
+For safety planning, New Zealand Police advise that for school/ECE, a more detailed/realistic drill could be
+carried out without students present.
+[From F's Appendix 1 'Respond' part, not the drills section:] Children/young people should not be included in
+drills for responding to violent situations, as they may cause undue fear and anxiety.
