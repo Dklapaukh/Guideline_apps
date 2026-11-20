@@ -11,6 +11,8 @@ export const LOOKS = [
     fonts: 'family=Archivo:wght@500;700;800;900' },
   { id: 'flightdeck', name: 'Flight deck', from: 'Aviation checklists and cockpit displays: dark, high contrast, built for stress and low light.',
     fonts: 'family=IBM+Plex+Sans:wght@400;500;700&family=IBM+Plex+Sans+Condensed:wght@600;700&family=IBM+Plex+Mono:wght@500' },
+  { id: 'rescue', name: 'Rescue', from: 'Marine safety gear and lifeboat safety signs: high-vis orange and navy, big bold type, extra-large buttons for wet hands and sunlight.',
+    fonts: 'family=Atkinson+Hyperlegible:wght@400;700&family=Barlow+Condensed:wght@600;700;800' },
 ];
 export const DEFAULT_LOOK = LOOKS[0].id;
 

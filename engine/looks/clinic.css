@@ -31,3 +31,12 @@ h2 { font-size:24px; } h3 { color:var(--go); }
 .note-box { background:#f6f9f9; border-radius:16px; padding:14px; }
 .note-text { border:1.5px solid var(--line); border-radius:14px; background:#fff; }
 .note-save { background:var(--gosoft); color:var(--go); border-radius:999px; }
+
+/* tips: soft blue dashed card with a pill badge; folds: quiet rows; the GPS button is a pill in the action colour */
+.tip { background:#eef4ff; border:1.5px dashed #7b9be0; border-radius:16px; padding:12px 14px; }
+.tip-badge { background:#dbe6fb; color:#2f4f9a; font-weight:700; text-transform:none; letter-spacing:0; font-size:13px; }
+details.more { border:0; background:#f6f9f9; border-radius:16px; padding:0 14px; } details.more[open] { padding-bottom:8px; }
+details.more > summary { color:var(--ink); } details.more > summary::before { background:var(--gosoft); color:var(--go); border-radius:999px; }
+details.sources { border-top:1px solid var(--line); } details.sources > summary::before { border-radius:999px; }
+.gps-btn { background:var(--go); color:#fff; border-radius:999px; box-shadow:0 6px 16px rgba(15,118,110,.2); }
+.gps-ddm { color:var(--go); }

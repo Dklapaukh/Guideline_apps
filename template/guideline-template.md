@@ -21,7 +21,8 @@ Look:
 > app shows "Not reviewed".
 > Optional company branding: "Brand:" is the organisation's name (shown at the top), "Brand colour:" a hex code
 > such as #1d4ed8 (used for buttons or the route line, depending on the look). "Look:" is the design the app opens
-> in: Clinic (the default), Wayfinding or Flight deck. The person using the app can always change the look under About.
+> in: Clinic (the default), Wayfinding, Flight deck or Rescue (high-vis orange and navy, extra-large buttons, for use
+> outdoors). The person using the app can always change the look under About.
 
 ## Inputs
 
@@ -55,8 +56,13 @@ Source: Guideline table 2, page 4
 > One "### id: Title" per screen. The first step is where the app starts.
 > Each line starts with a word that says what it is:
 >   Say:      text to show                       Do:     a tick-box action
+>   More:     extra text, folded away under "More detail" (may have a Quote, like Say)
+>   Tip:      the APP's own suggestion about flow or tools, shown as "App tip · not from the guideline".
+>             Never guideline advice: no Quote under it and no numbers (no amounts, times, distances, doses or
+>             phone numbers). If the guideline says it, use Say with its Quote instead.
 >   Warning:  highlighted caution                Note:   for authors only, never shown
->   Quote:    "exact words from the guideline" (page)  - supports the line above it
+>   Quote:    "exact words from the guideline" (page)  - supports the line above it. Quotes are shown together
+>             in one folded "Sources for this screen" list at the bottom of the screen.
 >   Ask:      a question, followed by answers:   - Answer text -> step-id
 >   Next:     step-id (or "end")                 End:    marks the last step (optional closing text)
 >   Timer:    20 minutes -> step-id              counts down on this step, then offers to move on
@@ -67,6 +73,10 @@ Source: Guideline table 2, page 4
 >   Record:   Dose given                         a button that logs the time each time it's tapped
 >   Write:    Caller's exact words               a box to type into; the text goes in the Log with the time
 >             (one box per Write: line; it keeps its text on Back. Use it when the guideline says to write something down.)
+>   Location: Where it happened                a box for a position with a "Use GPS position" button: fills in the
+>             phone's position (decimal and degrees-minutes) and saves it to the Log; it can also be typed in.
+> Less text per screen: keep each screen to one or two short Say/Do lines, a Record or Location button and the
+> question. Put background, alternatives and other countries' wording in More lines.
 > Any line can end with a condition: [if Age group = Child] or [if Weight < 10] or [if A = x and B > 3].
 > Answers can have conditions too: - Give second dose -> second-dose [if Age group is Adult]
 

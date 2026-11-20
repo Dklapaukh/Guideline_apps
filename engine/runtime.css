@@ -25,10 +25,25 @@ p { margin: 8px 0; } p.bul::before { content:"• "; color:var(--mut); }
 .author { background:var(--authorbg); color:var(--author); border-left:4px solid var(--author); padding:8px 10px; border-radius:6px; font-size:15px; }
 .do { display:flex; flex-wrap:wrap; gap:10px; align-items:flex-start; padding:10px 0; border-bottom:1px solid var(--line); }
 .do input { width:26px; height:26px; margin:0; flex:none; } .do span { flex:1; }
-.do .src, .do .dep { flex-basis:100%; margin-left:36px; }
+.do .dep { flex-basis:100%; margin-left:36px; }
 .dep { display:block; color:var(--author); font-size:13px; }
-details.src { font-size:14px; color:var(--mut); margin:2px 0 4px; } details.src summary { cursor:pointer; color:#1d4ed8; }
-details.src q { font-style:italic; }
+/* folds: "More detail" (extra lines of the step) and "Sources for this screen" (the guideline quotes) */
+details.more, details.sources { margin:14px 0 0; }
+details.more > summary, details.sources > summary { cursor:pointer; list-style:none; display:flex; align-items:center; gap:10px; min-height:48px; }
+details.more > summary::-webkit-details-marker, details.sources > summary::-webkit-details-marker { display:none; }
+details.more > summary::before, details.sources > summary::before { content:"+"; display:inline-grid; place-items:center; flex:none; width:26px; height:26px; border-radius:6px; font-weight:800; line-height:1; }
+details.more[open] > summary::before, details.sources[open] > summary::before { content:"−"; }
+details.more { border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+details.more > summary { font-weight:700; color:var(--ink); } details.more > summary::before { background:#e8eef6; color:#1d4ed8; }
+details.more[open] { padding-bottom:6px; } .more-line { margin:6px 0 10px; }
+details.sources { font-size:14px; color:var(--mut); border-top:1px dashed var(--line); margin-top:18px; }
+details.sources > summary { color:var(--mut); font-weight:600; } details.sources > summary::before { border:1px solid var(--line); color:var(--mut); }
+.src-list { margin:4px 0 6px; padding-left:24px; } .src-list li { margin:0 0 10px; }
+.src-list q { font-style:italic; color:var(--ink); } .src-list .where { color:var(--mut); } .src-list .for { display:block; font-size:13px; color:var(--mut); }
+/* "Tip:" the app's own suggestion, never guideline advice: a dashed box and a badge that says so */
+.tip { margin:12px 0; padding:10px 12px; border:2px dashed #4f6fb5; border-radius:10px; background:#f1f5fd; }
+.tip-badge { display:inline-block; font-size:12px; font-weight:700; letter-spacing:.04em; text-transform:uppercase; color:#fff; background:#3b5998; border-radius:999px; padding:2px 10px; }
+.tip-text { margin:6px 0 0; font-size:.94em; font-weight:400; color:var(--mut); }   /* secondary to the guideline's own lines; the badge says what it is */
 .timer { margin:14px 0; padding:12px; border-radius:10px; background:#eef6f2; text-align:center; }
 .timer .lbl { color:var(--mut); font-size:14px; }
 .big-clock { font-size:44px; font-weight:700; font-variant-numeric:tabular-nums; }
@@ -44,6 +59,12 @@ details.src q { font-style:italic; }
 .note-text { display:block; width:100%; min-height:132px; font:inherit; line-height:1.4; padding:12px; border-radius:10px; border:1px solid var(--line); background:var(--card); color:var(--ink); resize:vertical; }
 .note-text:focus { outline:3px solid var(--go); outline-offset:1px; }
 .note-save { text-align:center; } .note-status { display:block; margin-top:6px; color:var(--mut); font-size:14px; }
+/* "Location:" a position box with a big "Use GPS position" button */
+.gps-btn { text-align:center; min-height:60px; font-size:18px; background:var(--go); color:#fff; border-color:var(--go); }
+.gps-btn::before { content:"⌖"; margin-right:8px; font-size:1.2em; }
+.gps-msg, .gps-ddm { display:block; margin:8px 0 0; } .gps-msg:empty, .gps-ddm:empty { display:none; }
+.gps-msg { font-weight:600; font-size:15px; } .gps-ddm { font-weight:700; font-variant-numeric:tabular-nums; }
+.loc-text { min-height:76px; margin-top:10px; }
 .log small { white-space:pre-wrap; }
 .lookup { border:1px solid var(--line); border-radius:10px; padding:8px 10px; margin:8px 0; }
 .lookup .lk { font-weight:600; } .lookup .lv { display:flex; justify-content:space-between; gap:10px; padding:4px 0; border-top:1px dashed var(--line); }

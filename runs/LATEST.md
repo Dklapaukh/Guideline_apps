@@ -23,6 +23,24 @@ Also: this run built app 18 too, but another run published it first, so this cop
 
 Building blocks added: none needed.
 
+Your feedback round (same day): you asked for app additions clearly marked as the app's own (flow and tools,
+no new advice), phone integration such as GPS, and a better design (less text per screen, more urgent, less
+source clutter). Done:
+- New "Tip:" line: the app's own flow or tool help, shown with an "App tip · not from the guideline" badge, in
+  lighter text than the guideline's lines. A tip containing any number, or a quote, is flagged in Checks.
+- New "Location:" box: a "Use GPS position" button fills in latitude/longitude (and degrees-minutes) with the
+  accuracy and time, and saves it to the Log. Inside a claude.ai page the phone's location is blocked, so there it
+  says so and you type the position; it works when the app file is opened as an ordinary web page.
+- New "More:" lines fold background, AU/UK detail and source disagreements into one "More detail" section.
+- Every app: one "Sources for this screen" fold replaces the "Guideline" link under every line. Record buttons
+  say "Not tapped yet"; the Log now shows each answer with the step it was given on.
+- New "Rescue" look (marine safety gear: high-vis orange and navy, big buttons, hazard-stripe warnings). App 18
+  opens in it; every app can switch to it.
+- App 18 reworked: most screens now show 2 to 4 lines. A second, fresh reviewer found 0 missed instructions and
+  12 findings (a tip that gave crew-task advice, START hidden below the fold, the Mayday script needing a scroll,
+  4 safety lines folded away that should stay visible); all fixed.
+- Scores now: to fix 0, to check 0, all apps; app 18 94 of 94 quotes exact. Tests: 47 of 47 pass.
+
 Gaps in the guideline (each said on screen):
 - NZ sources differ on the wait before another dose: 2 to 5 min (Healthify), 3-5 min (kit), 2-3 min (The Level).
 - How many doses: a second dose only (Healthify, kit) or no maximum (The Level). The kit has 5 ampoules; nobody

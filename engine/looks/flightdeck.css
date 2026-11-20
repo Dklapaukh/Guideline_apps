@@ -23,7 +23,6 @@ h3 { color:var(--warn); }
 .warn { background:var(--warnbg); color:var(--warn); border-left:4px solid var(--warn); border-radius:2px; text-transform:uppercase; font-size:15px; letter-spacing:.02em; }
 .do { border-bottom:1px dashed var(--line); font-weight:500; }
 .do input { accent-color:var(--go); border-radius:0; }
-details.src summary { color:var(--go); } details.src { color:var(--mut); }
 .timer { background:#06121b; border:1px solid #1f3a50; border-radius:4px; position:relative; }
 .timer::after { content:""; display:block; height:4px; margin-top:10px; background:linear-gradient(90deg, var(--go) calc(var(--p, 0) * 100%), #1c2633 0); }
 .timer .lbl { text-transform:uppercase; letter-spacing:.1em; font-size:12px; }
@@ -43,3 +42,15 @@ details.src summary { color:var(--go); } details.src { color:var(--mut); }
 .note-lbl { font-family:"IBM Plex Sans Condensed", "IBM Plex Sans", sans-serif; text-transform:uppercase; letter-spacing:.06em; font-size:14px; color:var(--go); }
 .note-text { background:#0b1118; color:var(--ink); border-color:#1f3a50; border-radius:4px; }
 .note-save { text-transform:uppercase; letter-spacing:.06em; color:var(--go); border-color:#1f3a50; }
+
+/* tips, folds, position box */
+.tip { background:#0b1a17; border:1px dashed #2dd4bf; border-radius:4px; }
+.tip-badge { background:transparent; color:#2dd4bf; border:1px solid #2dd4bf; border-radius:2px; font-family:"IBM Plex Sans Condensed", "IBM Plex Sans", sans-serif; letter-spacing:.1em; }
+details.more { border-color:var(--line); } details.more > summary { color:var(--go); text-transform:uppercase; letter-spacing:.06em; font-size:14px; font-family:"IBM Plex Sans Condensed", "IBM Plex Sans", sans-serif; }
+details.more > summary::before { background:transparent; border:1px solid var(--go); color:var(--go); border-radius:2px; }
+details.sources { border-color:var(--line); } details.sources > summary { text-transform:uppercase; letter-spacing:.06em; font-size:12px; }
+details.sources > summary::before { border-color:var(--line); border-radius:2px; }
+.src-list q { color:var(--ink); }
+.gps-btn { background:transparent; color:var(--go); border:1px solid var(--go); text-transform:uppercase; letter-spacing:.06em; }
+.gps-ddm { font-family:"IBM Plex Mono", ui-monospace, monospace; color:var(--go); font-weight:500; }
+.gps-msg { color:var(--warn); }

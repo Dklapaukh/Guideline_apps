@@ -27,8 +27,7 @@ h1 { font-size:32px; } h2 { font-size:30px; margin-top:6px; }
 .do { position:relative; border-bottom:0; padding:12px 0 12px 44px; font-weight:700; }
 .do::before { content:""; position:absolute; left:15px; top:0; bottom:0; width:6px; background:var(--route); }
 .do input { position:absolute; left:6px; top:12px; width:24px; height:24px; accent-color:var(--route); }
-.do .src, .do .dep { margin-left:0; }
-details.src summary { color:var(--ink); text-decoration:underline; }
+.do .dep { margin-left:0; }
 .timer { background:var(--ink); color:#fff; border-radius:0; text-align:left; padding:14px 16px; }
 .timer .lbl { color:#bbb; text-transform:uppercase; letter-spacing:.08em; font-size:12px; font-weight:700; }
 .timer::after { content:""; display:block; height:8px; margin-top:10px; background:linear-gradient(90deg, var(--sign) calc(var(--p, 0) * 100%), #333 0); }
@@ -44,3 +43,16 @@ details.src summary { color:var(--ink); text-decoration:underline; }
 .note-lbl { font-weight:900; font-size:19px; }
 .note-text { border:2px solid var(--ink); border-radius:0; font-weight:600; }
 .note-text:focus { outline:4px solid var(--sign); outline-offset:0; }
+
+/* tips are quiet panels with a blue "information" badge, lighter than the instructions; folds are plain bold rows; the GPS button is a black sign */
+.tip { background:#f2f6fb; color:var(--mut); border:0; border-left:6px solid #0057b8; border-radius:0; padding:10px 14px; }
+.tip-badge { background:#0057b8; color:#fff; border-radius:0; font-weight:900; }
+.tip-text { font-weight:400; color:var(--mut); }
+details.more { border-top:2px solid var(--ink); border-bottom:2px solid var(--ink); }
+details.more > summary { font-weight:900; font-size:18px; }
+details.more > summary::before { background:var(--ink); color:#fff; border-radius:0; }
+details.sources { border-top:2px solid #ddd; } details.sources > summary { color:var(--ink); text-decoration:underline; font-weight:700; }
+details.sources > summary::before { border:2px solid var(--ink); color:var(--ink); border-radius:0; }
+.gps-btn { background:var(--ink); color:#fff; border-color:var(--ink); border-radius:0; font-weight:900; }
+.gps-btn::before { color:var(--sign); }
+.gps-ddm { font-size:19px; font-weight:900; }

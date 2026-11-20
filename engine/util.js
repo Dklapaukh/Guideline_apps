@@ -135,3 +135,23 @@ export function keyMatches(key, value) {
 
 // A table cell that gives no value: empty, "-", a dash or "n/a". Shown as "Not stated in the guideline", never zero.
 export const isNotStated = (cell) => /^\s*(-|–|—|n\/?a)?\s*$/i.test(cell ?? '');
+
+/* ---- positions (for "Location:" boxes) ---- */
+// Reads "lat, lon" decimal degrees from the start of a box's text ("-41.28538, 174.77612 (±12 m ...)").
+// Returns { lat, lon } or null if the text doesn't start with a position in range.
+export function readLatLon(text) {
+  const m = /^\s*(-?\d{1,2}(?:\.\d+)?)\s*,\s*(-?\d{1,3}(?:\.\d+)?)(?![\d.])/.exec(String(text ?? ''));
+  if (!m) return null;
+  const lat = Number(m[1]), lon = Number(m[2]);
+  return Math.abs(lat) <= 90 && Math.abs(lon) <= 180 ? { lat, lon } : null;
+}
+// One coordinate as degrees and decimal minutes, the way charts and boat GPS units show it: 41°17.123'S.
+function ddmPart(value, pos, neg) {
+  const a = Math.abs(value);
+  let deg = Math.floor(a), min = Math.round((a - deg) * 60 * 1000) / 1000;
+  if (min >= 60) { deg += 1; min = 0; }                 // 59.9996 rounds up to the next degree
+  const [whole, frac] = min.toFixed(3).split('.');
+  return `${deg}°${whole.padStart(2, '0')}.${frac}'${value < 0 ? neg : pos}`;
+}
+// Decimal degrees -> "41°17.123'S 174°46.567'E" (latitude first, as read out on the radio).
+export const toDdm = (lat, lon) => `${ddmPart(lat, 'N', 'S')} ${ddmPart(lon, 'E', 'W')}`;

@@ -117,3 +117,94 @@ Missed instructions: 2 (NZ sources: Northland D2 "Use these signals only to indi
 14. Fixed (guideline gap said plainly): report now says "If you made a Mayday, Maritime Radio may already know. The page does not say whether that counts as reporting." This is also in Notes. The order is unchanged.
 
 Rebuilt: 25 steps, all reachable, 0 fix, 0 check, 14 info (app-wording lines with no quote, unused background amounts, no reviewer, web-fetch copy). 87 of 87 quotes are exact. Explorer: 286 routes (the full exploration, not cut off at the 400 limit), 10 endings, 25 of 25 steps seen, no problems. npm test: 37 of 37 pass.
+
+## Owner feedback round (21 Nov)
+What the owner asked for: app additions clearly marked and no new advice; use the phone's GPS; less text per screen, more urgency, less source clutter.
+- Look: Rescue is set at the top.
+- Less on each screen: every screen now shows a title, one or two short Say or Do lines, its Record or Location button, then the question. Visible lines per screen, before then after, roughly: help 12 to 2, script 12 to 9 (the script itself), signals 10 to 4, approach 7 to 2, hard 8 to 3, contact 7 to 4, phone 7 to 4, radio 6 to 3, start 6 to 3, report 6 to 4, watch 5 to 2, stop 5 to 3.
+- More detail: AU and UK guidance, background, the survival-time figures, the source disagreements and the gap statements all moved into More lines (43 in all), folded under "More detail" with their quotes kept. Quotes now sit in the one "Sources for this screen" fold.
+- Labels: non-NZ lines start "AU guide:" or "UK guide:".
+- Warnings left on screen: only the safety-critical ones (avoid jumping in, the propeller on stop, approach and alongside, signals only for distress, risk to crew with an unconscious person).
+- GPS: the mark screen's Write box is now `Location: Where the person went in`, with a "Use GPS position" button. It is supported by the Victoria waypoint quote and the RYA man overboard button quote, and More says that only the AU and UK guides mention GPS. The "Position marked" Record was removed because the Location box already logs the time. The Mayday script screen has `Location: Position to read out` at the top.
+- App tips (the app's own flow or tool suggestions, no numbers, no safety advice):
+  - start: "Tap the buttons as you go: the app keeps the times."
+  - mark: "One person keeps pointing while another taps the GPS button."
+  - help: "If there is crew, one person calls while the skipper steers back."
+  - script: "Tap the GPS button first, then read the position out."
+  - cancel: "Not sure how to cancel? Ask Coastguard or Maritime Radio when you speak to them."
+  The script's "here, what is wrong is a person overboard" stays in More as an "App's note". It is wording help, not a flow tip.
+- Kept: every route, the NZ urgency order, and all 14 earlier reviewer fixes.
+- Result: 25 steps, 0 fix, 0 check, 14 info. 91 of 91 quotes exact. Explorer: 286 routes, 10 endings, 25 of 25 steps seen, no problems. npm test: 44 of 44 pass.
+- Screenshots in the Rescue look (start, stop, mark with GPS, the Mayday script, help with folds open, recover) looked fine: nothing cut off, and the question is on the first screen except on start and mark.
+
+## Second review (21 Nov, owner feedback round)
+Checked by: a second independent reviewer (AI) on 21 Nov 2026, who wrote none of this. I read CLAUDE.md, LESSONS, DESIGN, source.txt, template.md and the review above; rebuilt the app (25 steps, all reachable, 0 fix, 0 check, 14 info, 91 of 91 quotes exact); ran the explorer (286 routes, 10 endings, 25 of 25 steps seen, no problems); and took phone screenshots (390 x 844, and tall) in Rescue of home, start, stop, mark (GPS success with a faked position, and GPS refused), help, the Mayday script, phone, recover, warm, signals, cancel and the Log, plus help and mark in Clinic and two screens of app 16 (severe bleeding) in Clinic.
+
+Verdict: Pass with fixes. The owner's three asks are mostly met: every Tip carries an unmistakable "App tip · not from the guideline" badge with no numbers, screens are much shorter, the GPS button works and its fail message reads well, and no quote, number or earlier fix was lost. But two Tips go beyond flow/tool help (findings 1 and 2), two first taps sit below the fold on a normal phone (findings 3 and 4), and three safety lines that matter at the moment of action are now folded away (findings 5 to 7). Fix 1 to 4 before the owner sees it as finished.
+
+### Findings
+1. **help, Tip: "If there is crew, one person calls while the skipper steers back" is crew-task advice, and can take the only spotter off the person.**
+   - What is wrong: no source says who should call. It is advice about how to run the rescue, not about using the app. On a two-person boat the "one person" who is not steering is also the one Coastguard tells "don't take your eyes off them!" and Wellington tells to keep pointing; the Tip would send them to the radio. The banner's "Best used by a crew member who is not steering or watching the person" gets it right; this Tip doesn't.
+   - Suggested fix: make it a tool tip that can't clash with watching, e.g. `Tip: Hand this phone to someone who is not steering or watching the person.` Or drop it. If the owner wants the call-while-returning idea kept, put it in More as "App's note (not from the sources): ..." and add "never the person watching them".
+2. **cancel, Tip: "Not sure how to cancel? Ask Coastguard or Maritime Radio when you speak to them" is procedural advice for a gap, not flow help.**
+   - What is wrong: the sources don't say how to cancel a Mayday or a beacon set off on purpose (LESSONS trap 13). The Tip fills that gap with the app's own procedure, and it is the visible line, while the honest gap statement ("No source says how to cancel...") is folded in More. It is sensible and badged, but the owner asked for no new advice in Tips.
+   - Suggested fix: make the gap the visible line (`Say: The sources don't say how to cancel a Mayday or a beacon you set off on purpose.`), keep the 0508 accidental-activation line in More, and either drop the Tip or turn it into a tool tip (`Tip: The Log shows what you called and when.`).
+3. **Home screen: the START button is hidden under the tab bar on a normal phone (390 x 844).**
+   - What is wrong: the About paragraph and the yellow Warning push START to about 815 px; the tab bar covers it. In a person-overboard the first tap needs a scroll. (Other apps share the layout, but this is the most time-critical one.)
+   - Suggested fix: shorten `About:` to one or two lines (e.g. "Shout, throw, watch, stop, call for help, recover, warm, report. Keeps the times."), and move the source-mixing sentence to Notes or the Warning. Longer term (engine): put Start above the About text, or make the start button sticky.
+4. **script: on a normal phone only "Mayday. Mayday. Mayday." is visible; the rest of the call needs scrolling.**
+   - What is wrong: the Location box (title, GPS button, text box, Save to Log, help text) and the Tip fill the first screen, so the caller scrolls mid-call, which is what putting the whole Mayday on one screen was meant to avoid. The script lines are also regular weight, lighter than the Tip above them.
+   - Suggested fix: keep the position on mark only (the Log already has it, and the script's own placeholder says "in position (latitude & longitude)"), or put the Location box under the script lines and drop the "Tap the GPS button first" Tip. Engine idea for later: a compact Location box (button and text only), and a way to show the mark position on a later screen.
+5. **recover: the small-boat capsize risk is folded away.**
+   - What is wrong: the only visible line is "Use the boat hook". The AU line "preferably over the stern, as a small vessel might capsize or take on water if you try taking them in over the side" is in More, though it is the line that decides how they pull the person in, at that moment, on exactly the boats this app is for.
+   - Suggested fix: make it a visible labelled line: `Say: AU guide: bring them in over the stern if you can; a small boat may capsize over the side.` (same quote). Keep ladder and heaving line in More.
+6. **warm: "go to a medical facility to be checked" (secondary drowning) is folded away.**
+   - What is wrong: the only line on aftercare that tells people to get the person checked is in More. A conscious, warmed-up person can look fine; this is the line a clinician would least want hidden. It is UK-only, which More already says.
+   - Suggested fix: one visible line: `Say: UK guide: they should be checked at a medical facility (risk of secondary drowning). No NZ source says this.` with the existing quotes.
+7. **phone: the *500 disagreement is now folded away; LESSONS trap 5 says keep both visible.**
+   - What is wrong: *500 is the Coastguard number many NZ boaties know, and Northland lists it for emergencies. On the phone screen the disagreement is now inside More. The visible 111 instruction is right, so this is lower risk than 5 and 6.
+   - Suggested fix: one short visible line: `Say: *500: the sources disagree on using it for emergencies (see More).` Don't add "don't call *500": no source says that.
+8. **stop: the AU "neutral and swing the propeller away" line is folded away.**
+   - What is wrong: it is the only concrete propeller action and it applies exactly when stopping near the person. The NZ propeller Warning is visible, so this is minor.
+   - Suggested fix: optional: add it to the visible Warning area as a labelled Say, or leave in More if the owner prefers fewer lines.
+9. **Rescue look: the Tip is the boldest text on several screens, heavier than the guideline instruction.**
+   - What is wrong: in Rescue, Tip text is bold and the Say line is regular weight, so on help and cancel the app's own suggestion looks more important than the guideline's line. In Clinic the Tip is regular weight in a pale blue box, which reads correctly.
+   - Suggested fix (engine/looks/rescue.css, for the builder): Tip text regular weight (keep the badge and dashed border), or Say lines bold in Rescue.
+10. **handover and End: unmarked app advice on screen.**
+    - What is wrong: "Show rescuers or Maritime NZ the Log: the times, the position and the description you typed" is visible as a Say; only the folded More says it is the app's summary. "Keep this phone's Log" is also the app's.
+    - Suggested fix: make the first line a Tip (`Tip: Show rescuers the Log: the times, the position and the description you typed.`). That is tool help and fits the Tip rule.
+11. **Labels don't match: the top Warning says "Lines marked Australian or UK", but lines now say "AU guide:" / "UK guide:". Notes ("Which source leads") still says lines say "Australian guide (Victoria)" or "UK guide (RYA)".**
+    - Suggested fix: Warning: "Lines marked AU guide or UK guide are not New Zealand guidance." Rewrite that Notes sentence to the current labels (docs hold what is true now).
+12. **Small things.**
+    - mark: after GPS, two messages say the same thing ("Position from GPS at 03:03, saved in the Log." and "Saved in the Log at 03:03 (0:01 after start)"). Engine: show one.
+    - mark Tip "One person keeps pointing while another taps the GPS button" is fine as flow help, but assumes two people; "If you have crew, ..." would match the help Tip.
+    - signals More: "Arms: slowly and again and again" reads oddly; "slowly and repeatedly" is the source's own wording.
+    - "not yet" under every Record button reads like an instruction; "not tapped yet" is clearer (engine, all apps).
+    - Log: an answer is printed on the next step's line ("Throw something that floats  Then?: Done: next"), which reads as if the answer belonged to Throw (engine, all apps).
+
+### Checked with no problem found
+- Tips: none has a number or a Quote; start ("Tap the buttons as you go") and script ("Tap the GPS button first") are pure tool help; the badge "APP TIP · NOT FROM THE GUIDELINE" with a dashed border is unmistakable in Rescue and Clinic.
+- Unquoted lines: every unquoted More is a gap statement or a labelled summary ("No New Zealand source...", "The sources do not say...", "App's note: here, what is wrong is a person overboard"). No invented numbers, doses or times: the 4 number lines are all quoted, and every number on screen is in source.txt.
+- Still visible at the moment of action: avoid jumping in (throw), propeller Warning (stop, approach, alongside), Maritime NZ lifejacket and beacon before the call (radio, as the first Say), "only to indicate distress" (signals), rescuer risk with an unconscious person (hard), take off wet clothing and get out of the wind (warm), report within 24 hours (report).
+- No quote dropped or reworded: all 91 quotes are exact; every quote from the first review's fix list is still in the template; the earlier missed items (Northland "only to indicate distress", Coastguard "another local VHF channel", RYA DSC, briefing, I4) are all present. All 14 earlier fixes still hold.
+- GPS: success fills "-41.28539, 174.77612 (±8 m, GPS at HH:MM)" plus degrees and minutes, and the Log carries both forms. A refusal shows "This phone or page can't share its location here. Type the position instead." above a box that still works; it reads well.
+- Sources fold: one collapsed "Sources for this screen (N)" at the bottom of every screen; opened, it numbers the quotes in screen order with source, "Supports:" and no clutter above. Older app 16 (severe bleeding) in Clinic is cleaner than before: one quiet fold at the bottom, nothing cut off, all lines and answers still visible.
+- Prototype banner and "Not reviewed" show; "Reviewed by:" is empty.
+
+Missed instructions: 0 (NZ sources). Not on any screen, non-NZ only and not counted, as in the first review: RYA I3 "halyard, block and tackle ... davit" and "inflation of a life raft or over the side of a RIB or tender" (recovery gear), RYA I2 "reduce your speed to avoid further man overboard situations" (NZ "stop the boat" covers it). Nothing was lost in the owner feedback round; three safety lines were moved out of view (findings 5 to 7).
+
+### Fixes applied (second review)
+1. Fixed: the help Tip is now "Hand this phone to someone who is not steering or watching the person." The crew-task tip is gone.
+2. Fixed: the cancel gap is now a visible Say line: "The sources don't say how to cancel a Mayday or a beacon you set off on purpose." The 0508 accidental-activation line stays in More. The Tip is now "The Log shows what you called and when."
+3. Fixed: About is now one short line. START shows on a 390 x 844 screen without scrolling (screenshot checked).
+4. Fixed: on the Mayday screen the script comes first and the whole call shows on the first phone screen (screenshot checked). The "Position to read out" Location box is below the script, and the GPS-first Tip was removed.
+5. Fixed: recover has a visible line "AU guide: bring them in over the stern if you can; a small boat may capsize over the side." The ladder and heaving line stay in More.
+6. Fixed: warm has a visible line "UK guide: they should be checked at a medical facility (risk of secondary drowning). No NZ source says this." It carries both RYA quotes.
+7. Fixed: phone has a visible line "*500: the sources disagree on using it for emergencies (see More)." It carries both quotes. It does not add "don't call *500".
+8. Fixed: stop has a visible line "AU guide: if they are close, motor in neutral and swing the propeller away from them."
+9. Left: the Rescue Tip weight is an engine item, being handled by the engine agent.
+10. Fixed: the handover line is now a Tip: "Show rescuers the Log: the times, the position and the description you typed."
+11. Fixed: the top Warning says "Lines marked AU guide or UK guide are not New Zealand guidance." The Notes now use the current labels.
+12. Fixed: signals More now says "slowly and repeatedly". The mark Tip now starts "If you have crew, ...". Left: the duplicate GPS message, "not yet" and the Log answer placement are engine items, for the engine agent.
+
+Result: 25 steps, 0 fix, 0 check, 15 info. 94 of 94 quotes exact. Explorer: 286 routes, 10 endings, 25 of 25 steps seen, no problems.

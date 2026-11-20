@@ -67,7 +67,8 @@ fixes what can be fixed (back to 3b, at most twice) and leaves the rest listed i
 `node tools/build-all.mjs`, `node tools/review.mjs` (puts the newest app into the design review page, one copy per
 look) then `npm test` (all must pass). Then look at the new app on a phone-size screen: `node tools/screenshot.mjs
 site/apps/<id>.html "begin,next,next"` writes `/tmp/shots/<id>-0.png` and one PNG after each tap ("begin", "next",
-"finish", or "opt:0" for the first answer). If `google-chrome` is missing, use Playwright (`require('playwright')`,
+"finish", "opt:0" for the first answer, "tab:log" for a tab); add `--look=<id>` to see it in one look, `--open` to
+open every fold ("More detail", "Sources for this screen") and `--tall` to see a long screen whole. If `google-chrome` is missing, use Playwright (`require('playwright')`,
 `chromium.launch()`) the same way. Open each PNG with the Read tool and fix anything cut off, ugly or unreadable,
 in every look.
 

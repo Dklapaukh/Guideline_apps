@@ -34,7 +34,7 @@ button:focus-visible, input:focus-visible { outline:3px solid var(--accent); out
 </style>
 
 <header class="wrap">
-  <div class="top"><b>{{TITLE}}: three looks</b><small id="round"></small></div>
+  <div class="top"><b>{{TITLE}}: the looks</b><small id="round"></small></div>
   <div class="picker" id="picker" role="group" aria-label="Choose a look"></div>
   <p class="from" id="from"></p>
 </header>
@@ -63,7 +63,7 @@ let current = 0, db = null;
 function show(k) {
   current = k;
   const L = D.looks[k];
-  $('picker').innerHTML = D.looks.map((l, i) => `<button data-k="${i}" aria-pressed="${i === k}">${'ABC'[i]} · ${l.name}${picked[l.id] ? '<span class="dot"></span>' : ''}</button>`).join('');
+  $('picker').innerHTML = D.looks.map((l, i) => `<button data-k="${i}" aria-pressed="${i === k}">${String.fromCharCode(65 + i)} · ${l.name}${picked[l.id] ? '<span class="dot"></span>' : ''}</button>`).join('');
   $('from').textContent = 'Borrowed from ' + L.from.charAt(0).toLowerCase() + L.from.slice(1);
   $('frame').srcdoc = L.html;
   $('ask').textContent = `How does ${L.name} feel?`;

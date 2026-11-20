@@ -1,12 +1,13 @@
 /* RUNTIME: draws a checked spec as a phone app and runs it. One generic program for every guideline:
-   steps, questions, checklists, timers, repeating reminders, table look-ups, writing boxes and a timed log.
+   steps, questions, checklists, timers, repeating reminders, table look-ups, writing and position boxes, app tips,
+   "More detail" folds, one "Sources for this screen" fold per step, and a timed log.
    It never crashes on a problem in the spec: a broken link or missing table is shown as an "author check"
    note in place, and the person can carry on.
 
    mount(root, { spec, findings, summary, built }) -> app   (app.state is exposed for tests)
    Uses only Date.now(), setInterval and the DOM, so tests can run it in a fake browser with a fake clock. */
 
-import { testCondition, clock, formatDuration, keyMatches, isNotStated, slug } from './util.js';
+import { testCondition, clock, formatDuration, keyMatches, isNotStated, slug, readLatLon, toDdm } from './util.js';
 import { escapeHtml as esc } from './page.js';
 import { END } from './check.js';
 import { LOOKS, DEFAULT_LOOK } from './looks.js';
@@ -77,7 +78,7 @@ export function mount(root, { spec, findings = [], summary = {}, built = '' }) {
   // Shows the finished screen with the log.
   function finish(why) { saveAllNotes(); S.screen = 'done'; log('Finished', why ?? ''); render(); }
   // "Start again": clears this run (and its saved copy) but keeps the details entered.
-  function restart() { try { localStorage.removeItem(KEY); } catch { /* fine */ } Object.assign(S, { screen: 'start', tab: 'steps', current: null, history: [], ticks: {}, log: [], startedAt: null, reminders: {}, records: {}, notes: {}, note: '' }); render(); }
+  function restart() { try { localStorage.removeItem(KEY); } catch { /* fine */ } for (const k of Object.keys(gpsMsg)) delete gpsMsg[k]; Object.assign(S, { screen: 'start', tab: 'steps', current: null, history: [], ticks: {}, log: [], startedAt: null, reminders: {}, records: {}, notes: {}, note: '' }); render(); }
 
   /* ---------- writing boxes ("Write:") ---------- */
   // The shown line that a box key ("step-id:3") points to, or null. Same numbering as tick boxes.
@@ -95,7 +96,8 @@ export function mount(root, { spec, findings = [], summary = {}, built = '' }) {
     const n = S.notes[key];
     if (!n || n.text.trim() === n.saved.trim()) return false;
     n.saved = n.text; n.at = now();
-    log(n.label, n.text.trim() ? n.text.trim() : '(cleared)');
+    const ddm = lineAt(key)?.kind === 'location' ? ddmOf(n.text) : '';   // a position also goes in the Log as degrees and minutes
+    log(n.label, n.text.trim() ? n.text.trim() + (ddm ? ` · ${ddm}` : '') : '(cleared)');
     return true;
   }
   // Keeps only well-formed saved boxes from a reloaded run (a damaged save must not stop the app).
@@ -114,9 +116,49 @@ export function mount(root, { spec, findings = [], summary = {}, built = '' }) {
     if (n && n.text.trim() !== n.saved.trim()) return 'Not saved yet. It saves when you tap Save or leave this box.';
     return n?.at ? `Saved in the Log at ${tod(n.at)}${S.startedAt ? ` (${clock(n.at - S.startedAt)} after start)` : ''}` : 'Saved in the Log when you tap Save or leave this box.';
   }
-  // Updates the status line under one box without redrawing the screen (a redraw while typing would lose the place).
+  // Updates the status line (and, for a position box, the degrees-and-minutes line) under one box without
+  // redrawing the screen (a redraw while typing would lose the place).
   function showNoteStatus(key) {
     for (const el of root.querySelectorAll('[data-note-status]')) if (el.dataset.noteStatus === key) el.textContent = noteStatus(key);
+    for (const el of root.querySelectorAll('[data-gps-ddm]')) if (el.dataset.gpsDdm === key) el.textContent = ddmLine(S.notes[key]?.text);
+  }
+
+  /* ---------- position boxes ("Location:") ---------- */
+  // Messages under each position box ("Finding the position…", "can't share its location"); this visit only.
+  const gpsMsg = {};
+  const NO_GPS = "This phone or page can't share its location here. Type the position instead.";
+  // Degrees and decimal minutes for a box whose text starts with "lat, lon", or '' if it doesn't.
+  function ddmOf(text) { const p = readLatLon(text); return p ? toDdm(p.lat, p.lon) : ''; }
+  const ddmLine = (text) => { const d = ddmOf(text); return d ? `Degrees and minutes: ${d}` : ''; };
+  // The box text for a GPS fix: "lat, lon (±N m, GPS at HH:MM)" in decimal degrees to 5 places, or null if the fix is unusable.
+  function gpsText(pos) {
+    const c = pos?.coords, lat = Number(c?.latitude), lon = Number(c?.longitude), acc = Number(c?.accuracy);
+    if (!Number.isFinite(lat) || !Number.isFinite(lon) || Math.abs(lat) > 90 || Math.abs(lon) > 180) return null;
+    const at = Number.isFinite(pos.timestamp) && pos.timestamp > 0 ? pos.timestamp : now();
+    return `${lat.toFixed(5)}, ${lon.toFixed(5)} (${Number.isFinite(acc) && acc >= 0 ? `±${Math.round(acc)} m, ` : ''}GPS at ${tod(at)})`;
+  }
+  // Shows the message under one position box without redrawing.
+  function showGpsMsg(key) { for (const el of root.querySelectorAll('[data-gps-msg]')) if (el.dataset.gpsMsg === key) el.textContent = gpsMsg[key] ?? ''; }
+  // "Use GPS position": asks the phone for its position once (it is never sent anywhere), puts it in the box and
+  // saves it to the Log. No location on this phone or page, a refusal, an error or a timeout: a plain message, and
+  // the box stays ready for typing.
+  function useGps(key) {
+    const fail = () => { gpsMsg[key] = NO_GPS; showGpsMsg(key); };
+    let geo = null;
+    try { geo = navigator.geolocation; } catch { geo = null; }
+    if (!geo || typeof geo.getCurrentPosition !== 'function') return fail();
+    gpsMsg[key] = 'Finding the position… (allow location if the phone asks)'; showGpsMsg(key);
+    try {
+      geo.getCurrentPosition((pos) => {
+        try {
+          const text = gpsText(pos);
+          if (!text) return fail();
+          typeNote(key, text); saveNote(key);
+          gpsMsg[key] = '';   // the box says "GPS at HH:MM" and its status line says "Saved in the Log": one confirmation is enough
+          render();
+        } catch { fail(); }
+      }, fail, { enableHighAccuracy: true, timeout: 20000, maximumAge: 0 });
+    } catch { fail(); }
   }
 
   /* ---------- drawing ---------- */
@@ -174,7 +216,12 @@ export function mount(root, { spec, findings = [], summary = {}, built = '' }) {
   // A step: title, then its timer (kept near the top so the clock is always in view), lines, question, buttons.
   function stepView() {
     const s = byId.get(S.current);
-    const lines = s.lines.filter((l) => l.kind !== 'note').map(lineView).join('');
+    // Shown lines keep their place number k (tick boxes and writing boxes are keyed by it), then split into the
+    // main lines and the "More:" lines, which share one collapsed "More detail" fold below the main lines.
+    const shownLines = s.lines.filter((l) => l.kind !== 'note').map((l, k) => ({ l, k }));
+    const lines = shownLines.filter((x) => x.l.kind !== 'more').map((x) => lineView(x.l, x.k)).join('');
+    const moreLines = shownLines.filter((x) => x.l.kind === 'more').map((x) => lineView(x.l, x.k)).join('');
+    const more = moreLines ? `<details class="more"><summary>More detail</summary>${moreLines}</details>` : '';
     const opts = (s.ask?.options ?? []).map((o, k) => {
       const shown = testCondition(o.cond, S.answers, spec.inputs);
       if (shown === false) return '';
@@ -189,11 +236,36 @@ export function mount(root, { spec, findings = [], summary = {}, built = '' }) {
          ${S.timerDone && s.timer.target ? `<button class="big go" data-act="timer-go">Time's up: continue</button>` : ''}
          ${s.timer.to && !s.timer.target ? `<p class="author">The timer leads to "${esc(s.timer.to)}", which is missing.</p>` : ''}</div>` : ''}
       ${lines}
+      ${more}
       ${s.ask ? `<p class="q">${esc(s.ask.question)}</p><div class="opts">${opts || '<p class="author">No answer applies with the details entered (see Checks).</p>'}</div>` : ''}
       ${S.note ? `<p class="author">${esc(S.note)}</p>` : ''}
       ${next ? `<button class="big ${s.ask ? 'skip' : 'go'}" data-act="next">${s.ask ? 'Skip' : 'Next'}: ${esc(byId.get(next)?.title ?? 'Finish')}${nextDepends(s) ? ' <small>(depends on details not entered)</small>' : ''}</button>` : ''}
       ${final ? `<button class="big go" data-act="finish">Finish</button>` : ''}
+      ${sourcesView(s)}
     </section>`;
+  }
+  // Cuts a line's text to a short form for the Sources list.
+  const short = (t) => { t = String(t ?? ''); if (t.length <= 48) return t; const cut = t.slice(0, 46); return (cut.slice(0, cut.lastIndexOf(' ')) || cut).replace(/[\s,.:;]+$/, '') + '…'; };
+  // What a line is, in a few words, for "Supports:" in the Sources list.
+  function lineName(l) {
+    if (l.kind === 'record') return `button "${short(l.text)}"`;
+    if (l.kind === 'write' || l.kind === 'location') return `box "${short(l.text)}"`;
+    if (l.kind === 'show') return `table "${short(l.text)}"`;
+    if (l.kind === 'tip') return `app tip "${short(l.text)}"`;
+    return `"${short(l.text)}"`;
+  }
+  // The screen's guideline quotes in ONE collapsed fold at the bottom: a numbered list with the quote, its place,
+  // which line it supports, and a flag if the checker could not confirm it. Lines hidden by a condition are left out.
+  function sourcesView(s) {
+    const items = [];
+    const add = (quotes, what) => { for (const q of quotes ?? []) if (q && q.text != null) items.push({ q, what }); };
+    add(s.quotes, 'this step');
+    if (s.timer) add(s.timer.quotes, `the timer (${s.timer.label})`);
+    for (const l of s.lines) if (l.kind !== 'note' && testCondition(l.cond, S.answers, spec.inputs) !== false) add(l.quotes, lineName(l));
+    for (const r of s.reminders ?? []) add(r.quotes, `reminder "${short(r.text)}"`);
+    if (!items.length) return '';
+    return `<details class="sources"><summary>Sources for this screen (${items.length})</summary><ol class="src-list">${items.map(({ q, what }) =>
+      `<li><q>${esc(q.text)}</q>${q.where ? ` <small class="where">${esc(q.where)}</small>` : ''}${q.check && q.check !== 'exact' ? ' <small class="dep src-flag">quote not confirmed</small>' : ''}<small class="for">Supports: ${esc(what)}</small></li>`).join('')}</ol></details>`;
   }
   // The first "Next" whose condition is true; one that depends on details not yet entered only if nothing else fits.
   function nextTarget(s) {
@@ -202,26 +274,38 @@ export function mount(root, { spec, findings = [], summary = {}, built = '' }) {
       ?? list.find((n) => testCondition(n.cond, S.answers, spec.inputs) === null)?.target ?? null;
   }
   const nextDepends = (s) => { const t = nextTarget(s); const n = (s.nexts ?? []).find((x) => x.target === t); return n && testCondition(n.cond, S.answers, spec.inputs) === null; };
-  // One line of a step (text, tick box, warning, record button or table look-up) with its guideline quotes.
+  // One line of a step (text, tick box, warning, app tip, record button, writing or position box, table look-up).
+  // Its guideline quotes are not drawn here but in the screen's one "Sources" fold (sourcesView).
   // A line whose condition is false is hidden; one that depends on details not entered is shown and marked.
   function lineView(l, k) {
     const shown = testCondition(l.cond, S.answers, spec.inputs);
     if (shown === false) return '';
     const dep = shown === null ? `<small class="dep">Depends on: ${esc(l.cond.map((c) => c.input).join(', '))}</small>` : '';
-    const q = l.quotes?.length ? `<details class="src"><summary>Guideline</summary>${l.quotes.map((x) => `<q>${esc(x.text)}</q>${x.where ? ` <small>${esc(x.where)}</small>` : ''}${x.check && x.check !== 'exact' ? ' <small class="dep">quote not confirmed</small>' : ''}`).join('<br>')}</details>` : '';
     const key = `${S.current}:${k}`;
-    if (l.kind === 'do') return `<label class="do"><input type="checkbox" data-tick="${key}" ${S.ticks[key] ? 'checked' : ''}> <span>${esc(l.text)}</span>${dep}${q}</label>`;
-    if (l.kind === 'warning') return `<p class="warn">${esc(l.text)}${dep}${q}</p>`;
-    if (l.kind === 'record') { const r = S.records[l.text]; return `<div class="rec"><button class="big rec-btn" data-rec="${esc(l.text)}">${esc(l.text)}</button><small data-clock="rec" data-rec-name="${esc(l.text)}">${r ? `${r.n}× · last at ${tod(r.last)}, ${formatDuration(now() - r.last)} ago` : 'not yet'}</small>${dep}${q}</div>`; }
+    if (l.kind === 'tip') return `<div class="tip"><span class="tip-badge">App tip · not from the guideline</span><p class="tip-text">${esc(l.text)}</p>${dep}</div>`;
+    if (l.kind === 'more') return `<p class="more-line">${esc(l.text)}${dep}</p>`;
+    if (l.kind === 'location') {
+      const id = `note-${slug(key)}`, text = S.notes[key]?.text ?? '';
+      return `<div class="note-box loc-box"><label class="note-lbl" for="${id}">${esc(l.text)}</label>${dep}
+        <button class="big gps-btn" data-gps="${esc(key)}">Use GPS position</button>
+        <small class="gps-msg" role="status" data-gps-msg="${esc(key)}">${esc(gpsMsg[key] ?? '')}</small>
+        <textarea id="${id}" class="note-text loc-text" data-note="${esc(key)}" rows="2" autocomplete="off" spellcheck="false" placeholder="Or type it: GPS reading, or bearing from a landmark">${esc(text)}</textarea>
+        <small class="gps-ddm" data-gps-ddm="${esc(key)}">${esc(ddmLine(text))}</small>
+        <button class="big note-save" data-note-save="${esc(key)}">Save to Log</button>
+        <small class="note-status" data-note-status="${esc(key)}">${esc(noteStatus(key))}</small></div>`;
+    }
+    if (l.kind === 'do') return `<label class="do"><input type="checkbox" data-tick="${key}" ${S.ticks[key] ? 'checked' : ''}> <span>${esc(l.text)}</span>${dep}</label>`;
+    if (l.kind === 'warning') return `<p class="warn">${esc(l.text)}${dep}</p>`;
+    if (l.kind === 'record') { const r = S.records[l.text]; return `<div class="rec"><button class="big rec-btn" data-rec="${esc(l.text)}">${esc(l.text)}</button><small class="rec-status" data-clock="rec" data-rec-name="${esc(l.text)}">${r ? `${r.n}× · last at ${tod(r.last)}, ${formatDuration(now() - r.last)} ago` : 'Not tapped yet'}</small>${dep}</div>`; }
     if (l.kind === 'write') {
       const id = `note-${slug(key)}`;
-      return `<div class="note-box"><label class="note-lbl" for="${id}">${esc(l.text)}</label>${dep}${q}
+      return `<div class="note-box"><label class="note-lbl" for="${id}">${esc(l.text)}</label>${dep}
         <textarea id="${id}" class="note-text" data-note="${esc(key)}" rows="5" autocomplete="off" spellcheck="false">${esc(S.notes[key]?.text ?? '')}</textarea>
         <button class="big note-save" data-note-save="${esc(key)}">Save to Log</button>
         <small class="note-status" data-note-status="${esc(key)}">${esc(noteStatus(key))}</small></div>`;
     }
-    if (l.kind === 'show') return `<div class="show">${showTable(l)}${dep}${q}</div>`;
-    return `<p class="${l.bullet ? 'bul' : ''}">${esc(l.text)}${dep}${q}</p>`;
+    if (l.kind === 'show') return `<div class="show">${showTable(l)}${dep}</div>`;
+    return `<p class="${l.bullet ? 'bul' : ''}">${esc(l.text)}${dep}</p>`;
   }
   // A "Show:" line: the table row for the details entered, the whole table if no input picks the row, or a prompt.
   function showTable(l) {
@@ -323,8 +407,11 @@ export function mount(root, { spec, findings = [], summary = {}, built = '' }) {
     if (d.opt !== undefined) {
       const s = byId.get(S.current), o = s.ask.options[+d.opt];
       if (!o.target) { S.note = `"${o.label}" leads to "${o.to}", which is missing from the template (see Checks).`; render(); return; }
-      return go(o.target, `${s.ask.question || s.title}: ${o.label}`);
+      // The answer is logged under the step it was given on (its question, then the answer), before the next step's line.
+      saveAllNotes(); log(s.ask.question || s.title, o.label);
+      return go(o.target, null);
     }
+    if (d.gps !== undefined) return useGps(d.gps);
     if (d.noteSave !== undefined) { typeNote(d.noteSave, [...root.querySelectorAll('[data-note]')].find((x) => x.dataset.note === d.noteSave)?.value ?? S.notes[d.noteSave]?.text); saveNote(d.noteSave); render(); return; }
     if (d.rec) { const r = (S.records[d.rec] ??= { n: 0, last: 0 }); r.n++; r.last = now(); log(d.rec); render(); return; }
     if (d.remdone) {
@@ -336,8 +423,8 @@ export function mount(root, { spec, findings = [], summary = {}, built = '' }) {
     switch (d.act) {
       case 'begin': try { startAudio(); } catch { /* no sound */ } return begin();   // phones only allow sound that starts on a tap
       case 'back': return back();
-      case 'next': return go(nextTarget(byId.get(S.current)), 'Next');
-      case 'timer-go': return go(byId.get(S.current).timer.target, 'Timer finished');
+      case 'next': return go(nextTarget(byId.get(S.current)), null);                  // the new step's own line says where we went
+      case 'timer-go': return go(byId.get(S.current).timer.target, null);           // "Timer finished" is already logged by the clock
       case 'finish': return finish();
       case 'restart': return restart();
       case 'copy': try { navigator.clipboard?.writeText(logText()); b.textContent = 'Copied'; } catch { b.textContent = 'Could not copy'; } return;

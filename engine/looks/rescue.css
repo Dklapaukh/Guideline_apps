@@ -1,0 +1,81 @@
+/* LOOK D "Rescue": ideas from marine safety gear and lifeboat / ISO 7010 safety signs. High-vis orange and navy,
+   very high contrast on a light ground (dark screens wash out in sunlight), big bold type, extra-large tap targets
+   (64px or more) for cold or wet hands. The main action is a chunky orange button; Record buttons are big navy
+   buttons with an orange dot; cautions are yellow-and-black hazard bands. Safety colours keep their meaning, so a
+   brand colour is only a stripe under the top bar (like Flight deck), never the action colour. */
+:root { --ink:#0a1426; --mut:#3d4a5c; --bg:#e9edf2; --card:#fff; --line:#0a2240; --navy:#0a2240; --orange:#ff5f00; --hazard:#ffd100;
+  --go:#ff5f00; --warn:#0a1426; --warnbg:#ffd100; --due:#d50000; --author:#5b21b6; --authorbg:#efe9fb; }
+html, body { font-family:"Atkinson Hyperlegible", "Helvetica Neue", Arial, sans-serif; font-size:18px; background:var(--bg); color:var(--ink); }
+.bar { background:var(--navy); color:#fff; padding:12px 16px; border-bottom:6px solid var(--brand, var(--orange)); }
+.bar .t { font-family:"Barlow Condensed", "Arial Narrow", sans-serif; font-weight:700; font-size:18px; text-transform:uppercase; letter-spacing:.04em; }
+.bar .clock { background:var(--orange); color:var(--navy); font-weight:800; padding:2px 10px; border-radius:4px; font-size:20px; }
+.proto { background:#fff3c4; color:var(--navy); font-weight:700; }
+.card { border:3px solid var(--navy); border-radius:10px; margin:10px 8px; padding:16px; }
+h1, h2 { font-family:"Barlow Condensed", "Arial Narrow", sans-serif; font-weight:800; text-transform:uppercase; letter-spacing:.01em; line-height:1.05; color:var(--navy); }
+h1 { font-size:34px; } h2 { font-size:32px; margin:6px 0 12px; }
+h3 { color:var(--navy); font-weight:800; }
+.crumb { font-weight:700; color:var(--navy); align-items:center; }
+.crumb span { background:var(--navy); color:#fff; padding:4px 12px; border-radius:4px; text-transform:uppercase; font-size:14px; letter-spacing:.06em; }
+.crumb .link { min-height:64px; padding:0 12px 0 0; font-size:18px; }
+.link { color:var(--navy); font-weight:800; text-decoration:underline; text-underline-offset:3px; }
+p { font-size:19px; line-height:1.4; }
+.big { min-height:64px; border:3px solid var(--navy); border-radius:10px; background:#fff; color:var(--navy); font-size:20px; font-weight:800; }
+.big.go { min-height:76px; background:var(--orange); color:var(--navy); border-color:var(--navy); font-size:23px; text-transform:uppercase; letter-spacing:.03em; box-shadow:0 5px 0 var(--navy); margin-top:16px; }
+.big.go:active { transform:translateY(3px); box-shadow:0 2px 0 var(--navy); }
+.big.opt { background:#fff; position:relative; padding-right:48px; }
+.big.opt::after { content:"›"; position:absolute; right:16px; top:50%; transform:translateY(-54%); font-size:34px; color:var(--orange); font-weight:900; }
+.big.skip { border-color:transparent; text-decoration:underline; color:var(--mut); }
+.q { font-family:"Barlow Condensed", "Arial Narrow", sans-serif; font-size:26px; font-weight:800; text-transform:uppercase; color:var(--navy); }
+/* cautions: ISO-style yellow band with a black hazard stripe and a warning triangle */
+.warn { background:var(--hazard); color:#000; border:0; border-radius:4px; padding:14px 14px 14px 52px; position:relative; font-weight:800; font-size:19px;
+  border-top:10px solid #000; border-image:repeating-linear-gradient(-45deg, #000 0 10px, var(--hazard) 10px 20px) 10 0 0 0; }
+.warn::before { content:"!"; position:absolute; left:12px; top:14px; display:grid; place-items:end center; width:30px; height:27px; padding-bottom:1px; background:#000; color:var(--hazard); font-weight:900; font-size:17px; clip-path:polygon(50% 0, 100% 100%, 0 100%); }
+.author { font-size:16px; }
+.do { min-height:64px; align-items:center; border-bottom:2px solid var(--navy); font-weight:700; font-size:19px; }
+.do input { width:34px; height:34px; accent-color:var(--orange); }
+.do .dep { margin-left:44px; }
+.timer { background:var(--navy); color:#fff; border-radius:10px; padding:14px; }
+.timer .lbl { color:#fff; text-transform:uppercase; letter-spacing:.08em; font-weight:700; font-size:14px; }
+.timer::after { content:""; display:block; height:10px; margin-top:10px; border-radius:2px; background:linear-gradient(90deg, var(--orange) calc(var(--p, 0) * 100%), #24406b 0); }
+.big-clock { color:var(--orange); font-size:64px; font-weight:800; }
+.timer.due { background:var(--due); } .timer.due .big-clock { color:#fff; }
+.reminders { background:var(--bg); }
+.rem { border:3px solid var(--navy); border-radius:8px; } .rem .rt { font-weight:800; font-size:17px; }
+.rem button { min-height:64px; min-width:64px; font-weight:800; font-size:16px; border:3px solid var(--navy); background:#fff; color:var(--navy); border-radius:8px; }
+.rem.due { background:var(--due); border-color:var(--due); color:#fff; } .rem.due .rc { color:#fff; }
+/* Record: big navy button with an orange "record" dot */
+.rec { padding:8px 0; } .rec small { display:block; margin-top:6px; color:var(--navy); font-weight:700; font-size:16px; }
+.rec-btn { min-height:80px; background:var(--navy); color:#fff; border-color:var(--navy); text-align:left; padding-left:58px; position:relative; font-size:21px; }
+.rec-btn::before { content:""; position:absolute; left:18px; top:50%; width:24px; height:24px; margin-top:-12px; border-radius:50%; background:var(--orange); box-shadow:0 0 0 4px #fff; }
+.lookup { border:3px solid var(--navy); } .lookup .lk { font-size:19px; } .lookup .lv b { font-size:20px; }
+th, td { border-color:var(--navy); }
+.inp input { min-height:64px; font-size:20px; border:3px solid var(--navy); border-radius:8px; }
+.choices button { min-height:64px; padding:10px 16px; font-weight:800; border:3px solid var(--navy); border-radius:8px; background:#fff; color:var(--navy); }
+.choices button.on { background:var(--navy); color:#fff; }
+.look-pick button { min-height:64px; font-weight:800; border:3px solid var(--navy); border-radius:8px; }
+.look-pick button.on { background:var(--orange); color:var(--navy); border-color:var(--navy); }
+.tabs { background:var(--navy); border-top:0; }
+.tabs button { min-height:64px; color:#c9d3e0; font-weight:800; font-size:16px; text-transform:uppercase; letter-spacing:.04em; }
+.tabs button.on { color:#fff; box-shadow:inset 0 -6px 0 var(--orange); }
+#app { padding-bottom:80px; }
+/* writing and position boxes */
+.note-lbl { font-family:"Barlow Condensed", "Arial Narrow", sans-serif; font-weight:800; font-size:22px; text-transform:uppercase; color:var(--navy); }
+.note-text { border:3px solid var(--navy); border-radius:8px; font-size:19px; }
+.note-text:focus { outline:4px solid var(--orange); outline-offset:0; }
+.note-save { min-height:64px; }
+.gps-btn { min-height:80px; background:var(--navy); color:#fff; border-color:var(--navy); font-size:22px; text-transform:uppercase; letter-spacing:.03em; }
+.gps-btn::before { color:var(--orange); font-size:1.4em; vertical-align:-3px; }
+.gps-ddm { font-size:22px; font-weight:800; color:var(--navy); background:#fff3c4; border-radius:6px; padding:6px 10px; }
+.gps-msg { font-size:17px; color:var(--navy); }
+/* app tips: a dashed navy box with a navy "APP TIP" badge, clearly not a guideline instruction */
+.tip { background:#fff; border:3px dashed var(--navy); border-radius:10px; padding:12px 14px; }
+.tip-badge { background:var(--navy); color:#fff; border-radius:4px; font-size:13px; letter-spacing:.06em; padding:3px 10px; }
+.tip-text { font-weight:400; font-size:17px; color:var(--mut); }   /* lighter than the guideline's lines; the badge stays bold */
+/* folds */
+details.more { border:3px solid var(--navy); border-radius:10px; padding:0 12px; }
+details.more > summary { min-height:64px; font-size:20px; font-weight:800; text-transform:uppercase; color:var(--navy); }
+details.more > summary::before { width:34px; height:34px; background:var(--orange); color:var(--navy); border-radius:6px; font-size:22px; }
+details.sources { border-top:2px dashed var(--navy); }
+details.sources > summary { min-height:64px; color:var(--navy); font-weight:700; font-size:16px; }
+details.sources > summary::before { border:2px solid var(--navy); color:var(--navy); }
+.src-list li { font-size:16px; }

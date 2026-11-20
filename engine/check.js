@@ -99,6 +99,7 @@ export function checkSpec(input, { sourceText = '', findings: earlier = [] } = {
       labels.set(k, o.target);
     }
     checkWriteBoxes(s, add);
+    checkTips(s, add);
     if (!out.length && !s.end && !(s.ask?.options.length)) {
       add('check', where, `"${s.title}" has no way forward (no answers, "Next", timer or "End"). The app offers "Finish" here.`, 'Add "Next: <step>" or "End:" if this is meant to be the last step.');
     }
@@ -138,7 +139,7 @@ export function checkSpec(input, { sourceText = '', findings: earlier = [] } = {
     const stepQuotes = [...(s.quotes ?? []), ...s.lines.flatMap((l) => l.quotes ?? []), ...holders.flatMap((h) => h.quotes)];
     for (const q of [...(s.quotes ?? []), ...holders.flatMap((h) => h.quotes)]) checkQuote(q, { step: s.id, line: s.line });   // quotes not under a text line: still checked
     for (const l of s.lines) {
-      const said = l.kind === 'show' || l.kind === 'note' || l.kind === 'write' ? [] : amounts(l.text);   // labels, not instructions
+      const said = ['show', 'note', 'write', 'location', 'tip'].includes(l.kind) ? [] : amounts(l.text);   // labels and app tips, not instructions
       said.forEach((a) => templateAmounts.add(a));
       if (said.length) { numberLines++; if (l.quotes?.length) numberLinesQuoted++; }
       for (const q of l.quotes ?? []) {
@@ -167,7 +168,7 @@ export function checkSpec(input, { sourceText = '', findings: earlier = [] } = {
   }
   // Instructions with no quote: one note per step (numbers are called out, since they matter most).
   for (const s of spec.steps) {
-    const bare = s.lines.filter((l) => ['say', 'do', 'warning'].includes(l.kind) && !l.quotes?.length);
+    const bare = s.lines.filter((l) => ['say', 'more', 'do', 'warning'].includes(l.kind) && !l.quotes?.length);   // a Tip is the app's own, never a guideline instruction
     if (!bare.length) continue;
     const withNumbers = bare.filter((l) => amounts(l.text).length);
     add('info', { step: s.id, line: bare[0].line }, `${bare.length} line${bare.length > 1 ? 's' : ''} in "${s.title}" ${bare.length > 1 ? 'have' : 'has'} no quote from the guideline${withNumbers.length ? `, including ${withNumbers.length} with numbers ("${short(withNumbers[0].text)}")` : ` ("${short(bare[0].text)}")`}. Fine for app wording; an instruction should quote its source.`);
@@ -194,14 +195,24 @@ export function checkSpec(input, { sourceText = '', findings: earlier = [] } = {
   return { spec, findings, summary };
 }
 
-/* "Write:" boxes on one step: two with the same label would look like one question asked twice, so say so
-   (both boxes still work and are logged separately). */
+/* "Write:" and "Location:" boxes on one step: two with the same label would look like one question asked twice,
+   so say so (both boxes still work and are logged separately). */
 function checkWriteBoxes(s, add) {
   const seen = new Set();
-  for (const l of s.lines.filter((x) => x.kind === 'write')) {
+  for (const l of s.lines.filter((x) => x.kind === 'write' || x.kind === 'location')) {
     const k = l.text.trim().toLowerCase();
     if (seen.has(k) && !l.cond) add('check', { step: s.id, line: l.line }, `"${s.title}" has two writing boxes called "${l.text}". The person can't tell them apart, and the Log shows two entries with one name.`, 'Give each box its own label, e.g. "Write: Caller\'s words (first call)".');
     seen.add(k);
+  }
+}
+
+/* "Tip:" lines are the app's own suggestions about flow or tools, drawn with an "App tip" badge. They must not
+   look like guideline advice: a Quote under a Tip means it is really guideline text (use Say), and a number in a
+   Tip (an amount, a time, a distance, a dose or a phone number) could only have come from outside the guideline. */
+function checkTips(s, add) {
+  for (const l of s.lines.filter((x) => x.kind === 'tip')) {
+    if (l.quotes?.length) add('check', { step: s.id, line: l.line }, `The tip "${short(l.text)}" has a Quote under it, but tips are the app's own suggestions and are marked "not from the guideline".`, 'If this is the guideline\'s advice, write it as "Say:" with its Quote; if it is the app\'s own idea, delete the Quote.');
+    if (/\d/.test(l.text) || amounts(l.text).length) add('check', { step: s.id, line: l.line }, `The tip "${short(l.text)}" contains a number. Tips must not add numbers; numbers must come from the guideline.`, 'Move the number into a "Say:" line with the Quote it comes from, or take it out of the tip.');
   }
 }
 
