@@ -1,0 +1,53 @@
+{
+ "summary": {
+  "steps": 20,
+  "reachable": 20,
+  "fix": 0,
+  "check": 0,
+  "info": 7,
+  "quotes": 119,
+  "quotesExact": 119,
+  "numberLines": 6,
+  "numberLinesQuoted": 6,
+  "sourceAmounts": 4,
+  "sourceAmountsUsed": 2
+ },
+ "findings": [
+  {
+   "level": "info",
+   "step": "during",
+   "line": 42,
+   "message": "1 line in \"While it lasts\" has no quote from the guideline (\"When to roll them onto their side. The sources differ:\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "plan",
+   "line": 128,
+   "message": "1 line in \"Epilepsy with a plan\" has no quote from the guideline (\"When to call 111 differs:\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "unresponsive",
+   "line": 223,
+   "message": "2 lines in \"Not waking up\" have no quote from the guideline (\"Call 111 if they stay unresponsive. The time differs:\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "handover",
+   "line": 334,
+   "message": "2 lines in \"Hand over\" have no quote from the guideline (\"Tell the ambulance or doctor: when it started and stopped…\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "message": "The guideline mentions 2 amounts the template never uses: 3 %, 2 minute. Some may be background; check none were left out."
+  },
+  {
+   "level": "info",
+   "message": "Nobody is named under \"Reviewed by:\", so the app shows \"Not reviewed\"."
+  },
+  {
+   "level": "info",
+   "message": "The saved guideline text is a web copy made by a fetch tool and may not be word-perfect, so a \"quote not found\" may be the copy's fault. Add the PDF to sources/ for exact checking."
+  }
+ ]
+}

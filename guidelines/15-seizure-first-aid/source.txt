@@ -1,0 +1,317 @@
+Seizure first aid (epileptic seizure / convulsion, including febrile seizures in children), word-for-word copies
+from four official sources (five sections) (read 20 Nov 2026, NZ time). The sources do NOT give the same numbers (for example
+St John NZ says call 111 if the person does not wake within 10 minutes; Epilepsy NZ and ANZCOR say 5 minutes),
+so each is kept under its own heading; never mix them. Main source is SOURCE A.
+Capture method (web-fetch copy): every site blocks direct download here and web search gave titles only, so every
+line was read by a fetch tool asked to quote exact lines (long sentences in pieces, rejoined here). Small slips
+(apostrophe or dash style) are possible. Lines in [square brackets] are notes added here, not guideline text.
+Navigation, links and page furniture are left out. "-" = bullet. No PDF was in sources/.
+
+=====================================================================================================
+SOURCE A. Epilepsy New Zealand, poster "Adult first aid for seizures" (2020 in the file name; no date printed)
+https://epilepsy.org.nz/wp-content/uploads/2021/08/Adult-first-aid-for-seizures-2020-.pdf
+=====================================================================================================
+[Poster text; the tool gave the lines in layout order. Which column (DO / DON'T / CALL 111) each line sits under
+is inferred from the layout. The "CALL AN AMBULANCE 111 IF" heading is shown as a graphic ("AMBULANCE", "CALL",
+"111"); its exact words could not be read.]
+
+THIS IS A GUIDE TO HELP YOU CONSIDER YOUR RESPONSE. IF IN DOUBT CALL 111.
+THIS INFORMATION DOES NOT REPLACE MEDICAL ADVICE.
+
+CONVULSIVE SEIZURES WHERE THE BODY STIFFENS (TONIC PHASE) FOLLOWED BY GENERAL MUSCLE JERKING (CLONIC PHASE)
+
+DO
+- Time seizure
+- Stay with the person
+- Protect from injury; move thing out of the way and cushion the head
+- Roll onto side after jerking stops OR immediately if food / fluid / vomit in mouth
+- Observe and monitor breathing
+- Reassure and stay with the person until they have recovered
+
+DON'T
+- Put anything in the person's mouth
+- Restrain the person
+- Move person unless in danger
+
+[CALL AN AMBULANCE] 111 [IF]
+- You are in any doubt
+- There is food / fluid / vomit in mouth
+- Seizure occurs in water
+- Person has breathing difficulties after jerking stops
+- Another seizure quickly follows
+- Seizure lasts longer than 5 minutes
+- The person is non-responsive for more than 5 minutes after the seizure ends
+
+NON-CONVULSIVE SEIZURES WITH OUTWARD SIGNS OF CONFUSION, INAPPROPRIATE RESPONSES OR BEHAVIOUR
+- Stay with the person
+- Reassure and stay with the person until they have recovered
+- DO NOT restrain the person unless in danger
+- Gently guide away from harm
+
+For more information or advice about epilepsy, contact Epilepsy New Zealand on 0800 374 537 or visit www.epilepsy.org.nz
+[A second "Time seizure" line also appears on the poster, probably a timer graphic.]
+
+=====================================================================================================
+SOURCE A2. Epilepsy New Zealand web pages "Seizure First Aid" and "First Aid For Seizures: Tonic-clonic seizures"
+(no date shown; footer "Epilepsy New Zealand | Copyright 2026")
+https://epilepsy.org.nz/Seizure-First-Aid
+https://epilepsy.org.nz/understanding-epilepsy/seizure-first-aid/tonic-clonic-seizures/
+=====================================================================================================
+
+--- Seizure First Aid page ---
+Call 111 when a person has a seizure and any of the following apply:
+1. If you don't know the person (or you are unsure what to do)
+2. If there is no available Seizure Management Plan (SMP)
+3. If the seizure continues for longer than 5 minutes (or follow the timing in their personal SMP)
+4. If the seizure stops but the person does not regain consciousness within 5 minutes
+5. If another seizure begins (or there is a cluster of seizures)
+6. If the seizure activity has resulted in a serious injury
+7. If the seizure occurs in water
+8. If you believe the person having the seizure may be pregnant
+9. If you know the person has diabetes or an underlying health condition (that may cause a seizure)
+
+--- Tonic-clonic seizures page ---
+If the person is known to you and you have access to their Epilepsy Management Plan (EMP) then follow any first aid advice provided in that document.
+
+Tonic-clonic seizures
+DO
+- Stay calm and remain with the person
+- Time the seizure if you can (if someone is nearby ask them to assist)
+- If they have food, fluid or vomit in their mouth roll them on to their side immediately
+- Protect them from injury by moving any hard objects away from the area
+- Protect them by placing something soft under their head and loosen any tight clothing
+- Gently roll the person onto their side as soon as possible and tilt their chin upwards.
+  [The page goes on to say this helps breathing and protects the airway; those words were not captured exactly.]
+- Stay with the person until the seizure ends naturally.
+  [The page goes on to say keep talking calmly until they regain consciousness, usually within a few minutes; not captured exactly.]
+- [Not captured exactly: reassure the person and tell them you will stay until they recover or a paramedic arrives.]
+- Keep onlookers away, as waking up to a crowd can be embarrassing or confusing for the person.
+
+DO NOT
+- Restrain the person's movements, or move them, during the seizure (unless they are in danger)
+- Put anything in the person's mouth
+- Give the person water, food or pills unless they are fully alert.
+
+CALL AN AMBULANCE (111) IF
+- The seizure lasts more than 5 minutes or a second seizure quickly follows
+- The person remains non-responsive for more than 5 minutes after the seizure stops
+- The person is injured or has swallowed water
+- The person is pregnant
+- You think this is the person's first seizure, or aren't sure
+- The person asks for medical assistance
+- You feel uncomfortable dealing with the situation.
+
+Seizures in water
+A seizure in water (pool, bath, ocean) is a life threatening emergency and an ambulance (111) should always be called as soon as possible.
+Even if a person is breathing after the seizure, they may have inhaled water and be at significant risk.
+DO
+- Support the person's head so that their face and head stays above the surface
+- Tilt the person's head back to ensure a clear airway
+- Remove the person from the water as soon as the active movements of the seizure have ceased.
+- Assistance from others or use of a floatation device may be useful when removing a person from water.
+- Gently roll the person onto their side as soon as possible and tilt the chin upwards.
+- Follow the instructions of the ambulance operator, who will instruct you step-by-step while an ambulance is dispatched.
+- Even if the person appears to be fully recovered, they still require a medical assessment.
+  [The page adds that inhaling water can cause lung or heart damage; not captured exactly.]
+
+Seizures from a seated position
+Make sure the wheelchair or the stroller is secure, by putting the brakes on.
+[Rest of this section, and the sections on focal, tonic/atonic and absence seizures, not captured.]
+
+=====================================================================================================
+SOURCE B. Hato Hone St John (NZ), First aid library "Seizures or convulsions"
+(no date shown; footer "© 2025 Hato Hone St John. All rights reserved.")
+https://www.stjohn.org.nz/first-aid/first-aid-library/seizures-or-convulsions
+=====================================================================================================
+
+Seizures or convulsions
+A person could have a seizure any time and at any age.
+Some seizures are mild, but some can be severe, and the person may need your help until they recover.
+
+Quick help
+- Call 111 for an ambulance if the seizure does not stop after 5 minutes, or if the person does not wake within 10 minutes or is not breathing well.
+- See a doctor if it is the person's first seizure, or if it's a child after a febrile (feverish) convulsion.
+- If you are uncertain, call Healthline on 0800 611 116.
+
+What to look for
+- Jerking or twitching: The person's face or limbs are jerking or twitching.
+- Foaming at the mouth: The person is blowing saliva through clenched teeth.
+- Unresponsive: The person has passed out and cannot be woken up.
+- Loss of bladder control: The person may have wet or soiled themself.
+
+How you can help
+
+Protect the person from injury
+- Check for anything nearby that may cause injury, e.g. sharp objects, furniture, and move them if possible.
+- If the person is near a wall or hard furniture that can't be moved, pad the area with clothes or a pillow.
+- DO NOT move the person, or try to restrain them.
+  This can make the person more confused and agitated, and cause injury.
+
+Manage the seizure
+- Stay with the person until the seizure ends.
+- If you're in a public place, keep bystanders clear, and reassure them that the seizure will end soon.
+- DO NOT put anything in the person's mouth or try to pad between their teeth.
+  The person's muscles tighten during a seizure and they may break or swallow the object or damage their mouth or teeth.
+- Call 111 for an ambulance if the seizure does not stop after 5 minutes, or if the person does not wake up after 10 minutes or if they are not breathing well.
+
+After the seizure
+- As soon as the seizure ends, check their airway and make sure they are breathing normally.
+- If they are breathing normally, roll the person onto their side with their mouth tilted slightly towards the ground and their head tilted back so that their chin is away from their chest.
+  This keeps their airway open and helps them breathe.
+- Cover the person lightly with a coat or blanket.
+- Allow them to sleep until they are fully recovered, but check for a response every few minutes.
+- Check for injuries and apply any necessary first aid.
+- Reassure the person as they wake up. Tell them they are safe.
+- Advise the person not to drive. Try to arrange for someone to be with them until they are safely home.
+
+Epilepsy
+- If someone has a seizure, check for a MedicAlert ® pendant or bracelet stating that they suffer from epilepsy.
+- If a person has epilepsy there is no need for medical aid or an ambulance unless the seizure lasts more than 5 minutes.
+- Advise the person to see their doctor to check that any prescribed medication is adequate.
+
+Febrile (fever) convulsions
+- These are common in young children and are usually caused by a viral infection.
+- The seizure is caused by a rapid increase in temperature over a short period of time not just the high temperature of the child.
+- Protect the child from injury and move any dangerous objects out of the way.
+- Cool the child down by removing their clothing down to underwear or nappy.
+- When the convulsion is over, check their airway and make sure they are breathing normally.
+- If they are breathing normally, roll the child onto their side in a supported position.
+- DO NOT give the child anything to drink until they are fully conscious.
+
+If you have a person in urgent need of medical attention, call 111 now.
+
+=====================================================================================================
+SOURCE C. ANZCOR (Australian and New Zealand Committee on Resuscitation) Guideline 9.2.4
+"First Aid Management of a Seizure", Approved: June 2024 (supersedes 9.2.4 Nov 2014)
+https://www.anzcor.org/home/first-aid/9-2-4-first-aid-management-of-a-seizure
+=====================================================================================================
+
+Guideline 9.2.4 - First Aid Management of a Seizure
+Approved: June 2024
+Guideline superseded: 9.2.4 (Nov 2014)
+Clarified wording of the management section for after the seizure has stopped.
+No change in management
+
+Summary
+This guideline applies to adults, children, and infants.
+This guideline is for use by bystanders, first aiders and first aid training providers.
+- If unresponsive and not breathing normally, follow ANZCOR Basic life support flow chart.
+- Follow the person's seizure management plan if there is one in place.
+- Protect the person from danger and remove any harmful objects which might cause them secondary injury.
+- Once the seizure has stopped, if the person is unresponsive and breathing normally, position into a lateral, sidelying recovery (lateral recumbent) position.
+- Protect their head, and try and place something soft and flat under their head.
+- Avoid restraining the person during the seizure unless this is essential to avoid injury.
+- Do not force the person's mouth open nor attempt to insert any object into the mouth.
+- Frequently reassess, particularly their airway and breathing (ANZCOR Guideline 4 and 5).
+- Manage the person as for any unconscious person (ANZCOR Guideline 3).
+- Send for an ambulance if the person may be pregnant or in any situation where the seizure is not consistent with the person's prescribed management plan [Good Practice Statement].
+
+Recognition
+Seizure activity may affect all or part of the body and may take many forms, depending on which part of the brain is involved. Symptoms may include:
+- sudden generalised spasm of muscles producing rigidity
+- if standing the person will fall down
+- jerking movements of the head, arms, and legs
+- shallow breathing or breathing may stop temporarily
+- dribbling from the mouth; the tongue may be bitten leading to bleeding
+- incontinence of urine and/or faeces
+- changes in conscious state from being fully alert to confused, drowsy, or loss of consciousness
+- changes in behaviour where the person may make repetitive actions like fiddling with their clothes.
+A Generalised seizure usually involves the entire body and causes a loss or marked alteration in consciousness. It may result in life-threatening problems with airway or breathing, or risk of trauma from muscle spasms or loss of normal control of posture and movement.
+A Focal seizure (previously called a partial seizure) usually involves only part of the body, and the person may retain consciousness, but may be frightened or confused.
+A Focal seizure may sometimes progress to a generalised seizure.
+A Childhood febrile seizure caused by fever, usually resolves without treatment. It occurs in approximately 3% of children at some stage between the age of six months and six years.
+Children who suffer from a febrile seizure are not at increased risk of epilepsy unless they have risk factors.
+
+First aid management
+If the person is unresponsive and not breathing normally, follow the Australian Resuscitation Council and New Zealand Resuscitation Council Basic Life Support Flowchart (Refer to ANZCOR Guideline 8).
+Otherwise:
+- Follow the person's seizure management plan if there is one in place.
+- If possible, ease the person's fall.
+- Protect the person from danger and remove any harmful objects which might cause them secondary injury.
+- Lay the person down and turn the person on the side when practical.
+- Protect their head, place something soft and flat under their head (e.g., a folded jumper or jacket).
+- Time the seizure.
+- Avoid restraining the person during the seizure unless this is essential to avoid injury.
+Once the seizure has stopped:
+- If the person is unresponsive and breathing normally, position into a lateral, side-lying recovery (lateral recumbent) position.
+- Maintain an airway and frequently reassess the person, particularly their breathing (Refer to ANZCOR Guideline 4 and 5).
+- Manage the person as for any unconscious person (Refer to ANZCOR Guideline 3).
+- Reassure the person who may be dazed, confused or drowsy.
+- Do not offer them anything to eat and drink until they are fully awake and alert.
+
+Send for an ambulance if:
+- the seizure happens in water or the person may be pregnant
+- you do not know the person
+- this is their first seizure or if it is unknown if there is a history of seizures
+- the seizure departs from the usual pattern
+- the seizure lasts more than 5 minutes or another seizure begins
+- the person does not regain consciousness within 5 minutes
+- there is no seizure management plan in place
+- you are concerned about any aspect of the person's care such as injury.
+
+A seizure in water is a life-threatening situation. If the seizure occurs in water:
+- Support the person in the water with the head tilted so the face is out of the water.
+- Remove the person from the water as soon it is safe to do so.
+
+Do not:
+- Put a child in a bath to lower their temperature during a seizure as this is dangerous.
+- Force the person's mouth open nor attempt to insert any object into the mouth.
+
+Advanced Management
+If you are the carer/family of a person with epilepsy you may have received training in the use of medications to stop a seizure. In this case, you should follow your training and the person's seizure management plan.
+
+=====================================================================================================
+SOURCE D. KidsHealth NZ (Paediatric Society of New Zealand, supported by Health New Zealand | Te Whatu Ora),
+"Febrile seizures in children", Last reviewed 6 June 2024
+https://www.kidshealth.org.nz/febrile-seizures-in-children
+=====================================================================================================
+[Febrile seizures (seizures with a fever) in children only. Lines are in page order but some headings are the
+fetch tool's, not the page's, and lines between them were not captured; the infographic lines at the end are
+from an image whose heading could not be read.]
+
+Key points
+- the most important thing is to try to keep calm, and keep your child safe
+- after the seizure, lie your child down on their side, in the recovery position
+- dial 111 within New Zealand (use the appropriate emergency number in other countries) and ask for urgent medical help if the seizure lasts more than 5 minutes or if your child has trouble breathing, or you are worried
+- when your child is having a seizure, do not put anything in their mouth and do not put them into a bath or shower to cool down
+- take your child to a health professional afterwards to find out why they have a fever
+
+What happens
+Most febrile seizures stop by themselves.
+The seizure can seem to go on for a long time but they usually only last a minute or two and will stop by themselves.
+After the jerking or stiffness stops, your child will usually sleep for a while (up to an hour).
+Tamariki do not die during febrile seizures.
+Most febrile seizures stop by themselves in 1 or 2 minutes.
+They do not need any treatment.
+A febrile seizure in a healthy child very rarely causes long-term harm.
+Febrile seizures that last less than an hour do not cause brain damage or death.
+
+What to do
+- lie your child down on their side
+- do not put anything in their mouth (they will not swallow their tongue)
+- do not put your child in the bath or shower to cool them down
+- loosen their clothes around their face and neck
+- wait a few minutes for the seizure to stop - check the time if you can to see how long the seizure lasts
+
+When to see a doctor
+You should take your child to see a doctor after the seizure finishes.
+The doctor will check to see what is causing the fever.
+Most tamariki are sleepy after a seizure, but if they are hard to wake, or if you are worried about them for other reasons, see a doctor urgently.
+
+When to call 111
+Dial 111 within New Zealand (use the appropriate emergency number in other countries) and ask for urgent medical help if:
+- the seizure lasts longer than 5 minutes
+- your child is having trouble breathing
+- your child looks very unwell
+- your child is not waking up and responding after the seizure
+If your child starts a second seizure before waking from the first one, you should dial 111 within New Zealand (use the appropriate emergency number in other countries) for urgent medical help.
+
+[Infographic]
+- Your child's seizure lasts longer than 5 minutes
+- Your child has 2 or more seizures in a row
+- Your child has had a head injury or injured themselves during the seizure
+Start timing the seizure. Video the seizure if you can.
+If the seizure lasts more than 5 minutes call an ambulance.
+When the seizure has finished make sure your child is in the recovery position.
+Let your child rest and recover in a calm and quiet space until back to normal.
+If your child recovers completely from the febrile seizure, and they do not have a serious infection, they do not need to stay in hospital.

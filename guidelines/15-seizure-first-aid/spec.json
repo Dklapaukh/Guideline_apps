@@ -1,0 +1,2004 @@
+{
+ "title": "Seizure first aid",
+ "about": "Guides you through first aid while someone in New Zealand has a seizure (fit or convulsion): keeping them safe, timing it, when to call 111, the recovery position, and what to tell the ambulance. Includes a child with a fever.",
+ "sources": [
+  {
+   "name": "Epilepsy New Zealand, poster \"Adult first aid for seizures\" (main source)",
+   "link": "https://epilepsy.org.nz/wp-content/uploads/2021/08/Adult-first-aid-for-seizures-2020-.pdf"
+  },
+  {
+   "name": "Epilepsy New Zealand, web page \"Seizure First Aid\"",
+   "link": "https://epilepsy.org.nz/Seizure-First-Aid"
+  },
+  {
+   "name": "Epilepsy New Zealand, web page \"Tonic-clonic seizures\"",
+   "link": "https://epilepsy.org.nz/understanding-epilepsy/seizure-first-aid/tonic-clonic-seizures/"
+  },
+  {
+   "name": "Hato Hone St John NZ, \"Seizures or convulsions\"",
+   "link": "https://www.stjohn.org.nz/first-aid/first-aid-library/seizures-or-convulsions"
+  },
+  {
+   "name": "ANZCOR Guideline 9.2.4, First Aid Management of a Seizure (June 2024)",
+   "link": "https://www.anzcor.org/home/first-aid/9-2-4-first-aid-management-of-a-seizure"
+  },
+  {
+   "name": "KidsHealth NZ, \"Febrile seizures in children\" (reviewed 6 June 2024)",
+   "link": "https://www.kidshealth.org.nz/febrile-seizures-in-children"
+  }
+ ],
+ "warning": "If in doubt, call 111. The sources do not all agree; where they differ, the app shows each one.",
+ "audience": "Anyone helping a person having a seizure in New Zealand",
+ "reviewedBy": "",
+ "version": "Epilepsy New Zealand poster 'Adult first aid for seizures' (2020 in the file name, no date printed) and web pages 'Seizure First Aid' and 'Tonic-clonic seizures' (no date shown, footer Copyright 2026); Hato Hone St John 'Seizures or convulsions' first aid library page (no date shown, footer 2025); ANZCOR Guideline 9.2.4 'First Aid Management of a Seizure' (Approved June 2024); KidsHealth NZ 'Febrile seizures in children' (Last reviewed 6 June 2024); all read 20 Nov 2026",
+ "brand": {
+  "name": "",
+  "colour": ""
+ },
+ "look": "",
+ "inputs": [],
+ "tables": [],
+ "steps": [
+  {
+   "id": "start",
+   "title": "Seizure now: keep them safe",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "The 5-minute bar counts from opening this screen. Add any time before that.",
+     "line": 20,
+     "quotes": [
+      {
+       "text": "Time the seizure.",
+       "where": "ANZCOR",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Stay calm and with them. Ease their fall if you can. Move hard things away; cushion the head.",
+     "line": 22,
+     "quotes": [
+      {
+       "text": "Stay calm and remain with the person",
+       "where": "Epilepsy NZ web",
+       "check": "exact"
+      },
+      {
+       "text": "If possible, ease the person's fall.",
+       "where": "ANZCOR",
+       "check": "exact"
+      },
+      {
+       "text": "move thing out of the way and cushion the head",
+       "where": "Epilepsy NZ poster",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Watch their breathing. Food, fluid or vomit in the mouth? Roll them on their side now.",
+     "line": 26,
+     "quotes": [
+      {
+       "text": "Observe and monitor breathing",
+       "where": "Epilepsy NZ poster",
+       "check": "exact"
+      },
+      {
+       "text": "If they have food, fluid or vomit in their mouth roll them on to their side immediately",
+       "where": "Epilepsy NZ web",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "warning",
+     "text": "Do not hold them down or move them (unless in danger). Nothing in their mouth.",
+     "line": 29,
+     "quotes": [
+      {
+       "text": "DO NOT move the person, or try to restrain them.",
+       "where": "St John",
+       "check": "exact"
+      },
+      {
+       "text": "Move person unless in danger",
+       "where": "Epilepsy NZ poster",
+       "check": "exact"
+      },
+      {
+       "text": "DO NOT put anything in the person's mouth",
+       "where": "St John",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "What now?",
+    "options": [
+     {
+      "label": "Not breathing normally",
+      "to": "not-breathing",
+      "line": 34,
+      "target": "not-breathing"
+     },
+     {
+      "label": "In water",
+      "to": "water",
+      "line": 35,
+      "target": "water"
+     },
+     {
+      "label": "Call 111? See the list",
+      "to": "call-list",
+      "line": 36,
+      "target": "call-list"
+     },
+     {
+      "label": "Child with a fever",
+      "to": "fever",
+      "line": 37,
+      "target": "fever"
+     },
+     {
+      "label": "More: their side, plan, other",
+      "to": "during",
+      "line": 38,
+      "target": "during"
+     },
+     {
+      "label": "It has stopped",
+      "to": "after",
+      "line": 39,
+      "target": "after"
+     }
+    ],
+    "line": 33
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [
+    {
+     "ms": 300000,
+     "every": "5 minutes",
+     "once": true,
+     "text": "Seizure 5 minutes: still going? Call 111",
+     "id": "seizure-5-minutes-still-going-call-111",
+     "line": 18,
+     "quotes": [
+      {
+       "text": "Seizure lasts longer than 5 minutes",
+       "where": "Epilepsy NZ poster",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "stop": null,
+   "end": false,
+   "line": 17
+  },
+  {
+   "id": "during",
+   "title": "While it lasts",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "When to roll them onto their side. The sources differ:",
+     "line": 42
+    },
+    {
+     "kind": "say",
+     "text": "Epilepsy NZ poster: after jerking stops, or at once if food, fluid or vomit is in the mouth.",
+     "bullet": true,
+     "line": 43,
+     "quotes": [
+      {
+       "text": "Roll onto side after jerking stops OR immediately if food / fluid / vomit in mouth",
+       "where": "Epilepsy NZ poster",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Epilepsy NZ web page: as soon as possible.",
+     "bullet": true,
+     "line": 45,
+     "quotes": [
+      {
+       "text": "onto their side as soon as possible",
+       "where": "Epilepsy NZ web",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "ANZCOR: lay them down, on the side when practical. St John: after it ends.",
+     "bullet": true,
+     "line": 47,
+     "quotes": [
+      {
+       "text": "Lay the person down and turn the person on the side when practical.",
+       "where": "ANZCOR",
+       "check": "exact"
+      },
+      {
+       "text": "As soon as the seizure ends",
+       "where": "St John",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Loosen tight clothing. Wheelchair or stroller: brakes on.",
+     "line": 50,
+     "quotes": [
+      {
+       "text": "loosen any tight clothing",
+       "where": "Epilepsy NZ web",
+       "check": "exact"
+      },
+      {
+       "text": "Make sure the wheelchair or the stroller is secure, by putting the brakes on.",
+       "where": "Epilepsy NZ web",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "Then?",
+    "options": [
+     {
+      "label": "Not breathing normally",
+      "to": "not-breathing",
+      "line": 54,
+      "target": "not-breathing"
+     },
+     {
+      "label": "Still going at 5 minutes",
+      "to": "five-min",
+      "line": 55,
+      "target": "five-min"
+     },
+     {
+      "label": "Call 111? See the list",
+      "to": "call-list",
+      "line": 56,
+      "target": "call-list"
+     },
+     {
+      "label": "They have epilepsy and a plan",
+      "to": "plan",
+      "line": 57,
+      "target": "plan"
+     },
+     {
+      "label": "Confused, not jerking",
+      "to": "confused",
+      "line": 58,
+      "target": "confused"
+     },
+     {
+      "label": "It has stopped",
+      "to": "after",
+      "line": 59,
+      "target": "after"
+     }
+    ],
+    "line": 53
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 41
+  },
+  {
+   "id": "call-list",
+   "title": "Call 111 now if",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "In water, or they may be pregnant",
+     "bullet": true,
+     "line": 62,
+     "quotes": [
+      {
+       "text": "Seizure occurs in water",
+       "where": "Epilepsy NZ poster",
+       "check": "exact"
+      },
+      {
+       "text": "the person may be pregnant",
+       "where": "ANZCOR",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Injured, or food, fluid or vomit in the mouth",
+     "bullet": true,
+     "line": 65,
+     "quotes": [
+      {
+       "text": "serious injury",
+       "where": "Epilepsy NZ web",
+       "check": "exact"
+      },
+      {
+       "text": "There is food / fluid / vomit in mouth",
+       "where": "Epilepsy NZ poster",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Breathing difficulty after the jerking stops, or not breathing well",
+     "bullet": true,
+     "line": 68,
+     "quotes": [
+      {
+       "text": "Person has breathing difficulties after jerking stops",
+       "where": "Epilepsy NZ poster",
+       "check": "exact"
+      },
+      {
+       "text": "not breathing well",
+       "where": "St John",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Over 5 minutes, or another seizure follows",
+     "bullet": true,
+     "line": 71,
+     "quotes": [
+      {
+       "text": "Seizure lasts longer than 5 minutes",
+       "where": "Epilepsy NZ poster",
+       "check": "exact"
+      },
+      {
+       "text": "Another seizure quickly follows",
+       "where": "Epilepsy NZ poster",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "Any apply?",
+    "options": [
+     {
+      "label": "Yes: call 111 now",
+      "to": "called",
+      "line": 75,
+      "target": "called"
+     },
+     {
+      "label": "In water",
+      "to": "water",
+      "line": 76,
+      "target": "water"
+     },
+     {
+      "label": "None of these: more checks",
+      "to": "call-more",
+      "line": 77,
+      "target": "call-more"
+     }
+    ],
+    "line": 74
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 61
+  },
+  {
+   "id": "call-more",
+   "title": "Also call 111 if",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "First seizure, you don't know them, or no plan",
+     "bullet": true,
+     "line": 80,
+     "quotes": [
+      {
+       "text": "this is their first seizure",
+       "where": "ANZCOR",
+       "check": "exact"
+      },
+      {
+       "text": "you do not know the person",
+       "where": "ANZCOR",
+       "check": "exact"
+      },
+      {
+       "text": "no seizure management plan",
+       "where": "ANZCOR",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Not their usual pattern, or diabetes or another condition",
+     "bullet": true,
+     "line": 84,
+     "quotes": [
+      {
+       "text": "departs from the usual pattern",
+       "where": "ANZCOR",
+       "check": "exact"
+      },
+      {
+       "text": "diabetes or an underlying health condition",
+       "where": "Epilepsy NZ web",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "You are in doubt, uneasy, or they ask for help",
+     "bullet": true,
+     "line": 87,
+     "quotes": [
+      {
+       "text": "You are in any doubt",
+       "where": "Epilepsy NZ poster",
+       "check": "exact"
+      },
+      {
+       "text": "You feel uncomfortable",
+       "where": "Epilepsy NZ web",
+       "check": "exact"
+      },
+      {
+       "text": "asks for medical assistance",
+       "where": "Epilepsy NZ web",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "Any apply?",
+    "options": [
+     {
+      "label": "Yes: call 111 now",
+      "to": "called",
+      "line": 92,
+      "target": "called"
+     },
+     {
+      "label": "They have epilepsy and a plan",
+      "to": "plan",
+      "line": 93,
+      "target": "plan"
+     },
+     {
+      "label": "None apply: still going",
+      "to": "during",
+      "line": 94,
+      "target": "during"
+     },
+     {
+      "label": "None apply: it has stopped",
+      "to": "after",
+      "line": 95,
+      "target": "after"
+     }
+    ],
+    "line": 91
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 79
+  },
+  {
+   "id": "called",
+   "title": "Call 111",
+   "lines": [
+    {
+     "kind": "record",
+     "text": "111 called",
+     "line": 99
+    },
+    {
+     "kind": "do",
+     "text": "Stay with them and keep them safe. Tell the call taker it is a seizure and when it started (the Log has the times).",
+     "line": 100,
+     "quotes": [
+      {
+       "text": "Stay with the person",
+       "where": "Epilepsy NZ poster",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "note",
+     "text": "\"Tell the call taker\" is app wording; no source lists what to say on the call. Stop: After ends the not-waking bars once 111 is called.",
+     "line": 102
+    }
+   ],
+   "ask": {
+    "question": "Now?",
+    "options": [
+     {
+      "label": "Not breathing normally",
+      "to": "not-breathing",
+      "line": 104,
+      "target": "not-breathing"
+     },
+     {
+      "label": "Still going",
+      "to": "during",
+      "line": 105,
+      "target": "during"
+     },
+     {
+      "label": "It has stopped",
+      "to": "after",
+      "line": 106,
+      "target": "after"
+     },
+     {
+      "label": "Ambulance arrived",
+      "to": "handover",
+      "line": 107,
+      "target": "handover"
+     }
+    ],
+    "line": 103
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": "After",
+   "end": false,
+   "line": 97
+  },
+  {
+   "id": "five-min",
+   "title": "5 minutes: still going?",
+   "lines": [
+    {
+     "kind": "warning",
+     "text": "Still going after 5 minutes? Call 111 now. All the sources say this.",
+     "line": 110,
+     "quotes": [
+      {
+       "text": "Seizure lasts longer than 5 minutes",
+       "where": "Epilepsy NZ poster",
+       "check": "exact"
+      },
+      {
+       "text": "the seizure does not stop after 5 minutes",
+       "where": "St John",
+       "check": "exact"
+      },
+      {
+       "text": "the seizure lasts more than 5 minutes",
+       "where": "ANZCOR",
+       "check": "exact"
+      },
+      {
+       "text": "the seizure lasts longer than 5 minutes",
+       "where": "KidsHealth",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Epilepsy NZ's web page adds: or follow the timing in their own plan.",
+     "line": 115,
+     "quotes": [
+      {
+       "text": "(or follow the timing in their personal SMP)",
+       "where": "Epilepsy NZ web",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "Now?",
+    "options": [
+     {
+      "label": "Call 111",
+      "to": "called",
+      "line": 118,
+      "target": "called"
+     },
+     {
+      "label": "Not breathing normally",
+      "to": "not-breathing",
+      "line": 119,
+      "target": "not-breathing"
+     },
+     {
+      "label": "Their plan gives another time",
+      "to": "plan",
+      "line": 120,
+      "target": "plan"
+     },
+     {
+      "label": "It has stopped",
+      "to": "after",
+      "line": 121,
+      "target": "after"
+     }
+    ],
+    "line": 117
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 109
+  },
+  {
+   "id": "plan",
+   "title": "Epilepsy with a plan",
+   "lines": [
+    {
+     "kind": "do",
+     "text": "Look for a MedicAlert pendant or bracelet. Follow their seizure plan if they have one.",
+     "line": 124,
+     "quotes": [
+      {
+       "text": "check for a MedicAlert ® pendant or bracelet",
+       "where": "St John",
+       "check": "exact"
+      },
+      {
+       "text": "Follow the person's seizure management plan",
+       "where": "ANZCOR",
+       "check": "exact"
+      },
+      {
+       "text": "follow any first aid advice",
+       "where": "Epilepsy NZ web",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "When to call 111 differs:",
+     "line": 128
+    },
+    {
+     "kind": "say",
+     "text": "St John: no ambulance unless it lasts over 5 minutes.",
+     "bullet": true,
+     "line": 129,
+     "quotes": [
+      {
+       "text": "no need for medical aid or an ambulance unless the seizure lasts more than 5 minutes",
+       "where": "St John",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "ANZCOR: call if it does not match their plan.",
+     "bullet": true,
+     "line": 131,
+     "quotes": [
+      {
+       "text": "not consistent with the person's prescribed management plan",
+       "where": "ANZCOR",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Rescue medicine: ANZCOR says follow your training and their plan. No source gives more detail.",
+     "line": 133,
+     "quotes": [
+      {
+       "text": "follow your training and the person's seizure management plan",
+       "where": "ANZCOR",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "Now?",
+    "options": [
+     {
+      "label": "Call 111",
+      "to": "called",
+      "line": 136,
+      "target": "called"
+     },
+     {
+      "label": "Still going",
+      "to": "during",
+      "line": 137,
+      "target": "during"
+     },
+     {
+      "label": "It has stopped",
+      "to": "after",
+      "line": 138,
+      "target": "after"
+     }
+    ],
+    "line": 135
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 123
+  },
+  {
+   "id": "water",
+   "title": "Seizure in water",
+   "lines": [
+    {
+     "kind": "do",
+     "text": "Call 111 as soon as possible. Follow the call taker's instructions.",
+     "line": 141,
+     "quotes": [
+      {
+       "text": "(111) should always be called as soon as possible",
+       "where": "Epilepsy NZ web",
+       "check": "exact"
+      },
+      {
+       "text": "Follow the instructions of the ambulance operator",
+       "where": "Epilepsy NZ web",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Support their head: face above the water, head tilted back.",
+     "line": 144,
+     "quotes": [
+      {
+       "text": "face and head stays above the surface",
+       "where": "Epilepsy NZ web",
+       "check": "exact"
+      },
+      {
+       "text": "Tilt the person's head back to ensure a clear airway",
+       "where": "Epilepsy NZ web",
+       "check": "exact"
+      },
+      {
+       "text": "with the head tilted so the face is out of the water",
+       "where": "ANZCOR",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "When to take them out differs. Epilepsy NZ: once the movements stop. ANZCOR: as soon as it is safe. Others or a float can help.",
+     "line": 148,
+     "quotes": [
+      {
+       "text": "as soon as the active movements of the seizure have ceased",
+       "where": "Epilepsy NZ web",
+       "check": "exact"
+      },
+      {
+       "text": "as soon it is safe to do so",
+       "where": "ANZCOR",
+       "check": "exact"
+      },
+      {
+       "text": "Assistance from others or use of a floatation device may be useful",
+       "where": "Epilepsy NZ web",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "They need a medical check even if they seem fine.",
+     "line": 152,
+     "quotes": [
+      {
+       "text": "they still require a medical assessment",
+       "where": "Epilepsy NZ web",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "Now?",
+    "options": [
+     {
+      "label": "Not breathing normally",
+      "to": "not-breathing",
+      "line": 155,
+      "target": "not-breathing"
+     },
+     {
+      "label": "Out of the water, still going",
+      "to": "during",
+      "line": 156,
+      "target": "during"
+     },
+     {
+      "label": "Out, and it has stopped",
+      "to": "after",
+      "line": 157,
+      "target": "after"
+     },
+     {
+      "label": "Ambulance arrived",
+      "to": "handover",
+      "line": 158,
+      "target": "handover"
+     }
+    ],
+    "line": 154
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 140
+  },
+  {
+   "id": "confused",
+   "title": "Confused, not jerking",
+   "lines": [
+    {
+     "kind": "do",
+     "text": "Stay with them and reassure them. Gently guide them away from harm.",
+     "line": 161,
+     "quotes": [
+      {
+       "text": "Reassure and stay with the person until they have recovered",
+       "where": "Epilepsy NZ poster",
+       "check": "exact"
+      },
+      {
+       "text": "Gently guide away from harm",
+       "where": "Epilepsy NZ poster",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "warning",
+     "text": "Do not restrain them unless they are in danger.",
+     "line": 164,
+     "quotes": [
+      {
+       "text": "DO NOT restrain the person unless in danger",
+       "where": "Epilepsy NZ poster",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "ANZCOR says this kind of seizure may turn into a full seizure.",
+     "line": 166,
+     "quotes": [
+      {
+       "text": "A Focal seizure may sometimes progress to a generalised seizure.",
+       "where": "ANZCOR",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "Now?",
+    "options": [
+     {
+      "label": "Not breathing normally",
+      "to": "not-breathing",
+      "line": 169,
+      "target": "not-breathing"
+     },
+     {
+      "label": "Jerking started",
+      "to": "during",
+      "line": 170,
+      "target": "during"
+     },
+     {
+      "label": "Call 111? See the list",
+      "to": "call-list",
+      "line": 171,
+      "target": "call-list"
+     },
+     {
+      "label": "They have recovered",
+      "to": "handover",
+      "line": 172,
+      "target": "handover"
+     }
+    ],
+    "line": 168
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 160
+  },
+  {
+   "id": "not-breathing",
+   "title": "Not breathing normally",
+   "lines": [
+    {
+     "kind": "do",
+     "text": "Call 111 now if nobody has.",
+     "line": 175,
+     "quotes": [
+      {
+       "text": "is not breathing well",
+       "where": "St John",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "record",
+     "text": "111 called",
+     "line": 177
+    },
+    {
+     "kind": "say",
+     "text": "ANZCOR: if they are unresponsive and not breathing normally, follow the Basic Life Support flowchart. These seizure sources give no more steps. Follow the 111 call taker.",
+     "line": 178,
+     "quotes": [
+      {
+       "text": "If unresponsive and not breathing normally, follow ANZCOR Basic life support flow chart.",
+       "where": "ANZCOR",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "ANZCOR also says breathing may stop for a short time during a seizure. It does not say how long.",
+     "line": 180,
+     "quotes": [
+      {
+       "text": "shallow breathing or breathing may stop temporarily",
+       "where": "ANZCOR",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "Now?",
+    "options": [
+     {
+      "label": "Breathing again, still seizing",
+      "to": "during",
+      "line": 183,
+      "target": "during"
+     },
+     {
+      "label": "Breathing again, it has stopped",
+      "to": "after",
+      "line": 184,
+      "target": "after"
+     },
+     {
+      "label": "Another seizure started",
+      "to": "another",
+      "line": 185,
+      "target": "another"
+     },
+     {
+      "label": "Ambulance arrived",
+      "to": "handover",
+      "line": 186,
+      "target": "handover"
+     }
+    ],
+    "line": 182
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 174
+  },
+  {
+   "id": "after",
+   "title": "It has stopped: check breathing",
+   "lines": [
+    {
+     "kind": "do",
+     "text": "Check their airway and that they are breathing normally.",
+     "line": 195,
+     "quotes": [
+      {
+       "text": "check their airway and make sure they are breathing normally",
+       "where": "St John",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Breathing normally: roll them onto their side, head tilted back, chin up.",
+     "line": 197,
+     "quotes": [
+      {
+       "text": "If they are breathing normally, roll the person onto their side",
+       "where": "St John",
+       "check": "exact"
+      },
+      {
+       "text": "their head tilted back so that their chin is away from their chest",
+       "where": "St John",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "Breathing normally?",
+    "options": [
+     {
+      "label": "Yes, they are on their side",
+      "to": "recovery",
+      "line": 201,
+      "target": "recovery"
+     },
+     {
+      "label": "Not breathing normally",
+      "to": "not-breathing",
+      "line": 202,
+      "target": "not-breathing"
+     },
+     {
+      "label": "Another seizure started",
+      "to": "another",
+      "line": 203,
+      "target": "another"
+     }
+    ],
+    "line": 200
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [
+    {
+     "ms": 300000,
+     "every": "5 minutes",
+     "once": true,
+     "text": "After 5 min not responding? Call 111 (Epilepsy NZ, ANZCOR)",
+     "id": "after-5-min-not-responding-call-111-epil",
+     "line": 190,
+     "quotes": [
+      {
+       "text": "non-responsive for more than 5 minutes after the seizure ends",
+       "where": "Epilepsy NZ poster",
+       "check": "exact"
+      },
+      {
+       "text": "does not regain consciousness within 5 minutes",
+       "where": "ANZCOR",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "ms": 600000,
+     "every": "10 minutes",
+     "once": true,
+     "text": "After 10 min not waking? Call 111 (St John)",
+     "id": "after-10-min-not-waking-call-111-st-john",
+     "line": 193,
+     "quotes": [
+      {
+       "text": "does not wake up after 10 minutes",
+       "where": "St John",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "stop": "Seizure",
+   "end": false,
+   "line": 188
+  },
+  {
+   "id": "recovery",
+   "title": "Stay with them",
+   "lines": [
+    {
+     "kind": "do",
+     "text": "Stay and reassure them until they have recovered. Cover them lightly.",
+     "line": 206,
+     "quotes": [
+      {
+       "text": "Reassure and stay with the person until they have recovered",
+       "where": "Epilepsy NZ poster",
+       "check": "exact"
+      },
+      {
+       "text": "Cover the person lightly",
+       "where": "St John",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "do",
+     "text": "Keep checking their airway and breathing. Let them sleep, but check for a response every few minutes (no number given, so no reminder).",
+     "line": 209,
+     "quotes": [
+      {
+       "text": "frequently reassess the person, particularly their breathing",
+       "where": "ANZCOR",
+       "check": "exact"
+      },
+      {
+       "text": "check for a response every few minutes",
+       "where": "St John",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "No source says if sleep counts as not responding. St John: unresponsive means they \"cannot be woken up\".",
+     "line": 212,
+     "quotes": [
+      {
+       "text": "cannot be woken up",
+       "where": "St John",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "warning",
+     "text": "Nothing to eat or drink until fully awake and alert.",
+     "line": 214,
+     "quotes": [
+      {
+       "text": "Do not offer them anything to eat and drink until they are fully awake",
+       "where": "ANZCOR",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "How are they?",
+    "options": [
+     {
+      "label": "Not breathing normally",
+      "to": "not-breathing",
+      "line": 217,
+      "target": "not-breathing"
+     },
+     {
+      "label": "Not responding",
+      "to": "unresponsive",
+      "line": 218,
+      "target": "unresponsive"
+     },
+     {
+      "label": "Waking up",
+      "to": "waking",
+      "line": 219,
+      "target": "waking"
+     },
+     {
+      "label": "Another seizure started",
+      "to": "another",
+      "line": 220,
+      "target": "another"
+     }
+    ],
+    "line": 216
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 205
+  },
+  {
+   "id": "unresponsive",
+   "title": "Not waking up",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "Call 111 if they stay unresponsive. The time differs:",
+     "line": 223
+    },
+    {
+     "kind": "say",
+     "text": "Epilepsy NZ and ANZCOR: more than 5 minutes after it stops.",
+     "bullet": true,
+     "line": 224,
+     "quotes": [
+      {
+       "text": "non-responsive for more than 5 minutes after the seizure ends",
+       "where": "Epilepsy NZ poster",
+       "check": "exact"
+      },
+      {
+       "text": "does not regain consciousness within 5 minutes",
+       "where": "ANZCOR",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "St John: not awake within 10 minutes.",
+     "bullet": true,
+     "line": 227,
+     "quotes": [
+      {
+       "text": "does not wake within 10 minutes",
+       "where": "St John",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "KidsHealth (children with fever): gives no time.",
+     "bullet": true,
+     "line": 229,
+     "quotes": [
+      {
+       "text": "your child is not waking up and responding after the seizure",
+       "where": "KidsHealth",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "The reminder bars count from when you tapped \"It has stopped\".",
+     "line": 231
+    }
+   ],
+   "ask": {
+    "question": "Now?",
+    "options": [
+     {
+      "label": "Not breathing normally",
+      "to": "not-breathing",
+      "line": 233,
+      "target": "not-breathing"
+     },
+     {
+      "label": "Call 111",
+      "to": "called",
+      "line": 234,
+      "target": "called"
+     },
+     {
+      "label": "Waking up",
+      "to": "waking",
+      "line": 235,
+      "target": "waking"
+     },
+     {
+      "label": "Another seizure started",
+      "to": "another",
+      "line": 236,
+      "target": "another"
+     }
+    ],
+    "line": 232
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 222
+  },
+  {
+   "id": "waking",
+   "title": "As they wake",
+   "lines": [
+    {
+     "kind": "do",
+     "text": "Tell them they are safe. Check for injuries and give first aid. Keep onlookers away.",
+     "line": 240,
+     "quotes": [
+      {
+       "text": "Reassure the person as they wake up. Tell them they are safe.",
+       "where": "St John",
+       "check": "exact"
+      },
+      {
+       "text": "Check for injuries and apply any necessary first aid.",
+       "where": "St John",
+       "check": "exact"
+      },
+      {
+       "text": "Keep onlookers away",
+       "where": "Epilepsy NZ web",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "warning",
+     "text": "No water, food or pills unless they are fully alert.",
+     "line": 244,
+     "quotes": [
+      {
+       "text": "Give the person water, food or pills unless they are fully alert.",
+       "where": "Epilepsy NZ web",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "note",
+     "text": "That Epilepsy NZ line sits under its \"DO NOT\" heading, so \"No ...\" keeps its meaning. Stop: After ends the not-waking bars once they wake.",
+     "line": 246
+    }
+   ],
+   "ask": {
+    "question": "Now?",
+    "options": [
+     {
+      "label": "They have recovered",
+      "to": "handover",
+      "line": 248,
+      "target": "handover"
+     },
+     {
+      "label": "Another seizure started",
+      "to": "another",
+      "line": 249,
+      "target": "another"
+     },
+     {
+      "label": "Not responding again",
+      "to": "unresponsive",
+      "line": 250,
+      "target": "unresponsive"
+     }
+    ],
+    "line": 247
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": "After",
+   "end": false,
+   "line": 238
+  },
+  {
+   "id": "another",
+   "title": "Another seizure started",
+   "lines": [
+    {
+     "kind": "warning",
+     "text": "Call 111 now (Epilepsy NZ, ANZCOR, KidsHealth). St John does not list this.",
+     "line": 256,
+     "quotes": [
+      {
+       "text": "Another seizure quickly follows",
+       "where": "Epilepsy NZ poster",
+       "check": "exact"
+      },
+      {
+       "text": "another seizure begins",
+       "where": "ANZCOR",
+       "check": "exact"
+      },
+      {
+       "text": "If your child starts a second seizure before waking from the first one",
+       "where": "KidsHealth",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "No source gives a limit for a cluster of seizures. Keep them safe as before. The 5-minute bar restarts now.",
+     "line": 260,
+     "quotes": [
+      {
+       "text": "(or there is a cluster of seizures)",
+       "where": "Epilepsy NZ web",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "Now?",
+    "options": [
+     {
+      "label": "Call 111",
+      "to": "called",
+      "line": 263,
+      "target": "called"
+     },
+     {
+      "label": "Not breathing normally",
+      "to": "not-breathing",
+      "line": 264,
+      "target": "not-breathing"
+     },
+     {
+      "label": "In water",
+      "to": "water",
+      "line": 265,
+      "target": "water"
+     },
+     {
+      "label": "It has stopped",
+      "to": "after",
+      "line": 266,
+      "target": "after"
+     },
+     {
+      "label": "Child with a fever: it has stopped",
+      "to": "fever-after",
+      "line": 267,
+      "target": "fever-after"
+     }
+    ],
+    "line": 262
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [
+    {
+     "ms": 300000,
+     "every": "5 minutes",
+     "once": true,
+     "text": "Seizure 5 minutes: still going? Call 111",
+     "id": "seizure-5-minutes-still-going-call-111",
+     "line": 254,
+     "quotes": [
+      {
+       "text": "Seizure lasts longer than 5 minutes",
+       "where": "Epilepsy NZ poster",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "stop": "all",
+   "end": false,
+   "line": 252
+  },
+  {
+   "id": "fever",
+   "title": "Child with a fever",
+   "lines": [
+    {
+     "kind": "do",
+     "text": "Try to keep calm and keep your child safe. Loosen clothes at face and neck.",
+     "line": 270,
+     "quotes": [
+      {
+       "text": "try to keep calm, and keep your child safe",
+       "where": "KidsHealth",
+       "check": "exact"
+      },
+      {
+       "text": "loosen their clothes around their face and neck",
+       "where": "KidsHealth",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "warning",
+     "text": "Do not put them in a bath or shower to cool them (KidsHealth, ANZCOR). Nothing in their mouth.",
+     "line": 273,
+     "quotes": [
+      {
+       "text": "do not put your child in the bath or shower to cool them down",
+       "where": "KidsHealth",
+       "check": "exact"
+      },
+      {
+       "text": "Put a child in a bath to lower their temperature",
+       "where": "ANZCOR",
+       "check": "exact"
+      },
+      {
+       "text": "do not put anything in their mouth",
+       "where": "KidsHealth",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "St John differs: cool them by removing clothes down to underwear or nappy.",
+     "line": 277,
+     "quotes": [
+      {
+       "text": "removing their clothing down to underwear or nappy",
+       "where": "St John",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "On their side: KidsHealth \"What to do\" says now; its key points and St John say after it.",
+     "line": 279,
+     "quotes": [
+      {
+       "text": "lie your child down on their side",
+       "where": "KidsHealth",
+       "check": "exact"
+      },
+      {
+       "text": "When the convulsion is over",
+       "where": "St John",
+       "check": "exact"
+      },
+      {
+       "text": "after the seizure, lie your child down on their side",
+       "where": "KidsHealth",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "A KidsHealth picture (heading unreadable): video it if you can.",
+     "line": 283,
+     "quotes": [
+      {
+       "text": "Video the seizure if you can.",
+       "where": "KidsHealth",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "Now?",
+    "options": [
+     {
+      "label": "Not breathing normally",
+      "to": "not-breathing",
+      "line": 286,
+      "target": "not-breathing"
+     },
+     {
+      "label": "Call 111? See the list",
+      "to": "fever-call",
+      "line": 287,
+      "target": "fever-call"
+     },
+     {
+      "label": "It has stopped",
+      "to": "fever-after",
+      "line": 288,
+      "target": "fever-after"
+     }
+    ],
+    "line": 285
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 269
+  },
+  {
+   "id": "fever-call",
+   "title": "Child: call 111 if",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "It lasts longer than 5 minutes",
+     "bullet": true,
+     "line": 291,
+     "quotes": [
+      {
+       "text": "the seizure lasts longer than 5 minutes",
+       "where": "KidsHealth",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Trouble breathing, or looks very unwell",
+     "bullet": true,
+     "line": 293,
+     "quotes": [
+      {
+       "text": "your child is having trouble breathing",
+       "where": "KidsHealth",
+       "check": "exact"
+      },
+      {
+       "text": "your child looks very unwell",
+       "where": "KidsHealth",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Another seizure before waking, or you are worried",
+     "bullet": true,
+     "line": 296,
+     "quotes": [
+      {
+       "text": "a second seizure before waking from the first one",
+       "where": "KidsHealth",
+       "check": "exact"
+      },
+      {
+       "text": "or you are worried",
+       "where": "KidsHealth",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Injured (ANZCOR, Epilepsy NZ)",
+     "bullet": true,
+     "line": 299,
+     "quotes": [
+      {
+       "text": "concerned about any aspect of the person's care such as injury",
+       "where": "ANZCOR",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "A KidsHealth picture (heading unreadable) also lists 2 or more seizures in a row, and injury.",
+     "line": 301,
+     "quotes": [
+      {
+       "text": "2 or more seizures in a row",
+       "where": "KidsHealth",
+       "check": "exact"
+      },
+      {
+       "text": "a head injury or injured themselves",
+       "where": "KidsHealth",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "Any apply?",
+    "options": [
+     {
+      "label": "Yes: call 111 now",
+      "to": "called",
+      "line": 305,
+      "target": "called"
+     },
+     {
+      "label": "Not breathing normally",
+      "to": "not-breathing",
+      "line": 306,
+      "target": "not-breathing"
+     },
+     {
+      "label": "None: still going",
+      "to": "fever",
+      "line": 307,
+      "target": "fever"
+     },
+     {
+      "label": "None: it has stopped",
+      "to": "fever-after",
+      "line": 308,
+      "target": "fever-after"
+     }
+    ],
+    "line": 304
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": false,
+   "line": 290
+  },
+  {
+   "id": "fever-after",
+   "title": "Child: after it stops",
+   "lines": [
+    {
+     "kind": "do",
+     "text": "Check breathing, then lie them on their side in the recovery position. Keep checking their breathing.",
+     "line": 316,
+     "quotes": [
+      {
+       "text": "make sure they are breathing normally",
+       "where": "St John",
+       "check": "exact"
+      },
+      {
+       "text": "lie your child down on their side, in the recovery position",
+       "where": "KidsHealth",
+       "check": "exact"
+      },
+      {
+       "text": "Frequently reassess, particularly their airway and breathing",
+       "where": "ANZCOR",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "warning",
+     "text": "Nothing to drink until fully conscious.",
+     "line": 320,
+     "quotes": [
+      {
+       "text": "DO NOT give the child anything to drink until they are fully conscious",
+       "where": "St John",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "KidsHealth gives no time for \"not waking\" and says they may sleep up to an hour; hard to wake: see a doctor urgently. No source says if sleep counts as not responding.",
+     "line": 322,
+     "quotes": [
+      {
+       "text": "(up to an hour)",
+       "where": "KidsHealth",
+       "check": "exact"
+      },
+      {
+       "text": "if they are hard to wake",
+       "where": "KidsHealth",
+       "check": "exact"
+      },
+      {
+       "text": "see a doctor urgently",
+       "where": "KidsHealth",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": {
+    "question": "Now?",
+    "options": [
+     {
+      "label": "Not breathing normally",
+      "to": "not-breathing",
+      "line": 327,
+      "target": "not-breathing"
+     },
+     {
+      "label": "Not waking and responding: call 111",
+      "to": "called",
+      "line": 328,
+      "target": "called"
+     },
+     {
+      "label": "Another seizure started",
+      "to": "another",
+      "line": 329,
+      "target": "another"
+     },
+     {
+      "label": "Resting, recovering",
+      "to": "handover",
+      "line": 330,
+      "target": "handover"
+     }
+    ],
+    "line": 326
+   },
+   "next": null,
+   "timer": null,
+   "reminders": [
+    {
+     "ms": 300000,
+     "every": "5 minutes",
+     "once": true,
+     "text": "After 5 min not responding? Call 111 (ANZCOR)",
+     "id": "after-5-min-not-responding-call-111-anzc",
+     "line": 312,
+     "quotes": [
+      {
+       "text": "does not regain consciousness within 5 minutes",
+       "where": "ANZCOR",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "ms": 600000,
+     "every": "10 minutes",
+     "once": true,
+     "text": "After 10 min not waking? Call 111 (St John)",
+     "id": "after-10-min-not-waking-call-111-st-john",
+     "line": 314,
+     "quotes": [
+      {
+       "text": "does not wake up after 10 minutes",
+       "where": "St John",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "stop": "Seizure",
+   "end": false,
+   "line": 310
+  },
+  {
+   "id": "handover",
+   "title": "Hand over",
+   "lines": [
+    {
+     "kind": "say",
+     "text": "Tell the ambulance or doctor: when it started and stopped, how many seizures, and when you called 111. The Log has the times.",
+     "line": 334
+    },
+    {
+     "kind": "note",
+     "text": "App wording; no source gives a handover list. Each answer (It has stopped, Another seizure started) and the 111 called button put a time in the Log.",
+     "line": 335
+    },
+    {
+     "kind": "do",
+     "text": "Advise them not to drive. Try to arrange someone to stay with them until they are home.",
+     "line": 336,
+     "quotes": [
+      {
+       "text": "Advise the person not to drive. Try to arrange for someone to be with them until they are safely home.",
+       "where": "St John",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "No source says how long to stay once they have recovered.",
+     "line": 338
+    }
+   ],
+   "ask": null,
+   "next": {
+    "to": "doctor",
+    "line": 339,
+    "target": "doctor"
+   },
+   "timer": null,
+   "reminders": [],
+   "stop": "all",
+   "end": false,
+   "line": 332,
+   "nexts": [
+    {
+     "to": "doctor",
+     "line": 339,
+     "target": "doctor"
+    }
+   ]
+  },
+  {
+   "id": "doctor",
+   "title": "See a doctor",
+   "lines": [
+    {
+     "kind": "do",
+     "text": "See a doctor after a first seizure, or a child after a fever seizure.",
+     "line": 342,
+     "quotes": [
+      {
+       "text": "person's first seizure, or if it's a child after a febrile",
+       "where": "St John",
+       "check": "exact"
+      },
+      {
+       "text": "take your child to a health professional afterwards",
+       "where": "KidsHealth",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Epilepsy: see their doctor to check their medicine (St John). After water: a medical check.",
+     "line": 345,
+     "quotes": [
+      {
+       "text": "check that any prescribed medication is adequate",
+       "where": "St John",
+       "check": "exact"
+      },
+      {
+       "text": "they still require a medical assessment",
+       "where": "Epilepsy NZ web",
+       "check": "exact"
+      }
+     ]
+    },
+    {
+     "kind": "say",
+     "text": "Unsure? Healthline 0800 611 116 (St John). Epilepsy NZ advice: 0800 374 537.",
+     "line": 348,
+     "quotes": [
+      {
+       "text": "call Healthline on 0800 611 116",
+       "where": "St John",
+       "check": "exact"
+      },
+      {
+       "text": "contact Epilepsy New Zealand on 0800 374 537",
+       "where": "Epilepsy NZ poster",
+       "check": "exact"
+      }
+     ]
+    }
+   ],
+   "ask": null,
+   "next": null,
+   "timer": null,
+   "reminders": [],
+   "stop": null,
+   "end": true,
+   "line": 341
+  }
+ ],
+ "start": "start"
+}
