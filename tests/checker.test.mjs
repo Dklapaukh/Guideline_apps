@@ -163,3 +163,39 @@ End:
   assert.ok(has(res, 'check', /"Recheck" is reminded every 10 minutes here but every 5 minutes/));
   assert.ok(has(res, 'check', /two "Next" lines/));
 });
+
+test('"Write:" boxes: read with their labels; no label, a box outside the steps and two boxes with one name become findings', () => {
+  const res = run(`# T
+Source: Test
+Write: Not here
+## Inputs
+- Write down: Nor here
+## Steps
+### a: Call
+Write: Caller's exact words
+Quote: "Write down the exact wording"
+Text box: Answer to question 1
+Write:
+Write: Caller's exact words
+End:
+`, 'Write down the exact wording of the threat');
+  const boxes = res.spec.steps[0].lines.filter((l) => l.kind === 'write');
+  assert.deepEqual(boxes.map((l) => l.text), ["Caller's exact words", 'Answer to question 1', 'Notes', "Caller's exact words"]);
+  assert.equal(boxes[0].quotes.length, 1, 'a Quote under a box supports it');
+  assert.equal(boxes[0].quotes[0].check, 'exact');
+  assert.ok(has(res, 'fix', /"write:" line has no label.*called "Notes"/));
+  assert.equal(res.findings.filter((f) => f.level === 'fix' && /outside "## Steps"/.test(f.message)).length, 2);
+  assert.ok(has(res, 'check', /two writing boxes called "Caller's exact words"/));
+  assert.equal(res.spec.inputs.length, 0, 'a misplaced box is not read as an input');
+  assert.ok(!has(res, 'info', /no quote from the guideline/), 'a box label is not an instruction that needs a quote');
+});
+
+test('junk around "Write:" lines never makes the reader or checker throw', () => {
+  const odd = ['Write:', 'Write: ', 'write down: <b>x</b>', 'Free text: 5 mg [if W < 3]', 'Write: [if', 'Write: x -> b', '- Write: y', 'Quote: "x"', '| Write: z |'];
+  let seed = 11; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+  const bits = [...odd, '# T', '## Steps', '## Inputs', '## Tables', '### a: A', 'Say: x', 'Next: end', ''];
+  for (let i = 0; i < 200; i++) {
+    const text = Array.from({ length: 4 + Math.floor(rnd() * 20) }, () => bits[Math.floor(rnd() * bits.length)]).join('\n');
+    assert.doesNotThrow(() => run(text, 'x 5 mg'), text);
+  }
+});

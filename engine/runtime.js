@@ -1,5 +1,5 @@
 /* RUNTIME: draws a checked spec as a phone app and runs it. One generic program for every guideline:
-   steps, questions, checklists, timers, repeating reminders, table look-ups and a timed log.
+   steps, questions, checklists, timers, repeating reminders, table look-ups, writing boxes and a timed log.
    It never crashes on a problem in the spec: a broken link or missing table is shown as an "author check"
    note in place, and the person can carry on.
 
@@ -15,7 +15,7 @@ import { LOOKS, DEFAULT_LOOK } from './looks.js';
 export function mount(root, { spec, findings = [], summary = {}, built = '' }) {
   const S = {
     screen: 'start', tab: 'steps', answers: {}, current: null, history: [], ticks: {}, log: [],
-    startedAt: null, enteredAt: null, timerDone: false, reminders: {}, records: {}, note: '',
+    startedAt: null, enteredAt: null, timerDone: false, reminders: {}, records: {}, notes: {}, note: '',
   };
   const byId = new Map(spec.steps.map((s) => [s.id, s]));
   const now = () => Date.now();
@@ -51,6 +51,7 @@ export function mount(root, { spec, findings = [], summary = {}, built = '' }) {
   }
   // Moves to a step (or finishes): saves where we were for "Back", clears the step's ticks, stops and starts reminders.
   function go(target, why) {
+    saveAllNotes();
     if (target === END) return finish(why);
     const step = byId.get(target);
     if (!step) { S.note = 'This leads to a step that is missing from the template (see Checks). Choose another option or go back.'; render(); return; }
@@ -69,24 +70,78 @@ export function mount(root, { spec, findings = [], summary = {}, built = '' }) {
   // "Back": returns to the previous step exactly as it was (its clock, timer and reminders).
   function back() {
     const prev = S.history.pop(); if (!prev) return;
+    saveAllNotes();
     S.current = prev.id; S.enteredAt = prev.enteredAt; S.timerDone = prev.timerDone; S.reminders = prev.reminders; S.note = '';
     log('Went back to', byId.get(prev.id).title); render();
   }
   // Shows the finished screen with the log.
-  function finish(why) { S.screen = 'done'; log('Finished', why ?? ''); render(); }
+  function finish(why) { saveAllNotes(); S.screen = 'done'; log('Finished', why ?? ''); render(); }
   // "Start again": clears this run (and its saved copy) but keeps the details entered.
-  function restart() { try { localStorage.removeItem(KEY); } catch { /* fine */ } Object.assign(S, { screen: 'start', tab: 'steps', current: null, history: [], ticks: {}, log: [], startedAt: null, reminders: {}, records: {}, note: '' }); render(); }
+  function restart() { try { localStorage.removeItem(KEY); } catch { /* fine */ } Object.assign(S, { screen: 'start', tab: 'steps', current: null, history: [], ticks: {}, log: [], startedAt: null, reminders: {}, records: {}, notes: {}, note: '' }); render(); }
+
+  /* ---------- writing boxes ("Write:") ---------- */
+  // The shown line that a box key ("step-id:3") points to, or null. Same numbering as tick boxes.
+  function lineAt(key) {
+    const [id, k] = [key.slice(0, key.lastIndexOf(':')), +key.split(':').pop()];
+    return byId.get(id)?.lines.filter((x) => x.kind !== 'note')[k] ?? null;
+  }
+  // Keeps what is typed in a box (every key press), so it survives Back, other tabs and a page reload.
+  function typeNote(key, text) {
+    const n = (S.notes[key] ??= { label: lineAt(key)?.text ?? 'Notes', text: '', saved: '', at: 0 });
+    n.text = String(text ?? '');
+  }
+  // Puts a box's text in the Log (with the time) if it changed since it was last saved. Returns true if it logged.
+  function saveNote(key) {
+    const n = S.notes[key];
+    if (!n || n.text.trim() === n.saved.trim()) return false;
+    n.saved = n.text; n.at = now();
+    log(n.label, n.text.trim() ? n.text.trim() : '(cleared)');
+    return true;
+  }
+  // Keeps only well-formed saved boxes from a reloaded run (a damaged save must not stop the app).
+  function cleanNotes(saved) {
+    const out = {};
+    if (saved && typeof saved === 'object') for (const [key, n] of Object.entries(saved)) {
+      if (n && typeof n === 'object') out[key] = { label: String(n.label ?? 'Notes'), text: String(n.text ?? ''), saved: String(n.saved ?? ''), at: Number(n.at) || 0 };
+    }
+    return out;
+  }
+  // Saves every box with unsaved changes: called before moving step, going back, finishing or changing tab.
+  function saveAllNotes() { for (const key of Object.keys(S.notes)) saveNote(key); }
+  // The small line under a box: when it was last saved, or that it hasn't been saved yet.
+  function noteStatus(key) {
+    const n = S.notes[key];
+    if (n && n.text.trim() !== n.saved.trim()) return 'Not saved yet. It saves when you tap Save or leave this box.';
+    return n?.at ? `Saved in the Log at ${tod(n.at)}${S.startedAt ? ` (${clock(n.at - S.startedAt)} after start)` : ''}` : 'Saved in the Log when you tap Save or leave this box.';
+  }
+  // Updates the status line under one box without redrawing the screen (a redraw while typing would lose the place).
+  function showNoteStatus(key) {
+    for (const el of root.querySelectorAll('[data-note-status]')) if (el.dataset.noteStatus === key) el.textContent = noteStatus(key);
+  }
 
   /* ---------- drawing ---------- */
   // Redraws the whole screen from the state: top bar, prototype banner, reminders, the open tab, tab bar.
   function render() {
+    const typing = typingIn();
     root.innerHTML = `
       <header class="bar"><div class="t">${brand.name ? `<span class="brand">${esc(brand.name)}</span>` : ''}${esc(spec.title)}</div><div class="clock" data-clock="elapsed">${S.startedAt ? clock(now() - S.startedAt) : ''}</div></header>
       <div class="proto">Prototype built automatically from a guideline. ${spec.reviewedBy ? 'Reviewed by ' + esc(spec.reviewedBy) + '.' : 'Not reviewed.'} Not for real-world use.</div>
       ${reminderBar()}
       <main id="main">${S.tab === 'steps' ? (S.screen === 'start' ? startView() : S.screen === 'done' ? doneView() : stepView()) : S.tab === 'log' ? logView() : S.tab === 'checks' ? checksView() : aboutView()}</main>
       <nav class="tabs">${['steps', 'log', 'checks', 'about'].map((t) => `<button data-tab="${t}" class="${S.tab === t ? 'on' : ''}">${{ steps: 'Steps', log: 'Log', checks: `Checks${counts.fix + counts.check ? ` (${counts.fix + counts.check})` : ''}`, about: 'About' }[t]}</button>`).join('')}</nav>`;
+    keepTyping(typing);
     tick();
+  }
+  // Which writing box has the cursor, and where in it (so a redraw, e.g. when a reminder buzzes, doesn't move it).
+  function typingIn() {
+    const el = root.ownerDocument.activeElement;
+    return el?.dataset?.note ? { key: el.dataset.note, from: el.selectionStart, to: el.selectionEnd } : null;
+  }
+  // Puts the cursor back in the same box at the same place after a redraw.
+  function keepTyping(t) {
+    if (!t) return;
+    const el = [...root.querySelectorAll('[data-note]')].find((x) => x.dataset.note === t.key);
+    try { el?.focus(); el?.setSelectionRange(t.from, t.to); } catch { /* not supported */ }
   }
   // The start screen: title, about, warning, details form and "Start".
   function startView() {
@@ -158,6 +213,13 @@ export function mount(root, { spec, findings = [], summary = {}, built = '' }) {
     if (l.kind === 'do') return `<label class="do"><input type="checkbox" data-tick="${key}" ${S.ticks[key] ? 'checked' : ''}> <span>${esc(l.text)}</span>${dep}${q}</label>`;
     if (l.kind === 'warning') return `<p class="warn">${esc(l.text)}${dep}${q}</p>`;
     if (l.kind === 'record') { const r = S.records[l.text]; return `<div class="rec"><button class="big rec-btn" data-rec="${esc(l.text)}">${esc(l.text)}</button><small data-clock="rec" data-rec-name="${esc(l.text)}">${r ? `${r.n}× · last at ${tod(r.last)}, ${formatDuration(now() - r.last)} ago` : 'not yet'}</small>${dep}${q}</div>`; }
+    if (l.kind === 'write') {
+      const id = `note-${slug(key)}`;
+      return `<div class="note-box"><label class="note-lbl" for="${id}">${esc(l.text)}</label>${dep}${q}
+        <textarea id="${id}" class="note-text" data-note="${esc(key)}" rows="5" autocomplete="off" spellcheck="false">${esc(S.notes[key]?.text ?? '')}</textarea>
+        <button class="big note-save" data-note-save="${esc(key)}">Save to Log</button>
+        <small class="note-status" data-note-status="${esc(key)}">${esc(noteStatus(key))}</small></div>`;
+    }
     if (l.kind === 'show') return `<div class="show">${showTable(l)}${dep}${q}</div>`;
     return `<p class="${l.bullet ? 'bul' : ''}">${esc(l.text)}${dep}${q}</p>`;
   }
@@ -249,13 +311,13 @@ export function mount(root, { spec, findings = [], summary = {}, built = '' }) {
   let lastSaved = '';
   // save: writes the state when it changed; load: carries on a run that was in progress when the page was reloaded.
   function save() { try { const j = JSON.stringify(S); if (j !== lastSaved) { localStorage.setItem(KEY, j); lastSaved = j; } } catch { /* storage unavailable */ } }
-  function load() { try { const j = localStorage.getItem(KEY); if (j) { const old = JSON.parse(j); if (old.screen === 'run' && old.current && byId.has(old.current)) { Object.assign(S, old, { tab: 'steps', note: 'Carried on from where this was left (the page was reloaded).' }); } } } catch { /* ignore a bad save */ } }
+  function load() { try { const j = localStorage.getItem(KEY); if (j) { const old = JSON.parse(j); if (old.screen === 'run' && old.current && byId.has(old.current)) { Object.assign(S, old, { tab: 'steps', notes: cleanNotes(old.notes), note: 'Carried on from where this was left (the page was reloaded).' }); } } } catch { /* ignore a bad save */ } }
 
   /* ---------- taps ---------- */
   root.addEventListener('click', (e) => {
     const b = e.target.closest('button'); if (!b) return;
     const d = b.dataset;
-    if (d.tab) { S.tab = d.tab; render(); return; }
+    if (d.tab) { saveAllNotes(); S.tab = d.tab; render(); return; }
     if (d.lookPick) return pickLook(d.lookPick);
     if (d.input) { S.answers[d.input] = S.answers[d.input] === d.value ? undefined : d.value; if (S.screen === 'run') log('Detail changed', `${d.input}: ${d.value}`); render(); return; }
     if (d.opt !== undefined) {
@@ -263,6 +325,7 @@ export function mount(root, { spec, findings = [], summary = {}, built = '' }) {
       if (!o.target) { S.note = `"${o.label}" leads to "${o.to}", which is missing from the template (see Checks).`; render(); return; }
       return go(o.target, `${s.ask.question || s.title}: ${o.label}`);
     }
+    if (d.noteSave !== undefined) { typeNote(d.noteSave, [...root.querySelectorAll('[data-note]')].find((x) => x.dataset.note === d.noteSave)?.value ?? S.notes[d.noteSave]?.text); saveNote(d.noteSave); render(); return; }
     if (d.rec) { const r = (S.records[d.rec] ??= { n: 0, last: 0 }); r.n++; r.last = now(); log(d.rec); render(); return; }
     if (d.remdone) {
       const r = S.reminders[d.remdone];
@@ -282,11 +345,13 @@ export function mount(root, { spec, findings = [], summary = {}, built = '' }) {
   });
   root.addEventListener('change', (e) => {
     const el = e.target;
+    if (el.dataset.note) { typeNote(el.dataset.note, el.value); saveNote(el.dataset.note); showNoteStatus(el.dataset.note); return; }   // left the box: save, no redraw (a tap in progress must still land)
     if (el.dataset.num && S.screen === 'run') log('Detail changed', `${el.dataset.num}: ${el.value.trim()}`);
     if (el.dataset.tick) { S.ticks[el.dataset.tick] = el.checked; const s = byId.get(S.current); const l = s?.lines.filter((x) => x.kind !== 'note')[+el.dataset.tick.split(':').pop()]; log(el.checked ? 'Ticked' : 'Unticked', l?.text ?? ''); }
   });
   root.addEventListener('input', (e) => {
     const el = e.target;
+    if (el.dataset.note) { typeNote(el.dataset.note, el.value); showNoteStatus(el.dataset.note); return; }
     if (el.dataset.num) {
       S.answers[el.dataset.num] = el.value.trim();
       const i = spec.inputs.find((x) => x.id === el.dataset.num);

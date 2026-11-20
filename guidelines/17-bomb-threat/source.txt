@@ -1,0 +1,254 @@
+Bomb threat by phone (what to ask and write down during the call, who to tell, search and evacuate-or-not),
+word-for-word copies from two official sources (read 20 Nov 2026, NZ time). The sources do NOT say the same
+things (for example the NZ Police card gives 10 questions starting "When is the Bomb going to explode?";
+the ANZCTC checklist gives 11 questions starting "Where exactly is the bomb right now?"; NZ Police phone
+number is 111, the Australian document says 000), so each is kept under its own heading; never mix them.
+Main source is SOURCE A.
+Capture method (web-fetch copy): direct download is refused here (the network proxy blocks police.govt.nz,
+protectivesecurity.govt.nz and nationalsecurity.gov.au) and web search gave titles only, so every line was
+read by a fetch tool asked to quote exact lines (long sentences in pieces, rejoined here). Small slips
+(apostrophe, capital letter or dash style) are possible. Lines in [square brackets] are notes added here, not
+guideline text. On the forms, "...." = a blank line to write on, "[ ]" = a tick box. "-" = bullet.
+No PDF was in sources/.
+
+=====================================================================================================
+SOURCE A. New Zealand Police "Bomb threat checklist" (card POL 940, printed date "11/02")
+https://www.police.govt.nz/sites/default/files/publications/bomb-threat-checklist.pdf
+(linked from the NZ Police page "Suspicious mail and bomb threats", see SOURCE B)
+=====================================================================================================
+Place this card under your telephone
+
+BOMB THREAT CHECK LIST
+
+A1. QUESTIONS TO ASK:
+1. When is the Bomb going to explode?
+2. Where is the Bomb?
+3. What does the Bomb look like?
+4. What kind of Bomb is it?
+5. What will make the Bomb explode?
+6. What is the Explosive Type and Quantity?
+7. Why did you place the Bomb?
+8. What is your name?
+9. Where are you?
+10. What is your address:
+
+A2. EXACT WORDING OF THREAT:
+....
+
+A3. ACTION
+Report call immediately to: ....
+Phone Number: ....
+Trace 111 ....
+Police Advised:
+Date/Time: ....
+Members name: ....
+
+A4. CALLER'S VOICE
+Accent (specify): ....
+Any impediment (specify): ....
+Voice (loud, soft, etc): ....
+Speech (fast, slow, etc): ....
+Diction (clear, muffled): ....
+Manner (calm, emotional, etc): ....
+Did you recognize the voice? ....
+If so, who do you think it was? ....
+Was the caller familiar with the area? ....
+
+A5. THREAT LANGUAGE
+Well spoken: ....
+Incoherent: ....
+Irrational: ....
+Taped: ....
+Message read by caller: ....
+Abusive: ....
+Other: ....
+
+A6. BACKGROUND NOISES
+Street noises: ....
+House noises: ....
+Aircraft: ....
+Voices: ....
+Music: ....
+Machinery: ....
+Vehicle (Cellular): ....
+Other: ....
+[Printed beside the background-noise list, as a separate set of fields about the kind of call:]
+Standard Call: ....
+111/Cellular: ....
+STD: ....
+
+A7. OTHER
+Sex of caller: ....
+Estimated age: ....
+
+A8. CALL TAKEN
+Date: .... Time: ....
+Duration of call: ....
+Number called: ....
+
+A9. RECIPIENT
+Name (print): ....
+Telephone number: ....
+Signature: ....
+
+POL 940
+11/02
+
+=====================================================================================================
+SOURCE B. New Zealand Police web page "Suspicious mail and bomb threats" (Advice and services >
+Businesses and organisations; no date shown, footer "© Copyright 2026 New Zealand Police")
+https://www.police.govt.nz/advice-services/businesses-and-organisations/suspicious-mail-and-bomb-threats
+=====================================================================================================
+B1. Bomb threats
+It can be helpful to have a checklist for recording information if a bomb threat is received.
+If a bomb threat is received, it is the responsibility of employers to decide whether a search or
+evacuation will be conducted.
+The bomb threat checklist (PDF, 76KB) offers general advice on bomb safety issues; print it out and keep it
+by your phone.
+[The rest of this page is about suspicious mail, not phone threats, and is not copied.]
+
+B2. NZ Police page "How you can help" (Protecting crowded places from attack; no date shown, footer 2026)
+https://www.police.govt.nz/advice-services/protecting-crowded-places-attack/how-you-can-help
+Unattended or someone concealing bags
+Unattended bags or packages may contain dangerous contents.
+If you see an unattended package or bag in a public place, with no apparent reason for it being there:
+- don't touch it.
+- ask people nearby if anyone owns it.
+- if there's no obvious owner, tell other people to keep away.
+- call 111 and report it.
+Report suspicious behaviour
+In an emergency everyone should call 111
+
+=====================================================================================================
+SOURCE C. Australia-New Zealand Counter-Terrorism Committee (ANZCTC) "Improvised Explosive Device (IED)
+Guidelines for Crowded Places" (© Commonwealth of Australia 2023, CC BY 4.0; no edition number printed)
+https://www.nationalsecurity.gov.au/crowded-places-subsite/Files/ied-guidelines-crowded-places.pdf
+[Australian document: it says dial 000. In New Zealand the emergency number is 111 (SOURCE B).]
+=====================================================================================================
+C1. Appendix B: Telephoned bomb threat checklist (pages 18-19)
+Remain calm and talk to the caller
+Note the caller's number if displayed on your phone
+If the threat had been sent via email or social media, see appropriate section below
+If you are able to, record the call
+Write down the exact wording of the threat:
+....
+
+ASK THESE QUESTIONS AND RECORD ANSWERS AS ACCURATELY AS POSSIBLE:
+1. Where exactly is the bomb right now?
+2. When is it going to explode?
+3. What does it look like?
+4. What does the bomb contain?
+5. How will it be detonated?
+6. Did you place the bomb? If not you, who did?
+7. What is your name?
+8. What is your address?
+9. What is your telephone number?
+10. Do you represent a group or are you acting alone?
+11. Why have you placed the bomb?
+
+Record time call completed:
+INFORM BUILDING SECURITY OR COORDINATING MANAGER
+DIAL 000 AND INFORM POLICE
+[The fetch summary also said the form asks for the name and number of the security / coordinating manager
+informed and the time police were informed; those exact field labels could not be captured.]
+
+The next section should be completed once the caller has hung up
+[A fuller reading of the same note: "The next section should be completed once the caller has hung up and
+police / building security / coordinating manager have all been informed."]
+
+Date and time of call:
+Duration of call:
+The telephone number that received the call:
+
+About the caller
+[ ] Male [ ] Female
+Age?
+Nationality?
+What accent?
+
+Threat language
+[ ] Well-spoken [ ] Irrational [ ] Taped [ ] Foul [ ] Incoherent
+
+Caller's voice
+[ ] Calm [ ] Crying [ ] Clearing Throat [ ] Angry [ ] Nasal [ ] Slurred [ ] Excited [ ] Stutter
+[ ] Disguised [ ] Slow [ ] Lisp [ ] Accent* [ ] Rapid [ ] Deep [ ] Familiar [ ] Laughter [ ] Hoarse
+[ ] Other (please specify):
+If the voice sounded familiar, who did it sound like?
+
+Background sounds
+[ ] Street noises [ ] House noises [ ] Animal noises [ ] Factory Machinery [ ] Office Machinery
+[ ] Clear Voice [ ] Static [ ] PA System [ ] Booth [ ] Music [ ] Motor [ ] Crockery
+[ ] Other (please specify):
+
+Remarks
+Additional Notes
+[Signature, printed name and date fields: exact labels not captured.]
+
+ACTIONS TO BE TAKEN ON RECEIPT OF A BOMB THREAT SENT VIA EMAIL OR SOCIAL MEDIA
+1. Do not reply to, forward or delete the message
+2. If sent via email, note the address
+3. If sent via social media, what application has been used and what is the username/ID?
+4. Dial 000 and follow police guidance
+5. Preserve all web log files for your organisation to help the police investigation
+[The fetch summary said a guide period is given (from 7 days before the threat to 48 hours after); exact
+words not captured.]
+SAVE AND PRINT HAND COPY TO POLICE AND SECURITY OR COORDINATING MANAGER
+
+C2. Communicated threats (page 10)
+If a threat is communicated, it may be necessary to inspect the venue or facility.
+Communicated threats should be reported to the police.
+Generally speaking, all threats should be deemed credible until proven otherwise.
+[Threat assessment questions, in printed order:]
+Is the threat non-specific?
+Do you recognise the caller?
+Has specific detail been provided?
+Is the threat credible?
+[Responses listed:]
+- Occupant inspection
+- Supervisory inspection
+- Support law enforcement search
+[Which answer leads to which response is shown in a chart whose layout could not be captured.]
+
+C3. White level inspections (page 10)
+White level inspections are distinct from searches by specialist search teams
+Staff members who know and work within an area are best placed to do this.
+Create a plan that assigns staff members certain areas, including communal areas such as public
+concourses, [rest of sentence not captured]
+
+C4. Assessing unattended and suspicious items (page 12)
+That is, anything that is Hidden, Obviously suspicious or not Typical to its environment could be deemed a
+security risk.
+Is the item intentionally hidden?
+Does the item have characteristics of an explosive device or hazardous material, [rest not captured]
+Is the item out of place for the location?
+[If the item is suspicious:]
+- Do not touch, tilt or tamper;
+- Do not use mobile phones or radios within a 25 metre radius;
+- Call Triple Zero '000' and advise security;
+- Cordon off immediate area and evacuate at least 100 metres from the item (if a vehicle, evacuate at least
+  500 metres);
+- Ensure no personnel are within line of sight of the suspicious item;
+- Record all relevant information (physical characteristics, shape, dimensions, construction and the exact
+  position of the item or vehicle);
+- Respond in accordance with the directions of emergency services; and
+- Gather any evidence of the placement of the item or vehicle, including CCTV showing activities of any
+  person associated with the item or vehicle.
+
+C5. Evacuation (pages 12-13)
+Planning and initiating evacuation should be the responsibility of the incident/security manager and, if
+possible, made in consultation with police and other emergency services.
+Depending on the size and nature of the crowded place, the plan may include considerations for total
+evacuation or partial evacuation, for example, if the suspicious item is small and thought to be confined to
+one location.
+The decision to initiate a total or partial evacuation may be determined by several factors
+- the nature of the threat
+- the potential to cause panic
+- potential business impacts from total evacuation
+[Evacuation routes and assembly points:] including consideration of secondary devices at assembly points and
+procedures to ensure these are kept clear
+Be aware that secondary explosions may occur at or near the original blast site, especially as rescue
+personnel arrive.
+
+C6. Stand-off (page 5)
+Stand-off distance between an IED and crowded areas is the most important factor [rest not captured]
+Every metre of stand-off counts in mitigating the effects of a blast.

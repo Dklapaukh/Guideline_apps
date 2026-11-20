@@ -2,7 +2,7 @@
 
 ## The idea
 Most procedural guidelines are the same few building blocks in different orders: steps, questions with answers,
-tick-box actions, timers, repeating reminders, look-up tables and a record of what was done. The value of an app
+tick-box actions, writing boxes, timers, repeating reminders, look-up tables and a record of what was done. The value of an app
 is showing **the right information at the right time** instead of a page of text. So there is one generic app
 (the runtime) and each guideline is just data for it.
 
@@ -37,7 +37,7 @@ app.html      ◄── tested by tests/helpers/explore.mjs (every route, in a f
 | `tools/screenshot.mjs` | phone-size screenshots of a built app |
 | `studio/studio.html`, `studio/studio-entry.js` | the studio page |
 | `tests/checker.test.mjs` | reader and checker: every kind of finding, junk input never throws |
-| `tests/runtime.test.mjs` | the runtime: clocks, Back, reminders, details and tables, Record, Stop, looks and branding |
+| `tests/runtime.test.mjs` | the runtime: clocks, Back, reminders, details and tables, Record, Write boxes (draw, Log, Back, HTML escaped, damaged save), Stop, looks and branding |
 | `tests/apps.test.mjs`, `tests/helpers/app-check.mjs`, `tests/helpers/explore.mjs`, `tests/helpers/fake-browser.mjs` | every guideline builds and every route works in a fake browser (jsdom, fake clock); each app runs in its own worker thread, and the explorer closes every page it opens, so memory stays low |
 
 The **Studio** (`site/studio.html`) is the "guideline in, app out" website without AI: paste a template (and the
@@ -59,6 +59,7 @@ Full help text is inside `template/guideline-template.md`. Line types:
 | `Stop: text` or `Stop: all` | stops reminders |
 | `Show: Table name` (or `Table: Column`) | the table row for the current details (e.g. dose by weight) |
 | `Record: Adrenaline given` | a button that logs a time stamp and counts taps; it and the Log show the clock time of day (14:32) as well as time since start, for handover |
+| `Write: Caller's exact words` | a labelled box to type into (one per line; also `Write down:`, `Text box:`). The text is saved to the Log with both times when the person taps "Save to Log", leaves the box, or leaves the step; it stays in the box on Back and through a reload, and only on this phone (never sent anywhere). No label, or a box outside `## Steps`, is a `fix`; two boxes with one label on a step is a `check` |
 | `End:` | marks a last step |
 | `Brand:` / `Brand colour:` / `Look:` (top) | company name and colour; the look the app opens in |
 | `Note:` | for authors, never shown |
@@ -87,7 +88,7 @@ queue in `docs/CURRICULUM.md` gets harder.
 
 ## Spec (what the runtime reads)
 `{ title, about, sources[{name, link}], warning, audience, reviewedBy, version, brand{name, colour}, look, inputs[], tables[], steps[], start }`.
-A step: `{ id, title, lines[{kind, text, quotes[], cond}], ask{question, options[{label, to, target, cond}]},
+A step: `{ id, title, lines[{kind (say, do, warning, record, write, show, note), text, quotes[], cond}], ask{question, options[{label, to, target, cond}]},
 next, nexts[], timer{ms, label, to, target}, reminders[{ms, every, once, text, id}], stop, end }`. An input:
 `{ id, label, unit, type: number|choice, options[], min, max, optional, whole }`. A table: `{ id, title, key, keyInput,
 columns[], rows[{key, cells, match}] }`; an open band end (`over 40`) is stored as `null` and means "no limit". `target` is filled

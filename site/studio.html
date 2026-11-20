@@ -46,6 +46,11 @@ details.src q { font-style:italic; }
 .rem.due { border-color:var(--due); background:#fde8e8; } .rem.due .rc { color:var(--due); font-weight:700; }
 .rec { padding:6px 0; } .rec small { color:var(--mut); }
 .rec-btn { background:#fff7e6; border-color:#f2c46d; }
+.note-box { margin:12px 0; padding:10px 0; } .note-lbl { display:block; font-weight:700; margin-bottom:6px; }
+.note-text { display:block; width:100%; min-height:132px; font:inherit; line-height:1.4; padding:12px; border-radius:10px; border:1px solid var(--line); background:var(--card); color:var(--ink); resize:vertical; }
+.note-text:focus { outline:3px solid var(--go); outline-offset:1px; }
+.note-save { text-align:center; } .note-status { display:block; margin-top:6px; color:var(--mut); font-size:14px; }
+.log small { white-space:pre-wrap; }
 .lookup { border:1px solid var(--line); border-radius:10px; padding:8px 10px; margin:8px 0; }
 .lookup .lk { font-weight:600; } .lookup .lv { display:flex; justify-content:space-between; gap:10px; padding:4px 0; border-top:1px dashed var(--line); }
 table { border-collapse:collapse; width:100%; font-size:14px; } th, td { border:1px solid var(--line); padding:4px 6px; text-align:left; }
@@ -68,15 +73,15 @@ table { border-collapse:collapse; width:100%; font-size:14px; } th, td { border:
 
 /* look: Clinic */
 html[data-look="clinic"]{ --ink:#16232b; --mut:#5b6b75; --bg:#eef3f4; --card:#fff; --line:#dfe7ea; --go:var(--brand, #0f766e); --gosoft:#d9f0ec; --gosoft:color-mix(in srgb, var(--go) 15%, #fff);
-  --warn:#9a3412; --warnbg:#fff1e6; --due:#c2410c; --author:#6b21a8; --authorbg:#f4edfb; }html[data-look="clinic"], html[data-look="clinic"] body{ font-family:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; background:var(--bg); }html[data-look="clinic"] .bar{ background:var(--bg); color:var(--ink); padding:14px 18px 6px; }html[data-look="clinic"] .bar .t{ font-size:15px; color:var(--mut); font-weight:600; }html[data-look="clinic"] .bar .clock{ background:var(--card); border-radius:999px; padding:4px 12px; font-size:15px; font-weight:600; color:var(--go); }html[data-look="clinic"] .proto{ background:transparent; color:var(--mut); padding:0 18px 4px; font-size:12px; }html[data-look="clinic"] .card{ border:0; border-radius:22px; padding:20px; margin:10px 12px; box-shadow:0 1px 2px rgba(22,35,43,.05), 0 8px 24px rgba(22,35,43,.06); }html[data-look="clinic"] h1, html[data-look="clinic"] h2{ font-family:"Inter", system-ui, sans-serif; font-weight:700; letter-spacing:-.02em; text-wrap:balance; }html[data-look="clinic"] h2{ font-size:24px; }html[data-look="clinic"] h3{ color:var(--go); }html[data-look="clinic"] .crumb{ font-size:13px; }html[data-look="clinic"] .crumb span{ background:var(--gosoft); color:var(--go); border-radius:999px; padding:2px 10px; font-weight:600; }html[data-look="clinic"] .big{ border-radius:16px; border:0; background:#f1f5f6; min-height:56px; }html[data-look="clinic"] .big.go{ background:var(--go); border-radius:999px; box-shadow:0 6px 16px rgba(15,118,110,.25); }html[data-look="clinic"] .big.opt{ background:#f4f8f8; border:1.5px solid var(--line); position:relative; padding-right:40px; }html[data-look="clinic"] .big.opt::after{ content:"›"; position:absolute; right:16px; top:50%; transform:translateY(-52%); font-size:26px; color:var(--go); }html[data-look="clinic"] .q{ font-size:20px; }html[data-look="clinic"] .warn{ border:0; border-radius:14px; padding:12px 14px; }html[data-look="clinic"] .do{ border-bottom:0; background:#f6f9f9; border-radius:14px; padding:12px; margin:8px 0; }html[data-look="clinic"] .do input{ accent-color:var(--go); border-radius:50%; }html[data-look="clinic"] .timer{ background:var(--gosoft); border-radius:20px; padding:18px; position:relative; overflow:hidden; }html[data-look="clinic"] .timer::after{ content:""; position:absolute; left:0; bottom:0; height:6px; width:calc(var(--p, 0) * 100%); background:var(--go); transition:width .25s linear; }html[data-look="clinic"] .big-clock{ color:var(--go); font-size:52px; letter-spacing:-.02em; }html[data-look="clinic"] .rem{ border:0; border-radius:16px; box-shadow:0 4px 14px rgba(22,35,43,.08); }html[data-look="clinic"] .tabs{ left:12px; right:12px; bottom:10px; border:0; border-radius:20px; box-shadow:0 8px 30px rgba(22,35,43,.15); overflow:hidden; }html[data-look="clinic"] .tabs button.on{ color:var(--go); box-shadow:none; background:var(--gosoft); }html[data-look="clinic"] .choices button{ border-radius:999px; }html[data-look="clinic"] .choices button.on{ background:var(--go); border-color:var(--go); }
+  --warn:#9a3412; --warnbg:#fff1e6; --due:#c2410c; --author:#6b21a8; --authorbg:#f4edfb; }html[data-look="clinic"], html[data-look="clinic"] body{ font-family:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; background:var(--bg); }html[data-look="clinic"] .bar{ background:var(--bg); color:var(--ink); padding:14px 18px 6px; }html[data-look="clinic"] .bar .t{ font-size:15px; color:var(--mut); font-weight:600; }html[data-look="clinic"] .bar .clock{ background:var(--card); border-radius:999px; padding:4px 12px; font-size:15px; font-weight:600; color:var(--go); }html[data-look="clinic"] .proto{ background:transparent; color:var(--mut); padding:0 18px 4px; font-size:12px; }html[data-look="clinic"] .card{ border:0; border-radius:22px; padding:20px; margin:10px 12px; box-shadow:0 1px 2px rgba(22,35,43,.05), 0 8px 24px rgba(22,35,43,.06); }html[data-look="clinic"] h1, html[data-look="clinic"] h2{ font-family:"Inter", system-ui, sans-serif; font-weight:700; letter-spacing:-.02em; text-wrap:balance; }html[data-look="clinic"] h2{ font-size:24px; }html[data-look="clinic"] h3{ color:var(--go); }html[data-look="clinic"] .crumb{ font-size:13px; }html[data-look="clinic"] .crumb span{ background:var(--gosoft); color:var(--go); border-radius:999px; padding:2px 10px; font-weight:600; }html[data-look="clinic"] .big{ border-radius:16px; border:0; background:#f1f5f6; min-height:56px; }html[data-look="clinic"] .big.go{ background:var(--go); border-radius:999px; box-shadow:0 6px 16px rgba(15,118,110,.25); }html[data-look="clinic"] .big.opt{ background:#f4f8f8; border:1.5px solid var(--line); position:relative; padding-right:40px; }html[data-look="clinic"] .big.opt::after{ content:"›"; position:absolute; right:16px; top:50%; transform:translateY(-52%); font-size:26px; color:var(--go); }html[data-look="clinic"] .q{ font-size:20px; }html[data-look="clinic"] .warn{ border:0; border-radius:14px; padding:12px 14px; }html[data-look="clinic"] .do{ border-bottom:0; background:#f6f9f9; border-radius:14px; padding:12px; margin:8px 0; }html[data-look="clinic"] .do input{ accent-color:var(--go); border-radius:50%; }html[data-look="clinic"] .timer{ background:var(--gosoft); border-radius:20px; padding:18px; position:relative; overflow:hidden; }html[data-look="clinic"] .timer::after{ content:""; position:absolute; left:0; bottom:0; height:6px; width:calc(var(--p, 0) * 100%); background:var(--go); transition:width .25s linear; }html[data-look="clinic"] .big-clock{ color:var(--go); font-size:52px; letter-spacing:-.02em; }html[data-look="clinic"] .rem{ border:0; border-radius:16px; box-shadow:0 4px 14px rgba(22,35,43,.08); }html[data-look="clinic"] .tabs{ left:12px; right:12px; bottom:10px; border:0; border-radius:20px; box-shadow:0 8px 30px rgba(22,35,43,.15); overflow:hidden; }html[data-look="clinic"] .tabs button.on{ color:var(--go); box-shadow:none; background:var(--gosoft); }html[data-look="clinic"] .choices button{ border-radius:999px; }html[data-look="clinic"] .choices button.on{ background:var(--go); border-color:var(--go); }html[data-look="clinic"] .note-box{ background:#f6f9f9; border-radius:16px; padding:14px; }html[data-look="clinic"] .note-text{ border:1.5px solid var(--line); border-radius:14px; background:#fff; }html[data-look="clinic"] .note-save{ background:var(--gosoft); color:var(--go); border-radius:999px; }
 
 /* look: Wayfinding */
 html[data-look="wayfinding"]{ --ink:#0a0a0a; --mut:#555; --bg:#ffffff; --card:#fff; --line:#0a0a0a; --go:#0a0a0a; --route:var(--brand, #e4002b); --sign:#ffd400;
-  --warn:#0a0a0a; --warnbg:#ffd400; --due:#e4002b; --author:#5b21b6; --authorbg:#efe9fb; }html[data-look="wayfinding"], html[data-look="wayfinding"] body{ font-family:"Archivo", "Helvetica Neue", Arial, sans-serif; background:var(--bg); }html[data-look="wayfinding"] .bar{ background:var(--ink); padding:12px 16px; }html[data-look="wayfinding"] .bar .t{ font-weight:800; letter-spacing:.01em; }html[data-look="wayfinding"] .bar .clock{ background:var(--sign); color:var(--ink); padding:2px 10px; font-weight:800; }html[data-look="wayfinding"] .proto{ background:#f2f2f2; color:var(--mut); }html[data-look="wayfinding"] .card{ border:0; border-radius:0; margin:0; padding:18px 18px 20px; }html[data-look="wayfinding"] h1, html[data-look="wayfinding"] h2{ font-weight:900; letter-spacing:-.02em; line-height:1.05; text-wrap:balance; }html[data-look="wayfinding"] h1{ font-size:32px; }html[data-look="wayfinding"] h2{ font-size:30px; margin-top:6px; }html[data-look="wayfinding"] .crumb{ flex-direction:row-reverse; justify-content:flex-end; gap:14px; align-items:center; }html[data-look="wayfinding"] .crumb span{ display:inline-grid; place-items:center; min-width:40px; height:40px; padding:0 8px; background:var(--route); color:#fff; font-weight:900; font-size:15px; border-radius:999px; }html[data-look="wayfinding"] .big{ border-radius:0; border:2px solid var(--ink); background:#fff; font-weight:800; min-height:58px; }html[data-look="wayfinding"] .big.go{ background:var(--ink); color:#fff; border-color:var(--ink); text-align:left; position:relative; padding-right:44px; }html[data-look="wayfinding"] .big.go::after{ content:"→"; position:absolute; right:16px; top:50%; transform:translateY(-50%); font-size:22px; }html[data-look="wayfinding"] .big.opt{ background:#fff; border-color:var(--ink); position:relative; padding-right:44px; }html[data-look="wayfinding"] .big.opt::after{ content:"→"; position:absolute; right:16px; top:50%; transform:translateY(-50%); color:var(--route); font-size:22px; }html[data-look="wayfinding"] .big.skip{ border:0; text-decoration:underline; }html[data-look="wayfinding"] .link{ color:var(--ink); text-decoration:underline; font-weight:700; }html[data-look="wayfinding"] .q{ font-size:22px; font-weight:900; }html[data-look="wayfinding"] .warn{ background:var(--sign); color:var(--ink); border:0; border-radius:0; padding:12px 14px; font-weight:800; }html[data-look="wayfinding"] .warn::before{ content:"!"; display:inline-grid; place-items:center; width:22px; height:22px; margin-right:8px; background:var(--ink); color:var(--sign); font-weight:900; border-radius:3px; vertical-align:-3px; }html[data-look="wayfinding"] .do{ position:relative; border-bottom:0; padding:12px 0 12px 44px; font-weight:700; }html[data-look="wayfinding"] .do::before{ content:""; position:absolute; left:15px; top:0; bottom:0; width:6px; background:var(--route); }html[data-look="wayfinding"] .do input{ position:absolute; left:6px; top:12px; width:24px; height:24px; accent-color:var(--route); }html[data-look="wayfinding"] .do .src, html[data-look="wayfinding"] .do .dep{ margin-left:0; }html[data-look="wayfinding"] details.src summary{ color:var(--ink); text-decoration:underline; }html[data-look="wayfinding"] .timer{ background:var(--ink); color:#fff; border-radius:0; text-align:left; padding:14px 16px; }html[data-look="wayfinding"] .timer .lbl{ color:#bbb; text-transform:uppercase; letter-spacing:.08em; font-size:12px; font-weight:700; }html[data-look="wayfinding"] .timer::after{ content:""; display:block; height:8px; margin-top:10px; background:linear-gradient(90deg, var(--sign) calc(var(--p, 0) * 100%), #333 0); }html[data-look="wayfinding"] .big-clock{ font-size:60px; font-weight:900; color:var(--sign); }html[data-look="wayfinding"] .timer.due{ background:var(--due); }html[data-look="wayfinding"] .timer.due .big-clock{ color:#fff; }html[data-look="wayfinding"] .rem{ border:2px solid var(--ink); border-radius:0; }html[data-look="wayfinding"] .rem button{ border-radius:0; border:2px solid var(--ink); background:#fff; font-weight:700; }html[data-look="wayfinding"] .rem.due{ background:var(--sign); }html[data-look="wayfinding"] .choices button{ border-radius:0; border:2px solid var(--ink); background:#fff; font-weight:700; }html[data-look="wayfinding"] .choices button.on{ background:var(--ink); color:#fff; }html[data-look="wayfinding"] .look-pick button{ border-radius:0; border:2px solid var(--ink); font-weight:700; }html[data-look="wayfinding"] .tabs{ border-top:2px solid var(--ink); }html[data-look="wayfinding"] .tabs button{ font-weight:800; color:var(--mut); }html[data-look="wayfinding"] .tabs button.on{ color:var(--ink); box-shadow:inset 0 4px 0 var(--route); }
+  --warn:#0a0a0a; --warnbg:#ffd400; --due:#e4002b; --author:#5b21b6; --authorbg:#efe9fb; }html[data-look="wayfinding"], html[data-look="wayfinding"] body{ font-family:"Archivo", "Helvetica Neue", Arial, sans-serif; background:var(--bg); }html[data-look="wayfinding"] .bar{ background:var(--ink); padding:12px 16px; }html[data-look="wayfinding"] .bar .t{ font-weight:800; letter-spacing:.01em; }html[data-look="wayfinding"] .bar .clock{ background:var(--sign); color:var(--ink); padding:2px 10px; font-weight:800; }html[data-look="wayfinding"] .proto{ background:#f2f2f2; color:var(--mut); }html[data-look="wayfinding"] .card{ border:0; border-radius:0; margin:0; padding:18px 18px 20px; }html[data-look="wayfinding"] h1, html[data-look="wayfinding"] h2{ font-weight:900; letter-spacing:-.02em; line-height:1.05; text-wrap:balance; }html[data-look="wayfinding"] h1{ font-size:32px; }html[data-look="wayfinding"] h2{ font-size:30px; margin-top:6px; }html[data-look="wayfinding"] .crumb{ flex-direction:row-reverse; justify-content:flex-end; gap:14px; align-items:center; }html[data-look="wayfinding"] .crumb span{ display:inline-grid; place-items:center; min-width:40px; height:40px; padding:0 8px; background:var(--route); color:#fff; font-weight:900; font-size:15px; border-radius:999px; }html[data-look="wayfinding"] .big{ border-radius:0; border:2px solid var(--ink); background:#fff; font-weight:800; min-height:58px; }html[data-look="wayfinding"] .big.go{ background:var(--ink); color:#fff; border-color:var(--ink); text-align:left; position:relative; padding-right:44px; }html[data-look="wayfinding"] .big.go::after{ content:"→"; position:absolute; right:16px; top:50%; transform:translateY(-50%); font-size:22px; }html[data-look="wayfinding"] .big.opt{ background:#fff; border-color:var(--ink); position:relative; padding-right:44px; }html[data-look="wayfinding"] .big.opt::after{ content:"→"; position:absolute; right:16px; top:50%; transform:translateY(-50%); color:var(--route); font-size:22px; }html[data-look="wayfinding"] .big.skip{ border:0; text-decoration:underline; }html[data-look="wayfinding"] .link{ color:var(--ink); text-decoration:underline; font-weight:700; }html[data-look="wayfinding"] .q{ font-size:22px; font-weight:900; }html[data-look="wayfinding"] .warn{ background:var(--sign); color:var(--ink); border:0; border-radius:0; padding:12px 14px; font-weight:800; }html[data-look="wayfinding"] .warn::before{ content:"!"; display:inline-grid; place-items:center; width:22px; height:22px; margin-right:8px; background:var(--ink); color:var(--sign); font-weight:900; border-radius:3px; vertical-align:-3px; }html[data-look="wayfinding"] .do{ position:relative; border-bottom:0; padding:12px 0 12px 44px; font-weight:700; }html[data-look="wayfinding"] .do::before{ content:""; position:absolute; left:15px; top:0; bottom:0; width:6px; background:var(--route); }html[data-look="wayfinding"] .do input{ position:absolute; left:6px; top:12px; width:24px; height:24px; accent-color:var(--route); }html[data-look="wayfinding"] .do .src, html[data-look="wayfinding"] .do .dep{ margin-left:0; }html[data-look="wayfinding"] details.src summary{ color:var(--ink); text-decoration:underline; }html[data-look="wayfinding"] .timer{ background:var(--ink); color:#fff; border-radius:0; text-align:left; padding:14px 16px; }html[data-look="wayfinding"] .timer .lbl{ color:#bbb; text-transform:uppercase; letter-spacing:.08em; font-size:12px; font-weight:700; }html[data-look="wayfinding"] .timer::after{ content:""; display:block; height:8px; margin-top:10px; background:linear-gradient(90deg, var(--sign) calc(var(--p, 0) * 100%), #333 0); }html[data-look="wayfinding"] .big-clock{ font-size:60px; font-weight:900; color:var(--sign); }html[data-look="wayfinding"] .timer.due{ background:var(--due); }html[data-look="wayfinding"] .timer.due .big-clock{ color:#fff; }html[data-look="wayfinding"] .rem{ border:2px solid var(--ink); border-radius:0; }html[data-look="wayfinding"] .rem button{ border-radius:0; border:2px solid var(--ink); background:#fff; font-weight:700; }html[data-look="wayfinding"] .rem.due{ background:var(--sign); }html[data-look="wayfinding"] .choices button{ border-radius:0; border:2px solid var(--ink); background:#fff; font-weight:700; }html[data-look="wayfinding"] .choices button.on{ background:var(--ink); color:#fff; }html[data-look="wayfinding"] .look-pick button{ border-radius:0; border:2px solid var(--ink); font-weight:700; }html[data-look="wayfinding"] .tabs{ border-top:2px solid var(--ink); }html[data-look="wayfinding"] .tabs button{ font-weight:800; color:var(--mut); }html[data-look="wayfinding"] .tabs button.on{ color:var(--ink); box-shadow:inset 0 4px 0 var(--route); }html[data-look="wayfinding"] .note-lbl{ font-weight:900; font-size:19px; }html[data-look="wayfinding"] .note-text{ border:2px solid var(--ink); border-radius:0; font-weight:600; }html[data-look="wayfinding"] .note-text:focus{ outline:4px solid var(--sign); outline-offset:0; }
 
 /* look: Flight deck */
 html[data-look="flightdeck"]{ --ink:#e8edf2; --mut:#8a97a6; --bg:#0b0f14; --card:#121820; --line:#253040; --go:#38bdf8; --warn:#ffb020; --warnbg:#2a1f08;
-  --due:#ff5a4f; --author:#c4a1ff; --authorbg:#1f1830; color-scheme:dark; }html[data-look="flightdeck"], html[data-look="flightdeck"] body{ font-family:"IBM Plex Sans", system-ui, sans-serif; background:var(--bg); color:var(--ink); }html[data-look="flightdeck"] .bar{ background:#070a0e; border-bottom:1px solid var(--line); border-top:4px solid var(--brand, #070a0e); }html[data-look="flightdeck"] .bar .t{ font-family:"IBM Plex Sans Condensed", "IBM Plex Sans", sans-serif; text-transform:uppercase; letter-spacing:.08em; font-size:14px; color:var(--mut); }html[data-look="flightdeck"] .bar .clock{ font-family:"IBM Plex Mono", ui-monospace, monospace; color:var(--go); }html[data-look="flightdeck"] .proto{ background:#0f0b18; }html[data-look="flightdeck"] .card{ background:var(--card); border:1px solid var(--line); border-radius:4px; margin:8px; }html[data-look="flightdeck"] h1, html[data-look="flightdeck"] h2{ font-family:"IBM Plex Sans Condensed", "IBM Plex Sans", sans-serif; text-transform:uppercase; letter-spacing:.04em; font-weight:700; }html[data-look="flightdeck"] h2{ font-size:22px; border-bottom:1px solid var(--line); padding-bottom:10px; }html[data-look="flightdeck"] h3{ color:var(--warn); }html[data-look="flightdeck"] .crumb{ font-family:"IBM Plex Mono", monospace; font-size:12px; text-transform:uppercase; }html[data-look="flightdeck"] .link{ color:var(--go); }html[data-look="flightdeck"] .big{ border-radius:4px; background:transparent; border:1px solid var(--line); color:var(--ink); }html[data-look="flightdeck"] .big.go{ background:var(--go); color:#04121c; border-color:var(--go); text-transform:uppercase; letter-spacing:.06em; }html[data-look="flightdeck"] .big.opt{ background:#0f1a24; border-color:#1f3a50; color:var(--ink); }html[data-look="flightdeck"] .big.opt::before{ content:"▸ "; color:var(--go); }html[data-look="flightdeck"] .big.skip{ color:var(--mut); }html[data-look="flightdeck"] .q{ font-family:"IBM Plex Sans Condensed", sans-serif; text-transform:uppercase; letter-spacing:.04em; color:var(--go); }html[data-look="flightdeck"] .warn{ background:var(--warnbg); color:var(--warn); border-left:4px solid var(--warn); border-radius:2px; text-transform:uppercase; font-size:15px; letter-spacing:.02em; }html[data-look="flightdeck"] .do{ border-bottom:1px dashed var(--line); font-weight:500; }html[data-look="flightdeck"] .do input{ accent-color:var(--go); border-radius:0; }html[data-look="flightdeck"] details.src summary{ color:var(--go); }html[data-look="flightdeck"] details.src{ color:var(--mut); }html[data-look="flightdeck"] .timer{ background:#06121b; border:1px solid #1f3a50; border-radius:4px; position:relative; }html[data-look="flightdeck"] .timer::after{ content:""; display:block; height:4px; margin-top:10px; background:linear-gradient(90deg, var(--go) calc(var(--p, 0) * 100%), #1c2633 0); }html[data-look="flightdeck"] .timer .lbl{ text-transform:uppercase; letter-spacing:.1em; font-size:12px; }html[data-look="flightdeck"] .big-clock{ font-family:"IBM Plex Mono", ui-monospace, monospace; font-weight:500; color:var(--go); font-size:56px; }html[data-look="flightdeck"] .timer.due{ background:#2a0d0b; border-color:var(--due); }html[data-look="flightdeck"] .timer.due .big-clock{ color:var(--due); }html[data-look="flightdeck"] .reminders{ background:var(--bg); }html[data-look="flightdeck"] .rem{ background:var(--card); border-color:var(--line); border-radius:4px; }html[data-look="flightdeck"] .rem button{ background:transparent; color:var(--ink); border-color:var(--line); }html[data-look="flightdeck"] .rem.due{ background:#2a0d0b; border-color:var(--due); }html[data-look="flightdeck"] .lookup, html[data-look="flightdeck"] th, html[data-look="flightdeck"] td{ border-color:var(--line); }html[data-look="flightdeck"] .inp input{ background:#0b1118; color:var(--ink); border-color:var(--line); }html[data-look="flightdeck"] .choices button{ background:transparent; color:var(--ink); border-color:var(--line); border-radius:4px; }html[data-look="flightdeck"] .choices button.on, html[data-look="flightdeck"] .look-pick button.on{ background:var(--go); color:#04121c; }html[data-look="flightdeck"] .log time{ font-family:"IBM Plex Mono", monospace; }html[data-look="flightdeck"] .tabs{ background:#070a0e; border-top:1px solid var(--line); }html[data-look="flightdeck"] .tabs button{ text-transform:uppercase; letter-spacing:.08em; font-size:13px; }html[data-look="flightdeck"] .tabs button.on{ color:var(--go); box-shadow:inset 0 3px 0 var(--go); }
+  --due:#ff5a4f; --author:#c4a1ff; --authorbg:#1f1830; color-scheme:dark; }html[data-look="flightdeck"], html[data-look="flightdeck"] body{ font-family:"IBM Plex Sans", system-ui, sans-serif; background:var(--bg); color:var(--ink); }html[data-look="flightdeck"] .bar{ background:#070a0e; border-bottom:1px solid var(--line); border-top:4px solid var(--brand, #070a0e); }html[data-look="flightdeck"] .bar .t{ font-family:"IBM Plex Sans Condensed", "IBM Plex Sans", sans-serif; text-transform:uppercase; letter-spacing:.08em; font-size:14px; color:var(--mut); }html[data-look="flightdeck"] .bar .clock{ font-family:"IBM Plex Mono", ui-monospace, monospace; color:var(--go); }html[data-look="flightdeck"] .proto{ background:#0f0b18; }html[data-look="flightdeck"] .card{ background:var(--card); border:1px solid var(--line); border-radius:4px; margin:8px; }html[data-look="flightdeck"] h1, html[data-look="flightdeck"] h2{ font-family:"IBM Plex Sans Condensed", "IBM Plex Sans", sans-serif; text-transform:uppercase; letter-spacing:.04em; font-weight:700; }html[data-look="flightdeck"] h2{ font-size:22px; border-bottom:1px solid var(--line); padding-bottom:10px; }html[data-look="flightdeck"] h3{ color:var(--warn); }html[data-look="flightdeck"] .crumb{ font-family:"IBM Plex Mono", monospace; font-size:12px; text-transform:uppercase; }html[data-look="flightdeck"] .link{ color:var(--go); }html[data-look="flightdeck"] .big{ border-radius:4px; background:transparent; border:1px solid var(--line); color:var(--ink); }html[data-look="flightdeck"] .big.go{ background:var(--go); color:#04121c; border-color:var(--go); text-transform:uppercase; letter-spacing:.06em; }html[data-look="flightdeck"] .big.opt{ background:#0f1a24; border-color:#1f3a50; color:var(--ink); }html[data-look="flightdeck"] .big.opt::before{ content:"▸ "; color:var(--go); }html[data-look="flightdeck"] .big.skip{ color:var(--mut); }html[data-look="flightdeck"] .q{ font-family:"IBM Plex Sans Condensed", sans-serif; text-transform:uppercase; letter-spacing:.04em; color:var(--go); }html[data-look="flightdeck"] .warn{ background:var(--warnbg); color:var(--warn); border-left:4px solid var(--warn); border-radius:2px; text-transform:uppercase; font-size:15px; letter-spacing:.02em; }html[data-look="flightdeck"] .do{ border-bottom:1px dashed var(--line); font-weight:500; }html[data-look="flightdeck"] .do input{ accent-color:var(--go); border-radius:0; }html[data-look="flightdeck"] details.src summary{ color:var(--go); }html[data-look="flightdeck"] details.src{ color:var(--mut); }html[data-look="flightdeck"] .timer{ background:#06121b; border:1px solid #1f3a50; border-radius:4px; position:relative; }html[data-look="flightdeck"] .timer::after{ content:""; display:block; height:4px; margin-top:10px; background:linear-gradient(90deg, var(--go) calc(var(--p, 0) * 100%), #1c2633 0); }html[data-look="flightdeck"] .timer .lbl{ text-transform:uppercase; letter-spacing:.1em; font-size:12px; }html[data-look="flightdeck"] .big-clock{ font-family:"IBM Plex Mono", ui-monospace, monospace; font-weight:500; color:var(--go); font-size:56px; }html[data-look="flightdeck"] .timer.due{ background:#2a0d0b; border-color:var(--due); }html[data-look="flightdeck"] .timer.due .big-clock{ color:var(--due); }html[data-look="flightdeck"] .reminders{ background:var(--bg); }html[data-look="flightdeck"] .rem{ background:var(--card); border-color:var(--line); border-radius:4px; }html[data-look="flightdeck"] .rem button{ background:transparent; color:var(--ink); border-color:var(--line); }html[data-look="flightdeck"] .rem.due{ background:#2a0d0b; border-color:var(--due); }html[data-look="flightdeck"] .lookup, html[data-look="flightdeck"] th, html[data-look="flightdeck"] td{ border-color:var(--line); }html[data-look="flightdeck"] .inp input{ background:#0b1118; color:var(--ink); border-color:var(--line); }html[data-look="flightdeck"] .choices button{ background:transparent; color:var(--ink); border-color:var(--line); border-radius:4px; }html[data-look="flightdeck"] .choices button.on, html[data-look="flightdeck"] .look-pick button.on{ background:var(--go); color:#04121c; }html[data-look="flightdeck"] .log time{ font-family:"IBM Plex Mono", monospace; }html[data-look="flightdeck"] .tabs{ background:#070a0e; border-top:1px solid var(--line); }html[data-look="flightdeck"] .tabs button{ text-transform:uppercase; letter-spacing:.08em; font-size:13px; }html[data-look="flightdeck"] .tabs button.on{ color:var(--go); box-shadow:inset 0 3px 0 var(--go); }html[data-look="flightdeck"] .note-lbl{ font-family:"IBM Plex Sans Condensed", "IBM Plex Sans", sans-serif; text-transform:uppercase; letter-spacing:.06em; font-size:14px; color:var(--go); }html[data-look="flightdeck"] .note-text{ background:#0b1118; color:var(--ink); border-color:#1f3a50; border-radius:4px; }html[data-look="flightdeck"] .note-save{ text-transform:uppercase; letter-spacing:.06em; color:var(--go); border-color:#1f3a50; }
 
 /* studio layout (the app's own styles are above, so the preview looks exactly like a built app) */
 body { background:#e9ecf0; }
@@ -178,6 +183,8 @@ Source: Guideline table 2, page 4
 >   Stop:     Reassess  (or "all")               stops a reminder
 >   Show:     Example dose                       shows the table row for the current details
 >   Record:   Dose given                         a button that logs the time each time it's tapped
+>   Write:    Caller's exact words               a box to type into; the text goes in the Log with the time
+>             (one box per Write: line; it keeps its text on Back. Use it when the guideline says to write something down.)
 > Any line can end with a condition: [if Age group = Child] or [if Weight < 10] or [if A = x and B > 3].
 > Answers can have conditions too: - Give second dose -> second-dose [if Age group is Adult]
 
@@ -8773,6 +8780,704 @@ Use a bulky pad or clean cloth and apply it firmly to the bleeding area and rais
 If possible, carefully place the body part in a plastic bag and seal the bag closed with a little air inside to protect it with a 'cushion' of air.
 Place the bag in a bucket of cold water with several ice cubes in the water.
 Make sure the amputated part is taken to hospital with the patient.
+` }, { name: "Bomb threat", template: `# Bomb threat
+
+About: Helps the person who takes a bomb threat by phone in New Zealand: what to ask and write down during the call, who to tell, and what to write after it. Also covers a threat by email or social media, and a suspicious item someone finds. It keeps the times Police will want.
+Source: NZ Police, "Bomb threat checklist" card (POL 940, printed 11/02) (main source) - https://www.police.govt.nz/sites/default/files/publications/bomb-threat-checklist.pdf
+Source: NZ Police, web page "Suspicious mail and bomb threats" - https://www.police.govt.nz/advice-services/businesses-and-organisations/suspicious-mail-and-bomb-threats
+Source: NZ Police, web page "How you can help" (Protecting crowded places from attack) - https://www.police.govt.nz/advice-services/protecting-crowded-places-attack/how-you-can-help
+Source: ANZCTC, "Improvised Explosive Device (IED) Guidelines for Crowded Places" (Commonwealth of Australia 2023), Appendix B - https://www.nationalsecurity.gov.au/crowded-places-subsite/Files/ied-guidelines-crowded-places.pdf
+Version: NZ Police 'Bomb threat checklist' card (POL 940, printed '11/02', no other date; no newer NZ version found); NZ Police web pages 'Suspicious mail and bomb threats' and 'How you can help' (no dates shown, footer 2026); ANZCTC 'Improvised Explosive Device (IED) Guidelines for Crowded Places' (Commonwealth of Australia 2023, Appendix B Telephoned bomb threat checklist); all read 20 Nov 2026
+Audience: Anyone in a New Zealand workplace who answers the phone, and the colleague helping them
+Warning: In New Zealand call 111. Best used by a colleague beside the person on the phone. The NZ card is old (11/02); the Australian checklist is shown where it adds or differs, and says 000.
+Reviewed by:
+
+## Steps
+
+### start: Bomb threat: what is happening?
+Say: Type what the caller says into the boxes as you go; this app keeps the times. The paper NZ Police checklist card is the official form: keep it by the phone too.
+Quote: "Place this card under your telephone" (NZ Police card)
+Quote: "print it out and keep it by your phone." (NZ Police web)
+Ask: What is happening?
+- A caller is making a threat now -> call
+- The threat came by email or social media -> online
+- Someone found a suspicious item or bag -> item
+- The threat call has ended -> ended
+
+### call: On the phone now: stay calm
+Record: Call started
+Do: Stay calm. Talk to the caller.
+Quote: "Remain calm and talk to the caller" (ANZCTC)
+Do: Note the caller's number if your phone shows it. Record the call if you can.
+Quote: "Note the caller's number if displayed on your phone" (ANZCTC)
+Quote: "If you are able to, record the call" (ANZCTC)
+Next: words
+
+### words: Write the exact words
+Say: Type the caller's exact words. Don't tidy them up.
+Quote: "EXACT WORDING OF THREAT:" (NZ Police card)
+Quote: "Write down the exact wording of the threat:" (ANZCTC)
+Write: Caller's exact words
+Say: Then the NZ card's 10 questions, one per screen.
+Ask: Then?
+- Ask the questions -> q1
+- Caller hung up -> ended
+
+### q1: Ask 1 of 10: When?
+Say: "When is the Bomb going to explode?"
+Quote: "1. When is the Bomb going to explode?" (NZ Police card)
+Write: Answer to question 1
+Record: Q1 no answer or refused
+Ask: Then?
+- Next question -> q2
+- Caller hung up -> ended
+
+### q2: Ask 2 of 10: Where?
+Say: "Where is the Bomb?"
+Quote: "2. Where is the Bomb?" (NZ Police card)
+Write: Answer to question 2
+Record: Q2 no answer or refused
+Ask: Then?
+- Next question -> q3
+- Caller hung up -> ended
+
+### q3: Ask 3 of 10: What does it look like?
+Say: "What does the Bomb look like?"
+Quote: "3. What does the Bomb look like?" (NZ Police card)
+Write: Answer to question 3
+Record: Q3 no answer or refused
+Ask: Then?
+- Next question -> q4
+- Caller hung up -> ended
+
+### q4: Ask 4 of 10: What kind?
+Say: "What kind of Bomb is it?"
+Quote: "4. What kind of Bomb is it?" (NZ Police card)
+Write: Answer to question 4
+Record: Q4 no answer or refused
+Ask: Then?
+- Next question -> q5
+- Caller hung up -> ended
+
+### q5: Ask 5 of 10: What will make it explode?
+Say: "What will make the Bomb explode?"
+Quote: "5. What will make the Bomb explode?" (NZ Police card)
+Write: Answer to question 5
+Record: Q5 no answer or refused
+Ask: Then?
+- Next question -> q6
+- Caller hung up -> ended
+
+### q6: Ask 6 of 10: Explosive type and amount?
+Say: "What is the Explosive Type and Quantity?"
+Quote: "6. What is the Explosive Type and Quantity?" (NZ Police card)
+Write: Answer to question 6
+Record: Q6 no answer or refused
+Ask: Then?
+- Next question -> q7
+- Caller hung up -> ended
+
+### q7: Ask 7 of 10: Why?
+Say: "Why did you place the Bomb?"
+Quote: "7. Why did you place the Bomb?" (NZ Police card)
+Write: Answer to question 7
+Record: Q7 no answer or refused
+Ask: Then?
+- Next question -> q8
+- Caller hung up -> ended
+
+### q8: Ask 8 of 10: Their name?
+Say: "What is your name?"
+Quote: "8. What is your name?" (NZ Police card)
+Write: Answer to question 8
+Record: Q8 no answer or refused
+Ask: Then?
+- Next question -> q9
+- Caller hung up -> ended
+
+### q9: Ask 9 of 10: Where are you?
+Say: "Where are you?"
+Quote: "9. Where are you?" (NZ Police card)
+Write: Answer to question 9
+Record: Q9 no answer or refused
+Ask: Then?
+- Next question -> q10
+- Caller hung up -> ended
+
+### q10: Ask 10 of 10: Their address?
+Say: "What is your address?"
+Quote: "10. What is your address:" (NZ Police card)
+Write: Answer to question 10
+Record: Q10 no answer or refused
+Ask: Then?
+- Next question -> q-extra
+- Caller hung up -> ended
+
+### q-extra: Still on the line? Australian extra questions
+Say: The Australian checklist also asks these. They are not on the NZ card. (It also asks "where" before "when"; the NZ card asks "when" first.)
+Quote: "1. Where exactly is the bomb right now?" (ANZCTC)
+Quote: "2. When is it going to explode?" (ANZCTC)
+- "What does the bomb contain?"
+Quote: "4. What does the bomb contain?" (ANZCTC)
+- "How will it be detonated?"
+Quote: "5. How will it be detonated?" (ANZCTC)
+- "Did you place the bomb? If not you, who did?"
+Quote: "6. Did you place the bomb? If not you, who did?" (ANZCTC)
+- "What is your telephone number?"
+Quote: "9. What is your telephone number?" (ANZCTC)
+- "Do you represent a group or are you acting alone?"
+Quote: "10. Do you represent a group or are you acting alone?" (ANZCTC)
+Say: Record answers as accurately as you can.
+Quote: "ASK THESE QUESTIONS AND RECORD ANSWERS AS ACCURATELY AS POSSIBLE:" (ANZCTC)
+Write: Answers to the extra questions
+Record: Extra questions: no answer or refused
+Say: Tap Next when the call has ended.
+Next: ended
+
+### ended: The call has ended
+Record: Call ended
+Quote: "Record time call completed:" (ANZCTC)
+Say: The card asks for the date and time of the call and how long it lasted. If you tapped "Call started" and "Call ended", the Log shows both times; work out the length from them. Otherwise type your best estimate.
+Quote: "Date: .... Time: ...." (NZ Police card)
+Quote: "Duration of call:" (NZ Police card)
+Write: Date and time of the call, and how long it lasted
+Say: The NZ card gives no instructions for during or after the call. Neither source says whether to hang up your phone or keep the line open. Follow your workplace plan or what Police tell you.
+Next: tell
+
+### tell: Tell your contact person and Police now
+Do: Report the call straight away to the person your workplace has named (the NZ card leaves a blank for this name and phone number).
+Quote: "Report call immediately to:" (NZ Police card)
+Quote: "Phone Number:" (NZ Police card)
+Write: Person told at your workplace (name and phone)
+Record: Manager or security told
+Say: The Australian checklist names building security or the coordinating manager.
+Quote: "INFORM BUILDING SECURITY OR COORDINATING MANAGER" (ANZCTC)
+Do: Call 111 and tell Police.
+Quote: "In an emergency everyone should call 111" (NZ Police web)
+Quote: "Communicated threats should be reported to the police." (ANZCTC)
+Record: Police called (111)
+Say: The Australian checklist says dial 000; in New Zealand it is 111.
+Say: The card then has a field "Trace 111", with no explanation. Ask Police what to put.
+Quote: "Trace 111" (NZ Police card)
+Write: Trace 111 (card field)
+Say: Under "Police Advised" the card asks for the date/time (the "Police called" button keeps it) and "Members name". The card does not say whose name; perhaps the Police member you spoke to.
+Quote: "Police Advised:" (NZ Police card)
+Quote: "Date/Time:" (NZ Police card)
+Quote: "Members name:" (NZ Police card)
+Write: Members name (card)
+Ask: Then?
+- Write the caller details now -> voice
+- The decision is needed first -> decide
+
+### voice: After the call: the caller's voice
+Say: Fill this in now the caller has hung up. Type in the box:
+Quote: "The next section should be completed once the caller has hung up" (ANZCTC)
+- Accent; any speech impediment
+Quote: "Accent (specify):" (NZ Police card)
+Quote: "Any impediment (specify):" (NZ Police card)
+- Voice (loud, soft); speech (fast, slow); diction (clear, muffled); manner (calm, emotional)
+Quote: "Voice (loud, soft, etc):" (NZ Police card)
+Quote: "Speech (fast, slow, etc):" (NZ Police card)
+Quote: "Diction (clear, muffled):" (NZ Police card)
+Quote: "Manner (calm, emotional, etc):" (NZ Police card)
+Write: Caller's voice (accent, impediment, voice, speech, diction, manner)
+- Did you know the voice? Who? Did they know the area?
+Quote: "Did you recognize the voice?" (NZ Police card)
+Quote: "If so, who do you think it was?" (NZ Police card)
+Quote: "Was the caller familiar with the area?" (NZ Police card)
+Write: Did you know the voice? Who? Did they know the area?
+Say: The Australian checklist also has tick boxes such as crying, angry, slurred, disguised, laughter.
+Quote: "[ ] Calm [ ] Crying [ ] Clearing Throat [ ] Angry [ ] Nasal [ ] Slurred [ ] Excited [ ] Stutter" (ANZCTC)
+Next: sounds
+
+### sounds: The threat language and background sounds
+Say: Threat language (NZ card): well spoken, incoherent, irrational, taped, message read by caller, abusive, other.
+Quote: "Well spoken:" (NZ Police card)
+Quote: "Message read by caller:" (NZ Police card)
+Quote: "Abusive:" (NZ Police card)
+Write: Threat language
+Say: Background noises (NZ card): street, house, aircraft, voices, music, machinery, vehicle (cellular), other.
+Quote: "Street noises:" (NZ Police card)
+Quote: "Aircraft:" (NZ Police card)
+Quote: "Vehicle (Cellular):" (NZ Police card)
+Say: The Australian checklist adds animal noises, static, PA system, booth, motor, crockery.
+Quote: "[ ] Clear Voice [ ] Static [ ] PA System [ ] Booth [ ] Music [ ] Motor [ ] Crockery" (ANZCTC)
+Write: Background noises
+Say: Kind of call (printed beside the noises on the card): standard, 111/cellular, or STD.
+Quote: "Standard Call:" (NZ Police card)
+Quote: "111/Cellular:" (NZ Police card)
+Quote: "STD:" (NZ Police card)
+Write: Kind of call
+Next: call-info
+
+### call-info: The caller, the call and you
+- Sex of caller; estimated age
+Quote: "Sex of caller:" (NZ Police card)
+Quote: "Estimated age:" (NZ Police card)
+Write: Sex and estimated age of caller
+Say: The Australian checklist also asks nationality.
+Quote: "Nationality?" (ANZCTC)
+- The number that was called (the date, time and length are on the "call has ended" screen)
+Quote: "Number called:" (NZ Police card)
+Write: Number that was called
+- Your name (print) and your phone number
+Quote: "Name (print):" (NZ Police card)
+Quote: "Telephone number:" (NZ Police card)
+Write: Your name and phone number
+Say: The card also asks for your signature: sign the paper card if your workplace uses it.
+Quote: "Signature:" (NZ Police card)
+Next: decide
+
+### decide: Search or evacuate? Not your call alone
+Warning: The app does not decide. In New Zealand the employer decides whether to search or evacuate.
+Quote: "If a bomb threat is received, it is the responsibility of employers to decide whether a search or evacuation will be conducted." (NZ Police web)
+Say: The Australian guide: the incident or security manager decides, with Police if possible. It can be total or partial.
+Quote: "Planning and initiating evacuation should be the responsibility of the incident/security manager and, if possible, made in consultation with police and other emergency services." (ANZCTC)
+Quote: "The decision to initiate a total or partial evacuation may be determined by several factors" (ANZCTC)
+Say: Things it says to weigh: the nature of the threat, the chance of panic, and the impact on the business of a total evacuation.
+Quote: "the nature of the threat" (ANZCTC)
+Quote: "the potential to cause panic" (ANZCTC)
+Quote: "potential business impacts from total evacuation" (ANZCTC)
+Say: It says to treat every threat as real until shown otherwise.
+Quote: "Generally speaking, all threats should be deemed credible until proven otherwise." (ANZCTC)
+Say: It also lists four questions (is the threat non-specific? do you know the caller? has specific detail been given? is it credible?) and three responses (occupant inspection, supervisory inspection, support a Police search). How the answers lead to a response was in a chart that could not be read, so the app does not link them.
+Quote: "Is the threat non-specific?" (ANZCTC)
+Quote: "Do you recognise the caller?" (ANZCTC)
+Quote: "Has specific detail been provided?" (ANZCTC)
+Quote: "Is the threat credible?" (ANZCTC)
+Say: No source gives an evacuation distance for a phone threat when no item has been found.
+Ask: What did the employer or incident manager decide?
+- Evacuate everyone -> evacuate
+- Evacuate part of the site -> evacuate-part
+- Search the site -> search
+- Stay, no search or evacuation -> stay
+- Not decided yet -> waiting
+
+### waiting: Waiting for the decision
+Say: Keep this app with you. Do what the employer, the incident manager or Police tell you.
+Say: The guidelines do not say what to do while waiting. Follow your workplace plan.
+Ask: Then?
+- Decision made: choose it -> decide
+- Write the caller details now -> voice
+- Police have taken over -> handover
+
+### evacuate: Decision: evacuate everyone
+Record: Evacuation started
+Say: Use your workplace's evacuation plan. The guidelines give no distance for a phone threat.
+Warning: Australian guide: think about secondary devices at assembly points, and keep them clear.
+Quote: "including consideration of secondary devices at assembly points and procedures to ensure these are kept clear" (ANZCTC)
+Warning: Australian guide: be aware that secondary explosions may occur at or near the original blast site, especially as rescue personnel arrive.
+Quote: "Be aware that secondary explosions may occur at or near the original blast site, especially as rescue personnel arrive." (ANZCTC)
+Ask: Then?
+- A suspicious item was found -> item
+- Police have taken over -> handover
+
+### evacuate-part: Decision: partial evacuation
+Record: Partial evacuation started
+Say: The Australian guide gives an example: when a suspicious item is small and thought to be in one place.
+Quote: "the plan may include considerations for total evacuation or partial evacuation, for example, if the suspicious item is small and thought to be confined to one location." (ANZCTC)
+Say: Use your workplace's plan for which areas leave. The guidelines give no distance for a phone threat.
+Warning: Australian guide: think about secondary devices at assembly points, and keep them clear.
+Quote: "including consideration of secondary devices at assembly points and procedures to ensure these are kept clear" (ANZCTC)
+Warning: Australian guide: be aware that secondary explosions may occur at or near the original blast site, especially as rescue personnel arrive.
+Quote: "Be aware that secondary explosions may occur at or near the original blast site, especially as rescue personnel arrive." (ANZCTC)
+Ask: Then?
+- A suspicious item was found -> item
+- Police have taken over -> handover
+
+### search: Decision: search the site
+Record: Search started
+Say: The Australian guide: staff who know and work in an area are best placed to check it. Use your workplace's search plan.
+Quote: "If a threat is communicated, it may be necessary to inspect the venue or facility." (ANZCTC)
+Quote: "Staff members who know and work within an area are best placed to do this." (ANZCTC)
+Say: Look for anything Hidden, Obviously suspicious or not Typical of the place (Australian guide).
+Quote: "That is, anything that is Hidden, Obviously suspicious or not Typical to its environment could be deemed a security risk." (ANZCTC)
+Ask: Search result?
+- Found a suspicious item -> item
+- Nothing found -> search-none
+
+### search-none: Search found nothing
+Record: Search finished: nothing found
+Say: The guides do not say what to do if a search finds nothing (stop, keep searching, or wait for Police). Follow Police and your workplace plan.
+Next: handover
+
+### stay: Decision: stay, no search or evacuation
+Write: Who made the decision
+Say: Keep following what the employer and Police tell you.
+Quote: "If a bomb threat is received, it is the responsibility of employers to decide whether a search or evacuation will be conducted." (NZ Police web)
+Next: handover
+
+### online: Threat by email or social media
+Say: Only the Australian checklist covers this. The NZ sources found do not.
+Quote: "If the threat had been sent via email or social media, see appropriate section below" (ANZCTC)
+Record: Threat message seen
+Warning: Do not reply to, forward or delete the message.
+Quote: "1. Do not reply to, forward or delete the message" (ANZCTC)
+Do: Email: note the sender's address. Social media: note the app and the username or ID.
+Quote: "2. If sent via email, note the address" (ANZCTC)
+Quote: "3. If sent via social media, what application has been used and what is the username/ID?" (ANZCTC)
+Write: Sender's email address, or app and username/ID
+Do: Call 111 and follow what Police tell you. (The Australian checklist says dial 000; in New Zealand it is 111.)
+Quote: "In an emergency everyone should call 111" (NZ Police web)
+Quote: "Dial 000 and follow police guidance" (ANZCTC)
+Record: Police called (111)
+Do: Keep all your organisation's web log files for Police. Ask your IT person; the exact time span could not be read from the guide.
+Quote: "5. Preserve all web log files for your organisation to help the police investigation" (ANZCTC)
+Do: Save and print a copy for Police and for security or the coordinating manager.
+Quote: "SAVE AND PRINT HAND COPY TO POLICE AND SECURITY OR COORDINATING MANAGER" (ANZCTC)
+Record: Manager or security told
+Next: decide
+
+### item: Suspicious item or bag: don't touch it
+Record: Suspicious item found
+Warning: Don't touch it.
+Quote: "don't touch it." (NZ Police web)
+Warning: Australian guide: no mobile phones or radios within 25 metres of it. (The NZ page gives no distance and does not say where to call 111 from.)
+Quote: "Do not use mobile phones or radios within a 25 metre radius;" (ANZCTC)
+Do: Ask people nearby if anyone owns it.
+Quote: "ask people nearby if anyone owns it." (NZ Police web)
+Ask: Is there an obvious owner, or a reason for it being there?
+- No obvious owner or reason -> item-noowner
+- Yes: owner found or a clear reason -> item-owned
+
+### item-owned: Owner found, or a clear reason
+Say: The NZ Police steps are for a bag or package with no apparent reason for being there.
+Quote: "If you see an unattended package or bag in a public place, with no apparent reason for it being there:" (NZ Police web)
+Say: The guides do not say what to do next. If you are still worried, follow your workplace plan, or call 111.
+Quote: "In an emergency everyone should call 111" (NZ Police web)
+Ask: Then?
+- Still worried: treat it as unowned -> item-noowner
+- Done -> end
+
+### item-noowner: No owner: keep people away, call 111
+Do: Tell other people to keep away.
+Quote: "if there's no obvious owner, tell other people to keep away." (NZ Police web)
+Do: Call 111 and report it.
+Quote: "call 111 and report it." (NZ Police web)
+Record: Police called (111)
+Say: The Australian guide also asks: is it intentionally hidden? Does it look like an explosive device or hazardous material? Is it out of place for the location?
+Quote: "Is the item intentionally hidden?" (ANZCTC)
+Quote: "Does the item have characteristics of an explosive device or hazardous material" (ANZCTC)
+Quote: "Is the item out of place for the location?" (ANZCTC)
+Say: The Australian guide says to write down what it looks like (shape, size, how it is made) and exactly where it is.
+Quote: "Record all relevant information (physical characteristics, shape, dimensions, construction and the exact position of the item or vehicle);" (ANZCTC)
+Write: What the item looks like
+Write: Exactly where it is
+Ask: Yes to any of the three questions?
+- Yes: it is suspicious -> item-au
+- No to all three -> item-not
+
+### item-not: Not suspicious by the Australian questions
+Say: The Australian steps on the next screen are for a suspicious item. The guides do not say what to do when the three answers are all no. Police have been called: do what they tell you.
+Quote: "Respond in accordance with the directions of emergency services; and" (ANZCTC)
+Ask: Then?
+- Police have taken over -> handover
+- Treat it as suspicious anyway -> item-au
+
+### item-au: Suspicious item: Australian guide
+Say: These come from the Australian guide (ANZCTC). NZ Police give no distances. They are for a suspicious item that has been found, not for a phone threat alone.
+Warning: Do not touch, tilt or tamper with it. No mobile phones or radios within 25 metres.
+Quote: "Do not touch, tilt or tamper;" (ANZCTC)
+Quote: "Do not use mobile phones or radios within a 25 metre radius;" (ANZCTC)
+Do: Australian guide: advise security.
+Quote: "Call Triple Zero '000' and advise security;" (ANZCTC)
+Record: Manager or security told
+Say: It pairs this with calling Triple Zero, the Australian number; in New Zealand that is the 111 call you made.
+Do: Australian guide: cordon off and clear people at least 100 metres away (at least 500 metres if it is a vehicle).
+Quote: "Cordon off immediate area and evacuate at least 100 metres from the item (if a vehicle, evacuate at least 500 metres);" (ANZCTC)
+Do: Australian guide: make sure no one can see the item from where they are.
+Quote: "Ensure no personnel are within line of sight of the suspicious item;" (ANZCTC)
+Record: Area cleared
+Do: Gather evidence of who left it, such as CCTV.
+Quote: "Gather any evidence of the placement of the item or vehicle, including CCTV showing activities of any person associated with the item or vehicle." (ANZCTC)
+Do: Do what the emergency services tell you.
+Quote: "Respond in accordance with the directions of emergency services; and" (ANZCTC)
+Say: The Australian guide says the incident or security manager decides whether to evacuate more widely.
+Quote: "Planning and initiating evacuation should be the responsibility of the incident/security manager and, if possible, made in consultation with police and other emergency services." (ANZCTC)
+Ask: Then?
+- Go to the evacuate decision -> decide
+- Police have taken over -> handover
+
+### handover: Hand over to Police
+Say: Give Police:
+- The caller's exact words and answers: the Finished screen and the Log show what you typed (and the paper card, if you used it)
+Quote: "EXACT WORDING OF THREAT:" (NZ Police card)
+- The call recording, and the caller's number if your phone showed it
+- The times in the Log tab: call started and ended, Police called, manager told, evacuation or search started
+- Your name and phone number
+Quote: "Name (print):" (NZ Police card)
+Quote: "Telephone number:" (NZ Police card)
+- For an email or social media threat: the saved message, the address or username, and the web logs
+Say: This list is the app's summary of what the sources ask you to write down. Neither source gives a handover list.
+Ask: Then?
+- Caller details not written yet -> voice
+- Finish -> end
+End: Do what Police tell you. Keep this phone's Log, and the card if you used it.
+
+## Notes
+Source copy: web-fetch only (police.govt.nz, protectivesecurity.govt.nz and nationalsecurity.gov.au all blocked direct download; see meta.json), so a quote not found may be the copy's fault. Lines in [square brackets] in source.txt are notes, never quoted.
+
+Which source leads: the NZ Police card (A) is the main source; NZ Police web pages (B) add who decides (employer) and the unattended-bag steps; the ANZCTC IED Guidelines (C) are a joint Australia-NZ committee document but an Australian publication (dial 000), shown second and labelled "Australian" wherever used. Differences kept visible: (1) Question order: NZ card starts "When" then "Where"; ANZCTC starts "Where" then "When". The app asks the NZ card's 10 questions in its order, then ANZCTC's extra ones (contains, detonated, who placed it, phone number, group or alone) on q-extra, which also says ANZCTC asks "where" first (moved off q1 so the most urgent screen holds one question). ANZCTC's "Why have you placed the bomb?", name and address overlap with NZ 7, 8, 10 and are not repeated. (2) Emergency number: 111 everywhere, quoting NZ web ("In an emergency everyone should call 111", "call 111 and report it."). The card's "Trace 111" is a field with a blank, not an instruction: it is shown as its own field with a box on tell, never as the quote for calling 111. ANZCTC's "DIAL 000" / "Dial 000" / "Triple Zero" lines are shown only as Australian, never as saying 111; "Call Triple Zero '000' and advise security;" supports "advise security" on item-au, with a line saying the NZ equivalent is the 111 call already made. (3) Who to tell: NZ card "Report call immediately to:" a blank to fill in locally, then Police; ANZCTC building security or coordinating manager, then police. Both on tell. (4) Voice, language and background lists differ (NZ free-text fields; ANZCTC tick boxes): NZ shown in full; ANZCTC extras summarised. (5) Only ANZCTC gives during-call instructions (remain calm, talk to the caller, note the number, record the call); shown on call.
+
+Card order: the details screens follow the card's sections A4 (voice), A5 and A6 with the kind of call printed beside A6 (sounds), A7, A8 number called, A9 (call-info). Two exceptions, on purpose: the exact wording (A2) is asked before the questions (A1), as ANZCTC does, because the words come first in the call; and A8 date, time and duration are on ended (with a box), so they are captured on every phone route, including "The threat call has ended" from start, where "Call started" was never tapped. The app does not work out the call length; the screen says the Log has both times when both were tapped.
+
+Gaps shown on screen (trap 13): the NZ card gives no during- or after-call instructions, and no source says "don't hang up" or to keep the line open, nor how to keep the caller talking beyond "talk to the caller" (ended); no plain rule for when to evacuate after a phone threat: NZ leaves it to the employer, ANZCTC to the incident/security manager with Police, and the app never decides (decide, trap 8); ANZCTC's "Generally speaking, all threats should be deemed credible" is shown with its hedge; the ANZCTC chart linking its 4 assessment questions to its 3 responses was not captured, so they are listed, not linked; no evacuation distance for a phone threat with no item found (decide, evacuate, evacuate-part); what to do when a search finds nothing (search-none); the 25 m / 100 m / 500 m figures apply only to a found suspicious item and are Australian; NZ sources give no distances or radio/mobile rule, and do not say where to call 111 from, so the Australian 25 m warning is shown on item before the 111 call (item-noowner), without inventing a distance to call from; the NZ unattended-bag steps apply only to a bag "with no apparent reason for it being there", and "keep away" only "if there's no obvious owner" (trap 10): item asks this, and item-owned says the guides give no next step; ANZCTC's actions apply "if the item is suspicious" after its three questions (hidden, looks like an explosive device or hazardous material, out of place), asked on item-noowner; if all three are no, item-not says the guides do not say and Police (already called) direct; "Trace 111" is not explained on the card (ask Police); "Members name" under "Police Advised" is not explained either: the screen says "perhaps the Police member you spoke to" and the box is labelled "Members name (card)"; the web-log time span (7 days before to 48 hours after, from a summary only) is not shown as its exact words were not captured; search procedure and assembly points are left to local plans; no handover list in either source (handover says the list is the app's summary). The NZ card is dated 11/02 (November 2002 or February 2011) and no newer NZ version was found: said in the Warning banner. The banner's "Best used by a colleague beside the person on the phone" is the app's own design advice, not a source instruction.
+
+Design: the person on the phone has it at their ear, so the app is meant for a colleague or a second screen. While the caller is on the line each screen holds one or two things: call has one Record ("Call started") and two short ticks; words has one box; each question has its answer box, a "Qn no answer or refused" Record and two answers (Next question / Caller hung up), so a hang-up at any point jumps to ended. Write boxes (text goes to the Log with times and to the Finished screen, only on this phone): caller's exact words; answer boxes on q1-q10 and q-extra; date, time and length of call (ended); person told, Trace 111, Members name (tell); voice, recognised voice (voice); threat language, background noises, kind of call (sounds); sex and age, number called, your name and phone (call-info); who decided (stay); sender address or username (online); what the item looks like and where (item-noowner). The paper card is still named as the official form. Record buttons log key times: Call started, Qn no answer or refused, Call ended, Manager or security told, Police called (111), Evacuation / Partial evacuation / Search started, Search finished: nothing found, Threat message seen, Suspicious item found, Area cleared. The decision itself is logged by the answer on decide (no duplicate Record). Caller details can be reached from tell, waiting and handover, so choosing the decision first never loses them. No timers or reminders: no source gives a time. C5's secondary-explosions warning is shown (Australian) on evacuate and evacuate-part next to the assembly-point warning; C3 "create a plan" (preparation) and C6 stand-off (site design) are left out. ANZCTC's "remarks / additional notes" and signature-block labels were not captured and are not quoted.
+`, source: `Bomb threat by phone (what to ask and write down during the call, who to tell, search and evacuate-or-not),
+word-for-word copies from two official sources (read 20 Nov 2026, NZ time). The sources do NOT say the same
+things (for example the NZ Police card gives 10 questions starting "When is the Bomb going to explode?";
+the ANZCTC checklist gives 11 questions starting "Where exactly is the bomb right now?"; NZ Police phone
+number is 111, the Australian document says 000), so each is kept under its own heading; never mix them.
+Main source is SOURCE A.
+Capture method (web-fetch copy): direct download is refused here (the network proxy blocks police.govt.nz,
+protectivesecurity.govt.nz and nationalsecurity.gov.au) and web search gave titles only, so every line was
+read by a fetch tool asked to quote exact lines (long sentences in pieces, rejoined here). Small slips
+(apostrophe, capital letter or dash style) are possible. Lines in [square brackets] are notes added here, not
+guideline text. On the forms, "...." = a blank line to write on, "[ ]" = a tick box. "-" = bullet.
+No PDF was in sources/.
+
+=====================================================================================================
+SOURCE A. New Zealand Police "Bomb threat checklist" (card POL 940, printed date "11/02")
+https://www.police.govt.nz/sites/default/files/publications/bomb-threat-checklist.pdf
+(linked from the NZ Police page "Suspicious mail and bomb threats", see SOURCE B)
+=====================================================================================================
+Place this card under your telephone
+
+BOMB THREAT CHECK LIST
+
+A1. QUESTIONS TO ASK:
+1. When is the Bomb going to explode?
+2. Where is the Bomb?
+3. What does the Bomb look like?
+4. What kind of Bomb is it?
+5. What will make the Bomb explode?
+6. What is the Explosive Type and Quantity?
+7. Why did you place the Bomb?
+8. What is your name?
+9. Where are you?
+10. What is your address:
+
+A2. EXACT WORDING OF THREAT:
+....
+
+A3. ACTION
+Report call immediately to: ....
+Phone Number: ....
+Trace 111 ....
+Police Advised:
+Date/Time: ....
+Members name: ....
+
+A4. CALLER'S VOICE
+Accent (specify): ....
+Any impediment (specify): ....
+Voice (loud, soft, etc): ....
+Speech (fast, slow, etc): ....
+Diction (clear, muffled): ....
+Manner (calm, emotional, etc): ....
+Did you recognize the voice? ....
+If so, who do you think it was? ....
+Was the caller familiar with the area? ....
+
+A5. THREAT LANGUAGE
+Well spoken: ....
+Incoherent: ....
+Irrational: ....
+Taped: ....
+Message read by caller: ....
+Abusive: ....
+Other: ....
+
+A6. BACKGROUND NOISES
+Street noises: ....
+House noises: ....
+Aircraft: ....
+Voices: ....
+Music: ....
+Machinery: ....
+Vehicle (Cellular): ....
+Other: ....
+[Printed beside the background-noise list, as a separate set of fields about the kind of call:]
+Standard Call: ....
+111/Cellular: ....
+STD: ....
+
+A7. OTHER
+Sex of caller: ....
+Estimated age: ....
+
+A8. CALL TAKEN
+Date: .... Time: ....
+Duration of call: ....
+Number called: ....
+
+A9. RECIPIENT
+Name (print): ....
+Telephone number: ....
+Signature: ....
+
+POL 940
+11/02
+
+=====================================================================================================
+SOURCE B. New Zealand Police web page "Suspicious mail and bomb threats" (Advice and services >
+Businesses and organisations; no date shown, footer "\xA9 Copyright 2026 New Zealand Police")
+https://www.police.govt.nz/advice-services/businesses-and-organisations/suspicious-mail-and-bomb-threats
+=====================================================================================================
+B1. Bomb threats
+It can be helpful to have a checklist for recording information if a bomb threat is received.
+If a bomb threat is received, it is the responsibility of employers to decide whether a search or
+evacuation will be conducted.
+The bomb threat checklist (PDF, 76KB) offers general advice on bomb safety issues; print it out and keep it
+by your phone.
+[The rest of this page is about suspicious mail, not phone threats, and is not copied.]
+
+B2. NZ Police page "How you can help" (Protecting crowded places from attack; no date shown, footer 2026)
+https://www.police.govt.nz/advice-services/protecting-crowded-places-attack/how-you-can-help
+Unattended or someone concealing bags
+Unattended bags or packages may contain dangerous contents.
+If you see an unattended package or bag in a public place, with no apparent reason for it being there:
+- don't touch it.
+- ask people nearby if anyone owns it.
+- if there's no obvious owner, tell other people to keep away.
+- call 111 and report it.
+Report suspicious behaviour
+In an emergency everyone should call 111
+
+=====================================================================================================
+SOURCE C. Australia-New Zealand Counter-Terrorism Committee (ANZCTC) "Improvised Explosive Device (IED)
+Guidelines for Crowded Places" (\xA9 Commonwealth of Australia 2023, CC BY 4.0; no edition number printed)
+https://www.nationalsecurity.gov.au/crowded-places-subsite/Files/ied-guidelines-crowded-places.pdf
+[Australian document: it says dial 000. In New Zealand the emergency number is 111 (SOURCE B).]
+=====================================================================================================
+C1. Appendix B: Telephoned bomb threat checklist (pages 18-19)
+Remain calm and talk to the caller
+Note the caller's number if displayed on your phone
+If the threat had been sent via email or social media, see appropriate section below
+If you are able to, record the call
+Write down the exact wording of the threat:
+....
+
+ASK THESE QUESTIONS AND RECORD ANSWERS AS ACCURATELY AS POSSIBLE:
+1. Where exactly is the bomb right now?
+2. When is it going to explode?
+3. What does it look like?
+4. What does the bomb contain?
+5. How will it be detonated?
+6. Did you place the bomb? If not you, who did?
+7. What is your name?
+8. What is your address?
+9. What is your telephone number?
+10. Do you represent a group or are you acting alone?
+11. Why have you placed the bomb?
+
+Record time call completed:
+INFORM BUILDING SECURITY OR COORDINATING MANAGER
+DIAL 000 AND INFORM POLICE
+[The fetch summary also said the form asks for the name and number of the security / coordinating manager
+informed and the time police were informed; those exact field labels could not be captured.]
+
+The next section should be completed once the caller has hung up
+[A fuller reading of the same note: "The next section should be completed once the caller has hung up and
+police / building security / coordinating manager have all been informed."]
+
+Date and time of call:
+Duration of call:
+The telephone number that received the call:
+
+About the caller
+[ ] Male [ ] Female
+Age?
+Nationality?
+What accent?
+
+Threat language
+[ ] Well-spoken [ ] Irrational [ ] Taped [ ] Foul [ ] Incoherent
+
+Caller's voice
+[ ] Calm [ ] Crying [ ] Clearing Throat [ ] Angry [ ] Nasal [ ] Slurred [ ] Excited [ ] Stutter
+[ ] Disguised [ ] Slow [ ] Lisp [ ] Accent* [ ] Rapid [ ] Deep [ ] Familiar [ ] Laughter [ ] Hoarse
+[ ] Other (please specify):
+If the voice sounded familiar, who did it sound like?
+
+Background sounds
+[ ] Street noises [ ] House noises [ ] Animal noises [ ] Factory Machinery [ ] Office Machinery
+[ ] Clear Voice [ ] Static [ ] PA System [ ] Booth [ ] Music [ ] Motor [ ] Crockery
+[ ] Other (please specify):
+
+Remarks
+Additional Notes
+[Signature, printed name and date fields: exact labels not captured.]
+
+ACTIONS TO BE TAKEN ON RECEIPT OF A BOMB THREAT SENT VIA EMAIL OR SOCIAL MEDIA
+1. Do not reply to, forward or delete the message
+2. If sent via email, note the address
+3. If sent via social media, what application has been used and what is the username/ID?
+4. Dial 000 and follow police guidance
+5. Preserve all web log files for your organisation to help the police investigation
+[The fetch summary said a guide period is given (from 7 days before the threat to 48 hours after); exact
+words not captured.]
+SAVE AND PRINT HAND COPY TO POLICE AND SECURITY OR COORDINATING MANAGER
+
+C2. Communicated threats (page 10)
+If a threat is communicated, it may be necessary to inspect the venue or facility.
+Communicated threats should be reported to the police.
+Generally speaking, all threats should be deemed credible until proven otherwise.
+[Threat assessment questions, in printed order:]
+Is the threat non-specific?
+Do you recognise the caller?
+Has specific detail been provided?
+Is the threat credible?
+[Responses listed:]
+- Occupant inspection
+- Supervisory inspection
+- Support law enforcement search
+[Which answer leads to which response is shown in a chart whose layout could not be captured.]
+
+C3. White level inspections (page 10)
+White level inspections are distinct from searches by specialist search teams
+Staff members who know and work within an area are best placed to do this.
+Create a plan that assigns staff members certain areas, including communal areas such as public
+concourses, [rest of sentence not captured]
+
+C4. Assessing unattended and suspicious items (page 12)
+That is, anything that is Hidden, Obviously suspicious or not Typical to its environment could be deemed a
+security risk.
+Is the item intentionally hidden?
+Does the item have characteristics of an explosive device or hazardous material, [rest not captured]
+Is the item out of place for the location?
+[If the item is suspicious:]
+- Do not touch, tilt or tamper;
+- Do not use mobile phones or radios within a 25 metre radius;
+- Call Triple Zero '000' and advise security;
+- Cordon off immediate area and evacuate at least 100 metres from the item (if a vehicle, evacuate at least
+  500 metres);
+- Ensure no personnel are within line of sight of the suspicious item;
+- Record all relevant information (physical characteristics, shape, dimensions, construction and the exact
+  position of the item or vehicle);
+- Respond in accordance with the directions of emergency services; and
+- Gather any evidence of the placement of the item or vehicle, including CCTV showing activities of any
+  person associated with the item or vehicle.
+
+C5. Evacuation (pages 12-13)
+Planning and initiating evacuation should be the responsibility of the incident/security manager and, if
+possible, made in consultation with police and other emergency services.
+Depending on the size and nature of the crowded place, the plan may include considerations for total
+evacuation or partial evacuation, for example, if the suspicious item is small and thought to be confined to
+one location.
+The decision to initiate a total or partial evacuation may be determined by several factors
+- the nature of the threat
+- the potential to cause panic
+- potential business impacts from total evacuation
+[Evacuation routes and assembly points:] including consideration of secondary devices at assembly points and
+procedures to ensure these are kept clear
+Be aware that secondary explosions may occur at or near the original blast site, especially as rescue
+personnel arrive.
+
+C6. Stand-off (page 5)
+Stand-off distance between an IED and crowded areas is the most important factor [rest not captured]
+Every metre of stand-off counts in mitigating the effects of a blast.
 ` }];
 
   // engine/util.js
@@ -8909,6 +9614,7 @@ Make sure the amputated part is taken to hospital with the patient.
     stop: ["stop reminder", "stop reminders", "stop"],
     show: ["show", "look up", "lookup"],
     record: ["record", "log", "button"],
+    write: ["write", "write down", "text box", "notes box", "free text"],
     end: ["end", "finish", "done"],
     note: ["note", "author note", "comment"]
   };
@@ -8976,11 +9682,23 @@ Make sure the amputated part is taken to hospital with the patient.
         spec.steps.push(step);
         return;
       }
+      if (section !== "steps" && misplacedWrite(bare, n)) return;
       if (section === "top") return readTop(bare, n);
       if (section === "inputs") return readInput(bare, n);
       if (section === "tables") return readTableLine(bare, n);
       if (section === "steps") return readStepLine(bare, n);
     });
+    function misplacedWrite(bare, n) {
+      const kv = keyValue(bare.replace(/^[-*]\s*/, ""));
+      if (!kv || KEY_OF.get(kv.key) !== "write") return false;
+      say(
+        "fix",
+        n,
+        `"${kv.key}: ${kv.value}" is a writing box, but it is outside "## Steps", so the app has nowhere to show it.`,
+        { suggestion: 'Move the line under the "### step" where the person should write it.' }
+      );
+      return true;
+    }
     function readTop(bare, n) {
       const kv = keyValue(bare);
       if (!kv) {
@@ -9104,7 +9822,7 @@ Make sure the amputated part is taken to hospital with the patient.
       if (!kv || !kind) {
         const near = kv && matchKeyStart(kv.key);
         if (near) say("info", n, `"${kv.key}:" is shown as text. If it was meant as a "${near}" line, write "${near[0].toUpperCase() + near.slice(1)}:" on its own.`, { step: step.id });
-        else if (kv && kv.key.split(" ").length === 1) say("info", n, `"${kv.key}:" is not a known line type; shown as text. Known types: Say, Do, Warning, Quote, Ask, Next, Timer, Remind, Stop, Show, Record, End, Note.`, { step: step.id });
+        else if (kv && kv.key.split(" ").length === 1) say("info", n, `"${kv.key}:" is not a known line type; shown as text. Known types: Say, Do, Warning, Quote, Ask, Next, Timer, Remind, Stop, Show, Record, Write, End, Note.`, { step: step.id });
         addLine({ kind: "say", text: text2, cond, line: n });
         return;
       }
@@ -9119,6 +9837,11 @@ Make sure the amputated part is taken to hospital with the patient.
         case "record":
           addLine({ kind: "record", text: value, cond, line: n });
           return;
+        case "write": {
+          if (!value) say("fix", n, `A "${kv.key}:" line has no label, so its box is called "Notes".`, { step: step.id, suggestion: `Say what to write, e.g. "Write: Caller's exact words".` });
+          addLine({ kind: "write", text: value || "Notes", cond, line: n });
+          return;
+        }
         case "show":
           addLine({ kind: "show", ...readShow(value), cond, line: n });
           return;
@@ -9424,6 +10147,7 @@ Make sure the amputated part is taken to hospital with the patient.
         if (labels.has(k) && labels.get(k) !== o.target && !o.cond) add("check", { step: s.id, line: o.line }, `"${s.title}": the answer "${o.label}" appears twice and goes to two different places. Which one is right?`);
         labels.set(k, o.target);
       }
+      checkWriteBoxes(s, add);
       if (!out.length && !s.end && !s.ask?.options.length) {
         add("check", where, `"${s.title}" has no way forward (no answers, "Next", timer or "End"). The app offers "Finish" here.`, 'Add "Next: <step>" or "End:" if this is meant to be the last step.');
       }
@@ -9469,7 +10193,7 @@ Make sure the amputated part is taken to hospital with the patient.
       const stepQuotes = [...s.quotes ?? [], ...s.lines.flatMap((l) => l.quotes ?? []), ...holders.flatMap((h) => h.quotes)];
       for (const q of [...s.quotes ?? [], ...holders.flatMap((h) => h.quotes)]) checkQuote(q, { step: s.id, line: s.line });
       for (const l of s.lines) {
-        const said = l.kind === "show" || l.kind === "note" ? [] : amounts(l.text);
+        const said = l.kind === "show" || l.kind === "note" || l.kind === "write" ? [] : amounts(l.text);
         said.forEach((a) => templateAmounts.add(a));
         if (said.length) {
           numberLines++;
@@ -9526,6 +10250,14 @@ Make sure the amputated part is taken to hospital with the patient.
       sourceAmountsUsed: sourceAmounts.length - missed.length
     };
     return { spec, findings, summary };
+  }
+  function checkWriteBoxes(s, add) {
+    const seen = /* @__PURE__ */ new Set();
+    for (const l of s.lines.filter((x) => x.kind === "write")) {
+      const k = l.text.trim().toLowerCase();
+      if (seen.has(k) && !l.cond) add("check", { step: s.id, line: l.line }, `"${s.title}" has two writing boxes called "${l.text}". The person can't tell them apart, and the Log shows two entries with one name.`, `Give each box its own label, e.g. "Write: Caller's words (first call)".`);
+      seen.add(k);
+    }
   }
   function checkLook(spec, add) {
     spec.brand = { name: "", colour: "", ...spec.brand ?? {} };
@@ -9635,6 +10367,7 @@ ${fontsLink}
       timerDone: false,
       reminders: {},
       records: {},
+      notes: {},
       note: ""
     };
     const byId = new Map(spec.steps.map((s) => [s.id, s]));
@@ -9678,6 +10411,7 @@ ${fontsLink}
       go(spec.start, null);
     }
     function go(target, why) {
+      saveAllNotes();
       if (target === END) return finish(why);
       const step = byId.get(target);
       if (!step) {
@@ -9708,6 +10442,7 @@ ${fontsLink}
     function back() {
       const prev = S.history.pop();
       if (!prev) return;
+      saveAllNotes();
       S.current = prev.id;
       S.enteredAt = prev.enteredAt;
       S.timerDone = prev.timerDone;
@@ -9717,6 +10452,7 @@ ${fontsLink}
       render();
     }
     function finish(why) {
+      saveAllNotes();
       S.screen = "done";
       log("Finished", why ?? "");
       render();
@@ -9726,17 +10462,67 @@ ${fontsLink}
         localStorage.removeItem(KEY);
       } catch {
       }
-      Object.assign(S, { screen: "start", tab: "steps", current: null, history: [], ticks: {}, log: [], startedAt: null, reminders: {}, records: {}, note: "" });
+      Object.assign(S, { screen: "start", tab: "steps", current: null, history: [], ticks: {}, log: [], startedAt: null, reminders: {}, records: {}, notes: {}, note: "" });
       render();
     }
+    function lineAt(key) {
+      const [id, k] = [key.slice(0, key.lastIndexOf(":")), +key.split(":").pop()];
+      return byId.get(id)?.lines.filter((x) => x.kind !== "note")[k] ?? null;
+    }
+    function typeNote(key, text) {
+      var _a;
+      const n = (_a = S.notes)[key] ?? (_a[key] = { label: lineAt(key)?.text ?? "Notes", text: "", saved: "", at: 0 });
+      n.text = String(text ?? "");
+    }
+    function saveNote(key) {
+      const n = S.notes[key];
+      if (!n || n.text.trim() === n.saved.trim()) return false;
+      n.saved = n.text;
+      n.at = now();
+      log(n.label, n.text.trim() ? n.text.trim() : "(cleared)");
+      return true;
+    }
+    function cleanNotes(saved) {
+      const out = {};
+      if (saved && typeof saved === "object") for (const [key, n] of Object.entries(saved)) {
+        if (n && typeof n === "object") out[key] = { label: String(n.label ?? "Notes"), text: String(n.text ?? ""), saved: String(n.saved ?? ""), at: Number(n.at) || 0 };
+      }
+      return out;
+    }
+    function saveAllNotes() {
+      for (const key of Object.keys(S.notes)) saveNote(key);
+    }
+    function noteStatus(key) {
+      const n = S.notes[key];
+      if (n && n.text.trim() !== n.saved.trim()) return "Not saved yet. It saves when you tap Save or leave this box.";
+      return n?.at ? `Saved in the Log at ${tod(n.at)}${S.startedAt ? ` (${clock(n.at - S.startedAt)} after start)` : ""}` : "Saved in the Log when you tap Save or leave this box.";
+    }
+    function showNoteStatus(key) {
+      for (const el of root.querySelectorAll("[data-note-status]")) if (el.dataset.noteStatus === key) el.textContent = noteStatus(key);
+    }
     function render() {
+      const typing = typingIn();
       root.innerHTML = `
       <header class="bar"><div class="t">${brand.name ? `<span class="brand">${escapeHtml(brand.name)}</span>` : ""}${escapeHtml(spec.title)}</div><div class="clock" data-clock="elapsed">${S.startedAt ? clock(now() - S.startedAt) : ""}</div></header>
       <div class="proto">Prototype built automatically from a guideline. ${spec.reviewedBy ? "Reviewed by " + escapeHtml(spec.reviewedBy) + "." : "Not reviewed."} Not for real-world use.</div>
       ${reminderBar()}
       <main id="main">${S.tab === "steps" ? S.screen === "start" ? startView() : S.screen === "done" ? doneView() : stepView() : S.tab === "log" ? logView() : S.tab === "checks" ? checksView() : aboutView()}</main>
       <nav class="tabs">${["steps", "log", "checks", "about"].map((t) => `<button data-tab="${t}" class="${S.tab === t ? "on" : ""}">${{ steps: "Steps", log: "Log", checks: `Checks${counts.fix + counts.check ? ` (${counts.fix + counts.check})` : ""}`, about: "About" }[t]}</button>`).join("")}</nav>`;
+      keepTyping(typing);
       tick();
+    }
+    function typingIn() {
+      const el = root.ownerDocument.activeElement;
+      return el?.dataset?.note ? { key: el.dataset.note, from: el.selectionStart, to: el.selectionEnd } : null;
+    }
+    function keepTyping(t) {
+      if (!t) return;
+      const el = [...root.querySelectorAll("[data-note]")].find((x) => x.dataset.note === t.key);
+      try {
+        el?.focus();
+        el?.setSelectionRange(t.from, t.to);
+      } catch {
+      }
     }
     function startView() {
       return `<section class="card">
@@ -9804,6 +10590,13 @@ ${fontsLink}
       if (l.kind === "record") {
         const r = S.records[l.text];
         return `<div class="rec"><button class="big rec-btn" data-rec="${escapeHtml(l.text)}">${escapeHtml(l.text)}</button><small data-clock="rec" data-rec-name="${escapeHtml(l.text)}">${r ? `${r.n}\xD7 \xB7 last at ${tod(r.last)}, ${formatDuration(now() - r.last)} ago` : "not yet"}</small>${dep}${q}</div>`;
+      }
+      if (l.kind === "write") {
+        const id = `note-${slug(key)}`;
+        return `<div class="note-box"><label class="note-lbl" for="${id}">${escapeHtml(l.text)}</label>${dep}${q}
+        <textarea id="${id}" class="note-text" data-note="${escapeHtml(key)}" rows="5" autocomplete="off" spellcheck="false">${escapeHtml(S.notes[key]?.text ?? "")}</textarea>
+        <button class="big note-save" data-note-save="${escapeHtml(key)}">Save to Log</button>
+        <small class="note-status" data-note-status="${escapeHtml(key)}">${escapeHtml(noteStatus(key))}</small></div>`;
       }
       if (l.kind === "show") return `<div class="show">${showTable(l)}${dep}${q}</div>`;
       return `<p class="${l.bullet ? "bul" : ""}">${escapeHtml(l.text)}${dep}${q}</p>`;
@@ -9940,7 +10733,7 @@ ${fontsLink}
         if (j) {
           const old = JSON.parse(j);
           if (old.screen === "run" && old.current && byId.has(old.current)) {
-            Object.assign(S, old, { tab: "steps", note: "Carried on from where this was left (the page was reloaded)." });
+            Object.assign(S, old, { tab: "steps", notes: cleanNotes(old.notes), note: "Carried on from where this was left (the page was reloaded)." });
           }
         }
       } catch {
@@ -9952,6 +10745,7 @@ ${fontsLink}
       if (!b) return;
       const d = b.dataset;
       if (d.tab) {
+        saveAllNotes();
         S.tab = d.tab;
         render();
         return;
@@ -9971,6 +10765,12 @@ ${fontsLink}
           return;
         }
         return go(o.target, `${s.ask.question || s.title}: ${o.label}`);
+      }
+      if (d.noteSave !== void 0) {
+        typeNote(d.noteSave, [...root.querySelectorAll("[data-note]")].find((x) => x.dataset.note === d.noteSave)?.value ?? S.notes[d.noteSave]?.text);
+        saveNote(d.noteSave);
+        render();
+        return;
       }
       if (d.rec) {
         const r = (_a = S.records)[_b = d.rec] ?? (_a[_b] = { n: 0, last: 0 });
@@ -10030,6 +10830,12 @@ ${fontsLink}
     });
     root.addEventListener("change", (e) => {
       const el = e.target;
+      if (el.dataset.note) {
+        typeNote(el.dataset.note, el.value);
+        saveNote(el.dataset.note);
+        showNoteStatus(el.dataset.note);
+        return;
+      }
       if (el.dataset.num && S.screen === "run") log("Detail changed", `${el.dataset.num}: ${el.value.trim()}`);
       if (el.dataset.tick) {
         S.ticks[el.dataset.tick] = el.checked;
@@ -10040,6 +10846,11 @@ ${fontsLink}
     });
     root.addEventListener("input", (e) => {
       const el = e.target;
+      if (el.dataset.note) {
+        typeNote(el.dataset.note, el.value);
+        showNoteStatus(el.dataset.note);
+        return;
+      }
       if (el.dataset.num) {
         S.answers[el.dataset.num] = el.value.trim();
         const i = spec.inputs.find((x) => x.id === el.dataset.num);
@@ -10103,7 +10914,7 @@ ${fontsLink}
     }, 2500);
   }
   function appFile() {
-    return appPage({ ...latest, built: (/* @__PURE__ */ new Date()).toISOString().slice(0, 10) + " (studio)" }, { css: '/* Phone-first, portrait, large tap targets. One stylesheet for every generated app; looks (engine/looks/) restyle it.\n   --brand is set by the runtime when the template gives "Brand colour:"; each look decides where it shows. */\n:root { --ink:#1b1f24; --mut:#5d6670; --bg:#f4f5f7; --card:#fff; --line:#dde1e6; --go:var(--brand, #0b6e4f); --warn:#9a3412; --warnbg:#fff4e5; --due:#b91c1c; --author:#6b21a8; --authorbg:#f5ecff; }\n* { box-sizing: border-box; }\nhtml, body { margin:0; background:var(--bg); color:var(--ink); font:17px/1.45 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }\n#app { max-width: 560px; margin: 0 auto; min-height: 100vh; padding-bottom: 72px; }\n.bar { position: sticky; top: 0; z-index: 3; display:flex; justify-content:space-between; align-items:center; gap:8px; padding:10px 14px; background:#14213d; color:#fff; }\n.bar .t { font-weight:600; font-size:16px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }\n.bar .brand { font-weight:800; margin-right:6px; }\n.bar .clock:empty { display:none; }\n.bar .clock { font-variant-numeric: tabular-nums; font-size:18px; }\n.proto { font-size:12px; color:var(--author); background:var(--authorbg); padding:4px 14px; }\n.card { background:var(--card); margin:10px; padding:14px 16px; border-radius:12px; border:1px solid var(--line); }\nh1 { font-size:22px; margin:4px 0 8px; } h2 { font-size:21px; margin:2px 0 10px; } h3 { font-size:15px; margin:16px 0 6px; color:var(--mut); text-transform:uppercase; letter-spacing:.04em; }\np { margin: 8px 0; } p.bul::before { content:"\u2022 "; color:var(--mut); }\n.big { display:block; width:100%; min-height:52px; margin:10px 0 0; padding:12px 14px; font:inherit; font-weight:600; border-radius:10px; border:1px solid var(--line); background:#eef1f4; color:var(--ink); text-align:left; }\n.big.go { background:var(--go); color:#fff; border-color:var(--go); text-align:center; }\n.big.opt { background:#e8f0fe; border-color:#b7c9f5; }\n.big.opt.broken { border-style:dashed; border-color:var(--author); }\n.big.skip { background:transparent; text-align:center; font-weight:500; color:var(--mut); }\n.link { background:none; border:0; color:#1d4ed8; font:inherit; padding:0; }\n.crumb { display:flex; justify-content:space-between; font-size:14px; color:var(--mut); }\n.q { font-weight:600; font-size:19px; margin-top:16px; }\n.warn { background:var(--warnbg); color:var(--warn); border-left:4px solid var(--warn); padding:8px 10px; border-radius:6px; font-weight:600; }\n.author { background:var(--authorbg); color:var(--author); border-left:4px solid var(--author); padding:8px 10px; border-radius:6px; font-size:15px; }\n.do { display:flex; flex-wrap:wrap; gap:10px; align-items:flex-start; padding:10px 0; border-bottom:1px solid var(--line); }\n.do input { width:26px; height:26px; margin:0; flex:none; } .do span { flex:1; }\n.do .src, .do .dep { flex-basis:100%; margin-left:36px; }\n.dep { display:block; color:var(--author); font-size:13px; }\ndetails.src { font-size:14px; color:var(--mut); margin:2px 0 4px; } details.src summary { cursor:pointer; color:#1d4ed8; }\ndetails.src q { font-style:italic; }\n.timer { margin:14px 0; padding:12px; border-radius:10px; background:#eef6f2; text-align:center; }\n.timer .lbl { color:var(--mut); font-size:14px; }\n.big-clock { font-size:44px; font-weight:700; font-variant-numeric:tabular-nums; }\n.timer.due { background:#fde8e8; } .timer.due .big-clock { color:var(--due); }\n.reminders { position:sticky; top:44px; z-index:2; background:var(--bg); padding:6px 10px 0; }\n.rem { display:flex; align-items:center; gap:8px; background:#fff; border:1px solid var(--line); border-radius:10px; padding:6px 8px; margin-bottom:6px; }\n.rem .rt { flex:1; font-weight:600; font-size:15px; } .rem .rc { font-variant-numeric:tabular-nums; font-size:15px; }\n.rem button { font:inherit; font-size:14px; padding:8px 10px; border-radius:8px; border:1px solid var(--line); background:#eef1f4; }\n.rem.due { border-color:var(--due); background:#fde8e8; } .rem.due .rc { color:var(--due); font-weight:700; }\n.rec { padding:6px 0; } .rec small { color:var(--mut); }\n.rec-btn { background:#fff7e6; border-color:#f2c46d; }\n.lookup { border:1px solid var(--line); border-radius:10px; padding:8px 10px; margin:8px 0; }\n.lookup .lk { font-weight:600; } .lookup .lv { display:flex; justify-content:space-between; gap:10px; padding:4px 0; border-top:1px dashed var(--line); }\ntable { border-collapse:collapse; width:100%; font-size:14px; } th, td { border:1px solid var(--line); padding:4px 6px; text-align:left; }\n.inputs { margin:10px 0; } .inp { display:block; margin:10px 0; font-weight:600; }\n.inp input { display:block; width:100%; font:inherit; padding:10px; border-radius:8px; border:1px solid var(--line); margin-top:4px; }\n.inp small { font-weight:400; color:var(--mut); } .inp .bad { color:var(--due); font-weight:400; font-size:14px; }\n.choices { display:flex; flex-wrap:wrap; gap:6px; margin-top:4px; }\n.choices button { font:inherit; padding:10px 12px; border-radius:8px; border:1px solid var(--line); background:#eef1f4; }\n.choices button.on { background:#14213d; color:#fff; }\n.log { padding-left:0; list-style:none; } .log li { padding:6px 0; border-bottom:1px solid var(--line); } .log time { display:inline-block; min-width:56px; font-variant-numeric:tabular-nums; color:var(--mut); } .log .tod { font-variant-numeric:tabular-nums; font-size:.85em; color:var(--mut); margin-right:4px; }\n.findings { padding-left:18px; } .findings li { margin:8px 0; font-size:15px; }\n.lvl-fix { color:var(--due); } .lvl-check { color:var(--warn); } .lvl-info { color:var(--mut); }\n.tabs { position:fixed; bottom:0; left:0; right:0; display:flex; background:#fff; border-top:1px solid var(--line); max-width:560px; margin:0 auto; }\n.tabs button { flex:1; font:inherit; font-size:15px; padding:14px 4px; background:none; border:0; color:var(--mut); }\n.look-link { text-align:center; font-size:14px; margin-top:14px; }\n.look-pick { display:flex; flex-wrap:wrap; gap:6px; }\n.look-pick button { font:inherit; padding:10px 14px; border-radius:999px; border:1px solid var(--line); background:var(--card); color:var(--ink); }\n.look-pick button.on { background:var(--go); border-color:var(--go); color:#fff; }\n.tabs button.on { color:#14213d; font-weight:700; box-shadow: inset 0 3px 0 #14213d; }\n\n/* look: Clinic */\nhtml[data-look="clinic"]{ --ink:#16232b; --mut:#5b6b75; --bg:#eef3f4; --card:#fff; --line:#dfe7ea; --go:var(--brand, #0f766e); --gosoft:#d9f0ec; --gosoft:color-mix(in srgb, var(--go) 15%, #fff);\n  --warn:#9a3412; --warnbg:#fff1e6; --due:#c2410c; --author:#6b21a8; --authorbg:#f4edfb; }html[data-look="clinic"], html[data-look="clinic"] body{ font-family:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; background:var(--bg); }html[data-look="clinic"] .bar{ background:var(--bg); color:var(--ink); padding:14px 18px 6px; }html[data-look="clinic"] .bar .t{ font-size:15px; color:var(--mut); font-weight:600; }html[data-look="clinic"] .bar .clock{ background:var(--card); border-radius:999px; padding:4px 12px; font-size:15px; font-weight:600; color:var(--go); }html[data-look="clinic"] .proto{ background:transparent; color:var(--mut); padding:0 18px 4px; font-size:12px; }html[data-look="clinic"] .card{ border:0; border-radius:22px; padding:20px; margin:10px 12px; box-shadow:0 1px 2px rgba(22,35,43,.05), 0 8px 24px rgba(22,35,43,.06); }html[data-look="clinic"] h1, html[data-look="clinic"] h2{ font-family:"Inter", system-ui, sans-serif; font-weight:700; letter-spacing:-.02em; text-wrap:balance; }html[data-look="clinic"] h2{ font-size:24px; }html[data-look="clinic"] h3{ color:var(--go); }html[data-look="clinic"] .crumb{ font-size:13px; }html[data-look="clinic"] .crumb span{ background:var(--gosoft); color:var(--go); border-radius:999px; padding:2px 10px; font-weight:600; }html[data-look="clinic"] .big{ border-radius:16px; border:0; background:#f1f5f6; min-height:56px; }html[data-look="clinic"] .big.go{ background:var(--go); border-radius:999px; box-shadow:0 6px 16px rgba(15,118,110,.25); }html[data-look="clinic"] .big.opt{ background:#f4f8f8; border:1.5px solid var(--line); position:relative; padding-right:40px; }html[data-look="clinic"] .big.opt::after{ content:"\u203A"; position:absolute; right:16px; top:50%; transform:translateY(-52%); font-size:26px; color:var(--go); }html[data-look="clinic"] .q{ font-size:20px; }html[data-look="clinic"] .warn{ border:0; border-radius:14px; padding:12px 14px; }html[data-look="clinic"] .do{ border-bottom:0; background:#f6f9f9; border-radius:14px; padding:12px; margin:8px 0; }html[data-look="clinic"] .do input{ accent-color:var(--go); border-radius:50%; }html[data-look="clinic"] .timer{ background:var(--gosoft); border-radius:20px; padding:18px; position:relative; overflow:hidden; }html[data-look="clinic"] .timer::after{ content:""; position:absolute; left:0; bottom:0; height:6px; width:calc(var(--p, 0) * 100%); background:var(--go); transition:width .25s linear; }html[data-look="clinic"] .big-clock{ color:var(--go); font-size:52px; letter-spacing:-.02em; }html[data-look="clinic"] .rem{ border:0; border-radius:16px; box-shadow:0 4px 14px rgba(22,35,43,.08); }html[data-look="clinic"] .tabs{ left:12px; right:12px; bottom:10px; border:0; border-radius:20px; box-shadow:0 8px 30px rgba(22,35,43,.15); overflow:hidden; }html[data-look="clinic"] .tabs button.on{ color:var(--go); box-shadow:none; background:var(--gosoft); }html[data-look="clinic"] .choices button{ border-radius:999px; }html[data-look="clinic"] .choices button.on{ background:var(--go); border-color:var(--go); }\n\n/* look: Wayfinding */\nhtml[data-look="wayfinding"]{ --ink:#0a0a0a; --mut:#555; --bg:#ffffff; --card:#fff; --line:#0a0a0a; --go:#0a0a0a; --route:var(--brand, #e4002b); --sign:#ffd400;\n  --warn:#0a0a0a; --warnbg:#ffd400; --due:#e4002b; --author:#5b21b6; --authorbg:#efe9fb; }html[data-look="wayfinding"], html[data-look="wayfinding"] body{ font-family:"Archivo", "Helvetica Neue", Arial, sans-serif; background:var(--bg); }html[data-look="wayfinding"] .bar{ background:var(--ink); padding:12px 16px; }html[data-look="wayfinding"] .bar .t{ font-weight:800; letter-spacing:.01em; }html[data-look="wayfinding"] .bar .clock{ background:var(--sign); color:var(--ink); padding:2px 10px; font-weight:800; }html[data-look="wayfinding"] .proto{ background:#f2f2f2; color:var(--mut); }html[data-look="wayfinding"] .card{ border:0; border-radius:0; margin:0; padding:18px 18px 20px; }html[data-look="wayfinding"] h1, html[data-look="wayfinding"] h2{ font-weight:900; letter-spacing:-.02em; line-height:1.05; text-wrap:balance; }html[data-look="wayfinding"] h1{ font-size:32px; }html[data-look="wayfinding"] h2{ font-size:30px; margin-top:6px; }html[data-look="wayfinding"] .crumb{ flex-direction:row-reverse; justify-content:flex-end; gap:14px; align-items:center; }html[data-look="wayfinding"] .crumb span{ display:inline-grid; place-items:center; min-width:40px; height:40px; padding:0 8px; background:var(--route); color:#fff; font-weight:900; font-size:15px; border-radius:999px; }html[data-look="wayfinding"] .big{ border-radius:0; border:2px solid var(--ink); background:#fff; font-weight:800; min-height:58px; }html[data-look="wayfinding"] .big.go{ background:var(--ink); color:#fff; border-color:var(--ink); text-align:left; position:relative; padding-right:44px; }html[data-look="wayfinding"] .big.go::after{ content:"\u2192"; position:absolute; right:16px; top:50%; transform:translateY(-50%); font-size:22px; }html[data-look="wayfinding"] .big.opt{ background:#fff; border-color:var(--ink); position:relative; padding-right:44px; }html[data-look="wayfinding"] .big.opt::after{ content:"\u2192"; position:absolute; right:16px; top:50%; transform:translateY(-50%); color:var(--route); font-size:22px; }html[data-look="wayfinding"] .big.skip{ border:0; text-decoration:underline; }html[data-look="wayfinding"] .link{ color:var(--ink); text-decoration:underline; font-weight:700; }html[data-look="wayfinding"] .q{ font-size:22px; font-weight:900; }html[data-look="wayfinding"] .warn{ background:var(--sign); color:var(--ink); border:0; border-radius:0; padding:12px 14px; font-weight:800; }html[data-look="wayfinding"] .warn::before{ content:"!"; display:inline-grid; place-items:center; width:22px; height:22px; margin-right:8px; background:var(--ink); color:var(--sign); font-weight:900; border-radius:3px; vertical-align:-3px; }html[data-look="wayfinding"] .do{ position:relative; border-bottom:0; padding:12px 0 12px 44px; font-weight:700; }html[data-look="wayfinding"] .do::before{ content:""; position:absolute; left:15px; top:0; bottom:0; width:6px; background:var(--route); }html[data-look="wayfinding"] .do input{ position:absolute; left:6px; top:12px; width:24px; height:24px; accent-color:var(--route); }html[data-look="wayfinding"] .do .src, html[data-look="wayfinding"] .do .dep{ margin-left:0; }html[data-look="wayfinding"] details.src summary{ color:var(--ink); text-decoration:underline; }html[data-look="wayfinding"] .timer{ background:var(--ink); color:#fff; border-radius:0; text-align:left; padding:14px 16px; }html[data-look="wayfinding"] .timer .lbl{ color:#bbb; text-transform:uppercase; letter-spacing:.08em; font-size:12px; font-weight:700; }html[data-look="wayfinding"] .timer::after{ content:""; display:block; height:8px; margin-top:10px; background:linear-gradient(90deg, var(--sign) calc(var(--p, 0) * 100%), #333 0); }html[data-look="wayfinding"] .big-clock{ font-size:60px; font-weight:900; color:var(--sign); }html[data-look="wayfinding"] .timer.due{ background:var(--due); }html[data-look="wayfinding"] .timer.due .big-clock{ color:#fff; }html[data-look="wayfinding"] .rem{ border:2px solid var(--ink); border-radius:0; }html[data-look="wayfinding"] .rem button{ border-radius:0; border:2px solid var(--ink); background:#fff; font-weight:700; }html[data-look="wayfinding"] .rem.due{ background:var(--sign); }html[data-look="wayfinding"] .choices button{ border-radius:0; border:2px solid var(--ink); background:#fff; font-weight:700; }html[data-look="wayfinding"] .choices button.on{ background:var(--ink); color:#fff; }html[data-look="wayfinding"] .look-pick button{ border-radius:0; border:2px solid var(--ink); font-weight:700; }html[data-look="wayfinding"] .tabs{ border-top:2px solid var(--ink); }html[data-look="wayfinding"] .tabs button{ font-weight:800; color:var(--mut); }html[data-look="wayfinding"] .tabs button.on{ color:var(--ink); box-shadow:inset 0 4px 0 var(--route); }\n\n/* look: Flight deck */\nhtml[data-look="flightdeck"]{ --ink:#e8edf2; --mut:#8a97a6; --bg:#0b0f14; --card:#121820; --line:#253040; --go:#38bdf8; --warn:#ffb020; --warnbg:#2a1f08;\n  --due:#ff5a4f; --author:#c4a1ff; --authorbg:#1f1830; color-scheme:dark; }html[data-look="flightdeck"], html[data-look="flightdeck"] body{ font-family:"IBM Plex Sans", system-ui, sans-serif; background:var(--bg); color:var(--ink); }html[data-look="flightdeck"] .bar{ background:#070a0e; border-bottom:1px solid var(--line); border-top:4px solid var(--brand, #070a0e); }html[data-look="flightdeck"] .bar .t{ font-family:"IBM Plex Sans Condensed", "IBM Plex Sans", sans-serif; text-transform:uppercase; letter-spacing:.08em; font-size:14px; color:var(--mut); }html[data-look="flightdeck"] .bar .clock{ font-family:"IBM Plex Mono", ui-monospace, monospace; color:var(--go); }html[data-look="flightdeck"] .proto{ background:#0f0b18; }html[data-look="flightdeck"] .card{ background:var(--card); border:1px solid var(--line); border-radius:4px; margin:8px; }html[data-look="flightdeck"] h1, html[data-look="flightdeck"] h2{ font-family:"IBM Plex Sans Condensed", "IBM Plex Sans", sans-serif; text-transform:uppercase; letter-spacing:.04em; font-weight:700; }html[data-look="flightdeck"] h2{ font-size:22px; border-bottom:1px solid var(--line); padding-bottom:10px; }html[data-look="flightdeck"] h3{ color:var(--warn); }html[data-look="flightdeck"] .crumb{ font-family:"IBM Plex Mono", monospace; font-size:12px; text-transform:uppercase; }html[data-look="flightdeck"] .link{ color:var(--go); }html[data-look="flightdeck"] .big{ border-radius:4px; background:transparent; border:1px solid var(--line); color:var(--ink); }html[data-look="flightdeck"] .big.go{ background:var(--go); color:#04121c; border-color:var(--go); text-transform:uppercase; letter-spacing:.06em; }html[data-look="flightdeck"] .big.opt{ background:#0f1a24; border-color:#1f3a50; color:var(--ink); }html[data-look="flightdeck"] .big.opt::before{ content:"\u25B8 "; color:var(--go); }html[data-look="flightdeck"] .big.skip{ color:var(--mut); }html[data-look="flightdeck"] .q{ font-family:"IBM Plex Sans Condensed", sans-serif; text-transform:uppercase; letter-spacing:.04em; color:var(--go); }html[data-look="flightdeck"] .warn{ background:var(--warnbg); color:var(--warn); border-left:4px solid var(--warn); border-radius:2px; text-transform:uppercase; font-size:15px; letter-spacing:.02em; }html[data-look="flightdeck"] .do{ border-bottom:1px dashed var(--line); font-weight:500; }html[data-look="flightdeck"] .do input{ accent-color:var(--go); border-radius:0; }html[data-look="flightdeck"] details.src summary{ color:var(--go); }html[data-look="flightdeck"] details.src{ color:var(--mut); }html[data-look="flightdeck"] .timer{ background:#06121b; border:1px solid #1f3a50; border-radius:4px; position:relative; }html[data-look="flightdeck"] .timer::after{ content:""; display:block; height:4px; margin-top:10px; background:linear-gradient(90deg, var(--go) calc(var(--p, 0) * 100%), #1c2633 0); }html[data-look="flightdeck"] .timer .lbl{ text-transform:uppercase; letter-spacing:.1em; font-size:12px; }html[data-look="flightdeck"] .big-clock{ font-family:"IBM Plex Mono", ui-monospace, monospace; font-weight:500; color:var(--go); font-size:56px; }html[data-look="flightdeck"] .timer.due{ background:#2a0d0b; border-color:var(--due); }html[data-look="flightdeck"] .timer.due .big-clock{ color:var(--due); }html[data-look="flightdeck"] .reminders{ background:var(--bg); }html[data-look="flightdeck"] .rem{ background:var(--card); border-color:var(--line); border-radius:4px; }html[data-look="flightdeck"] .rem button{ background:transparent; color:var(--ink); border-color:var(--line); }html[data-look="flightdeck"] .rem.due{ background:#2a0d0b; border-color:var(--due); }html[data-look="flightdeck"] .lookup, html[data-look="flightdeck"] th, html[data-look="flightdeck"] td{ border-color:var(--line); }html[data-look="flightdeck"] .inp input{ background:#0b1118; color:var(--ink); border-color:var(--line); }html[data-look="flightdeck"] .choices button{ background:transparent; color:var(--ink); border-color:var(--line); border-radius:4px; }html[data-look="flightdeck"] .choices button.on, html[data-look="flightdeck"] .look-pick button.on{ background:var(--go); color:#04121c; }html[data-look="flightdeck"] .log time{ font-family:"IBM Plex Mono", monospace; }html[data-look="flightdeck"] .tabs{ background:#070a0e; border-top:1px solid var(--line); }html[data-look="flightdeck"] .tabs button{ text-transform:uppercase; letter-spacing:.08em; font-size:13px; }html[data-look="flightdeck"] .tabs button.on{ color:var(--go); box-shadow:inset 0 3px 0 var(--go); }\n', js: '(() => {\n  // engine/util.js\n  var slug = (text) => String(text).toLowerCase().normalize("NFKD").replace(/\\p{M}/gu, "").replace(/[^\\p{L}\\p{N}]+/gu, "-").replace(/^-+|-+$/g, "") || "step";\n  function formatDuration(ms) {\n    const s = Math.max(0, Math.round(ms / 1e3));\n    const h = Math.floor(s / 3600), m = Math.floor(s % 3600 / 60), r = s % 60;\n    if (h) return `${h} h ${String(m).padStart(2, "0")} min`;\n    if (m) return r ? `${m} min ${r} s` : `${m} min`;\n    return `${r} s`;\n  }\n  function clock(ms) {\n    const s = Math.max(0, Math.ceil(ms / 1e3));\n    const h = Math.floor(s / 3600), m = Math.floor(s % 3600 / 60), r = s % 60;\n    return (h ? `${h}:${String(m).padStart(2, "0")}` : `${m}`) + ":" + String(r).padStart(2, "0");\n  }\n  function testCondition(cond, answers, inputs) {\n    if (!cond) return true;\n    let unknown = false;\n    for (const c of cond) {\n      const input = findByName(inputs, c.input, (i) => [i.id, i.label]);\n      const value = input ? answers[input.id] : answers[slug(c.input)];\n      if (value === void 0 || value === null || value === "") {\n        unknown = true;\n        continue;\n      }\n      const ok = compare(value, c.op, c.values);\n      if (!ok) return false;\n    }\n    return unknown ? null : true;\n  }\n  function compare(value, op, values) {\n    if (op === "=" || op === "!=") {\n      const hit = values.some((v) => String(v).toLowerCase() === String(value).toLowerCase());\n      return op === "=" ? hit : !hit;\n    }\n    const a = Number(value), b = parseFloat(values[0]);\n    return op === "<" ? a < b : op === "<=" ? a <= b : op === ">" ? a > b : a >= b;\n  }\n  function findByName(list, name, namesOf) {\n    const want = slug(name);\n    return list.find((x) => namesOf(x).some((n) => slug(n) === want)) ?? null;\n  }\n  function keyMatches(key, value) {\n    if (value === void 0 || value === null || value === "") return false;\n    if (key.kind === "value") return String(value).toLowerCase() === key.value.toLowerCase();\n    const v = Number(value);\n    if (Number.isNaN(v)) return false;\n    if (key.kind === "number") return v === key.value;\n    const low = key.low ?? -Infinity, high = key.high ?? Infinity;\n    return (key.lowIn ? v >= low : v > low) && (key.highIn ? v <= high : v < high);\n  }\n  var isNotStated = (cell) => /^\\s*(-|\u2013|\u2014|n\\/?a)?\\s*$/i.test(cell ?? "");\n\n  // engine/page.js\n  var escapeHtml = (text) => String(text ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", \'"\': "&quot;" })[c]);\n\n  // engine/quotes.js\n  var UNIT = "(?:\\u2103|mg|mcg|micrograms?|g|kg|ml|mL|l|L|litres?|liters?|mmol|J|joules?|%|\\xB0C|degrees|seconds?|secs?|s|minutes?|mins?|hours?|hrs?|h|days?|weeks?|times|cm|mm|m|metres?|meters?|km|breaths|compressions)";\n  var AMOUNT = new RegExp("(\\\\d+(?:\\\\.\\\\d+)?)(?:\\\\s?(?:-|to|\\u2013)\\\\s?(\\\\d+(?:\\\\.\\\\d+)?))?\\\\s?(" + UNIT + ")(?![\\\\p{L}])", "giu");\n\n  // engine/looks.js\n  var LOOKS = [\n    {\n      id: "clinic",\n      name: "Clinic",\n      from: "Patient and wellbeing apps: calm cards, one teal action colour, soft and friendly.",\n      fonts: "family=Inter:wght@400;600;700"\n    },\n    {\n      id: "wayfinding",\n      name: "Wayfinding",\n      from: "Transit maps and road signs: bold type, actions as stations on a line, sign-yellow cautions.",\n      fonts: "family=Archivo:wght@500;700;800;900"\n    },\n    {\n      id: "flightdeck",\n      name: "Flight deck",\n      from: "Aviation checklists and cockpit displays: dark, high contrast, built for stress and low light.",\n      fonts: "family=IBM+Plex+Sans:wght@400;500;700&family=IBM+Plex+Sans+Condensed:wght@600;700&family=IBM+Plex+Mono:wght@500"\n    }\n  ];\n  var DEFAULT_LOOK = LOOKS[0].id;\n\n  // engine/check.js\n  var END = "__end";\n\n  // engine/runtime.js\n  function mount(root, { spec, findings = [], summary = {}, built = "" }) {\n    const S = {\n      screen: "start",\n      tab: "steps",\n      answers: {},\n      current: null,\n      history: [],\n      ticks: {},\n      log: [],\n      startedAt: null,\n      enteredAt: null,\n      timerDone: false,\n      reminders: {},\n      records: {},\n      note: ""\n    };\n    const byId = new Map(spec.steps.map((s) => [s.id, s]));\n    const now = () => Date.now();\n    const log = (what, detail = "") => S.log.push({ at: now(), what, detail });\n    const tod = (ms) => {\n      const d = new Date(ms);\n      return `${String(d.getHours()).padStart(2, "0")}:${String(d.getMinutes()).padStart(2, "0")}`;\n    };\n    const brand = spec.brand ?? {};\n    const html = root.ownerDocument.documentElement;\n    const lookLocked = html.hasAttribute("data-look-lock");\n    const LOOK_KEY = "guideline-app-look";\n    const savedLook = () => {\n      try {\n        return localStorage.getItem(LOOK_KEY);\n      } catch {\n        return null;\n      }\n    };\n    function applyLook(id) {\n      if (!lookLocked) html.dataset.look = LOOKS.some((l) => l.id === id) ? id : spec.look || DEFAULT_LOOK;\n      if (brand.colour) html.style.setProperty("--brand", brand.colour);\n    }\n    function pickLook(id) {\n      try {\n        localStorage.setItem(LOOK_KEY, id);\n      } catch {\n      }\n      applyLook(id);\n      render();\n    }\n    applyLook(savedLook());\n    const counts = { fix: findings.filter((f) => f.level === "fix").length, check: findings.filter((f) => f.level === "check").length };\n    function begin() {\n      S.startedAt = now();\n      S.screen = "run";\n      log("Started");\n      const inputsGiven = spec.inputs.filter((i) => S.answers[i.id] !== void 0 && S.answers[i.id] !== "");\n      if (inputsGiven.length) log("Details", inputsGiven.map((i) => `${i.label}: ${S.answers[i.id]}${i.unit ? " " + i.unit : ""}`).join(", "));\n      go(spec.start, null);\n    }\n    function go(target, why) {\n      if (target === END) return finish(why);\n      const step = byId.get(target);\n      if (!step) {\n        S.note = "This leads to a step that is missing from the template (see Checks). Choose another option or go back.";\n        render();\n        return;\n      }\n      if (S.current) S.history.push({ id: S.current, enteredAt: S.enteredAt, timerDone: S.timerDone, reminders: JSON.parse(JSON.stringify(S.reminders)) });\n      S.current = step.id;\n      S.enteredAt = now();\n      S.timerDone = false;\n      S.note = "";\n      for (const k of Object.keys(S.ticks)) if (k.startsWith(step.id + ":")) delete S.ticks[k];\n      log(step.title, why ?? "");\n      if (step.stop) for (const id of Object.keys(S.reminders)) {\n        const want = step.stop.toLowerCase();\n        if (want === "all" || slug(step.stop) === id || S.reminders[id].text.toLowerCase().startsWith(want)) {\n          log("Reminder stopped", S.reminders[id].text);\n          delete S.reminders[id];\n        }\n      }\n      for (const r of step.reminders) if (!S.reminders[r.id]) {\n        S.reminders[r.id] = { text: r.text, ms: r.ms, every: r.every, once: !!r.once, dueAt: now() + r.ms, alerted: false };\n        log("Reminder started", `${r.text} (${r.once ? "after" : "every"} ${r.every})`);\n      }\n      render();\n    }\n    function back() {\n      const prev = S.history.pop();\n      if (!prev) return;\n      S.current = prev.id;\n      S.enteredAt = prev.enteredAt;\n      S.timerDone = prev.timerDone;\n      S.reminders = prev.reminders;\n      S.note = "";\n      log("Went back to", byId.get(prev.id).title);\n      render();\n    }\n    function finish(why) {\n      S.screen = "done";\n      log("Finished", why ?? "");\n      render();\n    }\n    function restart() {\n      try {\n        localStorage.removeItem(KEY);\n      } catch {\n      }\n      Object.assign(S, { screen: "start", tab: "steps", current: null, history: [], ticks: {}, log: [], startedAt: null, reminders: {}, records: {}, note: "" });\n      render();\n    }\n    function render() {\n      root.innerHTML = `\n      <header class="bar"><div class="t">${brand.name ? `<span class="brand">${escapeHtml(brand.name)}</span>` : ""}${escapeHtml(spec.title)}</div><div class="clock" data-clock="elapsed">${S.startedAt ? clock(now() - S.startedAt) : ""}</div></header>\n      <div class="proto">Prototype built automatically from a guideline. ${spec.reviewedBy ? "Reviewed by " + escapeHtml(spec.reviewedBy) + "." : "Not reviewed."} Not for real-world use.</div>\n      ${reminderBar()}\n      <main id="main">${S.tab === "steps" ? S.screen === "start" ? startView() : S.screen === "done" ? doneView() : stepView() : S.tab === "log" ? logView() : S.tab === "checks" ? checksView() : aboutView()}</main>\n      <nav class="tabs">${["steps", "log", "checks", "about"].map((t) => `<button data-tab="${t}" class="${S.tab === t ? "on" : ""}">${{ steps: "Steps", log: "Log", checks: `Checks${counts.fix + counts.check ? ` (${counts.fix + counts.check})` : ""}`, about: "About" }[t]}</button>`).join("")}</nav>`;\n      tick();\n    }\n    function startView() {\n      return `<section class="card">\n      <h1>${escapeHtml(spec.title)}</h1>\n      ${spec.about ? `<p>${escapeHtml(spec.about)}</p>` : ""}\n      ${spec.warning ? `<p class="warn">${escapeHtml(spec.warning)}</p>` : ""}\n      ${counts.fix ? `<p class="author">The template has ${counts.fix} problem${counts.fix > 1 ? "s" : ""} the author needs to fix (see Checks). The app still runs.</p>` : ""}\n      ${inputsForm()}\n      <button class="big go" data-act="begin">Start</button>\n      ${lookLocked ? "" : \'<p class="look-link"><button class="link" data-tab="about">Change the look</button></p>\'}</section>`;\n    }\n    function inputsForm() {\n      if (!spec.inputs.length) return "";\n      return `<div class="inputs">${spec.inputs.map((i) => `<label class="inp">${escapeHtml(i.label)}${i.unit ? ` (${escapeHtml(i.unit)})` : ""}${i.optional ? " <small>optional</small>" : ""}\n      ${i.type === "choice" ? `<span class="choices">${i.options.map((o) => `<button data-input="${i.id}" data-value="${escapeHtml(o)}" class="${S.answers[i.id] === o ? "on" : ""}">${escapeHtml(o)}</button>`).join("")}</span>` : `<input inputmode="decimal" data-num="${i.id}" value="${escapeHtml(S.answers[i.id] ?? "")}" placeholder="${i.min != null ? `${i.min}\\u2013${i.max}` : ""}">`}\n      <span class="bad" data-bad="${i.id}">${escapeHtml(numberProblem(i, S.answers[i.id]) ?? "")}</span></label>`).join("")}</div>`;\n    }\n    function numberProblem(i, v) {\n      if (i.type !== "number" || v === void 0 || v === "") return null;\n      const x = Number(v);\n      if (Number.isNaN(x)) return "Not a number";\n      if (i.min != null && x < i.min || i.max != null && x > i.max) return `Outside ${i.min}\\u2013${i.max}`;\n      return null;\n    }\n    function stepView() {\n      const s = byId.get(S.current);\n      const lines = s.lines.filter((l) => l.kind !== "note").map(lineView).join("");\n      const opts = (s.ask?.options ?? []).map((o, k) => {\n        const shown = testCondition(o.cond, S.answers, spec.inputs);\n        if (shown === false) return "";\n        return `<button class="big opt${o.target ? "" : " broken"}" data-opt="${k}">${escapeHtml(o.label)}${shown === null ? " <small>(depends on details)</small>" : ""}</button>`;\n      }).join("");\n      const next = nextTarget(s);\n      const final = s.end || !opts && !next && !s.timer?.target;\n      return `<section class="card step">\n      <div class="crumb">${S.history.length ? `<button class="link" data-act="back">\\u2039 Back</button>` : ""}<span>Step ${S.history.length + 1}</span></div>\n      <h2>${escapeHtml(s.title)}</h2>\n      ${s.timer ? `<div class="timer ${S.timerDone ? "due" : ""}"><div class="lbl">${escapeHtml(s.timer.label)}</div><div class="big-clock" data-clock="timer">${clock(s.timer.ms)}</div>\n         ${S.timerDone && s.timer.target ? `<button class="big go" data-act="timer-go">Time\'s up: continue</button>` : ""}\n         ${s.timer.to && !s.timer.target ? `<p class="author">The timer leads to "${escapeHtml(s.timer.to)}", which is missing.</p>` : ""}</div>` : ""}\n      ${lines}\n      ${s.ask ? `<p class="q">${escapeHtml(s.ask.question)}</p><div class="opts">${opts || \'<p class="author">No answer applies with the details entered (see Checks).</p>\'}</div>` : ""}\n      ${S.note ? `<p class="author">${escapeHtml(S.note)}</p>` : ""}\n      ${next ? `<button class="big ${s.ask ? "skip" : "go"}" data-act="next">${s.ask ? "Skip" : "Next"}: ${escapeHtml(byId.get(next)?.title ?? "Finish")}${nextDepends(s) ? " <small>(depends on details not entered)</small>" : ""}</button>` : ""}\n      ${final ? `<button class="big go" data-act="finish">Finish</button>` : ""}\n    </section>`;\n    }\n    function nextTarget(s) {\n      const list = (s.nexts ?? []).filter((n) => n.target);\n      return list.find((n) => testCondition(n.cond, S.answers, spec.inputs) === true)?.target ?? list.find((n) => testCondition(n.cond, S.answers, spec.inputs) === null)?.target ?? null;\n    }\n    const nextDepends = (s) => {\n      const t = nextTarget(s);\n      const n = (s.nexts ?? []).find((x) => x.target === t);\n      return n && testCondition(n.cond, S.answers, spec.inputs) === null;\n    };\n    function lineView(l, k) {\n      const shown = testCondition(l.cond, S.answers, spec.inputs);\n      if (shown === false) return "";\n      const dep = shown === null ? `<small class="dep">Depends on: ${escapeHtml(l.cond.map((c) => c.input).join(", "))}</small>` : "";\n      const q = l.quotes?.length ? `<details class="src"><summary>Guideline</summary>${l.quotes.map((x) => `<q>${escapeHtml(x.text)}</q>${x.where ? ` <small>${escapeHtml(x.where)}</small>` : ""}${x.check && x.check !== "exact" ? \' <small class="dep">quote not confirmed</small>\' : ""}`).join("<br>")}</details>` : "";\n      const key = `${S.current}:${k}`;\n      if (l.kind === "do") return `<label class="do"><input type="checkbox" data-tick="${key}" ${S.ticks[key] ? "checked" : ""}> <span>${escapeHtml(l.text)}</span>${dep}${q}</label>`;\n      if (l.kind === "warning") return `<p class="warn">${escapeHtml(l.text)}${dep}${q}</p>`;\n      if (l.kind === "record") {\n        const r = S.records[l.text];\n        return `<div class="rec"><button class="big rec-btn" data-rec="${escapeHtml(l.text)}">${escapeHtml(l.text)}</button><small data-clock="rec" data-rec-name="${escapeHtml(l.text)}">${r ? `${r.n}\\xD7 \\xB7 last at ${tod(r.last)}, ${formatDuration(now() - r.last)} ago` : "not yet"}</small>${dep}${q}</div>`;\n      }\n      if (l.kind === "show") return `<div class="show">${showTable(l)}${dep}${q}</div>`;\n      return `<p class="${l.bullet ? "bul" : ""}">${escapeHtml(l.text)}${dep}${q}</p>`;\n    }\n    function showTable(l) {\n      const t = spec.tables.find((x) => x.id === l.tableId);\n      if (!t) return `<p class="author">"${escapeHtml(l.table)}" table is missing from the template.</p>`;\n      const cols = l.column ? t.columns.filter((c) => slug(c) === slug(l.column)) : t.columns.slice(1);\n      if (!t.keyInput) return `<table><tr>${t.columns.map((c) => `<th>${escapeHtml(c)}</th>`).join("")}</tr>${t.rows.map((r) => `<tr>${t.columns.map((c) => `<td>${cell(r.cells[c])}</td>`).join("")}</tr>`).join("")}</table>`;\n      const inp = spec.inputs.find((i) => i.id === t.keyInput);\n      const v = S.answers[inp.id];\n      if (v === void 0 || v === "") return `<p><b>${escapeHtml(t.title)}:</b> enter ${escapeHtml(inp.label)} to see this. <button class="link" data-tab="about">Enter details</button></p>`;\n      const row = t.rows.find((r) => keyMatches(r.match, v));\n      if (!row) return `<p class="author"><b>${escapeHtml(t.title)}:</b> the table has no row for ${escapeHtml(inp.label)} ${escapeHtml(v)}${inp.unit ? " " + escapeHtml(inp.unit) : ""}.</p>`;\n      return `<div class="lookup"><div class="lk">${escapeHtml(t.title)} <small>(${escapeHtml(row.key)})</small></div>${cols.map((c) => `<div class="lv"><span>${escapeHtml(c)}</span><b>${cell(row.cells[c])}</b></div>`).join("")}</div>`;\n    }\n    const cell = (v) => isNotStated(v) ? "<i>Not stated in the guideline</i>" : escapeHtml(v);\n    function reminderBar() {\n      const list = Object.entries(S.reminders);\n      if (!list.length) return "";\n      return `<div class="reminders">${list.map(([id, r]) => `<div class="rem" data-rem="${id}"><span class="rt">${escapeHtml(r.text)}</span><span class="rc" data-clock="rem" data-rem-id="${id}"></span>${r.once && !r.alerted ? "" : `<button data-remdone="${id}">${r.once ? "OK" : "Done"}</button>`}<button class="x" data-remstop="${id}" title="Stop">\\u2715</button></div>`).join("")}</div>`;\n    }\n    function doneView() {\n      return `<section class="card"><h2>Finished</h2><p>Total time ${clock((S.log.at(-1)?.at ?? now()) - (S.startedAt ?? now()))}.</p>${logList()}<button class="big" data-act="copy">Copy log</button><button class="big go" data-act="restart">Start again</button></section>`;\n    }\n    function logView() {\n      return `<section class="card"><h2>Log</h2>${S.log.length ? logList() + \'<button class="big" data-act="copy">Copy log</button>\' : "<p>Nothing yet.</p>"}</section>`;\n    }\n    function logList() {\n      return `<ol class="log">${S.log.map((e) => `<li><time>${S.startedAt ? clock(e.at - S.startedAt) : ""}</time> <span class="tod">${tod(e.at)}</span> ${escapeHtml(e.what)}${e.detail ? ` <small>${escapeHtml(e.detail)}</small>` : ""}</li>`).join("")}</ol>`;\n    }\n    function logText() {\n      return S.log.map((e) => `${S.startedAt ? clock(e.at - S.startedAt) : ""} (${tod(e.at)})  ${e.what}${e.detail ? " - " + e.detail : ""}`).join("\\n");\n    }\n    function checksView() {\n      const order = ["fix", "check", "info"];\n      const name = { fix: "Needs fixing", check: "Please check", info: "For information" };\n      const stepTitle = (id) => byId.get(id)?.title ?? id;\n      return `<section class="card"><h2>Author checks</h2><p>Found automatically by comparing the template with itself and with the guideline text. Fix them in the template; the app keeps running meanwhile.</p>\n      ${order.map((lvl) => {\n        const fs = findings.filter((f) => f.level === lvl);\n        return fs.length ? `<h3 class="lvl-${lvl}">${name[lvl]} (${fs.length})</h3><ul class="findings">${fs.map((f) => `<li class="lvl-${lvl}">${f.step ? `<b>${escapeHtml(stepTitle(f.step))}</b> \\xB7 ` : ""}${f.line ? `<small>line ${f.line}</small> ` : ""}${escapeHtml(f.message)}${f.suggestion ? `<br><i>${escapeHtml(f.suggestion)}</i>` : ""}</li>`).join("")}</ul>` : "";\n      }).join("") || "<p>No findings.</p>"}\n    </section>`;\n    }\n    function aboutView() {\n      return `<section class="card"><h2>About</h2>${spec.about ? `<p>${escapeHtml(spec.about)}</p>` : ""}\n      ${spec.inputs.length ? `<h3>Details</h3>${inputsForm()}` : ""}\n      ${lookLocked ? "" : `<h3>Look</h3><div class="look-pick">${LOOKS.map((l) => `<button data-look-pick="${l.id}" class="${html.dataset.look === l.id ? "on" : ""}">${escapeHtml(l.name)}</button>`).join("")}</div>`}\n      <h3>Source</h3><ul>${spec.sources.map((s) => `<li>${escapeHtml(s.name)}${s.link ? ` <a href="${escapeHtml(s.link)}" target="_blank" rel="noopener">link</a>` : ""}</li>`).join("") || "<li>Not stated</li>"}</ul>\n      <p><small>${spec.version ? "Guideline version: " + escapeHtml(spec.version) + " \\xB7 " : ""}${built ? "Built " + escapeHtml(built) + " \\xB7 " : ""}${summary.quotes != null ? `${summary.quotesExact}/${summary.quotes} quotes confirmed` : ""}</small></p>\n      ${S.screen !== "start" ? \'<button class="big" data-act="restart">Start again</button>\' : ""}</section>`;\n    }\n    function tick() {\n      const t = now();\n      const s = S.screen === "run" && S.current && byId.get(S.current);\n      if (s?.timer && !S.timerDone && t - S.enteredAt >= s.timer.ms) {\n        S.timerDone = true;\n        log("Timer finished", `${s.title}: ${s.timer.label}`);\n        buzz();\n        render();\n        return;\n      }\n      let newlyDue = false;\n      for (const r of Object.values(S.reminders)) if (r.dueAt <= t && !r.alerted) {\n        r.alerted = true;\n        newlyDue = true;\n        log(r.once ? "Deadline reached" : "Reminder due", r.text);\n        buzz();\n      }\n      if (newlyDue) {\n        render();\n        return;\n      }\n      save();\n      for (const el of root.querySelectorAll("[data-clock]")) {\n        const kind = el.dataset.clock;\n        if (kind === "elapsed" && S.startedAt) el.textContent = clock(t - S.startedAt);\n        if (kind === "timer" && s?.timer) {\n          el.textContent = clock(s.timer.ms - (t - S.enteredAt));\n          el.parentElement.style.setProperty("--p", Math.min(1, (t - S.enteredAt) / s.timer.ms).toFixed(3));\n        }\n        if (kind === "rem") {\n          const r = S.reminders[el.dataset.remId];\n          if (!r) continue;\n          const left = r.dueAt - t;\n          el.textContent = left > 0 ? clock(left) : `${r.once ? "NOW" : "DUE"} \\xB7 ${clock(-left)} ago`;\n          el.parentElement.classList.toggle("due", left <= 0);\n        }\n        if (kind === "rec") {\n          const r = S.records[el.dataset.recName];\n          if (r) el.textContent = `${r.n}\\xD7 \\xB7 last at ${tod(r.last)}, ${formatDuration(t - r.last)} ago`;\n        }\n      }\n    }\n    let audio = null;\n    const startAudio = () => {\n      audio ?? (audio = new (window.AudioContext || window.webkitAudioContext)());\n    };\n    const buzz = () => {\n      try {\n        navigator.vibrate?.([200, 100, 200]);\n      } catch {\n      }\n      try {\n        startAudio();\n        for (const at of [0, 0.3]) {\n          const o = audio.createOscillator(), g = audio.createGain();\n          o.frequency.value = 880;\n          g.gain.value = 0.2;\n          o.connect(g);\n          g.connect(audio.destination);\n          o.start(audio.currentTime + at);\n          o.stop(audio.currentTime + at + 0.18);\n        }\n      } catch {\n      }\n    };\n    const KEY = "guideline-app:" + slug(spec.title);\n    let lastSaved = "";\n    function save() {\n      try {\n        const j = JSON.stringify(S);\n        if (j !== lastSaved) {\n          localStorage.setItem(KEY, j);\n          lastSaved = j;\n        }\n      } catch {\n      }\n    }\n    function load() {\n      try {\n        const j = localStorage.getItem(KEY);\n        if (j) {\n          const old = JSON.parse(j);\n          if (old.screen === "run" && old.current && byId.has(old.current)) {\n            Object.assign(S, old, { tab: "steps", note: "Carried on from where this was left (the page was reloaded)." });\n          }\n        }\n      } catch {\n      }\n    }\n    root.addEventListener("click", (e) => {\n      var _a, _b;\n      const b = e.target.closest("button");\n      if (!b) return;\n      const d = b.dataset;\n      if (d.tab) {\n        S.tab = d.tab;\n        render();\n        return;\n      }\n      if (d.lookPick) return pickLook(d.lookPick);\n      if (d.input) {\n        S.answers[d.input] = S.answers[d.input] === d.value ? void 0 : d.value;\n        if (S.screen === "run") log("Detail changed", `${d.input}: ${d.value}`);\n        render();\n        return;\n      }\n      if (d.opt !== void 0) {\n        const s = byId.get(S.current), o = s.ask.options[+d.opt];\n        if (!o.target) {\n          S.note = `"${o.label}" leads to "${o.to}", which is missing from the template (see Checks).`;\n          render();\n          return;\n        }\n        return go(o.target, `${s.ask.question || s.title}: ${o.label}`);\n      }\n      if (d.rec) {\n        const r = (_a = S.records)[_b = d.rec] ?? (_a[_b] = { n: 0, last: 0 });\n        r.n++;\n        r.last = now();\n        log(d.rec);\n        render();\n        return;\n      }\n      if (d.remdone) {\n        const r = S.reminders[d.remdone];\n        if (r) {\n          log("Done", r.text);\n          if (r.once) delete S.reminders[d.remdone];\n          else {\n            r.dueAt = now() + r.ms;\n            r.alerted = false;\n          }\n        }\n        render();\n        return;\n      }\n      if (d.remstop) {\n        const r = S.reminders[d.remstop];\n        if (r) log("Reminder stopped", r.text);\n        delete S.reminders[d.remstop];\n        render();\n        return;\n      }\n      switch (d.act) {\n        case "begin":\n          try {\n            startAudio();\n          } catch {\n          }\n          return begin();\n        // phones only allow sound that starts on a tap\n        case "back":\n          return back();\n        case "next":\n          return go(nextTarget(byId.get(S.current)), "Next");\n        case "timer-go":\n          return go(byId.get(S.current).timer.target, "Timer finished");\n        case "finish":\n          return finish();\n        case "restart":\n          return restart();\n        case "copy":\n          try {\n            navigator.clipboard?.writeText(logText());\n            b.textContent = "Copied";\n          } catch {\n            b.textContent = "Could not copy";\n          }\n          return;\n      }\n    });\n    root.addEventListener("change", (e) => {\n      const el = e.target;\n      if (el.dataset.num && S.screen === "run") log("Detail changed", `${el.dataset.num}: ${el.value.trim()}`);\n      if (el.dataset.tick) {\n        S.ticks[el.dataset.tick] = el.checked;\n        const s = byId.get(S.current);\n        const l = s?.lines.filter((x) => x.kind !== "note")[+el.dataset.tick.split(":").pop()];\n        log(el.checked ? "Ticked" : "Unticked", l?.text ?? "");\n      }\n    });\n    root.addEventListener("input", (e) => {\n      const el = e.target;\n      if (el.dataset.num) {\n        S.answers[el.dataset.num] = el.value.trim();\n        const i = spec.inputs.find((x) => x.id === el.dataset.num);\n        const bad = root.querySelector(`[data-bad="${el.dataset.num}"]`);\n        if (bad) bad.textContent = numberProblem(i, el.value.trim()) ?? "";\n      }\n    });\n    load();\n    const timer = setInterval(tick, 250);\n    render();\n    return { state: S, render, stop: () => clearInterval(timer) };\n  }\n\n  // engine/app-entry.js\n  var data = JSON.parse(document.getElementById("spec").textContent);\n  window.__app = mount(document.getElementById("app"), data);\n})();\n', fontsLink: '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Archivo:wght@500;700;800;900&family=IBM+Plex+Sans:wght@400;500;700&family=IBM+Plex+Sans+Condensed:wght@600;700&family=IBM+Plex+Mono:wght@500&display=swap">' });
+    return appPage({ ...latest, built: (/* @__PURE__ */ new Date()).toISOString().slice(0, 10) + " (studio)" }, { css: '/* Phone-first, portrait, large tap targets. One stylesheet for every generated app; looks (engine/looks/) restyle it.\n   --brand is set by the runtime when the template gives "Brand colour:"; each look decides where it shows. */\n:root { --ink:#1b1f24; --mut:#5d6670; --bg:#f4f5f7; --card:#fff; --line:#dde1e6; --go:var(--brand, #0b6e4f); --warn:#9a3412; --warnbg:#fff4e5; --due:#b91c1c; --author:#6b21a8; --authorbg:#f5ecff; }\n* { box-sizing: border-box; }\nhtml, body { margin:0; background:var(--bg); color:var(--ink); font:17px/1.45 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }\n#app { max-width: 560px; margin: 0 auto; min-height: 100vh; padding-bottom: 72px; }\n.bar { position: sticky; top: 0; z-index: 3; display:flex; justify-content:space-between; align-items:center; gap:8px; padding:10px 14px; background:#14213d; color:#fff; }\n.bar .t { font-weight:600; font-size:16px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }\n.bar .brand { font-weight:800; margin-right:6px; }\n.bar .clock:empty { display:none; }\n.bar .clock { font-variant-numeric: tabular-nums; font-size:18px; }\n.proto { font-size:12px; color:var(--author); background:var(--authorbg); padding:4px 14px; }\n.card { background:var(--card); margin:10px; padding:14px 16px; border-radius:12px; border:1px solid var(--line); }\nh1 { font-size:22px; margin:4px 0 8px; } h2 { font-size:21px; margin:2px 0 10px; } h3 { font-size:15px; margin:16px 0 6px; color:var(--mut); text-transform:uppercase; letter-spacing:.04em; }\np { margin: 8px 0; } p.bul::before { content:"\u2022 "; color:var(--mut); }\n.big { display:block; width:100%; min-height:52px; margin:10px 0 0; padding:12px 14px; font:inherit; font-weight:600; border-radius:10px; border:1px solid var(--line); background:#eef1f4; color:var(--ink); text-align:left; }\n.big.go { background:var(--go); color:#fff; border-color:var(--go); text-align:center; }\n.big.opt { background:#e8f0fe; border-color:#b7c9f5; }\n.big.opt.broken { border-style:dashed; border-color:var(--author); }\n.big.skip { background:transparent; text-align:center; font-weight:500; color:var(--mut); }\n.link { background:none; border:0; color:#1d4ed8; font:inherit; padding:0; }\n.crumb { display:flex; justify-content:space-between; font-size:14px; color:var(--mut); }\n.q { font-weight:600; font-size:19px; margin-top:16px; }\n.warn { background:var(--warnbg); color:var(--warn); border-left:4px solid var(--warn); padding:8px 10px; border-radius:6px; font-weight:600; }\n.author { background:var(--authorbg); color:var(--author); border-left:4px solid var(--author); padding:8px 10px; border-radius:6px; font-size:15px; }\n.do { display:flex; flex-wrap:wrap; gap:10px; align-items:flex-start; padding:10px 0; border-bottom:1px solid var(--line); }\n.do input { width:26px; height:26px; margin:0; flex:none; } .do span { flex:1; }\n.do .src, .do .dep { flex-basis:100%; margin-left:36px; }\n.dep { display:block; color:var(--author); font-size:13px; }\ndetails.src { font-size:14px; color:var(--mut); margin:2px 0 4px; } details.src summary { cursor:pointer; color:#1d4ed8; }\ndetails.src q { font-style:italic; }\n.timer { margin:14px 0; padding:12px; border-radius:10px; background:#eef6f2; text-align:center; }\n.timer .lbl { color:var(--mut); font-size:14px; }\n.big-clock { font-size:44px; font-weight:700; font-variant-numeric:tabular-nums; }\n.timer.due { background:#fde8e8; } .timer.due .big-clock { color:var(--due); }\n.reminders { position:sticky; top:44px; z-index:2; background:var(--bg); padding:6px 10px 0; }\n.rem { display:flex; align-items:center; gap:8px; background:#fff; border:1px solid var(--line); border-radius:10px; padding:6px 8px; margin-bottom:6px; }\n.rem .rt { flex:1; font-weight:600; font-size:15px; } .rem .rc { font-variant-numeric:tabular-nums; font-size:15px; }\n.rem button { font:inherit; font-size:14px; padding:8px 10px; border-radius:8px; border:1px solid var(--line); background:#eef1f4; }\n.rem.due { border-color:var(--due); background:#fde8e8; } .rem.due .rc { color:var(--due); font-weight:700; }\n.rec { padding:6px 0; } .rec small { color:var(--mut); }\n.rec-btn { background:#fff7e6; border-color:#f2c46d; }\n.note-box { margin:12px 0; padding:10px 0; } .note-lbl { display:block; font-weight:700; margin-bottom:6px; }\n.note-text { display:block; width:100%; min-height:132px; font:inherit; line-height:1.4; padding:12px; border-radius:10px; border:1px solid var(--line); background:var(--card); color:var(--ink); resize:vertical; }\n.note-text:focus { outline:3px solid var(--go); outline-offset:1px; }\n.note-save { text-align:center; } .note-status { display:block; margin-top:6px; color:var(--mut); font-size:14px; }\n.log small { white-space:pre-wrap; }\n.lookup { border:1px solid var(--line); border-radius:10px; padding:8px 10px; margin:8px 0; }\n.lookup .lk { font-weight:600; } .lookup .lv { display:flex; justify-content:space-between; gap:10px; padding:4px 0; border-top:1px dashed var(--line); }\ntable { border-collapse:collapse; width:100%; font-size:14px; } th, td { border:1px solid var(--line); padding:4px 6px; text-align:left; }\n.inputs { margin:10px 0; } .inp { display:block; margin:10px 0; font-weight:600; }\n.inp input { display:block; width:100%; font:inherit; padding:10px; border-radius:8px; border:1px solid var(--line); margin-top:4px; }\n.inp small { font-weight:400; color:var(--mut); } .inp .bad { color:var(--due); font-weight:400; font-size:14px; }\n.choices { display:flex; flex-wrap:wrap; gap:6px; margin-top:4px; }\n.choices button { font:inherit; padding:10px 12px; border-radius:8px; border:1px solid var(--line); background:#eef1f4; }\n.choices button.on { background:#14213d; color:#fff; }\n.log { padding-left:0; list-style:none; } .log li { padding:6px 0; border-bottom:1px solid var(--line); } .log time { display:inline-block; min-width:56px; font-variant-numeric:tabular-nums; color:var(--mut); } .log .tod { font-variant-numeric:tabular-nums; font-size:.85em; color:var(--mut); margin-right:4px; }\n.findings { padding-left:18px; } .findings li { margin:8px 0; font-size:15px; }\n.lvl-fix { color:var(--due); } .lvl-check { color:var(--warn); } .lvl-info { color:var(--mut); }\n.tabs { position:fixed; bottom:0; left:0; right:0; display:flex; background:#fff; border-top:1px solid var(--line); max-width:560px; margin:0 auto; }\n.tabs button { flex:1; font:inherit; font-size:15px; padding:14px 4px; background:none; border:0; color:var(--mut); }\n.look-link { text-align:center; font-size:14px; margin-top:14px; }\n.look-pick { display:flex; flex-wrap:wrap; gap:6px; }\n.look-pick button { font:inherit; padding:10px 14px; border-radius:999px; border:1px solid var(--line); background:var(--card); color:var(--ink); }\n.look-pick button.on { background:var(--go); border-color:var(--go); color:#fff; }\n.tabs button.on { color:#14213d; font-weight:700; box-shadow: inset 0 3px 0 #14213d; }\n\n/* look: Clinic */\nhtml[data-look="clinic"]{ --ink:#16232b; --mut:#5b6b75; --bg:#eef3f4; --card:#fff; --line:#dfe7ea; --go:var(--brand, #0f766e); --gosoft:#d9f0ec; --gosoft:color-mix(in srgb, var(--go) 15%, #fff);\n  --warn:#9a3412; --warnbg:#fff1e6; --due:#c2410c; --author:#6b21a8; --authorbg:#f4edfb; }html[data-look="clinic"], html[data-look="clinic"] body{ font-family:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; background:var(--bg); }html[data-look="clinic"] .bar{ background:var(--bg); color:var(--ink); padding:14px 18px 6px; }html[data-look="clinic"] .bar .t{ font-size:15px; color:var(--mut); font-weight:600; }html[data-look="clinic"] .bar .clock{ background:var(--card); border-radius:999px; padding:4px 12px; font-size:15px; font-weight:600; color:var(--go); }html[data-look="clinic"] .proto{ background:transparent; color:var(--mut); padding:0 18px 4px; font-size:12px; }html[data-look="clinic"] .card{ border:0; border-radius:22px; padding:20px; margin:10px 12px; box-shadow:0 1px 2px rgba(22,35,43,.05), 0 8px 24px rgba(22,35,43,.06); }html[data-look="clinic"] h1, html[data-look="clinic"] h2{ font-family:"Inter", system-ui, sans-serif; font-weight:700; letter-spacing:-.02em; text-wrap:balance; }html[data-look="clinic"] h2{ font-size:24px; }html[data-look="clinic"] h3{ color:var(--go); }html[data-look="clinic"] .crumb{ font-size:13px; }html[data-look="clinic"] .crumb span{ background:var(--gosoft); color:var(--go); border-radius:999px; padding:2px 10px; font-weight:600; }html[data-look="clinic"] .big{ border-radius:16px; border:0; background:#f1f5f6; min-height:56px; }html[data-look="clinic"] .big.go{ background:var(--go); border-radius:999px; box-shadow:0 6px 16px rgba(15,118,110,.25); }html[data-look="clinic"] .big.opt{ background:#f4f8f8; border:1.5px solid var(--line); position:relative; padding-right:40px; }html[data-look="clinic"] .big.opt::after{ content:"\u203A"; position:absolute; right:16px; top:50%; transform:translateY(-52%); font-size:26px; color:var(--go); }html[data-look="clinic"] .q{ font-size:20px; }html[data-look="clinic"] .warn{ border:0; border-radius:14px; padding:12px 14px; }html[data-look="clinic"] .do{ border-bottom:0; background:#f6f9f9; border-radius:14px; padding:12px; margin:8px 0; }html[data-look="clinic"] .do input{ accent-color:var(--go); border-radius:50%; }html[data-look="clinic"] .timer{ background:var(--gosoft); border-radius:20px; padding:18px; position:relative; overflow:hidden; }html[data-look="clinic"] .timer::after{ content:""; position:absolute; left:0; bottom:0; height:6px; width:calc(var(--p, 0) * 100%); background:var(--go); transition:width .25s linear; }html[data-look="clinic"] .big-clock{ color:var(--go); font-size:52px; letter-spacing:-.02em; }html[data-look="clinic"] .rem{ border:0; border-radius:16px; box-shadow:0 4px 14px rgba(22,35,43,.08); }html[data-look="clinic"] .tabs{ left:12px; right:12px; bottom:10px; border:0; border-radius:20px; box-shadow:0 8px 30px rgba(22,35,43,.15); overflow:hidden; }html[data-look="clinic"] .tabs button.on{ color:var(--go); box-shadow:none; background:var(--gosoft); }html[data-look="clinic"] .choices button{ border-radius:999px; }html[data-look="clinic"] .choices button.on{ background:var(--go); border-color:var(--go); }html[data-look="clinic"] .note-box{ background:#f6f9f9; border-radius:16px; padding:14px; }html[data-look="clinic"] .note-text{ border:1.5px solid var(--line); border-radius:14px; background:#fff; }html[data-look="clinic"] .note-save{ background:var(--gosoft); color:var(--go); border-radius:999px; }\n\n/* look: Wayfinding */\nhtml[data-look="wayfinding"]{ --ink:#0a0a0a; --mut:#555; --bg:#ffffff; --card:#fff; --line:#0a0a0a; --go:#0a0a0a; --route:var(--brand, #e4002b); --sign:#ffd400;\n  --warn:#0a0a0a; --warnbg:#ffd400; --due:#e4002b; --author:#5b21b6; --authorbg:#efe9fb; }html[data-look="wayfinding"], html[data-look="wayfinding"] body{ font-family:"Archivo", "Helvetica Neue", Arial, sans-serif; background:var(--bg); }html[data-look="wayfinding"] .bar{ background:var(--ink); padding:12px 16px; }html[data-look="wayfinding"] .bar .t{ font-weight:800; letter-spacing:.01em; }html[data-look="wayfinding"] .bar .clock{ background:var(--sign); color:var(--ink); padding:2px 10px; font-weight:800; }html[data-look="wayfinding"] .proto{ background:#f2f2f2; color:var(--mut); }html[data-look="wayfinding"] .card{ border:0; border-radius:0; margin:0; padding:18px 18px 20px; }html[data-look="wayfinding"] h1, html[data-look="wayfinding"] h2{ font-weight:900; letter-spacing:-.02em; line-height:1.05; text-wrap:balance; }html[data-look="wayfinding"] h1{ font-size:32px; }html[data-look="wayfinding"] h2{ font-size:30px; margin-top:6px; }html[data-look="wayfinding"] .crumb{ flex-direction:row-reverse; justify-content:flex-end; gap:14px; align-items:center; }html[data-look="wayfinding"] .crumb span{ display:inline-grid; place-items:center; min-width:40px; height:40px; padding:0 8px; background:var(--route); color:#fff; font-weight:900; font-size:15px; border-radius:999px; }html[data-look="wayfinding"] .big{ border-radius:0; border:2px solid var(--ink); background:#fff; font-weight:800; min-height:58px; }html[data-look="wayfinding"] .big.go{ background:var(--ink); color:#fff; border-color:var(--ink); text-align:left; position:relative; padding-right:44px; }html[data-look="wayfinding"] .big.go::after{ content:"\u2192"; position:absolute; right:16px; top:50%; transform:translateY(-50%); font-size:22px; }html[data-look="wayfinding"] .big.opt{ background:#fff; border-color:var(--ink); position:relative; padding-right:44px; }html[data-look="wayfinding"] .big.opt::after{ content:"\u2192"; position:absolute; right:16px; top:50%; transform:translateY(-50%); color:var(--route); font-size:22px; }html[data-look="wayfinding"] .big.skip{ border:0; text-decoration:underline; }html[data-look="wayfinding"] .link{ color:var(--ink); text-decoration:underline; font-weight:700; }html[data-look="wayfinding"] .q{ font-size:22px; font-weight:900; }html[data-look="wayfinding"] .warn{ background:var(--sign); color:var(--ink); border:0; border-radius:0; padding:12px 14px; font-weight:800; }html[data-look="wayfinding"] .warn::before{ content:"!"; display:inline-grid; place-items:center; width:22px; height:22px; margin-right:8px; background:var(--ink); color:var(--sign); font-weight:900; border-radius:3px; vertical-align:-3px; }html[data-look="wayfinding"] .do{ position:relative; border-bottom:0; padding:12px 0 12px 44px; font-weight:700; }html[data-look="wayfinding"] .do::before{ content:""; position:absolute; left:15px; top:0; bottom:0; width:6px; background:var(--route); }html[data-look="wayfinding"] .do input{ position:absolute; left:6px; top:12px; width:24px; height:24px; accent-color:var(--route); }html[data-look="wayfinding"] .do .src, html[data-look="wayfinding"] .do .dep{ margin-left:0; }html[data-look="wayfinding"] details.src summary{ color:var(--ink); text-decoration:underline; }html[data-look="wayfinding"] .timer{ background:var(--ink); color:#fff; border-radius:0; text-align:left; padding:14px 16px; }html[data-look="wayfinding"] .timer .lbl{ color:#bbb; text-transform:uppercase; letter-spacing:.08em; font-size:12px; font-weight:700; }html[data-look="wayfinding"] .timer::after{ content:""; display:block; height:8px; margin-top:10px; background:linear-gradient(90deg, var(--sign) calc(var(--p, 0) * 100%), #333 0); }html[data-look="wayfinding"] .big-clock{ font-size:60px; font-weight:900; color:var(--sign); }html[data-look="wayfinding"] .timer.due{ background:var(--due); }html[data-look="wayfinding"] .timer.due .big-clock{ color:#fff; }html[data-look="wayfinding"] .rem{ border:2px solid var(--ink); border-radius:0; }html[data-look="wayfinding"] .rem button{ border-radius:0; border:2px solid var(--ink); background:#fff; font-weight:700; }html[data-look="wayfinding"] .rem.due{ background:var(--sign); }html[data-look="wayfinding"] .choices button{ border-radius:0; border:2px solid var(--ink); background:#fff; font-weight:700; }html[data-look="wayfinding"] .choices button.on{ background:var(--ink); color:#fff; }html[data-look="wayfinding"] .look-pick button{ border-radius:0; border:2px solid var(--ink); font-weight:700; }html[data-look="wayfinding"] .tabs{ border-top:2px solid var(--ink); }html[data-look="wayfinding"] .tabs button{ font-weight:800; color:var(--mut); }html[data-look="wayfinding"] .tabs button.on{ color:var(--ink); box-shadow:inset 0 4px 0 var(--route); }html[data-look="wayfinding"] .note-lbl{ font-weight:900; font-size:19px; }html[data-look="wayfinding"] .note-text{ border:2px solid var(--ink); border-radius:0; font-weight:600; }html[data-look="wayfinding"] .note-text:focus{ outline:4px solid var(--sign); outline-offset:0; }\n\n/* look: Flight deck */\nhtml[data-look="flightdeck"]{ --ink:#e8edf2; --mut:#8a97a6; --bg:#0b0f14; --card:#121820; --line:#253040; --go:#38bdf8; --warn:#ffb020; --warnbg:#2a1f08;\n  --due:#ff5a4f; --author:#c4a1ff; --authorbg:#1f1830; color-scheme:dark; }html[data-look="flightdeck"], html[data-look="flightdeck"] body{ font-family:"IBM Plex Sans", system-ui, sans-serif; background:var(--bg); color:var(--ink); }html[data-look="flightdeck"] .bar{ background:#070a0e; border-bottom:1px solid var(--line); border-top:4px solid var(--brand, #070a0e); }html[data-look="flightdeck"] .bar .t{ font-family:"IBM Plex Sans Condensed", "IBM Plex Sans", sans-serif; text-transform:uppercase; letter-spacing:.08em; font-size:14px; color:var(--mut); }html[data-look="flightdeck"] .bar .clock{ font-family:"IBM Plex Mono", ui-monospace, monospace; color:var(--go); }html[data-look="flightdeck"] .proto{ background:#0f0b18; }html[data-look="flightdeck"] .card{ background:var(--card); border:1px solid var(--line); border-radius:4px; margin:8px; }html[data-look="flightdeck"] h1, html[data-look="flightdeck"] h2{ font-family:"IBM Plex Sans Condensed", "IBM Plex Sans", sans-serif; text-transform:uppercase; letter-spacing:.04em; font-weight:700; }html[data-look="flightdeck"] h2{ font-size:22px; border-bottom:1px solid var(--line); padding-bottom:10px; }html[data-look="flightdeck"] h3{ color:var(--warn); }html[data-look="flightdeck"] .crumb{ font-family:"IBM Plex Mono", monospace; font-size:12px; text-transform:uppercase; }html[data-look="flightdeck"] .link{ color:var(--go); }html[data-look="flightdeck"] .big{ border-radius:4px; background:transparent; border:1px solid var(--line); color:var(--ink); }html[data-look="flightdeck"] .big.go{ background:var(--go); color:#04121c; border-color:var(--go); text-transform:uppercase; letter-spacing:.06em; }html[data-look="flightdeck"] .big.opt{ background:#0f1a24; border-color:#1f3a50; color:var(--ink); }html[data-look="flightdeck"] .big.opt::before{ content:"\u25B8 "; color:var(--go); }html[data-look="flightdeck"] .big.skip{ color:var(--mut); }html[data-look="flightdeck"] .q{ font-family:"IBM Plex Sans Condensed", sans-serif; text-transform:uppercase; letter-spacing:.04em; color:var(--go); }html[data-look="flightdeck"] .warn{ background:var(--warnbg); color:var(--warn); border-left:4px solid var(--warn); border-radius:2px; text-transform:uppercase; font-size:15px; letter-spacing:.02em; }html[data-look="flightdeck"] .do{ border-bottom:1px dashed var(--line); font-weight:500; }html[data-look="flightdeck"] .do input{ accent-color:var(--go); border-radius:0; }html[data-look="flightdeck"] details.src summary{ color:var(--go); }html[data-look="flightdeck"] details.src{ color:var(--mut); }html[data-look="flightdeck"] .timer{ background:#06121b; border:1px solid #1f3a50; border-radius:4px; position:relative; }html[data-look="flightdeck"] .timer::after{ content:""; display:block; height:4px; margin-top:10px; background:linear-gradient(90deg, var(--go) calc(var(--p, 0) * 100%), #1c2633 0); }html[data-look="flightdeck"] .timer .lbl{ text-transform:uppercase; letter-spacing:.1em; font-size:12px; }html[data-look="flightdeck"] .big-clock{ font-family:"IBM Plex Mono", ui-monospace, monospace; font-weight:500; color:var(--go); font-size:56px; }html[data-look="flightdeck"] .timer.due{ background:#2a0d0b; border-color:var(--due); }html[data-look="flightdeck"] .timer.due .big-clock{ color:var(--due); }html[data-look="flightdeck"] .reminders{ background:var(--bg); }html[data-look="flightdeck"] .rem{ background:var(--card); border-color:var(--line); border-radius:4px; }html[data-look="flightdeck"] .rem button{ background:transparent; color:var(--ink); border-color:var(--line); }html[data-look="flightdeck"] .rem.due{ background:#2a0d0b; border-color:var(--due); }html[data-look="flightdeck"] .lookup, html[data-look="flightdeck"] th, html[data-look="flightdeck"] td{ border-color:var(--line); }html[data-look="flightdeck"] .inp input{ background:#0b1118; color:var(--ink); border-color:var(--line); }html[data-look="flightdeck"] .choices button{ background:transparent; color:var(--ink); border-color:var(--line); border-radius:4px; }html[data-look="flightdeck"] .choices button.on, html[data-look="flightdeck"] .look-pick button.on{ background:var(--go); color:#04121c; }html[data-look="flightdeck"] .log time{ font-family:"IBM Plex Mono", monospace; }html[data-look="flightdeck"] .tabs{ background:#070a0e; border-top:1px solid var(--line); }html[data-look="flightdeck"] .tabs button{ text-transform:uppercase; letter-spacing:.08em; font-size:13px; }html[data-look="flightdeck"] .tabs button.on{ color:var(--go); box-shadow:inset 0 3px 0 var(--go); }html[data-look="flightdeck"] .note-lbl{ font-family:"IBM Plex Sans Condensed", "IBM Plex Sans", sans-serif; text-transform:uppercase; letter-spacing:.06em; font-size:14px; color:var(--go); }html[data-look="flightdeck"] .note-text{ background:#0b1118; color:var(--ink); border-color:#1f3a50; border-radius:4px; }html[data-look="flightdeck"] .note-save{ text-transform:uppercase; letter-spacing:.06em; color:var(--go); border-color:#1f3a50; }\n', js: '(() => {\n  // engine/util.js\n  var slug = (text) => String(text).toLowerCase().normalize("NFKD").replace(/\\p{M}/gu, "").replace(/[^\\p{L}\\p{N}]+/gu, "-").replace(/^-+|-+$/g, "") || "step";\n  function formatDuration(ms) {\n    const s = Math.max(0, Math.round(ms / 1e3));\n    const h = Math.floor(s / 3600), m = Math.floor(s % 3600 / 60), r = s % 60;\n    if (h) return `${h} h ${String(m).padStart(2, "0")} min`;\n    if (m) return r ? `${m} min ${r} s` : `${m} min`;\n    return `${r} s`;\n  }\n  function clock(ms) {\n    const s = Math.max(0, Math.ceil(ms / 1e3));\n    const h = Math.floor(s / 3600), m = Math.floor(s % 3600 / 60), r = s % 60;\n    return (h ? `${h}:${String(m).padStart(2, "0")}` : `${m}`) + ":" + String(r).padStart(2, "0");\n  }\n  function testCondition(cond, answers, inputs) {\n    if (!cond) return true;\n    let unknown = false;\n    for (const c of cond) {\n      const input = findByName(inputs, c.input, (i) => [i.id, i.label]);\n      const value = input ? answers[input.id] : answers[slug(c.input)];\n      if (value === void 0 || value === null || value === "") {\n        unknown = true;\n        continue;\n      }\n      const ok = compare(value, c.op, c.values);\n      if (!ok) return false;\n    }\n    return unknown ? null : true;\n  }\n  function compare(value, op, values) {\n    if (op === "=" || op === "!=") {\n      const hit = values.some((v) => String(v).toLowerCase() === String(value).toLowerCase());\n      return op === "=" ? hit : !hit;\n    }\n    const a = Number(value), b = parseFloat(values[0]);\n    return op === "<" ? a < b : op === "<=" ? a <= b : op === ">" ? a > b : a >= b;\n  }\n  function findByName(list, name, namesOf) {\n    const want = slug(name);\n    return list.find((x) => namesOf(x).some((n) => slug(n) === want)) ?? null;\n  }\n  function keyMatches(key, value) {\n    if (value === void 0 || value === null || value === "") return false;\n    if (key.kind === "value") return String(value).toLowerCase() === key.value.toLowerCase();\n    const v = Number(value);\n    if (Number.isNaN(v)) return false;\n    if (key.kind === "number") return v === key.value;\n    const low = key.low ?? -Infinity, high = key.high ?? Infinity;\n    return (key.lowIn ? v >= low : v > low) && (key.highIn ? v <= high : v < high);\n  }\n  var isNotStated = (cell) => /^\\s*(-|\u2013|\u2014|n\\/?a)?\\s*$/i.test(cell ?? "");\n\n  // engine/page.js\n  var escapeHtml = (text) => String(text ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", \'"\': "&quot;" })[c]);\n\n  // engine/quotes.js\n  var UNIT = "(?:\\u2103|mg|mcg|micrograms?|g|kg|ml|mL|l|L|litres?|liters?|mmol|J|joules?|%|\\xB0C|degrees|seconds?|secs?|s|minutes?|mins?|hours?|hrs?|h|days?|weeks?|times|cm|mm|m|metres?|meters?|km|breaths|compressions)";\n  var AMOUNT = new RegExp("(\\\\d+(?:\\\\.\\\\d+)?)(?:\\\\s?(?:-|to|\\u2013)\\\\s?(\\\\d+(?:\\\\.\\\\d+)?))?\\\\s?(" + UNIT + ")(?![\\\\p{L}])", "giu");\n\n  // engine/looks.js\n  var LOOKS = [\n    {\n      id: "clinic",\n      name: "Clinic",\n      from: "Patient and wellbeing apps: calm cards, one teal action colour, soft and friendly.",\n      fonts: "family=Inter:wght@400;600;700"\n    },\n    {\n      id: "wayfinding",\n      name: "Wayfinding",\n      from: "Transit maps and road signs: bold type, actions as stations on a line, sign-yellow cautions.",\n      fonts: "family=Archivo:wght@500;700;800;900"\n    },\n    {\n      id: "flightdeck",\n      name: "Flight deck",\n      from: "Aviation checklists and cockpit displays: dark, high contrast, built for stress and low light.",\n      fonts: "family=IBM+Plex+Sans:wght@400;500;700&family=IBM+Plex+Sans+Condensed:wght@600;700&family=IBM+Plex+Mono:wght@500"\n    }\n  ];\n  var DEFAULT_LOOK = LOOKS[0].id;\n\n  // engine/check.js\n  var END = "__end";\n\n  // engine/runtime.js\n  function mount(root, { spec, findings = [], summary = {}, built = "" }) {\n    const S = {\n      screen: "start",\n      tab: "steps",\n      answers: {},\n      current: null,\n      history: [],\n      ticks: {},\n      log: [],\n      startedAt: null,\n      enteredAt: null,\n      timerDone: false,\n      reminders: {},\n      records: {},\n      notes: {},\n      note: ""\n    };\n    const byId = new Map(spec.steps.map((s) => [s.id, s]));\n    const now = () => Date.now();\n    const log = (what, detail = "") => S.log.push({ at: now(), what, detail });\n    const tod = (ms) => {\n      const d = new Date(ms);\n      return `${String(d.getHours()).padStart(2, "0")}:${String(d.getMinutes()).padStart(2, "0")}`;\n    };\n    const brand = spec.brand ?? {};\n    const html = root.ownerDocument.documentElement;\n    const lookLocked = html.hasAttribute("data-look-lock");\n    const LOOK_KEY = "guideline-app-look";\n    const savedLook = () => {\n      try {\n        return localStorage.getItem(LOOK_KEY);\n      } catch {\n        return null;\n      }\n    };\n    function applyLook(id) {\n      if (!lookLocked) html.dataset.look = LOOKS.some((l) => l.id === id) ? id : spec.look || DEFAULT_LOOK;\n      if (brand.colour) html.style.setProperty("--brand", brand.colour);\n    }\n    function pickLook(id) {\n      try {\n        localStorage.setItem(LOOK_KEY, id);\n      } catch {\n      }\n      applyLook(id);\n      render();\n    }\n    applyLook(savedLook());\n    const counts = { fix: findings.filter((f) => f.level === "fix").length, check: findings.filter((f) => f.level === "check").length };\n    function begin() {\n      S.startedAt = now();\n      S.screen = "run";\n      log("Started");\n      const inputsGiven = spec.inputs.filter((i) => S.answers[i.id] !== void 0 && S.answers[i.id] !== "");\n      if (inputsGiven.length) log("Details", inputsGiven.map((i) => `${i.label}: ${S.answers[i.id]}${i.unit ? " " + i.unit : ""}`).join(", "));\n      go(spec.start, null);\n    }\n    function go(target, why) {\n      saveAllNotes();\n      if (target === END) return finish(why);\n      const step = byId.get(target);\n      if (!step) {\n        S.note = "This leads to a step that is missing from the template (see Checks). Choose another option or go back.";\n        render();\n        return;\n      }\n      if (S.current) S.history.push({ id: S.current, enteredAt: S.enteredAt, timerDone: S.timerDone, reminders: JSON.parse(JSON.stringify(S.reminders)) });\n      S.current = step.id;\n      S.enteredAt = now();\n      S.timerDone = false;\n      S.note = "";\n      for (const k of Object.keys(S.ticks)) if (k.startsWith(step.id + ":")) delete S.ticks[k];\n      log(step.title, why ?? "");\n      if (step.stop) for (const id of Object.keys(S.reminders)) {\n        const want = step.stop.toLowerCase();\n        if (want === "all" || slug(step.stop) === id || S.reminders[id].text.toLowerCase().startsWith(want)) {\n          log("Reminder stopped", S.reminders[id].text);\n          delete S.reminders[id];\n        }\n      }\n      for (const r of step.reminders) if (!S.reminders[r.id]) {\n        S.reminders[r.id] = { text: r.text, ms: r.ms, every: r.every, once: !!r.once, dueAt: now() + r.ms, alerted: false };\n        log("Reminder started", `${r.text} (${r.once ? "after" : "every"} ${r.every})`);\n      }\n      render();\n    }\n    function back() {\n      const prev = S.history.pop();\n      if (!prev) return;\n      saveAllNotes();\n      S.current = prev.id;\n      S.enteredAt = prev.enteredAt;\n      S.timerDone = prev.timerDone;\n      S.reminders = prev.reminders;\n      S.note = "";\n      log("Went back to", byId.get(prev.id).title);\n      render();\n    }\n    function finish(why) {\n      saveAllNotes();\n      S.screen = "done";\n      log("Finished", why ?? "");\n      render();\n    }\n    function restart() {\n      try {\n        localStorage.removeItem(KEY);\n      } catch {\n      }\n      Object.assign(S, { screen: "start", tab: "steps", current: null, history: [], ticks: {}, log: [], startedAt: null, reminders: {}, records: {}, notes: {}, note: "" });\n      render();\n    }\n    function lineAt(key) {\n      const [id, k] = [key.slice(0, key.lastIndexOf(":")), +key.split(":").pop()];\n      return byId.get(id)?.lines.filter((x) => x.kind !== "note")[k] ?? null;\n    }\n    function typeNote(key, text) {\n      var _a;\n      const n = (_a = S.notes)[key] ?? (_a[key] = { label: lineAt(key)?.text ?? "Notes", text: "", saved: "", at: 0 });\n      n.text = String(text ?? "");\n    }\n    function saveNote(key) {\n      const n = S.notes[key];\n      if (!n || n.text.trim() === n.saved.trim()) return false;\n      n.saved = n.text;\n      n.at = now();\n      log(n.label, n.text.trim() ? n.text.trim() : "(cleared)");\n      return true;\n    }\n    function cleanNotes(saved) {\n      const out = {};\n      if (saved && typeof saved === "object") for (const [key, n] of Object.entries(saved)) {\n        if (n && typeof n === "object") out[key] = { label: String(n.label ?? "Notes"), text: String(n.text ?? ""), saved: String(n.saved ?? ""), at: Number(n.at) || 0 };\n      }\n      return out;\n    }\n    function saveAllNotes() {\n      for (const key of Object.keys(S.notes)) saveNote(key);\n    }\n    function noteStatus(key) {\n      const n = S.notes[key];\n      if (n && n.text.trim() !== n.saved.trim()) return "Not saved yet. It saves when you tap Save or leave this box.";\n      return n?.at ? `Saved in the Log at ${tod(n.at)}${S.startedAt ? ` (${clock(n.at - S.startedAt)} after start)` : ""}` : "Saved in the Log when you tap Save or leave this box.";\n    }\n    function showNoteStatus(key) {\n      for (const el of root.querySelectorAll("[data-note-status]")) if (el.dataset.noteStatus === key) el.textContent = noteStatus(key);\n    }\n    function render() {\n      const typing = typingIn();\n      root.innerHTML = `\n      <header class="bar"><div class="t">${brand.name ? `<span class="brand">${escapeHtml(brand.name)}</span>` : ""}${escapeHtml(spec.title)}</div><div class="clock" data-clock="elapsed">${S.startedAt ? clock(now() - S.startedAt) : ""}</div></header>\n      <div class="proto">Prototype built automatically from a guideline. ${spec.reviewedBy ? "Reviewed by " + escapeHtml(spec.reviewedBy) + "." : "Not reviewed."} Not for real-world use.</div>\n      ${reminderBar()}\n      <main id="main">${S.tab === "steps" ? S.screen === "start" ? startView() : S.screen === "done" ? doneView() : stepView() : S.tab === "log" ? logView() : S.tab === "checks" ? checksView() : aboutView()}</main>\n      <nav class="tabs">${["steps", "log", "checks", "about"].map((t) => `<button data-tab="${t}" class="${S.tab === t ? "on" : ""}">${{ steps: "Steps", log: "Log", checks: `Checks${counts.fix + counts.check ? ` (${counts.fix + counts.check})` : ""}`, about: "About" }[t]}</button>`).join("")}</nav>`;\n      keepTyping(typing);\n      tick();\n    }\n    function typingIn() {\n      const el = root.ownerDocument.activeElement;\n      return el?.dataset?.note ? { key: el.dataset.note, from: el.selectionStart, to: el.selectionEnd } : null;\n    }\n    function keepTyping(t) {\n      if (!t) return;\n      const el = [...root.querySelectorAll("[data-note]")].find((x) => x.dataset.note === t.key);\n      try {\n        el?.focus();\n        el?.setSelectionRange(t.from, t.to);\n      } catch {\n      }\n    }\n    function startView() {\n      return `<section class="card">\n      <h1>${escapeHtml(spec.title)}</h1>\n      ${spec.about ? `<p>${escapeHtml(spec.about)}</p>` : ""}\n      ${spec.warning ? `<p class="warn">${escapeHtml(spec.warning)}</p>` : ""}\n      ${counts.fix ? `<p class="author">The template has ${counts.fix} problem${counts.fix > 1 ? "s" : ""} the author needs to fix (see Checks). The app still runs.</p>` : ""}\n      ${inputsForm()}\n      <button class="big go" data-act="begin">Start</button>\n      ${lookLocked ? "" : \'<p class="look-link"><button class="link" data-tab="about">Change the look</button></p>\'}</section>`;\n    }\n    function inputsForm() {\n      if (!spec.inputs.length) return "";\n      return `<div class="inputs">${spec.inputs.map((i) => `<label class="inp">${escapeHtml(i.label)}${i.unit ? ` (${escapeHtml(i.unit)})` : ""}${i.optional ? " <small>optional</small>" : ""}\n      ${i.type === "choice" ? `<span class="choices">${i.options.map((o) => `<button data-input="${i.id}" data-value="${escapeHtml(o)}" class="${S.answers[i.id] === o ? "on" : ""}">${escapeHtml(o)}</button>`).join("")}</span>` : `<input inputmode="decimal" data-num="${i.id}" value="${escapeHtml(S.answers[i.id] ?? "")}" placeholder="${i.min != null ? `${i.min}\\u2013${i.max}` : ""}">`}\n      <span class="bad" data-bad="${i.id}">${escapeHtml(numberProblem(i, S.answers[i.id]) ?? "")}</span></label>`).join("")}</div>`;\n    }\n    function numberProblem(i, v) {\n      if (i.type !== "number" || v === void 0 || v === "") return null;\n      const x = Number(v);\n      if (Number.isNaN(x)) return "Not a number";\n      if (i.min != null && x < i.min || i.max != null && x > i.max) return `Outside ${i.min}\\u2013${i.max}`;\n      return null;\n    }\n    function stepView() {\n      const s = byId.get(S.current);\n      const lines = s.lines.filter((l) => l.kind !== "note").map(lineView).join("");\n      const opts = (s.ask?.options ?? []).map((o, k) => {\n        const shown = testCondition(o.cond, S.answers, spec.inputs);\n        if (shown === false) return "";\n        return `<button class="big opt${o.target ? "" : " broken"}" data-opt="${k}">${escapeHtml(o.label)}${shown === null ? " <small>(depends on details)</small>" : ""}</button>`;\n      }).join("");\n      const next = nextTarget(s);\n      const final = s.end || !opts && !next && !s.timer?.target;\n      return `<section class="card step">\n      <div class="crumb">${S.history.length ? `<button class="link" data-act="back">\\u2039 Back</button>` : ""}<span>Step ${S.history.length + 1}</span></div>\n      <h2>${escapeHtml(s.title)}</h2>\n      ${s.timer ? `<div class="timer ${S.timerDone ? "due" : ""}"><div class="lbl">${escapeHtml(s.timer.label)}</div><div class="big-clock" data-clock="timer">${clock(s.timer.ms)}</div>\n         ${S.timerDone && s.timer.target ? `<button class="big go" data-act="timer-go">Time\'s up: continue</button>` : ""}\n         ${s.timer.to && !s.timer.target ? `<p class="author">The timer leads to "${escapeHtml(s.timer.to)}", which is missing.</p>` : ""}</div>` : ""}\n      ${lines}\n      ${s.ask ? `<p class="q">${escapeHtml(s.ask.question)}</p><div class="opts">${opts || \'<p class="author">No answer applies with the details entered (see Checks).</p>\'}</div>` : ""}\n      ${S.note ? `<p class="author">${escapeHtml(S.note)}</p>` : ""}\n      ${next ? `<button class="big ${s.ask ? "skip" : "go"}" data-act="next">${s.ask ? "Skip" : "Next"}: ${escapeHtml(byId.get(next)?.title ?? "Finish")}${nextDepends(s) ? " <small>(depends on details not entered)</small>" : ""}</button>` : ""}\n      ${final ? `<button class="big go" data-act="finish">Finish</button>` : ""}\n    </section>`;\n    }\n    function nextTarget(s) {\n      const list = (s.nexts ?? []).filter((n) => n.target);\n      return list.find((n) => testCondition(n.cond, S.answers, spec.inputs) === true)?.target ?? list.find((n) => testCondition(n.cond, S.answers, spec.inputs) === null)?.target ?? null;\n    }\n    const nextDepends = (s) => {\n      const t = nextTarget(s);\n      const n = (s.nexts ?? []).find((x) => x.target === t);\n      return n && testCondition(n.cond, S.answers, spec.inputs) === null;\n    };\n    function lineView(l, k) {\n      const shown = testCondition(l.cond, S.answers, spec.inputs);\n      if (shown === false) return "";\n      const dep = shown === null ? `<small class="dep">Depends on: ${escapeHtml(l.cond.map((c) => c.input).join(", "))}</small>` : "";\n      const q = l.quotes?.length ? `<details class="src"><summary>Guideline</summary>${l.quotes.map((x) => `<q>${escapeHtml(x.text)}</q>${x.where ? ` <small>${escapeHtml(x.where)}</small>` : ""}${x.check && x.check !== "exact" ? \' <small class="dep">quote not confirmed</small>\' : ""}`).join("<br>")}</details>` : "";\n      const key = `${S.current}:${k}`;\n      if (l.kind === "do") return `<label class="do"><input type="checkbox" data-tick="${key}" ${S.ticks[key] ? "checked" : ""}> <span>${escapeHtml(l.text)}</span>${dep}${q}</label>`;\n      if (l.kind === "warning") return `<p class="warn">${escapeHtml(l.text)}${dep}${q}</p>`;\n      if (l.kind === "record") {\n        const r = S.records[l.text];\n        return `<div class="rec"><button class="big rec-btn" data-rec="${escapeHtml(l.text)}">${escapeHtml(l.text)}</button><small data-clock="rec" data-rec-name="${escapeHtml(l.text)}">${r ? `${r.n}\\xD7 \\xB7 last at ${tod(r.last)}, ${formatDuration(now() - r.last)} ago` : "not yet"}</small>${dep}${q}</div>`;\n      }\n      if (l.kind === "write") {\n        const id = `note-${slug(key)}`;\n        return `<div class="note-box"><label class="note-lbl" for="${id}">${escapeHtml(l.text)}</label>${dep}${q}\n        <textarea id="${id}" class="note-text" data-note="${escapeHtml(key)}" rows="5" autocomplete="off" spellcheck="false">${escapeHtml(S.notes[key]?.text ?? "")}</textarea>\n        <button class="big note-save" data-note-save="${escapeHtml(key)}">Save to Log</button>\n        <small class="note-status" data-note-status="${escapeHtml(key)}">${escapeHtml(noteStatus(key))}</small></div>`;\n      }\n      if (l.kind === "show") return `<div class="show">${showTable(l)}${dep}${q}</div>`;\n      return `<p class="${l.bullet ? "bul" : ""}">${escapeHtml(l.text)}${dep}${q}</p>`;\n    }\n    function showTable(l) {\n      const t = spec.tables.find((x) => x.id === l.tableId);\n      if (!t) return `<p class="author">"${escapeHtml(l.table)}" table is missing from the template.</p>`;\n      const cols = l.column ? t.columns.filter((c) => slug(c) === slug(l.column)) : t.columns.slice(1);\n      if (!t.keyInput) return `<table><tr>${t.columns.map((c) => `<th>${escapeHtml(c)}</th>`).join("")}</tr>${t.rows.map((r) => `<tr>${t.columns.map((c) => `<td>${cell(r.cells[c])}</td>`).join("")}</tr>`).join("")}</table>`;\n      const inp = spec.inputs.find((i) => i.id === t.keyInput);\n      const v = S.answers[inp.id];\n      if (v === void 0 || v === "") return `<p><b>${escapeHtml(t.title)}:</b> enter ${escapeHtml(inp.label)} to see this. <button class="link" data-tab="about">Enter details</button></p>`;\n      const row = t.rows.find((r) => keyMatches(r.match, v));\n      if (!row) return `<p class="author"><b>${escapeHtml(t.title)}:</b> the table has no row for ${escapeHtml(inp.label)} ${escapeHtml(v)}${inp.unit ? " " + escapeHtml(inp.unit) : ""}.</p>`;\n      return `<div class="lookup"><div class="lk">${escapeHtml(t.title)} <small>(${escapeHtml(row.key)})</small></div>${cols.map((c) => `<div class="lv"><span>${escapeHtml(c)}</span><b>${cell(row.cells[c])}</b></div>`).join("")}</div>`;\n    }\n    const cell = (v) => isNotStated(v) ? "<i>Not stated in the guideline</i>" : escapeHtml(v);\n    function reminderBar() {\n      const list = Object.entries(S.reminders);\n      if (!list.length) return "";\n      return `<div class="reminders">${list.map(([id, r]) => `<div class="rem" data-rem="${id}"><span class="rt">${escapeHtml(r.text)}</span><span class="rc" data-clock="rem" data-rem-id="${id}"></span>${r.once && !r.alerted ? "" : `<button data-remdone="${id}">${r.once ? "OK" : "Done"}</button>`}<button class="x" data-remstop="${id}" title="Stop">\\u2715</button></div>`).join("")}</div>`;\n    }\n    function doneView() {\n      return `<section class="card"><h2>Finished</h2><p>Total time ${clock((S.log.at(-1)?.at ?? now()) - (S.startedAt ?? now()))}.</p>${logList()}<button class="big" data-act="copy">Copy log</button><button class="big go" data-act="restart">Start again</button></section>`;\n    }\n    function logView() {\n      return `<section class="card"><h2>Log</h2>${S.log.length ? logList() + \'<button class="big" data-act="copy">Copy log</button>\' : "<p>Nothing yet.</p>"}</section>`;\n    }\n    function logList() {\n      return `<ol class="log">${S.log.map((e) => `<li><time>${S.startedAt ? clock(e.at - S.startedAt) : ""}</time> <span class="tod">${tod(e.at)}</span> ${escapeHtml(e.what)}${e.detail ? ` <small>${escapeHtml(e.detail)}</small>` : ""}</li>`).join("")}</ol>`;\n    }\n    function logText() {\n      return S.log.map((e) => `${S.startedAt ? clock(e.at - S.startedAt) : ""} (${tod(e.at)})  ${e.what}${e.detail ? " - " + e.detail : ""}`).join("\\n");\n    }\n    function checksView() {\n      const order = ["fix", "check", "info"];\n      const name = { fix: "Needs fixing", check: "Please check", info: "For information" };\n      const stepTitle = (id) => byId.get(id)?.title ?? id;\n      return `<section class="card"><h2>Author checks</h2><p>Found automatically by comparing the template with itself and with the guideline text. Fix them in the template; the app keeps running meanwhile.</p>\n      ${order.map((lvl) => {\n        const fs = findings.filter((f) => f.level === lvl);\n        return fs.length ? `<h3 class="lvl-${lvl}">${name[lvl]} (${fs.length})</h3><ul class="findings">${fs.map((f) => `<li class="lvl-${lvl}">${f.step ? `<b>${escapeHtml(stepTitle(f.step))}</b> \\xB7 ` : ""}${f.line ? `<small>line ${f.line}</small> ` : ""}${escapeHtml(f.message)}${f.suggestion ? `<br><i>${escapeHtml(f.suggestion)}</i>` : ""}</li>`).join("")}</ul>` : "";\n      }).join("") || "<p>No findings.</p>"}\n    </section>`;\n    }\n    function aboutView() {\n      return `<section class="card"><h2>About</h2>${spec.about ? `<p>${escapeHtml(spec.about)}</p>` : ""}\n      ${spec.inputs.length ? `<h3>Details</h3>${inputsForm()}` : ""}\n      ${lookLocked ? "" : `<h3>Look</h3><div class="look-pick">${LOOKS.map((l) => `<button data-look-pick="${l.id}" class="${html.dataset.look === l.id ? "on" : ""}">${escapeHtml(l.name)}</button>`).join("")}</div>`}\n      <h3>Source</h3><ul>${spec.sources.map((s) => `<li>${escapeHtml(s.name)}${s.link ? ` <a href="${escapeHtml(s.link)}" target="_blank" rel="noopener">link</a>` : ""}</li>`).join("") || "<li>Not stated</li>"}</ul>\n      <p><small>${spec.version ? "Guideline version: " + escapeHtml(spec.version) + " \\xB7 " : ""}${built ? "Built " + escapeHtml(built) + " \\xB7 " : ""}${summary.quotes != null ? `${summary.quotesExact}/${summary.quotes} quotes confirmed` : ""}</small></p>\n      ${S.screen !== "start" ? \'<button class="big" data-act="restart">Start again</button>\' : ""}</section>`;\n    }\n    function tick() {\n      const t = now();\n      const s = S.screen === "run" && S.current && byId.get(S.current);\n      if (s?.timer && !S.timerDone && t - S.enteredAt >= s.timer.ms) {\n        S.timerDone = true;\n        log("Timer finished", `${s.title}: ${s.timer.label}`);\n        buzz();\n        render();\n        return;\n      }\n      let newlyDue = false;\n      for (const r of Object.values(S.reminders)) if (r.dueAt <= t && !r.alerted) {\n        r.alerted = true;\n        newlyDue = true;\n        log(r.once ? "Deadline reached" : "Reminder due", r.text);\n        buzz();\n      }\n      if (newlyDue) {\n        render();\n        return;\n      }\n      save();\n      for (const el of root.querySelectorAll("[data-clock]")) {\n        const kind = el.dataset.clock;\n        if (kind === "elapsed" && S.startedAt) el.textContent = clock(t - S.startedAt);\n        if (kind === "timer" && s?.timer) {\n          el.textContent = clock(s.timer.ms - (t - S.enteredAt));\n          el.parentElement.style.setProperty("--p", Math.min(1, (t - S.enteredAt) / s.timer.ms).toFixed(3));\n        }\n        if (kind === "rem") {\n          const r = S.reminders[el.dataset.remId];\n          if (!r) continue;\n          const left = r.dueAt - t;\n          el.textContent = left > 0 ? clock(left) : `${r.once ? "NOW" : "DUE"} \\xB7 ${clock(-left)} ago`;\n          el.parentElement.classList.toggle("due", left <= 0);\n        }\n        if (kind === "rec") {\n          const r = S.records[el.dataset.recName];\n          if (r) el.textContent = `${r.n}\\xD7 \\xB7 last at ${tod(r.last)}, ${formatDuration(t - r.last)} ago`;\n        }\n      }\n    }\n    let audio = null;\n    const startAudio = () => {\n      audio ?? (audio = new (window.AudioContext || window.webkitAudioContext)());\n    };\n    const buzz = () => {\n      try {\n        navigator.vibrate?.([200, 100, 200]);\n      } catch {\n      }\n      try {\n        startAudio();\n        for (const at of [0, 0.3]) {\n          const o = audio.createOscillator(), g = audio.createGain();\n          o.frequency.value = 880;\n          g.gain.value = 0.2;\n          o.connect(g);\n          g.connect(audio.destination);\n          o.start(audio.currentTime + at);\n          o.stop(audio.currentTime + at + 0.18);\n        }\n      } catch {\n      }\n    };\n    const KEY = "guideline-app:" + slug(spec.title);\n    let lastSaved = "";\n    function save() {\n      try {\n        const j = JSON.stringify(S);\n        if (j !== lastSaved) {\n          localStorage.setItem(KEY, j);\n          lastSaved = j;\n        }\n      } catch {\n      }\n    }\n    function load() {\n      try {\n        const j = localStorage.getItem(KEY);\n        if (j) {\n          const old = JSON.parse(j);\n          if (old.screen === "run" && old.current && byId.has(old.current)) {\n            Object.assign(S, old, { tab: "steps", notes: cleanNotes(old.notes), note: "Carried on from where this was left (the page was reloaded)." });\n          }\n        }\n      } catch {\n      }\n    }\n    root.addEventListener("click", (e) => {\n      var _a, _b;\n      const b = e.target.closest("button");\n      if (!b) return;\n      const d = b.dataset;\n      if (d.tab) {\n        saveAllNotes();\n        S.tab = d.tab;\n        render();\n        return;\n      }\n      if (d.lookPick) return pickLook(d.lookPick);\n      if (d.input) {\n        S.answers[d.input] = S.answers[d.input] === d.value ? void 0 : d.value;\n        if (S.screen === "run") log("Detail changed", `${d.input}: ${d.value}`);\n        render();\n        return;\n      }\n      if (d.opt !== void 0) {\n        const s = byId.get(S.current), o = s.ask.options[+d.opt];\n        if (!o.target) {\n          S.note = `"${o.label}" leads to "${o.to}", which is missing from the template (see Checks).`;\n          render();\n          return;\n        }\n        return go(o.target, `${s.ask.question || s.title}: ${o.label}`);\n      }\n      if (d.noteSave !== void 0) {\n        typeNote(d.noteSave, [...root.querySelectorAll("[data-note]")].find((x) => x.dataset.note === d.noteSave)?.value ?? S.notes[d.noteSave]?.text);\n        saveNote(d.noteSave);\n        render();\n        return;\n      }\n      if (d.rec) {\n        const r = (_a = S.records)[_b = d.rec] ?? (_a[_b] = { n: 0, last: 0 });\n        r.n++;\n        r.last = now();\n        log(d.rec);\n        render();\n        return;\n      }\n      if (d.remdone) {\n        const r = S.reminders[d.remdone];\n        if (r) {\n          log("Done", r.text);\n          if (r.once) delete S.reminders[d.remdone];\n          else {\n            r.dueAt = now() + r.ms;\n            r.alerted = false;\n          }\n        }\n        render();\n        return;\n      }\n      if (d.remstop) {\n        const r = S.reminders[d.remstop];\n        if (r) log("Reminder stopped", r.text);\n        delete S.reminders[d.remstop];\n        render();\n        return;\n      }\n      switch (d.act) {\n        case "begin":\n          try {\n            startAudio();\n          } catch {\n          }\n          return begin();\n        // phones only allow sound that starts on a tap\n        case "back":\n          return back();\n        case "next":\n          return go(nextTarget(byId.get(S.current)), "Next");\n        case "timer-go":\n          return go(byId.get(S.current).timer.target, "Timer finished");\n        case "finish":\n          return finish();\n        case "restart":\n          return restart();\n        case "copy":\n          try {\n            navigator.clipboard?.writeText(logText());\n            b.textContent = "Copied";\n          } catch {\n            b.textContent = "Could not copy";\n          }\n          return;\n      }\n    });\n    root.addEventListener("change", (e) => {\n      const el = e.target;\n      if (el.dataset.note) {\n        typeNote(el.dataset.note, el.value);\n        saveNote(el.dataset.note);\n        showNoteStatus(el.dataset.note);\n        return;\n      }\n      if (el.dataset.num && S.screen === "run") log("Detail changed", `${el.dataset.num}: ${el.value.trim()}`);\n      if (el.dataset.tick) {\n        S.ticks[el.dataset.tick] = el.checked;\n        const s = byId.get(S.current);\n        const l = s?.lines.filter((x) => x.kind !== "note")[+el.dataset.tick.split(":").pop()];\n        log(el.checked ? "Ticked" : "Unticked", l?.text ?? "");\n      }\n    });\n    root.addEventListener("input", (e) => {\n      const el = e.target;\n      if (el.dataset.note) {\n        typeNote(el.dataset.note, el.value);\n        showNoteStatus(el.dataset.note);\n        return;\n      }\n      if (el.dataset.num) {\n        S.answers[el.dataset.num] = el.value.trim();\n        const i = spec.inputs.find((x) => x.id === el.dataset.num);\n        const bad = root.querySelector(`[data-bad="${el.dataset.num}"]`);\n        if (bad) bad.textContent = numberProblem(i, el.value.trim()) ?? "";\n      }\n    });\n    load();\n    const timer = setInterval(tick, 250);\n    render();\n    return { state: S, render, stop: () => clearInterval(timer) };\n  }\n\n  // engine/app-entry.js\n  var data = JSON.parse(document.getElementById("spec").textContent);\n  window.__app = mount(document.getElementById("app"), data);\n})();\n', fontsLink: '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Archivo:wght@500;700;800;900&family=IBM+Plex+Sans:wght@400;500;700&family=IBM+Plex+Sans+Condensed:wght@600;700&family=IBM+Plex+Mono:wght@500&display=swap">' });
   }
   $("#tpl").addEventListener("input", () => {
     clearTimeout(timer);

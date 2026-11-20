@@ -65,6 +65,8 @@ Source: Guideline table 2, page 4
 >   Stop:     Reassess  (or "all")               stops a reminder
 >   Show:     Example dose                       shows the table row for the current details
 >   Record:   Dose given                         a button that logs the time each time it's tapped
+>   Write:    Caller's exact words               a box to type into; the text goes in the Log with the time
+>             (one box per Write: line; it keeps its text on Back. Use it when the guideline says to write something down.)
 > Any line can end with a condition: [if Age group = Child] or [if Weight < 10] or [if A = x and B > 3].
 > Answers can have conditions too: - Give second dose -> second-dose [if Age group is Adult]
 

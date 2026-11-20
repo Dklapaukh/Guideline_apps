@@ -1,0 +1,95 @@
+{
+ "summary": {
+  "steps": 33,
+  "reachable": 33,
+  "fix": 0,
+  "check": 0,
+  "info": 14,
+  "quotes": 116,
+  "quotesExact": 116,
+  "numberLines": 3,
+  "numberLinesQuoted": 3,
+  "sourceAmounts": 5,
+  "sourceAmountsUsed": 3
+ },
+ "findings": [
+  {
+   "level": "info",
+   "step": "words",
+   "line": 39,
+   "message": "1 line in \"Write the exact words\" has no quote from the guideline (\"Then the NZ card's 10 questions, one per screen.\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "q-extra",
+   "line": 152,
+   "message": "1 line in \"Still on the line? Australian extra questions\" has no quote from the guideline (\"Tap Next when the call has ended.\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "ended",
+   "line": 162,
+   "message": "1 line in \"The call has ended\" has no quote from the guideline (\"The NZ card gives no instructions for during or after the…\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "tell",
+   "line": 177,
+   "message": "1 line in \"Tell your contact person and Police now\" has no quote from the guideline (\"The Australian checklist says dial 000; in New Zealand it…\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "decide",
+   "line": 266,
+   "message": "1 line in \"Search or evacuate? Not your call alone\" has no quote from the guideline (\"No source gives an evacuation distance for a phone threat…\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "waiting",
+   "line": 275,
+   "message": "2 lines in \"Waiting for the decision\" have no quote from the guideline (\"Keep this app with you. Do what the employer, the inciden…\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "evacuate",
+   "line": 284,
+   "message": "1 line in \"Decision: evacuate everyone\" has no quote from the guideline (\"Use your workplace's evacuation plan. The guidelines give…\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "evacuate-part",
+   "line": 297,
+   "message": "1 line in \"Decision: partial evacuation\" has no quote from the guideline (\"Use your workplace's plan for which areas leave. The guid…\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "search-none",
+   "line": 319,
+   "message": "1 line in \"Search found nothing\" has no quote from the guideline (\"The guides do not say what to do if a search finds nothin…\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "item-au",
+   "line": 396,
+   "message": "2 lines in \"Suspicious item: Australian guide\" have no quote from the guideline (\"These come from the Australian guide (ANZCTC). NZ Police …\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "handover",
+   "line": 420,
+   "message": "6 lines in \"Hand over to Police\" have no quote from the guideline (\"Give Police:\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "message": "The guideline mentions 2 amounts the template never uses: 7 day, 48 hour. Some may be background; check none were left out."
+  },
+  {
+   "level": "info",
+   "message": "Nobody is named under \"Reviewed by:\", so the app shows \"Not reviewed\"."
+  },
+  {
+   "level": "info",
+   "message": "The saved guideline text is a web copy made by a fetch tool and may not be word-perfect, so a \"quote not found\" may be the copy's fault. Add the PDF to sources/ for exact checking."
+  }
+ ]
+}

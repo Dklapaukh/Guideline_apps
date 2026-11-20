@@ -27,3 +27,7 @@ h2 { font-size:24px; } h3 { color:var(--go); }
 .tabs { left:12px; right:12px; bottom:10px; border:0; border-radius:20px; box-shadow:0 8px 30px rgba(22,35,43,.15); overflow:hidden; }
 .tabs button.on { color:var(--go); box-shadow:none; background:var(--gosoft); }
 .choices button { border-radius:999px; } .choices button.on { background:var(--go); border-color:var(--go); }
+
+.note-box { background:#f6f9f9; border-radius:16px; padding:14px; }
+.note-text { border:1.5px solid var(--line); border-radius:14px; background:#fff; }
+.note-save { background:var(--gosoft); color:var(--go); border-radius:999px; }

@@ -98,6 +98,7 @@ export function checkSpec(input, { sourceText = '', findings: earlier = [] } = {
       if (labels.has(k) && labels.get(k) !== o.target && !o.cond) add('check', { step: s.id, line: o.line }, `"${s.title}": the answer "${o.label}" appears twice and goes to two different places. Which one is right?`);
       labels.set(k, o.target);
     }
+    checkWriteBoxes(s, add);
     if (!out.length && !s.end && !(s.ask?.options.length)) {
       add('check', where, `"${s.title}" has no way forward (no answers, "Next", timer or "End"). The app offers "Finish" here.`, 'Add "Next: <step>" or "End:" if this is meant to be the last step.');
     }
@@ -137,7 +138,7 @@ export function checkSpec(input, { sourceText = '', findings: earlier = [] } = {
     const stepQuotes = [...(s.quotes ?? []), ...s.lines.flatMap((l) => l.quotes ?? []), ...holders.flatMap((h) => h.quotes)];
     for (const q of [...(s.quotes ?? []), ...holders.flatMap((h) => h.quotes)]) checkQuote(q, { step: s.id, line: s.line });   // quotes not under a text line: still checked
     for (const l of s.lines) {
-      const said = l.kind === 'show' || l.kind === 'note' ? [] : amounts(l.text);
+      const said = l.kind === 'show' || l.kind === 'note' || l.kind === 'write' ? [] : amounts(l.text);   // labels, not instructions
       said.forEach((a) => templateAmounts.add(a));
       if (said.length) { numberLines++; if (l.quotes?.length) numberLinesQuoted++; }
       for (const q of l.quotes ?? []) {
@@ -191,6 +192,17 @@ export function checkSpec(input, { sourceText = '', findings: earlier = [] } = {
     sourceAmounts: sourceAmounts.length, sourceAmountsUsed: sourceAmounts.length - missed.length,
   };
   return { spec, findings, summary };
+}
+
+/* "Write:" boxes on one step: two with the same label would look like one question asked twice, so say so
+   (both boxes still work and are logged separately). */
+function checkWriteBoxes(s, add) {
+  const seen = new Set();
+  for (const l of s.lines.filter((x) => x.kind === 'write')) {
+    const k = l.text.trim().toLowerCase();
+    if (seen.has(k) && !l.cond) add('check', { step: s.id, line: l.line }, `"${s.title}" has two writing boxes called "${l.text}". The person can't tell them apart, and the Log shows two entries with one name.`, 'Give each box its own label, e.g. "Write: Caller\'s words (first call)".');
+    seen.add(k);
+  }
 }
 
 /* Branding and look: a colour the app can't use, or white text that would be hard to read on it, or a look

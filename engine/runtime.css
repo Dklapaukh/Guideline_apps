@@ -40,6 +40,11 @@ details.src q { font-style:italic; }
 .rem.due { border-color:var(--due); background:#fde8e8; } .rem.due .rc { color:var(--due); font-weight:700; }
 .rec { padding:6px 0; } .rec small { color:var(--mut); }
 .rec-btn { background:#fff7e6; border-color:#f2c46d; }
+.note-box { margin:12px 0; padding:10px 0; } .note-lbl { display:block; font-weight:700; margin-bottom:6px; }
+.note-text { display:block; width:100%; min-height:132px; font:inherit; line-height:1.4; padding:12px; border-radius:10px; border:1px solid var(--line); background:var(--card); color:var(--ink); resize:vertical; }
+.note-text:focus { outline:3px solid var(--go); outline-offset:1px; }
+.note-save { text-align:center; } .note-status { display:block; margin-top:6px; color:var(--mut); font-size:14px; }
+.log small { white-space:pre-wrap; }
 .lookup { border:1px solid var(--line); border-radius:10px; padding:8px 10px; margin:8px 0; }
 .lookup .lk { font-weight:600; } .lookup .lv { display:flex; justify-content:space-between; gap:10px; padding:4px 0; border-top:1px dashed var(--line); }
 table { border-collapse:collapse; width:100%; font-size:14px; } th, td { border:1px solid var(--line); padding:4px 6px; text-align:left; }

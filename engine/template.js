@@ -23,6 +23,7 @@ const KEYS = {
   stop: ['stop reminder', 'stop reminders', 'stop'],
   show: ['show', 'look up', 'lookup'],
   record: ['record', 'log', 'button'],
+  write: ['write', 'write down', 'text box', 'notes box', 'free text'],
   end: ['end', 'finish', 'done'],
   note: ['note', 'author note', 'comment'],
 };
@@ -75,11 +76,21 @@ export function readTemplate(text) {
       return;
     }
 
+    if (section !== 'steps' && misplacedWrite(bare, n)) return;
     if (section === 'top') return readTop(bare, n);
     if (section === 'inputs') return readInput(bare, n);
     if (section === 'tables') return readTableLine(bare, n);
     if (section === 'steps') return readStepLine(bare, n);
   });
+
+  // A "Write:" box outside "## Steps" has no screen to sit on: report it (with where to move it) and skip the line.
+  function misplacedWrite(bare, n) {
+    const kv = keyValue(bare.replace(/^[-*]\s*/, ''));
+    if (!kv || KEY_OF.get(kv.key) !== 'write') return false;
+    say('fix', n, `"${kv.key}: ${kv.value}" is a writing box, but it is outside "## Steps", so the app has nowhere to show it.`,
+      { suggestion: 'Move the line under the "### step" where the person should write it.' });
+    return true;
+  }
 
   /* ---- top of the template: About, Source, Warning, ... ---- */
   function readTop(bare, n) {
@@ -173,7 +184,7 @@ export function readTemplate(text) {
     if (!kv || !kind) {
       const near = kv && matchKeyStart(kv.key);
       if (near) say('info', n, `"${kv.key}:" is shown as text. If it was meant as a "${near}" line, write "${near[0].toUpperCase() + near.slice(1)}:" on its own.`, { step: step.id });
-      else if (kv && kv.key.split(' ').length === 1) say('info', n, `"${kv.key}:" is not a known line type; shown as text. Known types: Say, Do, Warning, Quote, Ask, Next, Timer, Remind, Stop, Show, Record, End, Note.`, { step: step.id });
+      else if (kv && kv.key.split(' ').length === 1) say('info', n, `"${kv.key}:" is not a known line type; shown as text. Known types: Say, Do, Warning, Quote, Ask, Next, Timer, Remind, Stop, Show, Record, Write, End, Note.`, { step: step.id });
       addLine({ kind: 'say', text, cond, line: n });
       return;
     }
@@ -181,6 +192,12 @@ export function readTemplate(text) {
     switch (kind) {
       case 'say': case 'do': case 'warning': case 'note': addLine({ kind, text: value, cond, line: n }); return;
       case 'record': addLine({ kind: 'record', text: value, cond, line: n }); return;
+      case 'write': {
+        // A box to type into. With no label it still works, called "Notes", and the author is told.
+        if (!value) say('fix', n, `A "${kv.key}:" line has no label, so its box is called "Notes".`, { step: step.id, suggestion: 'Say what to write, e.g. "Write: Caller\'s exact words".' });
+        addLine({ kind: 'write', text: value || 'Notes', cond, line: n });
+        return;
+      }
       case 'show': addLine({ kind: 'show', ...readShow(value), cond, line: n }); return;
       case 'quote': {
         const q = readQuote(value);

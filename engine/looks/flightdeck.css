@@ -39,3 +39,7 @@ details.src summary { color:var(--go); } details.src { color:var(--mut); }
 .tabs { background:#070a0e; border-top:1px solid var(--line); }
 .tabs button { text-transform:uppercase; letter-spacing:.08em; font-size:13px; }
 .tabs button.on { color:var(--go); box-shadow:inset 0 3px 0 var(--go); }
+
+.note-lbl { font-family:"IBM Plex Sans Condensed", "IBM Plex Sans", sans-serif; text-transform:uppercase; letter-spacing:.06em; font-size:14px; color:var(--go); }
+.note-text { background:#0b1118; color:var(--ink); border-color:#1f3a50; border-radius:4px; }
+.note-save { text-transform:uppercase; letter-spacing:.06em; color:var(--go); border-color:#1f3a50; }
