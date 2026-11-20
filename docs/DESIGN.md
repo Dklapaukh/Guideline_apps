@@ -58,7 +58,7 @@ Full help text is inside `template/guideline-template.md`. Line types:
 | `Remind: every 4 minutes: text` | a reminder bar on every screen until stopped; "Done" logs it and restarts the count |
 | `Stop: text` or `Stop: all` | stops reminders |
 | `Show: Table name` (or `Table: Column`) | the table row for the current details (e.g. dose by weight) |
-| `Record: Adrenaline given` | a button that logs a time stamp and counts taps |
+| `Record: Adrenaline given` | a button that logs a time stamp and counts taps; it and the Log show the clock time of day (14:32) as well as time since start, for handover |
 | `End:` | marks a last step |
 | `Brand:` / `Brand colour:` / `Look:` (top) | company name and colour; the look the app opens in |
 | `Note:` | for authors, never shown |

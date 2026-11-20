@@ -1,0 +1,91 @@
+{
+ "summary": {
+  "steps": 29,
+  "reachable": 29,
+  "fix": 0,
+  "check": 0,
+  "info": 13,
+  "quotes": 134,
+  "quotesExact": 134,
+  "numberLines": 7,
+  "numberLinesQuoted": 7,
+  "sourceAmounts": 6,
+  "sourceAmountsUsed": 6
+ },
+ "findings": [
+  {
+   "level": "info",
+   "step": "soaking",
+   "line": 48,
+   "message": "1 line in \"Still bleeding? Press harder\" has no quote from the guideline (\"The others differ:\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "tq-untrained",
+   "line": 80,
+   "message": "1 line in \"A tourniquet, not trained\" has no quote from the guideline (\"ANZCOR does not say whether an untrained helper should us…\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "tq-on",
+   "line": 134,
+   "message": "1 line in \"Tourniquet on: leave it\" has no quote from the guideline (\"No source says how to write the time down (on the tourniq…\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "dressing",
+   "line": 161,
+   "message": "1 line in \"Haemostatic dressing\" has no quote from the guideline (\"No dressing? Keep pressing hard. No source gives another …\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "not-breathing",
+   "line": 264,
+   "message": "1 line in \"Not breathing normally\" has no quote from the guideline (\"No source says what one helper alone should do when both …\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "head",
+   "line": 324,
+   "message": "1 line in \"Bleeding from a head wound\" has no quote from the guideline (\"Only Healthify covers head wounds, under its minor bleedi…\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "head-skull",
+   "line": 337,
+   "message": "1 line in \"Skull may be broken\" has no quote from the guideline (\"No source says how to slow the bleeding instead. Follow t…\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "crush",
+   "line": 351,
+   "message": "1 line in \"Crushed under something heavy\" has no quote from the guideline (\"Only St John covers crush injuries.\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "nose-10",
+   "line": 377,
+   "message": "2 lines in \"Nosebleed: 10 minutes\" have no quote from the guideline (\"Keep pinching and resting, seated. How long differs:\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "nose-help",
+   "line": 399,
+   "message": "1 line in \"Nosebleed: get help\" has no quote from the guideline (\"Tell the helpers when pinching started (on its button and…\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "step": "handover",
+   "line": 423,
+   "message": "2 lines in \"Hand over to the ambulance\" have no quote from the guideline (\"The Log also has when 111 was called, pressure started, a…\"). Fine for app wording; an instruction should quote its source."
+  },
+  {
+   "level": "info",
+   "message": "Nobody is named under \"Reviewed by:\", so the app shows \"Not reviewed\"."
+  },
+  {
+   "level": "info",
+   "message": "The saved guideline text is a web copy made by a fetch tool and may not be word-perfect, so a \"quote not found\" may be the copy's fault. Add the PDF to sources/ for exact checking."
+  }
+ ]
+}

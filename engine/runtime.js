@@ -20,6 +20,8 @@ export function mount(root, { spec, findings = [], summary = {}, built = '' }) {
   const byId = new Map(spec.steps.map((s) => [s.id, s]));
   const now = () => Date.now();
   const log = (what, detail = '') => S.log.push({ at: now(), what, detail });
+  // Time of day as 24-hour "14:32", so handover notes carry the real clock time, not only time since start.
+  const tod = (ms) => { const d = new Date(ms); return `${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}`; };
   const brand = spec.brand ?? {};
 
   /* ---------- look and branding ---------- */
@@ -155,7 +157,7 @@ export function mount(root, { spec, findings = [], summary = {}, built = '' }) {
     const key = `${S.current}:${k}`;
     if (l.kind === 'do') return `<label class="do"><input type="checkbox" data-tick="${key}" ${S.ticks[key] ? 'checked' : ''}> <span>${esc(l.text)}</span>${dep}${q}</label>`;
     if (l.kind === 'warning') return `<p class="warn">${esc(l.text)}${dep}${q}</p>`;
-    if (l.kind === 'record') { const r = S.records[l.text]; return `<div class="rec"><button class="big rec-btn" data-rec="${esc(l.text)}">${esc(l.text)}</button><small data-clock="rec" data-rec-name="${esc(l.text)}">${r ? `${r.n}× · last ${formatDuration(now() - r.last)} ago` : 'not yet'}</small>${dep}${q}</div>`; }
+    if (l.kind === 'record') { const r = S.records[l.text]; return `<div class="rec"><button class="big rec-btn" data-rec="${esc(l.text)}">${esc(l.text)}</button><small data-clock="rec" data-rec-name="${esc(l.text)}">${r ? `${r.n}× · last at ${tod(r.last)}, ${formatDuration(now() - r.last)} ago` : 'not yet'}</small>${dep}${q}</div>`; }
     if (l.kind === 'show') return `<div class="show">${showTable(l)}${dep}${q}</div>`;
     return `<p class="${l.bullet ? 'bul' : ''}">${esc(l.text)}${dep}${q}</p>`;
   }
@@ -184,8 +186,8 @@ export function mount(root, { spec, findings = [], summary = {}, built = '' }) {
     return `<section class="card"><h2>Finished</h2><p>Total time ${clock((S.log.at(-1)?.at ?? now()) - (S.startedAt ?? now()))}.</p>${logList()}<button class="big" data-act="copy">Copy log</button><button class="big go" data-act="restart">Start again</button></section>`;
   }
   function logView() { return `<section class="card"><h2>Log</h2>${S.log.length ? logList() + '<button class="big" data-act="copy">Copy log</button>' : '<p>Nothing yet.</p>'}</section>`; }
-  function logList() { return `<ol class="log">${S.log.map((e) => `<li><time>${S.startedAt ? clock(e.at - S.startedAt) : ''}</time> ${esc(e.what)}${e.detail ? ` <small>${esc(e.detail)}</small>` : ''}</li>`).join('')}</ol>`; }
-  function logText() { return S.log.map((e) => `${S.startedAt ? clock(e.at - S.startedAt) : ''}  ${e.what}${e.detail ? ' - ' + e.detail : ''}`).join('\n'); }
+  function logList() { return `<ol class="log">${S.log.map((e) => `<li><time>${S.startedAt ? clock(e.at - S.startedAt) : ''}</time> <span class="tod">${tod(e.at)}</span> ${esc(e.what)}${e.detail ? ` <small>${esc(e.detail)}</small>` : ''}</li>`).join('')}</ol>`; }
+  function logText() { return S.log.map((e) => `${S.startedAt ? clock(e.at - S.startedAt) : ''} (${tod(e.at)})  ${e.what}${e.detail ? ' - ' + e.detail : ''}`).join('\n'); }
   // The Checks tab: the checker's findings, most serious first.
   function checksView() {
     const order = ['fix', 'check', 'info'];
@@ -229,7 +231,7 @@ export function mount(root, { spec, findings = [], summary = {}, built = '' }) {
         el.textContent = left > 0 ? clock(left) : `${r.once ? 'NOW' : 'DUE'} · ${clock(-left)} ago`;
         el.parentElement.classList.toggle('due', left <= 0);
       }
-      if (kind === 'rec') { const r = S.records[el.dataset.recName]; if (r) el.textContent = `${r.n}× · last ${formatDuration(t - r.last)} ago`; }
+      if (kind === 'rec') { const r = S.records[el.dataset.recName]; if (r) el.textContent = `${r.n}× · last at ${tod(r.last)}, ${formatDuration(t - r.last)} ago`; }
     }
   }
   // Alert: vibrate where the phone allows it, and two short beeps (sound works after the first tap on Start).

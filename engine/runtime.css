@@ -49,7 +49,7 @@ table { border-collapse:collapse; width:100%; font-size:14px; } th, td { border:
 .choices { display:flex; flex-wrap:wrap; gap:6px; margin-top:4px; }
 .choices button { font:inherit; padding:10px 12px; border-radius:8px; border:1px solid var(--line); background:#eef1f4; }
 .choices button.on { background:#14213d; color:#fff; }
-.log { padding-left:0; list-style:none; } .log li { padding:6px 0; border-bottom:1px solid var(--line); } .log time { display:inline-block; min-width:56px; font-variant-numeric:tabular-nums; color:var(--mut); }
+.log { padding-left:0; list-style:none; } .log li { padding:6px 0; border-bottom:1px solid var(--line); } .log time { display:inline-block; min-width:56px; font-variant-numeric:tabular-nums; color:var(--mut); } .log .tod { font-variant-numeric:tabular-nums; font-size:.85em; color:var(--mut); margin-right:4px; }
 .findings { padding-left:18px; } .findings li { margin:8px 0; font-size:15px; }
 .lvl-fix { color:var(--due); } .lvl-check { color:var(--warn); } .lvl-info { color:var(--mut); }
 .tabs { position:fixed; bottom:0; left:0; right:0; display:flex; background:#fff; border-top:1px solid var(--line); max-width:560px; margin:0 auto; }

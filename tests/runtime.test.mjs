@@ -130,3 +130,16 @@ test('details pick the table row and the lines shown; "-" reads "Not stated"; Re
   app.click('[data-tab="about"]'); app.type('[data-num="weight"]', '20'); app.click('[data-tab="steps"]');
   assert.match(app.text(), /Not stated in the guideline/);
 });
+
+test('a Record tap and the Log show the clock time of day, for handover', () => {
+  const app = appFrom(D);
+  app.type('[data-num="weight"]', '8');
+  app.click('[data-act="begin"]');
+  app.advance(120000);
+  app.click('[data-rec="Dose given"]');
+  const at = new Date(app.state.records['Dose given'].last);
+  const hhmm = `${String(at.getHours()).padStart(2, '0')}:${String(at.getMinutes()).padStart(2, '0')}`;
+  assert.match(app.text(), new RegExp(`last at ${hhmm}`), 'the Record button says the time of day');
+  app.click('[data-tab="log"]');
+  assert.match(app.$('.log').textContent, new RegExp(`2:00\\s+${hhmm}\\s+Dose given`), 'the Log shows time since start and time of day');
+});

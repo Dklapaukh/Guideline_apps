@@ -55,7 +55,7 @@ table { border-collapse:collapse; width:100%; font-size:14px; } th, td { border:
 .choices { display:flex; flex-wrap:wrap; gap:6px; margin-top:4px; }
 .choices button { font:inherit; padding:10px 12px; border-radius:8px; border:1px solid var(--line); background:#eef1f4; }
 .choices button.on { background:#14213d; color:#fff; }
-.log { padding-left:0; list-style:none; } .log li { padding:6px 0; border-bottom:1px solid var(--line); } .log time { display:inline-block; min-width:56px; font-variant-numeric:tabular-nums; color:var(--mut); }
+.log { padding-left:0; list-style:none; } .log li { padding:6px 0; border-bottom:1px solid var(--line); } .log time { display:inline-block; min-width:56px; font-variant-numeric:tabular-nums; color:var(--mut); } .log .tod { font-variant-numeric:tabular-nums; font-size:.85em; color:var(--mut); margin-right:4px; }
 .findings { padding-left:18px; } .findings li { margin:8px 0; font-size:15px; }
 .lvl-fix { color:var(--due); } .lvl-check { color:var(--warn); } .lvl-info { color:var(--mut); }
 .tabs { position:fixed; bottom:0; left:0; right:0; display:flex; background:#fff; border-top:1px solid var(--line); max-width:560px; margin:0 auto; }
@@ -186,6 +186,10 @@ html[data-look="flightdeck"]{ --ink:#e8edf2; --mut:#8a97a6; --bg:#0b0f14; --card
     const byId = new Map(spec.steps.map((s) => [s.id, s]));
     const now = () => Date.now();
     const log = (what, detail = "") => S.log.push({ at: now(), what, detail });
+    const tod = (ms) => {
+      const d = new Date(ms);
+      return `${String(d.getHours()).padStart(2, "0")}:${String(d.getMinutes()).padStart(2, "0")}`;
+    };
     const brand = spec.brand ?? {};
     const html = root.ownerDocument.documentElement;
     const lookLocked = html.hasAttribute("data-look-lock");
@@ -345,7 +349,7 @@ html[data-look="flightdeck"]{ --ink:#e8edf2; --mut:#8a97a6; --bg:#0b0f14; --card
       if (l.kind === "warning") return `<p class="warn">${escapeHtml(l.text)}${dep}${q}</p>`;
       if (l.kind === "record") {
         const r = S.records[l.text];
-        return `<div class="rec"><button class="big rec-btn" data-rec="${escapeHtml(l.text)}">${escapeHtml(l.text)}</button><small data-clock="rec" data-rec-name="${escapeHtml(l.text)}">${r ? `${r.n}\xD7 \xB7 last ${formatDuration(now() - r.last)} ago` : "not yet"}</small>${dep}${q}</div>`;
+        return `<div class="rec"><button class="big rec-btn" data-rec="${escapeHtml(l.text)}">${escapeHtml(l.text)}</button><small data-clock="rec" data-rec-name="${escapeHtml(l.text)}">${r ? `${r.n}\xD7 \xB7 last at ${tod(r.last)}, ${formatDuration(now() - r.last)} ago` : "not yet"}</small>${dep}${q}</div>`;
       }
       if (l.kind === "show") return `<div class="show">${showTable(l)}${dep}${q}</div>`;
       return `<p class="${l.bullet ? "bul" : ""}">${escapeHtml(l.text)}${dep}${q}</p>`;
@@ -375,10 +379,10 @@ html[data-look="flightdeck"]{ --ink:#e8edf2; --mut:#8a97a6; --bg:#0b0f14; --card
       return `<section class="card"><h2>Log</h2>${S.log.length ? logList() + '<button class="big" data-act="copy">Copy log</button>' : "<p>Nothing yet.</p>"}</section>`;
     }
     function logList() {
-      return `<ol class="log">${S.log.map((e) => `<li><time>${S.startedAt ? clock(e.at - S.startedAt) : ""}</time> ${escapeHtml(e.what)}${e.detail ? ` <small>${escapeHtml(e.detail)}</small>` : ""}</li>`).join("")}</ol>`;
+      return `<ol class="log">${S.log.map((e) => `<li><time>${S.startedAt ? clock(e.at - S.startedAt) : ""}</time> <span class="tod">${tod(e.at)}</span> ${escapeHtml(e.what)}${e.detail ? ` <small>${escapeHtml(e.detail)}</small>` : ""}</li>`).join("")}</ol>`;
     }
     function logText() {
-      return S.log.map((e) => `${S.startedAt ? clock(e.at - S.startedAt) : ""}  ${e.what}${e.detail ? " - " + e.detail : ""}`).join("\n");
+      return S.log.map((e) => `${S.startedAt ? clock(e.at - S.startedAt) : ""} (${tod(e.at)})  ${e.what}${e.detail ? " - " + e.detail : ""}`).join("\n");
     }
     function checksView() {
       const order = ["fix", "check", "info"];
@@ -437,7 +441,7 @@ html[data-look="flightdeck"]{ --ink:#e8edf2; --mut:#8a97a6; --bg:#0b0f14; --card
         }
         if (kind === "rec") {
           const r = S.records[el.dataset.recName];
-          if (r) el.textContent = `${r.n}\xD7 \xB7 last ${formatDuration(t - r.last)} ago`;
+          if (r) el.textContent = `${r.n}\xD7 \xB7 last at ${tod(r.last)}, ${formatDuration(t - r.last)} ago`;
         }
       }
     }

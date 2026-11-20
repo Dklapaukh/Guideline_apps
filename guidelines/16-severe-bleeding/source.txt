@@ -1,0 +1,359 @@
+Severe bleeding first aid (direct pressure, arterial tourniquet and the time it went on, haemostatic dressings,
+embedded objects, amputated parts, internal bleeding, shock signs), word-for-word copies from three official
+NZ / Australia-NZ sources (read 20 Nov 2026, NZ time). The sources do NOT say the same things (for example
+St John NZ and Healthify say raise a bleeding arm or leg; ANZCOR says there is no evidence raising it helps and
+it may cause more pain or injury; only ANZCOR covers tourniquets), so each is kept under its own heading; never
+mix them. Main source is SOURCE A.
+Capture method (web-fetch copy): every site blocks direct download here (curl refused for anzcor.org,
+stjohn.org.nz and resus.org.au) and web search gave titles only, so every line was read by a fetch tool asked
+to quote exact lines (long sentences in pieces, rejoined here). Small slips (apostrophe or dash style) are
+possible. Lines in [square brackets] are notes added here, not guideline text, except the ANZCOR evidence tags
+such as "[Good Practice Statement]", which are printed in the guideline. Navigation, references and page
+furniture are left out. "-" = bullet. No PDF was in sources/.
+
+=====================================================================================================
+SOURCE A. ANZCOR (Australian and New Zealand Committee on Resuscitation) Guideline 9.1.1
+"First Aid for Management of Bleeding" (Approved: April 2021; Editorial Update - July 2025)
+https://www.anzcor.org/home/first-aid/guideline-9-1-1-first-aid-for-management-of-bleeding
+=====================================================================================================
+About this Guideline
+Search date/s: ANZCOR search: October 2020
+Approved: April 2021
+Guidelines superseded: ANZCOR Guideline 9.1.1 - July 2017
+
+A1. Summary
+Who does this guideline apply to?
+This guideline applies to adults, children and infants.
+Who is the audience for this guideline?
+This guideline is for use by bystanders, first aiders and first aid training providers.
+
+A2. Recommendations
+The Australian and New Zealand Committee on Resuscitation (ANZCOR) makes the following recommendations:
+1. Firm pressure on or around the wound is the most effective way to stop most bleeding. [Good Practice Statement]
+2. In life-threatening bleeding, control of bleeding takes priority over airway and breathing interventions. [Good Practice Statement]
+3. We suggest to use an arterial tourniquet for life-threatening limb bleeding that is not controlled by direct wound pressure. [CoSTR 2020, weak recommendation, very low certainty of evidence]
+
+A3. 1.0 External Bleeding
+The use of pressure on or around the wound is usually the fastest, easiest and most effective way to stop external bleeding. [Good Practice Statement]
+Other methods should be used if direct pressure alone does not control severe bleeding.
+The aim is to stop further bleeding whilst waiting for help to arrive.
+There is no evidence that elevating a bleeding part will help control bleeding and there is the potential to cause more pain or injury.
+Bleeding should be managed as severe, life-threatening bleeding in the following situations:
+- amputated or partially amputated limb above wrist or ankle
+- shark attack, propeller cuts or similar major trauma to any part of the body
+- bleeding not controlled by local pressure
+- bleeding with signs of shock, i.e. pale and sweaty plus pulse rate >100, or capillary refill > 2 sec and/or decreased level of consciousness
+
+A4. 1.1 Management
+Use standard precautions (e.g. gloves, protective glasses) if readily available.
+Management of all bleeding begins with application of pressure on or around the wound.
+If bleeding is severe or life-threatening, controlling the bleeding takes priority over airway and breathing interventions.
+Lie the person down, apply pressure and call for an ambulance.
+If there is severe, life threatening bleeding from a limb, not controlled by pressure, we suggest to apply an arterial tourniquet above the bleeding point, if trained in its use and one is available. [CoSTR 2020: weak recommendation, very low certainty of evidence]
+If there is severe, life-threatening bleeding from a wound site not suitable for tourniquet, or from a limb when a tourniquet is not available or has failed to stop the bleeding, we suggest to apply a haemostatic dressing, if trained in its use and one is available. [CoSTR 2020: weak recommendation, low quality evidence]
+For the majority of non-life-threatening cases, first aiders should follow the sequence of DRSABCD, where control of bleeding follows establishing airway and commencing CPR if required.
+If the person is unresponsive and not breathing normally, follow the Basic Life Support Flowchart. [Refer to ANZCOR Guideline 8]
+
+A5. 1.2 Direct Pressure Method
+Where the bleeding point is identified, the rescuer, a bystander or the injured person should control bleeding by:
+- Applying firm, direct pressure sufficient to stop the bleeding.
+- Pressure can be applied using hands or a pad over the bleeding point.
+- If bleeding continues, apply a second pad and a tighter bandage over the wound.
+- If bleeding still continues, check that the pad and bandage are correctly applied, directly over the bleeding.
+- If not, it may be necessary to remove the pad(s) to ensure that a specific bleeding point has not been missed.
+- Applying firmer pressure, only using 1 to 2 pads over a small area, will achieve greater pressure over the bleeding point than continuing to layer up further pads.
+To assist in controlling bleeding, where possible:
+- Advise the person to lie down and remain still
+- Restrict movement by immobilising a bleeding limb
+[No time is given for how long to press.]
+
+A6. 1.3 Embedded Objects
+If there is an obvious embedded object causing bleeding, use pressure around the object. [ Good Practice Statement]
+Do not remove the embedded object because it may be plugging the wound and restricting bleeding.
+Apply padding around or on each side of the protruding object, with pressure over the padding.
+Pressure application methods may be insufficient to control bleeding.
+It may still be necessary to use other measures including an arterial tourniquet or haemostatic dressings.
+
+A7. 1.4 Arterial tourniquet
+Arterial tourniquets should only be used for life-threatening bleeding from a limb, where the bleeding cannot be controlled by direct pressure.
+Ideally, a tourniquet should not be applied over a joint or wound, and must not be covered up by any bandage or clothing.
+Commercially manufactured windlass tourniquets such as those based on military designs are more effective than improvised tourniquets.
+An example of a military tourniquet is shown in Fig 1 below. [Figure 1 caption: "Combat Application Tourniquet"]
+Effective use of commercial tourniquets is optimal when first aid providers are trained in proper application techniques.
+All arterial tourniquets should be applied in accordance with the manufacturer's instructions (or 5 cm above the bleeding point if no instructions) and tightened until the bleeding stops.
+If a tourniquet does not stop the bleeding its position and application must be checked.
+Ideally the tourniquet is not applied over clothing nor wetsuits and is applied tightly, even if this causes local discomfort.
+If bleeding continues, a second tourniquet (if available) should be applied to the limb, preferably above the first.
+If a correctly applied tourniquet(s) has failed to control the bleeding consider using a haemostatic dressing in conjunction with the tourniquet. [Good Practice Statement]
+An elastic venous tourniquet (designed to assist drawing blood samples or inserting intravenous cannulae) is not suitable for use as an arterial tourniquet.
+Improvised tourniquets are unlikely to stop all circulation to the injured limb without risk of tissue damage.
+Improvised tourniquets which do not stop all circulation can increase bleeding.
+Nonetheless, in the context of life-threatening bleeding, an improvised tourniquet is likely to be better than no tourniquet.
+Tourniquets, ideally of a similar broad width to commercial types, can be improvised using materials from a first aid kit (e.g. triangular bandage, elastic bandage) from clothing, a surfboard leg rope or other available similar items.
+Improvised tourniquets should be tightened by twisting a rod or stick under the improvised tourniquet band, similar to the windlass in commercial tourniquets.
+The time of tourniquet application must be noted and communicated to emergency/paramedic personnel.
+Once applied, the person requires urgent transfer to hospital and the tourniquet should not be removed until the person receives specialist care.
+
+A8. 1.5 Haemostatic dressings
+Haemostatic dressings are impregnated with agents that help stop bleeding.
+The haemostatic dressings included in the CoSTR 2015 recommendations contained the products kaolin and chitosan.
+They are commonly used to control bleeding in the surgical and military settings but their use in the civilian, non-surgical setting is becoming more common.
+An example is shown in Fig 2 below. [Figure 2 caption: "Kaolin impregnated gauze (an example of a haemostatic dressing)"]
+When available and the first aid provider is trained in their use, we suggest that haemostatic dressings are of most value in the following situations [CoSTR 2015: weak recommendation, very low quality evidence]:
+- Severe, life-threatening bleeding not controlled by wound pressure, from a site not suitable for tourniquet use.
+- Severe, life-threatening bleeding from a limb, not controlled by wound pressure, when the use of a tourniquet(s) alone has not stopped the bleeding, or a tourniquet is not available.
+Haemostatic dressings must be applied as close as possible to the bleeding point, held against the wound using local pressure (manually initially) then held in place with the application of a bandage (if available).
+Haemostatic dressings should be left on the bleeding point until definitive care is available.
+The need to control the bleeding is paramount.
+The risks associated with the first aid use of tourniquets and haemostatic dressings are less than the risk of uncontrolled severe, life-threatening bleeding.
+These adjuncts provide temporary bleeding control and rapid transfer to hospital remains critically important.
+
+1.6 Flow Chart for First Aid Control of External Bleeding
+[Image only; no alt text or caption, so its contents could not be captured.]
+
+A9. 2.0 Internal Bleeding
+2.1 Recognition
+Internal bleeding may be difficult to recognise, but should always be suspected where there are symptoms and signs of shock. [Refer to ANZCOR Guideline 9.2.3]
+Internal bleeding includes bruising, locally contained bleeding (e.g. an "egg on the head") and the bleeding associated with injury or disease of organs in the abdomen or chest, as well as fractures.
+Severe bleeding may also occur from complications of pregnancy.
+Symptoms and signs may include:
+- pain, tenderness or swelling over or around the affected area
+- the appearance of blood from a body opening, eg:
+  - bright red and/or frothy blood coughed up from the lungs
+  - vomited blood which may appear bright red or as dark brown
+  - coffee grounds
+  - blood-stained urine
+  - vaginal bleeding or bleeding from the penis
+  - rectal bleeding which may be bright red or black and "tarry"
+- shock in the case of severe bleeding
+2.2 Management
+Severe internal bleeding is life-threatening and requires urgent treatment in hospital.
+- Send for an ambulance.
+- Lie the person down
+- Treat shock [Refer to ANZCOR Guideline 9.2.3]
+2.3 Closed Bleeding in a Limb
+If there is bruising to a limb and no external bleeding, we suggest to use pressure and a cold pack if available. [CoSTR 2015: weak recommendation, low quality evidence]
+If closed bleeding in a limb is causing severe swelling or pain, or the person is showing signs of shock [Refer to ANZCOR Guideline 9.2.3] send for an ambulance [Good Practice Statement]
+
+A10. 3.0 Nose Bleed (Epistaxis)
+For a nose bleed:
+- Pressure must be applied equally to both sides of the nose, over the soft part below the bony bridge (usually between the thumb and index finger).
+- The person should lean with the head forward to avoid blood flowing down the throat.
+- Encourage the person to spit out blood rather than swallow it as swallowed blood irritates the stomach, and causes vomiting which can worsen the bleeding.
+- The person should remain seated at total rest for at least 10 minutes.
+- On a hot day or after exercise, it might be necessary to maintain pressure for at least 20 minutes.
+- If bleeding continues for more than 20 minutes seek medical assistance.
+
+A11. 4.0 Management of All Severe Bleeding
+- Call for an ambulance
+- Reassure the person
+- Assist the person into a position of comfort, preferably lying down
+- Keep the person warm
+- Monitor the vital signs at frequent intervals
+- Administer oxygen if available and trained to do so [Refer to ANZCOR Guideline 9.2.10]
+- Do not give any food or drink orally, including medications
+- Treat shock [Refer to ANZCOR Guideline 9.2.3]
+- If the person is unresponsive and not breathing normally, follow the Basic Life Support Flowchart [Refer to ANZCOR Guideline 8]
+
+A12. Editorial Update - July 2025
+Use of tourniquets in Combat settings:
+ANZCOR is aware of new evidence suggesting the potential for harm from the prolonged use arterial tourniquets in both the civilian and military setting (1-5).
+This evidence is mixed (6-8) with different study results likely reflecting variations in prehospital time, the nature of injuries, and rescuer training that optimises tourniquet application only when indicated and tourniquet conversion or removal when appropriate.
+It is important to note that in the studies reporting suggestion of harm, this occurred after prolonged (>2 hours) application of arterial tourniquets.
+ANZCOR understands that a systematic review of evidence on this topic is being undertaken by the International Liaison Committee on Resuscitation (ILCOR) during 2025.
+Until the results of this review are available, ANZCOR Guideline 9.1.1 recommendations remain unchanged.
+The balancing of the benefit or risk from arterial tourniquet conversion or removal after 2 hours in the military context, is a question that should be guided by those with military experience.
+Benefit or risk in the civilian first aid setting might differ.
+High-quality studies in both contexts are needed.
+[ANZCOR 9.2.3 (shock, referred to above; now "Recognition and First Aid Management of the Seriously Ill person,
+including Shock and Sepsis", Approved December 2025) was checked: it has no shock-specific first aid steps, so
+it is not copied here.]
+
+=====================================================================================================
+SOURCE B. Hato Hone St John (NZ), First aid library "Bleeding" (no date shown; footer "(c) 2025 Hato Hone St John")
+https://www.stjohn.org.nz/First-Aid/First-Aid-Library/Bleeding/
+=====================================================================================================
+[The page does not mention tourniquets, haemostatic dressings or shock. St John NZ has no separate tourniquet
+page in its first aid library that could be found.]
+
+B1. Quick help
+Small cuts or grazes are not usually serious, but if a large vein or artery has been injured, or there is internal bleeding, a person's life could be in danger and they may need your help.
+Call 111 for an ambulance if:
+- A body part has been cut off (amputated)
+- There is severe bleeding that won't stop
+- The person has a crush injury
+- The person could be bleeding internally
+If the person is conscious, check they are happy for you to touch them before you give first aid.
+If the person is unconscious and you need to check for injuries or give lifesaving first aid, then don't delay.
+
+B2. Types of bleeding
+External Bleeding
+When there's blood coming from a wound, or bruises on the person's skin.
+Internal Bleeding
+This is when the person is bleeding inside their body. It may happen after an accident or a fall, or if the person is ill.
+Minor bleeding
+This includes things like small cuts and grazes. The bleeding often stops on its own, or after some pressure on the wound, and is not usually serious.
+Severe bleeding
+This might happen if a large vein or artery has been injured, e.g., the jugular vein in the neck.
+Bleeding doesn't stop when you apply pressure to the wound, and the person can lose a lot of blood.
+It can be serious.
+
+B3. What to look for - external bleeding
+- A wound: Look for bleeding from a cut or graze.
+- Pain: The person feels pain from the wound.
+- Bruises: Bruises may be a sign of bleeding under the person's skin.
+
+B4. How you can help - external bleeding
+Minor bleeding
+- If the wound is bleeding lots and doesn't stop when you apply pressure, then call 111 for an ambulance.
+- Press a clean cloth firmly on the wound (this is a dressing).
+- Put a bandage over the dressing to keep it in place.
+- If the wound is on the person's arm or leg, raise it up (to reduce blood flow to the injured area).
+- Try not to get the person's blood on your hands.
+- If you do, wash your hands as soon as possible.
+- Take the person to a doctor – they may need further treatment.
+Severe bleeding
+- Call 111 for an ambulance.
+- Get the person to lie down.
+- If there is a clean cloth nearby press it firmly on the wound.
+- If there isn't a cloth nearby, don't waste time – use the person's hand or your hand (wear gloves) to press on the wound and keep the edges of the wound together.
+- (Use disposable gloves if possible. If there are no gloves, place your hands inside a plastic bag.)
+- If the wound is on the person's arm or leg, raise it up (to reduce blood flow to the injured area).
+- If blood leaks through the padding or your hand, continue to press firmly until the ambulance arrives.
+Embedded object
+- If it's small, like a nail or a staple, and near the surface of the skin, remove it.
+- If it's large, like a screwdriver or a knife, DO NOT remove it.
+- Put padding around the object to stop it twisting around or moving.
+- Press firmly on either side of the object to stop the bleeding.
+- If there is severe bleeding, call an ambulance. If the bleeding is minor, take the person to a doctor.
+
+B5. Nosebleed
+- If bleeding from the nose is due to a head injury e.g., a fractured skull, or if it doesn't stop after 20 minutes then call 111 for an ambulance
+- The person should sit down and lean forward.
+- Tell them to breathe through their mouth while pinching their nose (the soft part) for 10 to 20 minutes.
+- When the bleeding has stopped the person should not blow their nose for a few hours.
+- If the person is a child, check if anything is stuck in their nose e.g., a bead or coin.
+- If there is, DO NOT remove it (that may cause further damage).
+
+B6. Abrasion (graze)
+- Gently clean with running water.
+- If there are pieces of gravel in the wound, ask the person to try to remove them.
+- Dry the graze with tissues or a clean cloth.
+- Put a plaster over the graze if you think it's needed.
+Puncture wound
+- Clean the wound with lots of running water.
+- Allow the wound to dry completely in fresh air.
+- Cover the wound with a clean bandage or plaster.
+- Ask a doctor if the person should have a tetanus injection.
+
+B7. Amputation (a body part has been cut off)
+- Call 111 for an ambulance.
+- Press a clean cloth on the area to stop the bleeding.
+- Keep the injured area raised (if you can).
+- Put the body part in a sealed plastic bag – keep it dry.
+- Place the sealed plastic bag in a container of water and ice.
+- Make sure the body part goes to the hospital with the person.
+
+B8. Crush injuries
+- Call 111 for an ambulance.
+- If possible, move the heavy weight off the person.
+- Stop any bleeding by pressing a clean cloth or pad firmly on the area.
+- Make the person comfortable and support the injured area with blankets or clothes.
+- Watch the person closely for any change in their condition.
+
+B9. What to look for - internal bleeding
+- Fast breathing: The person is breathing very fast and "panting".
+- Thirst: The person is very thirsty.
+- Coughing blood: The person is coughing up blood.
+- Blood in vomit, urine, or poo: There is blood in the person's vomit or pee.
+- Poo looks black, a bit like tar (the stuff used for making roads).
+- Pale and sweaty: The person appears pale and sweaty
+How you can help - internal bleeding
+- Call 111 for an ambulance.
+- Make the person comfortable.
+- Loosen any tight clothes, especially around their neck or waist.
+- Cover the person with a blanket or coat to keep them warm.
+- Keep the person calm.
+- Do not let the person eat or drink anything.
+[Callout box] If you have a person in urgent need of medical attention, call 111 now.
+
+=====================================================================================================
+SOURCE C. Healthify He Puna Waiora (NZ; Health Navigator Charitable Trust), "Bleeding first aid"
+(Last reviewed 09 Jun 2026; reviewed by Dr Grace Lee, FRNZCGP; cites St John NZ "Bleeding" and ANZCOR 9.1.1)
+https://healthify.nz/health-a-z/b/bleeding
+=====================================================================================================
+[The page does not mention tourniquets or haemostatic dressings. Nosebleed steps were not captured.]
+
+C1. Key points about bleeding first aid
+- Bleeding is loss of blood. It can be external (outside your body) or internal (inside your body).
+- Minor bleeding often stops with firm pressure and basic wound care.
+- Severe bleeding is a medical emergency. Call 111 straight away.
+- For severe external bleeding, put firm pressure on or around the wound and keep it there.
+- If you think someone has internal bleeding, call 111 and keep them lying down while you wait for help.
+- If an object is stuck in the wound, don't remove it. Pulling it out could make the bleeding worse.
+
+C2. Call 111 straight away if:
+- the bleeding is severe,
+- you think there may be internal bleeding, or
+- the person shows signs of shock.
+If you're busy helping the person, get somebody else to call 111 for you.
+
+C3. Minor bleeding
+Minor bleeding includes small cuts, grazes and other wounds that stop with pressure.
+You can often treat these at home.
+- Put on disposable (medical) gloves if you have them. [The tool gave the next line on its own; its start (probably
+  "If not, ...") was not captured:] wash your hands well or use hand sanitiser.
+- Use a clean cloth, towel or dressing to put firm pressure on the wound until the bleeding stops.
+- Clean the area gently with clean running water or saline (salt and water).
+- Try to gently remove dirt or gravel if it's a graze.
+- Pat the area dry with a clean cloth or gauze.
+- Cover it with a plaster or clean dressing.
+- Change the dressing if it gets wet or dirty.
+See a healthcare provider if the wound is deep, dirty, looks infected, is caused by an animal or human bite, may need stitches, or doesn't stop bleeding.
+If the person is bleeding from a head injury, apply direct firm pressure to the wound to stem the bleeding.
+But don't apply pressure if you think they might have a skull fracture.
+
+C4. First aid for severe external bleeding
+Severe external bleeding is a medical emergency.
+Call 111 for an ambulance and act quickly while help is on the way.
+While you're waiting for help to arrive
+- Help the person lie down if possible and keep them warm.
+- Put firm pressure on or around the wound using a dressing, a clean cloth or towel, or your hands.
+- Use a bandage to hold padding in place.
+- Keep pressure on until help arrives or the bleeding stops.
+- If blood leaks through, don't keep lifting the dressing to check.
+- Keep pressure on and add more padding if needed.
+- If bleeding still continues, check that the padding and bandage are directly over the bleeding point.
+- If not, quickly remove them and replace with fresh padding and bandages.
+- If an object is stuck in the wound, don't remove it.
+- Put padding around it and apply pressure around the wound but don't put pressure on the object.
+- Don't give the person anything to eat or drink.
+- Watch for signs of shock – unusual paleness or loss of colour, clammy skin, sweating, fast breathing, confusion, fainting or loss of consciousness.
+- If the person isn't responding and isn't breathing normally, start CPR.
+
+C5. Internal bleeding
+Internal bleeding is bleeding that happens inside your body.
+It can happen after an injury, or it may be a sign of a medical problem.
+It's always an emergency.
+If someone has internal bleeding they may:
+- have fast breathing or difficulty breathing
+- have pale, cool or sweaty skin
+- be thirsty, weak, dizzy or faint
+- have pain, tenderness or swelling over the affected area
+- cough up blood or have blood in their vomit, urine or poo, or have black tar-like poo
+- have concussion if they've got a head injury
+- be unconscious.
+- Call 111 for an ambulance.
+- Help the person lie down and keep them warm.
+- If possible, raise their legs slightly unless this causes pain or you suspect a leg injury.
+- Don't give them anything to eat or drink.
+- Stay with them and reassure them until help arrives.
+- If they become unconscious, put them on their side if they're breathing.
+- If they're not breathing normally, start CPR.
+
+C6. Amputation
+If a body part, such as a finger, is amputated (cut off) call 111 immediately for an ambulance.
+Use a bulky pad or clean cloth and apply it firmly to the bleeding area and raise the injured area if possible.
+If possible, carefully place the body part in a plastic bag and seal the bag closed with a little air inside to protect it with a 'cushion' of air.
+Place the bag in a bucket of cold water with several ice cubes in the water.
+Make sure the amputated part is taken to hospital with the patient.

@@ -1,40 +1,42 @@
-Scheduled build run, 20 Nov 2026 (fifth run, 2 pm).
+Scheduled build run, 20 Nov 2026 (sixth run, 6 pm).
 
 Your feedback: nothing new on the design review page or on any app.
 
 Built:
-- App 15: Seizure first aid (NZ). From Epilepsy New Zealand (adult poster and web pages), Hato Hone St John,
-  ANZCOR guideline 9.2.4 and KidsHealth NZ (fever seizures in children). The first time the queue's new rule
-  (time pressure, next step depends, record matters) was applied.
-  - First screen, seconds after opening: keep them safe, cushion the head, don't hold them down, nothing in the
-    mouth. A 5-minute bar starts at once and stays on every screen: at 5 minutes it buzzes "still going? Call 111".
-  - One tap each for: call 111 now (in water, pregnant, injured, first seizure, another one follows...), not
-    breathing normally, child with a fever, it has stopped, another seizure started.
-  - After it stops: recovery position, check breathing, and two "not waking?" bars (5 minutes from Epilepsy NZ
-    and ANZCOR, 10 minutes from St John), which stop once they wake or 111 is called.
-  - The Log keeps the time of every screen, so start, stop, 111 called and repeat seizures are ready for handover.
-- Reviewer found 5 missed instructions (ease their fall, keep re-checking breathing, wheelchair or pram brakes,
-  in water tilt the head back, stay calm) and 14 findings, incl. "not waking" alarms that kept going after the
-  person woke. All fixed in one round except 3 small ones (listed in its review.md).
-- Scores: to fix 0, to check 0, all apps. 119 of 119 quotes exact (web copy). Tests: 28 of 28 pass.
+- App 16: Severe bleeding (NZ). From ANZCOR guideline 9.1.1 (main source, with its July 2025 tourniquet update),
+  Hato Hone St John and Healthify NZ.
+  - First screen, seconds after opening: press hard, keep pressing, call 111, with "Pressure started" and
+    "111 called" buttons. First answer is "Pouring, spurting or soaking through".
+  - Arm or leg still bleeding: tourniquet (shop-made or home-made, where to put it), a big "Tourniquet on" button,
+    and a warning to tell the paramedics that time. Then second tourniquet, haemostatic dressing, or "no dressing:
+    keep pressing".
+  - Also: object stuck in the wound, body part cut off (and how to keep the part), shock signs, not breathing,
+    bleeding inside, head wound, crush injury, and a nosebleed with the 10 and 20 minute times the sources give.
+  - Handover screen lists the times, tourniquet first.
+- Reviewer found 3 missed instructions (keep the wound edges together, check they are happy to be helped,
+  keep the cut-off part dry) and 11 findings. All fixed in one round except 4 gaps the sources leave open
+  (listed in its review.md).
+- Scores: to fix 0, to check 0, all apps. 134 of 134 quotes exact (web copy). Tests: 30 of 30 pass.
 
-Building blocks added: none.
+Building blocks added:
+- Clock time of day. Record buttons now say "last at 14:32, 3 min ago" and the Log shows the time of day next to
+  the time since start, so handover notes carry real times. Every app was rebuilt with it.
 
 Gaps in the guideline (each said on screen):
-- Not waking: 5 minutes (Epilepsy NZ, ANZCOR) vs 10 minutes (St John); KidsHealth gives no time. No source says
-  whether sleeping counts as not responding.
-- When to roll them on their side: after it stops (St John), as soon as possible (Epilepsy NZ web), when
-  practical (ANZCOR), at once if there is vomit in the mouth (Epilepsy NZ poster).
-- Fever: St John says take clothes off to cool; KidsHealth and ANZCOR say never put the child in a bath.
-- Not breathing: only a pointer to the CPR flowchart. Nothing on a cluster of seizures, how long to stay,
-  rescue medicine, or what to tell 111.
+- No source says how many minutes to press.
+- Raise the limb: St John and Healthify yes; ANZCOR says no evidence it helps and it may hurt. The app follows
+  ANZCOR first and shows the others.
+- Small objects in a wound: St John says remove ones near the skin; ANZCOR and Healthify say never remove.
+- Blood soaking through, care of a cut-off part and nosebleed times differ slightly between sources.
+- ANZCOR mentions harm after more than 2 hours of tourniquet use but gives first aiders nothing to do about it.
+- Nothing on whether an untrained person should use a tourniquet they have, or what a lone helper does when
+  bleeding control and CPR are both needed.
 
 Needs you:
-- Optional: save the Epilepsy NZ adult first aid poster as a PDF into sources/ so its quotes can be checked exactly.
 - Optional: delete the unused duplicate sick leave page (https://claude.ai/artifact/QkrFs1WcJrRDvke7wBzHNP).
 - Try "Change the look" in any app and say which should be the default (still open).
 
-Idea for a later run: a way to start the seizure clock earlier than the moment the app opens ("it started about
-2 minutes ago"), since bystanders often open the app after the seizure began.
+Idea for a later run: let a Record tap start a reminder (e.g. pinching a nosebleed starts its 10 minutes), and
+let the seizure clock start "about 2 minutes ago".
 
-Next: guideline 16 (severe bleeding: pressure, tourniquet and the time it went on).
+Next: guideline 17 (bomb threat by phone: what to ask and write down during the call).
